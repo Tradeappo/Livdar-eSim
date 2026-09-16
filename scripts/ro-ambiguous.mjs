@@ -181,6 +181,42 @@ const AT_LITERAL_EDGE = {
   noua: { '^|Zeelandă': 'Noua' },
 };
 
+// Infinitives after a modal.
+//
+// The word tables map "schimba" to "schimbă", which is right for the third
+// person and wrong for the infinitive: "se poate schimba", not "se poate
+// schimbă". This pass puts the infinitive back wherever one of the triggers
+// below sits in front of it.
+//
+// It lives here, in the pipeline, for a reason. The same ten errors were fixed
+// once with a one-off replacement outside the scripts, and the next run of the
+// repair script silently reintroduced every one of them. A correction that is
+// not part of the pipeline is not a correction, it is a delay.
+//
+// "o" and "trebuie" are deliberately absent from the triggers. "cine o tratează
+// aşa" is a pronoun followed by a correct third person, and "trebuie" takes the
+// subjunctive ("trebuie să schimbe"), not the infinitive.
+const INFINITIVE_TRIGGER_WORDS = [
+  'a', 'poate', 'pot', 'poți', 'putem', 'puteți', 'putea', 'ar', 'vom', 'va', 'vor',
+];
+
+// Both cases, because a modal that opens a sentence is capitalised and would
+// otherwise be missed. "Pot sună prin WhatsApp" survived the first version of
+// this pass for exactly that reason, sitting at the front of an FAQ question.
+export const INFINITIVE_TRIGGERS = new Set(
+  INFINITIVE_TRIGGER_WORDS.flatMap((w) => [w, w.charAt(0).toUpperCase() + w.slice(1)])
+);
+
+export const INFINITIVE_OF = {
+  sună: 'suna', caută: 'cauta', compară: 'compara', continuă: 'continua',
+  schimbă: 'schimba', respectă: 'respecta', adaugă: 'adăuga', verifică: 'verifica',
+  aplică: 'aplica', intră: 'intra', tratează: 'trata', activează: 'activa',
+  măsoară: 'măsura', salvează: 'salva', filtrează: 'filtra', anunță: 'anunța',
+  păstrează: 'păstra', consumă: 'consuma', cumpără: 'cumpăra', ajută: 'ajuta',
+  durează: 'dura', instalează: 'instala', setează: 'seta', rulează: 'rula',
+  oprește: 'opri', pornește: 'porni', rămâne: 'rămâne',
+};
+
 function rewriteStrings(source, fn) {
   return source.replace(/'(?:[^'\\]|\\.)*'/g, (lit) => "'" + fn(lit.slice(1, -1)) + "'");
 }
@@ -203,6 +239,13 @@ if (import.meta.url === 'file://' + process.argv[1]) {
         const next = k < wordIdx.length - 1 ? parts[wordIdx[k + 1]] : '$';
         const key = prev + '|' + next;
 
+        // Infinitive repair runs first: it looks at the word before, which the
+        // rules below may rewrite.
+        if (INFINITIVE_OF[w] && INFINITIVE_TRIGGERS.has(prev)) {
+          parts[pi] = INFINITIVE_OF[w];
+          applied += 1;
+          return;
+        }
         if (ALWAYS[w]) { parts[pi] = ALWAYS[w]; applied += 1; return; }
         if (w === 'ca') {
           if (CA_STAYS.has(key)) { kept += 1; return; }

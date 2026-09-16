@@ -50,9 +50,38 @@ export default function LanguageGlobe({ current, options, label }) {
                   href={o.href}
                   role="menuitem"
                   aria-current={o.code === current ? 'true' : undefined}
-                  onClick={() =>
-                    pushEvent(EVENTS.languageChange, { from_language: current, to_language: o.code })
-                  }
+                  onClick={(e) => {
+                    // The event has to survive the navigation it describes.
+                    //
+                    // This used to be a bare pushEvent next to a plain link,
+                    // which measures nothing: the browser unloads the page as
+                    // soon as the handler returns, and the tag never gets to
+                    // send anything. Verified in Tag Assistant, where switching
+                    // language produced no language_change at all. A tracking
+                    // call that looks right in the code and never arrives is
+                    // worse than no call, because the report is silently short.
+                    //
+                    // So the navigation is held until the tag reports back,
+                    // with a hard timeout behind it. The timeout is not
+                    // optional: when consent is denied, or the container is
+                    // blocked, eventCallback never runs, and without it the
+                    // language selector would simply stop working.
+                    if (o.code === current) return;
+                    e.preventDefault();
+                    let gone = false;
+                    const go = () => {
+                      if (gone) return;
+                      gone = true;
+                      window.location.href = o.href;
+                    };
+                    pushEvent(EVENTS.languageChange, {
+                      from_language: current,
+                      to_language: o.code,
+                      eventCallback: go,
+                      eventTimeout: 600,
+                    });
+                    window.setTimeout(go, 650);
+                  }}
                 >
                   <span>{o.name}</span>
                   <span className="endonym">{o.endonym}</span>

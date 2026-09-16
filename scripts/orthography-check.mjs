@@ -20,6 +20,14 @@
 import { readFileSync } from 'node:fs';
 import { MAP, NEVER_TOUCH } from './fix-german-umlauts.mjs';
 import { loadMap as loadRomanianMap, AMBIGUOUS, SCOPED_FILES, blockEnd } from './fix-romanian-diacritics.mjs';
+import { INFINITIVE_TRIGGERS, INFINITIVE_OF } from './ro-ambiguous.mjs';
+
+// The stripped form of a verb is correct when it is an infinitive after a
+// modal: "se poate schimba" is right and "se poate schimbă" is wrong, even
+// though the word table maps schimba to schimbă. The check has to know the same
+// exception the repair pipeline knows, or it flags correct Romanian as an
+// error and sends the next person to "fix" it back into a mistake.
+const INFINITIVE_FORMS = new Set(Object.values(INFINITIVE_OF));
 
 // German content, plus the two shared files that carry German alongside the
 // other languages.
@@ -101,15 +109,17 @@ export function runOrthographyCheck() {
   });
 
   romanianSources.forEach(({ rel, source }) => {
-    const prose = romanianProse(source);
-    const words = new Set(prose.match(/[\p{L}]+/gu) || []);
-    roWrong.forEach((bad) => {
-      if (words.has(bad)) {
-        failures.push(
-          rel + ': "' + bad + '" appears in prose. Romanian spells it "' + roMap.get(bad) +
-            '". Run node scripts/fix-romanian-diacritics.mjs.'
-        );
-      }
+    const tokens = romanianProse(source).match(/[\p{L}]+/gu) || [];
+    const flagged = new Set();
+    tokens.forEach((w, i) => {
+      if (!roMap.has(w) || AMBIGUOUS.has(w) || flagged.has(w)) return;
+      // Correct as an infinitive after a modal, so not a missing diacritic.
+      if (INFINITIVE_FORMS.has(w) && INFINITIVE_TRIGGERS.has(tokens[i - 1])) return;
+      flagged.add(w);
+      failures.push(
+        rel + ': "' + w + '" appears in prose. Romanian spells it "' + roMap.get(w) +
+          '". Run node scripts/fix-romanian-diacritics.mjs.'
+      );
     });
   });
 

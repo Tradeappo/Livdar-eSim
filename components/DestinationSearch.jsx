@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useRef, useState } from 'react';
-import { pushEvent, EVENTS } from '../lib/analytics.js';
+import { pushEvent, EVENTS, baseParams } from '../lib/analytics.js';
 
 // Destination search. Matches on the localised name, the English name and the
 // dialling code, so someone typing Tuerkei, Turkey or +90 lands in the same
@@ -38,7 +38,18 @@ export default function DestinationSearch({ items, strings, locale, autoFocus = 
     setOpen(true);
     if (value.length >= 3 && tracked.current !== value) {
       tracked.current = value;
-      pushEvent(EVENTS.search, { search_term: value, language: locale });
+      // The same base parameters every other event carries. Without them a
+      // search could not be cut by market or cluster in GA4, which makes the
+      // one report search is actually good for, what people ask for that we do
+      // not have a page for, impossible to read per market.
+      pushEvent(
+        EVENTS.search,
+        // No result_count here: results is memoised on the previous query and
+        // this runs before the re-render, so it would report the count for the
+        // term the visitor typed one keystroke ago. A wrong number in a report
+        // is worse than a missing one, because nobody checks it twice.
+        Object.assign(baseParams({ locale, cluster: 'destination' }), { search_term: value })
+      );
     }
   };
 
