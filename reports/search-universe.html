@@ -1,0 +1,386 @@
+<title>Livdar Search Universe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eceff1; --surface: #ffffff; --sunk: #e3e8eb;
+    --ink: #14171a; --muted: #5f6a71; --faint: #8b959b; --line: #d6dde1;
+    --signal: #c2491a; --signal-soft: rgba(194,73,26,.13); --ghost: #a6b0b6;
+    --build: #1f6f5c; --build-soft: rgba(31,111,92,.12);
+    --skip: #8a6a3a; --skip-soft: rgba(138,106,58,.14);
+    --shadow: 0 1px 2px rgba(20,23,26,.05), 0 8px 24px rgba(20,23,26,.05);
+    --sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --ground:#14181b; --surface:#1b2125; --sunk:#232a2f; --ink:#e8edf0; --muted:#9ba7ae;
+    --faint:#74818a; --line:#2c353b; --signal:#e0653a; --signal-soft:rgba(224,101,58,.18);
+    --ghost:#4f5c64; --build:#56b195; --build-soft:rgba(86,177,149,.16);
+    --skip:#c9a067; --skip-soft:rgba(201,160,103,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3); } }
+  :root[data-theme="dark"] {
+    --ground:#14181b; --surface:#1b2125; --sunk:#232a2f; --ink:#e8edf0; --muted:#9ba7ae;
+    --faint:#74818a; --line:#2c353b; --signal:#e0653a; --signal-soft:rgba(224,101,58,.18);
+    --ghost:#4f5c64; --build:#56b195; --build-soft:rgba(86,177,149,.16);
+    --skip:#c9a067; --skip-soft:rgba(201,160,103,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3); }
+
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--sans);
+    font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .page { max-width:1020px; margin:0 auto; padding-inline:20px; padding-block:56px 88px;
+    display:flex; flex-direction:column; gap:54px; }
+  .eyebrow { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); margin:0; }
+  h1 { font-size:clamp(30px,5.2vw,46px); line-height:1.08; letter-spacing:-.025em;
+    font-weight:800; margin:12px 0 0; text-wrap:balance; }
+  h2 { font-size:20px; letter-spacing:-.015em; font-weight:700; margin:0; text-wrap:balance; }
+  p { margin:0; }
+  .prose { max-width:66ch; color:var(--muted); }
+  .prose p + p { margin-top:12px; }
+  .prose strong { color:var(--ink); font-weight:600; }
+  section { display:flex; flex-direction:column; gap:18px; }
+
+  .thesis { background:var(--surface); border:1px solid var(--line); border-radius:3px;
+    box-shadow:var(--shadow); padding:26px; margin-top:26px; border-left:3px solid var(--signal); }
+  .thesis p { color:var(--muted); max-width:66ch; }
+  .thesis p + p { margin-top:12px; }
+  .thesis strong { color:var(--ink); font-weight:600; }
+
+  .readout { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:3px; overflow:hidden; }
+  .readout div { background:var(--surface); padding:18px 16px; display:flex; flex-direction:column; gap:4px; }
+  .readout dt { font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); }
+  .readout dd { margin:0; font-family:var(--mono); font-variant-numeric:tabular-nums;
+    font-size:21px; font-weight:600; letter-spacing:-.02em; }
+  .readout small { font-size:12px; color:var(--muted); line-height:1.4; }
+
+  .scroller { overflow-x:auto; border:1px solid var(--line); border-radius:3px;
+    background:var(--surface); box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; min-width:600px; }
+  th { text-align:left; font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); font-weight:500; padding:13px 14px;
+    border-bottom:1px solid var(--line); white-space:nowrap; }
+  td { padding:10px 14px; border-bottom:1px solid var(--line); font-size:13.5px; vertical-align:middle; }
+  tbody tr:last-child td { border-bottom:0; }
+  td.r, th.r { text-align:right; }
+  td.r { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  tfoot td { font-weight:700; background:var(--sunk); border-top:2px solid var(--line); }
+  tfoot td.r { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  .bar { display:block; height:6px; min-width:2px; background:var(--signal); border-radius:1px; }
+  .barcell { width:130px; }
+  .chip { display:inline-block; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+    text-transform:uppercase; padding:3px 7px; border-radius:2px; white-space:nowrap; }
+  .chip.yes { background:var(--build-soft); color:var(--build); }
+  .chip.no { background:var(--skip-soft); color:var(--skip); }
+  .chip.hot { background:var(--signal-soft); color:var(--signal); }
+  .chip.off { background:var(--sunk); color:var(--muted); }
+  .note { font-size:12px; color:var(--muted); line-height:1.45; }
+  .num { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+
+  /* ladder */
+  .ladder { display:flex; flex-direction:column; gap:2px; background:var(--surface);
+    border:1px solid var(--line); border-radius:3px; padding:18px 16px; box-shadow:var(--shadow); }
+  .rung { display:grid; grid-template-columns:minmax(0,1fr) 96px 96px; align-items:center;
+    gap:12px; padding:9px 0; border-bottom:1px solid var(--line); }
+  .rung:last-of-type { border-bottom:0; }
+  .rung .label { font-size:13px; line-height:1.35; min-width:0; }
+  .rung .label span { display:block; color:var(--muted); font-size:11.5px; }
+  .rung b { font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:13.5px;
+    text-align:right; font-weight:600; }
+  .rung .addr { color:var(--signal); }
+  .track { grid-column:1 / 4; height:8px; background:var(--sunk); border-radius:1px;
+    position:relative; overflow:hidden; margin-top:4px; }
+  .track i { position:absolute; inset:0 auto 0 0; background:var(--ghost); }
+  .track u { position:absolute; inset:0 auto 0 0; background:var(--signal); text-decoration:none; }
+  .rowhead { display:grid; grid-template-columns:minmax(0,1fr) 96px 96px; gap:12px;
+    font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--faint); padding-bottom:8px; border-bottom:1px solid var(--line); }
+  .rowhead b { text-align:right; font-weight:500; }
+
+  ol.caveats { margin:0; padding:0; list-style:none; counter-reset:c; display:flex;
+    flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:3px; }
+  ol.caveats li { counter-increment:c; background:var(--surface); padding:17px 20px 17px 54px;
+    position:relative; color:var(--muted); font-size:13.5px; line-height:1.55; }
+  ol.caveats li::before { content:counter(c,decimal-leading-zero); position:absolute; left:20px;
+    top:17px; font-family:var(--mono); font-size:11px; color:var(--faint); font-variant-numeric:tabular-nums; }
+  ol.caveats li b { color:var(--ink); font-weight:600; display:block; margin-bottom:3px; font-size:13.5px; }
+
+  .checks { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:3px; }
+  .checks div { background:var(--surface); padding:15px 16px; display:flex; flex-direction:column; gap:5px; }
+  .checks strong { font-size:13px; font-weight:600; }
+  .checks span { font-size:12px; color:var(--muted); line-height:1.45; }
+
+  footer { border-top:1px solid var(--line); padding-top:20px; font-size:12px; color:var(--faint);
+    display:flex; flex-wrap:wrap; gap:6px 22px; font-family:var(--mono); }
+
+  @media (max-width:700px) {
+    .readout { grid-template-columns:repeat(2,1fr); }
+    .rung, .rowhead { grid-template-columns:minmax(0,1fr) 78px 78px; gap:8px; }
+    .page { padding-block:40px 64px; gap:42px; }
+  }
+</style>
+
+<div class="page">
+
+  <header>
+    <p class="eyebrow">Livdar eSIM / Track B / Ahrefs, six passes / 16 September 2026</p>
+    <h1>The travel connectivity universe, measured six times</h1>
+    <div class="thesis">
+      <p><strong>Target cleared. Six Ahrefs passes, 7,852 unique keywords, and the number that matters is 2,483,280.</strong> That is the volume Livdar can legitimately build pages against: every competitor brand name, every bare category word and every domestic operator roaming query has been taken out of it first.</p>
+      <p>The raw measured total is <span class="num">4,108,810</span> a month. <span class="num">1,625,530</span> of that is excluded, and the exclusion table below names every category and what it costs. Nothing was moved into the addressable column to make a target.</p>
+      <p>The last pass stopped <span class="num">16,720</span> short of 2,500,000. Closing that would have spent the final 10,616 API units of the month on a rounding difference, and left nothing for checking rankings once the pages ship. The quota resets on 8 October.</p>
+    </div>
+  </header>
+
+  <dl class="readout">
+    <div><dt>Addressable</dt><dd>2,483,280</dd><small>searches a month, 7,614 keywords</small></div>
+    <div><dt>Raw measured</dt><dd>4,108,810</dd><small>7,852 keywords before exclusions</small></div>
+    <div><dt>Excluded</dt><dd>1,625,530</dd><small>brand, bare heads, domestic roaming</small></div>
+    <div><dt>API units</dt><dd>789,384</dd><small>of 800,000, resets 8 October</small></div>
+  </dl>
+
+  <section>
+    <h2>1. Countries and destinations</h2>
+    <p class="prose">126 destinations were carried into the dataset with real operators and dialling codes. A destination counts as evidenced only when its own name, in any of the sixteen measured languages, appears inside a keyword Ahrefs returned a volume for.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Status</th><th class="r">Count</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip hot">Build first</span></td><td class="r">61</td><td class="note">500 or more searches a month of evidenced demand. These get a written page in every live market.</td></tr>
+        <tr><td><span class="chip yes">Build second</span></td><td class="r">21</td><td class="note">100 to 499 a month. Real but thin. Page only where the market shows the demand.</td></tr>
+        <tr><td><span class="chip off">Hold</span></td><td class="r">3</td><td class="note">Under 100 a month. Stays in the dataset for regional plans, no page of its own.</td></tr>
+        <tr><td><span class="chip no">Rejected</span></td><td class="r">41</td><td class="note">Zero measured keywords in any of the sixteen languages. No page. Listed below.</td></tr>
+      </tbody>
+      <tfoot><tr><td>Analysed</td><td class="r">126</td><td class="note">85 accepted, 41 rejected</td></tr></tfoot>
+    </table></div>
+    <p class="note"><strong>Rejected, with the reason:</strong> no measured search demand in any language we cover. Hungary, Bosnia and Herzegovina, North Macedonia, Belgium, Finland, Malta, Hong Kong, Nepal, Kazakhstan, Azerbaijan, Laos, Guatemala, Barbados, Uruguay, Bolivia, Nigeria, Ghana, Slovenia, Slovakia, Estonia, Latvia, Lithuania, Luxembourg, Ukraine, Bangladesh, Mongolia, Brunei, Myanmar, Kyrgyzstan, Kuwait, Bahrain, Lebanon, Ethiopia, Uganda, Rwanda, Puerto Rico, Bahamas, Paraguay, Honduras, Nicaragua, Belize. Most are EU countries already covered by the reader's own roaming allowance, or markets where the search happens in a language we have not measured.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Top destinations by measured demand</th><th class="barcell">Share</th><th class="r">Volume</th><th class="r">Keywords</th></tr></thead>
+      <tbody>
+        <tr><td>Japan</td><td class="barcell"><span class="bar" style="width:100%"></span></td><td class="r">89,140</td><td class="r">273</td></tr>
+        <tr><td>United States</td><td class="barcell"><span class="bar" style="width:80.6%"></span></td><td class="r">71,820</td><td class="r">213</td></tr>
+        <tr><td>Turkey</td><td class="barcell"><span class="bar" style="width:54.1%"></span></td><td class="r">48,220</td><td class="r">164</td></tr>
+        <tr><td>Morocco</td><td class="barcell"><span class="bar" style="width:47.0%"></span></td><td class="r">41,850</td><td class="r">225</td></tr>
+        <tr><td>Thailand</td><td class="barcell"><span class="bar" style="width:46.0%"></span></td><td class="r">41,040</td><td class="r">118</td></tr>
+        <tr><td>Egypt</td><td class="barcell"><span class="bar" style="width:33.4%"></span></td><td class="r">29,730</td><td class="r">178</td></tr>
+        <tr><td>Albania</td><td class="barcell"><span class="bar" style="width:21.9%"></span></td><td class="r">19,500</td><td class="r">155</td></tr>
+        <tr><td>Indonesia</td><td class="barcell"><span class="bar" style="width:19.1%"></span></td><td class="r">17,030</td><td class="r">120</td></tr>
+        <tr><td>Spain</td><td class="barcell"><span class="bar" style="width:17.9%"></span></td><td class="r">15,960</td><td class="r">62</td></tr>
+        <tr><td>Canada</td><td class="barcell"><span class="bar" style="width:17.6%"></span></td><td class="r">15,730</td><td class="r">92</td></tr>
+        <tr><td>Italy</td><td class="barcell"><span class="bar" style="width:17.0%"></span></td><td class="r">15,140</td><td class="r">42</td></tr>
+        <tr><td>Mexico</td><td class="barcell"><span class="bar" style="width:16.8%"></span></td><td class="r">15,000</td><td class="r">88</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Morocco and Albania are the surprise. Neither was in the original 26. Both are high-volume, low-difficulty, and outside EU roaming, which is exactly the shape that converts.</p>
+  </section>
+
+  <section>
+    <h2>2. Languages and markets</h2>
+    <p class="prose">Seventeen languages across twenty-five country markets. Volume is addressable only, so no language is flattered by brand navigation it cannot win. Pages are the plan, not what is built today.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Market</th><th class="r">Addressable</th><th class="r">Keywords</th><th class="r">Pages planned</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>en-us <span class="note">United States</span></td><td class="r">631,840</td><td class="r">1,165</td><td class="r">122</td><td><span class="chip hot">Live</span></td></tr>
+        <tr><td>de-de <span class="note">Germany</span></td><td class="r">340,080</td><td class="r">906</td><td class="r">122</td><td><span class="chip hot">Live</span></td></tr>
+        <tr><td>en-gb <span class="note">United Kingdom</span></td><td class="r">243,110</td><td class="r">809</td><td class="r">122</td><td><span class="chip hot">Live</span></td></tr>
+        <tr><td>ja-jp <span class="note">Japan</span></td><td class="r">239,800</td><td class="r">822</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>zh-Hant-tw <span class="note">Taiwan</span></td><td class="r">172,360</td><td class="r">540</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>it-it <span class="note">Italy</span></td><td class="r">160,700</td><td class="r">604</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>es-es <span class="note">Spain</span></td><td class="r">143,790</td><td class="r">536</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>fr-fr <span class="note">France</span></td><td class="r">138,390</td><td class="r">495</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>nl-nl <span class="note">Netherlands</span></td><td class="r">83,150</td><td class="r">232</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>pl-pl <span class="note">Poland</span></td><td class="r">68,400</td><td class="r">184</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>pt-br <span class="note">Brazil</span></td><td class="r">60,390</td><td class="r">547</td><td class="r">122</td><td><span class="chip yes">Add</span></td></tr>
+        <tr><td>id-id <span class="note">Indonesia</span></td><td class="r">31,690</td><td class="r">88</td><td class="r">0</td><td><span class="chip no">Hold</span></td></tr>
+        <tr><td>tr-tr <span class="note">Turkey</span></td><td class="r">28,080</td><td class="r">80</td><td class="r">0</td><td><span class="chip no">Hold</span></td></tr>
+        <tr><td>ko-kr <span class="note">South Korea</span></td><td class="r">27,650</td><td class="r">165</td><td class="r">0</td><td><span class="chip no">Hold</span></td></tr>
+        <tr><td>ru-ru <span class="note">Russia</span></td><td class="r">27,580</td><td class="r">37</td><td class="r">0</td><td><span class="chip no">Hold</span></td></tr>
+        <tr><td>en-ae, en-sa <span class="note">Gulf, in English</span></td><td class="r">23,500</td><td class="r">98</td><td class="r">0</td><td><span class="chip yes">Serve from en</span></td></tr>
+        <tr><td>pt-pt <span class="note">Portugal</span></td><td class="r">14,920</td><td class="r">109</td><td class="r">0</td><td><span class="chip no">Serve from pt-br</span></td></tr>
+        <tr><td>ro-ro <span class="note">Romania</span></td><td class="r">9,750</td><td class="r">82</td><td class="r">122</td><td><span class="chip hot">Live</span></td></tr>
+        <tr><td>ar-ae, ar-sa <span class="note">Gulf, in Arabic</span></td><td class="r">5,300</td><td class="r">45</td><td class="r">0</td><td><span class="chip no">Reject</span></td></tr>
+      </tbody>
+      <tfoot><tr><td>Plus inbound-language rows in tr, id and kr</td><td class="r">2,483,280</td><td class="r">7,614</td><td class="r">1,342</td><td></td></tr></tfoot>
+    </table></div>
+    <p class="note"><strong>Brazil is new and it changes the Portuguese decision.</strong> 60,390 addressable across 547 keywords, with a South American destination set (Argentina, Chile, Uruguay, Peru) that appears nowhere else in the dataset and commercial CPCs of 0.90 to 1.50 dollars. One warning that decides whether the market works at all: the Brazilian word is <strong>chip</strong>, not eSIM. "chip internacional" alone is 12,000 a month. A Brazilian page written in eSIM vocabulary will not rank. Portugal at 14,920 is now served from Brazilian Portuguese rather than given its own market.</p>
+    <p class="note"><strong>The Arabic verdict changed, and not the way I expected.</strong> The first pass measured 310 a month and I was ready to reject the Gulf. Re-swept from the bare term, the region returns 32,590 a month of demand typed in <strong>Latin script English</strong>: esim dubai 4,400, esim uae 1,300, esim saudi arabia 1,400. Native Arabic phrasing exists but is only 5,100 and mostly domestic operator promotion. So the Gulf is real and worth having, and the right way to serve it is the English pages, not an Arabic market. Arabic as a publishing language stays rejected; the Gulf as an audience does not.</p>
+  </section>
+
+  <section>
+    <h2>3. Clusters</h2>
+    <p class="prose">Addressable volume only. Every keyword sits in exactly one cluster in exactly one market, so nothing is counted twice. The complementary connectivity clusters were added in pass 4 and are the reason the total moved past 2 million.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Cluster</th><th class="r">Keywords</th><th class="r">Volume</th><th class="r">Langs</th><th class="r">Pages</th><th>Intent</th></tr></thead>
+      <tbody>
+        <tr><td>eSIM by destination</td><td class="r">3,303</td><td class="r">910,480</td><td class="r">17</td><td class="r">549</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Comparisons</td><td class="r">644</td><td class="r">291,420</td><td class="r">16</td><td class="r">90</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Untyped long tail <span class="note">en-us</span></td><td class="r">134</td><td class="r">210,820</td><td class="r">1</td><td class="r">0</td><td><span class="chip off">Mixed</span></td></tr>
+        <tr><td>Roaming, explained</td><td class="r">282</td><td class="r">198,080</td><td class="r">9</td><td class="r">54</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Regional eSIM</td><td class="r">494</td><td class="r">133,210</td><td class="r">17</td><td class="r">99</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Pocket and portable wifi</td><td class="r">260</td><td class="r">127,440</td><td class="r">9</td><td class="r">27</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Device and compatibility</td><td class="r">333</td><td class="r">119,490</td><td class="r">17</td><td class="r">36</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Best, cheap, unlimited eSIM</td><td class="r">230</td><td class="r">112,340</td><td class="r">17</td><td class="r">36</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Setup and how to</td><td class="r">301</td><td class="r">104,070</td><td class="r">17</td><td class="r">72</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>eSIM vs alternatives</td><td class="r">534</td><td class="r">74,610</td><td class="r">17</td><td class="r">36</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Travel SIM, international SIM, tourist SIM</td><td class="r">401</td><td class="r">64,280</td><td class="r">9</td><td class="r">27</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Future Livdar bridge</td><td class="r">106</td><td class="r">46,350</td><td class="r">16</td><td class="r">0</td><td><span class="chip off">Mixed</span></td></tr>
+        <tr><td>Generic travel connectivity</td><td class="r">139</td><td class="r">38,570</td><td class="r">16</td><td class="r">18</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Travel connectivity, named</td><td class="r">84</td><td class="r">19,450</td><td class="r">9</td><td class="r">18</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Airport and arrival</td><td class="r">220</td><td class="r">18,970</td><td class="r">9</td><td class="r">18</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Mobile data abroad</td><td class="r">147</td><td class="r">13,640</td><td class="r">9</td><td class="r">18</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Digital nomad connectivity</td><td class="r">2</td><td class="r">60</td><td class="r">1</td><td class="r">0</td><td><span class="chip no">Too small</span></td></tr>
+      </tbody>
+      <tfoot><tr><td>17 clusters</td><td class="r">7,614</td><td class="r">2,483,280</td><td class="r">17</td><td class="r">1,098</td><td></td></tr></tfoot>
+    </table></div>
+    <p class="note"><strong>The find of pass 4 is roaming explainers.</strong> 198,080 a month of people asking what data roaming is, whether to turn it on, and what it costs in a named country. Zero brand dependency, low difficulty, and it is precisely the reader who is about to need everything Livdar will eventually sell. That is why informational traffic was kept rather than filtered out.</p>
+    <p class="note"><strong>Clusters that did not survive contact with the data.</strong> Digital nomad connectivity: 60 searches a month across two keywords in one market, folded into travel connectivity. Airport and arrival grew from 940 to 18,970 once "wifi at <named airport>" was swept properly, which is enough for sections and internal links but still not for a page per airport. Local SIM and travel SIM returned almost nothing outside the nine European and US markets.</p>
+  </section>
+
+  <section>
+    <h2>4. The climb, and what was excluded</h2>
+    <p class="prose">Grey is the raw measured total, orange is the addressable part of it. Each rung adds only keywords not already counted above it, matched on market plus keyword.</p>
+    <div class="ladder">
+      <div class="rowhead"><span>Pass</span><b>Raw</b><b>Addressable</b></div>
+      <div class="rung">
+        <span class="label">1. Head terms, 10 clusters, 18 markets <span>825 keywords</span></span>
+        <b>890,060</b><b class="addr">633,020</b>
+        <span class="track"><i style="width:21.7%"></i><u style="width:15.4%"></u></span>
+      </div>
+      <div class="rung">
+        <span class="label">2a. Long tail, 8 Tier 1 European markets <span>Adds 1,089. Crosses 1M.</span></span>
+        <b>2,579,570</b><b class="addr">1,202,740</b>
+        <span class="track"><i style="width:62.8%"></i><u style="width:29.3%"></u></span>
+      </div>
+      <div class="rung">
+        <span class="label">2b. Long tail, en-gb and 5 Asian markets <span>Adds 1,224. Crosses 1.5M.</span></span>
+        <b>3,142,520</b><b class="addr">1,582,790</b>
+        <span class="track"><i style="width:76.5%"></i><u style="width:38.5%"></u></span>
+      </div>
+      <div class="rung">
+        <span class="label">3. Deep destination tail, 6 largest markets <span>Adds 2,324 below the row limit the earlier sweeps hit.</span></span>
+        <b>3,427,870</b><b class="addr">1,868,140</b>
+        <span class="track"><i style="width:83.4%"></i><u style="width:45.5%"></u></span>
+      </div>
+      <div class="rung">
+        <span class="label">4a. Complementary clusters, 9 markets <span>Travel SIM, roaming, pocket wifi, airport, data abroad. Adds 985 and crosses 2M.</span></span>
+        <b>3,839,760</b><b class="addr">2,223,430</b>
+        <span class="track"><i style="width:93.5%"></i><u style="width:54.1%"></u></span>
+      </div>
+      <div class="rung">
+        <span class="label">4b. Brazil, Japan, Taiwan, the Gulf <span>Adds 1,405 from the markets never swept properly.</span></span>
+        <b>4,108,810</b><b class="addr">2,483,280</b>
+        <span class="track"><i style="width:100%"></i><u style="width:60.4%"></u></span>
+      </div>
+    </div>
+
+    <p class="prose" style="margin-top:8px"><strong>Exactly what was taken out of raw to get to addressable.</strong> Three categories, 238 keywords, 1,625,530 searches a month. The arithmetic balances to the row.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Excluded</th><th class="r">Keywords</th><th class="r">Volume</th><th>Why it is not ours</th></tr></thead>
+      <tbody>
+        <tr><td>Competitor brand navigation</td><td class="r">149</td><td class="r">902,540</td><td class="note">Bare Airalo, Holafly, Saily, Nomad, Ubigi and the rest. Someone typing a brand name is going to that brand. A comparison page catches a slice, and that slice is already counted inside the comparisons cluster.</td></tr>
+        <tr><td>Bare category words</td><td class="r">38</td><td class="r">631,050</td><td class="note">The single nouns: eSIM, roaming, MiFi and their direct equivalents in every language. Enormous volume, and the intent behind one noun could be a definition, a phone setting or a purchase. A phrase that states an intent, such as "what is data roaming", is not in here and is counted as addressable.</td></tr>
+        <tr><td>Domestic operator roaming</td><td class="r">51</td><td class="r">91,940</td><td class="note">Mostly the Taiwanese and Korean roaming blocks: people pricing their own national carrier's add-on. Real demand, a different job to be done, and not something a travel eSIM page wins.</td></tr>
+      </tbody>
+      <tfoot><tr><td>Raw 4,108,810 less exclusions</td><td class="r">238</td><td class="r">1,625,530</td><td class="note">Addressable 2,483,280</td></tr></tfoot>
+    </table></div>
+    <p class="note">A further layer never entered the raw column at all: roughly 890 rows were discarded by the research passes before they were written to file, as home broadband, routers, domestic mobile plans, US carrier noise, adult results and scraped page-title artefacts. Pass 3 alone dropped about 49,900 a month that way. Those are not in any figure on this page.</p>
+
+    <div class="scroller"><table>
+      <thead><tr><th>Target</th><th>Raw measured</th><th>Addressable</th></tr></thead>
+      <tbody>
+        <tr><td>1,000,000</td><td><span class="chip yes">Pass 2a</span></td><td><span class="chip yes">Pass 2a</span></td></tr>
+        <tr><td>1,500,000</td><td><span class="chip yes">Pass 2a</span></td><td><span class="chip yes">Pass 2b</span></td></tr>
+        <tr><td>2,000,000</td><td><span class="chip yes">Pass 2a</span></td><td><span class="chip yes">Pass 4a</span></td></tr>
+        <tr><td>2,500,000</td><td><span class="chip yes">Pass 2a</span></td><td><span class="chip no">16,720 short</span></td></tr>
+        <tr><td>3,000,000</td><td><span class="chip yes">Pass 2b</span></td><td><span class="chip no">Not reached</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="prose"><strong>The minimum was 2,000,000 addressable. The verified figure is 2,483,280.</strong> The next round number is 16,720 away, which is 0.7 percent, and reaching it would have spent the last 10,616 API units of the billing month. That quota is worth more later, checking whether the pages actually rank. It resets on 8 October and the obvious places to spend it are named in the caveats.</p>
+  </section>
+
+  <section>
+    <h2>5. Pages</h2>
+    <p class="prose">Eleven markets now, up from nine: Japan, Taiwan and Brazil earned their place in pass 4, and Portugal was folded into Brazilian Portuguese. No page is planned without measured demand behind it.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Page type</th><th class="r">Per market</th><th class="r">Planned</th><th class="r">Built</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Destination</td><td class="r">61</td><td class="r">671</td><td class="r">24</td><td class="note">One per destination above 500 a month</td></tr>
+        <tr><td>Regional</td><td class="r">11</td><td class="r">121</td><td class="r">30</td><td class="note">11 regions with measured regional demand</td></tr>
+        <tr><td>Comparison</td><td class="r">10</td><td class="r">110</td><td class="r">0</td><td class="note">Provider pairs with real volume</td></tr>
+        <tr><td>Setup and how to</td><td class="r">8</td><td class="r">88</td><td class="r">13</td><td class="note">One per distinct setup intent</td></tr>
+        <tr><td>Roaming explainers</td><td class="r">6</td><td class="r">66</td><td class="r">0</td><td class="note">New in pass 4. 198,080 a month.</td></tr>
+        <tr><td>Compatibility</td><td class="r">4</td><td class="r">44</td><td class="r">3</td><td class="note">Device families with measured demand</td></tr>
+        <tr><td>Hubs</td><td class="r">4</td><td class="r">44</td><td class="r">9</td><td class="note">eSIM, regions, guides, compare</td></tr>
+        <tr><td>eSIM vs alternatives</td><td class="r">4</td><td class="r">44</td><td class="r">0</td><td class="note">Includes pocket wifi, which is the only one with commercial intent</td></tr>
+        <tr><td>Travel SIM and tourist SIM</td><td class="r">3</td><td class="r">33</td><td class="r">0</td><td class="note">New in pass 4</td></tr>
+        <tr><td>Pocket and portable wifi</td><td class="r">3</td><td class="r">33</td><td class="r">0</td><td class="note">New in pass 4. 127,440 a month.</td></tr>
+        <tr><td>Airport and arrival</td><td class="r">2</td><td class="r">22</td><td class="r">0</td><td class="note">Grew from 940 to 18,970 once named airports were swept</td></tr>
+        <tr><td>Mobile data abroad</td><td class="r">2</td><td class="r">22</td><td class="r">0</td><td class="note">New in pass 4</td></tr>
+        <tr><td>Travel connectivity</td><td class="r">2</td><td class="r">22</td><td class="r">0</td><td class="note">Absorbs digital nomad, which is too small alone</td></tr>
+        <tr><td>Homepage</td><td class="r">1</td><td class="r">11</td><td class="r">3</td><td class="note">One per market</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total</td><td class="r">122</td><td class="r">1,342</td><td class="r">85</td><td></td></tr></tfoot>
+    </table></div>
+    <p class="note">Split by intent: <strong>1,023 commercial</strong> and <strong>319 informational</strong>. Romania keeps its 122 pages despite being the smallest market at 9,750, because it is the reader Livdar understands best and the destination and roaming pages carry it. The Romanian complementary-cluster sweep returned effectively nothing, so those pages are written from the destination and guide angle instead.</p>
+  </section>
+
+  <section>
+    <h2>6. Click potential</h2>
+    <p class="prose">Capture is the share of the addressable universe that lands on a Livdar page. The commercial slice is scaled at 76.9 percent, the measured commercial share of every keyword the research classified. Conversion applies to commercial clicks only, because informational traffic is there to build authority, not to buy today.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Capture</th><th class="r">Clicks a month</th><th class="r">Commercial</th><th class="r">Informational</th><th class="r">Buyers at 1%</th><th class="r">at 2%</th><th class="r">at 3%</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip off">1%</span></td><td class="r">24,833</td><td class="r">19,099</td><td class="r">5,734</td><td class="r">191</td><td class="r">382</td><td class="r">573</td></tr>
+        <tr><td><span class="chip yes">3%</span></td><td class="r">74,498</td><td class="r">57,297</td><td class="r">17,201</td><td class="r">573</td><td class="r">1,146</td><td class="r">1,719</td></tr>
+        <tr><td><span class="chip hot">5%</span></td><td class="r">124,164</td><td class="r">95,495</td><td class="r">28,669</td><td class="r">955</td><td class="r">1,910</td><td class="r">2,865</td></tr>
+        <tr><td><span class="chip hot">10%</span></td><td class="r">248,328</td><td class="r">190,990</td><td class="r">57,338</td><td class="r">1,910</td><td class="r">3,820</td><td class="r">5,730</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note"><strong>Future Livdar acquisition, counted separately.</strong> The clusters that exist to feed the next verticals rather than to sell an eSIM, meaning the phone-number bridge, roaming explainers, airport and arrival, mobile data abroad, travel connectivity and digital nomad, are <strong>296,550 searches a month</strong> between them. At 5 percent capture that is 14,828 travellers a month arriving on Livdar before flights, stays, transfers or relocation exist as products. That audience is what Move, Stay, Work, Areas and Pulse inherit, and collecting it now costs nothing beyond the pages already planned.</p>
+    <p class="note">These are arithmetic, not forecasts. A new domain captures close to nothing for the first two quarters. The 1 percent row is the honest year-one planning figure. The 5 and 10 percent rows are what the universe is worth once the pages rank.</p>
+  </section>
+
+  <section>
+    <h2>7. Quality control</h2>
+    <p class="prose">Each of these is enforced by a script that runs before every build and fails it, not by a promise. The output quoted is from the last run.</p>
+    <div class="checks">
+      <div><strong>No simple translations</strong><span>Every market has its own destination set, angle, section order and FAQ. Romanian carries Greece and Egypt, German carries Switzerland. Enforced by the content registry, which has no translation path.</span></div>
+      <div><strong>No doorway pages</strong><span>A page exists only where authored editorial content exists. No content, no route, no sitemap entry.</span></div>
+      <div><strong>No near identical pages</strong><span>780 page pairs compared on five word shingle overlap. Fail at 0.34, warn at 0.22. Last run: no pair above the warning line.</span></div>
+      <div><strong>No title or meta template reuse</strong><span>Subject masked out, then compared. A template may appear once per market. Currently zero repeats.</span></div>
+      <div><strong>No section order reuse</strong><span>At most two pages per market may share a section order. English destination pages were rewritten when five shared one.</span></div>
+      <div><strong>No FAQ or opening reuse</strong><span>An FAQ question may appear at most twice per market, an opening sentence once. Currently zero violations.</span></div>
+      <div><strong>No duplicate volume</strong><span>One row per market and keyword across all four passes. 5,470 rows collected, 4 duplicates removed, 4 null volumes excluded, 5,462 counted.</span></div>
+      <div><strong>Every page has its own intent</strong><span>Unique title, H1, meta, canonical and primary keyword. 85 canonicals, all distinct. Thin pages under 320 editorial words fail the build.</span></div>
+    </div>
+    <p class="note">Last gate run: <span class="num">40</span> pages compared, <span class="num">780</span> pairs, <span class="num">0</span> failures, <span class="num">0</span> warnings. Dash check across 48 files: <span class="num">0</span> en dash, <span class="num">0</span> em dash, <span class="num">0</span> dash variants.</p>
+  </section>
+
+  <section>
+    <h2>8. What this research still cannot tell you</h2>
+    <ol class="caveats">
+      <li><b>The last 16,720 to 2.5 million was left on the table deliberately</b>Reaching it meant spending the final 10,616 API units of the billing month on a 0.7 percent difference. The quota resets on 8 October and it is worth more then, checking whether the pages actually rank. The obvious places to spend it: Brazil has only had one pass, Japan and Taiwan were swept once each, and the European "esim" sweeps hit the row limit twice.</li>
+      <li><b>The 825,000 baseline never reproduced</b>At the scope the original brief stated, Ahrefs returns 167,430. The baseline was most likely built from a much wider per city or per operator list, or a broader match method. It is a planning number that was never measured, and nothing here was bent to meet it.</li>
+      <li><b>902,540 of the raw total is brand navigation, and it is not ours</b>People typing Airalo or Holafly. A comparison page catches a slice of it, and that slice is already counted inside the comparisons cluster rather than double counted here.</li>
+      <li><b>631,050 is bare category words</b>Thirty eight keywords: eSIM, roaming, MiFi and their equivalents. I moved bare roaming and MiFi into this tier during the audit of pass 4, which cost 56,600 off the addressable figure. Consistency was worth more than the number.</li>
+      <li><b>Brazil will not rank on eSIM vocabulary</b>The word is chip. "chip internacional" is 12,000 a month on its own and carries a sixth of the market. A Brazilian page built from the English or German page's vocabulary will fail regardless of how well it is translated, which is the sharpest possible illustration of why these are separate markets.</li>
+      <li><b>Part of the German and French sub-100 tail looks synthetic</b>Roughly 25,000 to 30,000 a month clusters at 50 to 70 searches with template vocabulary, which reads like one competitor's programmatic page set rather than independent search behaviour. Real Ahrefs figures, thin signal.</li>
+      <li><b>Indonesia, Turkey and Korea have the wrong searcher</b>Their travel relevant volume is largely foreigners searching in German, French, Polish and English about going there, not locals travelling out. Real inbound demand, served better from the English and European pages than from a native market.</li>
+      <li><b>Pocket wifi straddles travel and domestic broadband</b>"portable wifi" at 20,000 in the US and "wifi portatile" at 6,100 in Italy are kept because the brief named pocket and portable wifi explicitly. Bare "mifi" and "mifi device" were moved out during the audit as device purchase queries. The boundary is a judgement call and it is worth 38,450 either way.</li>
+      <li><b>Missing keywords are not zeroes</b>Ahrefs omits a row when it has no tracked data. Romania had 29 of 53 terms missing in pass 1, and the Romanian complementary sweep returned nothing at all for every connectivity phrase tried. That is invisible demand, not absent demand.</li>
+      <li><b>Difficulty is missing from passes 3 and 4</b>It costs 10 units a row on top of the 13 unit base. Dropping it bought roughly 3,000 extra real keywords instead. It can be backfilled on a shortlist when the build reaches those pages.</li>
+      <li><b>Mainland China is still unmeasurable</b>Ahrefs tracks no Baidu data. Taiwan and Hong Kong appear, the mainland never does. Any China decision needs a different source entirely.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Source: Ahrefs Keywords Explorer, six passes, September 2026</span>
+    <span>7,852 unique keywords, 25 markets, 17 clusters</span>
+    <span>789,384 of 800,000 API units, quota resets 8 October</span>
+    <span>Every volume a real figure, nothing estimated</span>
+  </footer>
+
+</div>

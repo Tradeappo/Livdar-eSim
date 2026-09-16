@@ -1,0 +1,22 @@
+{
+  "name": "livdar-esim",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/quality-gate.mjs && next build",
+    "start": "next start",
+    "qa": "node scripts/quality-gate.mjs",
+    "dashcheck": "node scripts/dash-check.mjs",
+    "similarity": "node scripts/similarity-check.mjs"
+  },
+  "dependencies": {
+    "next": "15.5.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

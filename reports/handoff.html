@@ -1,0 +1,625 @@
+<title>LIVDAR HANDOFF PENTRU CHAT NOU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#eceff1; --surface:#ffffff; --sunk:#e3e8eb;
+    --ink:#14171a; --muted:#5f6a71; --faint:#8b959b; --line:#d6dde1;
+    --signal:#c2491a; --signal-soft:rgba(194,73,26,.13);
+    --done:#1f6f5c; --done-soft:rgba(31,111,92,.12);
+    --block:#a33a2c; --block-soft:rgba(163,58,44,.12);
+    --wait:#8a6a3a; --wait-soft:rgba(138,106,58,.14);
+    --shadow:0 1px 2px rgba(20,23,26,.05), 0 8px 24px rgba(20,23,26,.05);
+    --sans:'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --ground:#14181b; --surface:#1b2125; --sunk:#232a2f; --ink:#e8edf0; --muted:#9ba7ae;
+    --faint:#74818a; --line:#2c353b; --signal:#e0653a; --signal-soft:rgba(224,101,58,.18);
+    --done:#56b195; --done-soft:rgba(86,177,149,.16);
+    --block:#e4796a; --block-soft:rgba(228,121,106,.16);
+    --wait:#c9a067; --wait-soft:rgba(201,160,103,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3); } }
+  :root[data-theme="dark"] {
+    --ground:#14181b; --surface:#1b2125; --sunk:#232a2f; --ink:#e8edf0; --muted:#9ba7ae;
+    --faint:#74818a; --line:#2c353b; --signal:#e0653a; --signal-soft:rgba(224,101,58,.18);
+    --done:#56b195; --done-soft:rgba(86,177,149,.16);
+    --block:#e4796a; --block-soft:rgba(228,121,106,.16);
+    --wait:#c9a067; --wait-soft:rgba(201,160,103,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3); }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--sans);
+    font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .page { max-width:1040px; margin:0 auto; padding-inline:20px; padding-block:52px 88px;
+    display:flex; flex-direction:column; gap:50px; }
+  .eyebrow { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); margin:0; }
+  h1 { font-size:clamp(26px,4.4vw,40px); line-height:1.1; letter-spacing:-.02em;
+    font-weight:800; margin:12px 0 0; text-wrap:balance; }
+  h2 { font-size:19px; letter-spacing:-.015em; font-weight:700; margin:0; text-wrap:balance; }
+  h3 { font-size:14px; font-weight:700; margin:0; letter-spacing:.01em; }
+  p { margin:0; }
+  .prose { max-width:70ch; color:var(--muted); }
+  .prose p + p { margin-top:11px; }
+  .prose strong { color:var(--ink); font-weight:600; }
+  section { display:flex; flex-direction:column; gap:16px; scroll-margin-top:20px; }
+  .num { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  code { font-family:var(--mono); font-size:12.5px; background:var(--sunk);
+    padding:1px 5px; border-radius:2px; word-break:break-all; }
+
+  .secnum { font-family:var(--mono); font-size:11px; color:var(--signal);
+    letter-spacing:.12em; text-transform:uppercase; }
+
+  .alert { background:var(--surface); border:1px solid var(--line); border-radius:3px;
+    box-shadow:var(--shadow); padding:24px; border-left:3px solid var(--signal); }
+  .alert p { color:var(--muted); max-width:70ch; }
+  .alert p + p { margin-top:11px; }
+  .alert strong { color:var(--ink); font-weight:600; }
+  .alert.warn { border-left-color:var(--block); }
+
+  .readout { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:3px; overflow:hidden; }
+  .readout div { background:var(--surface); padding:16px 14px; display:flex; flex-direction:column; gap:3px; }
+  .readout dt { font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); }
+  .readout dd { margin:0; font-family:var(--mono); font-variant-numeric:tabular-nums;
+    font-size:20px; font-weight:600; letter-spacing:-.02em; }
+  .readout small { font-size:11.5px; color:var(--muted); line-height:1.35; }
+
+  .scroller { overflow-x:auto; border:1px solid var(--line); border-radius:3px;
+    background:var(--surface); box-shadow:var(--shadow); }
+  .scroller.tall { max-height:560px; overflow-y:auto; }
+  table { width:100%; border-collapse:collapse; min-width:560px; }
+  th { text-align:left; font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); font-weight:500; padding:12px 13px;
+    border-bottom:1px solid var(--line); white-space:nowrap;
+    position:sticky; top:0; background:var(--surface); z-index:1; }
+  td { padding:9px 13px; border-bottom:1px solid var(--line); font-size:13px; vertical-align:top; }
+  tbody tr:last-child td { border-bottom:0; }
+  td.r, th.r { text-align:right; }
+  td.r { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  tfoot td { font-weight:700; background:var(--sunk); border-top:2px solid var(--line); }
+  tfoot td.r { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  .chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.06em;
+    text-transform:uppercase; padding:2px 6px; border-radius:2px; white-space:nowrap; }
+  .chip.hot { background:var(--signal-soft); color:var(--signal); }
+  .chip.yes { background:var(--done-soft); color:var(--done); }
+  .chip.off { background:var(--sunk); color:var(--muted); }
+  .chip.low { background:var(--sunk); color:var(--faint); }
+  .chip.no { background:var(--block-soft); color:var(--block); }
+  .chip.wait { background:var(--wait-soft); color:var(--wait); }
+  .note { font-size:12px; color:var(--muted); line-height:1.45; }
+
+  ol.steps, ol.rules { margin:0; padding:0; list-style:none; counter-reset:c; display:flex;
+    flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:3px; }
+  ol.steps li, ol.rules li { counter-increment:c; background:var(--surface);
+    padding:16px 20px 16px 52px; position:relative; color:var(--muted); font-size:13.5px; line-height:1.55; }
+  ol.steps li::before, ol.rules li::before { content:counter(c,decimal-leading-zero);
+    position:absolute; left:20px; top:16px; font-family:var(--mono); font-size:11px;
+    color:var(--faint); font-variant-numeric:tabular-nums; }
+  ol.steps li b, ol.rules li b { color:var(--ink); font-weight:600; display:block;
+    margin-bottom:3px; font-size:13.5px; }
+
+  .flow { background:var(--surface); border:1px solid var(--line); border-radius:3px;
+    box-shadow:var(--shadow); padding:22px; overflow-x:auto; }
+  .flow pre { margin:0; font-family:var(--mono); font-size:12px; line-height:1.9; color:var(--muted); }
+  .flow pre b { color:var(--signal); font-weight:600; }
+  .flow pre i { color:var(--ink); font-style:normal; font-weight:600; }
+
+  .grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:3px; }
+  .grid2 > div { background:var(--surface); padding:16px; display:flex; flex-direction:column; gap:5px; }
+  .grid2 span { font-size:12px; color:var(--muted); line-height:1.45; }
+
+  .pills { display:flex; flex-wrap:wrap; gap:6px; }
+  .pills span { font-family:var(--mono); font-size:11.5px; background:var(--sunk);
+    color:var(--muted); padding:4px 8px; border-radius:2px; }
+
+  footer { border-top:1px solid var(--line); padding-top:18px; font-size:12px; color:var(--faint);
+    display:flex; flex-wrap:wrap; gap:6px 22px; font-family:var(--mono); }
+
+  @media (max-width:700px) {
+    .readout { grid-template-columns:repeat(2,1fr); }
+    .page { padding-block:38px 60px; gap:38px; }
+  }
+</style>
+
+<div class="page">
+
+  <header>
+    <p class="eyebrow">Livdar eSIM / handoff / 16 septembrie 2026</p>
+    <h1>LIVDAR HANDOFF PENTRU CHAT NOU</h1>
+    <div class="alert" style="margin-top:22px">
+      <p><strong>Acest document este suficient ca sa continui fara sa repeti nimic.</strong> Research-ul este inchis si validat pe sase treceri Ahrefs. Codul este scris si trece quality gate-ul. Ce lipseste este un singur lucru: accesul la repo ca sa se faca push si deploy.</p>
+      <p><strong>Nu relua research-ul.</strong> Tot ce este in sectiunile 1 pana la 5 este masurat, deduplicat si verificabil rulind <code>node scripts/consolidate-research.mjs</code> din arhiva proiectului. Cele sase fisiere de date sunt in <code>data/</code>.</p>
+      <p><strong>O corectie fata de raportul anterior.</strong> Cifrele 85 acceptate si 41 respinse erau dinainte de trecerile 4a si 4b. Dupa ele, numarul verificat este <strong>92 acceptate si 34 respinse</strong>. Cele din sectiunea 2 sunt cele corecte.</p>
+    </div>
+  </header>
+
+  <dl class="readout">
+    <div><dt>Raw</dt><dd>4,108,810</dd><small>7,852 keywords unice</small></div>
+    <div><dt>Addressable</dt><dd>2,483,280</dd><small>7,614 keywords</small></div>
+    <div><dt>Pagini</dt><dd>85 / 1,342</dd><small>construite / planificate</small></div>
+    <div><dt>Ahrefs</dt><dd>10,616</dd><small>units pana la 8 octombrie</small></div>
+  </dl>
+
+  <section id="s1">
+    <p class="secnum">Sectiunea 1</p>
+    <h2>Research validat</h2>
+    <div class="scroller"><table>
+      <thead><tr><th>Nivel</th><th class="r">Keywords</th><th class="r">Cautari / luna</th><th>Ce contine</th></tr></thead>
+      <tbody>
+        <tr><td><strong>RAW TOTAL</strong></td><td class="r">7,852</td><td class="r">4,108,810</td><td class="note">Tot ce a returnat Ahrefs cu volum real, deduplicat pe piata plus keyword. 4 duplicate eliminate, 4 randuri cu volum null excluse.</td></tr>
+        <tr><td>Minus brand navigation</td><td class="r">149</td><td class="r">902,540</td><td class="note">Airalo, Holafly, Saily, Nomad, Ubigi si restul, ca nume simplu. Cine tasteaza un brand merge la brandul ala. Felia pe care o putem lua este deja numarata in clusterul comparisons.</td></tr>
+        <tr><td>Minus cuvinte de categorie goale</td><td class="r">38</td><td class="r">631,050</td><td class="note">Substantivele singure: esim, roaming, mifi si echivalentele lor in fiecare limba. Volum urias, intent netargetabil. O expresie care declara intentia, de exemplu "what is data roaming", nu este aici si intra in addressable.</td></tr>
+        <tr><td>Minus roaming operator domestic</td><td class="r">51</td><td class="r">91,940</td><td class="note">In principal blocurile taiwanez si coreean: oameni care isi verifica tariful propriului operator national. Cerere reala, alta treaba de facut.</td></tr>
+        <tr><td><strong>ADDRESSABLE TOTAL</strong></td><td class="r">7,614</td><td class="r">2,483,280</td><td class="note">Universul pe care Livdar poate construi pagini. Aici se dimensioneaza planul.</td></tr>
+      </tbody>
+      <tfoot><tr><td>Verificare</td><td class="r">238 excluse</td><td class="r">1,625,530</td><td class="note">2,483,280 plus 1,625,530 este exact 4,108,810</td></tr></tfoot>
+    </table></div>
+    <p class="note">Un strat suplimentar nu a intrat niciodata in RAW: aproximativ 890 de randuri aruncate de treceri inainte de a fi scrise in fisier, ca internet fix, routere, abonamente domestice, zgomot de operatori americani si artefacte de titluri scrapate. Trecerea 3 singura a aruncat aproximativ 49,900 pe luna asa. Nu sunt in nicio cifra de pe pagina asta.</p>
+    <p class="note"><strong>Doua corectii de audit facute pe cifrele proprii.</strong> Bare "roaming" si "mifi" au fost mutate in stratul de cuvinte goale, pentru consistenta cu bare "esim", ceea ce a costat 56,600 din addressable. Si Taiwan aparea ca doua piete sub doua coduri de limba, acum este una singura.</p>
+  </section>
+
+  <section id="s2">
+    <p class="secnum">Sectiunea 2</p>
+    <h2>Tari si destinatii</h2>
+    <p class="prose">126 analizate, <strong>92 acceptate, 34 respinse</strong>. O destinatie conteaza ca validata doar daca numele ei, in oricare dintre cele 17 limbi masurate, apare intr-un keyword pentru care Ahrefs a returnat volum.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Prioritate</th><th class="r">Tari</th><th>Prag</th><th>Ce inseamna in plan</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip hot">P1</span></td><td class="r">31</td><td class="note">5,000 sau peste</td><td class="note">Pagina scrisa in fiecare piata publicata, prima serie.</td></tr>
+        <tr><td><span class="chip yes">P2</span></td><td class="r">23</td><td class="note">1,000 la 4,999</td><td class="note">Pagina in fiecare piata, a doua serie.</td></tr>
+        <tr><td><span class="chip off">P3</span></td><td class="r">9</td><td class="note">500 la 999</td><td class="note">Pagina doar in pietele unde cererea apare efectiv.</td></tr>
+        <tr><td><span class="chip low">P4</span></td><td class="r">29</td><td class="note">sub 500</td><td class="note">Fara pagina proprie. Raman in dataset pentru planurile regionale si pentru linkuri interne.</td></tr>
+        <tr><td><span class="chip no">Respins</span></td><td class="r">34</td><td class="note">zero</td><td class="note">Niciun keyword masurat in nicio limba.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Cele 92 acceptate, cu volum si prioritate</h3>
+    <div class="scroller tall"><table>
+      <thead><tr><th>Destinatie</th><th class="r">Volum / luna</th><th class="r">Keywords</th><th>Prioritate</th></tr></thead>
+      <tbody>
+<tr><td>Japan</td><td class="r">101,630</td><td class="r">330</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>United States</td><td class="r">82,490</td><td class="r">317</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Turkey</td><td class="r">51,540</td><td class="r">178</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Morocco</td><td class="r">44,030</td><td class="r">229</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Thailand</td><td class="r">41,310</td><td class="r">121</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Egypt</td><td class="r">30,280</td><td class="r">181</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Switzerland</td><td class="r">22,720</td><td class="r">35</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>United Arab Emirates</td><td class="r">22,380</td><td class="r">80</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Albania</td><td class="r">21,370</td><td class="r">161</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Indonesia</td><td class="r">17,030</td><td class="r">120</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Canada</td><td class="r">16,180</td><td class="r">99</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Spain</td><td class="r">16,050</td><td class="r">64</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Italy</td><td class="r">15,300</td><td class="r">46</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Mexico</td><td class="r">15,260</td><td class="r">94</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Vietnam</td><td class="r">15,080</td><td class="r">103</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Germany</td><td class="r">12,450</td><td class="r">24</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>France</td><td class="r">12,270</td><td class="r">34</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Bali</td><td class="r">11,650</td><td class="r">96</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Greece</td><td class="r">11,430</td><td class="r">124</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Portugal</td><td class="r">11,200</td><td class="r">59</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>India</td><td class="r">11,000</td><td class="r">43</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>China</td><td class="r">10,560</td><td class="r">35</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>United Kingdom</td><td class="r">10,100</td><td class="r">20</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Australia</td><td class="r">8,690</td><td class="r">36</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Philippines</td><td class="r">7,730</td><td class="r">28</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Andorra</td><td class="r">7,310</td><td class="r">8</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Tunisia</td><td class="r">6,980</td><td class="r">48</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Costa Rica</td><td class="r">6,050</td><td class="r">21</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Montenegro</td><td class="r">5,570</td><td class="r">50</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>South Africa</td><td class="r">5,230</td><td class="r">24</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>South Korea</td><td class="r">5,180</td><td class="r">18</td><td><span class="chip hot">P1</span></td></tr>
+<tr><td>Netherlands</td><td class="r">4,910</td><td class="r">13</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Norway</td><td class="r">4,350</td><td class="r">8</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Brazil</td><td class="r">4,140</td><td class="r">20</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Sri Lanka</td><td class="r">3,640</td><td class="r">22</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Saudi Arabia</td><td class="r">3,620</td><td class="r">14</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Mauritius</td><td class="r">2,790</td><td class="r">12</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Argentina</td><td class="r">2,630</td><td class="r">45</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Cape Verde</td><td class="r">2,370</td><td class="r">16</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Malaysia</td><td class="r">2,360</td><td class="r">7</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Dominican Republic</td><td class="r">2,210</td><td class="r">13</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Maldives</td><td class="r">2,190</td><td class="r">14</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Serbia</td><td class="r">1,980</td><td class="r">5</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Oman</td><td class="r">1,930</td><td class="r">6</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Colombia</td><td class="r">1,900</td><td class="r">7</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>New Zealand</td><td class="r">1,860</td><td class="r">8</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Curacao</td><td class="r">1,800</td><td class="r">1</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Chile</td><td class="r">1,680</td><td class="r">34</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Poland</td><td class="r">1,380</td><td class="r">4</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Peru</td><td class="r">1,350</td><td class="r">5</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Singapore</td><td class="r">1,240</td><td class="r">5</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Tanzania</td><td class="r">1,200</td><td class="r">4</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Cyprus</td><td class="r">1,180</td><td class="r">8</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Algeria</td><td class="r">1,100</td><td class="r">1</td><td><span class="chip yes">P2</span></td></tr>
+<tr><td>Namibia</td><td class="r">950</td><td class="r">2</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Georgia</td><td class="r">900</td><td class="r">3</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Kenya</td><td class="r">900</td><td class="r">2</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Romania</td><td class="r">880</td><td class="r">2</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Seychelles</td><td class="r">800</td><td class="r">2</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Taiwan</td><td class="r">720</td><td class="r">4</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Cambodia</td><td class="r">670</td><td class="r">8</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Senegal</td><td class="r">620</td><td class="r">9</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Sweden</td><td class="r">550</td><td class="r">2</td><td><span class="chip off">P3</span></td></tr>
+<tr><td>Pakistan</td><td class="r">450</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Israel</td><td class="r">380</td><td class="r">3</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Malta</td><td class="r">370</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Croatia</td><td class="r">350</td><td class="r">4</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Zanzibar</td><td class="r">350</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Panama</td><td class="r">330</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Aruba</td><td class="r">330</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Iceland</td><td class="r">300</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Qatar</td><td class="r">300</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Uzbekistan</td><td class="r">300</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Austria</td><td class="r">270</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Ecuador</td><td class="r">270</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Armenia</td><td class="r">250</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Jamaica</td><td class="r">250</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Cuba</td><td class="r">250</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Bahrain</td><td class="r">230</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Ireland</td><td class="r">200</td><td class="r">4</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Denmark</td><td class="r">200</td><td class="r">3</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Czechia</td><td class="r">150</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Jordan</td><td class="r">150</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Moldova</td><td class="r">150</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Fiji</td><td class="r">80</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Botswana</td><td class="r">80</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Bulgaria</td><td class="r">70</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Hungary</td><td class="r">50</td><td class="r">2</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Hong Kong</td><td class="r">30</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Bolivia</td><td class="r">30</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Bahamas</td><td class="r">30</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+<tr><td>Nicaragua</td><td class="r">20</td><td class="r">1</td><td><span class="chip low">P4</span></td></tr>
+      </tbody>
+    </table></div>
+    <h3>Cele 34 respinse</h3>
+    <div class="alert">
+      <p><strong>Motivul este acelasi pentru toate: zero volum masurat in oricare dintre cele 17 limbi acoperite.</strong> Nu au fost respinse pe baza unei opinii, ci pentru ca Ahrefs nu a returnat niciun rand cu volum pentru numele lor.</p>
+      <p>Se impart in trei familii. <strong>Tari UE unde cititorul are deja roaming inclus</strong>, deci nu cauta o solutie: Belgia, Finlanda, Estonia, Letonia, Lituania, Luxemburg, Slovenia, Slovacia. <strong>Piete unde cautarea se face intr-o limba pe care nu am masurat-o</strong>: Bangladesh, Nepal, Mongolia, Myanmar, Laos, Brunei, Kazahstan, Kirgizstan, Azerbaidjan, Ucraina, Etiopia, Uganda, Rwanda, Ghana, Nigeria. <strong>Destinatii mici din America Latina si Caraibe</strong> unde volumul exista probabil dar sub pragul de raportare Ahrefs: Guatemala, Honduras, Belize, Paraguay, Uruguay, Barbados si Puerto Rico. Plus Bosnia, Macedonia de Nord, Kuweit si Liban.</p>
+      <p class="note" style="margin-top:12px">Lista completa: Azerbaidjan, Bangladesh, Barbados, Belgia, Belize, Bosnia si Hertegovina, Brunei, Estonia, Etiopia, Finlanda, Ghana, Guatemala, Honduras, Kazahstan, Kuweit, Kirgizstan, Laos, Letonia, Liban, Lituania, Luxemburg, Mongolia, Myanmar, Nepal, Nigeria, Macedonia de Nord, Paraguay, Puerto Rico, Rwanda, Slovacia, Slovenia, Uganda, Ucraina, Uruguay.</p>
+      <p class="note"><strong>Reevaluare recomandata dupa 8 octombrie</strong> pentru familia a doua: daca se masoara in limba locala, cateva dintre ele pot deveni acceptate. Nu sunt respinse definitiv, sunt nemasurate in limba corecta.</p>
+    </div>
+  </section>
+
+  <section id="s3">
+    <p class="secnum">Sectiunea 3</p>
+    <h2>Limbi si piete</h2>
+    <p class="prose">17 limbi analizate pe 25 de piete de tara. Volumul este addressable, deci nicio limba nu este flatata de brand navigation pe care nu o poate castiga. <strong>11 piete planificate.</strong></p>
+    <div class="scroller"><table>
+      <thead><tr><th>Piata</th><th class="r">Addressable</th><th class="r">Keywords</th><th>Status</th><th>Particularitate locala care conteaza</th></tr></thead>
+      <tbody>
+        <tr><td>en-us</td><td class="r">631,840</td><td class="r">1,165</td><td><span class="chip hot">Live</span></td><td class="note">Cea mai mare piata si cea mai competitiva. Coada lunga e dominata de troubleshooting iPhone.</td></tr>
+        <tr><td>de-de</td><td class="r">340,080</td><td class="r">906</td><td><span class="chip hot">Live</span></td><td class="note">Roamingul UE e deja inclus in tarif, deci valoarea exista doar in afara UE. Elvetia si Turcia sunt argumentul.</td></tr>
+        <tr><td>en-gb</td><td class="r">243,110</td><td class="r">809</td><td><span class="chip hot">Live</span></td><td class="note">Matrice curata de "best esim for X" pe 60 de tari. Post-Brexit multi operatori au scos UE din zona inclusa.</td></tr>
+        <tr><td>ja-jp</td><td class="r">239,800</td><td class="r">822</td><td><span class="chip yes">Adauga</span></td><td class="note">Coada densa pe durata calatoriei: "韓国 esim 3日間". Dificultate 0 la 5. Cea mai usoara piata mare.</td></tr>
+        <tr><td>zh-Hant-tw</td><td class="r">172,360</td><td class="r">540</td><td><span class="chip yes">Adauga</span></td><td class="note">Vocabularul e 網卡 si 上網卡, nu esim. Blocul 漫遊 este roaming domestic si a fost exclus.</td></tr>
+        <tr><td>it-it</td><td class="r">160,700</td><td class="r">604</td><td><span class="chip yes">Adauga</span></td><td class="note">"wifi portatile" la 6,100 este cluster propriu, nu o nota de subsol.</td></tr>
+        <tr><td>es-es</td><td class="r">143,790</td><td class="r">536</td><td><span class="chip yes">Adauga</span></td><td class="note">Volum mare pe destinatii nord-africane, Maroc in special.</td></tr>
+        <tr><td>fr-fr</td><td class="r">138,390</td><td class="r">495</td><td><span class="chip yes">Adauga</span></td><td class="note">Maroc si Tunisia domina. O parte din coada sub 100 pare generata de un competitor.</td></tr>
+        <tr><td>nl-nl</td><td class="r">83,150</td><td class="r">232</td><td><span class="chip yes">Adauga</span></td><td class="note">"roaming aan of uit" la 3,200 arata ca explicatia conteaza mai mult decat produsul.</td></tr>
+        <tr><td>pl-pl</td><td class="r">68,400</td><td class="r">184</td><td><span class="chip yes">Adauga</span></td><td class="note">Cerere puternica pe Albania, Turcia, Egipt. Destinatii de vacanta in afara UE.</td></tr>
+        <tr><td>pt-br</td><td class="r">60,390</td><td class="r">547</td><td><span class="chip yes">Adauga</span></td><td class="note">Set de destinatii sud-americane care nu apare nicaieri altundeva. Vezi avertismentul de mai jos.</td></tr>
+        <tr><td>ro-ro</td><td class="r">9,750</td><td class="r">82</td><td><span class="chip hot">Live</span></td><td class="note">Cea mai mica piata publicata. Confuzia intre eSIM de date si cartela cu numar strain este subiectul care conteaza.</td></tr>
+        <tr><td>en-ae, en-sa</td><td class="r">23,500</td><td class="r">98</td><td><span class="chip yes">Din en</span></td><td class="note">Golful cauta in engleza. Se serveste din paginile engleze, nu din piata proprie.</td></tr>
+        <tr><td>id-id</td><td class="r">31,690</td><td class="r">88</td><td><span class="chip no">Hold</span></td><td class="note">Volumul relevant vine de la straini care cauta despre Bali, nu de la indonezieni care pleaca.</td></tr>
+        <tr><td>tr-tr</td><td class="r">28,080</td><td class="r">80</td><td><span class="chip no">Hold</span></td><td class="note">La fel: 31 de randuri in germana, franceza, poloneza de la turisti care vin in Turcia.</td></tr>
+        <tr><td>ko-kr</td><td class="r">27,650</td><td class="r">165</td><td><span class="chip no">Hold</span></td><td class="note">Coada nativa outbound aproape inexistenta. "이심 해외" a returnat 9 randuri.</td></tr>
+        <tr><td>ru-ru</td><td class="r">27,580</td><td class="r">37</td><td><span class="chip no">Hold</span></td><td class="note">20,000 din total e un singur termen generic pentru numar virtual, care nu e eSIM.</td></tr>
+        <tr><td>pt-pt</td><td class="r">14,920</td><td class="r">109</td><td><span class="chip off">Din pt-br</span></td><td class="note">Prea mic pentru piata proprie. Se serveste din portugheza braziliana.</td></tr>
+        <tr><td>ar-ae, ar-sa</td><td class="r">5,300</td><td class="r">45</td><td><span class="chip no">Respins</span></td><td class="note">Formularea nativa araba exista dar e mica si preponderent promotie de operator domestic.</td></tr>
+      </tbody>
+      <tfoot><tr><td>17 limbi, 25 piete, 11 publicate</td><td class="r">2,483,280</td><td class="r">7,614</td><td></td><td></td></tr></tfoot>
+    </table></div>
+
+    <div class="grid2">
+      <div>
+        <h3>Brazilia: cuvantul este "chip", nu "eSIM"</h3>
+        <span>Aceasta este cea mai clara dovada din tot research-ul ca limbile sunt piete separate, nu traduceri. <strong>"chip internacional" are 12,000 pe luna singur</strong> si duce o sesime din piata braziliana. Alaturi: "chip de viagem", "chip celular internacional". O pagina braziliana scrisa in vocabularul eSIM nu va rankui indiferent cat de bine este tradusa din engleza sau germana. Slug-urile, titlurile, H1 si copy-ul trebuie construite pe "chip". CPC comercial 0.90 la 1.50 dolari, si setul de destinatii este Argentina, Chile, Uruguay, Peru, care nu apar in nicio alta piata.</span>
+      </div>
+      <div>
+        <h3>Golful: engleza, nu araba</h3>
+        <span>Prima trecere a masurat 310 pe luna si concluzia era respingere. La re-masurare de la termenul gol, regiunea returneaza <strong>32,590 pe luna scris in alfabet latin, in engleza</strong>: esim dubai 4,400, esim uae 1,300, esim saudi arabia 1,400, esim dubai tourist 450. Formularea araba nativa exista dar e doar 5,100 si e in mare promotie de la du, etisalat, stc, mobily, zain. Concluzia corecta: <strong>araba ramane respinsa ca limba de publicare, Golful ramane ca audienta si se serveste din paginile engleze.</strong> Dubai si Emiratele sunt oricum P1 in lista de destinatii.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="s4">
+    <p class="secnum">Sectiunea 4</p>
+    <h2>Clustere</h2>
+    <p class="prose">Volum addressable. Fiecare keyword sta intr-un singur cluster intr-o singura piata, deci nimic nu e numarat de doua ori.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Cluster</th><th class="r">Volum</th><th class="r">Kw</th><th class="r">Limbi</th><th class="r">Piete</th><th class="r">Pagini</th><th>Intent</th></tr></thead>
+      <tbody>
+        <tr><td>eSIM by destination</td><td class="r">910,480</td><td class="r">3,303</td><td class="r">17</td><td class="r">25</td><td class="r">671</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Comparisons <span class="note">provider vs provider</span></td><td class="r">291,420</td><td class="r">644</td><td class="r">16</td><td class="r">18</td><td class="r">110</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Coada lunga netipizata <span class="note">en-us</span></td><td class="r">210,820</td><td class="r">134</td><td class="r">1</td><td class="r">1</td><td class="r">0</td><td><span class="chip off">Mixt</span></td></tr>
+        <tr><td>Roaming explainers</td><td class="r">198,080</td><td class="r">282</td><td class="r">9</td><td class="r">9</td><td class="r">66</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Regional eSIM</td><td class="r">133,210</td><td class="r">494</td><td class="r">17</td><td class="r">25</td><td class="r">121</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Pocket wifi si portable wifi</td><td class="r">127,440</td><td class="r">260</td><td class="r">9</td><td class="r">9</td><td class="r">33</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Device si compatibility</td><td class="r">119,490</td><td class="r">333</td><td class="r">17</td><td class="r">25</td><td class="r">44</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Best, cheap, unlimited eSIM</td><td class="r">112,340</td><td class="r">230</td><td class="r">17</td><td class="r">25</td><td class="r">36</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Setup, how to, troubleshooting</td><td class="r">104,070</td><td class="r">301</td><td class="r">17</td><td class="r">25</td><td class="r">88</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>eSIM vs alternatives <span class="note">roaming, SIM fizic, pocket wifi</span></td><td class="r">74,610</td><td class="r">534</td><td class="r">17</td><td class="r">25</td><td class="r">44</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Travel SIM, international SIM, tourist SIM, local SIM</td><td class="r">64,280</td><td class="r">401</td><td class="r">9</td><td class="r">9</td><td class="r">33</td><td><span class="chip hot">Commercial</span></td></tr>
+        <tr><td>Future Livdar bridge <span class="note">numar strain, numar virtual</span></td><td class="r">46,350</td><td class="r">106</td><td class="r">16</td><td class="r">18</td><td class="r">0</td><td><span class="chip off">Mixt</span></td></tr>
+        <tr><td>Travel connectivity generic</td><td class="r">38,570</td><td class="r">139</td><td class="r">16</td><td class="r">18</td><td class="r">22</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Travel connectivity, named <span class="note">travel data, internet abroad</span></td><td class="r">19,450</td><td class="r">84</td><td class="r">9</td><td class="r">9</td><td class="r">22</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Airport SIM si airport wifi</td><td class="r">18,970</td><td class="r">220</td><td class="r">9</td><td class="r">9</td><td class="r">22</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Mobile data abroad</td><td class="r">13,640</td><td class="r">147</td><td class="r">9</td><td class="r">9</td><td class="r">22</td><td><span class="chip yes">Informational</span></td></tr>
+        <tr><td>Digital nomad, remote work connectivity</td><td class="r">60</td><td class="r">2</td><td class="r">1</td><td class="r">1</td><td class="r">0</td><td><span class="chip no">Prea mic</span></td></tr>
+      </tbody>
+      <tfoot><tr><td>17 clustere validate</td><td class="r">2,483,280</td><td class="r">7,614</td><td class="r">17</td><td class="r">25</td><td class="r">1,334</td><td></td></tr></tfoot>
+    </table></div>
+    <p class="note"><strong>Impartirea pe intent</strong> in subsetul clasificat: 1,423,040 commercial si 427,220 informational, adica 77 la 23. Restul de 633,020 vine din trecerea 1, care este dinaintea campului de intent si nu a fost reclasificat retroactiv.</p>
+    <p class="note"><strong>Descoperirea trecerii 4 sunt roaming explainers.</strong> 198,080 pe luna de oameni care intreaba ce este data roaming, daca sa il porneasca si cat costa intr-o tara anume. Zero dependenta de brand, dificultate mica, si exact cititorul care urmeaza sa aiba nevoie de tot ce va vinde Livdar. Asta e motivul pentru care traficul informational a fost pastrat, nu filtrat.</p>
+    <div class="alert warn">
+      <p><strong>Clustere care nu au supravietuit contactului cu datele.</strong></p>
+      <p><strong>Digital nomad si remote work connectivity:</strong> 60 de cautari pe luna, doua keywords, o singura piata. Se pliaza in travel connectivity, nu primeste cluster.</p>
+      <p><strong>Local SIM si travel SIM in afara celor 9 piete europene si americane:</strong> nu returneaza aproape nimic. Categoria e moarta in Asia si in Est.</p>
+      <p><strong>Airport ca pagina per aeroport:</strong> a crescut de la 940 la 18,970 dupa ce s-au maturat aeroporturile numite, ceea ce ajunge pentru sectiuni si linkuri interne, dar nu pentru o pagina pe aeroport.</p>
+      <p><strong>Roaming alternatives ca cluster separat:</strong> se dizolva in eSIM vs alternatives si in roaming explainers. Nu are SERP propriu.</p>
+    </div>
+  </section>
+
+  <section id="s5">
+    <p class="secnum">Sectiunea 5</p>
+    <h2>Page plan</h2>
+    <p class="prose">1,342 pagini planificate, 122 pe piata, 11 piete. Nicio pagina fara cerere masurata in spate.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Tip pagina</th><th class="r">Pe piata</th><th class="r">Planificate</th><th class="r">Construite</th><th>Intent</th><th>Baza</th></tr></thead>
+      <tbody>
+        <tr><td>Destination</td><td class="r">61</td><td class="r">671</td><td class="r">24</td><td><span class="chip hot">Com</span></td><td class="note">P1 plus P2 plus P3, adica 61 de destinatii peste 500 pe luna</td></tr>
+        <tr><td>Region</td><td class="r">11</td><td class="r">121</td><td class="r">30</td><td><span class="chip hot">Com</span></td><td class="note">11 regiuni cu cerere regionala masurata</td></tr>
+        <tr><td>Comparison</td><td class="r">10</td><td class="r">110</td><td class="r">0</td><td><span class="chip hot">Com</span></td><td class="note">Perechi de furnizori cu volum real</td></tr>
+        <tr><td>Setup, how to, troubleshooting</td><td class="r">8</td><td class="r">88</td><td class="r">13</td><td><span class="chip yes">Info</span></td><td class="note">Cate una pe intent distinct de setup</td></tr>
+        <tr><td>Roaming explainers</td><td class="r">6</td><td class="r">66</td><td class="r">0</td><td><span class="chip yes">Info</span></td><td class="note">Nou in trecerea 4. Al doilea cel mai mare cluster informational.</td></tr>
+        <tr><td>Compatibility</td><td class="r">4</td><td class="r">44</td><td class="r">3</td><td><span class="chip yes">Info</span></td><td class="note">Familii de dispozitive cu cerere masurata</td></tr>
+        <tr><td>Huburi</td><td class="r">4</td><td class="r">44</td><td class="r">9</td><td><span class="chip hot">Com</span></td><td class="note">eSIM, regiuni, ghiduri, comparatii</td></tr>
+        <tr><td>eSIM vs alternatives</td><td class="r">4</td><td class="r">44</td><td class="r">0</td><td><span class="chip yes">Info</span></td><td class="note">vs roaming, vs SIM fizic, vs pocket wifi, vs wifi</td></tr>
+        <tr><td>Travel SIM, tourist SIM</td><td class="r">3</td><td class="r">33</td><td class="r">0</td><td><span class="chip hot">Com</span></td><td class="note">Nou in trecerea 4</td></tr>
+        <tr><td>Pocket si portable wifi</td><td class="r">3</td><td class="r">33</td><td class="r">0</td><td><span class="chip hot">Com</span></td><td class="note">Nou in trecerea 4. Singura alternativa cu intent comercial.</td></tr>
+        <tr><td>Airport si arrival</td><td class="r">2</td><td class="r">22</td><td class="r">0</td><td><span class="chip yes">Info</span></td><td class="note">Doua pagini generale, nu una pe aeroport</td></tr>
+        <tr><td>Mobile data abroad</td><td class="r">2</td><td class="r">22</td><td class="r">0</td><td><span class="chip yes">Info</span></td><td class="note">Nou in trecerea 4</td></tr>
+        <tr><td>Travel connectivity</td><td class="r">2</td><td class="r">22</td><td class="r">0</td><td><span class="chip yes">Info</span></td><td class="note">Absoarbe digital nomad</td></tr>
+        <tr><td>Homepage</td><td class="r">1</td><td class="r">11</td><td class="r">3</td><td><span class="chip hot">Com</span></td><td class="note">Una pe piata</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total</td><td class="r">122</td><td class="r">1,342</td><td class="r">85</td><td></td><td class="note">1,023 commercial, 319 informational</td></tr></tfoot>
+    </table></div>
+    <div class="alert">
+      <p><strong>Ce NU merita pagina proprie si trebuie pliat.</strong></p>
+      <p><strong>Digital nomad si remote work</strong> intra ca sectiune in pagina de travel connectivity. 60 de cautari nu sustin un URL.</p>
+      <p><strong>Fiecare aeroport in parte</strong> intra ca sectiune in pagina de destinatie a tarii respective si in cele doua pagini generale de airport. 18,970 pe luna impartit la zeci de aeroporturi nu sustine pagini separate.</p>
+      <p><strong>Cele 29 de destinatii P4</strong>, sub 500 pe luna, nu primesc pagina. Raman in dataset, apar in planurile regionale si in blocul de destinatii inrudite.</p>
+      <p><strong>Roaming alternatives</strong> nu e pagina, e unghiul din care se scriu paginile de vs alternatives si cele de roaming explainers.</p>
+      <p><strong>Bare head terms si brand navigation</strong> nu primesc pagini deloc. Felia castigabila din brand este in cele 110 pagini de comparison.</p>
+    </div>
+  </section>
+
+  <section id="s6">
+    <p class="secnum">Sectiunea 6</p>
+    <h2>Reguli de continut</h2>
+    <p class="prose">Fiecare regula de aici este aplicata de un script care ruleaza inainte de build si il opreste. Nu sunt intentii, sunt conditii de build. Ultima rulare: 40 pagini, 780 perechi comparate, 0 esecuri, 0 avertismente.</p>
+    <ol class="rules">
+      <li><b>Nicio pagina nu este traducerea alteia</b>Registrul de continut din <code>lib/content/index.js</code> nu are cale de traducere. Fiecare piata are propriul set de destinatii, propriul unghi, propria ordine de sectiuni si propriul FAQ. Romana are Grecia si Egipt, germana are Elvetia. Datele factuale pot fi comune: retele, GB, valabilitate, compatibilitate. Intro, argumentatie, exemple, FAQ, CTA si ordinea sectiunilor nu.</li>
+      <li><b>Fiecare limba este o piata separata</b>Nu se traduce keyword-ul, se cerceteaza separat. Brazilia foloseste "chip", Taiwanul foloseste 網卡, germanul are deja roaming UE si are nevoie de alt argument. Asta decide si slug-ul: <code>/de/esim/tuerkei/</code>, <code>/fr/esim/turquie/</code>.</li>
+      <li><b>Fara doorway pages</b>O pagina exista doar acolo unde exista continut editorial scris. Fara continut nu exista ruta, nu exista intrare in sitemap. Poarta este in registrul de continut, nu in disciplina cuiva.</li>
+      <li><b>Fara pagini aproape identice</b>780 de perechi comparate pe suprapunere de shingles de cinci cuvinte. Esec la 0.34, avertisment la 0.22. Paginile engleze de destinatie au fost rescrise cand cinci dintre ele impartaseau aceeasi ordine de sectiuni.</li>
+      <li><b>Fara template unde se schimba doar tara</b>Se verifica separat: sablon de titlu, sablon de meta description, ordine de sectiuni, intrebari de FAQ, propozitie de deschidere, unghi. Un sablon de titlu poate aparea o singura data pe piata. O intrebare de FAQ de cel mult doua ori. O propozitie de deschidere o singura data.</li>
+      <li><b>Verificare automata de similaritate</b><code>scripts/similarity-check.mjs</code>, 321 de linii, sapte reguli. <code>scripts/quality-gate.mjs</code> le ruleaza impreuna cu inca zece verificari structurale si opreste build-ul. <code>scripts/dash-check.mjs</code> verifica zece caractere interzise pe tot repo-ul.</li>
+      <li><b>Prag de continut</b>Sub 320 de cuvinte editoriale pagina pica build-ul. Cuvintele se numara doar in corpul editorial, nu in blocurile factuale comune, pentru ca datele comune nu sunt ce face o pagina demna de indexat.</li>
+      <li><b>Zero en dash, zero em dash</b>Verificat programatic pe tot repo-ul inainte de fiecare build. Acopera si figure dash, horizontal bar, minus, non breaking hyphen si formele fullwidth.</li>
+    </ol>
+  </section>
+
+  <section id="s7">
+    <p class="secnum">Sectiunea 7</p>
+    <h2>Build status</h2>
+    <div class="alert warn">
+      <p><strong>source code generated</strong><br><strong>Vercel build not yet verified</strong></p>
+      <p>Asta este statusul exact, nu o nuanta pe el. Codul exista si trece quality gate-ul. Ce nu s-a intamplat niciodata este <code>npm install</code> urmat de <code>next build</code>, pentru ca acest container nu ajunge la registry-ul npm, la Vercel sau la repo. Toate trei raspund 403.</p>
+    </div>
+    <div class="scroller"><table>
+      <thead><tr><th>Masura</th><th class="r">Valoare</th><th>Detaliu</th></tr></thead>
+      <tbody>
+        <tr><td>Fisiere</td><td class="r">44</td><td class="note">In git, fara node_modules</td></tr>
+        <tr><td>Linii de cod</td><td class="r">6,100</td><td class="note">js, jsx, mjs, css</td></tr>
+        <tr><td>Fisiere de rute</td><td class="r">5</td><td class="note">layout, homepage, catch-all, sitemap, robots</td></tr>
+        <tr><td>URL-uri statice generate</td><td class="r">85</td><td class="note">29 engleza, 28 germana, 28 romana</td></tr>
+        <tr><td>Limbi in cod</td><td class="r">17 / 3 live</td><td class="note">en, de, ro publicate. Celelalte 14 exista in tabel, nelegate si in afara sitemap-ului.</td></tr>
+        <tr><td>Tari in cod</td><td class="r">126</td><td class="note">Cu operatori reali si prefixe. 10 au pagina scrisa.</td></tr>
+        <tr><td>Cuvinte editoriale publicate</td><td class="r">15,759</td><td class="note">Toate paginile peste pragul de 320</td></tr>
+        <tr><td>Componente</td><td class="r">9</td><td class="note">Header, Footer, LanguageGlobe, DestinationSearch, PlanPanel, Cta, Faq, ConsentBanner, JsonLd</td></tr>
+      </tbody>
+    </table></div>
+    <div class="scroller"><table>
+      <thead><tr><th>Subsistem</th><th>Stare</th><th>Ce este acolo</th></tr></thead>
+      <tbody>
+        <tr><td>Routing si i18n</td><td><span class="chip yes">Real</span></td><td class="note">Slug-uri si segmente localizate. Zero coliziuni de slug in toate cele 17 limbi, verificat de gate.</td></tr>
+        <tr><td>Homepage, destinatii, regiuni, ghiduri, compatibility</td><td><span class="chip yes">Real</span></td><td class="note">85 de URL-uri, fiecare cu continut scris pentru piata lui</td></tr>
+        <tr><td>Destination search</td><td><span class="chip yes">Real</span></td><td class="note">Nume localizat, nume englez, prefix, regiune. Insensibil la diacritice, navigare cu sageti.</td></tr>
+        <tr><td>Language globe</td><td><span class="chip yes">Real</span></td><td class="note">Cade pe hubul eSIM al limbii cand pagina exacta nu exista. Nu poate da 404.</td></tr>
+        <tr><td>Hreflang, canonical, sitemap, schema, internal linking</td><td><span class="chip yes">Real</span></td><td class="note">Reciproc, self referencing, x-default. 85 canonicale unice. Fara Product si fara Offer, pentru ca nu exista produs cu pret.</td></tr>
+        <tr><td>Consent Mode v2 si GA4 events</td><td><span class="chip yes">Real</span></td><td class="note">Default-urile scrise sincron in head inainte sa poata incarca GTM. Opt evenimente definite, toate CTA-urile instrumentate.</td></tr>
+        <tr><td>Provider abstraction</td><td><span class="chip yes">Real</span></td><td class="note">Registry cu listPlans, availability, normalise, createOrder. Se schimba prin variabila de mediu.</td></tr>
+        <tr><td>Plan cards</td><td><span class="chip wait">Mock</span></td><td class="note">UI construit, randeaza planuri reale in momentul in care un provider returneaza ceva. Azi randeaza o stare cinstita de neconectat plus CTA de intentie. Niciun pret, stoc, acoperire sau operator inventat.</td></tr>
+        <tr><td>Checkout</td><td><span class="chip off">Inchis</span></td><td class="note">Gate-ul pica build-ul daca cineva porneste checkout-ul cat timp providerul e stub</td></tr>
+        <tr><td>Clarity</td><td><span class="chip wait">Asteapta</span></td><td class="note">Cablat in spatele consimtamantului si al unei variabile. Are nevoie de project id.</td></tr>
+        <tr><td>Comparison pages</td><td><span class="chip no">Neconstruit</span></td><td class="note">Rutarea exista, paginile nu. Nu public Airalo contra Holafly fara preturi si conditii verificate la zi.</td></tr>
+        <tr><td>Search Console</td><td><span class="chip no">Netestat</span></td><td class="note">Sitemap gata de trimis. Verificarea domeniului are nevoie de deployment.</td></tr>
+        <tr><td>npm install si next build</td><td><span class="chip no">Netestat</span></td><td class="note">Nu au rulat niciodata. Registry-ul raspunde 403.</td></tr>
+        <tr><td>Mobile QA randat, Core Web Vitals</td><td><span class="chip no">Netestat</span></td><td class="note">CSS scris mobile first fara element mai lat decat viewportul, dar 320, 375, 390 si 430 nu au fost masurate intr-un browser.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note"><strong>Ce a fost totusi verificat:</strong> sintaxa pe toate cele 6,100 de linii cu compilatorul TypeScript in mod de parsare JSX, zero erori. Quality gate: trece. Duplicare: 0 esecuri pe 780 de perechi. Dash: 0 en dash, 0 em dash pe 51 de fisiere. Acord intre rute si sitemap: 85 egal 85, din aceeasi sursa.</p>
+  </section>
+
+  <section id="s8">
+    <p class="secnum">Sectiunea 8</p>
+    <h2>Infrastructura</h2>
+    <div class="scroller"><table>
+      <thead><tr><th>Resursa</th><th>Adresa</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Domeniu</td><td><code>livdar.com</code></td><td class="note"><span class="chip off">Neatins</span> Niciun DNS schimbat. Nu exista deployment spre care sa arate. Nimic ireversibil facut.</td></tr>
+        <tr><td>Vercel</td><td><code>vercel.com/tradeappos-projects/livdar-mvp</code></td><td class="note"><span class="chip no">Blocat</span> vercel.com si api.vercel.com raspund 403 la CONNECT din container. Proiectul nu poate fi creat, legat sau deployat de aici.</td></tr>
+        <tr><td>GitHub</td><td><code>github.com/Tradeappo/Livdar-eSim</code></td><td class="note"><span class="chip no">Blocat</span> Clonarea merge, push-ul nu. Proxy-ul raspunde ca repo-ul nu este in setul autorizat al sesiunii. Nu exista unealta in sesiune care sa acorde accesul.</td></tr>
+        <tr><td>npm</td><td><code>registry.npmjs.org</code></td><td class="note"><span class="chip no">403</span> De asta build-ul a fost scris cu zero dependinte peste next, react si react-dom: pasul de install al Vercel este singurul care trebuie sa functioneze.</td></tr>
+        <tr><td>Git local</td><td><code>/livdar</code> in arhiva</td><td class="note"><span class="chip yes">Curat</span> Doua commit-uri, istoric intact, gata de push in secunda in care repo-ul este autorizat.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="alert warn">
+      <p><strong>Ce blocheaza deploy-ul, exact.</strong> Un singur lucru: repo-ul <code>Tradeappo/Livdar-eSim</code> nu este in sursele GitHub ale sesiunii. Adauga-l ca sursa in chatul nou si restul e o secventa de cateva minute: push, conectare in Vercel, preview URL, QA real pe patru latimi, apoi domeniul.</p>
+      <p>Daca repo-ul ramane inchis, arhiva livrata contine acelasi arbore si merge cu <code>npm install</code> apoi <code>npm run build</code> de pe orice masina cu retea.</p>
+    </div>
+    <h3>Variabile de mediu</h3>
+    <div class="pills">
+      <span>NEXT_PUBLIC_SITE_URL (are default)</span>
+      <span>NEXT_PUBLIC_GTM_ID (necesar)</span>
+      <span>NEXT_PUBLIC_CLARITY_ID (necesar)</span>
+      <span>NEXT_PUBLIC_ALLOW_INDEXING (are default)</span>
+      <span>LIVDAR_PROVIDER (default: stub)</span>
+    </div>
+    <p class="note">Niciun secret intr-o variabila publica, iar quality gate-ul pica build-ul daca vreodata apare unul acolo. Site-ul se construieste si randeaza fara niciuna setata.</p>
+  </section>
+
+  <section id="s9">
+    <p class="secnum">Sectiunea 9</p>
+    <h2>Ahrefs</h2>
+    <div class="scroller"><table>
+      <thead><tr><th>Trecere</th><th class="r">Units</th><th>Ce a acoperit</th></tr></thead>
+      <tbody>
+        <tr><td>1. Head terms</td><td class="r">34,533</td><td class="note">53 de termeni pe piata, 10 clustere, 18 piete</td></tr>
+        <tr><td>2a. Coada lunga UE</td><td class="r">38,384</td><td class="note">de, fr, it, es, nl, pl, pt, ro</td></tr>
+        <tr><td>2b. Coada lunga Asia si GB</td><td class="r">33,588</td><td class="note">en-gb, ja, zh-Hant, ko, id, tr</td></tr>
+        <tr><td>3. Coada adanca de destinatii</td><td class="r">35,187</td><td class="note">us, de, gb, it, es, fr sub limita de randuri</td></tr>
+        <tr><td>4a. Clustere complementare</td><td class="r">21,903</td><td class="note">travel SIM, roaming, pocket wifi, airport, data abroad pe 9 piete</td></tr>
+        <tr><td>4b. Piete nemasurate</td><td class="r">22,308</td><td class="note">Brazilia, Japonia, Taiwan, Golf</td></tr>
+      </tbody>
+      <tfoot><tr><td>Consumat in total</td><td class="r">185,903</td><td class="note">Workspace la 789,384 din 800,000. <strong>Au ramas 10,616 pana la resetarea din 8 octombrie.</strong></td></tr></tfoot>
+    </table></div>
+    <div class="alert">
+      <p><strong>Ce NU trebuie repetat.</strong> Nimic din cele sase treceri. Toate cele 7,852 de keywords sunt in <code>data/</code>, deduplicate, cu volume reale. Nu re-masura: tarile, limbile, volumele, clusterele, intentul, paginile validate, paginile respinse. Daca ai nevoie de o cifra, ruleaza <code>node scripts/consolidate-research.mjs</code> si o ai in doua secunde, gratis.</p>
+      <p><strong>Un lucru care lipseste din date:</strong> difficulty este null in trecerile 3 si 4. Costa 10 units pe rand peste baza de 13, iar renuntarea la el a cumparat aproximativ 3,000 de keywords reale in plus. Se completeaza pe o lista scurta cand build-ul ajunge la acele pagini.</p>
+    </div>
+    <h3>Unde mai exista oportunitate dupa 8 octombrie</h3>
+    <div class="grid2">
+      <div><h3>Brazilia, trecere adanca</h3><span>A avut o singura trecere si a returnat 60,390. Coada e neexploatata si vocabularul "chip" deschide un spatiu de seed complet diferit. Cea mai probabila sursa de crestere.</span></div>
+      <div><h3>Japonia, trecere adanca</h3><span>Coada pe durata calatoriei la dificultate 0 la 5 nu a fost epuizata. 239,800 deja masurat si inca nu s-a atins limita.</span></div>
+      <div><h3>Taiwan, trecere adanca</h3><span>172,360 masurat dintr-o singura trecere, cu vocabular 網卡 abia atins.</span></div>
+      <div><h3>Coada europeana de destinatii</h3><span>Maturarile pe "esim" in de, fr, it, es au lovit limita de randuri de doua ori. Exista volum masurabil sub 450 pe luna care nu a fost colectat.</span></div>
+      <div><h3>Validare Golf</h3><span>32,590 gasit in engleza. Merita confirmat cu volume-by-country si SERP pe termenii principali inainte sa se scrie paginile.</span></div>
+      <div><h3>Clustere complementare noi</h3><span>Travel insurance connectivity, city wifi, transport si arrival. Pentru cand Move, Stay si Areas devin produse.</span></div>
+    </div>
+    <h3>Ce trebuie urmarit dupa publicare</h3>
+    <div class="scroller"><table>
+      <thead><tr><th>Semnal</th><th>Unealta</th><th>Frecventa</th><th>Ce declanseaza</th></tr></thead>
+      <tbody>
+        <tr><td>Rankings pe keyword-urile P1</td><td class="note">Rank Tracker</td><td class="note">saptamanal</td><td class="note">Cadere de peste 5 pozitii declanseaza revizuirea paginii</td></tr>
+        <tr><td>Schimbari de SERP</td><td class="note">SERP Updates, SERP Comparison</td><td class="note">lunar</td><td class="note">Aparitia unui AI overview sau a unui pachet de produse schimba unghiul paginii</td></tr>
+        <tr><td>Keyword gaps</td><td class="note">Site Explorer, Content Gap</td><td class="note">lunar</td><td class="note">Keywords pe care competitorii ranka si noi nu</td></tr>
+        <tr><td>Competitor gaps</td><td class="note">Organic Competitors</td><td class="note">lunar</td><td class="note">Un competitor nou care intra in top 10 pe un cluster</td></tr>
+        <tr><td>Oportunitati GSC</td><td class="note">GSC integration, pozitii 11 la 20</td><td class="note">saptamanal</td><td class="note">Pagina pe pozitia 11 la 20 primeste continut in plus, nu una noua</td></tr>
+        <tr><td>Sanatate tehnica</td><td class="note">Site Audit</td><td class="note">saptamanal</td><td class="note">Canonical, hreflang, pagini orfane, viteza</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="s10">
+    <p class="secnum">Sectiunea 10</p>
+    <h2>Strategia Ahrefs pe termen lung</h2>
+    <p class="prose">Ideea de baza: Ahrefs nu este o unealta de raportare, este bucla care decide ce se scrie urmatorul. Agentul citeste semnalul, prioritizeaza, Livdar publica, GSC masoara realitatea, Ahrefs verifica pozitia, agentul optimizeaza. Nimic din asta nu are nevoie de decizie umana pe fiecare pas.</p>
+    <div class="flow"><pre><b>1. DETECTEAZA</b>   Ahrefs Keywords Explorer, Matching Terms, AI Suggestions
+                 <i>cerere noua, formulare noua, destinatie noua</i>
+       |
+<b>2. VALIDEAZA</b>   Search Intent, SERP Comparison, Content Explorer
+                 <i>este intentul potrivit? cine ranka? se poate castiga?</i>
+       |
+<b>3. GRUPEAZA</b>    Keyword Clusters, Portfolios
+                 <i>un cluster egal o pagina, nu un keyword egal o pagina</i>
+       |
+<b>4. PRIORITIZEAZA</b> agentul: volum x intent x dificultate x potrivire cu Livdar
+                 <i>iese o lista ordonata de pagini de scris</i>
+       |
+<b>5. PUBLICA</b>     Livdar: continut per piata, quality gate, similarity check
+                 <i>nicio pagina fara cerere masurata in spate</i>
+       |
+<b>6. MASOARA</b>     Google Search Console: impresii, CTR, pozitie, tara
+                 <i>realitatea, nu estimarea</i>
+       |
+<b>7. VERIFICA</b>    Rank Tracker, SERP Updates, Site Audit
+                 <i>am urcat? s-a schimbat SERP-ul? s-a rupt ceva?</i>
+       |
+<b>8. OPTIMIZEAZA</b> agentul: rescrie, extinde, combina sau depublica
+                 <i>si se intoarce la pasul 1</i></pre></div>
+    <div class="scroller"><table>
+      <thead><tr><th>Unealta</th><th>Rol in bucla</th><th>Cadenta</th></tr></thead>
+      <tbody>
+        <tr><td>Keywords Explorer</td><td class="note">Sursa primara de cerere. Matching terms pentru coada, related pentru clustere adiacente.</td><td class="note">La fiecare piata noua si lunar pe cele existente</td></tr>
+        <tr><td>Keyword Clusters</td><td class="note">Decide granita paginii. Un cluster este o pagina; doua keywords in acelasi cluster nu primesc doua pagini.</td><td class="note">Inainte de fiecare serie de pagini</td></tr>
+        <tr><td>Search Intent</td><td class="note">Decide tipul paginii: comerciala, ghid sau comparatie. Evita sa scrii un ghid pentru un keyword de cumparare.</td><td class="note">Pe fiecare cluster inainte de scris</td></tr>
+        <tr><td>AI Suggestions</td><td class="note">Gaseste formulari pe care nu le-am fi ghicit, in special in piete unde nu avem vorbitor nativ.</td><td class="note">La deschiderea unei piete noi</td></tr>
+        <tr><td>Translations</td><td class="note">Doar ca punct de plecare pentru seed-uri, niciodata pentru copy. Regula de continut interzice traducerea paginii.</td><td class="note">La seed, o data pe piata</td></tr>
+        <tr><td>SERP Comparison</td><td class="note">Arata daca acelasi keyword are SERP diferit intre doua tari. Asta justifica pagini separate pe piata.</td><td class="note">Pe keyword-urile P1, la lansare</td></tr>
+        <tr><td>SERP Updates</td><td class="note">Alerteaza cand SERP-ul se schimba sub o pagina publicata. Declanseaza rescrierea.</td><td class="note">Lunar</td></tr>
+        <tr><td>Content Explorer</td><td class="note">Ce continut a functionat deja pe subiect, ce unghi lipseste, unde sunt linkuri de castigat.</td><td class="note">Inainte de clusterele mari</td></tr>
+        <tr><td>Site Explorer</td><td class="note">Content gap fata de competitori, top pages ale lor, de unde le vine traficul.</td><td class="note">Lunar</td></tr>
+        <tr><td>Batch Analysis</td><td class="note">Verifica 200 de URL-uri deodata. Util cand planul ajunge la sute de pagini.</td><td class="note">La fiecare serie publicata</td></tr>
+        <tr><td>Portfolios</td><td class="note">Grupeaza paginile pe cluster si pe piata, ca sa vezi performanta pe segment, nu pe URL.</td><td class="note">Configurat o data, citit saptamanal</td></tr>
+        <tr><td>Rank Tracker</td><td class="note">Pozitia reala pe keyword-urile care conteaza, pe tara si pe device.</td><td class="note">Saptamanal</td></tr>
+        <tr><td>AI prompts si Brand Radar</td><td class="note">Livdar apare in raspunsurile AI? Asta devine canal in sine, separat de SERP.</td><td class="note">Lunar</td></tr>
+        <tr><td>Site Audit</td><td class="note">Canonical, hreflang, pagini orfane, viteza. La 1,342 de pagini asta nu se mai verifica manual.</td><td class="note">Saptamanal</td></tr>
+        <tr><td>Historical data</td><td class="note">Sezonalitate pe destinatii. Cand se cauta Albania si cand se cauta Thailanda decide ordinea de publicare.</td><td class="note">Inainte de planificarea trimestriala</td></tr>
+        <tr><td>GSC integration</td><td class="note">Singura sursa de adevar pentru CTR si impresii. Ahrefs estimeaza, GSC masoara.</td><td class="note">Continuu</td></tr>
+        <tr><td>API si MCP</td><td class="note">Agentul citeste direct, fara om la mijloc. Asa functioneaza bucla de mai sus in mod automat.</td><td class="note">Continuu</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note"><strong>Regula de buget.</strong> Standard, 800,000 units pe luna, resetare pe 8. Matching terms costa 13 units pe rand fara difficulty si 23 cu el. Nu cere difficulty decat pe liste scurte. Un buget sanatos: 40 la sut cercetare de piete noi, 30 la suta monitorizare de pozitii, 20 la suta gap analysis, 10 la suta rezerva.</p>
+  </section>
+
+  <section id="s11">
+    <p class="secnum">Sectiunea 11</p>
+    <h2>Trafic potential</h2>
+    <p class="prose">Pe 2,483,280 addressable. Felia comerciala este scalata la 76.9 la suta, proportia comerciala masurata pe tot ce a clasificat research-ul. Conversia se aplica doar clickurilor comerciale.</p>
+    <div class="scroller"><table>
+      <thead><tr><th>Captura</th><th class="r">Clickuri / luna</th><th class="r">Comerciale</th><th class="r">Informationale</th><th class="r">Clienti la 1%</th><th class="r">la 2%</th><th class="r">la 3%</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip off">1%</span></td><td class="r">24,833</td><td class="r">19,099</td><td class="r">5,734</td><td class="r">191</td><td class="r">382</td><td class="r">573</td></tr>
+        <tr><td><span class="chip yes">3%</span></td><td class="r">74,498</td><td class="r">57,297</td><td class="r">17,201</td><td class="r">573</td><td class="r">1,146</td><td class="r">1,719</td></tr>
+        <tr><td><span class="chip hot">5%</span></td><td class="r">124,164</td><td class="r">95,495</td><td class="r">28,669</td><td class="r">955</td><td class="r">1,910</td><td class="r">2,865</td></tr>
+        <tr><td><span class="chip hot">10%</span></td><td class="r">248,328</td><td class="r">190,990</td><td class="r">57,338</td><td class="r">1,910</td><td class="r">3,820</td><td class="r">5,730</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note"><strong>Achizitie pentru viitorul Livdar, numarata separat.</strong> Clusterele care exista ca sa hraneasca verticalele urmatoare, nu ca sa vanda un eSIM azi, adica bridge, roaming explainers, airport, mobile data abroad, travel connectivity si digital nomad, fac <strong>296,550 pe luna</strong> impreuna. La 5 la suta captura sunt 14,828 de calatori pe luna care ajung pe Livdar inainte ca zborurile, cazarea, transferul sau relocarea sa existe ca produse.</p>
+    <p class="note">Sunt aritmetica, nu prognoze. Un domeniu nou capteaza aproape zero in primele doua trimestre. Randul de 1 la suta este cifra onesta de planificare pentru anul unu.</p>
+  </section>
+
+  <section id="s12">
+    <p class="secnum">Sectiunea 12</p>
+    <h2>Urmatorii pasi in chatul nou</h2>
+    <ol class="steps">
+      <li><b>Autorizare GitHub</b>Adauga <code>Tradeappo/Livdar-eSim</code> ca sursa GitHub a sesiunii noi. Fara asta nimic din restul listei nu se poate face din chat. Este singurul lucru care nu poate fi rezolvat de agent.</li>
+      <li><b>Push</b>Repo-ul local din arhiva are doua commit-uri si istoric curat. Push direct pe main.</li>
+      <li><b>Vercel build</b>Conecteaza repo-ul la proiectul <code>tradeappos-projects/livdar-mvp</code>. Install-ul si build-ul ruleaza acolo. Zero dependinte peste next, react si react-dom, deci nu ar trebui sa existe surprize. Verifica log-ul complet, nu doar statusul verde.</li>
+      <li><b>Preview</b>Citeste URL-ul de preview si pune <code>NEXT_PUBLIC_ALLOW_INDEXING=false</code> pe environment-ul de preview, ca sa nu concureze cu productia.</li>
+      <li><b>QA real</b>Acum se poate face ce nu s-a putut pana acum: mobile la 320, 375, 390 si 430 fara overflow orizontal, Core Web Vitals, globul de limba pe mobil, search-ul pe touch, bannerul de consimtamant inainte si dupa accept.</li>
+      <li><b>livdar.com</b>Dupa ce preview-ul e curat, leaga domeniul in Vercel si abia apoi schimba DNS la Namecheap. Nu inainte. Verifica exact ce inregistrari cere Vercel.</li>
+      <li><b>Analytics</b>Pune <code>NEXT_PUBLIC_GTM_ID</code>, creeaza containerul, leaga GA4 fara sa il dublezi, adauga Clarity cu <code>NEXT_PUBLIC_CLARITY_ID</code> in spatele consimtamantului. Testeaza toate cele opt evenimente in preview.</li>
+      <li><b>Sitemap si hreflang</b>Verifica pe productie ca sitemap index-ul se serveste, ca fiecare cluster hreflang se rezolva si ca nu exista canonical duplicat. Gate-ul verifica asta la build, dar confirma pe URL-uri reale.</li>
+      <li><b>Indexare</b>Verifica proprietatea in Search Console, trimite sitemap-ul, cere indexare pe homepage si pe cele 10 pagini de destinatie existente. Apoi lasa-l sa lucreze.</li>
+      <li><b>De la 85 la 1,342</b>Ordinea de productie, dupa volum masurat: intai completeaza destinatiile P1 in cele trei piete vii, apoi deschide ja, it, es, fr, zh-Hant, nl, pl, pt-br cu cele 61 de destinatii fiecare, apoi clusterele noi din trecerea 4 care nu au nicio pagina inca: roaming explainers, pocket wifi, travel SIM, airport, mobile data abroad. Comparatiile la final, cand exista preturi verificate. <strong>Fiecare pagina trece prin quality gate sau nu se publica.</strong></li>
+    </ol>
+    <div class="alert">
+      <p><strong>Ce sa nu faci in chatul nou.</strong> Sa reiei research-ul. Sa re-masori tari, limbi, volume sau clustere. Sa traduci o pagina dintr-o limba in alta. Sa publici comparatii cu preturi neverificate. Sa pornesti checkout cat timp providerul este stub. Sa folosesti en dash sau em dash.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>7,852 keywords raw, 7,614 addressable</span>
+    <span>44 fisiere, 6,100 linii, 85 din 1,342 pagini</span>
+    <span>source code generated, Vercel build not yet verified</span>
+    <span>0 en dash, 0 em dash</span>
+  </footer>
+
+</div>

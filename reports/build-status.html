@@ -1,0 +1,253 @@
+<title>Livdar Build Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#eceff1; --surface:#ffffff; --sunk:#e3e8eb;
+    --ink:#14171a; --muted:#5f6a71; --faint:#8b959b; --line:#d6dde1;
+    --signal:#c2491a; --signal-soft:rgba(194,73,26,.13);
+    --done:#1f6f5c; --done-soft:rgba(31,111,92,.12);
+    --block:#a33a2c; --block-soft:rgba(163,58,44,.12);
+    --wait:#8a6a3a; --wait-soft:rgba(138,106,58,.14);
+    --shadow:0 1px 2px rgba(20,23,26,.05), 0 8px 24px rgba(20,23,26,.05);
+    --sans:'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --ground:#14181b; --surface:#1b2125; --sunk:#232a2f; --ink:#e8edf0; --muted:#9ba7ae;
+    --faint:#74818a; --line:#2c353b; --signal:#e0653a; --signal-soft:rgba(224,101,58,.18);
+    --done:#56b195; --done-soft:rgba(86,177,149,.16);
+    --block:#e4796a; --block-soft:rgba(228,121,106,.16);
+    --wait:#c9a067; --wait-soft:rgba(201,160,103,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3); } }
+  :root[data-theme="dark"] {
+    --ground:#14181b; --surface:#1b2125; --sunk:#232a2f; --ink:#e8edf0; --muted:#9ba7ae;
+    --faint:#74818a; --line:#2c353b; --signal:#e0653a; --signal-soft:rgba(224,101,58,.18);
+    --done:#56b195; --done-soft:rgba(86,177,149,.16);
+    --block:#e4796a; --block-soft:rgba(228,121,106,.16);
+    --wait:#c9a067; --wait-soft:rgba(201,160,103,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3); }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--sans);
+    font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .page { max-width:1000px; margin:0 auto; padding-inline:20px; padding-block:56px 88px;
+    display:flex; flex-direction:column; gap:52px; }
+  .eyebrow { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); margin:0; }
+  h1 { font-size:clamp(30px,5.2vw,44px); line-height:1.08; letter-spacing:-.025em;
+    font-weight:800; margin:12px 0 0; text-wrap:balance; }
+  h2 { font-size:20px; letter-spacing:-.015em; font-weight:700; margin:0; text-wrap:balance; }
+  p { margin:0; }
+  .prose { max-width:66ch; color:var(--muted); }
+  .prose p + p { margin-top:12px; }
+  .prose strong { color:var(--ink); font-weight:600; }
+  section { display:flex; flex-direction:column; gap:18px; }
+  .num { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  code { font-family:var(--mono); font-size:12.5px; background:var(--sunk);
+    padding:1px 5px; border-radius:2px; }
+
+  .verdict { background:var(--surface); border:1px solid var(--line); border-radius:3px;
+    box-shadow:var(--shadow); padding:26px; margin-top:26px; border-left:3px solid var(--block); }
+  .verdict p { color:var(--muted); max-width:66ch; }
+  .verdict p + p { margin-top:12px; }
+  .verdict strong { color:var(--ink); font-weight:600; }
+
+  .states { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:3px; overflow:hidden; }
+  .states div { background:var(--surface); padding:18px 16px; display:flex; flex-direction:column; gap:5px; }
+  .states dt { font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); }
+  .states dd { margin:0; font-size:15px; font-weight:700; letter-spacing:-.01em; }
+  .states small { font-size:12px; color:var(--muted); line-height:1.4; }
+  .states .ok dd { color:var(--done); }
+  .states .no dd { color:var(--block); }
+  .states .hold dd { color:var(--wait); }
+
+  .scroller { overflow-x:auto; border:1px solid var(--line); border-radius:3px;
+    background:var(--surface); box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; min-width:580px; }
+  th { text-align:left; font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); font-weight:500; padding:13px 14px;
+    border-bottom:1px solid var(--line); white-space:nowrap; }
+  td { padding:10px 14px; border-bottom:1px solid var(--line); font-size:13.5px; vertical-align:top; }
+  tbody tr:last-child td { border-bottom:0; }
+  td.r, th.r { text-align:right; }
+  td.r { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  tfoot td { font-weight:700; background:var(--sunk); border-top:2px solid var(--line); }
+  tfoot td.r { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  .chip { display:inline-block; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+    text-transform:uppercase; padding:3px 7px; border-radius:2px; white-space:nowrap; }
+  .chip.real { background:var(--done-soft); color:var(--done); }
+  .chip.stub { background:var(--wait-soft); color:var(--wait); }
+  .chip.none { background:var(--block-soft); color:var(--block); }
+  .chip.off { background:var(--sunk); color:var(--muted); }
+  .note { font-size:12px; color:var(--muted); line-height:1.45; }
+
+  .tree { background:var(--surface); border:1px solid var(--line); border-radius:3px;
+    box-shadow:var(--shadow); padding:20px; overflow-x:auto; }
+  .tree pre { margin:0; font-family:var(--mono); font-size:12.5px; line-height:1.75; color:var(--muted); }
+  .tree pre b { color:var(--ink); font-weight:600; }
+  .tree pre i { color:var(--faint); font-style:normal; }
+
+  ol.blockers { margin:0; padding:0; list-style:none; counter-reset:c; display:flex;
+    flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:3px; }
+  ol.blockers li { counter-increment:c; background:var(--surface); padding:18px 20px 18px 54px;
+    position:relative; color:var(--muted); font-size:13.5px; line-height:1.55; }
+  ol.blockers li::before { content:counter(c,decimal-leading-zero); position:absolute; left:20px;
+    top:18px; font-family:var(--mono); font-size:11px; color:var(--faint); font-variant-numeric:tabular-nums; }
+  ol.blockers li b { color:var(--ink); font-weight:600; display:block; margin-bottom:3px; font-size:13.5px; }
+
+  footer { border-top:1px solid var(--line); padding-top:20px; font-size:12px; color:var(--faint);
+    display:flex; flex-wrap:wrap; gap:6px 22px; font-family:var(--mono); }
+
+  @media (max-width:700px) {
+    .states { grid-template-columns:1fr; }
+    .page { padding-block:40px 64px; gap:40px; }
+  }
+</style>
+
+<div class="page">
+
+  <header>
+    <p class="eyebrow">Livdar eSIM / Track A / 16 September 2026</p>
+    <h1>Source code generated, Vercel build not yet verified</h1>
+    <div class="verdict">
+      <p><strong>That line is the status, not a caveat on it.</strong> 42 files and 5,907 lines exist, the quality gate passes, and every file parses clean. What has never happened is <code>npm install</code> followed by <code>next build</code>, because this container cannot reach the npm registry, Vercel, or the GitHub repository. All three answer 403.</p>
+      <p>So the build is <strong>not finished</strong>. It is written, checked as far as it can be checked without installing, and waiting on one piece of access. Anything below marked <span class="chip real">Real</span> is implemented and verified by a script. Anything marked <span class="chip stub">Stub</span> is deliberate scaffolding. Anything marked <span class="chip none">Unverified</span> cannot be confirmed until a deployment exists.</p>
+    </div>
+  </header>
+
+  <dl class="states">
+    <div class="ok"><dt>Source code</dt><dd>Generated and gated</dd><small>42 files, 5,907 lines, quality gate passes, git history intact</small></div>
+    <div class="no"><dt>Vercel build</dt><dd>Never run</dd><small>vercel.com answers 403 to CONNECT from this container</small></div>
+    <div class="hold"><dt>Blocking on</dt><dd>Repository access</dd><small>Tradeappo/Livdar-eSim is not in this session's authorized set</small></div>
+  </dl>
+
+  <section>
+    <h2>What exists in code</h2>
+    <div class="tree"><pre><b>app/</b>
+  <b>[lang]/layout.jsx</b>          <i>74   root layout, consent defaults before GTM, fonts, Clarity</i>
+  <b>[lang]/page.jsx</b>            <i>163  market homepage</i>
+  <b>[lang]/[...slug]/page.jsx</b>  <i>638  every other page type, resolved at build time</i>
+  <b>globals.css</b>                <i>602  the whole design system, no framework</i>
+  <b>sitemap.js</b>                 <i>85   sitemap index, split by market and cluster</i>
+  <b>robots.js</b>                  <i>25   closed on preview deployments</i>
+<b>components/</b>                  <i>9 files, 527 lines</i>
+  <i>Header, Footer, LanguageGlobe, DestinationSearch, PlanPanel,</i>
+  <i>Cta, Faq, ConsentBanner, JsonLd</i>
+<b>lib/</b>
+  <b>i18n.js</b>                    <i>113  17 locales, localised path segments, slugify</i>
+  <b>destinations.js</b>            <i>238  126 destinations, real operators only</i>
+  <b>resolve.js</b>                 <i>71   route resolver and the single source for sitemap plus params</i>
+  <b>seo.js</b>                     <i>127  metadata, hreflang clusters, structured data</i>
+  <b>analytics.js</b>               <i>100  consent mode defaults, event names, consent storage</i>
+  <b>routes.js</b>                  <i>26   every URL in the site, built one way</i>
+  <b>providers/</b>                 <i>114  supplier registry and the unconnected stub</i>
+  <b>content/</b>                   <i>2,261 lines of editorial across en, de, ro</i>
+<b>scripts/</b>
+  <b>quality-gate.mjs</b>           <i>217  ten checks, blocks the build</i>
+  <b>similarity-check.mjs</b>       <i>321  780 page pairs, seven duplication rules</i>
+  <b>dash-check.mjs</b>             <i>110  ten forbidden characters, whole repo</i>
+<b>middleware.js</b>                <i>65   root and unpublished locales to the best live market</i></pre></div>
+    <p class="note">5 route files produce <span class="num">85</span> static URLs. One catch-all carries the localised segments, because the file system cannot express <code>/de/ratgeber/</code> and <code>/ro/ghiduri/</code> at the same path depth.</p>
+  </section>
+
+  <section>
+    <h2>Implemented, by subsystem</h2>
+    <div class="scroller"><table>
+      <thead><tr><th>Subsystem</th><th>State</th><th>What is actually there</th></tr></thead>
+      <tbody>
+        <tr><td>Routing and i18n</td><td><span class="chip real">Real</span></td><td class="note">17 locales in the table, 3 live. Localised slugs and path segments. Zero slug collisions across all 17, verified by the gate.</td></tr>
+        <tr><td>Homepage</td><td><span class="chip real">Real</span></td><td class="note">3 built, one per market, each with its own copy. Hero, search, popular destinations, why, how it works, regions, guides, FAQ.</td></tr>
+        <tr><td>Destination pages</td><td><span class="chip real">Real</span></td><td class="note">24 built, 8 per market, deliberately different sets. Section order varies per destination.</td></tr>
+        <tr><td>Region pages</td><td><span class="chip real">Real</span></td><td class="note">30 built plus 3 hubs. 11 regions, generated from the destination dataset.</td></tr>
+        <tr><td>Guides</td><td><span class="chip real">Real</span></td><td class="note">13 built plus 3 hubs. 5 English, 4 German, 4 Romanian. Asymmetric on purpose.</td></tr>
+        <tr><td>Compatibility</td><td><span class="chip real">Real</span></td><td class="note">3 built. Device families, the ten second check, the carrier lock warning.</td></tr>
+        <tr><td>Comparison pages</td><td><span class="chip none">Not built</span></td><td class="note">Routing exists, pages do not. I will not publish Airalo against Holafly without prices and terms verified on the day.</td></tr>
+        <tr><td>Destination search</td><td><span class="chip real">Real</span></td><td class="note">Matches localised name, English name, dialling code and region. Accent insensitive, arrow key navigation, fires a search event at three characters.</td></tr>
+        <tr><td>Language globe</td><td><span class="chip real">Real</span></td><td class="note">Outside click and Escape close it. Falls back to that language's eSIM hub when the exact page does not exist, so it cannot 404.</td></tr>
+        <tr><td>Plan cards</td><td><span class="chip stub">Stub</span></td><td class="note">UI is built and renders real plans the moment a provider returns any. Today it renders an honest not connected state and intent CTAs. No invented price, stock, coverage or operator anywhere.</td></tr>
+        <tr><td>Provider abstraction</td><td><span class="chip real">Real</span></td><td class="note">Registry with listPlans, availability, normalise, createOrder. Swap by env var, no SEO page changes.</td></tr>
+        <tr><td>Checkout</td><td><span class="chip off">Off by design</span></td><td class="note">The gate fails the build if checkout is switched on while the provider is the stub.</td></tr>
+        <tr><td>Hreflang</td><td><span class="chip real">Real</span></td><td class="note">Reciprocal, self referencing, x-default, built only from pages that exist. The gate walks every cluster and resolves every URL in it.</td></tr>
+        <tr><td>Canonical</td><td><span class="chip real">Real</span></td><td class="note">Self referencing on every localised page. 85 canonicals, all unique, verified.</td></tr>
+        <tr><td>Sitemap</td><td><span class="chip real">Real</span></td><td class="note">Index split by market and by cluster, generated from the same resolver as the routes, so the two cannot drift.</td></tr>
+        <tr><td>Structured data</td><td><span class="chip real">Real</span></td><td class="note">Organization, WebSite with SearchAction, BreadcrumbList, FAQPage where two real questions exist. No Product, no Offer, because there is no product with a price.</td></tr>
+        <tr><td>Internal linking</td><td><span class="chip real">Real</span></td><td class="note">Destination to region, to related destinations, to guides, to compatibility. Generated from the dataset, not hand seeded.</td></tr>
+        <tr><td>Consent</td><td><span class="chip real">Real</span></td><td class="note">Consent Mode v2 written synchronously in head before GTM can load. Everything denied except functionality and security. Banner updates it.</td></tr>
+        <tr><td>GA4 events</td><td><span class="chip real">Real</span></td><td class="note">search, view_destination, view_plan, select_plan, check_availability, notify_signup, cta_click, language_change. Commerce events wired for when checkout exists.</td></tr>
+        <tr><td>GTM</td><td><span class="chip real">Real</span></td><td class="note">The only tag loader. GA4 is never added twice. Loads only when the env var is set.</td></tr>
+        <tr><td>Clarity</td><td><span class="chip stub">Waiting</span></td><td class="note">Wired behind consent and an env var. Needs a project id.</td></tr>
+        <tr><td>Search Console</td><td><span class="chip none">Unverified</span></td><td class="note">Sitemap is ready to submit. Domain verification needs a deployment.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Pages, countries, languages</h2>
+    <div class="scroller"><table>
+      <thead><tr><th>Measure</th><th class="r">Built</th><th class="r">Planned</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Static URLs</td><td class="r">85</td><td class="r">1,342</td><td class="note">29 English, 28 German, 28 Romanian. Plan grew with the pass 4 clusters.</td></tr>
+        <tr><td>Markets live</td><td class="r">3</td><td class="r">11</td><td class="note">en, de, ro live. ja, it, es, fr, zh-Hant, nl, pl, pt-br next, in that order of measured demand.</td></tr>
+        <tr><td>Locales in infrastructure</td><td class="r">17</td><td class="r">17</td><td class="note">The other 14 exist in the table, unlinked and out of the sitemap</td></tr>
+        <tr><td>Destinations in dataset</td><td class="r">126</td><td class="r">126</td><td class="note">Real operators, dialling codes, regions</td></tr>
+        <tr><td>Destinations with a written page</td><td class="r">10</td><td class="r">61</td><td class="note">8 per market, sets deliberately differ by market</td></tr>
+        <tr><td>Editorial words published</td><td class="r">15,759</td><td class="r"></td><td class="note">Every page above the 320 word gate</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>What was verified, and how</h2>
+    <div class="scroller"><table>
+      <thead><tr><th>Check</th><th>Result</th><th>Method</th></tr></thead>
+      <tbody>
+        <tr><td>Syntax across every file</td><td><span class="chip real">0 errors</span></td><td class="note">TypeScript compiler in JSX parse mode over all 5,907 lines. This is the strongest check possible without npm.</td></tr>
+        <tr><td>Quality gate</td><td><span class="chip real">Passes</span></td><td class="note">Ten checks: locale table agrees with content, slugs unique and safe, every generated path resolves, unpublished destinations do not resolve, hreflang reciprocal, canonicals unique, checkout off while stub, no secret in a public env var, dashes, duplication.</td></tr>
+        <tr><td>Duplication</td><td><span class="chip real">0 failures</span></td><td class="note">40 pages, 780 pairs, shingle overlap plus title, meta, section order, FAQ and opening sentence reuse. 0 warnings.</td></tr>
+        <tr><td>Dash rule</td><td><span class="chip real">0 en, 0 em</span></td><td class="note">48 files scanned. Also catches figure dash, horizontal bar, minus sign, non breaking hyphen and the fullwidth forms.</td></tr>
+        <tr><td>Route and sitemap agreement</td><td><span class="chip real">85 = 85</span></td><td class="note">Both read allPathsForLocale. The gate fails if a generated path does not resolve or a resolvable path is not generated.</td></tr>
+        <tr><td>npm install</td><td><span class="chip none">Never ran</span></td><td class="note">registry.npmjs.org answers 403 from this container.</td></tr>
+        <tr><td>next build</td><td><span class="chip none">Never ran</span></td><td class="note">Cannot run without the install above.</td></tr>
+        <tr><td>Rendered mobile QA</td><td><span class="chip none">Unverified</span></td><td class="note">CSS is written mobile first with no element wider than the viewport, but 320, 375, 390 and 430 have not been measured in a browser because nothing is deployed.</td></tr>
+        <tr><td>Core Web Vitals</td><td><span class="chip none">Unverified</span></td><td class="note">Fully static with minimal client JavaScript, but unmeasured.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>What is blocking, exactly</h2>
+    <ol class="blockers">
+      <li><b>GitHub</b>Cloning works, pushing does not. The proxy answers: repository is not in this session's authorized set. There is no tool in this session that can grant it. Adding <code>Tradeappo/Livdar-eSim</code> as a source unblocks the push, and the local repository already has a clean commit ready to go.</li>
+      <li><b>Vercel</b><code>vercel.com</code> and <code>api.vercel.com</code> both answer 403 to CONNECT. The project cannot be created, linked or deployed from here. Once the repository is pushed, connecting it in the Vercel dashboard is a two minute job that needs no shell at all.</li>
+      <li><b>npm</b><code>registry.npmjs.org</code> answers 403. This is why the build was written with zero dependencies beyond next, react and react-dom: Vercel's own install step is the only one that has to work, and there is nothing exotic in it to fail on.</li>
+      <li><b>Domain</b>livdar.com is untouched. No DNS change has been made, because there is no deployment for it to point at yet. Nothing here is irreversible.</li>
+    </ol>
+    <p class="note">The fastest path, in order: add the repository to the session, push, connect it in Vercel, read the preview URL, run the real mobile QA at four widths against it, then point the domain. If the repository stays closed, the zip already delivered contains the identical tree and runs with <code>npm install</code> then <code>npm run build</code>.</p>
+  </section>
+
+  <section>
+    <h2>Environment</h2>
+    <div class="scroller"><table>
+      <thead><tr><th>Variable</th><th>Purpose</th><th>State</th></tr></thead>
+      <tbody>
+        <tr><td><code>NEXT_PUBLIC_SITE_URL</code></td><td class="note">Canonical origin, defaults to livdar.com</td><td><span class="chip real">Has a default</span></td></tr>
+        <tr><td><code>NEXT_PUBLIC_GTM_ID</code></td><td class="note">Tag manager container, the only tag loader</td><td><span class="chip stub">Needed</span></td></tr>
+        <tr><td><code>NEXT_PUBLIC_CLARITY_ID</code></td><td class="note">Clarity project</td><td><span class="chip stub">Needed</span></td></tr>
+        <tr><td><code>NEXT_PUBLIC_ALLOW_INDEXING</code></td><td class="note">Set false on previews so they cannot compete with production</td><td><span class="chip real">Has a default</span></td></tr>
+        <tr><td><code>LIVDAR_PROVIDER</code></td><td class="note">Supplier id, defaults to the stub</td><td><span class="chip real">Has a default</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">No secret is in a public variable, and the quality gate fails the build if one ever appears there. The site builds and renders with none of these set.</p>
+  </section>
+
+  <footer>
+    <span>44 files, 6,100 lines, 85 static URLs</span>
+    <span>Quality gate passes, 0 en dash, 0 em dash</span>
+    <span>Source code generated, Vercel build not yet verified</span>
+  </footer>
+
+</div>
