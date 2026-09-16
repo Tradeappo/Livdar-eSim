@@ -11,6 +11,8 @@ import {
   destinationContent,
   publishedDestinationIds,
   publishedGuideSlugs,
+  publishedRegionIds,
+  localesWithRegion,
   guideContent,
   localesWithDestination,
   localesWithGuide,
@@ -32,6 +34,7 @@ import {
   destinationAlternates,
   guideAlternates,
   regionAlternates,
+  compatibilityAlternates,
   hubAlternates,
   breadcrumbSchema,
   faqSchema,
@@ -76,12 +79,10 @@ export async function generateMetadata({ params }) {
     });
   }
   if (node.type === 'region') {
-    const name = regionName(node.region, lang);
-    const count = destinationsInRegion(node.region.id).length;
+    const c = node.content;
     return buildMetadata({
-      title: name + ' eSIM: ' + count + ' destinations covered | Livdar',
-      description:
-        'Every destination Livdar covers in ' + name + ', with the networks that run each country and the coverage notes that matter.',
+      title: c.title,
+      description: c.metaDescription,
       path: routes.region(lang, node.region.id),
       locale: lang,
       alternates: regionAlternates(node.region.id),
@@ -107,12 +108,11 @@ export async function generateMetadata({ params }) {
   }
   if (node.type === 'compatibility') {
     return buildMetadata({
-      title: 'eSIM compatibility: does your phone support it | Livdar',
-      description: 'Which phones support eSIM, how to check your own device in ten seconds, and what dual SIM actually changes.',
+      title: t.compatibilityTitle,
+      description: t.compatibilityDescription,
       path: routes.compatibility(lang),
       locale: lang,
-      alternates: hubAlternates('esim'),
-      robots: { index: true, follow: true },
+      alternates: compatibilityAlternates(),
     });
   }
   return buildMetadata({
@@ -447,13 +447,19 @@ function renderGuide(locale, node) {
 function renderRegion(locale, node) {
   const t = ui(locale);
   const region = node.region;
+  const c = node.content;
   const name = regionName(region, locale);
   const items = destinationsInRegion(region.id);
   const published = publishedDestinationIds(locale);
+  const live = items.filter((d) => published.includes(d.id));
+  const rest = items.filter((d) => !published.includes(d.id));
 
   const alt = {};
-  contentLocales().forEach((l) => {
+  localesWithRegion(region.id).forEach((l) => {
     alt[l] = routes.region(l, region.id);
+  });
+  contentLocales().forEach((l) => {
+    if (!alt[l]) alt[l] = routes.regionsHub(l);
   });
 
   const crumbs = [
@@ -462,6 +468,10 @@ function renderRegion(locale, node) {
     { name, path: routes.region(locale, region.id) },
   ];
 
+  const order = (c.sectionOrder || Object.keys(c.sections || {})).filter(
+    (key) => (c.sections || {})[key]
+  );
+
   return (
     <>
       <Header locale={locale} alternatePaths={alt} />
@@ -469,32 +479,56 @@ function renderRegion(locale, node) {
         <Crumbs items={crumbs} />
         <div className="wrap">
           <section className="hero" style={{ paddingBlock: '24px 8px' }}>
-            <h1 style={{ fontSize: 'clamp(28px,5.4vw,42px)' }}>{name}</h1>
-            <p className="hero-lead">
-              {items.length} {t.destinationsCount}.
-            </p>
+            <p className="kicker">{c.angle}</p>
+            <h1 style={{ fontSize: 'clamp(28px,5.4vw,42px)' }}>{c.h1}</h1>
+            {(c.intro || []).map((p, i) => (
+              <p key={i} className={i === 0 ? 'hero-lead' : undefined}>
+                {p}
+              </p>
+            ))}
+          </section>
+
+          <section className="section-head">
+            <h2>{t.regionDestinationsHeading(name, items.length)}</h2>
           </section>
           <section>
             <div className="grid grid-4">
-              {items.map((d) =>
-                published.includes(d.id) ? (
-                  <a className="tile dest-tile" key={d.id} href={routes.destination(locale, d)}>
-                    <strong>{localizedName(d, locale)}</strong>
-                    <span className="code">{d.callingCode}</span>
-                  </a>
-                ) : (
-                  <div className="tile dest-tile" key={d.id} style={{ opacity: 0.62 }}>
-                    <strong>{localizedName(d, locale)}</strong>
-                    <span className="code">{d.callingCode}</span>
-                  </div>
-                )
-              )}
+              {live.map((d) => (
+                <a className="tile dest-tile" key={d.id} href={routes.destination(locale, d)}>
+                  <strong>{localizedName(d, locale)}</strong>
+                  <span className="code">{d.callingCode}</span>
+                </a>
+              ))}
+              {rest.map((d) => (
+                <div className="tile dest-tile" key={d.id} style={{ opacity: 0.62 }}>
+                  <strong>{localizedName(d, locale)}</strong>
+                  <span className="code">{d.callingCode}</span>
+                </div>
+              ))}
             </div>
           </section>
+
+          <article className="article">
+            {order.map((key) => (
+              <Section key={key} data={c.sections[key]} />
+            ))}
+            <div className="inline-cta">
+              <p>{t.searchLabel}</p>
+              <Cta
+                label={t.nav.esim}
+                href={routes.esimHub(locale)}
+                position="region_footer"
+                locale={locale}
+                region={region.id}
+                cluster="regional"
+              />
+            </div>
+            <Faq items={c.faq} heading={t.faq} />
+          </article>
         </div>
       </main>
       <Footer locale={locale} />
-      <JsonLd data={[breadcrumbSchema(crumbs)]} />
+      <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(c.faq)]} />
     </>
   );
 }

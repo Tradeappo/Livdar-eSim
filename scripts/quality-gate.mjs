@@ -12,6 +12,9 @@ import {
   contentLocales,
   publishedDestinationIds,
   publishedGuideSlugs,
+  publishedRegionIds,
+  regionContent,
+  localesWithRegion,
   localesWithDestination,
   localesWithGuide,
 } from '../lib/content/index.js';
@@ -146,8 +149,12 @@ contentLocales().forEach((locale) => {
     if (!localesWithGuide(slug).includes(locale)) fail('Guide ' + slug + ' in ' + locale + ' is missing from its own cluster.');
   });
 
-  REGIONS.filter((r) => r.id !== 'global').forEach((r) => {
-    assertCluster('region ' + r.id, locale, routes.region(locale, r.id), regionAlternates(r.id));
+  // Region pages exist only where content was authored for that market, so the
+  // cluster is checked against what is published rather than against the full
+  // region table. A region without content has no URL to reference.
+  publishedRegionIds(locale).forEach((id) => {
+    assertCluster('region ' + id, locale, routes.region(locale, id), regionAlternates(id));
+    if (!localesWithRegion(id).includes(locale)) fail('Region ' + id + ' in ' + locale + ' is missing from its own cluster.');
   });
 });
 

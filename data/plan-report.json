@@ -1,734 +1,821 @@
 {
-  "generatedAt": "2026-09-16T07:37:14.041Z",
+  "generatedAt": "2026-09-16T09:58:13.963Z",
+  "formula": {
+    "statement": "A page exists when one topic in one published market carries at least PAGE_FLOOR measured searches a month. Total pages is the sum over published markets of home + hubs + destination pages + region pages + topic pages.",
+    "PAGE_FLOOR": 500,
+    "TIER": {
+      "P1": 5000,
+      "P2": 1000,
+      "P3": 500
+    },
+    "HUBS": 4,
+    "topicDefinition": "Ahrefs parentTopic when the row carries one, otherwise the keyword itself.",
+    "clustersWithoutPages": {
+      "long_tail": "absorbed by the pages that already rank",
+      "bridge": "future product, not a page today",
+      "digital_nomad": "below the floor everywhere"
+    }
+  },
+  "markets": {
+    "measured": 32,
+    "published": 12,
+    "publishedList": [
+      "en-us",
+      "en-gb",
+      "de-de",
+      "ro-ro",
+      "ja-jp",
+      "zh-Hant-tw",
+      "it-it",
+      "es-es",
+      "fr-fr",
+      "nl-nl",
+      "pl-pl",
+      "pt-br"
+    ],
+    "withheld": [
+      {
+        "market": "pt-pt",
+        "why": "too small for its own market, served from Brazilian Portuguese"
+      },
+      {
+        "market": "en-ae",
+        "why": "Gulf searches in English, served from the English pages"
+      },
+      {
+        "market": "en-sa",
+        "why": "Gulf searches in English, served from the English pages"
+      },
+      {
+        "market": "ar-ae",
+        "why": "native Arabic phrasing exists but is small and mostly domestic operator promotion"
+      },
+      {
+        "market": "ar-sa",
+        "why": "native Arabic phrasing exists but is small and mostly domestic operator promotion"
+      },
+      {
+        "market": "id-id",
+        "why": "relevant volume comes from foreigners researching Bali, not from Indonesians leaving"
+      },
+      {
+        "market": "tr-tr",
+        "why": "same shape, the volume is inbound tourists, not Turkish outbound"
+      },
+      {
+        "market": "ko-kr",
+        "why": "native outbound tail close to nonexistent"
+      },
+      {
+        "market": "ru-ru",
+        "why": "one generic virtual number term, not eSIM"
+      },
+      {
+        "market": "en-tr",
+        "why": "English typed in Turkey, inbound visitors, served from the English pages"
+      },
+      {
+        "market": "de-tr",
+        "why": "German typed in Turkey, inbound visitors, served from the German pages"
+      },
+      {
+        "market": "fr-tr",
+        "why": "French typed in Turkey, inbound visitors, served from the French pages"
+      },
+      {
+        "market": "it-tr",
+        "why": "Italian typed in Turkey, inbound visitors, served from the Italian pages"
+      },
+      {
+        "market": "nl-tr",
+        "why": "Dutch typed in Turkey, inbound visitors, served from the Dutch pages"
+      },
+      {
+        "market": "pl-tr",
+        "why": "Polish typed in Turkey, inbound visitors, served from the Polish pages"
+      },
+      {
+        "market": "es-tr",
+        "why": "Spanish typed in Turkey, inbound visitors, served from the Spanish pages"
+      },
+      {
+        "market": "ru-tr",
+        "why": "Russian typed in Turkey, and Russian is not a published market"
+      },
+      {
+        "market": "en-id",
+        "why": "English typed in Indonesia, the Bali researcher, served from the English pages"
+      },
+      {
+        "market": "en-kr",
+        "why": "English typed in Korea, inbound visitors, served from the English pages"
+      },
+      {
+        "market": "ja-kr",
+        "why": "Japanese typed in Korea, inbound visitors, served from the Japanese pages"
+      }
+    ],
+    "unpoliced": []
+  },
   "destinations": {
     "inDataset": 126,
     "withMeasuredDemand": 92,
     "withoutMeasuredDemand": 34,
-    "strong": 63,
-    "mid": 21,
+    "tierCounts": {
+      "P1": 31,
+      "P2": 23,
+      "P3": 9,
+      "P4": 63
+    },
     "top": [
       {
         "id": "japan",
-        "name": "japan",
         "volume": 101630,
-        "keywords": 330
+        "keywords": 330,
+        "tier": "P1"
       },
       {
         "id": "united-states",
-        "name": "united states",
         "volume": 82490,
-        "keywords": 317
+        "keywords": 317,
+        "tier": "P1"
       },
       {
         "id": "turkey",
-        "name": "turkey",
         "volume": 51540,
-        "keywords": 178
+        "keywords": 178,
+        "tier": "P1"
       },
       {
         "id": "morocco",
-        "name": "morocco",
         "volume": 44030,
-        "keywords": 229
+        "keywords": 229,
+        "tier": "P1"
       },
       {
         "id": "thailand",
-        "name": "thailand",
         "volume": 41310,
-        "keywords": 121
+        "keywords": 121,
+        "tier": "P1"
       },
       {
         "id": "egypt",
-        "name": "egypt",
         "volume": 30280,
-        "keywords": 181
+        "keywords": 181,
+        "tier": "P1"
       },
       {
         "id": "switzerland",
-        "name": "switzerland",
         "volume": 22720,
-        "keywords": 35
+        "keywords": 35,
+        "tier": "P1"
       },
       {
         "id": "united-arab-emirates",
-        "name": "united arab emirates",
         "volume": 22380,
-        "keywords": 80
+        "keywords": 80,
+        "tier": "P1"
       },
       {
         "id": "albania",
-        "name": "albania",
         "volume": 21370,
-        "keywords": 161
+        "keywords": 161,
+        "tier": "P1"
       },
       {
         "id": "indonesia",
-        "name": "indonesia",
         "volume": 17030,
-        "keywords": 120
+        "keywords": 120,
+        "tier": "P1"
       },
       {
         "id": "canada",
-        "name": "canada",
         "volume": 16180,
-        "keywords": 99
+        "keywords": 99,
+        "tier": "P1"
       },
       {
         "id": "spain",
-        "name": "spain",
         "volume": 16050,
-        "keywords": 64
+        "keywords": 64,
+        "tier": "P1"
       },
       {
         "id": "italy",
-        "name": "italy",
         "volume": 15300,
-        "keywords": 46
+        "keywords": 46,
+        "tier": "P1"
       },
       {
         "id": "mexico",
-        "name": "mexico",
         "volume": 15260,
-        "keywords": 94
+        "keywords": 94,
+        "tier": "P1"
       },
       {
         "id": "vietnam",
-        "name": "vietnam",
         "volume": 15080,
-        "keywords": 103
+        "keywords": 103,
+        "tier": "P1"
       },
       {
         "id": "germany",
-        "name": "germany",
         "volume": 12450,
-        "keywords": 24
+        "keywords": 24,
+        "tier": "P1"
       },
       {
         "id": "france",
-        "name": "france",
         "volume": 12270,
-        "keywords": 34
+        "keywords": 34,
+        "tier": "P1"
       },
       {
         "id": "bali",
-        "name": "bali",
         "volume": 11650,
-        "keywords": 96
+        "keywords": 96,
+        "tier": "P1"
       },
       {
         "id": "greece",
-        "name": "greece",
         "volume": 11430,
-        "keywords": 124
+        "keywords": 124,
+        "tier": "P1"
       },
       {
         "id": "portugal",
-        "name": "portugal",
         "volume": 11200,
-        "keywords": 59
+        "keywords": 59,
+        "tier": "P1"
       },
       {
         "id": "india",
-        "name": "india",
         "volume": 11000,
-        "keywords": 43
+        "keywords": 43,
+        "tier": "P1"
       },
       {
         "id": "china",
-        "name": "china",
         "volume": 10560,
-        "keywords": 35
+        "keywords": 35,
+        "tier": "P1"
       },
       {
         "id": "united-kingdom",
-        "name": "united kingdom",
         "volume": 10100,
-        "keywords": 20
+        "keywords": 20,
+        "tier": "P1"
       },
       {
         "id": "australia",
-        "name": "australia",
         "volume": 8690,
-        "keywords": 36
+        "keywords": 36,
+        "tier": "P1"
       },
       {
         "id": "philippines",
-        "name": "philippines",
         "volume": 7730,
-        "keywords": 28
+        "keywords": 28,
+        "tier": "P1"
       },
       {
         "id": "andorra",
-        "name": "andorra",
         "volume": 7310,
-        "keywords": 8
+        "keywords": 8,
+        "tier": "P1"
       },
       {
         "id": "tunisia",
-        "name": "tunisia",
         "volume": 6980,
-        "keywords": 48
+        "keywords": 48,
+        "tier": "P1"
       },
       {
         "id": "costa-rica",
-        "name": "costa rica",
         "volume": 6050,
-        "keywords": 21
+        "keywords": 21,
+        "tier": "P1"
       },
       {
         "id": "montenegro",
-        "name": "montenegro",
         "volume": 5570,
-        "keywords": 50
+        "keywords": 50,
+        "tier": "P1"
       },
       {
         "id": "south-africa",
-        "name": "south africa",
         "volume": 5230,
-        "keywords": 24
+        "keywords": 24,
+        "tier": "P1"
       },
       {
         "id": "south-korea",
-        "name": "south korea",
         "volume": 5180,
-        "keywords": 18
+        "keywords": 18,
+        "tier": "P1"
       },
       {
         "id": "netherlands",
-        "name": "netherlands",
         "volume": 4910,
-        "keywords": 13
+        "keywords": 13,
+        "tier": "P2"
       },
       {
         "id": "norway",
-        "name": "norway",
         "volume": 4350,
-        "keywords": 8
+        "keywords": 8,
+        "tier": "P2"
       },
       {
         "id": "brazil",
-        "name": "brazil",
         "volume": 4140,
-        "keywords": 20
+        "keywords": 20,
+        "tier": "P2"
       },
       {
         "id": "sri-lanka",
-        "name": "sri lanka",
         "volume": 3640,
-        "keywords": 22
+        "keywords": 22,
+        "tier": "P2"
       },
       {
         "id": "saudi-arabia",
-        "name": "saudi arabia",
         "volume": 3620,
-        "keywords": 14
+        "keywords": 14,
+        "tier": "P2"
       },
       {
         "id": "mauritius",
-        "name": "mauritius",
         "volume": 2790,
-        "keywords": 12
+        "keywords": 12,
+        "tier": "P2"
       },
       {
         "id": "argentina",
-        "name": "argentina",
         "volume": 2630,
-        "keywords": 45
+        "keywords": 45,
+        "tier": "P2"
       },
       {
         "id": "cape-verde",
-        "name": "cape verde",
         "volume": 2370,
-        "keywords": 16
+        "keywords": 16,
+        "tier": "P2"
       },
       {
         "id": "malaysia",
-        "name": "malaysia",
         "volume": 2360,
-        "keywords": 7
+        "keywords": 7,
+        "tier": "P2"
       },
       {
         "id": "dominican-republic",
-        "name": "dominican republic",
         "volume": 2210,
-        "keywords": 13
+        "keywords": 13,
+        "tier": "P2"
       },
       {
         "id": "maldives",
-        "name": "maldives",
         "volume": 2190,
-        "keywords": 14
+        "keywords": 14,
+        "tier": "P2"
       },
       {
         "id": "serbia",
-        "name": "serbia",
         "volume": 1980,
-        "keywords": 5
+        "keywords": 5,
+        "tier": "P2"
       },
       {
         "id": "oman",
-        "name": "oman",
         "volume": 1930,
-        "keywords": 6
+        "keywords": 6,
+        "tier": "P2"
       },
       {
         "id": "colombia",
-        "name": "colombia",
         "volume": 1900,
-        "keywords": 7
+        "keywords": 7,
+        "tier": "P2"
       },
       {
         "id": "new-zealand",
-        "name": "new zealand",
         "volume": 1860,
-        "keywords": 8
+        "keywords": 8,
+        "tier": "P2"
       },
       {
         "id": "curacao",
-        "name": "curacao",
         "volume": 1800,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P2"
       },
       {
         "id": "chile",
-        "name": "chile",
         "volume": 1680,
-        "keywords": 34
+        "keywords": 34,
+        "tier": "P2"
       },
       {
         "id": "poland",
-        "name": "poland",
         "volume": 1380,
-        "keywords": 4
+        "keywords": 4,
+        "tier": "P2"
       },
       {
         "id": "peru",
-        "name": "peru",
         "volume": 1350,
-        "keywords": 5
+        "keywords": 5,
+        "tier": "P2"
       },
       {
         "id": "singapore",
-        "name": "singapore",
         "volume": 1240,
-        "keywords": 5
+        "keywords": 5,
+        "tier": "P2"
       },
       {
         "id": "tanzania",
-        "name": "tanzania",
         "volume": 1200,
-        "keywords": 4
+        "keywords": 4,
+        "tier": "P2"
       },
       {
         "id": "cyprus",
-        "name": "cyprus",
         "volume": 1180,
-        "keywords": 8
+        "keywords": 8,
+        "tier": "P2"
       },
       {
         "id": "algeria",
-        "name": "algeria",
         "volume": 1100,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P2"
       },
       {
         "id": "namibia",
-        "name": "namibia",
         "volume": 950,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P3"
       },
       {
         "id": "georgia",
-        "name": "georgia",
         "volume": 900,
-        "keywords": 3
+        "keywords": 3,
+        "tier": "P3"
       },
       {
         "id": "kenya",
-        "name": "kenya",
         "volume": 900,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P3"
       },
       {
         "id": "romania",
-        "name": "romania",
         "volume": 880,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P3"
       },
       {
         "id": "seychelles",
-        "name": "seychelles",
         "volume": 800,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P3"
       },
       {
         "id": "taiwan",
-        "name": "taiwan",
         "volume": 720,
-        "keywords": 4
+        "keywords": 4,
+        "tier": "P3"
       },
       {
         "id": "cambodia",
-        "name": "cambodia",
         "volume": 670,
-        "keywords": 8
+        "keywords": 8,
+        "tier": "P3"
       },
       {
         "id": "senegal",
-        "name": "senegal",
         "volume": 620,
-        "keywords": 9
+        "keywords": 9,
+        "tier": "P3"
       },
       {
         "id": "sweden",
-        "name": "sweden",
         "volume": 550,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P3"
       },
       {
         "id": "pakistan",
-        "name": "pakistan",
         "volume": 450,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "israel",
-        "name": "israel",
         "volume": 380,
-        "keywords": 3
+        "keywords": 3,
+        "tier": "P4"
       },
       {
         "id": "malta",
-        "name": "malta",
         "volume": 370,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "croatia",
-        "name": "croatia",
         "volume": 350,
-        "keywords": 4
+        "keywords": 4,
+        "tier": "P4"
       },
       {
         "id": "zanzibar",
-        "name": "zanzibar",
         "volume": 350,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "panama",
-        "name": "panama",
         "volume": 330,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "aruba",
-        "name": "aruba",
         "volume": 330,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "iceland",
-        "name": "iceland",
         "volume": 300,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "qatar",
-        "name": "qatar",
         "volume": 300,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "uzbekistan",
-        "name": "uzbekistan",
         "volume": 300,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "austria",
-        "name": "austria",
         "volume": 270,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "ecuador",
-        "name": "ecuador",
         "volume": 270,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "armenia",
-        "name": "armenia",
         "volume": 250,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "jamaica",
-        "name": "jamaica",
         "volume": 250,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "cuba",
-        "name": "cuba",
         "volume": 250,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "bahrain",
-        "name": "bahrain",
         "volume": 230,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "ireland",
-        "name": "ireland",
         "volume": 200,
-        "keywords": 4
+        "keywords": 4,
+        "tier": "P4"
       },
       {
         "id": "denmark",
-        "name": "denmark",
         "volume": 200,
-        "keywords": 3
+        "keywords": 3,
+        "tier": "P4"
       },
       {
         "id": "czechia",
-        "name": "czechia",
         "volume": 150,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "jordan",
-        "name": "jordan",
         "volume": 150,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "moldova",
-        "name": "moldova",
         "volume": 150,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "fiji",
-        "name": "fiji",
         "volume": 80,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "botswana",
-        "name": "botswana",
         "volume": 80,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "bulgaria",
-        "name": "bulgaria",
         "volume": 70,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "hungary",
-        "name": "hungary",
         "volume": 50,
-        "keywords": 2
+        "keywords": 2,
+        "tier": "P4"
       },
       {
         "id": "hong-kong",
-        "name": "hong kong",
         "volume": 30,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "bolivia",
-        "name": "bolivia",
         "volume": 30,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "bahamas",
-        "name": "bahamas",
         "volume": 30,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       },
       {
         "id": "nicaragua",
-        "name": "nicaragua",
         "volume": 20,
-        "keywords": 1
+        "keywords": 1,
+        "tier": "P4"
       }
     ],
     "rejected": [
       {
         "id": "bosnia-and-herzegovina",
-        "name": "bosnia and herzegovina",
         "region": "balkans"
       },
       {
         "id": "north-macedonia",
-        "name": "north macedonia",
         "region": "balkans"
       },
       {
         "id": "belgium",
-        "name": "belgium",
         "region": "europe"
       },
       {
         "id": "finland",
-        "name": "finland",
         "region": "europe"
       },
       {
         "id": "nepal",
-        "name": "nepal",
         "region": "asia"
       },
       {
         "id": "kazakhstan",
-        "name": "kazakhstan",
         "region": "asia"
       },
       {
         "id": "azerbaijan",
-        "name": "azerbaijan",
         "region": "asia"
       },
       {
         "id": "laos",
-        "name": "laos",
         "region": "southeast-asia"
       },
       {
         "id": "guatemala",
-        "name": "guatemala",
         "region": "central-america"
       },
       {
         "id": "barbados",
-        "name": "barbados",
         "region": "caribbean"
       },
       {
         "id": "uruguay",
-        "name": "uruguay",
         "region": "south-america"
       },
       {
         "id": "nigeria",
-        "name": "nigeria",
         "region": "africa"
       },
       {
         "id": "ghana",
-        "name": "ghana",
         "region": "africa"
       },
       {
         "id": "slovenia",
-        "name": "slovenia",
         "region": "europe"
       },
       {
         "id": "slovakia",
-        "name": "slovakia",
         "region": "europe"
       },
       {
         "id": "estonia",
-        "name": "estonia",
         "region": "europe"
       },
       {
         "id": "latvia",
-        "name": "latvia",
         "region": "europe"
       },
       {
         "id": "lithuania",
-        "name": "lithuania",
         "region": "europe"
       },
       {
         "id": "luxembourg",
-        "name": "luxembourg",
         "region": "europe"
       },
       {
         "id": "ukraine",
-        "name": "ukraine",
         "region": "europe"
       },
       {
         "id": "bangladesh",
-        "name": "bangladesh",
         "region": "asia"
       },
       {
         "id": "mongolia",
-        "name": "mongolia",
         "region": "asia"
       },
       {
         "id": "brunei",
-        "name": "brunei",
         "region": "southeast-asia"
       },
       {
         "id": "myanmar",
-        "name": "myanmar",
         "region": "southeast-asia"
       },
       {
         "id": "kyrgyzstan",
-        "name": "kyrgyzstan",
         "region": "asia"
       },
       {
         "id": "kuwait",
-        "name": "kuwait",
         "region": "middle-east"
       },
       {
         "id": "lebanon",
-        "name": "lebanon",
         "region": "middle-east"
       },
       {
         "id": "ethiopia",
-        "name": "ethiopia",
         "region": "africa"
       },
       {
         "id": "uganda",
-        "name": "uganda",
         "region": "africa"
       },
       {
         "id": "rwanda",
-        "name": "rwanda",
         "region": "africa"
       },
       {
         "id": "puerto-rico",
-        "name": "puerto rico",
         "region": "caribbean"
       },
       {
         "id": "paraguay",
-        "name": "paraguay",
         "region": "south-america"
       },
       {
         "id": "honduras",
-        "name": "honduras",
         "region": "central-america"
       },
       {
         "id": "belize",
-        "name": "belize",
         "region": "central-america"
       }
     ]
@@ -748,19 +835,241 @@
     "builtTotal": 85
   },
   "plan": {
-    "markets": 9,
-    "destinationPagesPerMarket": 63,
-    "planned": {
-      "destination": 567,
-      "region": 99,
-      "guides_setup": 72,
-      "comparisons": 90,
-      "compatibility": 36,
-      "travelConnectivity": 54,
-      "airport": 0,
-      "hubs": 36,
-      "home": 9
+    "byMarket": {
+      "en-us": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 58,
+        "region": 11,
+        "comparison": 5,
+        "setup": 4,
+        "compatibility": 3,
+        "roaming_explainer": 6,
+        "vs_alternatives": 7,
+        "travel_sim": 1,
+        "pocket_wifi": 23,
+        "airport": 6,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 2,
+        "commercial": 7,
+        "total": 138
+      },
+      "en-gb": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 56,
+        "region": 11,
+        "comparison": 19,
+        "setup": 2,
+        "compatibility": 3,
+        "roaming_explainer": 8,
+        "vs_alternatives": 1,
+        "travel_sim": 4,
+        "pocket_wifi": 3,
+        "airport": 1,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 2,
+        "commercial": 8,
+        "total": 123
+      },
+      "de-de": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 59,
+        "region": 11,
+        "comparison": 28,
+        "setup": 3,
+        "compatibility": 8,
+        "roaming_explainer": 15,
+        "vs_alternatives": 0,
+        "travel_sim": 0,
+        "pocket_wifi": 1,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 2,
+        "commercial": 13,
+        "total": 145
+      },
+      "ro-ro": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 55,
+        "region": 11,
+        "comparison": 0,
+        "setup": 0,
+        "compatibility": 0,
+        "roaming_explainer": 0,
+        "vs_alternatives": 0,
+        "travel_sim": 0,
+        "pocket_wifi": 0,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 0,
+        "commercial": 0,
+        "total": 71
+      },
+      "ja-jp": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 54,
+        "region": 11,
+        "comparison": 5,
+        "setup": 6,
+        "compatibility": 2,
+        "roaming_explainer": 0,
+        "vs_alternatives": 1,
+        "travel_sim": 4,
+        "pocket_wifi": 2,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 3,
+        "commercial": 0,
+        "total": 93
+      },
+      "zh-Hant-tw": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 54,
+        "region": 11,
+        "comparison": 6,
+        "setup": 1,
+        "compatibility": 3,
+        "roaming_explainer": 0,
+        "vs_alternatives": 2,
+        "travel_sim": 5,
+        "pocket_wifi": 0,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 0,
+        "commercial": 0,
+        "total": 87
+      },
+      "it-it": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 57,
+        "region": 11,
+        "comparison": 21,
+        "setup": 2,
+        "compatibility": 2,
+        "roaming_explainer": 14,
+        "vs_alternatives": 0,
+        "travel_sim": 0,
+        "pocket_wifi": 4,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 0,
+        "commercial": 4,
+        "total": 120
+      },
+      "es-es": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 55,
+        "region": 11,
+        "comparison": 23,
+        "setup": 3,
+        "compatibility": 4,
+        "roaming_explainer": 11,
+        "vs_alternatives": 0,
+        "travel_sim": 0,
+        "pocket_wifi": 1,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 0,
+        "commercial": 5,
+        "total": 118
+      },
+      "fr-fr": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 57,
+        "region": 11,
+        "comparison": 18,
+        "setup": 2,
+        "compatibility": 5,
+        "roaming_explainer": 6,
+        "vs_alternatives": 0,
+        "travel_sim": 0,
+        "pocket_wifi": 3,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 3,
+        "commercial": 8,
+        "total": 118
+      },
+      "nl-nl": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 55,
+        "region": 11,
+        "comparison": 9,
+        "setup": 1,
+        "compatibility": 2,
+        "roaming_explainer": 4,
+        "vs_alternatives": 0,
+        "travel_sim": 0,
+        "pocket_wifi": 0,
+        "airport": 0,
+        "mobile_data_abroad": 0,
+        "travel_connectivity": 0,
+        "commercial": 5,
+        "total": 92
+      },
+      "pl-pl": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 55,
+        "region": 11,
+        "comparison": 7,
+        "setup": 3,
+        "compatibility": 5,
+        "roaming_explainer": 8,
+        "vs_alternatives": 0,
+        "travel_sim": 0,
+        "pocket_wifi": 0,
+        "airport": 0,
+        "mobile_data_abroad": 1,
+        "travel_connectivity": 2,
+        "commercial": 2,
+        "total": 99
+      },
+      "pt-br": {
+        "home": 1,
+        "hubs": 4,
+        "destination": 54,
+        "region": 11,
+        "comparison": 0,
+        "setup": 3,
+        "compatibility": 0,
+        "roaming_explainer": 0,
+        "vs_alternatives": 0,
+        "travel_sim": 5,
+        "pocket_wifi": 0,
+        "airport": 0,
+        "mobile_data_abroad": 2,
+        "travel_connectivity": 1,
+        "commercial": 0,
+        "total": 81
+      }
     },
-    "plannedTotal": 963
+    "byType": {
+      "home": 12,
+      "hubs": 48,
+      "destination": 669,
+      "region": 132,
+      "comparison": 141,
+      "setup": 30,
+      "compatibility": 37,
+      "roaming_explainer": 72,
+      "vs_alternatives": 11,
+      "travel_sim": 19,
+      "pocket_wifi": 37,
+      "airport": 7,
+      "mobile_data_abroad": 3,
+      "travel_connectivity": 15,
+      "commercial": 52
+    },
+    "total": 1285
   }
 }

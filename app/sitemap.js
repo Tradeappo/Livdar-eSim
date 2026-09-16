@@ -6,7 +6,7 @@
 // nothing noindex can appear here, because nothing unpublished has a route.
 
 import { REGIONS } from '../lib/destinations.js';
-import { contentLocales, publishedDestinationIds, publishedGuideSlugs } from '../lib/content/index.js';
+import { contentLocales, publishedDestinationIds, publishedGuideSlugs, publishedRegionIds } from '../lib/content/index.js';
 import { routes, absolute } from '../lib/routes.js';
 import {
   homeAlternates,
@@ -14,6 +14,7 @@ import {
   destinationAlternates,
   guideAlternates,
   regionAlternates,
+  compatibilityAlternates,
 } from '../lib/seo.js';
 
 const LAST_MODIFIED = new Date();
@@ -26,7 +27,7 @@ export async function generateSitemaps() {
   contentLocales().forEach((locale) => {
     ids.push({ id: locale + '-core' });
     if (publishedDestinationIds(locale).length) ids.push({ id: locale + '-destinations' });
-    ids.push({ id: locale + '-regions' });
+    if (publishedRegionIds(locale).length) ids.push({ id: locale + '-regions' });
     if (publishedGuideSlugs(locale).length) ids.push({ id: locale + '-guides' });
   });
   return ids;
@@ -48,7 +49,7 @@ function coreEntries(locale) {
     entry(routes.esimHub(locale), hubAlternates('esim'), 0.9, 'weekly'),
     entry(routes.regionsHub(locale), hubAlternates('regions'), 0.7, 'monthly'),
     entry(routes.guidesHub(locale), hubAlternates('guides'), 0.7, 'monthly'),
-    entry(routes.compatibility(locale), null, 0.6, 'monthly'),
+    entry(routes.compatibility(locale), compatibilityAlternates(), 0.6, 'monthly'),
   ];
 }
 
@@ -59,7 +60,7 @@ function destinationEntries(locale) {
 }
 
 function regionEntries(locale) {
-  return REGION_IDS.map((id) => entry(routes.region(locale, id), regionAlternates(id), 0.6, 'monthly'));
+  return publishedRegionIds(locale).map((id) => entry(routes.region(locale, id), regionAlternates(id), 0.6, 'monthly'));
 }
 
 function guideEntries(locale) {

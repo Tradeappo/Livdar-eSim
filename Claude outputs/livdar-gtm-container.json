@@ -1,0 +1,96 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-09-16T10:00:00.000Z",
+  "containerVersion": {
+    "path": "accounts/6377173380/containers/264303745/versions/0",
+    "accountId": "6377173380",
+    "containerId": "264303745",
+    "containerVersionId": "0",
+    "name": "Livdar base measurement",
+    "description": "GA4 configuration plus one event tag that forwards every Livdar dataLayer event with its parameters. Consent Mode v2 defaults are written by the site before this container loads.",
+    "container": {
+      "path": "accounts/6377173380/containers/264303745",
+      "accountId": "6377173380",
+      "containerId": "264303745",
+      "name": "livdar.com",
+      "publicId": "GTM-WKGXHXWC",
+      "usageContext": ["WEB"]
+    },
+    "variable": [
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "1", "name": "DLV - language", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "language" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "2", "name": "DLV - market", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "market" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "3", "name": "DLV - destination", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "destination" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "4", "name": "DLV - region", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "region" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "5", "name": "DLV - content_cluster", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "content_cluster" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "6", "name": "DLV - plan_type", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "plan_type" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "7", "name": "DLV - cta_label", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "cta_label" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "8", "name": "DLV - cta_position", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "cta_position" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "9", "name": "DLV - search_term", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "search_term" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "10", "name": "DLV - from_language", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "from_language" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "11", "name": "DLV - to_language", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" }, { "type": "TEMPLATE", "key": "name", "value": "to_language" } ] },
+      { "accountId": "6377173380", "containerId": "264303745", "variableId": "12", "name": "CONST - GA4 Measurement ID", "type": "c", "parameter": [ { "type": "TEMPLATE", "key": "value", "value": "G-DY02HH34DT" } ] }
+    ],
+    "trigger": [
+      {
+        "accountId": "6377173380", "containerId": "264303745", "triggerId": "1",
+        "name": "Livdar dataLayer events",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          { "type": "MATCH_REGEX", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "^(search|view_destination|view_plan|select_plan|check_availability|notify_signup|cta_click|language_change)$" } ] }
+        ]
+      }
+    ],
+    "tag": [
+      {
+        "accountId": "6377173380", "containerId": "264303745", "tagId": "1",
+        "name": "Google tag - GA4 Livdar",
+        "type": "googtag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "{{CONST - GA4 Measurement ID}}" },
+          { "type": "LIST", "key": "configSettingsTable", "list": [
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "send_page_view" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "true" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "language" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - language}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "market" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DLV - market}}" } ] }
+          ] }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" }
+      },
+      {
+        "accountId": "6377173380", "containerId": "264303745", "tagId": "2",
+        "name": "GA4 event - all Livdar events",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "{{Event}}" },
+          { "type": "BOOLEAN", "key": "sendEcommerceData", "value": "false" },
+          { "type": "LIST", "key": "eventParameters", "list": [
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "language" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - language}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "market" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - market}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "destination" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - destination}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "region" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - region}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "content_cluster" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - content_cluster}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "plan_type" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - plan_type}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "cta_label" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_label}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "cta_position" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - cta_position}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "search_term" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - search_term}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "from_language" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - from_language}}" } ] },
+            { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "name", "value": "to_language" }, { "type": "TEMPLATE", "key": "value", "value": "{{DLV - to_language}}" } ] }
+          ] },
+          { "type": "TAG_REFERENCE", "key": "measurementId", "value": "Google tag - GA4 Livdar" }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" }
+      }
+    ],
+    "builtInVariable": [
+      { "accountId": "6377173380", "containerId": "264303745", "type": "EVENT", "name": "Event" },
+      { "accountId": "6377173380", "containerId": "264303745", "type": "PAGE_URL", "name": "Page URL" },
+      { "accountId": "6377173380", "containerId": "264303745", "type": "PAGE_PATH", "name": "Page Path" },
+      { "accountId": "6377173380", "containerId": "264303745", "type": "PAGE_HOSTNAME", "name": "Page Hostname" },
+      { "accountId": "6377173380", "containerId": "264303745", "type": "REFERRER", "name": "Referrer" }
+    ],
+    "fingerprint": "0"
+  }
+}

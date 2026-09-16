@@ -37,13 +37,10 @@ export default function Footer({ locale }) {
               <li><a href={routes.guide(locale, 'esim-vs-roaming')}>{t.compareOptions}</a></li>
             </ul>
           </div>
-          <div>
-            <h4>{t.footerLegal}</h4>
-            <ul>
-              <li><a href={routes.home(locale) + 'privacy/'}>{t.privacy}</a></li>
-              <li><a href={routes.home(locale) + 'cookies/'}>{t.cookies}</a></li>
-            </ul>
-          </div>
+          {/* The legal column is out until the pages behind it exist. It linked
+              to /privacy/ and /cookies/, which were never built, so every page
+              on the site carried two links to a 404. A missing link is bad; a
+              link that lies about where it goes is worse. */}
         </div>
         <p className="footer-note">
           Livdar eSIM is in an early phase. Plans are not on sale yet and nothing on this site takes

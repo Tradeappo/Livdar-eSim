@@ -24,6 +24,8 @@ import {
   contentLocales,
   publishedDestinationIds,
   publishedGuideSlugs,
+  publishedRegionIds,
+  regionContent,
   destinationContent,
   guideContent,
   homeContent,
@@ -155,6 +157,24 @@ function collect() {
         type: 'destination',
         subject,
         altSubject: dest ? dest.names.en : id,
+        title: content.title,
+        metaDescription: content.metaDescription,
+        angle: content.angle,
+        sectionOrder: content.sectionOrder || Object.keys(content.sections || {}),
+        faq: (content.faq || []).map((f) => f.q),
+        first: firstSentence(content),
+        text: bodyText(content),
+        wordCount: editorialWordCount(content),
+      });
+    });
+
+    publishedRegionIds(locale).forEach((id) => {
+      const content = regionContent(locale, id);
+      pages.push({
+        key: locale + ' / region / ' + id,
+        locale,
+        type: 'region',
+        subject: content.h1,
         title: content.title,
         metaDescription: content.metaDescription,
         angle: content.angle,
