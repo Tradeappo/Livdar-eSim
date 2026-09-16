@@ -340,3 +340,16 @@ bani:bani terestre:terestre abia:abia
 # "printr" by contrast is correct without a diacritic, so it is not here.
 # "ti" appears only in the clitic "ti-l" / "ti-o", which is "ți".
 intr:într ti:ți
+
+# ---- fifth pass: the interface and home strings ----
+# These live in the Romanian blocks of lib/content/ui.js and lib/content/home.js,
+# which the first four passes never opened. They are the four words in the main
+# navigation and the labels on every button, so they are the most seen Romanian
+# on the site.
+Anunta:Anunță Campurile:Câmpurile Cauta:Caută Comparatii:Comparații
+Confidentialitate:Confidențialitate Continua:Continuă Filtreaza:Filtrează
+Inapoi:Înapoi Inca:Încă Intrebari:Întrebări Masuram:Măsurăm Pret:Preț
+Salveaza:Salvează Schimba:Schimbă Compara:Compară Testam:Testăm
+cautate:căutate comparatii:comparații conectam:conectăm disponibila:disponibilă
+lasam:lăsăm limitarile:limitările optiunile:opțiunile pastrez:păstrez
+potriveste:potrivește respecta:respectă vanzare:vânzare suna:sună

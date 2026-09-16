@@ -19,7 +19,7 @@
 
 import { readFileSync } from 'node:fs';
 import { MAP, NEVER_TOUCH } from './fix-german-umlauts.mjs';
-import { loadMap as loadRomanianMap, AMBIGUOUS } from './fix-romanian-diacritics.mjs';
+import { loadMap as loadRomanianMap, AMBIGUOUS, SCOPED_FILES, blockEnd } from './fix-romanian-diacritics.mjs';
 
 // German content, plus the two shared files that carry German alongside the
 // other languages.
@@ -78,8 +78,30 @@ export function runOrthographyCheck() {
   // Romanian. Same idea, same table, from the repair script rather than a copy.
   const roMap = loadRomanianMap();
   const roWrong = [...roMap.keys()].filter((w) => !AMBIGUOUS.has(w));
-  ROMANIAN_FILES.forEach((rel) => {
-    const prose = romanianProse(readFileSync(new URL('../' + rel, import.meta.url), 'utf8'));
+  // The five Romanian-only files, plus the Romanian block of each shared file.
+  // The shared blocks are here because leaving them out is what let the home
+  // page and the whole navigation keep their stripped spellings while every
+  // article page around them was corrected.
+  const romanianSources = ROMANIAN_FILES.map((rel) => ({
+    rel,
+    source: readFileSync(new URL('../' + rel, import.meta.url), 'utf8'),
+  }));
+  SCOPED_FILES.forEach(({ file, opener }) => {
+    const source = readFileSync(new URL(file, import.meta.url), 'utf8');
+    const m = source.match(opener);
+    if (!m) {
+      failures.push(file.replace('../', '') + ': no Romanian block found. Fix the opener rather than skipping the check.');
+      return;
+    }
+    const start = source.indexOf('{', m.index);
+    romanianSources.push({
+      rel: file.replace('../', '') + ' (ro block)',
+      source: source.slice(start, blockEnd(source, start)),
+    });
+  });
+
+  romanianSources.forEach(({ rel, source }) => {
+    const prose = romanianProse(source);
     const words = new Set(prose.match(/[\p{L}]+/gu) || []);
     roWrong.forEach((bad) => {
       if (words.has(bad)) {
@@ -92,7 +114,7 @@ export function runOrthographyCheck() {
   });
 
   return {
-    files: GERMAN_FILES.length + ROMANIAN_FILES.length,
+    files: GERMAN_FILES.length + ROMANIAN_FILES.length + SCOPED_FILES.length,
     guardedWords: wrong.length + roWrong.length,
     failures,
   };

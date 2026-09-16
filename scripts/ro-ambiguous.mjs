@@ -14,6 +14,7 @@
 // point: a wrong diacritic here is not a typo, it is a different word.
 
 import { readFileSync, writeFileSync } from 'node:fs';
+import { SCOPED_FILES, blockEnd } from './fix-romanian-diacritics.mjs';
 
 const FILES = [
   '../lib/content/ro/compatibility.js',
@@ -49,6 +50,10 @@ const CA_STAYS = new Set([
   // "sa" into "să", which would stop the key matching on a second pass and
   // silently flip a correct "ca" into "că".
   'ajunge|să', 'acasa|să', 'acasă|să', 'acasă|peste',
+  // From the Romanian blocks of the shared files. Both are purpose clauses:
+  // "conectam un furnizor, ca primele planuri sa fie cele care se folosesc" and
+  // "cookie urile necesare ca site ul sa functioneze".
+  'furnizor|primele', 'necesare|site',
 ]);
 
 // Everything else, decided one occurrence at a time. Key is "previous|next".
@@ -185,11 +190,7 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   let kept = 0;
   const unmatched = [];
 
-  FILES.forEach((rel) => {
-    const url = new URL(rel, import.meta.url);
-    const before = readFileSync(url, 'utf8');
-
-    const after = rewriteStrings(before, (text) => {
+  const resolveIn = (source) => rewriteStrings(source, (text) => {
       const parts = text.split(/(\P{L}+)/u);
       // Word positions only, so "previous" and "next" mean previous and next
       // word rather than previous and next character run.
@@ -218,9 +219,26 @@ if (import.meta.url === 'file://' + process.argv[1]) {
         parts[pi] = to; applied += 1;
       });
 
-      return parts.join('');
-    });
+    return parts.join('');
+  });
 
+  FILES.forEach((rel) => {
+    const url = new URL(rel, import.meta.url);
+    const before = readFileSync(url, 'utf8');
+    const after = resolveIn(before);
+    if (after !== before) writeFileSync(url, after);
+  });
+
+  // The Romanian block inside the shared files, bounded the same way the repair
+  // script bounds it, so the English and German blocks are never entered.
+  SCOPED_FILES.forEach(({ file, opener }) => {
+    const url = new URL(file, import.meta.url);
+    const before = readFileSync(url, 'utf8');
+    const m = before.match(opener);
+    if (!m) throw new Error('No Romanian block found in ' + file);
+    const start = before.indexOf('{', m.index);
+    const end = blockEnd(before, start);
+    const after = before.slice(0, start) + resolveIn(before.slice(start, end)) + before.slice(end);
     if (after !== before) writeFileSync(url, after);
   });
 

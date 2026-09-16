@@ -97,6 +97,42 @@ LOCALES.forEach((l) => {
   });
 });
 
+// 2b. Guide slugs must be URL safe, and any slug the site chrome hardcodes must
+// exist in every published market.
+//
+// BOTH CHECKS EXIST BECAUSE BOTH FAILED. A diacritics table entry mapping "esim"
+// to "eSIM" rewrote three Romanian guide keys into 'how-eSIM-works',
+// 'install-eSIM' and 'eSIM-vs-roaming'. Nothing caught it: generation and
+// resolution read the same corrupted key, so the routes were self consistent and
+// every existing check passed. What actually broke was invisible from inside
+// that loop. The footer hardcodes 'how-esim-works' and 'esim-vs-roaming', so
+// every Romanian page carried two links to a 404, and Romanian silently left the
+// hreflang cluster for all three guides.
+{
+  contentLocales().forEach((locale) => {
+    publishedGuideSlugs(locale).forEach((slug) => {
+      if (!/^[a-z0-9-]+$/.test(slug)) {
+        fail('Guide slug "' + slug + '" in ' + locale + ' is not URL safe. Slugs are lowercase, digits and hyphens.');
+      }
+    });
+  });
+
+  // Slugs the header and footer link to unconditionally. If one of these is
+  // missing from a published market, that market ships a broken link on every
+  // page, which is exactly how this was found.
+  const CHROME_GUIDE_SLUGS = ['how-esim-works', 'esim-vs-roaming'];
+  contentLocales().forEach((locale) => {
+    CHROME_GUIDE_SLUGS.forEach((slug) => {
+      if (!publishedGuideSlugs(locale).includes(slug)) {
+        fail(
+          'The footer links to the guide "' + slug + '" on every page, but ' + locale +
+            ' does not publish it. That market ships a broken link site wide.'
+        );
+      }
+    });
+  });
+}
+
 // 3. Every path that will be statically generated must resolve, and every
 // resolvable path must be generated. The sitemap reads from the same source, so
 // this also proves the sitemap cannot drift.
