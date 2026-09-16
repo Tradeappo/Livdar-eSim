@@ -1,20 +1,25 @@
 import LanguageGlobe from './LanguageGlobe.jsx';
 import { ui } from '../lib/content/index.js';
 import { routes } from '../lib/routes.js';
-import { LOCALES, isLive } from '../lib/i18n.js';
+import { publishedMarkets } from '../lib/markets.js';
 
-// Language options are built per page. Where the current page exists in another
-// language, the globe points at that exact page. Where it does not, it points at
-// that language's eSIM hub. There is no path through this component that can
-// produce a link to a page that was never published.
+// Language options are built per page from the published market list, not from
+// a hand maintained array. A market appears here the moment its content is
+// complete and disappears the moment it is not, so the selector cannot offer a
+// language whose pages do not exist.
+//
+// Where the current page exists in another language, the globe points at that
+// exact page. Where it does not, it points at that language's eSIM hub. There is
+// no path through this component that can produce a link to a page that was
+// never published.
 
 export default function Header({ locale, alternatePaths = {} }) {
   const t = ui(locale);
-  const options = LOCALES.filter((l) => isLive(l.code)).map((l) => ({
-    code: l.code,
-    name: l.name,
-    endonym: l.endonym,
-    href: alternatePaths[l.code] || routes.esimHub(l.code),
+  const options = publishedMarkets().map((m) => ({
+    code: m.code,
+    name: m.name,
+    endonym: m.endonym,
+    href: alternatePaths[m.code] || routes.esimHub(m.code),
   }));
 
   return (

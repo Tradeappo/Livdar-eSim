@@ -14,12 +14,13 @@ export default async function robots() {
     };
   }
 
-  // robots.txt used to advertise a single /sitemap.xml that Next never
-  // generates, because generateSitemaps publishes one file per market and
-  // cluster. Listing the real files means a crawler is never sent to a 404, and
-  // the list is built from the same function that creates the files, so it can
-  // never drift.
-  const sitemaps = (await generateSitemaps()).map((s) => absolute('/sitemap/' + s.id + '.xml'));
+  // The index at /sitemap.xml is served by app/sitemap.xml/route.js and is
+  // built from the same generateSitemaps function that creates the files below
+  // it. Both the index and the individual files are listed, because some
+  // crawlers follow only the first entry and an index costs nothing to add.
+  const sitemaps = [absolute('/sitemap.xml')].concat(
+    (await generateSitemaps()).map((s) => absolute('/sitemap/' + s.id + '.xml'))
+  );
 
   return {
     rules: [

@@ -26,6 +26,9 @@ import {
   publishedGuideSlugs,
   publishedRegionIds,
   regionContent,
+  compatibilityContent,
+  legalContent,
+  LEGAL_KINDS,
   destinationContent,
   guideContent,
   homeContent,
@@ -186,6 +189,42 @@ function collect() {
       });
     });
 
+    const compat = compatibilityContent(locale);
+    if (compat) {
+      pages.push({
+        key: locale + ' / compatibility',
+        locale,
+        type: 'compatibility',
+        subject: compat.h1,
+        title: compat.title,
+        metaDescription: compat.metaDescription,
+        angle: compat.angle,
+        sectionOrder: compat.sectionOrder || Object.keys(compat.sections || {}),
+        faq: (compat.faq || []).map((f) => f.q),
+        first: firstSentence(compat),
+        text: bodyText(compat),
+        wordCount: editorialWordCount(compat),
+      });
+    }
+
+    LEGAL_KINDS.forEach((kind) => {
+      const content = legalContent(locale, kind);
+      if (!content) return;
+      pages.push({
+        key: locale + ' / legal / ' + kind,
+        locale,
+        type: 'legal',
+        subject: content.h1,
+        title: content.title,
+        metaDescription: content.metaDescription,
+        sectionOrder: content.sectionOrder || Object.keys(content.sections || {}),
+        faq: (content.faq || []).map((f) => f.q),
+        first: firstSentence(content),
+        text: bodyText(content),
+        wordCount: editorialWordCount(content),
+      });
+    });
+
     publishedGuideSlugs(locale).forEach((slug) => {
       const content = guideContent(locale, slug);
       pages.push({
@@ -245,10 +284,19 @@ export function runSimilarityCheck({ quiet = false } = {}) {
   }
 
   // 3: title and meta templates, per market.
+  //
+  // Legal pages are exempt from the template rules and only from those. A
+  // privacy policy and a cookie policy are supposed to share a title shape and
+  // a document structure, and forcing them apart would make both worse. They
+  // remain subject to the word floor, to the duplicate body rule and to the
+  // opening sentence rule, which is where a stamped out legal page would show.
+  const EXEMPT_FROM_TEMPLATES = new Set(['legal']);
+
   contentLocales().forEach((locale) => {
     const inMarket = pages.filter((p) => p.locale === locale);
+    const editorial = inMarket.filter((p) => !EXEMPT_FROM_TEMPLATES.has(p.type));
 
-    const titles = tally(inMarket.map((p) => ({
+    const titles = tally(editorial.map((p) => ({
       value: template(p.title, [p.subject, p.altSubject]),
       key: p.key,
     })));
@@ -258,7 +306,7 @@ export function runSimilarityCheck({ quiet = false } = {}) {
       }
     });
 
-    const metas = tally(inMarket.map((p) => ({
+    const metas = tally(editorial.map((p) => ({
       value: template(p.metaDescription, [p.subject, p.altSubject]),
       key: p.key,
     })));
@@ -269,7 +317,7 @@ export function runSimilarityCheck({ quiet = false } = {}) {
     });
 
     // 4: section order.
-    const orders = tally(inMarket.map((p) => ({ value: (p.sectionOrder || []).join('>'), key: p.key })));
+    const orders = tally(editorial.map((p) => ({ value: (p.sectionOrder || []).join('>'), key: p.key })));
     orders.forEach((keys, value) => {
       if (keys.length > LIMITS.sectionOrderMaxSameLocale) {
         failures.push('SECTION ORDER shared by ' + keys.length + ' pages in ' + locale + ': ' + value + '\n    ' + keys.join('\n    '));
@@ -278,7 +326,7 @@ export function runSimilarityCheck({ quiet = false } = {}) {
 
     // 5: FAQ questions.
     const questions = [];
-    inMarket.forEach((p) => (p.faq || []).forEach((q) => questions.push({ value: template(q, [p.subject, p.altSubject]), key: p.key })));
+    editorial.forEach((p) => (p.faq || []).forEach((q) => questions.push({ value: template(q, [p.subject, p.altSubject]), key: p.key })));
     tally(questions).forEach((keys, value) => {
       if (keys.length > LIMITS.faqQuestionMaxSameLocale) {
         failures.push('FAQ QUESTION reused ' + keys.length + ' times in ' + locale + ': "' + value + '"\n    ' + keys.join('\n    '));

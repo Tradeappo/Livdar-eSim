@@ -600,3 +600,29 @@ a.tile:hover { border-color: var(--line-strong); }
 .muted { color: var(--muted); }
 .stack > * + * { margin-top: 10px; }
 .divider { height: 1px; background: var(--line); border: 0; margin: 34px 0; }
+
+/* Shop surface. The plan card is deliberately the same shape whether a supplier
+   is connected or not, so the unavailable state reads as an empty shelf rather
+   than as a broken page. */
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.plan-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+.plan-card .plan-skeleton {
+  margin: 0;
+  flex: 1 1 auto;
+}
+.plan-card .btn {
+  margin-top: auto;
+}
+.plan-state[data-stage] {
+  scroll-margin-top: 24px;
+}
+@media (max-width: 720px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}

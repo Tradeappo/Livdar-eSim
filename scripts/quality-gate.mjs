@@ -6,40 +6,59 @@
 
 import { runDashCheck } from './dash-check.mjs';
 import { runSimilarityCheck } from './similarity-check.mjs';
+import { marketStatus, REQUIRED_FOR_PUBLICATION } from '../lib/markets.js';
 import { LOCALES, segment } from '../lib/i18n.js';
 import { DESTINATIONS, REGIONS, destinationSlug } from '../lib/destinations.js';
 import {
   contentLocales,
   publishedDestinationIds,
   publishedGuideSlugs,
+  ui,
   publishedRegionIds,
   regionContent,
   localesWithRegion,
+  compatibilityContent,
+  localesWithCompatibility,
+  legalContent,
+  legalDraft,
+  legalProblems,
+  LEGAL_KINDS,
+  IDENTITY,
   localesWithDestination,
   localesWithGuide,
 } from '../lib/content/index.js';
 import { resolvePath, allPathsForLocale } from '../lib/resolve.js';
 import { routes, absolute } from '../lib/routes.js';
-import { homeAlternates, hubAlternates, destinationAlternates, guideAlternates, regionAlternates } from '../lib/seo.js';
+import { homeAlternates, hubAlternates, destinationAlternates, guideAlternates, regionAlternates, compatibilityAlternates } from '../lib/seo.js';
 import { CHECKOUT_ENABLED, activeProviderId } from '../lib/providers/index.js';
 
 const failures = [];
 const notes = [];
 
 function fail(message) { failures.push(message); }
+function warn(message) { notes.push(message); }
+
+// Indexing on means this build is headed for the real domain rather than a
+// preview, which raises the bar for what may ship.
+const INDEXABLE = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== 'false';
 
 // 1. Locale table and content registry must agree. A locale marked live with no
 // content would be a linked market with nothing behind it.
 {
-  const live = LOCALES.filter((l) => l.live).map((l) => l.code).sort();
-  const withContent = contentLocales().slice().sort();
-  live.forEach((code) => {
-    if (!withContent.includes(code)) fail('Locale ' + code + ' is marked live but has no content registry entry.');
+  // Market readiness. Publication is computed from content rather than declared,
+  // so this prints what is live and what each pending market still needs. A
+  // market appears in the selector, in hreflang and in the sitemap only when it
+  // clears every requirement.
+  const status = marketStatus();
+  const live = status.filter((m) => m.published).map((m) => m.code);
+  const pending = status.filter((m) => !m.published);
+  notes.push('Published markets: ' + live.length + ' of ' + status.length + ' (' + live.join(', ') + ')');
+  notes.push('Requirements per market: ' + REQUIRED_FOR_PUBLICATION.join(', '));
+  if (!live.length) fail('No market is publishable. Every locale is missing required content.');
+  pending.slice(0, 6).forEach((m) => {
+    notes.push('  pending ' + m.code + ': needs ' + m.missing.join(', '));
   });
-  withContent.forEach((code) => {
-    if (!live.includes(code)) fail('Locale ' + code + ' has content but is not marked live in lib/i18n.js.');
-  });
-  notes.push('Live markets: ' + live.join(', '));
+  if (pending.length > 6) notes.push('  and ' + (pending.length - 6) + ' more locales awaiting content');
 }
 
 // 2. Every published destination must be a real destination, and slugs must be
@@ -152,11 +171,75 @@ contentLocales().forEach((locale) => {
   // Region pages exist only where content was authored for that market, so the
   // cluster is checked against what is published rather than against the full
   // region table. A region without content has no URL to reference.
+  if (compatibilityContent(locale)) {
+    assertCluster('compatibility', locale, routes.compatibility(locale), compatibilityAlternates());
+    if (!localesWithCompatibility().includes(locale)) fail('Compatibility in ' + locale + ' is missing from its own cluster.');
+  }
+
   publishedRegionIds(locale).forEach((id) => {
     assertCluster('region ' + id, locale, routes.region(locale, id), regionAlternates(id));
     if (!localesWithRegion(id).includes(locale)) fail('Region ' + id + ' in ' + locale + ' is missing from its own cluster.');
   });
 });
+
+// 5b. The interface string table crosses into client components, so every value
+// in it must be JSON serialisable. A function here does not fail until Next
+// tries to prerender a page, and the error message points at the component
+// rather than at the table. Catching it in the gate costs nothing.
+{
+  contentLocales().forEach((locale) => {
+    const table = ui(locale);
+    const walk = (node, path) => {
+      Object.entries(node).forEach(([key, value]) => {
+        const where = path ? path + '.' + key : key;
+        const type = typeof value;
+        if (type === 'function') {
+          fail('ui(' + locale + ').' + where + ' is a function. The string table is passed to client components and must stay serialisable. Use a {placeholder} token instead.');
+        } else if (value && type === 'object' && !Array.isArray(value)) {
+          walk(value, where);
+        }
+      });
+    };
+    walk(table, '');
+  });
+}
+
+// 5c. Legal pages must not go live with invented legal facts.
+//
+// Livdar is a project rather than a registered company, and the policies say so
+// in plain words. That is allowed and it is the honest position. What is not
+// allowed is a fabricated registration number, a fake VAT id, a sample address
+// or a leftover template token, because each of those tells the reader there is
+// a legal entity standing behind the site when there is not.
+//
+// The check matches shapes rather than topics, so the sentence that denies
+// having a company number passes while an actual company number would not. It
+// also requires the positive half: the privacy policy has to name the
+// controller, give a working contact address, and state that Livdar is not a
+// registered company for as long as that is true.
+{
+  const blocked = [];
+  contentLocales().forEach((locale) => {
+    LEGAL_KINDS.forEach((kind) => {
+      if (!legalDraft(locale, kind)) return;
+      legalProblems(locale, kind).forEach((problem) => {
+        blocked.push(locale + '/' + kind + ': ' + problem);
+      });
+    });
+  });
+  if (blocked.length) {
+    // Unlike a missing company registration, these are always failures. A
+    // published policy with a fabricated identifier is worse on a preview than
+    // no policy at all, so this does not soften when indexing is off.
+    blocked.forEach((b) => fail('Legal page rejected, ' + b));
+  } else {
+    notes.push(
+      'Legal: controller ' + IDENTITY.publicName +
+        (IDENTITY.incorporated ? ', incorporated' : ', project not incorporated, stated as such') +
+        ', contact ' + IDENTITY.contactEmail
+    );
+  }
+}
 
 // 6. Canonicals must be unique. Two pages sharing one canonical means one of
 // them is invisible.

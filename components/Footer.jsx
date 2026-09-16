@@ -1,11 +1,11 @@
-import { ui } from '../lib/content/index.js';
+import { ui, legalContent } from '../lib/content/index.js';
 import { routes } from '../lib/routes.js';
 import { DESTINATION_COUNT } from '../lib/destinations.js';
-import { liveLocales } from '../lib/i18n.js';
+import { publishedMarkets } from '../lib/markets.js';
 
 export default function Footer({ locale }) {
   const t = ui(locale);
-  const langs = liveLocales().length;
+  const langs = publishedMarkets().length;
 
   return (
     <footer className="site-footer">
@@ -37,10 +37,22 @@ export default function Footer({ locale }) {
               <li><a href={routes.guide(locale, 'esim-vs-roaming')}>{t.compareOptions}</a></li>
             </ul>
           </div>
-          {/* The legal column is out until the pages behind it exist. It linked
-              to /privacy/ and /cookies/, which were never built, so every page
-              on the site carried two links to a 404. A missing link is bad; a
-              link that lies about where it goes is worse. */}
+          {/* Linked only where the page exists. The footer used to point at
+              /privacy/ and /cookies/ unconditionally, which put two links to a
+              404 on all eighty five pages. */}
+          {legalContent(locale, 'privacy') || legalContent(locale, 'cookies') ? (
+            <div>
+              <h4>{t.footerLegal}</h4>
+              <ul>
+                {legalContent(locale, 'privacy') ? (
+                  <li><a href={routes.privacy(locale)}>{t.privacy}</a></li>
+                ) : null}
+                {legalContent(locale, 'cookies') ? (
+                  <li><a href={routes.cookies(locale)}>{t.cookies}</a></li>
+                ) : null}
+              </ul>
+            </div>
+          ) : null}
         </div>
         <p className="footer-note">
           Livdar eSIM is in an early phase. Plans are not on sale yet and nothing on this site takes

@@ -5,7 +5,8 @@ import DestinationSearch from '../../../components/DestinationSearch.jsx';
 import Cta from '../../../components/Cta.jsx';
 import Faq from '../../../components/Faq.jsx';
 import JsonLd from '../../../components/JsonLd.jsx';
-import PlanPanel from '../../../components/PlanPanel.jsx';
+import PlanShop from '../../../components/PlanShop.jsx';
+import ViewDestination from '../../../components/ViewDestination.jsx';
 import {
   ui,
   destinationContent,
@@ -13,6 +14,8 @@ import {
   publishedGuideSlugs,
   publishedRegionIds,
   localesWithRegion,
+  localesWithCompatibility,
+  localesWithLegal,
   guideContent,
   localesWithDestination,
   localesWithGuide,
@@ -35,11 +38,12 @@ import {
   guideAlternates,
   regionAlternates,
   compatibilityAlternates,
+  legalAlternates,
   hubAlternates,
   breadcrumbSchema,
   faqSchema,
 } from '../../../lib/seo.js';
-import { listPlans } from '../../../lib/providers/index.js';
+import { listPlans, providerIsConnected } from '../../../lib/providers/index.js';
 
 export const dynamicParams = false;
 
@@ -106,10 +110,20 @@ export async function generateMetadata({ params }) {
       alternates: hubAlternates('guides'),
     });
   }
+  if (node.type === 'legal') {
+    const c = node.content;
+    return buildMetadata({
+      title: c.title,
+      description: c.metaDescription,
+      path: routes[node.kind](lang),
+      locale: lang,
+      alternates: legalAlternates(node.kind),
+    });
+  }
   if (node.type === 'compatibility') {
     return buildMetadata({
-      title: t.compatibilityTitle,
-      description: t.compatibilityDescription,
+      title: node.content.title,
+      description: node.content.metaDescription,
       path: routes.compatibility(lang),
       locale: lang,
       alternates: compatibilityAlternates(),
@@ -134,7 +148,8 @@ export default async function CatchAllPage({ params }) {
   if (node.type === 'region') return renderRegion(lang, node);
   if (node.type === 'regionsHub') return renderRegionsHub(lang);
   if (node.type === 'guidesHub') return renderGuidesHub(lang);
-  if (node.type === 'compatibility') return renderCompatibility(lang);
+  if (node.type === 'compatibility') return renderCompatibility(lang, node);
+  if (node.type === 'legal') return renderLegal(lang, node);
   return renderEsimHub(lang);
 }
 
@@ -315,7 +330,15 @@ async function renderDestination(locale, node) {
             ))}
 
             <h2>{t.viewPlans}</h2>
-            <PlanPanel plans={plans} strings={t} locale={locale} destination={dest.id} region={dest.region} />
+            <ViewDestination locale={locale} destination={dest.id} region={dest.region} />
+            <PlanShop
+              plans={plans}
+              strings={t}
+              locale={locale}
+              destination={dest.id}
+              region={dest.region}
+              connected={providerIsConnected()}
+            />
 
             {bodySections.slice(midpoint).map((key) => (
               <Section key={key} data={c.sections[key]} />
@@ -489,7 +512,7 @@ function renderRegion(locale, node) {
           </section>
 
           <section className="section-head">
-            <h2>{t.regionDestinationsHeading(name, items.length)}</h2>
+            <h2>{t.regionDestinationsHeading.replace('{count}', items.length).replace('{name}', name)}</h2>
           </section>
           <section>
             <div className="grid grid-4">
@@ -596,77 +619,102 @@ function renderGuidesHub(locale) {
 
 /* Compatibility */
 
-const DEVICE_FAMILIES = [
-  { name: 'Apple iPhone', detail: 'iPhone XR, XS and every model after it. In the United States, iPhone 14 and later have no SIM tray at all.' },
-  { name: 'Samsung Galaxy', detail: 'Galaxy S20 and later, Z Flip and Z Fold, and most A series models from A54 onwards. A handful of regional variants ship without it.' },
-  { name: 'Google Pixel', detail: 'Pixel 3 and later, with the exception of some carrier locked variants sold in Asia.' },
-  { name: 'Xiaomi', detail: 'Models from 12T Pro and 13 onwards in most markets, with genuine variation between regional versions.' },
-  { name: 'Motorola', detail: 'Razr foldables and most current Edge models.' },
-];
-
-function renderCompatibility(locale) {
+function renderLegal(locale, node) {
   const t = ui(locale);
+  const c = node.content;
+
+  const alt = {};
+  localesWithLegal(node.kind).forEach((l) => {
+    alt[l] = routes[node.kind](l);
+  });
+
   const crumbs = [
     { name: 'Livdar', path: routes.home(locale) },
-    { name: t.nav.compatibility, path: routes.compatibility(locale) },
+    { name: c.h1, path: routes[node.kind](locale) },
   ];
+
+  const order = (c.sectionOrder || Object.keys(c.sections || {})).filter(
+    (key) => (c.sections || {})[key]
+  );
+
   return (
     <>
-      <Header locale={locale} alternatePaths={shellAlternates(locale, 'esim')} />
+      <Header locale={locale} alternatePaths={alt} />
       <main id="main">
         <Crumbs items={crumbs} />
         <div className="wrap">
           <article className="article">
-            <h1>Does your phone support eSIM</h1>
-            <p className="lead">
-              There is a ten second check that beats any compatibility list, because it reads your
-              actual device rather than a model name that ships in four regional variants.
-            </p>
-            <h2>The ten second check</h2>
-            <p>
-              On an iPhone, open Settings, then General, then About, and scroll to Available SIM or
-              Digital SIM. If there is an EID number, the phone has an eSIM.
-            </p>
-            <p>
-              On Android, open Settings, then Network and internet, then SIMs, and look for an option
-              to add an eSIM or download a SIM instead. If the option exists, so does the hardware.
-            </p>
-            <div className="callout warn">
-              <p>
-                <strong>The catch nobody mentions.</strong> A phone bought from a carrier can be
-                network locked even when the hardware supports eSIM. Locked phones reject profiles
-                from other networks. The hardware check above does not tell you about the lock, and
-                only the carrier can remove it.
+            <p className="kicker">{c.angle}</p>
+            <h1>{c.h1}</h1>
+            {(c.intro || []).map((p, i) => (
+              <p key={i} className={i === 0 ? 'lead' : undefined}>
+                {p}
               </p>
-            </div>
-            <h2>Device families</h2>
-            <ul>
-              {DEVICE_FAMILIES.map((d) => (
-                <li key={d.name}>
-                  <strong>{d.name}</strong>: {d.detail}
-                </li>
-              ))}
-            </ul>
-            <h2>What dual SIM actually changes</h2>
-            <p>
-              Dual SIM means the phone can hold two lines and decide which one does what. In
-              practice that means keeping your usual number active for calls and messages while
-              mobile data runs on the travel profile, which is the setup almost every traveller
-              wants and almost nobody configures correctly on the first try.
-            </p>
-            <p>
-              The step people miss is turning data roaming off on the home line after switching data
-              to the travel line. Skipping it is how a phone quietly bills you for both.
-            </p>
-            <div className="inline-cta">
-              <p>{t.searchLabel}</p>
-              <Cta label={t.nav.esim} href={routes.esimHub(locale)} position="compat_footer" locale={locale} cluster="compatibility" />
-            </div>
+            ))}
+            {order.map((key) => (
+              <Section key={key} data={c.sections[key]} />
+            ))}
+            <Faq items={c.faq} heading={t.faq} />
           </article>
         </div>
       </main>
       <Footer locale={locale} />
       <JsonLd data={[breadcrumbSchema(crumbs)]} />
+    </>
+  );
+}
+
+function renderCompatibility(locale, node) {
+  const t = ui(locale);
+  const c = node.content;
+
+  const alt = {};
+  localesWithCompatibility().forEach((l) => {
+    alt[l] = routes.compatibility(l);
+  });
+
+  const crumbs = [
+    { name: 'Livdar', path: routes.home(locale) },
+    { name: t.nav.compatibility, path: routes.compatibility(locale) },
+  ];
+
+  const order = (c.sectionOrder || Object.keys(c.sections || {})).filter(
+    (key) => (c.sections || {})[key]
+  );
+
+  return (
+    <>
+      <Header locale={locale} alternatePaths={alt} />
+      <main id="main">
+        <Crumbs items={crumbs} />
+        <div className="wrap">
+          <article className="article">
+            <p className="kicker">{c.angle}</p>
+            <h1>{c.h1}</h1>
+            {(c.intro || []).map((p, i) => (
+              <p key={i} className={i === 0 ? 'lead' : undefined}>
+                {p}
+              </p>
+            ))}
+            {order.map((key) => (
+              <Section key={key} data={c.sections[key]} />
+            ))}
+            <div className="inline-cta">
+              <p>{t.searchLabel}</p>
+              <Cta
+                label={t.nav.esim}
+                href={routes.esimHub(locale)}
+                position="compat_footer"
+                locale={locale}
+                cluster="device"
+              />
+            </div>
+            <Faq items={c.faq} heading={t.faq} />
+          </article>
+        </div>
+      </main>
+      <Footer locale={locale} />
+      <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(c.faq)]} />
     </>
   );
 }

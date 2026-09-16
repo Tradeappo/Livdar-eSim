@@ -6,7 +6,7 @@
 // nothing noindex can appear here, because nothing unpublished has a route.
 
 import { REGIONS } from '../lib/destinations.js';
-import { contentLocales, publishedDestinationIds, publishedGuideSlugs, publishedRegionIds } from '../lib/content/index.js';
+import { contentLocales, publishedDestinationIds, publishedGuideSlugs, publishedRegionIds, legalContent, LEGAL_KINDS } from '../lib/content/index.js';
 import { routes, absolute } from '../lib/routes.js';
 import {
   homeAlternates,
@@ -15,6 +15,7 @@ import {
   guideAlternates,
   regionAlternates,
   compatibilityAlternates,
+  legalAlternates,
 } from '../lib/seo.js';
 
 const LAST_MODIFIED = new Date();
@@ -50,6 +51,9 @@ function coreEntries(locale) {
     entry(routes.regionsHub(locale), hubAlternates('regions'), 0.7, 'monthly'),
     entry(routes.guidesHub(locale), hubAlternates('guides'), 0.7, 'monthly'),
     entry(routes.compatibility(locale), compatibilityAlternates(), 0.6, 'monthly'),
+    ...LEGAL_KINDS.filter((k) => legalContent(locale, k)).map((k) =>
+      entry(routes[k](locale), legalAlternates(k), 0.2, 'yearly')
+    ),
   ];
 }
 
