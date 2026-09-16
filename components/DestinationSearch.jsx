@@ -20,6 +20,10 @@ export default function DestinationSearch({ items, strings, locale, autoFocus = 
   const [open, setOpen] = useState(false);
   const inputRef = useRef(null);
   const tracked = useRef('');
+  // Whether the tag has confirmed it sent the last search event, and the
+  // navigation that is waiting on that confirmation.
+  const sent = useRef(true);
+  const leaving = useRef(false);
 
   const results = useMemo(() => {
     const needle = normalise(q).trim();
@@ -38,6 +42,7 @@ export default function DestinationSearch({ items, strings, locale, autoFocus = 
     setOpen(true);
     if (value.length >= 3 && tracked.current !== value) {
       tracked.current = value;
+      sent.current = false;
       // The same base parameters every other event carries. Without them a
       // search could not be cut by market or cluster in GA4, which makes the
       // one report search is actually good for, what people ask for that we do
@@ -48,9 +53,44 @@ export default function DestinationSearch({ items, strings, locale, autoFocus = 
         // this runs before the re-render, so it would report the count for the
         // term the visitor typed one keystroke ago. A wrong number in a report
         // is worse than a missing one, because nobody checks it twice.
-        Object.assign(baseParams({ locale, cluster: 'destination' }), { search_term: value })
+        Object.assign(baseParams({ locale, cluster: 'destination' }), {
+          search_term: value,
+          // The callback is not here to delay anything by itself. It marks the
+          // event as actually sent, so that if the visitor picks a result in
+          // the next few hundred milliseconds the navigation knows whether it
+          // would be tearing down the page on top of an unsent hit.
+          eventCallback: () => {
+            sent.current = true;
+          },
+          eventTimeout: 600,
+        })
       );
     }
+  };
+
+  // Leaving the page for a result. Someone who types three characters and
+  // immediately presses Enter is the most valuable search there is, because it
+  // is the one where the visitor knew exactly what they wanted, and it is
+  // precisely the one the old code lost: the hit was still in flight when the
+  // document went away. So the navigation waits for the tag, and a timeout sits
+  // behind it because with consent denied the callback never runs and the
+  // search box would otherwise stop opening results at all.
+  const leave = (href) => {
+    if (leaving.current) return;
+    leaving.current = true;
+    const go = () => {
+      window.location.href = href;
+    };
+    if (sent.current) {
+      go();
+      return;
+    }
+    const started = Date.now();
+    const poll = () => {
+      if (sent.current || Date.now() - started > 650) go();
+      else window.setTimeout(poll, 50);
+    };
+    poll();
   };
 
   const onKeyDown = (e) => {
@@ -65,7 +105,7 @@ export default function DestinationSearch({ items, strings, locale, autoFocus = 
       const item = results[active];
       if (item) {
         e.preventDefault();
-        window.location.href = item.href;
+        leave(item.href);
       }
     } else if (e.key === 'Escape') {
       setOpen(false);
@@ -108,6 +148,13 @@ export default function DestinationSearch({ items, strings, locale, autoFocus = 
                     aria-selected={i === active ? 'true' : 'false'}
                     style={i === active ? { background: 'var(--surface-2)' } : undefined}
                     onMouseEnter={() => setActive(i)}
+                    onClick={(e) => {
+                      // A modified click wants a new tab, so the current page
+                      // is not going anywhere and there is nothing to wait for.
+                      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                      e.preventDefault();
+                      leave(it.href);
+                    }}
                   >
                     <span>{it.name}</span>
                     <span className="meta">{it.code}</span>

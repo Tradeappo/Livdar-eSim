@@ -4,6 +4,7 @@
 // point is that the rules this project claims to follow are enforced by the
 // build rather than by memory.
 
+import { readFileSync, readdirSync } from 'node:fs';
 import { runDashCheck } from './dash-check.mjs';
 import { runSimilarityCheck } from './similarity-check.mjs';
 import { marketStatus, REQUIRED_FOR_PUBLICATION } from '../lib/markets.js';
@@ -341,6 +342,48 @@ contentLocales().forEach((locale) => {
   const orth = runOrthographyCheck();
   notes.push('Orthography: ' + orth.guardedWords + ' German and Romanian spellings guarded across ' + orth.files + ' files');
   orth.failures.forEach((f) => fail(f));
+}
+
+// 8d. An event that describes a navigation has to survive it.
+//
+// This has now cost the project two measured funnel steps. The language
+// selector pushed language_change next to a plain link and nothing ever
+// arrived. It was fixed, and the identical pattern stayed in the call to
+// action component, where six of the seven calls to action carry an href.
+// Measured on the live domain: clicking the hero call to action produced two
+// page_view hits and no cta_click at all, while the code read correctly and
+// the dataLayer read correctly. A report that is silently short is worse than
+// one that is obviously missing, because nobody goes looking for it.
+//
+// The rule the gate can actually check: a client component that pushes an
+// event and also drives a navigation must hand the tag an eventCallback, and
+// must have a timeout behind it so the link still works when consent is denied
+// and the callback never runs.
+{
+  const clientFiles = readdirSync(new URL('../components/', import.meta.url))
+    .filter((f) => f.endsWith('.jsx'));
+  let guarded = 0;
+  clientFiles.forEach((file) => {
+    const source = readFileSync(new URL('../components/' + file, import.meta.url), 'utf8');
+    if (!source.includes('pushEvent')) return;
+    // A navigation the component performs itself, rather than one the browser
+    // performs from an untouched href.
+    if (!/window\.location\.href\s*=/.test(source)) return;
+    guarded += 1;
+    if (!source.includes('eventCallback')) {
+      fail(
+        'components/' + file + ': pushes an event and navigates, but never passes eventCallback. ' +
+          'The page unloads before the tag sends, so the event is lost. See components/Cta.jsx.'
+      );
+    }
+    if (!/eventTimeout/.test(source) || !/setTimeout/.test(source)) {
+      fail(
+        'components/' + file + ': uses eventCallback without a timeout behind it. ' +
+          'With consent denied the callback never runs and the link stops working.'
+      );
+    }
+  });
+  notes.push('Navigation events: ' + guarded + ' component(s) that navigate carry eventCallback and a timeout');
 }
 
 // 9 and 10. Text rules and duplication.
