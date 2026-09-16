@@ -36,7 +36,7 @@
         "name": "Livdar dataLayer events",
         "type": "CUSTOM_EVENT",
         "customEventFilter": [
-          { "type": "MATCH_REGEX", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "^(search|view_destination|view_plan|select_plan|check_availability|notify_signup|cta_click|language_change)$" } ] }
+          { "type": "MATCH_REGEX", "parameter": [ { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "^(search|view_destination|view_plan|select_plan|begin_checkout|checkout_intent|check_availability|notify_signup|cta_click|language_change)$" } ] }
         ]
       }
     ],
