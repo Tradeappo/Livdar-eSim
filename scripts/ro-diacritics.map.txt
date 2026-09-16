@@ -1,0 +1,240 @@
+# Romanian diacritic restoration, word by word.
+#
+# Format: one "plain:corrected" pair per whitespace separated token. Lines
+# starting with # are comments. Only words that CHANGE appear here; anything
+# absent is left exactly as it is.
+#
+# Why a table and not a rule: Romanian diacritics are not derivable from the
+# stripped form. "data" is both "data" (the date) and "dată" (a time, an
+# instance); "tine" is both "tine" (you, after a preposition) and "ține" (holds).
+# A rule that rewrote every "t" before "i" would produce wrong Romanian in
+# hundreds of places. So every word here was decided one at a time, and the
+# genuinely ambiguous ones are NOT in this file at all: they are resolved
+# separately, in context, by scripts/ro-ambiguous.mjs.
+
+# ---- function words and very high frequency ----
+si:și in:în In:În Nu:Nu nu:nu numar:număr Daca:Dacă daca:dacă tara:țară tari:țări
+inainte:înainte iti:îți tau:tău il:îl cartela:cartelă calatorie:călătorie
+decat:decât exista:există doua:două fara:fără retea:rețea afara:afară
+cand:când inseamna:înseamnă romanesc:românesc dupa:după roamingul:roamingul
+schimba:schimbă retele:rețele acopera:acoperă buna:bună locala:locală
+vacanta:vacanță Cand:Când conteaza:contează functioneaza:funcționează
+putin:puțin ramane:rămâne numarul:numărul granite:granițe pret:preț
+saptamani:săptămâni toata:toată Verifica:Verifică esti:ești granita:graniță
+intampla:întâmplă reteaua:rețeaua tine:ține romani:români verifica:verifică
+Acoperirea:Acoperirea cat:cât cateva:câteva Doua:Două Europeana:Europeană
+insula:insula merita:merită europeana:europeană desert:deșert
+instalare:instalare orasele:orașele raspunsul:răspunsul saptamana:săptămâna
+acoperirea:acoperirea destinatie:destinație diferenta:diferență
+retelele:rețelele Romania:România pana:până catre:către coada:coadă
+consimtamant:consimțământ cumparare:cumpărare difera:diferă
+inregistrare:înregistrare masina:mașina national:național Numarul:Numărul
+pasaport:pașaport Planifica:Planifică Retelele:Rețelele vand:vând
+Zeelanda:Zeelandă adevarat:adevărat adresa:adresa ajunge:ajunge
+alegerea:alegerea americane:americane atat:atât Cat:Cât cinstit:cinstit
+conexiunea:conexiunea consimtamantului:consimțământului contract:contract
+costuri:costuri croaziera:croazieră cumparat:cumpărat departe:departe
+Descarca:Descarcă destinatii:destinații distanta:distanță douazeci:douăzeci
+Emirate:Emirate Emiratele:Emiratele etape:etape facut:făcut fapt:fapt
+foloseste:folosește folosesti:folosești inca:încă incepe:începe
+Indonezia:Indonezia inregistrarea:înregistrarea Instaleaza:Instalează
+Insulele:Insulele intai:întâi limite:limite lucruri:lucruri
+mijlocul:mijlocul obisnuit:obișnuit obisnuita:obișnuită optiune:opțiune
+pare:pare partea:partea planifica:planifică pleci:pleci prinde:prinde
+printre:printre rapide:rapide rezonabila:rezonabilă separata:separată
+Spatiul:Spațiul strain:străin subtire:subțire tarif:tarif tarile:țările
+Telefonul:Telefonul utila:utilă zece:zece zonei:zonei
+
+# ---- verbs and forms ----
+opreste:oprește cumperi:cumperi merge:merge instalezi:instalezi
+aterizezi:aterizezi ajungi:ajungi faci:faci spune:spune scrie:scrie
+cere:cere vede:vede vindem:vindem vand:vând primeste:primește
+rezolva:rezolvă stai:stai suporta:suportă trece:trece urmeaza:urmează
+arata:arată cauta:caută costa:costă intra:intră aplica:aplică
+inregistreaza:înregistrează vizita:vizita accepta:acceptă accepti:accepți
+adauga:adaugă ajuta:ajută apare:apare consuma:consumă cumpara:cumpără
+depinde:depinde dureaza:durează instaleaza:instalează instalat:instalat
+inregistrat:înregistrat pastreaza:păstrează permite:permite
+platesti:plătești pornesti:pornești ruleaza:rulează seteaza:setează
+stergi:ștergi trateaza:tratează trec:trec treci:treci bazeaza:bazează
+bazezi:bazezi castiga:câștigă colecteaza:colectează conecteaza:conectează
+confirma:confirmă descarca:descarcă deschide:deschide descrie:descrie
+devine:devine iei:iei inmulteste:înmulțește instala:instala
+instaleze:instaleze intotdeauna:întotdeauna intreba:întreba
+introdus:introdus lamureste:lămurește leaga:leagă mergi:mergi
+observa:observă ofera:oferă pierde:pierde plati:plăti primesti:primești
+primi:primi protectia:protecția pui:pui putem:putem raspunzi:răspunzi
+refuza:refuză respectiva:respectivă restrictioneaza:restricționează
+sare:sare scriem:scriem seta:seta
+
+# ---- nouns, feminine and plural ----
+aeroport:aeroport regiune:regiune profilul:profilul apeluri:apeluri
+insule:insule insulele:insulele linia:linia planul:planul zonele:zonele
+abonament:abonament operatori:operatori traseul:traseul Uniunea:Uniunea
+zbor:zbor America:America Britanie:Britanie coasta:coasta drumurile:drumurile
+lumea:lumea produs:produs profil:profil tale:tale zile:zile avion:avion
+Macedonia:Macedonia prima:prima principale:principale
+Albania:Albania apelurile:apelurile Australia:Australia destinatie:destinație
+hotel:hotel locale:locale moment:moment Muntenegru:Muntenegru
+Egipt:Egipt furnizor:furnizor ieftine:ieftine linie:linie luna:luna
+Majoritatea:Majoritatea motiv:motiv operatorul:operatorul
+operatorului:operatorului publicitate:publicitate semnalul:semnalul
+utilizare:utilizare vizitatori:vizitatori Balcani:Balcanii banner:banner
+Canada:Canada Cartelele:Cartelele conectare:conectare conectat:conectat
+continentului:continentului distante:distanțe drumul:drumul Dubai:Dubai
+Economic:Economic Egiptul:Egiptul Elvetia:Elveția email:email
+European:European fata:fața ghiseu:ghișeu goluri:goluri gratuit:gratuit
+ieftin:ieftin ieftina:ieftină limita:limita luni:luni majoritatea:majoritatea
+merg:merg meu:meu nationale:naționale Noua:Noua pasaportul:pașaportul
+Politica:Politica Primesc:Primesc simplu:simplu singur:singur
+spunem:spunem unele:unele Unele:Unele Unii:Unii Uniune:Uniune unul:unul
+Vietnam:Vietnam Wifi:Wifi codul:codul conexiune:conexiune coduri:coduri
+cartele:cartele cererea:cererea Croatia:Croația datelor:datelor
+Denpasar:Denpasar desi:deși Distante:Distanțe drum:drum feriboturi:feriboturi
+Fiecare:Fiecare frecvent:frecvent frecventa:frecvența general:general
+Golurile:Golurile granitele:granițele Guatemala:Guatemala harti:hărți
+hartie:hârtie Hertegovina:Herțegovina Hurghada:Hurghada Iar:Iar
+Imi:Îmi inapoi:înapoi inclusa:inclusă incluse:incluse
+Instalarea:Instalarea intelegeri:înțelegeri interiorul:interiorul
+international:internațional Intrebarea:Întrebarea Islanda:Islanda
+Iti:Îți jos:jos lasi:lași Liechtenstein:Liechtenstein livrare:livrare
+lui:lui lunga:lungă mereu:mereu Merita:Merită mesaje:mesaje Mexic:Mexic
+Mijlociu:Mijlociu normal:normal Norvegia:Norvegia numere:numere
+Oceania:Oceania oprit:oprit oprita:oprită oprite:oprite optiunea:opțiunea
+optiunii:opțiunii oras:oraș ore:ore oricum:oricum Orientul:Orientul
+paginile:paginile parcurile:parcurile perioada:perioada piete:piețe
+politica:politica pornesti:pornești pregatit:pregătit principal:principal
+privind:privind produsul:produsul proprie:proprie propriul:propriul
+rar:rar refuzat:refuzat regionale:regionale Regula:Regula repede:repede
+restrictionate:restricționate Restul:Restul rezervari:rezervări
+Roamingul:Roamingul rurale:rurale scumpe:scumpe server:server
+simpla:simplă sine:sine statistica:statistica statisticile:statisticile
+stocarea:stocarea Sunt:Sunt tarifele:tarifele tarziu:târziu
+thailandez:thailandez trasee:trasee traseele:traseele turceasca:turcească
+uscat:uscat usor:ușor varianta:varianta viteza:viteza Vodafone:Vodafone
+zilnica:zilnică zone:zone
+
+# ---- the long tail ----
+Acasa:Acasă acea:acea Aceasta:Aceasta acesta:acesta aceste:aceste
+acoperita:acoperită activ:activ adica:adică aduna:adună
+aeroportul:aeroportul aia:aia ale:ale altceva:altceva altfel:altfel
+altul:altul amandoua:amândouă Ambele:Ambele
+american:american Anglia:Anglia Apelurile:Apelurile Aproape:Aproape
+asa:așa asteapta:așteaptă astepti:aștepți atunci:atunci avem:avem
+Bannerul:Bannerul baza:baza britanica:britanică browser:browser
+Cambodgia:Cambodgia cate:câte cautarile:căutările cauza:cauza
+cazuri:cazuri ceea:ceea Centrala:Centrală cerere:cerere circuit:circuit
+Clarity:Clarity comuna:comună concrete:concrete confuzia:confuzia
+Conteaza:Contează continuare:continuare conturi:conturi Cookie:Cookie
+Costa:Costa Deci:Deci deloc:deloc dense:dense Depinde:Depinde
+descarca:descarcă deschide:deschide diferentele:diferențele
+diferit:diferit dimineata:dimineața dinainte:dinainte drept:drept
+dual:dual durata:durata echivalent:echivalent esim:eSIM europene:europene
+FaceTime:FaceTime feribot:feribot Fiji:Fiji firma:firma furnizorul:furnizorul
+gazduire:găzduire geografice:geografice gigabaitii:gigabaiții Grab:Grab
+greseala:greșeală hartile:hărțile Honduras:Honduras identificator:identificator
+identitate:identitate Il:Îl Inainte:Înainte incat:încât
+indiferent:indiferent indoneziene:indoneziene Intre:Între
+intrebarea:întrebarea Italia:Italia Japonia:Japonia locului:locului
+Londra:Londra lor:lor Manager:Manager Marocul:Marocul moderne:moderne
+montane:montane motivul:motivul multi:mulți munte:munte muntii:munții
+necesare:necesare nicaieri:nicăieri Nicaragua:Nicaragua niciunul:niciunul
+Niciunul:Niciunul noaptea:noaptea noi:noi numai:numai numele:numele
+numit:numit obisnuite:obișnuite obosit:obosit Operatorii:Operatorii
+orase:orașe Orasele:Orașele ordinea:ordinea oricarei:oricărei
+oricine:oricine oriunde:oriunde Panama:Panama parti:părți pista:pista
+planului:planului planuri:planuri practic:practic Practic:Practic
+Preferam:Preferăm pretul:prețul principiu:principiu probabil:probabil
+produse:produse Profilul:Profilul proiect:proiect prost:prost
+protectia:protecția putina:puțină putini:puțini reala:reală
+refuza:refuză regiunea:regiunea regulile:regulile
+restrictioneaza:restricționează Rica:Rica roamingului:roamingului
+rural:rural safari:safari Samoa:Samoa satelit:satelit scump:scump
+seara:seara sectiunea:secțiunea secunde:secunde sens:sens
+separate:separate servicii:servicii serviciul:serviciul
+
+# ---- remaining vocabulary ----
+capcana:capcana Cartela:Cartelă Cartele:Cartele cati:câți cautarea:căutarea
+Cauti:Cauți cazare:cazare cazul:cazul ceas:ceas cei:cei charter:charter
+cineva:cineva cip:cip citita:citită clasic:clasic Combinatia:Combinația
+comerciale:comerciale compatibilitate:compatibilitate componenta:componenta
+comporta:comportă conditiile:condițiile Conditiile:Condițiile
+conectate:conectate conectivitate:conectivitate confidentialitate:confidențialitate
+confirmarile:confirmările confuzie:confuzie construite:construite
+contactul:contactul contine:conține continent:continent contra:contra
+contracte:contracte Coreea:Coreea cos:coș cost:cost Creta:Creta
+cumpararea:cumpărarea cumparari:cumpărări cumpararile:cumpărările
+cumparata:cumpărată curat:curat deblocheaza:deblochează decide:decide
+decizia:decizia depanare:depanare depinzi:depinzi deschizi:deschizi
+descrise:descrise Din:Din dincolo:dincolo Dincolo:Dincolo dintr:dintr
+dispare:dispare disponibil:disponibil doilea:doilea dreptul:dreptul
+drepturi:drepturi drumetie:drumeție Drumul:Drumul duc:duc duce:duce
+economisesti:economisești ecran:ecran efort:efort egiptean:egiptean
+emite:emite enervanta:enervantă engleza:engleză enumera:enumeră
+etichete:etichete Europei:Europei excelenta:excelentă excursii:excursii
+exemplu:exemplu Exista:Există Fa:Fă fac:fac facturi:facturi
+faptul:faptul Fara:Fără faza:faza felul:felul feriboturile:feriboturile
+fiind:fiind fix:fix fizic:fizic folosi:folosi folosite:folosite
+formular:formular functie:funcție functiune:funcțiune Furnizorul:Furnizorul
+gasit:găsit General:General generos:generos geografie:geografie
+ghiseele:ghișeele gigabaiti:gigabaiți grecesti:grecești gresita:greșită
+greu:greu hostel:hostel hotelului:hotelului ia:ia identic:identic
+identifica:identifică iese:iese iesi:ieși iesirea:ieșirea
+implicite:implicite important:important inactiv:inactiv inaintea:înaintea
+incarca:încarcă incarcat:încărcat incarce:încarce incearca:încearcă
+incepem:începem incercat:încercat incerci:încerci inchiriere:închiriere
+incipienta:incipientă include:include incorporat:încorporat
+incredere:încredere inegal:inegal informatia:informația
+Informatii:Informații infrastructura:infrastructura inregistrari:înregistrări
+inregistrata:înregistrată inregistrate:înregistrate inregistrez:înregistrez
+institutie:instituție insulitele:insulițele intelegere:înțelegere
+intens:intens Interesant:Interesant interior:interior Interiorul:Interiorul
+intern:intern interne:interne Intreaba:Întreabă intreaga:întreaga
+intrebare:întrebare isi:își Istanbul:Istanbul jumatate:jumătate
+Jurnalele:Jurnalele jurul:jurul Kenya:Kenya Krabi:Krabi langa:lângă
+Laos:Laos lasa:lasă Le:Le legatura:legătura lent:lent Lima:Lima
+limitate:limitate Lista:Lista livdarlive:livdarlive luat:luat
+lucrezi:lucrezi magazin:magazin managerul:managerul mancare:mâncare
+marketing:marketing marketingul:marketingul masurare:măsurare
+megabyte:megabyte mesagerie:mesagerie mesaj:mesaj mesajele:mesajele
+Mesajele:Mesajele metri:metri mic:mic modele:modele modelele:modelele
+modelul:modelul modul:modul multa:multă Multe:Multe munti:munți
+muta:mută muti:muți navigatie:navigație necesar:necesar
+nelimitate:nelimitate nici:nici nicio:nicio Nimic:Nimic noapte:noapte
+noastra:noastră Nordul:Nordul nostru:nostru numara:numără odata:odată
+omul:omul operatorii:operatorii Operatorul:Operatorul Opreste:Oprește
+oricand:oricând Orice:Orice pachet:pachet pachete:pachete
+Pachetele:Pachetele Pagina:Pagina parc:parc Partea:Partea pastrat:păstrat
+Patagonia:Patagonia patruzeci:patruzeci perfect:perfect Phuket:Phuket
+Pixel:Pixel planificare:planificare planurilor:planurilor plin:plin
+populatia:populația Porneste:Pornește port:port portal:portal
+portiuni:porțiuni porturile:porturile posibil:posibil Poti:Poți
+pragul:pragul prefix:prefix prelucrarii:prelucrării presupun:presupun
+pretindem:pretindem procesator:procesator profilurilor:profilurilor
+propriu:propriu publicitara:publicitară pune:pune pus:pus putea:putea
+putine:puține rapid:rapid raspuns:răspuns rate:rate Refuza:Refuză
+refuzi:refuzi reglementare:reglementare Regulamentul:Regulamentul
+repetate:repetate respecte:respecte restul:restul Retea:Rețea
+retrage:retrage rezervarile:rezervările rezidenti:rezidenți
+rezolvi:rezolvi Roaming:Roaming rutele:rutele sala:sala salveaza:salvează
+Samui:Samui sapte:șapte schimbare:schimbare schimbarea:schimbarea
+schimbat:schimbat scoate:scoate Scrie:Scrie scrise:scrise scumpa:scumpă
+scurt:scurt scuteste:scutește sejur:sejur Semnalul:Semnalul seria:seria
+seta:seta setarea:setarea Setari:Setări setat:setat sigur:sigur
+societate:societate solide:solide sosiri:sosiri spun:spun statia:stația
+statiuni:stațiuni statiunile:stațiunile Statiunile:Stațiunile stau:stau
+stergere:ștergere stie:știe stii:știi straina:străină subtiaza:subțiază
+subtiri:subțiri suni:suni surpriza:surpriza suta:sută Tanzania:Tanzania
+tarifare:tarifare tarifeaza:tarifează tariful:tariful tarii:țării
+tarilor:țărilor taxiuri:taxiuri tehnic:tehnic telefoane:telefoane
+teren:teren termina:termină tert:terț tiparul:tiparul Toate:Toate
+Tonga:Tonga trackere:trackere transferul:transferul Trateaza:Tratează
+treaba:treabă Trebuie:Trebuie trimit:trimit tu:tu Tunisia:Tunisia
+turisti:turiști ultima:ultima uneori:uneori Ungaria:Ungaria unii:unii
+unsprezece:unsprezece unu:unu uraganelor:uraganelor urbane:urbane
+urmatoare:următoare util:util valabil:valabil valoreaza:valorează
+valori:valori vanda:vândă vandut:vândut variante:variante vasului:vasului
+verificare:verificare Verificarea:Verificarea verificat:verificat
+versiune:versiune vin:vin vine:vine vizitate:vizitate vocale:vocale
+voce:voce voie:voie vom:vom vreo:vreo zboruri:zboruri
+zilnic:zilnic

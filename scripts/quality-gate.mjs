@@ -303,7 +303,7 @@ contentLocales().forEach((locale) => {
 // failure rather than a warning.
 {
   const orth = runOrthographyCheck();
-  notes.push('Orthography: ' + orth.guardedWords + ' German spellings guarded across ' + orth.files + ' files');
+  notes.push('Orthography: ' + orth.guardedWords + ' German and Romanian spellings guarded across ' + orth.files + ' files');
   orth.failures.forEach((f) => fail(f));
 }
 
