@@ -48,13 +48,23 @@ const MARKET_POLICY = {
   'de-de': { publish: true, why: 'EU roaming already inclusive, value sits outside the EU, Switzerland and Turkey carry it' },
   'ro-ro': { publish: true, why: 'smallest published market, confusion between data eSIM and a foreign number is the subject' },
   'ja-jp': { publish: true, why: 'dense trip duration tail, difficulty 0 to 5, easiest large market' },
-  'zh-Hant-tw': { publish: true, why: 'vocabulary is wang ka not esim, domestic roaming block excluded' },
+  // Corrected against the measured rows by scripts/market-audit.mjs. The
+  // earlier note here said the vocabulary is wang ka rather than eSIM, which
+  // the data does not support: eSIM carries 129,080 a month against 42,560 for
+  // wang ka, so eSIM leads roughly three to one. Wang ka is not the word, but
+  // it is a real second and the destination pages have to serve it, because
+  // 日本網卡 alone is 8,800 a month.
+  'zh-Hant-tw': { publish: true, why: 'eSIM leads three to one, wang ka is a 42,560 a month second vocabulary the destination pages must also serve, domestic roaming block excluded' },
   'it-it': { publish: true, why: 'portable wifi is its own cluster here, not a footnote' },
   'es-es': { publish: true, why: 'large volume on north African destinations, Morocco above all' },
   'fr-fr': { publish: true, why: 'Morocco and Tunisia dominate' },
   'nl-nl': { publish: true, why: 'explanation outweighs the product, roaming aan of uit is the entry point' },
   'pl-pl': { publish: true, why: 'strong demand on Albania, Turkey, Egypt, holiday destinations outside the EU' },
-  'pt-br': { publish: true, why: 'the word is chip not eSIM, its own destination set, no other market covers it' },
+  // Confirmed against the measured rows: chip carries 36,630 a month against
+  // 20,530 for eSIM, and the single largest term in the market is chip
+  // internacional at 12,000, which is not a destination phrase at all. Brazil
+  // is entered through the product word, not through the country.
+  'pt-br': { publish: true, why: 'the word is chip not eSIM by 36,630 to 20,530, chip internacional alone is 12,000 a month, its own destination set, no other market covers it' },
   'pt-pt': { publish: false, why: 'too small for its own market, served from Brazilian Portuguese' },
   'en-ae': { publish: false, why: 'Gulf searches in English, served from the English pages' },
   'en-sa': { publish: false, why: 'Gulf searches in English, served from the English pages' },

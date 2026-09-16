@@ -1,0 +1,527 @@
+{
+  "generatedAt": "2026-09-16T12:38:29.134Z",
+  "source": "data/ only, no Ahrefs request made by this script",
+  "structure": {
+    "measured": "returned by Ahrefs. Volume, difficulty, CPC and intent, each with the coverage of the rows that carried the field.",
+    "editorial": "decided by us, not measured. Proximity to purchase, winnability, and the page allocation taken from data/plan-report.json.",
+    "derived": "arithmetic over the two above. score = measured volume x proximity x winnability. Discard the editorial block and the score goes with it."
+  },
+  "totals": {
+    "addressableVolume": 2483280,
+    "addressableKeywords": 7614,
+    "clusters": 17,
+    "pagesInPlan": 1285
+  },
+  "clusters": [
+    {
+      "cluster": "destination",
+      "measured": {
+        "volume": 910480,
+        "keywords": 3303,
+        "medianDifficulty": 0,
+        "difficultyCoverage": 0.17,
+        "medianCpcUsd": 1.1,
+        "cpcCoverage": 0.48,
+        "commercialVolume": 682680,
+        "informationalVolume": 16050,
+        "intentCoverage": 0.95,
+        "commercialShareOfClassifiedVolume": 0.977
+      },
+      "editorial": {
+        "proximityToPurchase": 1,
+        "winnability": 0.8,
+        "pagesAllocated": 669,
+        "why": "a country name plus the product is the clearest buying signal in the dataset, and the SERP is winnable because it rewards specificity",
+        "measured": false
+      },
+      "derived": {
+        "score": 728384,
+        "monetisationIndex": 1001528,
+        "volumePerPage": 1361,
+        "shareOfScore": 0.628,
+        "cumulativeShare": 0.628,
+        "band": "A"
+      }
+    },
+    {
+      "cluster": "regional",
+      "measured": {
+        "volume": 133210,
+        "keywords": 494,
+        "medianDifficulty": 5,
+        "difficultyCoverage": 0.22,
+        "medianCpcUsd": 0.8,
+        "cpcCoverage": 0.61,
+        "commercialVolume": 100610,
+        "informationalVolume": 1550,
+        "intentCoverage": 0.87,
+        "commercialShareOfClassifiedVolume": 0.985
+      },
+      "editorial": {
+        "proximityToPurchase": 0.85,
+        "winnability": 0.85,
+        "pagesAllocated": 132,
+        "why": "buying for a trip rather than a country, and the regional SERPs are thinner than the country ones",
+        "measured": false
+      },
+      "derived": {
+        "score": 96244,
+        "monetisationIndex": 90583,
+        "volumePerPage": 1009,
+        "shareOfScore": 0.083,
+        "cumulativeShare": 0.711,
+        "band": "A"
+      }
+    },
+    {
+      "cluster": "comparisons",
+      "measured": {
+        "volume": 291420,
+        "keywords": 644,
+        "medianDifficulty": 0,
+        "difficultyCoverage": 0.49,
+        "medianCpcUsd": 0.9,
+        "cpcCoverage": 0.69,
+        "commercialVolume": 263900,
+        "informationalVolume": 1580,
+        "intentCoverage": 0.9,
+        "commercialShareOfClassifiedVolume": 0.994
+      },
+      "editorial": {
+        "proximityToPurchase": 0.8,
+        "winnability": 0.35,
+        "pagesAllocated": 141,
+        "why": "late stage, but the pages that win are the providers themselves and the large affiliates",
+        "measured": false
+      },
+      "derived": {
+        "score": 81598,
+        "monetisationIndex": 209822,
+        "volumePerPage": 2067,
+        "shareOfScore": 0.07,
+        "cumulativeShare": 0.782,
+        "band": "A"
+      }
+    },
+    {
+      "cluster": "commercial",
+      "measured": {
+        "volume": 112340,
+        "keywords": 230,
+        "medianDifficulty": 3,
+        "difficultyCoverage": 0.57,
+        "medianCpcUsd": 1.4,
+        "cpcCoverage": 0.73,
+        "commercialVolume": 64330,
+        "informationalVolume": 410,
+        "intentCoverage": 0.65,
+        "commercialShareOfClassifiedVolume": 0.994
+      },
+      "editorial": {
+        "proximityToPurchase": 0.95,
+        "winnability": 0.5,
+        "pagesAllocated": 52,
+        "why": "explicit buying language, but the SERP is owned by providers bidding on their own category",
+        "measured": false
+      },
+      "derived": {
+        "score": 53362,
+        "monetisationIndex": 149412,
+        "volumePerPage": 2160,
+        "shareOfScore": 0.046,
+        "cumulativeShare": 0.828,
+        "band": "B"
+      }
+    },
+    {
+      "cluster": "pocket_wifi",
+      "measured": {
+        "volume": 127440,
+        "keywords": 260,
+        "medianDifficulty": null,
+        "difficultyCoverage": 0,
+        "medianCpcUsd": 0.7,
+        "cpcCoverage": 0.85,
+        "commercialVolume": 125270,
+        "informationalVolume": 2170,
+        "intentCoverage": 1,
+        "commercialShareOfClassifiedVolume": 0.983
+      },
+      "editorial": {
+        "proximityToPurchase": 0.55,
+        "winnability": 0.6,
+        "pagesAllocated": 37,
+        "why": "an adjacent product that substitutes for ours rather than leading to it",
+        "measured": false
+      },
+      "derived": {
+        "score": 42055,
+        "monetisationIndex": 49064,
+        "volumePerPage": 3444,
+        "shareOfScore": 0.036,
+        "cumulativeShare": 0.864,
+        "band": "B"
+      }
+    },
+    {
+      "cluster": "travel_sim",
+      "measured": {
+        "volume": 64280,
+        "keywords": 401,
+        "medianDifficulty": null,
+        "difficultyCoverage": 0,
+        "medianCpcUsd": 0.5,
+        "cpcCoverage": 0.6,
+        "commercialVolume": 64040,
+        "informationalVolume": 240,
+        "intentCoverage": 1,
+        "commercialShareOfClassifiedVolume": 0.996
+      },
+      "editorial": {
+        "proximityToPurchase": 0.7,
+        "winnability": 0.7,
+        "pagesAllocated": 19,
+        "why": "the same job as destination, phrased in the older vocabulary, and it carries Brazil",
+        "measured": false
+      },
+      "derived": {
+        "score": 31497,
+        "monetisationIndex": 22498,
+        "volumePerPage": 3383,
+        "shareOfScore": 0.027,
+        "cumulativeShare": 0.891,
+        "band": "B"
+      }
+    },
+    {
+      "cluster": "device",
+      "measured": {
+        "volume": 119490,
+        "keywords": 333,
+        "medianDifficulty": 0,
+        "difficultyCoverage": 0.55,
+        "medianCpcUsd": 0.15,
+        "cpcCoverage": 0.71,
+        "commercialVolume": 7570,
+        "informationalVolume": 77580,
+        "intentCoverage": 0.77,
+        "commercialShareOfClassifiedVolume": 0.089
+      },
+      "editorial": {
+        "proximityToPurchase": 0.3,
+        "winnability": 0.85,
+        "pagesAllocated": 37,
+        "why": "a compatibility check, low intent per visit, and easy to win because the answer is factual",
+        "measured": false
+      },
+      "derived": {
+        "score": 30470,
+        "monetisationIndex": 5377,
+        "volumePerPage": 3229,
+        "shareOfScore": 0.026,
+        "cumulativeShare": 0.918,
+        "band": "B"
+      }
+    },
+    {
+      "cluster": "vs_alternatives",
+      "measured": {
+        "volume": 74610,
+        "keywords": 534,
+        "medianDifficulty": 1,
+        "difficultyCoverage": 0.05,
+        "medianCpcUsd": 0.7,
+        "cpcCoverage": 0.28,
+        "commercialVolume": 68720,
+        "informationalVolume": 4140,
+        "intentCoverage": 0.95,
+        "commercialShareOfClassifiedVolume": 0.943
+      },
+      "editorial": {
+        "proximityToPurchase": 0.5,
+        "winnability": 0.75,
+        "pagesAllocated": 11,
+        "why": "the searcher is still choosing a category, which is a page we can win by being straight about it",
+        "measured": false
+      },
+      "derived": {
+        "score": 27979,
+        "monetisationIndex": 26114,
+        "volumePerPage": 6783,
+        "shareOfScore": 0.024,
+        "cumulativeShare": 0.942,
+        "band": "B"
+      }
+    },
+    {
+      "cluster": "setup",
+      "measured": {
+        "volume": 104070,
+        "keywords": 301,
+        "medianDifficulty": 3,
+        "difficultyCoverage": 0.43,
+        "medianCpcUsd": 0.15,
+        "cpcCoverage": 0.67,
+        "commercialVolume": 60,
+        "informationalVolume": 81140,
+        "intentCoverage": 0.74,
+        "commercialShareOfClassifiedVolume": 0.001
+      },
+      "editorial": {
+        "proximityToPurchase": 0.3,
+        "winnability": 0.8,
+        "pagesAllocated": 30,
+        "why": "almost always someone who already bought, often from a competitor, but the SERP is easy",
+        "measured": false
+      },
+      "derived": {
+        "score": 24977,
+        "monetisationIndex": 4683,
+        "volumePerPage": 3469,
+        "shareOfScore": 0.022,
+        "cumulativeShare": 0.963,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "long_tail",
+      "measured": {
+        "volume": 210820,
+        "keywords": 134,
+        "medianDifficulty": 5,
+        "difficultyCoverage": 0.64,
+        "medianCpcUsd": 1.95,
+        "cpcCoverage": 0.7,
+        "commercialVolume": 900,
+        "informationalVolume": 0,
+        "intentCoverage": 0.01,
+        "commercialShareOfClassifiedVolume": 1
+      },
+      "editorial": {
+        "proximityToPurchase": 0.15,
+        "winnability": 0.4,
+        "pagesAllocated": 0,
+        "why": "unclassified residue, absorbed by pages that already exist",
+        "measured": false
+      },
+      "derived": {
+        "score": 12649,
+        "monetisationIndex": 61665,
+        "volumePerPage": null,
+        "shareOfScore": 0.011,
+        "cumulativeShare": 0.974,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "roaming",
+      "measured": {
+        "volume": 198080,
+        "keywords": 282,
+        "medianDifficulty": null,
+        "difficultyCoverage": 0,
+        "medianCpcUsd": 0.2,
+        "cpcCoverage": 0.83,
+        "commercialVolume": 1560,
+        "informationalVolume": 196520,
+        "intentCoverage": 1,
+        "commercialShareOfClassifiedVolume": 0.008
+      },
+      "editorial": {
+        "proximityToPurchase": 0.2,
+        "winnability": 0.3,
+        "pagesAllocated": 72,
+        "why": "measured at 0.8 per cent commercial intent, and the operators own the SERP for their own billing",
+        "measured": false
+      },
+      "derived": {
+        "score": 11885,
+        "monetisationIndex": 7923,
+        "volumePerPage": 2751,
+        "shareOfScore": 0.01,
+        "cumulativeShare": 0.985,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "airport",
+      "measured": {
+        "volume": 18970,
+        "keywords": 220,
+        "medianDifficulty": 0,
+        "difficultyCoverage": 0.05,
+        "medianCpcUsd": 0.9,
+        "cpcCoverage": 0.45,
+        "commercialVolume": 3740,
+        "informationalVolume": 14320,
+        "intentCoverage": 0.85,
+        "commercialShareOfClassifiedVolume": 0.207
+      },
+      "editorial": {
+        "proximityToPurchase": 0.45,
+        "winnability": 0.6,
+        "pagesAllocated": 7,
+        "why": "a real purchase, at a counter we do not own and cannot rank for",
+        "measured": false
+      },
+      "derived": {
+        "score": 5122,
+        "monetisationIndex": 7683,
+        "volumePerPage": 2710,
+        "shareOfScore": 0.004,
+        "cumulativeShare": 0.989,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "bridge",
+      "measured": {
+        "volume": 46350,
+        "keywords": 106,
+        "medianDifficulty": 0,
+        "difficultyCoverage": 0.38,
+        "medianCpcUsd": 0.38,
+        "cpcCoverage": 0.58,
+        "commercialVolume": 6290,
+        "informationalVolume": 1780,
+        "intentCoverage": 0.47,
+        "commercialShareOfClassifiedVolume": 0.779
+      },
+      "editorial": {
+        "proximityToPurchase": 0.15,
+        "winnability": 0.5,
+        "pagesAllocated": 0,
+        "why": "a product we do not sell, so a page cannot convert even if it ranks",
+        "measured": false
+      },
+      "derived": {
+        "score": 3476,
+        "monetisationIndex": 2642,
+        "volumePerPage": null,
+        "shareOfScore": 0.003,
+        "cumulativeShare": 0.992,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "travel_connectivity",
+      "measured": {
+        "volume": 19450,
+        "keywords": 84,
+        "medianDifficulty": null,
+        "difficultyCoverage": 0,
+        "medianCpcUsd": 0.7,
+        "cpcCoverage": 0.79,
+        "commercialVolume": 17680,
+        "informationalVolume": 1770,
+        "intentCoverage": 1,
+        "commercialShareOfClassifiedVolume": 0.909
+      },
+      "editorial": {
+        "proximityToPurchase": 0.25,
+        "winnability": 0.7,
+        "pagesAllocated": 15,
+        "why": "planning language, far from a purchase",
+        "measured": false
+      },
+      "derived": {
+        "score": 3404,
+        "monetisationIndex": 3404,
+        "volumePerPage": 1297,
+        "shareOfScore": 0.003,
+        "cumulativeShare": 0.995,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "generic",
+      "measured": {
+        "volume": 38570,
+        "keywords": 139,
+        "medianDifficulty": 2,
+        "difficultyCoverage": 0.39,
+        "medianCpcUsd": 0.6,
+        "cpcCoverage": 0.56,
+        "commercialVolume": 4230,
+        "informationalVolume": 25730,
+        "intentCoverage": 0.68,
+        "commercialShareOfClassifiedVolume": 0.141
+      },
+      "editorial": {
+        "proximityToPurchase": 0.2,
+        "winnability": 0.4,
+        "pagesAllocated": 0,
+        "why": "unclassifiable phrasing, no reliable intent",
+        "measured": false
+      },
+      "derived": {
+        "score": 3086,
+        "monetisationIndex": 4628,
+        "volumePerPage": null,
+        "shareOfScore": 0.003,
+        "cumulativeShare": 0.998,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "mobile_data_abroad",
+      "measured": {
+        "volume": 13640,
+        "keywords": 147,
+        "medianDifficulty": null,
+        "difficultyCoverage": 0,
+        "medianCpcUsd": 0.5,
+        "cpcCoverage": 0.56,
+        "commercialVolume": 11460,
+        "informationalVolume": 2180,
+        "intentCoverage": 1,
+        "commercialShareOfClassifiedVolume": 0.84
+      },
+      "editorial": {
+        "proximityToPurchase": 0.3,
+        "winnability": 0.7,
+        "pagesAllocated": 3,
+        "why": "broad phrasing, mixed intent",
+        "measured": false
+      },
+      "derived": {
+        "score": 2864,
+        "monetisationIndex": 2046,
+        "volumePerPage": 4547,
+        "shareOfScore": 0.002,
+        "cumulativeShare": 1,
+        "band": "C"
+      }
+    },
+    {
+      "cluster": "digital_nomad",
+      "measured": {
+        "volume": 60,
+        "keywords": 2,
+        "medianDifficulty": null,
+        "difficultyCoverage": 0,
+        "medianCpcUsd": 1,
+        "cpcCoverage": 0.5,
+        "commercialVolume": 0,
+        "informationalVolume": 60,
+        "intentCoverage": 1,
+        "commercialShareOfClassifiedVolume": 0
+      },
+      "editorial": {
+        "proximityToPurchase": 0.1,
+        "winnability": 0.3,
+        "pagesAllocated": 0,
+        "why": "below the page floor in every market, and a different buying cycle",
+        "measured": false
+      },
+      "derived": {
+        "score": 2,
+        "monetisationIndex": 6,
+        "volumePerPage": null,
+        "shareOfScore": 0,
+        "cumulativeShare": 1,
+        "band": "C"
+      }
+    }
+  ]
+}

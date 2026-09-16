@@ -7,6 +7,8 @@
 import { runDashCheck } from './dash-check.mjs';
 import { runSimilarityCheck } from './similarity-check.mjs';
 import { marketStatus, REQUIRED_FOR_PUBLICATION } from '../lib/markets.js';
+import { runPageAudit } from './page-audit.mjs';
+import { runOrthographyCheck } from './orthography-check.mjs';
 import { LOCALES, segment } from '../lib/i18n.js';
 import { DESTINATIONS, REGIONS, destinationSlug } from '../lib/destinations.js';
 import {
@@ -274,6 +276,35 @@ contentLocales().forEach((locale) => {
       fail('Environment variable ' + key + ' is exposed to the browser and looks like a secret.');
     }
   });
+}
+
+// 8b. Per page audit across every indexable page.
+//
+// The rest of this file checks the system. This checks each page on its own,
+// and it enumerates the routing tree rather than a list of content tables, so a
+// page type added later cannot escape the audit by not being on anyone's list.
+// That is the exact failure this exists to prevent: the region pages were
+// outside every check for as long as they were outside the content registry,
+// which is how thirty three of them reached the sitemap with six words on them.
+{
+  const audit = runPageAudit();
+  notes.push(
+    'Page audit: ' + audit.pages + ' indexable pages (' +
+      Object.entries(audit.byType).sort((a, b) => b[1] - a[1]).map(([t, n]) => t + ' ' + n).join(', ') + ')'
+  );
+  audit.failures.forEach((f) => fail(f));
+}
+
+// 8c. Orthography, per language.
+//
+// The gate checked dashes, duplication, word counts and hreflang, and none of
+// that noticed that seven hundred German words had lost their umlauts. A reader
+// does not see a missing diacritic, they see a broken site, so this is a
+// failure rather than a warning.
+{
+  const orth = runOrthographyCheck();
+  notes.push('Orthography: ' + orth.guardedWords + ' German spellings guarded across ' + orth.files + ' files');
+  orth.failures.forEach((f) => fail(f));
 }
 
 // 9 and 10. Text rules and duplication.

@@ -164,6 +164,63 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .header-tools { margin-left: 18px; }
 }
 
+/* Navigation below 900px.
+ *
+ * This used to be display none with nothing to replace it, and no hamburger
+ * anywhere in the markup, which meant that on every phone and every small
+ * tablet the header carried a logo and a language selector and nothing else.
+ * The whole site was unreachable from the top of the page. On a shop, where
+ * most of the traffic is a phone, that is not a styling detail.
+ *
+ * The replacement is a scrolling category strip rather than a hidden menu
+ * behind a button, for two reasons: it needs no JavaScript, so it cannot fail
+ * to hydrate, and a shop should show its departments rather than filing them
+ * behind an icon. The strip is horizontally scrollable so it survives any
+ * number of entries and any language, including the German and Romanian labels
+ * that are considerably longer than the English ones. */
+@media (max-width: 899.98px) {
+  .header-row {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 58px;
+    row-gap: 0;
+  }
+  .brand { order: 1; }
+  .header-tools { order: 2; margin-left: auto; }
+  .main-nav {
+    order: 3;
+    display: flex;
+    /* Not 100%. A percentage basis resolves against the row's content box,
+     * which is already inset by the gutter on both sides, so a 100% basis plus
+     * a negative gutter margin bleeds off the left edge and then stops a full
+     * gutter short of the right one, leaving the top border hanging in mid air.
+     * The basis has to buy back both gutters for the strip to span the screen. */
+    flex-basis: calc(100% + var(--gutter) * 2);
+    margin-left: 0;
+    gap: 0;
+    font-size: 15px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-top: 1px solid var(--line);
+    /* Full bleed, so the strip reads as a bar rather than a stranded row and
+     * the last item scrolls off the edge instead of stopping short of it. */
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+  .main-nav::-webkit-scrollbar { display: none; }
+  .main-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 14px;
+    white-space: nowrap;
+  }
+  .main-nav a:first-child { padding-inline-start: 0; }
+  .main-nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); }
+}
+
 /* Language globe */
 
 .globe {
@@ -244,7 +301,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 
 .hero { padding-block: 46px 30px; }
 .kicker {
-  font-size: 11.5px;
+  /* Was 11.5px. Below twelve, a 0.16em tracked uppercase line stops being
+   * comfortably readable on a phone, and this one is the first text on the
+   * page. */
+  font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -543,7 +603,8 @@ a.tile:hover { border-color: var(--line-strong); }
 .footer-cols { display: grid; gap: 22px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .footer-cols { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
 .footer-cols h4 {
-  font-size: 11px;
+  /* Was 11px, which is under the floor we hold every other page to. */
+  font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -553,6 +614,18 @@ a.tile:hover { border-color: var(--line-strong); }
 .footer-cols ul { margin: 0; padding: 0; list-style: none; }
 .footer-cols li { margin-bottom: 7px; }
 .footer-cols a:hover { color: var(--ink); }
+/* On a phone the footer is the second navigation, so its links have to be
+ * tappable rather than merely present. An eighteen pixel inline link is below
+ * the twenty four pixel minimum and sits seven pixels from its neighbour, which
+ * is how you mis-tap Privacy when you wanted Cookies. */
+@media (max-width: 899.98px) {
+  .footer-cols li { margin-bottom: 0; }
+  .footer-cols li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+}
 .footer-note { margin-top: 26px; font-size: 13px; color: var(--faint); max-width: 70ch; }
 
 /* Consent */

@@ -246,6 +246,11 @@ function renderEsimHub(locale) {
         </div>
       </main>
       <Footer locale={locale} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.esim, path: routes.esimHub(locale) }]),
+        ]}
+      />
     </>
   );
 }
@@ -583,6 +588,11 @@ function renderRegionsHub(locale) {
         </div>
       </main>
       <Footer locale={locale} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.regions, path: routes.regionsHub(locale) }]),
+        ]}
+      />
     </>
   );
 }
@@ -613,6 +623,11 @@ function renderGuidesHub(locale) {
         </div>
       </main>
       <Footer locale={locale} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.guides, path: routes.guidesHub(locale) }]),
+        ]}
+      />
     </>
   );
 }
