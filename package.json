@@ -16,7 +16,8 @@
     "regression": "node scripts/seo-regression.mjs",
     "media:adopt": "node scripts/adopt-media.mjs",
     "media:brief": "node scripts/image-brief.mjs",
-    "taxonomy:report": "node scripts/taxonomy-report.mjs"
+    "taxonomy:report": "node scripts/taxonomy-report.mjs",
+    "audit:scale": "node scripts/seo-scale-audit.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

@@ -17,6 +17,7 @@ import {
   compatibilityAlternates,
   legalAlternates,
 } from '../lib/seo.js';
+import { lastModifiedFor } from '../lib/content-freshness.js';
 
 const REGION_IDS = REGIONS.filter((r) => r.id !== 'global').map((r) => r.id);
 
@@ -32,9 +33,10 @@ export async function generateSitemaps() {
   return ids;
 }
 
-function entry(path, alternates, priority, changeFrequency) {
+function entry(path, alternates, priority, changeFrequency, family = 'core') {
   return {
     url: absolute(path),
+    lastModified: lastModifiedFor(family),
     changeFrequency,
     priority,
     alternates: alternates ? { languages: alternates } : undefined,
@@ -56,17 +58,17 @@ function coreEntries(locale) {
 
 function destinationEntries(locale) {
   return publishedDestinationIds(locale).map((id) =>
-    entry(routes.destination(locale, id), destinationAlternates(id), 0.8, 'weekly')
+    entry(routes.destination(locale, id), destinationAlternates(id), 0.8, 'weekly', 'destinations')
   );
 }
 
 function regionEntries(locale) {
-  return publishedRegionIds(locale).map((id) => entry(routes.region(locale, id), regionAlternates(id), 0.6, 'monthly'));
+  return publishedRegionIds(locale).map((id) => entry(routes.region(locale, id), regionAlternates(id), 0.6, 'monthly', 'regions'));
 }
 
 function guideEntries(locale) {
   return publishedGuideSlugs(locale).map((slug) =>
-    entry(routes.guide(locale, slug), guideAlternates(slug), 0.6, 'monthly')
+    entry(routes.guide(locale, slug), guideAlternates(slug), 0.6, 'monthly', 'guides')
   );
 }
 

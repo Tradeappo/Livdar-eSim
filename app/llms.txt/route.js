@@ -24,7 +24,7 @@ function line(s = '') {
   return s + '\n';
 }
 
-export function GET() {
+export function buildLlmsText({ full = false } = {}) {
   const locales = contentLocales();
   const t = ui('en');
   let out = '';
@@ -111,7 +111,40 @@ export function GET() {
   out += line();
   out += line('Sitemap: ' + SITE_URL + '/sitemap.xml');
 
-  return new Response(out, {
+  if (full) {
+    out += line();
+    out += line('## Complete published URL inventory');
+    out += line();
+    locales.forEach((locale) => {
+      out += line('### ' + locale);
+      out += line('- Home: ' + absolute(routes.home(locale)));
+      out += line('- eSIM index: ' + absolute(routes.esimHub(locale)));
+      out += line('- Regions index: ' + absolute(routes.regionsHub(locale)));
+      out += line('- Guides index: ' + absolute(routes.guidesHub(locale)));
+      out += line('- Compatibility: ' + absolute(routes.compatibility(locale)));
+      out += line('- Privacy: ' + absolute(routes.privacy(locale)));
+      out += line('- Cookies: ' + absolute(routes.cookies(locale)));
+      publishedDestinationIds(locale).forEach((id) => {
+        const destination = getDestination(id);
+        if (destination) out += line('- Destination: ' + localizedName(destination, locale) + ': ' + absolute(routes.destination(locale, destination)));
+      });
+      publishedRegionIds(locale).forEach((id) => {
+        const region = getRegion(id);
+        if (region) out += line('- Region: ' + regionName(region, locale) + ': ' + absolute(routes.region(locale, id)));
+      });
+      publishedGuideSlugs(locale).forEach((slug) => {
+        const guide = guideContent(locale, slug);
+        out += line('- Guide: ' + (guide?.h1 || slug) + ': ' + absolute(routes.guide(locale, slug)));
+      });
+      out += line();
+    });
+  }
+
+  return out;
+}
+
+export function GET() {
+  return new Response(buildLlmsText(), {
     headers: {
       'content-type': 'text/plain; charset=utf-8',
       'cache-control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',

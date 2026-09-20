@@ -17,7 +17,8 @@
       "pattern": "/{locale}/esim/{destination}/",
       "minimumMonthlyVolume": 500,
       "minimumUniqueBlocks": 3,
-      "maximumSourceAgeDays": 90
+      "maximumSourceAgeDays": 90,
+      "minimumQualityScore": 0.7
     },
     {
       "key": "city-cost",
@@ -25,7 +26,8 @@
       "pattern": "/{locale}/{city}/cost-of-living/",
       "minimumMonthlyVolume": 250,
       "minimumUniqueBlocks": 5,
-      "maximumSourceAgeDays": 45
+      "maximumSourceAgeDays": 45,
+      "minimumQualityScore": 0.75
     },
     {
       "key": "city-requirements",
@@ -33,7 +35,8 @@
       "pattern": "/{locale}/{city}/{topic}-requirements/",
       "minimumMonthlyVolume": 100,
       "minimumUniqueBlocks": 5,
-      "maximumSourceAgeDays": 60
+      "maximumSourceAgeDays": 60,
+      "minimumQualityScore": 0.75
     },
     {
       "key": "city-marketplace",
@@ -41,7 +44,8 @@
       "pattern": "/{locale}/{city}/{inventoryType}/",
       "minimumMonthlyVolume": 250,
       "minimumUniqueBlocks": 4,
-      "maximumSourceAgeDays": 14
+      "maximumSourceAgeDays": 14,
+      "minimumQualityScore": 0.8
     }
   ],
   "hardGates": [
@@ -52,6 +56,12 @@
     "source-freshness",
     "content-completeness",
     "canonical-ownership",
-    "quality-review"
+    "quality-review",
+    "source-attribution",
+    "commercial-usefulness",
+    "serp-opportunity",
+    "internal-link-value",
+    "language-quality",
+    "lifecycle-approval"
   ]
 }

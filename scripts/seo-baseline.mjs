@@ -150,14 +150,15 @@ function hubItemCount(node, meta) {
 function schemaShapeFor(node, meta) {
   switch (node.type) {
     case 'home':
-      return [{ type: 'Organization' }, { type: 'WebSite' }];
+      return [{ type: 'Organization' }, { type: 'WebSite' }, { type: 'WebPage' }, meta.faq >= 2 ? { type: 'FAQPage', items: meta.faq } : null].filter(Boolean);
     case 'destination':
     case 'guide':
+      return [{ type: 'BreadcrumbList' }, { type: 'Article' }, meta.faq >= 2 ? { type: 'FAQPage', items: meta.faq } : null].filter(Boolean);
     case 'region':
     case 'compatibility':
-      return [{ type: 'BreadcrumbList' }, meta.faq >= 2 ? { type: 'FAQPage', items: meta.faq } : null].filter(Boolean);
+      return [{ type: 'BreadcrumbList' }, { type: 'WebPage' }, meta.faq >= 2 ? { type: 'FAQPage', items: meta.faq } : null].filter(Boolean);
     case 'legal':
-      return [{ type: 'BreadcrumbList' }];
+      return [{ type: 'BreadcrumbList' }, { type: 'WebPage' }];
     case 'esimHub':
     case 'regionsHub':
     case 'guidesHub':

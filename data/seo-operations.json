@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "generationEnabled": false,
+  "dataForSeo": {
+    "purpose": ["SERP validation", "keyword refresh", "competitor overlap"],
+    "credentials": ["DATAFORSEO_LOGIN", "DATAFORSEO_PASSWORD"],
+    "writeMode": "candidate-only",
+    "refreshDays": 30
+  },
+  "make": {
+    "endpoint": "/api/programmatic/eligibility",
+    "authentication": "Bearer SEO_AUTOMATION_TOKEN",
+    "allowedAction": "evaluate-only",
+    "publishing": false
+  },
+  "searchConsole": {
+    "credentials": ["GOOGLE_SERVICE_ACCOUNT_JSON", "GSC_PROPERTY"],
+    "windowsDays": [7, 28, 90],
+    "alerts": {
+      "clickDropPercent": 30,
+      "impressionDropPercent": 35,
+      "ctrDropPercent": 25,
+      "positionLoss": 3,
+      "minimumImpressions": 100
+    }
+  },
+  "refresh": {
+    "destinationDays": 90,
+    "guideDays": 180,
+    "commercialDays": 14,
+    "retireAfterZeroImpressionDays": 180
+  }
+}

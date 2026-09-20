@@ -10,7 +10,7 @@ import TravelTools from '../../components/shop/TravelTools.jsx';
 import { ui, homeContent, publishedDestinationIds, publishedGuideSlugs, publishedRegionIds, guideContent } from '../../lib/content/index.js';
 import { DESTINATIONS, REGIONS, localizedName, destinationSlug, regionName, getDestination, flagFor } from '../../lib/destinations.js';
 import { routes } from '../../lib/routes.js';
-import { buildMetadata, homeAlternates, organizationSchema, websiteSchema } from '../../lib/seo.js';
+import { buildMetadata, homeAlternates, organizationSchema, websiteSchema, webPageSchema, faqSchema } from '../../lib/seo.js';
 import { contentLocales } from '../../lib/content/index.js';
 import { toolStrings } from '../../lib/content/ui.js';
 import V41Marketplace from '../../components/V41Marketplace.jsx';
@@ -69,7 +69,12 @@ export default async function HomePage({ params }) {
       <V41Marketplace locale={locale} h1={c.heroTitle}>
         <V41SeoContent locale={locale} includeEditorial />
       </V41Marketplace>
-      <JsonLd data={[organizationSchema(), websiteSchema(locale)]} />
+      <JsonLd data={[
+        organizationSchema(),
+        websiteSchema(locale),
+        webPageSchema({ name: c.heroTitle, description: c.metaDescription, path: routes.home(locale), locale }),
+        faqSchema(c.faq),
+      ]} />
     </>
   );
 }
