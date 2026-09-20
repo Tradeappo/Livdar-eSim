@@ -13,9 +13,11 @@ const BODY = SOURCE.split(/<body[^>]*>/i)[1] || '';
 const STYLES = [...HEAD.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((match) => match[1]).join('\n');
 const INLINE_SCRIPTS = [...SOURCE.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map((match) => match[1]);
 const MARKUP = BODY.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+const FOOTER = MARKUP.match(/<footer class="footer-card" id="guides">[\s\S]*?<\/footer>/i)?.[0] || '';
+const MARKETPLACE_MARKUP = FOOTER ? MARKUP.replace(FOOTER, '') : MARKUP;
 
-function localizedMarkup(locale) {
-  return MARKUP
+function localize(markup, locale) {
+  return markup
     .replace('<html lang="en">', `<html lang="${locale}">`)
     .replace('<a data-i18n="allDestinations" href="#">', `<a data-i18n="allDestinations" href="${routes.esimHub(locale)}">`)
     .replace('<a data-i18n="footerPlans" href="#">', `<a data-i18n="footerPlans" href="${routes.esimHub(locale)}">`)
@@ -28,14 +30,16 @@ function localizedMarkup(locale) {
     .replace('<a data-i18n="cookies" href="#">', `<a data-i18n="cookies" href="${routes.cookies(locale)}">`);
 }
 
-export default function V41Marketplace({ locale, h1 }) {
+export default function V41Marketplace({ locale, h1, children }) {
   const localeBoot = `try{localStorage.setItem("livdarLang",${JSON.stringify(locale)})}catch(e){};document.documentElement.lang=${JSON.stringify(locale)};`;
 
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
       <h1 className="sr-only">{h1}</h1>
-      <div className="v41-marketplace" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: localizedMarkup(locale) }} />
+      <div className="v41-marketplace" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: localize(MARKETPLACE_MARKUP, locale) }} />
+      {children}
+      {FOOTER ? <div className="v41-marketplace v41-marketplace-footer" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: localize(FOOTER, locale) }} /> : null}
       <Script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" strategy="afterInteractive" />
       <Script id={`v41-locale-${locale}`} strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: localeBoot }} />
       {INLINE_SCRIPTS.map((code, index) => (

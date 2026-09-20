@@ -14,6 +14,7 @@ import { buildMetadata, homeAlternates, organizationSchema, websiteSchema } from
 import { contentLocales } from '../../lib/content/index.js';
 import { toolStrings } from '../../lib/content/ui.js';
 import V41Marketplace from '../../components/V41Marketplace.jsx';
+import V41SeoContent from '../../components/V41SeoContent.jsx';
 
 export const dynamicParams = false;
 
@@ -65,7 +66,9 @@ export default async function HomePage({ params }) {
 
   return (
     <>
-      <V41Marketplace locale={locale} h1={c.heroTitle} />
+      <V41Marketplace locale={locale} h1={c.heroTitle}>
+        <V41SeoContent locale={locale} includeEditorial />
+      </V41Marketplace>
       <JsonLd data={[organizationSchema(), websiteSchema(locale)]} />
     </>
   );
