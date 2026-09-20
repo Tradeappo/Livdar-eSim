@@ -46,6 +46,8 @@ import {
   breadcrumbSchema,
   faqSchema,
   collectionPageSchema,
+  webPageSchema,
+  articleSchema,
 } from '../../../lib/seo.js';
 import { listPlans, providerIsConnected } from '../../../lib/providers/index.js';
 import V41Marketplace from '../../../components/V41Marketplace.jsx';
@@ -373,7 +375,11 @@ async function renderDestination(locale, node) {
         </div>
       </main>
       <Footer locale={locale} />
-      <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(c.faq)]} />
+      <JsonLd data={[
+        breadcrumbSchema(crumbs),
+        articleSchema({ headline: c.h1, description: c.metaDescription, path: routes.destination(locale, dest), locale }),
+        faqSchema(c.faq),
+      ]} />
     </>
   );
 }
@@ -449,7 +455,11 @@ function renderGuide(locale, node) {
         </div>
       </main>
       <Footer locale={locale} />
-      <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(g.faq)]} />
+      <JsonLd data={[
+        breadcrumbSchema(crumbs),
+        articleSchema({ headline: g.h1, description: g.metaDescription, path: routes.guide(locale, node.slug), locale }),
+        faqSchema(g.faq),
+      ]} />
     </>
   );
 }
@@ -540,7 +550,11 @@ function renderRegion(locale, node) {
         </div>
       </main>
       <Footer locale={locale} />
-      <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(c.faq)]} />
+      <JsonLd data={[
+        breadcrumbSchema(crumbs),
+        webPageSchema({ name: c.h1, description: c.metaDescription, path: routes.region(locale, region.id), locale }),
+        faqSchema(c.faq),
+      ]} />
     </>
   );
 }
@@ -674,7 +688,10 @@ function renderLegal(locale, node) {
         </div>
       </main>
       <Footer locale={locale} />
-      <JsonLd data={[breadcrumbSchema(crumbs)]} />
+      <JsonLd data={[
+        breadcrumbSchema(crumbs),
+        webPageSchema({ name: c.h1, description: c.metaDescription, path: routes[node.kind](locale), locale }),
+      ]} />
     </>
   );
 }
@@ -729,7 +746,11 @@ function renderCompatibility(locale, node) {
         </div>
       </main>
       <Footer locale={locale} />
-      <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(c.faq)]} />
+      <JsonLd data={[
+        breadcrumbSchema(crumbs),
+        webPageSchema({ name: c.h1, description: c.metaDescription, path: routes.compatibility(locale), locale }),
+        faqSchema(c.faq),
+      ]} />
     </>
   );
 }

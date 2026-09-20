@@ -20,6 +20,12 @@ const BASELINE_PATH = new URL('../reports/seo-baseline.json', import.meta.url);
 // be invisible to a crawler, which is the goal.
 export const ALLOWED_DRIFT = [
   {
+    fields: ['schema'],
+    paths: ['*'],
+    reason:
+      'Existing visible content now declares the matching WebPage or Article entity; the home page also declares its already-visible FAQ. No Product or Offer claims were added.',
+  },
+  {
     fields: ['description'],
     paths: ['/de/esim/', '/de/regionen/', '/de/ratgeber/', '/ro/esim/', '/ro/regiuni/', '/ro/ghiduri/'],
     reason:
@@ -48,7 +54,7 @@ const COMPARED = [
 ];
 
 function allowed(path, field) {
-  return ALLOWED_DRIFT.some((d) => d.fields.includes(field) && d.paths.includes(path));
+  return ALLOWED_DRIFT.some((d) => d.fields.includes(field) && (d.paths.includes('*') || d.paths.includes(path)));
 }
 
 function compareClusters(a, b) {
