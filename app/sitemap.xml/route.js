@@ -11,14 +11,14 @@
 
 import { generateSitemaps } from '../sitemap.js';
 import { absolute } from '../../lib/routes.js';
+import { indexingAllowed } from '../../lib/indexing.js';
 
-const INDEXABLE = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== 'false';
+const INDEXABLE = indexingAllowed();
 
 export const dynamic = 'force-static';
 
 export async function GET() {
   const ids = await generateSitemaps();
-  const lastModified = new Date().toISOString();
 
   const body =
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
@@ -30,9 +30,6 @@ export async function GET() {
           '    <loc>' +
           absolute('/sitemap/' + s.id + '.xml') +
           '</loc>\n' +
-          '    <lastmod>' +
-          lastModified +
-          '</lastmod>\n' +
           '  </sitemap>\n'
       )
       .join('') +

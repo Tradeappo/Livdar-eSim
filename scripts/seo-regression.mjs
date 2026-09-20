@@ -68,7 +68,7 @@ function compareSchema(a, b) {
   return sa === sb ? null : sa + ' -> ' + sb;
 }
 
-export function runRegression() {
+export function runRegression({ allowIndexingMismatch = false } = {}) {
   if (!existsSync(BASELINE_PATH)) {
     return { ok: false, failures: ['No baseline at reports/seo-baseline.json. Run node scripts/seo-baseline.mjs > reports/seo-baseline.json before changing templates.'], checked: 0 };
   }
@@ -77,7 +77,8 @@ export function runRegression() {
   const failures = [];
   const drifted = [];
 
-  if (before.indexable !== after.indexable) {
+  const indexingDiffers = before.indexable !== after.indexable;
+  if (indexingDiffers && !allowIndexingMismatch) {
     failures.push(
       'Baseline was taken with indexing ' + (before.indexable ? 'on' : 'off') + ' and this tree has it ' +
         (after.indexable ? 'on' : 'off') + '. Comparing the two would report every robots directive as a regression. Re-take the baseline in the same environment.'
@@ -101,7 +102,7 @@ export function runRegression() {
     .forEach((path) => {
       const a = before.pages[path];
       const b = after.pages[path];
-      COMPARED.forEach((field) => {
+      COMPARED.filter((field) => !(indexingDiffers && ['robots', 'indexable'].includes(field))).forEach((field) => {
         if (JSON.stringify(a[field]) === JSON.stringify(b[field])) return;
         const line = path + ' ' + field + ': ' + JSON.stringify(a[field]) + ' -> ' + JSON.stringify(b[field]);
         if (allowed(path, field)) drifted.push('allowed ' + line);
@@ -126,6 +127,7 @@ export function runRegression() {
     added: added.length,
     failures,
     drifted,
+    environmentNotes: indexingDiffers ? ['Indexability differs by deployment environment; robots and indexable fields were intentionally excluded from this preview comparison.'] : [],
     baselineTakenAt: before.generatedAt,
   };
 }

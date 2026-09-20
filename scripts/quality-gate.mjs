@@ -36,6 +36,7 @@ import { resolvePath, allPathsForLocale } from '../lib/resolve.js';
 import { routes, absolute } from '../lib/routes.js';
 import { homeAlternates, hubAlternates, destinationAlternates, guideAlternates, regionAlternates, compatibilityAlternates } from '../lib/seo.js';
 import { CHECKOUT_ENABLED, activeProviderId } from '../lib/providers/index.js';
+import { indexingAllowed } from '../lib/indexing.js';
 
 const failures = [];
 const notes = [];
@@ -45,7 +46,7 @@ function warn(message) { notes.push(message); }
 
 // Indexing on means this build is headed for the real domain rather than a
 // preview, which raises the bar for what may ship.
-const INDEXABLE = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== 'false';
+const INDEXABLE = indexingAllowed();
 
 // 1. Locale table and content registry must agree. A locale marked live with no
 // content would be a linked market with nothing behind it.
@@ -401,12 +402,13 @@ contentLocales().forEach((locale) => {
 // arguing about; a URL that disappeared is a 404 for every link already pointing
 // at it, and no redesign is worth that.
 {
-  const reg = runRegression();
+  const reg = runRegression({ allowIndexingMismatch: !INDEXABLE });
   notes.push(
     'SEO regression: ' + reg.checked + ' URL(s) compared against the baseline' +
       (reg.drifted && reg.drifted.length ? ', ' + reg.drifted.length + ' declared change(s)' : ', no declared changes')
   );
   (reg.drifted || []).slice(0, 10).forEach((d) => notes.push('  declared: ' + d));
+  (reg.environmentNotes || []).forEach((message) => notes.push('  environment: ' + message));
   (reg.failures || []).forEach((f) => fail('SEO regression: ' + f));
 }
 

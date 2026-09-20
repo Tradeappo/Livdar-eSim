@@ -1,11 +1,12 @@
 import { SITE_URL, absolute } from '../lib/routes.js';
 import { generateSitemaps } from './sitemap.js';
+import { indexingAllowed } from '../lib/indexing.js';
 
 // Indexing is opened only when the site is deployed on its own domain. Preview
 // deployments carry a different host, and a preview that gets indexed competes
 // with production for the same queries. lib/seo.js closes the same door at page
 // level from the same variable, so robots.txt and the page meta cannot disagree.
-const INDEXABLE = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== 'false';
+const INDEXABLE = indexingAllowed();
 
 export default async function robots() {
   if (!INDEXABLE) {

@@ -100,6 +100,9 @@ export function GET() {
   out += line();
   out += line('The travel cost calculator on the home page is arithmetic on numbers the visitor');
   out += line('types in. It returns an estimate, not a quote, and it queries nothing.');
+  out += line('The eSIM advisor estimates a data allowance from trip length and stated usage.');
+  out += line('Travel advice is a generic pre-departure checklist, not live official guidance.');
+  out += line('The travel card generator creates a local PNG from details the visitor enters.');
   out += line();
 
   out += line('## Contact');

@@ -42,10 +42,11 @@ import {
   compatibilityAlternates,
   legalAlternates,
 } from '../lib/seo.js';
+import { indexingAllowed } from '../lib/indexing.js';
 
 // Indexability is an environment decision, recorded so a baseline taken on a
 // preview is never silently compared against one taken on production.
-const INDEXABLE = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== 'false';
+const INDEXABLE = indexingAllowed();
 
 function clusterFor(node, locale) {
   switch (node.type) {
