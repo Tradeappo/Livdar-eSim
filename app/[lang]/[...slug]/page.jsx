@@ -48,6 +48,7 @@ import {
   collectionPageSchema,
 } from '../../../lib/seo.js';
 import { listPlans, providerIsConnected } from '../../../lib/providers/index.js';
+import V41Marketplace from '../../../components/V41Marketplace.jsx';
 
 export const dynamicParams = false;
 
@@ -215,63 +216,7 @@ function renderEsimHub(locale) {
 
   return (
     <>
-      <Header locale={locale} alternatePaths={shellAlternates(locale, 'esim')} section="esim" />
-      <main id="main">
-        <Crumbs items={[{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.esim, path: routes.esimHub(locale) }]} />
-        <div className="wrap shop-page">
-          {/* The heading, the breadcrumb and every link below the shop stay
-            * server rendered. The browsing surface is the only client island on
-            * this page, so what a crawler reads does not depend on it running. */}
-          <section className="hero" style={{ paddingBlock: '16px 4px' }}>
-            <h1 style={{ fontSize: 'clamp(26px,5vw,38px)', marginBottom: 2 }}>{t.nav.esim}</h1>
-            <p className="hero-lead" style={{ marginTop: 4 }}>{t.searchHint}</p>
-          </section>
-
-          <ShopBrowser locale={locale} strings={shopStrings(locale)} hrefs={destinationHrefs(locale)} />
-
-          {published.length ? (
-            <section>
-              <div className="section-head">
-                <h2>{t.popularDestinations}</h2>
-              </div>
-              <div className="grid grid-4">
-                {published.map(getDestination).filter(Boolean).map((d) => (
-                  <a className="tile dest-tile" key={d.id} href={routes.destination(locale, d)}>
-                    <strong>{localizedName(d, locale)}</strong>
-                    <span className="code">{d.callingCode}</span>
-                  </a>
-                ))}
-              </div>
-            </section>
-          ) : null}
-
-          {byRegion.map((group) => (
-            <section key={group.region.id}>
-              <div className="section-head">
-                <h2>{regionName(group.region, locale)}</h2>
-              </div>
-              <div className="grid grid-4">
-                {group.items.map((d) =>
-                  published.includes(d.id) ? (
-                    <a className="tile dest-tile" key={d.id} href={routes.destination(locale, d)}>
-                      <strong>{localizedName(d, locale)}</strong>
-                      <span className="code">{d.callingCode}</span>
-                    </a>
-                  ) : (
-                    <div className="tile dest-tile" key={d.id} style={{ opacity: 0.62 }}>
-                      <strong>{localizedName(d, locale)}</strong>
-                      <span className="code">{d.callingCode}</span>
-                    </div>
-                  )
-                )}
-              </div>
-            </section>
-          ))}
-
-          <BuySteps locale={locale} strings={t} />
-        </div>
-      </main>
-      <Footer locale={locale} />
+      <V41Marketplace locale={locale} h1={t.nav.esim} />
       <JsonLd
         data={[
           breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.esim, path: routes.esimHub(locale) }]),
