@@ -49,6 +49,7 @@ import {
 } from '../../../lib/seo.js';
 import { listPlans, providerIsConnected } from '../../../lib/providers/index.js';
 import V41Marketplace from '../../../components/V41Marketplace.jsx';
+import V41SeoContent from '../../../components/V41SeoContent.jsx';
 
 export const dynamicParams = false;
 
@@ -216,7 +217,9 @@ function renderEsimHub(locale) {
 
   return (
     <>
-      <V41Marketplace locale={locale} h1={t.nav.esim} />
+      <V41Marketplace locale={locale} h1={t.nav.esim}>
+        <V41SeoContent locale={locale} />
+      </V41Marketplace>
       <JsonLd
         data={[
           breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.esim, path: routes.esimHub(locale) }]),
