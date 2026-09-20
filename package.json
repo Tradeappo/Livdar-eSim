@@ -15,7 +15,8 @@
     "baseline": "node scripts/seo-baseline.mjs > reports/seo-baseline.json",
     "regression": "node scripts/seo-regression.mjs",
     "media:adopt": "node scripts/adopt-media.mjs",
-    "media:brief": "node scripts/image-brief.mjs"
+    "media:brief": "node scripts/image-brief.mjs",
+    "taxonomy:report": "node scripts/taxonomy-report.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

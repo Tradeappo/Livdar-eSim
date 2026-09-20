@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "status": "infrastructure-only",
+  "generationEnabled": false,
+  "description": "Master taxonomy contract. It models future URL families without creating or indexing them.",
+  "scaleTargets": [300000, 1000000, 5000000, 20000000],
+  "dimensions": {
+    "geography": ["country", "region", "city", "district", "airport"],
+    "intent": ["discover", "compare", "cost", "requirements", "how-to", "availability"],
+    "vertical": ["connectivity", "stay", "work", "move", "flights", "transport", "activities"],
+    "locale": ["en", "de", "ro"]
+  },
+  "families": [
+    {
+      "key": "connectivity-destination",
+      "vertical": "connectivity",
+      "pattern": "/{locale}/esim/{destination}/",
+      "minimumMonthlyVolume": 500,
+      "minimumUniqueBlocks": 3,
+      "maximumSourceAgeDays": 90
+    },
+    {
+      "key": "city-cost",
+      "vertical": "move",
+      "pattern": "/{locale}/{city}/cost-of-living/",
+      "minimumMonthlyVolume": 250,
+      "minimumUniqueBlocks": 5,
+      "maximumSourceAgeDays": 45
+    },
+    {
+      "key": "city-requirements",
+      "vertical": "move",
+      "pattern": "/{locale}/{city}/{topic}-requirements/",
+      "minimumMonthlyVolume": 100,
+      "minimumUniqueBlocks": 5,
+      "maximumSourceAgeDays": 60
+    },
+    {
+      "key": "city-marketplace",
+      "vertical": "stay",
+      "pattern": "/{locale}/{city}/{inventoryType}/",
+      "minimumMonthlyVolume": 250,
+      "minimumUniqueBlocks": 4,
+      "maximumSourceAgeDays": 14
+    }
+  ],
+  "hardGates": [
+    "published-locale",
+    "validated-demand",
+    "unique-intent",
+    "source-coverage",
+    "source-freshness",
+    "content-completeness",
+    "canonical-ownership",
+    "quality-review"
+  ]
+}
