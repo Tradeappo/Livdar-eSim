@@ -4,11 +4,15 @@ import DestinationSearch from '../../components/DestinationSearch.jsx';
 import Cta from '../../components/Cta.jsx';
 import Faq from '../../components/Faq.jsx';
 import JsonLd from '../../components/JsonLd.jsx';
-import { ui, homeContent, publishedDestinationIds, publishedGuideSlugs, guideContent } from '../../lib/content/index.js';
-import { DESTINATIONS, REGIONS, localizedName, destinationSlug, regionName, getDestination } from '../../lib/destinations.js';
+import DestinationRail from '../../components/shop/DestinationRail.jsx';
+import RegionRail from '../../components/shop/RegionRail.jsx';
+import TravelTools from '../../components/shop/TravelTools.jsx';
+import { ui, homeContent, publishedDestinationIds, publishedGuideSlugs, publishedRegionIds, guideContent } from '../../lib/content/index.js';
+import { DESTINATIONS, REGIONS, localizedName, destinationSlug, regionName, getDestination, flagFor } from '../../lib/destinations.js';
 import { routes } from '../../lib/routes.js';
 import { buildMetadata, homeAlternates, organizationSchema, websiteSchema } from '../../lib/seo.js';
 import { contentLocales } from '../../lib/content/index.js';
+import { toolStrings } from '../../lib/content/ui.js';
 
 export const dynamicParams = false;
 
@@ -46,7 +50,11 @@ export default async function HomePage({ params }) {
 
   const published = publishedDestinationIds(locale);
   const popular = published.map(getDestination).filter(Boolean);
-  const regions = REGIONS.filter((r) => r.id !== 'global').slice(0, 8);
+  // Only regions with a published page in this market. The previous list took
+  // the first eight of the dataset and happened to be right; happening to be
+  // right is not the same as being unable to be wrong.
+  const publishedRegions = publishedRegionIds(locale);
+  const regions = REGIONS.filter((r) => r.id !== 'global' && publishedRegions.includes(r.id)).slice(0, 8);
   const guides = publishedGuideSlugs(locale).map((slug) => ({ slug, ...guideContent(locale, slug) }));
 
   const alternatePaths = {};
@@ -77,24 +85,19 @@ export default async function HomePage({ params }) {
             </div>
           </section>
 
-          <section>
-            <div className="section-head">
-              <h2>{t.popularDestinations}</h2>
-            </div>
-            <div className="grid grid-4">
-              {popular.map((d) => (
-                <a className="tile dest-tile" key={d.id} href={routes.destination(locale, d)}>
-                  <strong>{localizedName(d, locale)}</strong>
-                  <span className="code">{d.callingCode}</span>
-                </a>
-              ))}
-            </div>
-            <p style={{ marginTop: 14 }}>
-              <a href={routes.esimHub(locale)} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-                {t.allDestinations}
-              </a>
-            </p>
-          </section>
+          {/* Same destinations and the same links as before, in the new
+            * treatment. The rail is server rendered, so these stay in the HTML
+            * and keep doing their job as internal links. */}
+          <DestinationRail
+            locale={locale}
+            strings={t}
+            destinations={popular.map((d) => ({
+              id: d.id,
+              name: localizedName(d, locale),
+              flag: flagFor(d),
+              href: routes.destination(locale, d),
+            }))}
+          />
 
           <section>
             <div className="section-head">
@@ -124,18 +127,18 @@ export default async function HomePage({ params }) {
             </div>
           </section>
 
-          <section>
-            <div className="section-head">
-              <h2>{t.regionalPlans}</h2>
-            </div>
-            <div className="grid grid-4">
-              {regions.map((r) => (
-                <a className="tile dest-tile" key={r.id} href={routes.region(locale, r.id)}>
-                  <strong>{regionName(r, locale)}</strong>
-                </a>
-              ))}
-            </div>
-          </section>
+          <RegionRail
+            locale={locale}
+            strings={t}
+            regions={regions.map((r) => ({
+              id: r.id,
+              name: regionName(r, locale),
+              note: t.regionalEsims.sub,
+              href: routes.region(locale, r.id),
+            }))}
+          />
+
+          <TravelTools locale={locale} strings={toolStrings(locale)} />
 
           {guides.length ? (
             <section>

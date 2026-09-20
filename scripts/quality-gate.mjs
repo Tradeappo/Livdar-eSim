@@ -10,6 +10,8 @@ import { runSimilarityCheck } from './similarity-check.mjs';
 import { marketStatus, REQUIRED_FOR_PUBLICATION } from '../lib/markets.js';
 import { runPageAudit } from './page-audit.mjs';
 import { runOrthographyCheck } from './orthography-check.mjs';
+import { runRegression } from './seo-regression.mjs';
+import { manifestProblems, DESTINATION_IMAGES, REGION_IMAGES } from '../lib/media.js';
 import { LOCALES, segment } from '../lib/i18n.js';
 import { DESTINATIONS, REGIONS, destinationSlug } from '../lib/destinations.js';
 import {
@@ -384,6 +386,101 @@ contentLocales().forEach((locale) => {
     }
   });
   notes.push('Navigation events: ' + guarded + ' component(s) that navigate carry eventCallback and a timeout');
+}
+
+// 8e. Nothing a crawler can see may move without being declared.
+//
+// The front end is being replaced. Every template the redesign touches also
+// carries the title, the canonical, the hreflang cluster and the structured
+// data, which means a purely visual change can quietly cost rankings and look
+// like a success in the browser. So the build compares the current tree against
+// a recorded baseline and refuses anything that moved without an entry in
+// ALLOWED_DRIFT saying which paths, which fields and why.
+//
+// This is deliberately strict about URLs. A changed title is a regression worth
+// arguing about; a URL that disappeared is a 404 for every link already pointing
+// at it, and no redesign is worth that.
+{
+  const reg = runRegression();
+  notes.push(
+    'SEO regression: ' + reg.checked + ' URL(s) compared against the baseline' +
+      (reg.drifted && reg.drifted.length ? ', ' + reg.drifted.length + ' declared change(s)' : ', no declared changes')
+  );
+  (reg.drifted || []).slice(0, 10).forEach((d) => notes.push('  declared: ' + d));
+  (reg.failures || []).forEach((f) => fail('SEO regression: ' + f));
+}
+
+// 8f. The sample catalogue may never be presented as a real offer.
+//
+// The shop carries illustrative prices so that purchase intent can be measured
+// before a supplier exists. That is a reasonable thing to do and a dangerous
+// thing to do carelessly, because the difference between "a sample" and "a lie"
+// is entirely in whether the reader and the search engine are told.
+//
+// Two halves, both enforced here rather than remembered:
+//
+//   The machine half. Offer, Product, AggregateOffer, AggregateRating and
+//   Review are forbidden in structured data anywhere in the codebase. Emitting
+//   a price to Google in schema is telling Google the price is real, and no
+//   visible disclaimer undoes that, because the disclaimer is not in the feed.
+//
+//   The human half. Every component that renders a price must also render the
+//   sample marker and the notice. Checked by reading the components rather than
+//   by trusting a convention, because a convention is exactly what gets lost
+//   when somebody adds a second card three months from now.
+{
+  const FORBIDDEN_SCHEMA = ['"Offer"', "'Offer'", '"Product"', "'Product'", '"AggregateOffer"', '"AggregateRating"', "'AggregateRating'", '"Review"', "'Review'"];
+  const scan = (dir) =>
+    readdirSync(new URL('../' + dir + '/', import.meta.url), { withFileTypes: true }).flatMap((e) =>
+      e.isDirectory() ? scan(dir + '/' + e.name) : [dir + '/' + e.name]
+    );
+  const sourceFiles = [...scan('lib'), ...scan('components'), ...scan('app')].filter((f) => /\.(js|jsx|mjs)$/.test(f));
+
+  sourceFiles.forEach((rel) => {
+    const source = readFileSync(new URL('../' + rel, import.meta.url), 'utf8');
+    // Only look at what is handed to a schema builder or written as JSON-LD.
+    if (!/@type|schema\.org|JsonLd|jsonLd/.test(source)) return;
+    FORBIDDEN_SCHEMA.forEach((token) => {
+      const re = new RegExp("'@type'\\s*:\\s*" + token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '|"@type"\\s*:\\s*' + token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      if (re.test(source)) {
+        fail(
+          rel + ': declares @type ' + token + ' in structured data. While the catalogue is illustrative there is no ' +
+            'Offer, Product or rating to publish, and putting one in schema tells Google the price is real.'
+        );
+      }
+    });
+  });
+
+  // The visible half of the same rule.
+  const card = readFileSync(new URL('../components/shop/PlanCard.jsx', import.meta.url), 'utf8');
+  if (!card.includes('plan-badge-demo')) {
+    fail('components/shop/PlanCard.jsx renders a price without the sample marker. The marker is not optional.');
+  }
+  if (/badge\s*\?\s*.*plan-badge-demo/.test(card)) {
+    fail('components/shop/PlanCard.jsx makes the sample marker conditional. It must render on every card.');
+  }
+  const browser = readFileSync(new URL('../components/shop/ShopBrowser.jsx', import.meta.url), 'utf8');
+  ['demoNoticeTitle', 'demoNoticeBody'].forEach((key) => {
+    if (!browser.includes(key)) fail('components/shop/ShopBrowser.jsx does not render ' + key + '. The catalogue must say what it is.');
+  });
+
+  // And the notice has to exist in every published market, not only in English.
+  contentLocales().forEach((locale) => {
+    const t = ui(locale);
+    if (!t.shop || !t.shop.demoNoticeBody || !t.shop.demoBadge) {
+      fail('The sample catalogue notice is missing in ' + locale + '. A disclaimer that only exists in English is not a disclaimer.');
+    }
+  });
+
+  notes.push('Sample catalogue: no Offer or Product schema, marker on every card, notice in ' + contentLocales().length + ' market(s)');
+}
+
+// 8g. Imagery must be attributable.
+{
+  const problems = manifestProblems();
+  problems.forEach((p) => fail('Media manifest: ' + p));
+  const counts = Object.keys(DESTINATION_IMAGES).length + Object.keys(REGION_IMAGES).length;
+  notes.push('Media manifest: ' + counts + ' image(s), each with a recorded licence and intrinsic size');
 }
 
 // 9 and 10. Text rules and duplication.

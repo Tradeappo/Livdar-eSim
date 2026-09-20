@@ -9,3 +9,12 @@ build/
 *.log
 npm-debug.log*
 .DS_Store
+
+# Images are fetched at build time from lib/media.js, which records where each
+# one came from and under what licence. The binaries themselves are not history.
+public/img/destinations/
+public/img/regions/
+public/img/CREDITS.json
+public/img/incoming/*
+!public/img/incoming/.gitkeep
+public/img/shared/

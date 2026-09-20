@@ -13,7 +13,7 @@ import { publishedMarkets } from '../lib/markets.js';
 // no path through this component that can produce a link to a page that was
 // never published.
 
-export default function Header({ locale, alternatePaths = {} }) {
+export default function Header({ locale, alternatePaths = {}, section = null }) {
   const t = ui(locale);
   const options = publishedMarkets().map((m) => ({
     code: m.code,
@@ -21,6 +21,11 @@ export default function Header({ locale, alternatePaths = {} }) {
     endonym: m.endonym,
     href: alternatePaths[m.code] || routes.esimHub(m.code),
   }));
+
+  // aria-current is what tells a screen reader which of five links is the page
+  // it is already on, and it is what the underline in the stylesheet hangs off,
+  // so the visible state and the announced state cannot drift apart.
+  const current = (key) => (section === key ? 'page' : undefined);
 
   return (
     <header className="site-header">
@@ -31,10 +36,10 @@ export default function Header({ locale, alternatePaths = {} }) {
           <span className="brand-sub">eSIM</span>
         </a>
         <nav className="main-nav" aria-label="Main">
-          <a href={routes.esimHub(locale)}>{t.nav.esim}</a>
-          <a href={routes.regionsHub(locale)}>{t.nav.regions}</a>
-          <a href={routes.guidesHub(locale)}>{t.nav.guides}</a>
-          <a href={routes.compatibility(locale)}>{t.nav.compatibility}</a>
+          <a href={routes.esimHub(locale)} aria-current={current('esim')}>{t.nav.esim}</a>
+          <a href={routes.regionsHub(locale)} aria-current={current('regions')}>{t.nav.regions}</a>
+          <a href={routes.guidesHub(locale)} aria-current={current('guides')}>{t.nav.guides}</a>
+          <a href={routes.compatibility(locale)} aria-current={current('compatibility')}>{t.nav.compatibility}</a>
         </nav>
         <div className="header-tools">
           <LanguageGlobe current={locale} options={options} label={t.languageSwitch} />

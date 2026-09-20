@@ -1,4 +1,5 @@
 import '../globals.css';
+import '../shop.css';
 import Script from 'next/script';
 import { contentLocales, ui } from '../../lib/content/index.js';
 import { localeDir, getLocale } from '../../lib/i18n.js';
