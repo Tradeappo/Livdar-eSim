@@ -7,6 +7,8 @@ import Faq from '../../../components/Faq.jsx';
 import JsonLd from '../../../components/JsonLd.jsx';
 import PlanShop from '../../../components/PlanShop.jsx';
 import ViewDestination from '../../../components/ViewDestination.jsx';
+import ShopBrowser from '../../../components/shop/ShopBrowser.jsx';
+import BuySteps from '../../../components/shop/BuySteps.jsx';
 import {
   ui,
   destinationContent,
@@ -21,6 +23,7 @@ import {
   localesWithGuide,
   contentLocales,
 } from '../../../lib/content/index.js';
+import { shopStrings } from '../../../lib/content/ui.js';
 import {
   DESTINATIONS,
   REGIONS,
@@ -42,6 +45,7 @@ import {
   hubAlternates,
   breadcrumbSchema,
   faqSchema,
+  collectionPageSchema,
 } from '../../../lib/seo.js';
 import { listPlans, providerIsConnected } from '../../../lib/providers/index.js';
 
@@ -95,7 +99,7 @@ export async function generateMetadata({ params }) {
   if (node.type === 'regionsHub') {
     return buildMetadata({
       title: t.nav.regions + ' | Livdar eSIM',
-      description: 'Regional overviews for every part of the world Livdar covers.',
+      description: t.hubMeta.regions,
       path: routes.regionsHub(lang),
       locale: lang,
       alternates: hubAlternates('regions'),
@@ -104,7 +108,7 @@ export async function generateMetadata({ params }) {
   if (node.type === 'guidesHub') {
     return buildMetadata({
       title: t.nav.guides + ' | Livdar eSIM',
-      description: 'Travel connectivity guides: how an eSIM works, installing one, and when you do not need one at all.',
+      description: t.hubMeta.guides,
       path: routes.guidesHub(lang),
       locale: lang,
       alternates: hubAlternates('guides'),
@@ -131,7 +135,7 @@ export async function generateMetadata({ params }) {
   }
   return buildMetadata({
     title: t.nav.esim + ' | Livdar eSIM',
-    description: 'Mobile data for over 120 destinations, with the coverage notes and the limitations written down before you buy.',
+    description: t.hubMeta.esim,
     path: routes.esimHub(lang),
     locale: lang,
     alternates: hubAlternates('esim'),
@@ -184,6 +188,22 @@ function searchItems(locale) {
   }));
 }
 
+// Which sample rows can link through to an editorial page in this market.
+//
+// The shop carries every country the catalogue will eventually cover; only some
+// of them have been written. This map is what keeps the two apart: a row with
+// an entry here opens the real page, a row without one opens the detail sheet
+// and goes no further. There is no branch that produces a link to a page that
+// was never published, which is the same rule the language selector follows.
+function destinationHrefs(locale) {
+  const out = {};
+  publishedDestinationIds(locale).forEach((id) => {
+    const dest = getDestination(id);
+    if (dest) out[id] = routes.destination(locale, dest);
+  });
+  return out;
+}
+
 /* eSIM hub */
 
 function renderEsimHub(locale) {
@@ -195,15 +215,19 @@ function renderEsimHub(locale) {
 
   return (
     <>
-      <Header locale={locale} alternatePaths={shellAlternates(locale, 'esim')} />
+      <Header locale={locale} alternatePaths={shellAlternates(locale, 'esim')} section="esim" />
       <main id="main">
         <Crumbs items={[{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.esim, path: routes.esimHub(locale) }]} />
-        <div className="wrap">
-          <section className="hero" style={{ paddingBlock: '24px 10px' }}>
-            <h1 style={{ fontSize: 'clamp(28px,5.4vw,42px)' }}>{t.nav.esim}</h1>
-            <p className="hero-lead">{t.searchHint}</p>
-            <DestinationSearch items={searchItems(locale)} strings={t} locale={locale} />
+        <div className="wrap shop-page">
+          {/* The heading, the breadcrumb and every link below the shop stay
+            * server rendered. The browsing surface is the only client island on
+            * this page, so what a crawler reads does not depend on it running. */}
+          <section className="hero" style={{ paddingBlock: '16px 4px' }}>
+            <h1 style={{ fontSize: 'clamp(26px,5vw,38px)', marginBottom: 2 }}>{t.nav.esim}</h1>
+            <p className="hero-lead" style={{ marginTop: 4 }}>{t.searchHint}</p>
           </section>
+
+          <ShopBrowser locale={locale} strings={shopStrings(locale)} hrefs={destinationHrefs(locale)} />
 
           {published.length ? (
             <section>
@@ -243,12 +267,24 @@ function renderEsimHub(locale) {
               </div>
             </section>
           ))}
+
+          <BuySteps locale={locale} strings={t} />
         </div>
       </main>
       <Footer locale={locale} />
       <JsonLd
         data={[
           breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.esim, path: routes.esimHub(locale) }]),
+          collectionPageSchema({
+            name: t.nav.esim,
+            description: t.hubMeta.esim,
+            path: routes.esimHub(locale),
+            locale,
+            items: published.map(getDestination).filter(Boolean).map((d) => ({
+              name: localizedName(d, locale),
+              path: routes.destination(locale, d),
+            })),
+          }),
         ]}
       />
     </>
@@ -566,7 +602,7 @@ function renderRegionsHub(locale) {
   const regions = REGIONS.filter((r) => r.id !== 'global');
   return (
     <>
-      <Header locale={locale} alternatePaths={shellAlternates(locale, 'regions')} />
+      <Header locale={locale} alternatePaths={shellAlternates(locale, 'regions')} section="regions" />
       <main id="main">
         <Crumbs items={[{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.regions, path: routes.regionsHub(locale) }]} />
         <div className="wrap">
@@ -591,6 +627,15 @@ function renderRegionsHub(locale) {
       <JsonLd
         data={[
           breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.regions, path: routes.regionsHub(locale) }]),
+          collectionPageSchema({
+            name: t.nav.regions,
+            description: t.hubMeta.regions,
+            path: routes.regionsHub(locale),
+            locale,
+            items: regions
+              .filter((r) => publishedRegionIds(locale).includes(r.id))
+              .map((r) => ({ name: regionName(r, locale), path: routes.region(locale, r.id) })),
+          }),
         ]}
       />
     </>
@@ -602,7 +647,7 @@ function renderGuidesHub(locale) {
   const guides = publishedGuideSlugs(locale).map((slug) => ({ slug, ...guideContent(locale, slug) }));
   return (
     <>
-      <Header locale={locale} alternatePaths={shellAlternates(locale, 'guides')} />
+      <Header locale={locale} alternatePaths={shellAlternates(locale, 'guides')} section="guides" />
       <main id="main">
         <Crumbs items={[{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.guides, path: routes.guidesHub(locale) }]} />
         <div className="wrap">
@@ -626,6 +671,13 @@ function renderGuidesHub(locale) {
       <JsonLd
         data={[
           breadcrumbSchema([{ name: 'Livdar', path: routes.home(locale) }, { name: t.nav.guides, path: routes.guidesHub(locale) }]),
+          collectionPageSchema({
+            name: t.nav.guides,
+            description: t.hubMeta.guides,
+            path: routes.guidesHub(locale),
+            locale,
+            items: guides.map((g) => ({ name: g.h1, path: routes.guide(locale, g.slug) })),
+          }),
         ]}
       />
     </>

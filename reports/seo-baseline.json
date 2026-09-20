@@ -1,0 +1,3427 @@
+{
+  "generatedAt": "2026-09-19T17:48:20.994Z",
+  "siteUrl": "https://livdar.com",
+  "indexable": true,
+  "locales": [
+    "en",
+    "de",
+    "ro"
+  ],
+  "pageCount": 91,
+  "byType": {
+    "home": 3,
+    "esimHub": 3,
+    "destination": 24,
+    "regionsHub": 3,
+    "region": 33,
+    "guidesHub": 3,
+    "guide": 13,
+    "compatibility": 3,
+    "legal": 6
+  },
+  "knownIssues": [
+    {
+      "issue": "duplicate-meta-description",
+      "detail": "The same description is served in en, de, ro. The hub descriptions are hard coded in English in generateMetadata, so the German and Romanian hubs ship an English description.",
+      "description": "Mobile data for over 120 destinations, with the coverage notes and the limitations written",
+      "paths": [
+        "/en/esim/",
+        "/de/esim/",
+        "/ro/esim/"
+      ]
+    },
+    {
+      "issue": "duplicate-meta-description",
+      "detail": "The same description is served in en, de, ro. The hub descriptions are hard coded in English in generateMetadata, so the German and Romanian hubs ship an English description.",
+      "description": "Regional overviews for every part of the world Livdar covers.",
+      "paths": [
+        "/en/regions/",
+        "/de/regionen/",
+        "/ro/regiuni/"
+      ]
+    },
+    {
+      "issue": "duplicate-meta-description",
+      "detail": "The same description is served in en, de, ro. The hub descriptions are hard coded in English in generateMetadata, so the German and Romanian hubs ship an English description.",
+      "description": "Travel connectivity guides: how an eSIM works, installing one, and when you do not need on",
+      "paths": [
+        "/en/guides/",
+        "/de/ratgeber/",
+        "/ro/ghiduri/"
+      ]
+    }
+  ],
+  "pages": {
+    "/en/": {
+      "locale": "en",
+      "type": "home",
+      "canonical": "https://livdar.com/en/",
+      "title": "Livdar eSIM: mobile data for 120+ destinations",
+      "titleLength": 46,
+      "description": "Pick a destination, see what connectivity actually costs there, and find out whether you need a travel eSIM at all. Honest coverage notes for 120+ countries.",
+      "descriptionLength": 157,
+      "h1": "Land connected, not looking for a counter",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/",
+        "de": "https://livdar.com/de/",
+        "ro": "https://livdar.com/ro/",
+        "x-default": "https://livdar.com/en/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/",
+      "faqEntries": 5,
+      "editorialWords": 327,
+      "schema": [
+        {
+          "type": "Organization"
+        },
+        {
+          "type": "WebSite"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/": {
+      "locale": "en",
+      "type": "esimHub",
+      "canonical": "https://livdar.com/en/esim/",
+      "title": "Destinations | Livdar eSIM",
+      "titleLength": 26,
+      "description": "Mobile data for over 120 destinations, with the coverage notes and the limitations written down before you buy.",
+      "descriptionLength": 111,
+      "h1": "Destinations",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/",
+        "de": "https://livdar.com/de/esim/",
+        "ro": "https://livdar.com/ro/esim/",
+        "x-default": "https://livdar.com/en/esim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/turkey/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/turkey/",
+      "title": "eSIM for Turkey: data that works without the IMEI trap",
+      "titleLength": 54,
+      "description": "A travel eSIM for Turkey roams on the local networks, so your phone never gets registered against a Turkish line and never gets blocked at day 120.",
+      "descriptionLength": 147,
+      "h1": "eSIM for Turkey",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/turkey/",
+        "de": "https://livdar.com/de/esim/tuerkei/",
+        "ro": "https://livdar.com/ro/esim/turcia/",
+        "x-default": "https://livdar.com/en/esim/turkey/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/turkey/",
+      "faqEntries": 3,
+      "editorialWords": 569,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/japan/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/japan/",
+      "title": "eSIM for Japan: fast data, no paperwork, no local number",
+      "titleLength": 56,
+      "description": "Japan has excellent mobile coverage and almost no way for a visitor to get a local line. A travel eSIM is the one that skips the paperwork.",
+      "descriptionLength": 139,
+      "h1": "eSIM for Japan",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/japan/",
+        "de": "https://livdar.com/de/esim/japan/",
+        "x-default": "https://livdar.com/en/esim/japan/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/japan/",
+      "faqEntries": 3,
+      "editorialWords": 500,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/united-states/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/united-states/",
+      "title": "eSIM for the USA: the carrier matters more than the gigabytes",
+      "titleLength": 61,
+      "description": "AT&T, T-Mobile and Verizon cover the United States very differently once you leave the interstates. Which one a US eSIM roams on is the question worth asking.",
+      "descriptionLength": 158,
+      "h1": "eSIM for the United States",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-states/",
+        "de": "https://livdar.com/de/esim/usa/",
+        "ro": "https://livdar.com/ro/esim/statele-unite/",
+        "x-default": "https://livdar.com/en/esim/united-states/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-states/",
+      "faqEntries": 3,
+      "editorialWords": 489,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/united-arab-emirates/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/united-arab-emirates/",
+      "title": "eSIM for Dubai and the UAE: read the calling rules first",
+      "titleLength": 56,
+      "description": "Data in the UAE is fast and easy. Calling over WhatsApp or FaceTime is restricted. Know which applies to your plan before you rely on it.",
+      "descriptionLength": 137,
+      "h1": "eSIM for the UAE",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-arab-emirates/",
+        "de": "https://livdar.com/de/esim/vereinigte-arabische-emirate/",
+        "ro": "https://livdar.com/ro/esim/emiratele-arabe-unite/",
+        "x-default": "https://livdar.com/en/esim/united-arab-emirates/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-arab-emirates/",
+      "faqEntries": 3,
+      "editorialWords": 433,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/thailand/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/thailand/",
+      "title": "eSIM for Thailand: the one place a local SIM is genuinely competitive",
+      "titleLength": 69,
+      "description": "Thai tourist SIM cards are cheap, generous and sold everywhere. Here is when a travel eSIM is still the better call, and when it is not.",
+      "descriptionLength": 136,
+      "h1": "eSIM for Thailand",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/thailand/",
+        "de": "https://livdar.com/de/esim/thailand/",
+        "ro": "https://livdar.com/ro/esim/thailanda/",
+        "x-default": "https://livdar.com/en/esim/thailand/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/thailand/",
+      "faqEntries": 3,
+      "editorialWords": 397,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/united-kingdom/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/united-kingdom/",
+      "title": "eSIM for the UK: what changed for European travellers",
+      "titleLength": 53,
+      "description": "EU phone plans no longer carry a guaranteed home allowance into the United Kingdom. Several operators reintroduced charges. Here is what that means in practice.",
+      "descriptionLength": 160,
+      "h1": "eSIM for the United Kingdom",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-kingdom/",
+        "de": "https://livdar.com/de/esim/grossbritannien/",
+        "ro": "https://livdar.com/ro/esim/marea-britanie/",
+        "x-default": "https://livdar.com/en/esim/united-kingdom/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-kingdom/",
+      "faqEntries": 3,
+      "editorialWords": 445,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/switzerland/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/switzerland/",
+      "title": "eSIM for Switzerland: the country EU roaming forgets",
+      "titleLength": 52,
+      "description": "Switzerland is not in the European Union or the EEA roaming zone. Phones cross the border and start charging. A travel eSIM is the cheapest fix.",
+      "descriptionLength": 144,
+      "h1": "eSIM for Switzerland",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/switzerland/",
+        "de": "https://livdar.com/de/esim/schweiz/",
+        "x-default": "https://livdar.com/en/esim/switzerland/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/switzerland/",
+      "faqEntries": 3,
+      "editorialWords": 403,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/esim/bali/": {
+      "locale": "en",
+      "type": "destination",
+      "canonical": "https://livdar.com/en/esim/bali/",
+      "title": "eSIM for Bali: skip the arrivals hall SIM counter",
+      "titleLength": 49,
+      "description": "Indonesian SIM cards need passport registration and the Denpasar arrivals counters know it. A travel eSIM gets you online before you reach the taxi queue.",
+      "descriptionLength": 154,
+      "h1": "eSIM for Bali",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/bali/",
+        "de": "https://livdar.com/de/esim/bali/",
+        "ro": "https://livdar.com/ro/esim/bali/",
+        "x-default": "https://livdar.com/en/esim/bali/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/bali/",
+      "faqEntries": 3,
+      "editorialWords": 381,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/": {
+      "locale": "en",
+      "type": "regionsHub",
+      "canonical": "https://livdar.com/en/regions/",
+      "title": "Regions | Livdar eSIM",
+      "titleLength": 21,
+      "description": "Regional overviews for every part of the world Livdar covers.",
+      "descriptionLength": 61,
+      "h1": "Regions",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/",
+        "de": "https://livdar.com/de/regionen/",
+        "ro": "https://livdar.com/ro/regiuni/",
+        "x-default": "https://livdar.com/en/regions/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/europe/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/europe/",
+      "title": "Europe eSIM: when you need one and when you already have data",
+      "titleLength": 61,
+      "description": "Europe is the one region where you often do not need a travel eSIM at all. How to tell, and what changes the moment you leave the EU.",
+      "descriptionLength": 133,
+      "h1": "eSIM for Europe",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/europe/",
+        "de": "https://livdar.com/de/regionen/europe/",
+        "ro": "https://livdar.com/ro/regiuni/europe/",
+        "x-default": "https://livdar.com/en/regions/europe/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/europe/",
+      "faqEntries": 4,
+      "editorialWords": 758,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/asia/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/asia/",
+      "title": "Asia eSIM: the region where local SIMs are actually competitive",
+      "titleLength": 63,
+      "description": "Asian prepaid data is among the cheapest anywhere, so a travel eSIM buys convenience rather than savings. When that is worth paying for.",
+      "descriptionLength": 136,
+      "h1": "eSIM for Asia",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/asia/",
+        "de": "https://livdar.com/de/regionen/asia/",
+        "ro": "https://livdar.com/ro/regiuni/asia/",
+        "x-default": "https://livdar.com/en/regions/asia/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/asia/",
+      "faqEntries": 4,
+      "editorialWords": 616,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/southeast-asia/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/southeast-asia/",
+      "title": "Southeast Asia eSIM: built for itineraries that cross borders",
+      "titleLength": 61,
+      "description": "Southeast Asia is the region where travellers genuinely visit four or five countries in a single trip. That is exactly the case a regional eSIM exists for.",
+      "descriptionLength": 155,
+      "h1": "eSIM for Southeast Asia",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/southeast-asia/",
+        "de": "https://livdar.com/de/regionen/southeast-asia/",
+        "ro": "https://livdar.com/ro/regiuni/southeast-asia/",
+        "x-default": "https://livdar.com/en/regions/southeast-asia/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/southeast-asia/",
+      "faqEntries": 4,
+      "editorialWords": 543,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/north-america/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/north-america/",
+      "title": "North America eSIM: the borders are the expensive part",
+      "titleLength": 54,
+      "description": "The United States, Canada and Mexico look like one trip and bill like three. Where the borders fall is what decides whether you need a travel eSIM.",
+      "descriptionLength": 147,
+      "h1": "eSIM for North America",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/north-america/",
+        "de": "https://livdar.com/de/regionen/north-america/",
+        "ro": "https://livdar.com/ro/regiuni/north-america/",
+        "x-default": "https://livdar.com/en/regions/north-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/north-america/",
+      "faqEntries": 4,
+      "editorialWords": 550,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/south-america/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/south-america/",
+      "title": "South America eSIM: long routes, real borders, honest coverage",
+      "titleLength": 62,
+      "description": "South American trips cover long distances and several borders. Coverage is good in the cities and honest about its limits outside them.",
+      "descriptionLength": 135,
+      "h1": "eSIM for South America",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/south-america/",
+        "de": "https://livdar.com/de/regionen/south-america/",
+        "ro": "https://livdar.com/ro/regiuni/south-america/",
+        "x-default": "https://livdar.com/en/regions/south-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/south-america/",
+      "faqEntries": 4,
+      "editorialWords": 477,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/central-america/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/central-america/",
+      "title": "Central America eSIM: short hops across a lot of borders",
+      "titleLength": 56,
+      "description": "Central American countries are small and close, so a two week trip can cross four borders by bus. That is what makes connectivity here a regional question.",
+      "descriptionLength": 155,
+      "h1": "eSIM for Central America",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/central-america/",
+        "de": "https://livdar.com/de/regionen/central-america/",
+        "ro": "https://livdar.com/ro/regiuni/central-america/",
+        "x-default": "https://livdar.com/en/regions/central-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/central-america/",
+      "faqEntries": 4,
+      "editorialWords": 443,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/caribbean/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/caribbean/",
+      "title": "Caribbean eSIM: every island is its own network",
+      "titleLength": 47,
+      "description": "Caribbean islands are separate telecom markets even when they are twenty minutes apart by plane. That is what makes island hopping a connectivity decision.",
+      "descriptionLength": 155,
+      "h1": "eSIM for the Caribbean",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/caribbean/",
+        "de": "https://livdar.com/de/regionen/caribbean/",
+        "ro": "https://livdar.com/ro/regiuni/caribbean/",
+        "x-default": "https://livdar.com/en/regions/caribbean/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/caribbean/",
+      "faqEntries": 4,
+      "editorialWords": 427,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/middle-east/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/middle-east/",
+      "title": "Middle East eSIM: data is easy, voice over internet is the catch",
+      "titleLength": 64,
+      "description": "Connectivity across the Gulf and the wider Middle East is excellent. What varies is whether the calling apps you use at home are permitted to work.",
+      "descriptionLength": 147,
+      "h1": "eSIM for the Middle East",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/middle-east/",
+        "de": "https://livdar.com/de/regionen/middle-east/",
+        "ro": "https://livdar.com/ro/regiuni/middle-east/",
+        "x-default": "https://livdar.com/en/regions/middle-east/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/middle-east/",
+      "faqEntries": 4,
+      "editorialWords": 464,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/africa/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/africa/",
+      "title": "Africa eSIM: strong in the north, uneven everywhere else",
+      "titleLength": 56,
+      "description": "North African networks are good and heavily travelled. The rest of the continent varies enormously, and no travel plan changes the network on the ground.",
+      "descriptionLength": 153,
+      "h1": "eSIM for Africa",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/africa/",
+        "de": "https://livdar.com/de/regionen/africa/",
+        "ro": "https://livdar.com/ro/regiuni/africa/",
+        "x-default": "https://livdar.com/en/regions/africa/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/africa/",
+      "faqEntries": 4,
+      "editorialWords": 452,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/oceania/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/oceania/",
+      "title": "Oceania eSIM: vast distances, few networks, real gaps",
+      "titleLength": 53,
+      "description": "Australia and New Zealand have good urban networks and long stretches with nothing at all. Knowing where the gaps are matters more than which plan you buy.",
+      "descriptionLength": 155,
+      "h1": "eSIM for Oceania",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/oceania/",
+        "de": "https://livdar.com/de/regionen/oceania/",
+        "ro": "https://livdar.com/ro/regiuni/oceania/",
+        "x-default": "https://livdar.com/en/regions/oceania/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/oceania/",
+      "faqEntries": 4,
+      "editorialWords": 411,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/regions/balkans/": {
+      "locale": "en",
+      "type": "region",
+      "canonical": "https://livdar.com/en/regions/balkans/",
+      "title": "Balkans eSIM: inside Europe, outside the roaming zone",
+      "titleLength": 53,
+      "description": "Albania, Serbia, Bosnia, North Macedonia and Montenegro are in Europe and outside EU roaming. That single fact is why this region generates so much demand.",
+      "descriptionLength": 155,
+      "h1": "eSIM for the Balkans",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/balkans/",
+        "de": "https://livdar.com/de/regionen/balkans/",
+        "ro": "https://livdar.com/ro/regiuni/balkans/",
+        "x-default": "https://livdar.com/en/regions/balkans/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/balkans/",
+      "faqEntries": 4,
+      "editorialWords": 432,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/guides/": {
+      "locale": "en",
+      "type": "guidesHub",
+      "canonical": "https://livdar.com/en/guides/",
+      "title": "Guides | Livdar eSIM",
+      "titleLength": 20,
+      "description": "Travel connectivity guides: how an eSIM works, installing one, and when you do not need one at all.",
+      "descriptionLength": 99,
+      "h1": "Guides",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/",
+        "de": "https://livdar.com/de/ratgeber/",
+        "ro": "https://livdar.com/ro/ghiduri/",
+        "x-default": "https://livdar.com/en/guides/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/guides/how-esim-works/": {
+      "locale": "en",
+      "type": "guide",
+      "canonical": "https://livdar.com/en/guides/how-esim-works/",
+      "title": "How an eSIM works: the part the manuals skip",
+      "titleLength": 44,
+      "description": "An eSIM is a SIM card written into your phone instead of pushed into it. What that changes, what it does not change, and the one thing that catches people out.",
+      "descriptionLength": 159,
+      "h1": "How an eSIM actually works",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/how-esim-works/",
+        "de": "https://livdar.com/de/ratgeber/how-esim-works/",
+        "ro": "https://livdar.com/ro/ghiduri/how-esim-works/",
+        "x-default": "https://livdar.com/en/guides/how-esim-works/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/how-esim-works/",
+      "faqEntries": 3,
+      "editorialWords": 386,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/guides/install-esim/": {
+      "locale": "en",
+      "type": "guide",
+      "canonical": "https://livdar.com/en/guides/install-esim/",
+      "title": "Install an eSIM before you fly: the order that works",
+      "titleLength": 52,
+      "description": "Install on wifi at home, keep the line off, switch it on when you land. Here is the full sequence including the settings people forget.",
+      "descriptionLength": 135,
+      "h1": "Installing and activating an eSIM",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/install-esim/",
+        "de": "https://livdar.com/de/ratgeber/install-esim/",
+        "ro": "https://livdar.com/ro/ghiduri/install-esim/",
+        "x-default": "https://livdar.com/en/guides/install-esim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/install-esim/",
+      "faqEntries": 4,
+      "editorialWords": 502,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/guides/esim-vs-roaming/": {
+      "locale": "en",
+      "type": "guide",
+      "canonical": "https://livdar.com/en/guides/esim-vs-roaming/",
+      "title": "eSIM or roaming: how to work out which is cheaper for your trip",
+      "titleLength": 63,
+      "description": "Roaming is simpler. A travel eSIM is usually cheaper outside your home zone. The arithmetic that decides it takes about two minutes.",
+      "descriptionLength": 132,
+      "h1": "eSIM or roaming",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/esim-vs-roaming/",
+        "de": "https://livdar.com/de/ratgeber/esim-vs-roaming/",
+        "ro": "https://livdar.com/ro/ghiduri/esim-vs-roaming/",
+        "x-default": "https://livdar.com/en/guides/esim-vs-roaming/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/esim-vs-roaming/",
+      "faqEntries": 3,
+      "editorialWords": 333,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/guides/esim-vs-physical-sim/": {
+      "locale": "en",
+      "type": "guide",
+      "canonical": "https://livdar.com/en/guides/esim-vs-physical-sim/",
+      "title": "eSIM or local SIM: the honest comparison",
+      "titleLength": 40,
+      "description": "A local SIM is cheaper per gigabyte and gives you a local number. A travel eSIM costs you no time. Which matters more depends on the trip.",
+      "descriptionLength": 138,
+      "h1": "eSIM or a local SIM card",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/esim-vs-physical-sim/",
+        "de": "https://livdar.com/de/ratgeber/esim-vs-physical-sim/",
+        "x-default": "https://livdar.com/en/guides/esim-vs-physical-sim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/esim-vs-physical-sim/",
+      "faqEntries": 4,
+      "editorialWords": 534,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/guides/airport-connectivity/": {
+      "locale": "en",
+      "type": "guide",
+      "canonical": "https://livdar.com/en/guides/airport-connectivity/",
+      "title": "Airport connectivity: what to do in the first ten minutes",
+      "titleLength": 57,
+      "description": "Airport wifi, SIM counters and eSIM activation compared for the arrival you actually have: tired, in a queue, with a taxi to find.",
+      "descriptionLength": 130,
+      "h1": "Getting online the moment you land",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/airport-connectivity/",
+        "ro": "https://livdar.com/ro/ghiduri/airport-connectivity/",
+        "x-default": "https://livdar.com/en/guides/airport-connectivity/"
+      },
+      "hreflangLangs": [
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/airport-connectivity/",
+      "faqEntries": 4,
+      "editorialWords": 542,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/compatibility/": {
+      "locale": "en",
+      "type": "compatibility",
+      "canonical": "https://livdar.com/en/compatibility/",
+      "title": "eSIM compatibility: check your own phone in ten seconds",
+      "titleLength": 55,
+      "description": "Model lists go stale and regional variants differ. Here is how to read the answer off your own handset, and the carrier lock nobody warns you about.",
+      "descriptionLength": 148,
+      "h1": "Does your phone support eSIM",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/compatibility/",
+        "de": "https://livdar.com/de/kompatibilitaet/",
+        "ro": "https://livdar.com/ro/compatibilitate/",
+        "x-default": "https://livdar.com/en/compatibility/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/compatibility/",
+      "faqEntries": 5,
+      "editorialWords": 840,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 5
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/privacy/": {
+      "locale": "en",
+      "type": "legal",
+      "canonical": "https://livdar.com/en/privacy/",
+      "title": "Privacy policy | Livdar",
+      "titleLength": 23,
+      "description": "What Livdar collects, why, for how long, and the rights you have over it. Written from what the site actually does, not from a template.",
+      "descriptionLength": 136,
+      "h1": "Privacy policy",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/privacy/",
+        "de": "https://livdar.com/de/datenschutz/",
+        "ro": "https://livdar.com/ro/confidentialitate/",
+        "x-default": "https://livdar.com/en/privacy/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/privacy/",
+      "faqEntries": 4,
+      "editorialWords": 1217,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/en/cookies/": {
+      "locale": "en",
+      "type": "legal",
+      "canonical": "https://livdar.com/en/cookies/",
+      "title": "Cookie policy | Livdar",
+      "titleLength": 22,
+      "description": "Every cookie this site can set, what it does and how long it lasts. One is necessary, the rest only exist if you allow statistics.",
+      "descriptionLength": 130,
+      "h1": "Cookie policy",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/cookies/",
+        "de": "https://livdar.com/de/cookies/",
+        "ro": "https://livdar.com/ro/cookie-uri/",
+        "x-default": "https://livdar.com/en/cookies/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/cookies/",
+      "faqEntries": 4,
+      "editorialWords": 488,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/": {
+      "locale": "de",
+      "type": "home",
+      "canonical": "https://livdar.com/de/",
+      "title": "Livdar eSIM: mobile Daten für über 120 Reiseziele",
+      "titleLength": 49,
+      "description": "Reiseziel auswählen, sehen was Verbindung dort wirklich kostet, und erfahren ob du überhaupt ein Reise-eSIM brauchst. Ehrliche Netzhinweise für über 120 Länder.",
+      "descriptionLength": 160,
+      "h1": "Verbunden ankommen, nicht am Schalter anstehen",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/",
+        "de": "https://livdar.com/de/",
+        "ro": "https://livdar.com/ro/",
+        "x-default": "https://livdar.com/en/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/",
+      "faqEntries": 5,
+      "editorialWords": 267,
+      "schema": [
+        {
+          "type": "Organization"
+        },
+        {
+          "type": "WebSite"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/": {
+      "locale": "de",
+      "type": "esimHub",
+      "canonical": "https://livdar.com/de/esim/",
+      "title": "Reiseziele | Livdar eSIM",
+      "titleLength": 24,
+      "description": "Mobile data for over 120 destinations, with the coverage notes and the limitations written down before you buy.",
+      "descriptionLength": 111,
+      "h1": "Reiseziele",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/",
+        "de": "https://livdar.com/de/esim/",
+        "ro": "https://livdar.com/ro/esim/",
+        "x-default": "https://livdar.com/en/esim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/tuerkei/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/tuerkei/",
+      "title": "eSIM Türkei: die Lücke, die dein EU-Tarif nicht abdeckt",
+      "titleLength": 55,
+      "description": "Die Türkei gehört nicht zur EU-Roaming-Zone. Dazu kommt die IMEI-Registrierung, die Handys nach rund vier Monaten sperrt. Beides umgeht ein Reise-eSIM.",
+      "descriptionLength": 151,
+      "h1": "eSIM für die Türkei",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/turkey/",
+        "de": "https://livdar.com/de/esim/tuerkei/",
+        "ro": "https://livdar.com/ro/esim/turcia/",
+        "x-default": "https://livdar.com/en/esim/turkey/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/turkey/",
+      "faqEntries": 3,
+      "editorialWords": 443,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/japan/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/japan/",
+      "title": "eSIM Japan: schnelles Netz, null Behördengang",
+      "titleLength": 45,
+      "description": "Japan hat hervorragende Netze und praktisch keinen Weg für Touristen zu einer japanischen Nummer. Ein Reise-eSIM überspringt den Schalter am Flughafen.",
+      "descriptionLength": 151,
+      "h1": "eSIM für Japan",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/japan/",
+        "de": "https://livdar.com/de/esim/japan/",
+        "x-default": "https://livdar.com/en/esim/japan/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/japan/",
+      "faqEntries": 3,
+      "editorialWords": 382,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/usa/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/usa/",
+      "title": "eSIM USA: rechne die Tagespauschale deines Anbieters durch",
+      "titleLength": 58,
+      "description": "Deutsche Anbieter verkaufen die USA als Tagespauschale. Über zwei Wochen ergibt das eine klare Rechnung. Dazu: welches Netz abseits der Interstates trägt.",
+      "descriptionLength": 154,
+      "h1": "eSIM für die USA",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-states/",
+        "de": "https://livdar.com/de/esim/usa/",
+        "ro": "https://livdar.com/ro/esim/statele-unite/",
+        "x-default": "https://livdar.com/en/esim/united-states/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-states/",
+      "faqEntries": 3,
+      "editorialWords": 351,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/vereinigte-arabische-emirate/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/vereinigte-arabische-emirate/",
+      "title": "eSIM Dubai und VAE: erst die Telefonieregeln lesen",
+      "titleLength": 50,
+      "description": "In den Emiraten sind Anrufe über WhatsApp und FaceTime eingeschränkt. Daten sind schnell und problemlos. Beides solltest du vor der Reise wissen.",
+      "descriptionLength": 145,
+      "h1": "eSIM für die VAE",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-arab-emirates/",
+        "de": "https://livdar.com/de/esim/vereinigte-arabische-emirate/",
+        "ro": "https://livdar.com/ro/esim/emiratele-arabe-unite/",
+        "x-default": "https://livdar.com/en/esim/united-arab-emirates/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-arab-emirates/",
+      "faqEntries": 3,
+      "editorialWords": 363,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/thailand/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/thailand/",
+      "title": "eSIM Thailand: wann sich die lokale SIM mehr lohnt",
+      "titleLength": 50,
+      "description": "Thailändische Touristen-SIMs sind billig und großzügig. Ein Reise-eSIM lohnt sich trotzdem in bestimmten Fällen. Hier steht, in welchen.",
+      "descriptionLength": 136,
+      "h1": "eSIM für Thailand",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/thailand/",
+        "de": "https://livdar.com/de/esim/thailand/",
+        "ro": "https://livdar.com/ro/esim/thailanda/",
+        "x-default": "https://livdar.com/en/esim/thailand/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/thailand/",
+      "faqEntries": 3,
+      "editorialWords": 338,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/grossbritannien/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/grossbritannien/",
+      "title": "eSIM Großbritannien: prüfe zuerst, ob dein Tarif es schon enthält",
+      "titleLength": 65,
+      "description": "Viele deutsche Anbieter führen Großbritannien weiterhin in der EU-Zone. Prüfe das zuerst. Wenn nicht, ist ein Reise-eSIM die günstigere Lösung.",
+      "descriptionLength": 143,
+      "h1": "eSIM für Großbritannien",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-kingdom/",
+        "de": "https://livdar.com/de/esim/grossbritannien/",
+        "ro": "https://livdar.com/ro/esim/marea-britanie/",
+        "x-default": "https://livdar.com/en/esim/united-kingdom/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-kingdom/",
+      "faqEntries": 3,
+      "editorialWords": 477,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/schweiz/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/schweiz/",
+      "title": "eSIM Schweiz: das Nachbarland, das dein EU-Tarif nicht kennt",
+      "titleLength": 60,
+      "description": "Die Schweiz gehört nicht zur EU-Roaming-Zone. Schweizer Netze funken über die Grenze, deshalb kostet sie manchmal schon in Konstanz. So verhinderst du das.",
+      "descriptionLength": 155,
+      "h1": "eSIM für die Schweiz",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/switzerland/",
+        "de": "https://livdar.com/de/esim/schweiz/",
+        "x-default": "https://livdar.com/en/esim/switzerland/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/switzerland/",
+      "faqEntries": 3,
+      "editorialWords": 351,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/esim/bali/": {
+      "locale": "de",
+      "type": "destination",
+      "canonical": "https://livdar.com/de/esim/bali/",
+      "title": "eSIM Bali: am Schalter in Denpasar vorbei",
+      "titleLength": 41,
+      "description": "Indonesische SIM-Karten müssen gegen den Pass registriert werden. Der Schalter in Denpasar weiß das. Ein Reise-eSIM bringt dich vorher online.",
+      "descriptionLength": 142,
+      "h1": "eSIM für Bali",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/bali/",
+        "de": "https://livdar.com/de/esim/bali/",
+        "ro": "https://livdar.com/ro/esim/bali/",
+        "x-default": "https://livdar.com/en/esim/bali/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/bali/",
+      "faqEntries": 4,
+      "editorialWords": 505,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/": {
+      "locale": "de",
+      "type": "regionsHub",
+      "canonical": "https://livdar.com/de/regionen/",
+      "title": "Regionen | Livdar eSIM",
+      "titleLength": 22,
+      "description": "Regional overviews for every part of the world Livdar covers.",
+      "descriptionLength": 61,
+      "h1": "Regionen",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/",
+        "de": "https://livdar.com/de/regionen/",
+        "ro": "https://livdar.com/ro/regiuni/",
+        "x-default": "https://livdar.com/en/regions/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/europe/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/europe/",
+      "title": "Europa eSIM: wo EU Roaming endet",
+      "titleLength": 32,
+      "description": "Innerhalb der EU brauchen Sie nichts. Entscheidend ist, wo Ihr Tarif aufhört zu gelten, und das passiert mitten auf dem Kontinent.",
+      "descriptionLength": 130,
+      "h1": "eSIM für Europa",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/europe/",
+        "de": "https://livdar.com/de/regionen/europe/",
+        "ro": "https://livdar.com/ro/regiuni/europe/",
+        "x-default": "https://livdar.com/en/regions/europe/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/europe/",
+      "faqEntries": 4,
+      "editorialWords": 451,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/asia/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/asia/",
+      "title": "Asien eSIM: Bequemlichkeit statt Ersparnis",
+      "titleLength": 42,
+      "description": "Prepaid Daten in Asien sind günstiger als jedes Reiseprodukt. Eine Reise eSIM kaufen Sie für die Ankunft, nicht für den Preis.",
+      "descriptionLength": 126,
+      "h1": "eSIM für Asien",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/asia/",
+        "de": "https://livdar.com/de/regionen/asia/",
+        "ro": "https://livdar.com/ro/regiuni/asia/",
+        "x-default": "https://livdar.com/en/regions/asia/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/asia/",
+      "faqEntries": 4,
+      "editorialWords": 391,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/southeast-asia/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/southeast-asia/",
+      "title": "Südostasien eSIM: für Routen über mehrere Grenzen",
+      "titleLength": 49,
+      "description": "Vier oder fünf Länder in einer Reise sind in Südostasien normal. Genau dafür ist ein regionaler Tarif gedacht.",
+      "descriptionLength": 110,
+      "h1": "eSIM für Südostasien",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/southeast-asia/",
+        "de": "https://livdar.com/de/regionen/southeast-asia/",
+        "ro": "https://livdar.com/ro/regiuni/southeast-asia/",
+        "x-default": "https://livdar.com/en/regions/southeast-asia/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/southeast-asia/",
+      "faqEntries": 4,
+      "editorialWords": 351,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/north-america/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/north-america/",
+      "title": "Nordamerika eSIM: drei Länder, drei Abrechnungen",
+      "titleLength": 48,
+      "description": "USA, Kanada und Mexiko sehen nach einer Reise aus und rechnen wie drei. Für deutsche Tarife ist das die teuerste Region überhaupt.",
+      "descriptionLength": 130,
+      "h1": "eSIM für Nordamerika",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/north-america/",
+        "de": "https://livdar.com/de/regionen/north-america/",
+        "ro": "https://livdar.com/ro/regiuni/north-america/",
+        "x-default": "https://livdar.com/en/regions/north-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/north-america/",
+      "faqEntries": 4,
+      "editorialWords": 330,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/south-america/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/south-america/",
+      "title": "Südamerika eSIM: weite Wege und echte Grenzen",
+      "titleLength": 45,
+      "description": "Südamerikareisen decken große Entfernungen und mehrere Grenzen ab. Zwischen den Ländern gibt es keine gemeinsame Roaming Regelung.",
+      "descriptionLength": 130,
+      "h1": "eSIM für Südamerika",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/south-america/",
+        "de": "https://livdar.com/de/regionen/south-america/",
+        "ro": "https://livdar.com/ro/regiuni/south-america/",
+        "x-default": "https://livdar.com/en/regions/south-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/south-america/",
+      "faqEntries": 4,
+      "editorialWords": 400,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/central-america/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/central-america/",
+      "title": "Mittelamerika eSIM: kurze Wege, viele Grenzen",
+      "titleLength": 45,
+      "description": "Sieben Länder auf kurzer Distanz. Eine zweiwöchige Reise kreuzt hier leicht vier Grenzen, und zwar auf der Straße.",
+      "descriptionLength": 114,
+      "h1": "eSIM für Mittelamerika",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/central-america/",
+        "de": "https://livdar.com/de/regionen/central-america/",
+        "ro": "https://livdar.com/ro/regiuni/central-america/",
+        "x-default": "https://livdar.com/en/regions/central-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/central-america/",
+      "faqEntries": 4,
+      "editorialWords": 413,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/caribbean/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/caribbean/",
+      "title": "Karibik eSIM: jede Insel ein eigenes Netz",
+      "titleLength": 41,
+      "description": "Karibische Inseln sind eigene Telekommärkte, auch wenn sie zwanzig Flugminuten auseinander liegen. Beim Inselhüpfen zählt das.",
+      "descriptionLength": 126,
+      "h1": "eSIM für die Karibik",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/caribbean/",
+        "de": "https://livdar.com/de/regionen/caribbean/",
+        "ro": "https://livdar.com/ro/regiuni/caribbean/",
+        "x-default": "https://livdar.com/en/regions/caribbean/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/caribbean/",
+      "faqEntries": 4,
+      "editorialWords": 394,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/middle-east/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/middle-east/",
+      "title": "Naher Osten eSIM: Daten sind einfach, Anrufe nicht immer",
+      "titleLength": 56,
+      "description": "Die Netze am Golf gehören zu den besten der Welt. Ob Ihre gewohnten Telefonie Apps erlaubt sind, ist die eigentliche Frage.",
+      "descriptionLength": 123,
+      "h1": "eSIM für den Nahen Osten",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/middle-east/",
+        "de": "https://livdar.com/de/regionen/middle-east/",
+        "ro": "https://livdar.com/ro/regiuni/middle-east/",
+        "x-default": "https://livdar.com/en/regions/middle-east/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/middle-east/",
+      "faqEntries": 4,
+      "editorialWords": 321,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/africa/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/africa/",
+      "title": "Afrika eSIM: stark im Norden, uneinheitlich sonst",
+      "titleLength": 49,
+      "description": "Nordafrikanische Netze sind gut und stark bereist. Der Rest des Kontinents ist sehr unterschiedlich, und kein Tarif ändert das Netz vor Ort.",
+      "descriptionLength": 140,
+      "h1": "eSIM für Afrika",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/africa/",
+        "de": "https://livdar.com/de/regionen/africa/",
+        "ro": "https://livdar.com/ro/regiuni/africa/",
+        "x-default": "https://livdar.com/en/regions/africa/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/africa/",
+      "faqEntries": 4,
+      "editorialWords": 381,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/oceania/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/oceania/",
+      "title": "Ozeanien eSIM: weite Wege, wenige Netze, echte Lücken",
+      "titleLength": 53,
+      "description": "Australien und Neuseeland haben gute städtische Netze und lange Strecken ohne jeden Empfang. Zu wissen wo, zählt mehr als der Tarif.",
+      "descriptionLength": 132,
+      "h1": "eSIM für Ozeanien",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/oceania/",
+        "de": "https://livdar.com/de/regionen/oceania/",
+        "ro": "https://livdar.com/ro/regiuni/oceania/",
+        "x-default": "https://livdar.com/en/regions/oceania/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/oceania/",
+      "faqEntries": 4,
+      "editorialWords": 377,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/regionen/balkans/": {
+      "locale": "de",
+      "type": "region",
+      "canonical": "https://livdar.com/de/regionen/balkans/",
+      "title": "Balkan eSIM: in Europa, außerhalb der Roaming Zone",
+      "titleLength": 50,
+      "description": "Albanien, Serbien, Bosnien, Nordmazedonien und Montenegro liegen in Europa und außerhalb des EU Roamings. Das erklärt die gesamte Nachfrage.",
+      "descriptionLength": 140,
+      "h1": "eSIM für den Balkan",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/balkans/",
+        "de": "https://livdar.com/de/regionen/balkans/",
+        "ro": "https://livdar.com/ro/regiuni/balkans/",
+        "x-default": "https://livdar.com/en/regions/balkans/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/balkans/",
+      "faqEntries": 4,
+      "editorialWords": 333,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/ratgeber/": {
+      "locale": "de",
+      "type": "guidesHub",
+      "canonical": "https://livdar.com/de/ratgeber/",
+      "title": "Ratgeber | Livdar eSIM",
+      "titleLength": 22,
+      "description": "Travel connectivity guides: how an eSIM works, installing one, and when you do not need one at all.",
+      "descriptionLength": 99,
+      "h1": "Ratgeber",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/",
+        "de": "https://livdar.com/de/ratgeber/",
+        "ro": "https://livdar.com/ro/ghiduri/",
+        "x-default": "https://livdar.com/en/guides/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/ratgeber/how-esim-works/": {
+      "locale": "de",
+      "type": "guide",
+      "canonical": "https://livdar.com/de/ratgeber/how-esim-works/",
+      "title": "eSIM erklärt: was sich ändert und was nicht",
+      "titleLength": 43,
+      "description": "Ein eSIM ist eine SIM-Karte, die ins Handy geschrieben statt hineingesteckt wird. Was das praktisch bedeutet und welcher Fehler am häufigsten passiert.",
+      "descriptionLength": 151,
+      "h1": "Wie ein eSIM funktioniert",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/how-esim-works/",
+        "de": "https://livdar.com/de/ratgeber/how-esim-works/",
+        "ro": "https://livdar.com/ro/ghiduri/how-esim-works/",
+        "x-default": "https://livdar.com/en/guides/how-esim-works/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/how-esim-works/",
+      "faqEntries": 3,
+      "editorialWords": 326,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/ratgeber/install-esim/": {
+      "locale": "de",
+      "type": "guide",
+      "canonical": "https://livdar.com/de/ratgeber/install-esim/",
+      "title": "eSIM richtig einrichten: die Reihenfolge, die funktioniert",
+      "titleLength": 58,
+      "description": "Zu Hause im WLAN installieren, Leitung aus lassen, nach der Landung einschalten. Die komplette Reihenfolge inklusive der Einstellung, die alle vergessen.",
+      "descriptionLength": 153,
+      "h1": "eSIM installieren und aktivieren",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/install-esim/",
+        "de": "https://livdar.com/de/ratgeber/install-esim/",
+        "ro": "https://livdar.com/ro/ghiduri/install-esim/",
+        "x-default": "https://livdar.com/en/guides/install-esim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/install-esim/",
+      "faqEntries": 3,
+      "editorialWords": 396,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/ratgeber/esim-vs-roaming/": {
+      "locale": "de",
+      "type": "guide",
+      "canonical": "https://livdar.com/de/ratgeber/esim-vs-roaming/",
+      "title": "eSIM oder Roaming: die Rechnung, die es entscheidet",
+      "titleLength": 51,
+      "description": "In der EU ist Roaming enthalten. Außerhalb entscheidet eine Rechnung, die zwei Minuten dauert. So geht sie.",
+      "descriptionLength": 107,
+      "h1": "eSIM oder Roaming",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/esim-vs-roaming/",
+        "de": "https://livdar.com/de/ratgeber/esim-vs-roaming/",
+        "ro": "https://livdar.com/ro/ghiduri/esim-vs-roaming/",
+        "x-default": "https://livdar.com/en/guides/esim-vs-roaming/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/esim-vs-roaming/",
+      "faqEntries": 3,
+      "editorialWords": 403,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/ratgeber/esim-vs-physical-sim/": {
+      "locale": "de",
+      "type": "guide",
+      "canonical": "https://livdar.com/de/ratgeber/esim-vs-physical-sim/",
+      "title": "eSIM oder lokale SIM: der ehrliche Vergleich",
+      "titleLength": 44,
+      "description": "Eine lokale SIM ist billiger pro Gigabyte und gibt eine lokale Nummer. Ein Reise-eSIM kostet keine Zeit. Was mehr zählt, hängt von der Reise ab.",
+      "descriptionLength": 144,
+      "h1": "eSIM oder lokale SIM-Karte",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/esim-vs-physical-sim/",
+        "de": "https://livdar.com/de/ratgeber/esim-vs-physical-sim/",
+        "x-default": "https://livdar.com/en/guides/esim-vs-physical-sim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/esim-vs-physical-sim/",
+      "faqEntries": 3,
+      "editorialWords": 401,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/kompatibilitaet/": {
+      "locale": "de",
+      "type": "compatibility",
+      "canonical": "https://livdar.com/de/kompatibilitaet/",
+      "title": "eSIM Kompatibilität: Gerät und SIM Lock prüfen",
+      "titleLength": 46,
+      "description": "Gerätelisten veralten. Prüfen Sie Ihr eigenes Handy in zehn Sekunden und klären Sie vorher den SIM Lock, der bei Vertragsgeräten häufig ist.",
+      "descriptionLength": 140,
+      "h1": "Unterstützt Ihr Handy eSIM",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/compatibility/",
+        "de": "https://livdar.com/de/kompatibilitaet/",
+        "ro": "https://livdar.com/ro/compatibilitate/",
+        "x-default": "https://livdar.com/en/compatibility/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/compatibility/",
+      "faqEntries": 5,
+      "editorialWords": 722,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 5
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/datenschutz/": {
+      "locale": "de",
+      "type": "legal",
+      "canonical": "https://livdar.com/de/datenschutz/",
+      "title": "Datenschutzerklärung | Livdar",
+      "titleLength": 29,
+      "description": "Was Livdar erhebt, warum, wie lange und welche Rechte Sie haben. Geschrieben nach dem, was die Seite tatsächlich tut.",
+      "descriptionLength": 117,
+      "h1": "Datenschutzerklärung",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/privacy/",
+        "de": "https://livdar.com/de/datenschutz/",
+        "ro": "https://livdar.com/ro/confidentialitate/",
+        "x-default": "https://livdar.com/en/privacy/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/privacy/",
+      "faqEntries": 4,
+      "editorialWords": 989,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/de/cookies/": {
+      "locale": "de",
+      "type": "legal",
+      "canonical": "https://livdar.com/de/cookies/",
+      "title": "Cookie Richtlinie | Livdar",
+      "titleLength": 26,
+      "description": "Jedes Cookie, das diese Seite setzen kann, wozu es dient und wie lange es gilt. Eines ist notwendig, der Rest nur mit Ihrer Zustimmung.",
+      "descriptionLength": 135,
+      "h1": "Cookie Richtlinie",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/cookies/",
+        "de": "https://livdar.com/de/cookies/",
+        "ro": "https://livdar.com/ro/cookie-uri/",
+        "x-default": "https://livdar.com/en/cookies/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/cookies/",
+      "faqEntries": 4,
+      "editorialWords": 416,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/": {
+      "locale": "ro",
+      "type": "home",
+      "canonical": "https://livdar.com/ro/",
+      "title": "Livdar eSIM: internet mobil pentru peste 120 de destinații",
+      "titleLength": 58,
+      "description": "Alege destinația, vezi cât costă de fapt conexiunea acolo și află dacă ai nevoie de un eSIM. Note reale de acoperire pentru peste 120 de țări.",
+      "descriptionLength": 142,
+      "h1": "Ajungi conectat, nu la coadă la ghișeu",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/",
+        "de": "https://livdar.com/de/",
+        "ro": "https://livdar.com/ro/",
+        "x-default": "https://livdar.com/en/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/",
+      "faqEntries": 5,
+      "editorialWords": 282,
+      "schema": [
+        {
+          "type": "Organization"
+        },
+        {
+          "type": "WebSite"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/": {
+      "locale": "ro",
+      "type": "esimHub",
+      "canonical": "https://livdar.com/ro/esim/",
+      "title": "Destinații | Livdar eSIM",
+      "titleLength": 24,
+      "description": "Mobile data for over 120 destinations, with the coverage notes and the limitations written down before you buy.",
+      "descriptionLength": 111,
+      "h1": "Destinații",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/",
+        "de": "https://livdar.com/de/esim/",
+        "ro": "https://livdar.com/ro/esim/",
+        "x-default": "https://livdar.com/en/esim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/turcia/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/turcia/",
+      "title": "eSIM Turcia: internet fără surprize și fără telefon blocat",
+      "titleLength": 58,
+      "description": "Turcia nu este în zona de roaming UE, iar telefonul se blochează după patru luni dacă folosești o cartelă turcească. Un eSIM de călătorie evita ambele.",
+      "descriptionLength": 151,
+      "h1": "eSIM pentru Turcia",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/turkey/",
+        "de": "https://livdar.com/de/esim/tuerkei/",
+        "ro": "https://livdar.com/ro/esim/turcia/",
+        "x-default": "https://livdar.com/en/esim/turkey/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/turkey/",
+      "faqEntries": 3,
+      "editorialWords": 491,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/grecia/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/grecia/",
+      "title": "eSIM Grecia: când chiar ai nevoie și când nu",
+      "titleLength": 44,
+      "description": "Grecia este în Uniunea Europeană, deci roamingul tău este inclus. Un eSIM are sens doar în câteva situații concrete. Le enumerăm pe toate.",
+      "descriptionLength": 138,
+      "h1": "eSIM pentru Grecia",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "ro": "https://livdar.com/ro/esim/grecia/",
+        "x-default": "https://livdar.com/ro/esim/grecia/"
+      },
+      "hreflangLangs": [
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/ro/esim/grecia/",
+      "faqEntries": 4,
+      "editorialWords": 564,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/emiratele-arabe-unite/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/emiratele-arabe-unite/",
+      "title": "eSIM Dubai: citește întâi regulile despre apeluri",
+      "titleLength": 49,
+      "description": "În Emirate apelurile prin WhatsApp și FaceTime sunt restricționate. Datele merg rapid. Află ce se aplică planului tău înainte să te bazezi pe el.",
+      "descriptionLength": 145,
+      "h1": "eSIM pentru Emirate",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-arab-emirates/",
+        "de": "https://livdar.com/de/esim/vereinigte-arabische-emirate/",
+        "ro": "https://livdar.com/ro/esim/emiratele-arabe-unite/",
+        "x-default": "https://livdar.com/en/esim/united-arab-emirates/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-arab-emirates/",
+      "faqEntries": 3,
+      "editorialWords": 385,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/marea-britanie/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/marea-britanie/",
+      "title": "eSIM Marea Britanie: ce s-a schimbat după Brexit pentru români",
+      "titleLength": 62,
+      "description": "Marea Britanie nu mai este în zona de roaming UE. Unii operatori români o includ voluntar, alții nu. Verifică întâi, apoi decide.",
+      "descriptionLength": 129,
+      "h1": "eSIM pentru Marea Britanie",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-kingdom/",
+        "de": "https://livdar.com/de/esim/grossbritannien/",
+        "ro": "https://livdar.com/ro/esim/marea-britanie/",
+        "x-default": "https://livdar.com/en/esim/united-kingdom/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-kingdom/",
+      "faqEntries": 3,
+      "editorialWords": 382,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/statele-unite/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/statele-unite/",
+      "title": "eSIM SUA: contează rețeaua, nu numărul de gigabaiți",
+      "titleLength": 51,
+      "description": "AT&T, T-Mobile și Verizon acoperă Statele Unite foarte diferit odată ce ieși de pe autostrăzi. Întrebarea utilă este pe ce rețea intră planul.",
+      "descriptionLength": 142,
+      "h1": "eSIM pentru Statele Unite",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/united-states/",
+        "de": "https://livdar.com/de/esim/usa/",
+        "ro": "https://livdar.com/ro/esim/statele-unite/",
+        "x-default": "https://livdar.com/en/esim/united-states/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/united-states/",
+      "faqEntries": 3,
+      "editorialWords": 387,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/egipt/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/egipt/",
+      "title": "eSIM Egipt: internet la Hurghada și Sharm fără factură mare",
+      "titleLength": 59,
+      "description": "Egiptul este în afară roamingului UE. Pe coasta Mării Roșii rețelele sunt bune, în deșert nu. Un eSIM de călătorie costă mult mai puțin decât roamingul.",
+      "descriptionLength": 152,
+      "h1": "eSIM pentru Egipt",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "ro": "https://livdar.com/ro/esim/egipt/",
+        "x-default": "https://livdar.com/ro/esim/egipt/"
+      },
+      "hreflangLangs": [
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/ro/esim/egipt/",
+      "faqEntries": 3,
+      "editorialWords": 325,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/thailanda/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/thailanda/",
+      "title": "eSIM Thailanda: când cartelă locală este mai bună decât noi",
+      "titleLength": 59,
+      "description": "Cartelele de turist din Thailanda sunt ieftine și generoase. Un eSIM are sens în câteva cazuri concrete. Le spunem pe amândouă, cinstit.",
+      "descriptionLength": 136,
+      "h1": "eSIM pentru Thailanda",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/thailand/",
+        "de": "https://livdar.com/de/esim/thailand/",
+        "ro": "https://livdar.com/ro/esim/thailanda/",
+        "x-default": "https://livdar.com/en/esim/thailand/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/thailand/",
+      "faqEntries": 3,
+      "editorialWords": 358,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/esim/bali/": {
+      "locale": "ro",
+      "type": "destination",
+      "canonical": "https://livdar.com/ro/esim/bali/",
+      "title": "eSIM Bali: online înainte de coadă de la Denpasar",
+      "titleLength": 49,
+      "description": "Cartelele indoneziene se înregistrează pe pașaport, iar ghișeele din Denpasar știu asta. Un eSIM te pune online înainte să ajungi la taxi.",
+      "descriptionLength": 138,
+      "h1": "eSIM pentru Bali",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/esim/bali/",
+        "de": "https://livdar.com/de/esim/bali/",
+        "ro": "https://livdar.com/ro/esim/bali/",
+        "x-default": "https://livdar.com/en/esim/bali/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/esim/bali/",
+      "faqEntries": 3,
+      "editorialWords": 329,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/": {
+      "locale": "ro",
+      "type": "regionsHub",
+      "canonical": "https://livdar.com/ro/regiuni/",
+      "title": "Regiuni | Livdar eSIM",
+      "titleLength": 21,
+      "description": "Regional overviews for every part of the world Livdar covers.",
+      "descriptionLength": 61,
+      "h1": "Regiuni",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/",
+        "de": "https://livdar.com/de/regionen/",
+        "ro": "https://livdar.com/ro/regiuni/",
+        "x-default": "https://livdar.com/en/regions/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/europe/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/europe/",
+      "title": "eSIM Europa: unde se oprește roamingul inclus",
+      "titleLength": 45,
+      "description": "În Uniunea Europeană nu ai nevoie de nimic. Contează unde se oprește abonamentul tău, iar asta se întâmplă chiar în mijlocul continentului.",
+      "descriptionLength": 139,
+      "h1": "eSIM pentru Europa",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/europe/",
+        "de": "https://livdar.com/de/regionen/europe/",
+        "ro": "https://livdar.com/ro/regiuni/europe/",
+        "x-default": "https://livdar.com/en/regions/europe/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/europe/",
+      "faqEntries": 4,
+      "editorialWords": 541,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/asia/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/asia/",
+      "title": "eSIM Asia: plătești comoditatea, nu economia",
+      "titleLength": 44,
+      "description": "Datele preplătite din Asia sunt mai ieftine decât orice produs de călătorie. Un eSIM îl cumperi pentru aterizare, nu pentru preț.",
+      "descriptionLength": 129,
+      "h1": "eSIM pentru Asia",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/asia/",
+        "de": "https://livdar.com/de/regionen/asia/",
+        "ro": "https://livdar.com/ro/regiuni/asia/",
+        "x-default": "https://livdar.com/en/regions/asia/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/asia/",
+      "faqEntries": 4,
+      "editorialWords": 389,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/southeast-asia/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/southeast-asia/",
+      "title": "eSIM Asia de Sud-Est: pentru trasee cu multe granițe",
+      "titleLength": 52,
+      "description": "Patru sau cinci țări într-o singură călătorie sunt normale aici. Exact pentru asta există un plan regional.",
+      "descriptionLength": 107,
+      "h1": "eSIM pentru Asia de Sud-Est",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/southeast-asia/",
+        "de": "https://livdar.com/de/regionen/southeast-asia/",
+        "ro": "https://livdar.com/ro/regiuni/southeast-asia/",
+        "x-default": "https://livdar.com/en/regions/southeast-asia/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/southeast-asia/",
+      "faqEntries": 4,
+      "editorialWords": 393,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/north-america/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/north-america/",
+      "title": "eSIM America de Nord: trei țări, trei facturi",
+      "titleLength": 45,
+      "description": "Statele Unite, Canada și Mexic arată ca o singură călătorie și se facturează ca trei. Pentru un abonament românesc este cea mai scumpă regiune.",
+      "descriptionLength": 143,
+      "h1": "eSIM pentru America de Nord",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/north-america/",
+        "de": "https://livdar.com/de/regionen/north-america/",
+        "ro": "https://livdar.com/ro/regiuni/north-america/",
+        "x-default": "https://livdar.com/en/regions/north-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/north-america/",
+      "faqEntries": 4,
+      "editorialWords": 424,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/south-america/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/south-america/",
+      "title": "eSIM America de Sud: distanțe mari și granițe reale",
+      "titleLength": 51,
+      "description": "Călătoriile prin America de Sud acoperă distanțe mari și mai multe granițe. Între țări nu există o regulă comună de roaming.",
+      "descriptionLength": 124,
+      "h1": "eSIM pentru America de Sud",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/south-america/",
+        "de": "https://livdar.com/de/regionen/south-america/",
+        "ro": "https://livdar.com/ro/regiuni/south-america/",
+        "x-default": "https://livdar.com/en/regions/south-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/south-america/",
+      "faqEntries": 4,
+      "editorialWords": 393,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/central-america/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/central-america/",
+      "title": "eSIM America Centrală: drumuri scurte, multe granițe",
+      "titleLength": 52,
+      "description": "Șapte țări pe o distanță mică. Două săptămâni aici trec ușor patru granițe, și toate pe sosea.",
+      "descriptionLength": 94,
+      "h1": "eSIM pentru America Centrală",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/central-america/",
+        "de": "https://livdar.com/de/regionen/central-america/",
+        "ro": "https://livdar.com/ro/regiuni/central-america/",
+        "x-default": "https://livdar.com/en/regions/central-america/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/central-america/",
+      "faqEntries": 4,
+      "editorialWords": 439,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/caribbean/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/caribbean/",
+      "title": "eSIM Caraibe: fiecare insula, altă rețea",
+      "titleLength": 40,
+      "description": "Insulele din Caraibe sunt piețe de telecomunicații separate chiar dacă sunt la douăzeci de minute de zbor una de alta.",
+      "descriptionLength": 118,
+      "h1": "eSIM pentru Caraibe",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/caribbean/",
+        "de": "https://livdar.com/de/regionen/caribbean/",
+        "ro": "https://livdar.com/ro/regiuni/caribbean/",
+        "x-default": "https://livdar.com/en/regions/caribbean/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/caribbean/",
+      "faqEntries": 4,
+      "editorialWords": 426,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/middle-east/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/middle-east/",
+      "title": "eSIM Orientul Mijlociu: datele merg, apelurile nu mereu",
+      "titleLength": 55,
+      "description": "Rețelele din Golf sunt printre cele mai bune din lume. Întrebarea reală este dacă aplicațiile tale de apeluri sunt permise acolo.",
+      "descriptionLength": 129,
+      "h1": "eSIM pentru Orientul Mijlociu",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/middle-east/",
+        "de": "https://livdar.com/de/regionen/middle-east/",
+        "ro": "https://livdar.com/ro/regiuni/middle-east/",
+        "x-default": "https://livdar.com/en/regions/middle-east/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/middle-east/",
+      "faqEntries": 4,
+      "editorialWords": 358,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/africa/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/africa/",
+      "title": "eSIM Africa: puternic în nord, inegal în rest",
+      "titleLength": 45,
+      "description": "Rețelele nord-africane sunt bune și intens călătorite. Restul continentului variază enorm, iar niciun plan nu schimbă rețeaua de pe teren.",
+      "descriptionLength": 138,
+      "h1": "eSIM pentru Africa",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/africa/",
+        "de": "https://livdar.com/de/regionen/africa/",
+        "ro": "https://livdar.com/ro/regiuni/africa/",
+        "x-default": "https://livdar.com/en/regions/africa/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/africa/",
+      "faqEntries": 4,
+      "editorialWords": 418,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/oceania/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/oceania/",
+      "title": "eSIM Oceania: distanțe mari, puține rețele, goluri reale",
+      "titleLength": 56,
+      "description": "Australia și Noua Zeelandă au rețele urbane bune și porțiuni lungi fără niciun semnal. Contează mai mult unde ești decât ce plan ai.",
+      "descriptionLength": 132,
+      "h1": "eSIM pentru Oceania",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/oceania/",
+        "de": "https://livdar.com/de/regionen/oceania/",
+        "ro": "https://livdar.com/ro/regiuni/oceania/",
+        "x-default": "https://livdar.com/en/regions/oceania/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/oceania/",
+      "faqEntries": 4,
+      "editorialWords": 372,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/regiuni/balkans/": {
+      "locale": "ro",
+      "type": "region",
+      "canonical": "https://livdar.com/ro/regiuni/balkans/",
+      "title": "eSIM Balcanii: în Europa, în afară zonei de roaming",
+      "titleLength": 51,
+      "description": "Serbia, Albania, Bosnia, Macedonia de Nord și Muntenegru sunt în Europa și în afară roamingului inclus. De aici vine toată cererea.",
+      "descriptionLength": 131,
+      "h1": "eSIM pentru Balcanii",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/regions/balkans/",
+        "de": "https://livdar.com/de/regionen/balkans/",
+        "ro": "https://livdar.com/ro/regiuni/balkans/",
+        "x-default": "https://livdar.com/en/regions/balkans/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/regions/balkans/",
+      "faqEntries": 4,
+      "editorialWords": 369,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/ghiduri/": {
+      "locale": "ro",
+      "type": "guidesHub",
+      "canonical": "https://livdar.com/ro/ghiduri/",
+      "title": "Ghiduri | Livdar eSIM",
+      "titleLength": 21,
+      "description": "Travel connectivity guides: how an eSIM works, installing one, and when you do not need one at all.",
+      "descriptionLength": 99,
+      "h1": "Ghiduri",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/",
+        "de": "https://livdar.com/de/ratgeber/",
+        "ro": "https://livdar.com/ro/ghiduri/",
+        "x-default": "https://livdar.com/en/guides/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/",
+      "faqEntries": 0,
+      "editorialWords": null,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/ghiduri/how-esim-works/": {
+      "locale": "ro",
+      "type": "guide",
+      "canonical": "https://livdar.com/ro/ghiduri/how-esim-works/",
+      "title": "Ce este un eSIM și prin ce diferă de o cartelă obișnuită",
+      "titleLength": 56,
+      "description": "Un eSIM este o cartelă SIM scrisă în telefon, nu introdusă în el. Ce se schimbă, ce nu se schimbă și greșeală pe care o face aproape toată lumea.",
+      "descriptionLength": 145,
+      "h1": "Cum funcționează un eSIM",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/how-esim-works/",
+        "de": "https://livdar.com/de/ratgeber/how-esim-works/",
+        "ro": "https://livdar.com/ro/ghiduri/how-esim-works/",
+        "x-default": "https://livdar.com/en/guides/how-esim-works/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/how-esim-works/",
+      "faqEntries": 3,
+      "editorialWords": 348,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/ghiduri/install-esim/": {
+      "locale": "ro",
+      "type": "guide",
+      "canonical": "https://livdar.com/ro/ghiduri/install-esim/",
+      "title": "Instalează eSIM-ul înainte de zbor: ordinea care funcționează",
+      "titleLength": 61,
+      "description": "Instalezi acasă pe wifi, lași linia oprită, o pornești când aterizezi. Toată secvența, inclusiv setarea pe care o uită toată lumea.",
+      "descriptionLength": 131,
+      "h1": "Cum instalezi și activezi un eSIM",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/install-esim/",
+        "de": "https://livdar.com/de/ratgeber/install-esim/",
+        "ro": "https://livdar.com/ro/ghiduri/install-esim/",
+        "x-default": "https://livdar.com/en/guides/install-esim/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/install-esim/",
+      "faqEntries": 4,
+      "editorialWords": 470,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/ghiduri/esim-vs-roaming/": {
+      "locale": "ro",
+      "type": "guide",
+      "canonical": "https://livdar.com/ro/ghiduri/esim-vs-roaming/",
+      "title": "eSIM sau roaming: socoteala care decide pentru vacanță ta",
+      "titleLength": 57,
+      "description": "În Uniunea Europeană roamingul este inclus. În afară ei, socoteala durează două minute și de obicei nu este la limita.",
+      "descriptionLength": 118,
+      "h1": "eSIM sau roaming",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/esim-vs-roaming/",
+        "de": "https://livdar.com/de/ratgeber/esim-vs-roaming/",
+        "ro": "https://livdar.com/ro/ghiduri/esim-vs-roaming/",
+        "x-default": "https://livdar.com/en/guides/esim-vs-roaming/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/esim-vs-roaming/",
+      "faqEntries": 4,
+      "editorialWords": 551,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 4
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/ghiduri/airport-connectivity/": {
+      "locale": "ro",
+      "type": "guide",
+      "canonical": "https://livdar.com/ro/ghiduri/airport-connectivity/",
+      "title": "Internet la aeroport: ce faci în primele zece minute",
+      "titleLength": 52,
+      "description": "Wifi de aeroport, ghișeu de cartele și eSIM, comparate pentru sosirea pe care o ai de fapt: obosit, la coadă și cu un transfer de găsit.",
+      "descriptionLength": 136,
+      "h1": "Cum ajungi online imediat ce aterizezi",
+      "ogType": "article",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/guides/airport-connectivity/",
+        "ro": "https://livdar.com/ro/ghiduri/airport-connectivity/",
+        "x-default": "https://livdar.com/en/guides/airport-connectivity/"
+      },
+      "hreflangLangs": [
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/guides/airport-connectivity/",
+      "faqEntries": 3,
+      "editorialWords": 519,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 3
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/compatibilitate/": {
+      "locale": "ro",
+      "type": "compatibility",
+      "canonical": "https://livdar.com/ro/compatibilitate/",
+      "title": "Compatibilitate eSIM: verifici telefonul în zece secunde",
+      "titleLength": 56,
+      "description": "Listele de modele se învechesc. Îți arată cum citești răspunsul de pe propriul telefon și ce faci dacă este blocat în rețeaua operatorului.",
+      "descriptionLength": 139,
+      "h1": "Telefonul tău suportă eSIM",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/compatibility/",
+        "de": "https://livdar.com/de/kompatibilitaet/",
+        "ro": "https://livdar.com/ro/compatibilitate/",
+        "x-default": "https://livdar.com/en/compatibility/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/compatibility/",
+      "faqEntries": 5,
+      "editorialWords": 800,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        },
+        {
+          "type": "FAQPage",
+          "items": 5
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/confidentialitate/": {
+      "locale": "ro",
+      "type": "legal",
+      "canonical": "https://livdar.com/ro/confidentialitate/",
+      "title": "Politica de confidențialitate | Livdar",
+      "titleLength": 38,
+      "description": "Ce colectează Livdar, de ce, cât timp păstrează și ce drepturi ai. Scrisă după ce face efectiv site-ul, nu după un șablon.",
+      "descriptionLength": 122,
+      "h1": "Politica de confidențialitate",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/privacy/",
+        "de": "https://livdar.com/de/datenschutz/",
+        "ro": "https://livdar.com/ro/confidentialitate/",
+        "x-default": "https://livdar.com/en/privacy/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/privacy/",
+      "faqEntries": 4,
+      "editorialWords": 1145,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    },
+    "/ro/cookie-uri/": {
+      "locale": "ro",
+      "type": "legal",
+      "canonical": "https://livdar.com/ro/cookie-uri/",
+      "title": "Politica de cookie-uri | Livdar",
+      "titleLength": 31,
+      "description": "Fiecare cookie pe care îl poate seta site-ul, ce face și cât durează. Unul este necesar, restul există doar dacă accepți statisticile.",
+      "descriptionLength": 134,
+      "h1": "Politica de cookie-uri",
+      "ogType": "website",
+      "robots": "index, follow",
+      "indexable": true,
+      "hreflang": {
+        "en": "https://livdar.com/en/cookies/",
+        "de": "https://livdar.com/de/cookies/",
+        "ro": "https://livdar.com/ro/cookie-uri/",
+        "x-default": "https://livdar.com/en/cookies/"
+      },
+      "hreflangLangs": [
+        "de",
+        "en",
+        "ro",
+        "x-default"
+      ],
+      "xDefault": "https://livdar.com/en/cookies/",
+      "faqEntries": 4,
+      "editorialWords": 440,
+      "schema": [
+        {
+          "type": "BreadcrumbList"
+        }
+      ],
+      "inSitemap": true
+    }
+  }
+}

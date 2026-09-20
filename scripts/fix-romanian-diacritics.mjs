@@ -60,6 +60,9 @@ export const AMBIGUOUS = new Set([
   'coasta', 'Coasta', 'banca', 'Banca', 'alta', 'Alta', 'piata', 'Piata',
   'regula', 'Regula', 'lista', 'Lista', 'pagina', 'Pagina', 'vizita', 'Vizita',
   'analiza', 'Analiza', 'noua', 'Noua', 'zona', 'Zona',
+  // 'tine' is the stressed pronoun in "de tine" and the verb "tine" is "ține".
+  // Only the word in front separates them, so the table must not touch it.
+  'tine', 'Tine',
 ]);
 
 const FILES = [

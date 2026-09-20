@@ -5,16 +5,26 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/quality-gate.mjs && next build",
+    "build": "node scripts/fetch-media.mjs && node scripts/quality-gate.mjs && next build",
     "start": "next start",
+    "test": "node --test tests/*.test.mjs",
     "qa": "node scripts/quality-gate.mjs",
     "dashcheck": "node scripts/dash-check.mjs",
-    "similarity": "node scripts/similarity-check.mjs"
+    "similarity": "node scripts/similarity-check.mjs",
+    "media": "node scripts/fetch-media.mjs",
+    "baseline": "node scripts/seo-baseline.mjs > reports/seo-baseline.json",
+    "regression": "node scripts/seo-regression.mjs",
+    "media:adopt": "node scripts/adopt-media.mjs",
+    "media:brief": "node scripts/image-brief.mjs"
   },
   "dependencies": {
-    "next": "15.5.7",
+    "next": "15.5.25",
     "react": "19.1.0",
     "react-dom": "19.1.0"
+  },
+  "overrides": {
+    "postcss": "8.5.28",
+    "sharp": "0.35.4"
   },
   "engines": {
     "node": ">=20.9.0"

@@ -38,6 +38,12 @@ const NEVER = new Set(['va', 'Va', 'a', 'Ca', 'Noua', 'Zona', 'Harta', 'Piata', 
 // The exceptions are the comparative "ca" ("arată ca o cutie"), the role marker
 // ("ca destinație", "ca furnizor"), and the purpose construction
 // ("cere ca ... să", "necesar ca ... să"). Keyed on the neighbouring words.
+// Prepositions after which "tine" is the pronoun rather than the verb.
+const PRONOUN_PREPOSITIONS = new Set([
+  'de', 'la', 'pe', 'cu', 'pentru', 'despre', 'fara', 'fără', 'langa', 'lângă',
+  'intre', 'între', 'asupra', 'contra', 'spre', 'catre', 'către', 'pana', 'până',
+]);
+
 const CA_STAYS = new Set([
   'înainte|managerul', 'arată|o', 'nimeni|și', 'telefoane|reper', 'Turcia|destinație',
   'Nu|în', 'conectează|vizitator', 'ștergerea|definitivă', 'tău|de', 'taxează|extra',
@@ -247,6 +253,17 @@ if (import.meta.url === 'file://' + process.argv[1]) {
           return;
         }
         if (ALWAYS[w]) { parts[pi] = ALWAYS[w]; applied += 1; return; }
+        // "tine" is two different words. As a stressed pronoun it follows a
+        // preposition and keeps its spelling: "de tine", "cu tine", "pentru
+        // tine". Everywhere else it is the verb and takes the comma below the
+        // t: "ține minte", "site-ul ține cont". Nothing but the word in front
+        // tells them apart, which is why the bulk table is not allowed near it.
+        if (w === 'tine' || w === 'Tine') {
+          if (PRONOUN_PREPOSITIONS.has(prev.toLowerCase())) { kept += 1; return; }
+          parts[pi] = w === 'Tine' ? 'Ține' : 'ține';
+          applied += 1;
+          return;
+        }
         if (w === 'ca') {
           if (CA_STAYS.has(key)) { kept += 1; return; }
           parts[pi] = 'că'; applied += 1; return;

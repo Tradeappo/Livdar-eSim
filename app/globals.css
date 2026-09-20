@@ -115,23 +115,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 40;
-  background: color-mix(in srgb, var(--ground) 88%, transparent);
-  backdrop-filter: saturate(150%) blur(10px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(248, 250, 253, 0.92);
+  backdrop-filter: saturate(150%) blur(24px);
+  border-bottom: 1px solid rgba(224, 228, 235, 0.9);
 }
 .header-row {
   display: flex;
   align-items: center;
-  gap: 14px;
-  height: 62px;
+  gap: 20px;
+  height: 58px;
 }
 .brand {
   display: inline-flex;
   align-items: baseline;
   gap: 7px;
-  font-weight: 800;
-  font-size: 19px;
-  letter-spacing: -0.03em;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.045em;
   flex: none;
 }
 .brand-mark {
@@ -153,11 +153,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   display: none;
   margin-left: auto;
   gap: 22px;
-  font-size: 14.5px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 850;
 }
-.main-nav a { color: var(--muted); }
-.main-nav a:hover, .main-nav a[aria-current="page"] { color: var(--ink); }
+.main-nav a {
+  position: relative;
+  color: #777b81;
+}
+.main-nav a:hover { color: var(--ink); }
+/* The active item is marked by a rule under it rather than by colour alone, so
+ * it survives a reader who cannot separate those two greys. */
+.main-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+.main-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -19px;
+  left: 0;
+  height: 2px;
+  background: var(--ink);
+}
 .header-tools { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 @media (min-width: 900px) {
   .main-nav { display: flex; }

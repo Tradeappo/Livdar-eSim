@@ -18,8 +18,6 @@ import {
   legalAlternates,
 } from '../lib/seo.js';
 
-const LAST_MODIFIED = new Date();
-
 const REGION_IDS = REGIONS.filter((r) => r.id !== 'global').map((r) => r.id);
 
 // Next.js appends ".xml" itself, so the ids stay extension free.
@@ -37,7 +35,6 @@ export async function generateSitemaps() {
 function entry(path, alternates, priority, changeFrequency) {
   return {
     url: absolute(path),
-    lastModified: LAST_MODIFIED,
     changeFrequency,
     priority,
     alternates: alternates ? { languages: alternates } : undefined,
