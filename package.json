@@ -17,7 +17,11 @@
     "media:adopt": "node scripts/adopt-media.mjs",
     "media:brief": "node scripts/image-brief.mjs",
     "taxonomy:report": "node scripts/taxonomy-report.mjs",
-    "audit:scale": "node scripts/seo-scale-audit.mjs"
+    "audit:scale": "node scripts/seo-scale-audit.mjs",
+    "audit:discovery": "node scripts/discovery-audit.mjs",
+    "gsc:report": "node scripts/gsc-report.mjs",
+    "indexnow:dry-run": "node scripts/indexnow-submit.mjs",
+    "indexnow:submit": "node scripts/indexnow-submit.mjs --submit"
   },
   "dependencies": {
     "next": "15.5.25",
