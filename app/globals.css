@@ -655,6 +655,11 @@ a.tile:hover { border-color: var(--line-strong); }
 .seo-link-card small { display: block; margin-top: 4px; color: #858991; font-size: 10px; line-height: 1.3; }
 .seo-link-flag { font-size: 24px; flex: 0 0 auto; }
 .seo-link-arrow { color: #9da1a8; font-size: 22px; }
+.seo-directory-group + .seo-directory-group { margin-top: 14px; }
+.seo-directory-group h3 { margin: 0 0 8px; font-size: 15px; letter-spacing: -.015em; }
+.seo-directory-group h3 a { color: inherit; }
+.seo-directory-group .seo-link-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.seo-directory-group .seo-link-card small { font-size: 11.5px; line-height: 1.4; }
 .v41-faq .faq { padding: 0; }
 .v41-faq .faq summary { font-size: 14px; }
 .v41-faq .faq p { font-family: inherit; font-size: 13px; line-height: 1.55; }
@@ -668,6 +673,7 @@ a.tile:hover { border-color: var(--line-strong); }
   .seo-copy-card { flex: 0 0 78vw; min-width: 270px; scroll-snap-align: start; }
   .seo-link-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
   .seo-link-card { min-height: 68px; padding: 10px; }
+  .seo-directory-group .seo-link-grid { grid-template-columns: 1fr; }
 }
 
 

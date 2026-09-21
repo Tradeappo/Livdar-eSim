@@ -16,6 +16,7 @@ import {
   publishedGuideSlugs,
   publishedRegionIds,
   localesWithRegion,
+  regionContent,
   localesWithCompatibility,
   localesWithLegal,
   guideContent,
@@ -52,6 +53,8 @@ import {
 import { listPlans, providerIsConnected } from '../../../lib/providers/index.js';
 import V41Marketplace from '../../../components/V41Marketplace.jsx';
 import V41SeoContent from '../../../components/V41SeoContent.jsx';
+import RelatedLinks from '../../../components/RelatedLinks.jsx';
+import { guideLinks, otherDestinationLinks, regionLinkForDestination, destinationLinks } from '../../../lib/internal-links.js';
 
 export const dynamicParams = false;
 
@@ -220,7 +223,7 @@ function renderEsimHub(locale) {
   return (
     <>
       <V41Marketplace locale={locale} h1={t.nav.esim}>
-        <V41SeoContent locale={locale} />
+        <V41SeoContent locale={locale} directory />
       </V41Marketplace>
       <JsonLd
         data={[
@@ -270,6 +273,10 @@ async function renderDestination(locale, node) {
     { name, path: routes.destination(locale, dest) },
   ];
 
+  const regionLink = regionLinkForDestination(locale, dest.id);
+  const moreDestinations = otherDestinationLinks(locale, dest.id, related.map((d) => d.id));
+  const tripGuides = guideLinks(locale);
+
   const bodySections = order.filter((k) => k !== 'intro' && k !== 'faq' && c.sections[k]);
   const midpoint = Math.max(1, Math.ceil(bodySections.length / 2));
 
@@ -289,7 +296,9 @@ async function renderDestination(locale, node) {
               </div>
               <div>
                 <dt>{t.regionLabel}</dt>
-                <dd>{regionName(region, locale)}</dd>
+                <dd>
+                  {regionLink ? <a href={regionLink.href}>{regionLink.title}</a> : regionName(region, locale)}
+                </dd>
               </div>
               <div>
                 <dt>{t.networksLabel}</dt>
@@ -365,6 +374,9 @@ async function renderDestination(locale, node) {
                 </div>
               </section>
             ) : null}
+
+            <RelatedLinks id="before-you-travel" heading={t.beforeYouTravel} items={tripGuides} />
+            <RelatedLinks id="more-destinations" heading={t.moreDestinations} items={moreDestinations} />
 
             <p style={{ marginTop: 26 }}>
               <a href={routes.esimHub(locale)} style={{ color: 'var(--accent)', fontWeight: 600 }}>
@@ -451,6 +463,8 @@ function renderGuide(locale, node) {
               />
             </div>
             <Faq items={g.faq} heading={t.faq} />
+            <RelatedLinks id="guide-destinations" heading={t.allDestinations} items={destinationLinks(locale)} />
+            <RelatedLinks id="more-guides" heading={t.moreGuides} items={guideLinks(locale, node.slug)} />
           </article>
         </div>
       </main>
@@ -559,6 +573,16 @@ function renderRegion(locale, node) {
   );
 }
 
+// The regions hub was eleven tiles with a count each, and Search Console lists
+// it as discovered but not indexed in all three markets. Each tile now carries
+// the region page's own meta description, written once for that page, which is
+// the only place on the site those descriptions are repeated.
+function regionHubDescription(locale, regionId) {
+  if (!publishedRegionIds(locale).includes(regionId)) return '';
+  const c = regionContent(locale, regionId);
+  return c && c.metaDescription ? c.metaDescription : '';
+}
+
 function renderRegionsHub(locale) {
   const t = ui(locale);
   const regions = REGIONS.filter((r) => r.id !== 'global');
@@ -576,9 +600,10 @@ function renderRegionsHub(locale) {
               {regions.map((r) => (
                 <a className="tile" key={r.id} href={routes.region(locale, r.id)}>
                   <h3>{regionName(r, locale)}</h3>
-                  <p>
+                  {regionHubDescription(locale, r.id) ? <p>{regionHubDescription(locale, r.id)}</p> : null}
+                  <span className="meta">
                     {destinationsInRegion(r.id).length} {t.destinationsCount}
-                  </p>
+                  </span>
                 </a>
               ))}
             </div>
