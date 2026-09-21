@@ -1,4 +1,4 @@
-import { V41_INLINE_SCRIPTS } from '../../lib/v41-source.js';
+import { V41_INLINE_SCRIPTS, enhanceV41RuntimeSource } from '../../lib/v41-source.js';
 
 export const dynamic = 'force-static';
 
@@ -7,7 +7,7 @@ function runtime() {
     const locale = document.currentScript?.dataset?.locale || document.documentElement.lang || 'en';
     try { localStorage.setItem('livdarLang', locale); } catch (error) {}
     document.documentElement.lang = locale;
-    const sourceScripts = ${JSON.stringify(V41_INLINE_SCRIPTS)};
+    const sourceScripts = ${JSON.stringify(V41_INLINE_SCRIPTS.map(enhanceV41RuntimeSource))};
     for (const source of sourceScripts) {
       const script = document.createElement('script');
       script.text = source;

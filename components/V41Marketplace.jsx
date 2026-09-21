@@ -1,13 +1,15 @@
 import Script from 'next/script';
 import { routes } from '../lib/routes.js';
-import { V41_FOOTER, V41_MARKETPLACE_MARKUP, V41_VERSION } from '../lib/v41-source.js';
+import { V41_FOOTER, V41_MARKETPLACE_MARKUP, V41_VERSION, enhanceV41Markup } from '../lib/v41-source.js';
+
+const V41_PRIMARY_IMAGE = 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=86';
 
 // The supplied V41 file is the visual source of truth. It is intentionally
 // read and rendered directly instead of being translated into another design
 // system. That preserves its exact markup, CSS cascade, responsive rules,
 // images, section order and browser behaviour.
 function localize(markup, locale) {
-  return markup
+  return enhanceV41Markup(markup, locale)
     .replace('<html lang="en">', `<html lang="${locale}">`)
     .replace('<a data-i18n="allDestinations" href="#">', `<a data-i18n="allDestinations" href="${routes.esimHub(locale)}">`)
     .replace('<a data-i18n="footerPlans" href="#">', `<a data-i18n="footerPlans" href="${routes.esimHub(locale)}">`)
@@ -24,9 +26,12 @@ export default function V41Marketplace({ locale, h1, children }) {
   return (
     <>
       <link rel="stylesheet" href={`/v41.css?v=${V41_VERSION}`} />
-      <h1 className="sr-only">{h1}</h1>
-      <div className="v41-marketplace" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: localize(V41_MARKETPLACE_MARKUP, locale) }} />
-      {children}
+      <link rel="preload" as="image" href={V41_PRIMARY_IMAGE} fetchPriority="high" />
+      <main id="main">
+        <h1 className="sr-only">{h1}</h1>
+        <div className="v41-marketplace" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: localize(V41_MARKETPLACE_MARKUP, locale) }} />
+        {children}
+      </main>
       {V41_FOOTER ? <div className="v41-marketplace v41-marketplace-footer" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: localize(V41_FOOTER, locale) }} /> : null}
       <Script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" strategy="afterInteractive" />
       <Script id={`v41-runtime-${locale}`} src={`/v41-runtime.js?v=${V41_VERSION}`} data-locale={locale} strategy="afterInteractive" />
