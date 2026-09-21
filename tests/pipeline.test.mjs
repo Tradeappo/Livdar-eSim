@@ -19,9 +19,23 @@ test('capacity is reported from real entity lists, not from the scale target', (
   assert.equal(funnel.capacity.geoEntities.city, 0);
 });
 
-test('the first P1 lot passes every hard gate on real evidence', () => {
-  ['en:destination:morocco', 'en:destination:egypt', 'en:destination:albania', 'de:destination:morocco', 'de:destination:egypt', 'de:destination:albania', 'ro:destination:morocco', 'ro:destination:albania']
+test('the first P1 lot: measured local demand and the plan exception are reported apart', () => {
+  // Local volume measured in the market's own research rows clears the floor.
+  ['en:destination:morocco', 'en:destination:egypt', 'en:destination:albania', 'de:destination:morocco', 'de:destination:egypt', 'de:destination:albania']
     .forEach((key) => assert.ok(funnel.eligible.includes(key), key));
+  // Romanian demand for these two is below the floor; they are published only
+  // by the P1 rule and must never appear as eligible on measured demand.
+  ['ro:destination:morocco', 'ro:destination:albania'].forEach((key) => {
+    assert.ok(!funnel.eligible.includes(key), key);
+    const row = funnel.planException.find((e) => e.key === key);
+    assert.ok(row, key);
+    assert.ok(row.measuredLocalVolume < 500);
+    assert.equal(row.tier, 'P1');
+  });
+});
+
+test('no candidate is given a volume it was not measured at', () => {
+  funnel.planException.forEach((e) => assert.ok(e.measuredLocalVolume < 500, e.key));
 });
 
 test('unwritten destinations are held back with reasons, not published', () => {

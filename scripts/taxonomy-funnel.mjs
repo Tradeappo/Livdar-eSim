@@ -113,12 +113,12 @@ export function runFunnel(now = Date.now()) {
       key: c.locale + ':destination:' + c.id,
       family: family.key,
       locale: c.locale,
-      // The family floor applies to demand in this locale's markets. P1 and P2
-      // destinations get a page in every market by plan rule, so the
-      // destination's total measured volume carries the validation when the
-      // local slice is thin.
-      monthlyVolume: Math.max(volume, rec.tier === 'P1' || rec.tier === 'P2' ? family.minimumMonthlyVolume : volume),
-      queryValidated: Object.keys(rec.volume).length > 0,
+      // Only demand measured in this locale's own research markets. Nothing is
+      // rounded up to the floor: a thin local slice fails the demand gate here
+      // and is reported below as a plan exception, never as measured demand.
+      monthlyVolume: volume,
+      // Validated means at least one measured query in this locale's markets.
+      queryValidated: volume > 0,
       uniqueIntent: true,
       sourceCoverage: 1,
       sourceAttribution: ['Ahrefs keyword research, data/ (six passes, 2026-09-15 to 2026-09-16)'],
@@ -130,13 +130,30 @@ export function runFunnel(now = Date.now()) {
       metadata: content ? { title: content.title, description: content.metaDescription, h1: content.h1, canonical: true } : {},
       ...scoresFor(content),
     };
-    return { ...evaluateProgrammaticCandidate(candidate, family, live), localVolume: volume, tier: rec.tier };
+    const result = evaluateProgrammaticCandidate(candidate, family, live);
+    // The plan (scripts/plan-report.mjs) gives P1 and P2 destinations a page in
+    // every published market because their demand is proven across markets.
+    // That is an editorial publication rule, not local evidence, so it is kept
+    // as its own flag: it applies only when the demand gate is the one and
+    // only gate that failed.
+    const planException = !result.eligible
+      && (rec.tier === 'P1' || rec.tier === 'P2')
+      && result.reasons.every((r) => r === 'insufficient-demand' || r === 'unvalidated-demand');
+    return {
+      ...result,
+      measuredLocalVolume: volume,
+      measuredTotalVolume: Object.values(rec.volume).reduce((a, b) => a + b, 0),
+      tier: rec.tier,
+      demandBasis: volume >= family.minimumMonthlyVolume ? 'measured-local' : planException ? 'plan-exception' : 'insufficient',
+      planException,
+    };
   });
 
   const reasons = {};
   evaluated.filter((e) => !e.eligible).forEach((e) => e.reasons.forEach((r) => { reasons[r] = (reasons[r] || 0) + 1; }));
   const eligible = evaluated.filter((e) => e.eligible);
-  steps.push({ step: 'passes every hard gate (authored, reviewed, approved, fresh sources, metadata)', remaining: eligible.length });
+  const byException = evaluated.filter((e) => e.planException);
+  steps.push({ step: 'passes every hard gate on demand measured in this locale', remaining: eligible.length });
 
   return {
     generatedAt: new Date(now).toISOString(),
@@ -148,7 +165,10 @@ export function runFunnel(now = Date.now()) {
     sourceAgeDays: sourceAgeDays(now),
     sourcesGoStaleOn: new Date(oldestResearch + family.maximumSourceAgeDays * 86400000).toISOString().slice(0, 10),
     eligible: eligible.map((e) => e.key),
-    notYet: evaluated.filter((e) => !e.eligible).map((e) => ({ key: e.key, tier: e.tier, localVolume: e.localVolume, reasons: e.reasons })),
+    // Pass every gate except local demand, and are published by the plan's
+    // P1/P2 rule. Their local volume is shown as measured, which may be zero.
+    planException: byException.map((e) => ({ key: e.key, tier: e.tier, measuredLocalVolume: e.measuredLocalVolume, measuredTotalVolume: e.measuredTotalVolume })),
+    notYet: evaluated.filter((e) => !e.eligible && !e.planException).map((e) => ({ key: e.key, tier: e.tier, measuredLocalVolume: e.measuredLocalVolume, reasons: e.reasons })),
   };
 }
 
@@ -158,6 +178,8 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   console.log('generationEnabled:', out.generationEnabled);
   console.log('capacity:', JSON.stringify({ declared: out.capacity.declaredDimensionProduct, withRealEntities: out.capacity.withRealEntities, geo: out.capacity.geoEntities }));
   console.table(out.steps);
+  console.log('published by the P1/P2 plan exception, local demand below ' + family.minimumMonthlyVolume + ':');
+  console.table(out.planException);
   console.log('blocking reasons for the rest:', out.blockingReasons);
   console.log('research sources go stale for this family on', out.sourcesGoStaleOn);
 }

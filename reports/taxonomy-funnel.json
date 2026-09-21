@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T20:29:29.436Z",
+  "generatedAt": "2026-09-21T21:53:25.268Z",
   "generationEnabled": false,
   "family": "connectivity-destination",
   "capacity": {
@@ -46,8 +46,8 @@
       "remaining": 173
     },
     {
-      "step": "passes every hard gate (authored, reviewed, approved, fresh sources, metadata)",
-      "remaining": 32
+      "step": "passes every hard gate on demand measured in this locale",
+      "remaining": 22
     }
   ],
   "blockingReasons": {
@@ -56,49 +56,102 @@
     "insufficient-quality-score": 141,
     "lifecycle-not-approved": 141,
     "incomplete-metadata": 141,
-    "insufficient-demand": 7
+    "insufficient-demand": 98,
+    "unvalidated-demand": 64
   },
-  "sourceAgeDays": 5,
+  "sourceAgeDays": 6,
   "sourcesGoStaleOn": "2026-12-14",
   "eligible": [
     "en:destination:turkey",
     "de:destination:turkey",
     "ro:destination:turkey",
-    "en:destination:united-kingdom",
     "de:destination:united-kingdom",
-    "ro:destination:united-kingdom",
-    "ro:destination:greece",
     "en:destination:switzerland",
     "de:destination:switzerland",
     "en:destination:albania",
     "de:destination:albania",
-    "ro:destination:albania",
     "en:destination:united-arab-emirates",
     "de:destination:united-arab-emirates",
-    "ro:destination:united-arab-emirates",
     "en:destination:japan",
     "de:destination:japan",
     "en:destination:thailand",
     "de:destination:thailand",
-    "ro:destination:thailand",
     "en:destination:bali",
     "de:destination:bali",
-    "ro:destination:bali",
     "en:destination:united-states",
     "de:destination:united-states",
-    "ro:destination:united-states",
     "en:destination:egypt",
     "de:destination:egypt",
-    "ro:destination:egypt",
     "en:destination:morocco",
-    "de:destination:morocco",
-    "ro:destination:morocco"
+    "de:destination:morocco"
+  ],
+  "planException": [
+    {
+      "key": "en:destination:united-kingdom",
+      "tier": "P1",
+      "measuredLocalVolume": 0,
+      "measuredTotalVolume": 10100
+    },
+    {
+      "key": "ro:destination:united-kingdom",
+      "tier": "P1",
+      "measuredLocalVolume": 40,
+      "measuredTotalVolume": 10100
+    },
+    {
+      "key": "ro:destination:greece",
+      "tier": "P1",
+      "measuredLocalVolume": 70,
+      "measuredTotalVolume": 11430
+    },
+    {
+      "key": "ro:destination:albania",
+      "tier": "P1",
+      "measuredLocalVolume": 150,
+      "measuredTotalVolume": 21370
+    },
+    {
+      "key": "ro:destination:united-arab-emirates",
+      "tier": "P1",
+      "measuredLocalVolume": 150,
+      "measuredTotalVolume": 22380
+    },
+    {
+      "key": "ro:destination:thailand",
+      "tier": "P1",
+      "measuredLocalVolume": 80,
+      "measuredTotalVolume": 41310
+    },
+    {
+      "key": "ro:destination:bali",
+      "tier": "P1",
+      "measuredLocalVolume": 40,
+      "measuredTotalVolume": 11650
+    },
+    {
+      "key": "ro:destination:united-states",
+      "tier": "P1",
+      "measuredLocalVolume": 100,
+      "measuredTotalVolume": 82490
+    },
+    {
+      "key": "ro:destination:egypt",
+      "tier": "P1",
+      "measuredLocalVolume": 330,
+      "measuredTotalVolume": 30280
+    },
+    {
+      "key": "ro:destination:morocco",
+      "tier": "P1",
+      "measuredLocalVolume": 100,
+      "measuredTotalVolume": 44030
+    }
   ],
   "notYet": [
     {
       "key": "en:destination:spain",
       "tier": "P1",
-      "localVolume": 9600,
+      "measuredLocalVolume": 9600,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -110,7 +163,7 @@
     {
       "key": "de:destination:spain",
       "tier": "P1",
-      "localVolume": 500,
+      "measuredLocalVolume": 500,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -122,8 +175,9 @@
     {
       "key": "ro:destination:spain",
       "tier": "P1",
-      "localVolume": 70,
+      "measuredLocalVolume": 70,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -134,7 +188,7 @@
     {
       "key": "en:destination:italy",
       "tier": "P1",
-      "localVolume": 7730,
+      "measuredLocalVolume": 7730,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -146,7 +200,7 @@
     {
       "key": "de:destination:italy",
       "tier": "P1",
-      "localVolume": 600,
+      "measuredLocalVolume": 600,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -158,8 +212,9 @@
     {
       "key": "ro:destination:italy",
       "tier": "P1",
-      "localVolume": 150,
+      "measuredLocalVolume": 150,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -170,7 +225,7 @@
     {
       "key": "en:destination:france",
       "tier": "P1",
-      "localVolume": 5220,
+      "measuredLocalVolume": 5220,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -182,8 +237,10 @@
     {
       "key": "de:destination:france",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -194,8 +251,10 @@
     {
       "key": "ro:destination:france",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -206,7 +265,7 @@
     {
       "key": "en:destination:germany",
       "tier": "P1",
-      "localVolume": 4050,
+      "measuredLocalVolume": 4050,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -218,7 +277,7 @@
     {
       "key": "de:destination:germany",
       "tier": "P1",
-      "localVolume": 7780,
+      "measuredLocalVolume": 7780,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -230,8 +289,9 @@
     {
       "key": "ro:destination:germany",
       "tier": "P1",
-      "localVolume": 150,
+      "measuredLocalVolume": 150,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -242,7 +302,7 @@
     {
       "key": "en:destination:greece",
       "tier": "P1",
-      "localVolume": 9440,
+      "measuredLocalVolume": 9440,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -254,7 +314,7 @@
     {
       "key": "de:destination:greece",
       "tier": "P1",
-      "localVolume": 970,
+      "measuredLocalVolume": 970,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -266,7 +326,7 @@
     {
       "key": "en:destination:portugal",
       "tier": "P1",
-      "localVolume": 5550,
+      "measuredLocalVolume": 5550,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -278,8 +338,10 @@
     {
       "key": "de:destination:portugal",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -290,8 +352,10 @@
     {
       "key": "ro:destination:portugal",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -302,8 +366,9 @@
     {
       "key": "en:destination:netherlands",
       "tier": "P2",
-      "localVolume": 400,
+      "measuredLocalVolume": 400,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -314,8 +379,10 @@
     {
       "key": "de:destination:netherlands",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -326,8 +393,10 @@
     {
       "key": "ro:destination:netherlands",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -338,8 +407,9 @@
     {
       "key": "ro:destination:switzerland",
       "tier": "P1",
-      "localVolume": 90,
+      "measuredLocalVolume": 90,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -350,8 +420,10 @@
     {
       "key": "en:destination:poland",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -362,8 +434,10 @@
     {
       "key": "de:destination:poland",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -374,8 +448,10 @@
     {
       "key": "ro:destination:poland",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -386,7 +462,7 @@
     {
       "key": "ro:destination:romania",
       "tier": "P3",
-      "localVolume": 880,
+      "measuredLocalVolume": 880,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -398,8 +474,10 @@
     {
       "key": "en:destination:serbia",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -410,7 +488,7 @@
     {
       "key": "de:destination:serbia",
       "tier": "P2",
-      "localVolume": 1080,
+      "measuredLocalVolume": 1080,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -422,8 +500,9 @@
     {
       "key": "ro:destination:serbia",
       "tier": "P2",
-      "localVolume": 250,
+      "measuredLocalVolume": 250,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -434,7 +513,7 @@
     {
       "key": "en:destination:montenegro",
       "tier": "P1",
-      "localVolume": 1800,
+      "measuredLocalVolume": 1800,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -446,7 +525,7 @@
     {
       "key": "de:destination:montenegro",
       "tier": "P1",
-      "localVolume": 2530,
+      "measuredLocalVolume": 2530,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -458,8 +537,10 @@
     {
       "key": "ro:destination:montenegro",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -470,7 +551,7 @@
     {
       "key": "en:destination:sweden",
       "tier": "P3",
-      "localVolume": 150,
+      "measuredLocalVolume": 150,
       "reasons": [
         "insufficient-demand",
         "insufficient-unique-content",
@@ -483,7 +564,7 @@
     {
       "key": "de:destination:sweden",
       "tier": "P3",
-      "localVolume": 400,
+      "measuredLocalVolume": 400,
       "reasons": [
         "insufficient-demand",
         "insufficient-unique-content",
@@ -496,8 +577,9 @@
     {
       "key": "en:destination:norway",
       "tier": "P2",
-      "localVolume": 150,
+      "measuredLocalVolume": 150,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -508,7 +590,7 @@
     {
       "key": "de:destination:norway",
       "tier": "P2",
-      "localVolume": 3550,
+      "measuredLocalVolume": 3550,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -520,8 +602,10 @@
     {
       "key": "ro:destination:norway",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -532,7 +616,7 @@
     {
       "key": "en:destination:cyprus",
       "tier": "P2",
-      "localVolume": 850,
+      "measuredLocalVolume": 850,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -544,8 +628,10 @@
     {
       "key": "de:destination:cyprus",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -556,8 +642,10 @@
     {
       "key": "ro:destination:cyprus",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -568,7 +656,7 @@
     {
       "key": "en:destination:saudi-arabia",
       "tier": "P2",
-      "localVolume": 660,
+      "measuredLocalVolume": 660,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -580,8 +668,10 @@
     {
       "key": "de:destination:saudi-arabia",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -592,8 +682,10 @@
     {
       "key": "ro:destination:saudi-arabia",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -604,8 +696,10 @@
     {
       "key": "en:destination:oman",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -616,8 +710,10 @@
     {
       "key": "de:destination:oman",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -628,7 +724,7 @@
     {
       "key": "ro:destination:oman",
       "tier": "P2",
-      "localVolume": 880,
+      "measuredLocalVolume": 880,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -640,8 +736,9 @@
     {
       "key": "ro:destination:japan",
       "tier": "P1",
-      "localVolume": 140,
+      "measuredLocalVolume": 140,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -652,7 +749,7 @@
     {
       "key": "en:destination:south-korea",
       "tier": "P1",
-      "localVolume": 530,
+      "measuredLocalVolume": 530,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -664,7 +761,7 @@
     {
       "key": "de:destination:south-korea",
       "tier": "P1",
-      "localVolume": 1210,
+      "measuredLocalVolume": 1210,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -676,8 +773,10 @@
     {
       "key": "ro:destination:south-korea",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -688,7 +787,7 @@
     {
       "key": "en:destination:china",
       "tier": "P1",
-      "localVolume": 1250,
+      "measuredLocalVolume": 1250,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -700,7 +799,7 @@
     {
       "key": "de:destination:china",
       "tier": "P1",
-      "localVolume": 2770,
+      "measuredLocalVolume": 2770,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -712,8 +811,9 @@
     {
       "key": "ro:destination:china",
       "tier": "P1",
-      "localVolume": 170,
+      "measuredLocalVolume": 170,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -724,7 +824,7 @@
     {
       "key": "en:destination:taiwan",
       "tier": "P3",
-      "localVolume": 200,
+      "measuredLocalVolume": 200,
       "reasons": [
         "insufficient-demand",
         "insufficient-unique-content",
@@ -737,7 +837,7 @@
     {
       "key": "de:destination:taiwan",
       "tier": "P3",
-      "localVolume": 500,
+      "measuredLocalVolume": 500,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -749,7 +849,7 @@
     {
       "key": "en:destination:india",
       "tier": "P1",
-      "localVolume": 8230,
+      "measuredLocalVolume": 8230,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -761,7 +861,7 @@
     {
       "key": "de:destination:india",
       "tier": "P1",
-      "localVolume": 890,
+      "measuredLocalVolume": 890,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -773,8 +873,10 @@
     {
       "key": "ro:destination:india",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -785,8 +887,9 @@
     {
       "key": "en:destination:sri-lanka",
       "tier": "P2",
-      "localVolume": 400,
+      "measuredLocalVolume": 400,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -797,7 +900,7 @@
     {
       "key": "de:destination:sri-lanka",
       "tier": "P2",
-      "localVolume": 1770,
+      "measuredLocalVolume": 1770,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -809,8 +912,10 @@
     {
       "key": "ro:destination:sri-lanka",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -821,8 +926,10 @@
     {
       "key": "en:destination:maldives",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -833,7 +940,7 @@
     {
       "key": "de:destination:maldives",
       "tier": "P2",
-      "localVolume": 700,
+      "measuredLocalVolume": 700,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -845,8 +952,10 @@
     {
       "key": "ro:destination:maldives",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -857,7 +966,7 @@
     {
       "key": "en:destination:georgia",
       "tier": "P3",
-      "localVolume": 150,
+      "measuredLocalVolume": 150,
       "reasons": [
         "insufficient-demand",
         "insufficient-unique-content",
@@ -870,7 +979,7 @@
     {
       "key": "de:destination:georgia",
       "tier": "P3",
-      "localVolume": 500,
+      "measuredLocalVolume": 500,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -882,7 +991,7 @@
     {
       "key": "en:destination:vietnam",
       "tier": "P1",
-      "localVolume": 7500,
+      "measuredLocalVolume": 7500,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -894,7 +1003,7 @@
     {
       "key": "de:destination:vietnam",
       "tier": "P1",
-      "localVolume": 3450,
+      "measuredLocalVolume": 3450,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -906,8 +1015,10 @@
     {
       "key": "ro:destination:vietnam",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -918,7 +1029,7 @@
     {
       "key": "en:destination:indonesia",
       "tier": "P1",
-      "localVolume": 4670,
+      "measuredLocalVolume": 4670,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -930,7 +1041,7 @@
     {
       "key": "de:destination:indonesia",
       "tier": "P1",
-      "localVolume": 2960,
+      "measuredLocalVolume": 2960,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -942,8 +1053,10 @@
     {
       "key": "ro:destination:indonesia",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -954,8 +1067,10 @@
     {
       "key": "en:destination:singapore",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -966,7 +1081,7 @@
     {
       "key": "de:destination:singapore",
       "tier": "P2",
-      "localVolume": 510,
+      "measuredLocalVolume": 510,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -978,8 +1093,10 @@
     {
       "key": "ro:destination:singapore",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -990,8 +1107,9 @@
     {
       "key": "en:destination:malaysia",
       "tier": "P2",
-      "localVolume": 250,
+      "measuredLocalVolume": 250,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1002,7 +1120,7 @@
     {
       "key": "de:destination:malaysia",
       "tier": "P2",
-      "localVolume": 600,
+      "measuredLocalVolume": 600,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1014,8 +1132,10 @@
     {
       "key": "ro:destination:malaysia",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1026,7 +1146,7 @@
     {
       "key": "en:destination:philippines",
       "tier": "P1",
-      "localVolume": 6280,
+      "measuredLocalVolume": 6280,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1038,8 +1158,9 @@
     {
       "key": "de:destination:philippines",
       "tier": "P1",
-      "localVolume": 450,
+      "measuredLocalVolume": 450,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1050,8 +1171,10 @@
     {
       "key": "ro:destination:philippines",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1062,7 +1185,7 @@
     {
       "key": "en:destination:cambodia",
       "tier": "P3",
-      "localVolume": 290,
+      "measuredLocalVolume": 290,
       "reasons": [
         "insufficient-demand",
         "insufficient-unique-content",
@@ -1075,7 +1198,7 @@
     {
       "key": "en:destination:canada",
       "tier": "P1",
-      "localVolume": 7300,
+      "measuredLocalVolume": 7300,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1087,7 +1210,7 @@
     {
       "key": "de:destination:canada",
       "tier": "P1",
-      "localVolume": 5100,
+      "measuredLocalVolume": 5100,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1099,8 +1222,10 @@
     {
       "key": "ro:destination:canada",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1111,7 +1236,7 @@
     {
       "key": "en:destination:mexico",
       "tier": "P1",
-      "localVolume": 8400,
+      "measuredLocalVolume": 8400,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1123,7 +1248,7 @@
     {
       "key": "de:destination:mexico",
       "tier": "P1",
-      "localVolume": 2550,
+      "measuredLocalVolume": 2550,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1135,8 +1260,10 @@
     {
       "key": "ro:destination:mexico",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1147,7 +1274,7 @@
     {
       "key": "en:destination:costa-rica",
       "tier": "P1",
-      "localVolume": 3760,
+      "measuredLocalVolume": 3760,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1159,7 +1286,7 @@
     {
       "key": "de:destination:costa-rica",
       "tier": "P1",
-      "localVolume": 1050,
+      "measuredLocalVolume": 1050,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1171,8 +1298,10 @@
     {
       "key": "ro:destination:costa-rica",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1183,8 +1312,9 @@
     {
       "key": "en:destination:dominican-republic",
       "tier": "P2",
-      "localVolume": 150,
+      "measuredLocalVolume": 150,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1195,7 +1325,7 @@
     {
       "key": "de:destination:dominican-republic",
       "tier": "P2",
-      "localVolume": 700,
+      "measuredLocalVolume": 700,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1207,8 +1337,10 @@
     {
       "key": "ro:destination:dominican-republic",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1219,8 +1351,9 @@
     {
       "key": "en:destination:brazil",
       "tier": "P2",
-      "localVolume": 200,
+      "measuredLocalVolume": 200,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1231,7 +1364,7 @@
     {
       "key": "de:destination:brazil",
       "tier": "P2",
-      "localVolume": 890,
+      "measuredLocalVolume": 890,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1243,8 +1376,10 @@
     {
       "key": "ro:destination:brazil",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1255,8 +1390,10 @@
     {
       "key": "en:destination:argentina",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1267,8 +1404,10 @@
     {
       "key": "de:destination:argentina",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1279,8 +1418,10 @@
     {
       "key": "ro:destination:argentina",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1291,8 +1432,9 @@
     {
       "key": "en:destination:chile",
       "tier": "P2",
-      "localVolume": 150,
+      "measuredLocalVolume": 150,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1303,8 +1445,10 @@
     {
       "key": "de:destination:chile",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1315,8 +1459,10 @@
     {
       "key": "ro:destination:chile",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1327,8 +1473,10 @@
     {
       "key": "en:destination:peru",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1339,7 +1487,7 @@
     {
       "key": "de:destination:peru",
       "tier": "P2",
-      "localVolume": 500,
+      "measuredLocalVolume": 500,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1351,8 +1499,10 @@
     {
       "key": "ro:destination:peru",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1363,8 +1513,10 @@
     {
       "key": "en:destination:colombia",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1375,8 +1527,10 @@
     {
       "key": "de:destination:colombia",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1387,8 +1541,10 @@
     {
       "key": "ro:destination:colombia",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1399,7 +1555,7 @@
     {
       "key": "en:destination:tunisia",
       "tier": "P1",
-      "localVolume": 1250,
+      "measuredLocalVolume": 1250,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1411,7 +1567,7 @@
     {
       "key": "de:destination:tunisia",
       "tier": "P1",
-      "localVolume": 1530,
+      "measuredLocalVolume": 1530,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1423,8 +1579,9 @@
     {
       "key": "ro:destination:tunisia",
       "tier": "P1",
-      "localVolume": 90,
+      "measuredLocalVolume": 90,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1435,7 +1592,7 @@
     {
       "key": "en:destination:south-africa",
       "tier": "P1",
-      "localVolume": 4800,
+      "measuredLocalVolume": 4800,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1447,8 +1604,10 @@
     {
       "key": "de:destination:south-africa",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1459,8 +1618,10 @@
     {
       "key": "ro:destination:south-africa",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1471,7 +1632,7 @@
     {
       "key": "en:destination:kenya",
       "tier": "P3",
-      "localVolume": 200,
+      "measuredLocalVolume": 200,
       "reasons": [
         "insufficient-demand",
         "insufficient-unique-content",
@@ -1484,8 +1645,9 @@
     {
       "key": "en:destination:tanzania",
       "tier": "P2",
-      "localVolume": 200,
+      "measuredLocalVolume": 200,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1496,8 +1658,10 @@
     {
       "key": "de:destination:tanzania",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1508,8 +1672,10 @@
     {
       "key": "ro:destination:tanzania",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1520,8 +1686,10 @@
     {
       "key": "en:destination:cape-verde",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1532,8 +1700,10 @@
     {
       "key": "de:destination:cape-verde",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1544,8 +1714,10 @@
     {
       "key": "ro:destination:cape-verde",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1556,8 +1728,9 @@
     {
       "key": "en:destination:mauritius",
       "tier": "P2",
-      "localVolume": 350,
+      "measuredLocalVolume": 350,
       "reasons": [
+        "insufficient-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1568,7 +1741,7 @@
     {
       "key": "de:destination:mauritius",
       "tier": "P2",
-      "localVolume": 1000,
+      "measuredLocalVolume": 1000,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1580,8 +1753,10 @@
     {
       "key": "ro:destination:mauritius",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1592,7 +1767,7 @@
     {
       "key": "de:destination:seychelles",
       "tier": "P3",
-      "localVolume": 450,
+      "measuredLocalVolume": 450,
       "reasons": [
         "insufficient-demand",
         "insufficient-unique-content",
@@ -1605,7 +1780,7 @@
     {
       "key": "en:destination:australia",
       "tier": "P1",
-      "localVolume": 5120,
+      "measuredLocalVolume": 5120,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1617,7 +1792,7 @@
     {
       "key": "de:destination:australia",
       "tier": "P1",
-      "localVolume": 1740,
+      "measuredLocalVolume": 1740,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1629,8 +1804,10 @@
     {
       "key": "ro:destination:australia",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1641,7 +1818,7 @@
     {
       "key": "en:destination:new-zealand",
       "tier": "P2",
-      "localVolume": 730,
+      "measuredLocalVolume": 730,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1653,7 +1830,7 @@
     {
       "key": "de:destination:new-zealand",
       "tier": "P2",
-      "localVolume": 1130,
+      "measuredLocalVolume": 1130,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1665,8 +1842,10 @@
     {
       "key": "ro:destination:new-zealand",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1677,8 +1856,10 @@
     {
       "key": "en:destination:andorra",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1689,8 +1870,10 @@
     {
       "key": "de:destination:andorra",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1701,8 +1884,10 @@
     {
       "key": "ro:destination:andorra",
       "tier": "P1",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1713,7 +1898,7 @@
     {
       "key": "de:destination:namibia",
       "tier": "P3",
-      "localVolume": 700,
+      "measuredLocalVolume": 700,
       "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
@@ -1725,8 +1910,10 @@
     {
       "key": "en:destination:algeria",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1737,8 +1924,10 @@
     {
       "key": "de:destination:algeria",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1749,8 +1938,10 @@
     {
       "key": "ro:destination:algeria",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1761,8 +1952,10 @@
     {
       "key": "en:destination:curacao",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1773,8 +1966,10 @@
     {
       "key": "de:destination:curacao",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1785,8 +1980,10 @@
     {
       "key": "ro:destination:curacao",
       "tier": "P2",
-      "localVolume": 0,
+      "measuredLocalVolume": 0,
       "reasons": [
+        "insufficient-demand",
+        "unvalidated-demand",
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
