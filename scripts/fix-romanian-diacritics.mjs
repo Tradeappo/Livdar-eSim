@@ -63,6 +63,13 @@ export const AMBIGUOUS = new Set([
   // 'tine' is the stressed pronoun in "de tine" and the verb "tine" is "ține".
   // Only the word in front separates them, so the table must not touch it.
   'tine', 'Tine',
+  // "în afara zonei" is the preposition and takes no diacritic; "a rămas
+  // afară" is the adverb and does. The old table forced the adverb everywhere
+  // and turned every "în afara X" in the Romanian copy into a mistake.
+  'afara', 'Afara',
+  // "prin Balcani" and "în Balcani" are the indefinite form, "Balcanii sunt"
+  // the definite one. Both are correct in their place.
+  'Balcani',
 ]);
 
 const FILES = [

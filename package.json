@@ -21,7 +21,12 @@
     "audit:discovery": "node scripts/discovery-audit.mjs",
     "gsc:report": "node scripts/gsc-report.mjs",
     "indexnow:dry-run": "node scripts/indexnow-submit.mjs",
-    "indexnow:submit": "node scripts/indexnow-submit.mjs --submit"
+    "indexnow:submit": "node scripts/indexnow-submit.mjs --submit",
+    "publication": "node scripts/publication.mjs",
+    "publication:check": "node scripts/publication.mjs check",
+    "inventory": "node scripts/page-inventory.mjs",
+    "funnel": "node scripts/taxonomy-funnel.mjs",
+    "indexing:queue": "node scripts/indexing-queue.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

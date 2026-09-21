@@ -1,0 +1,474 @@
+{
+  "version": 1,
+  "description": "Publication registry. A destination, guide or region page is routed only when its entry is published. States: drafted, approved, published, retired. Change a state with scripts/publication.mjs, never by hand.",
+  "entries": {
+    "de:destination:albania": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.albania (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "de:destination:bali": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:destination:egypt": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.egypt (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "de:destination:japan": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:destination:morocco": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.morocco (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "de:destination:switzerland": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:destination:thailand": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:destination:turkey": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:destination:united-arab-emirates": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:destination:united-kingdom": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:destination:united-states": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:guide:esim-vs-physical-sim": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:guide:esim-vs-roaming": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:guide:how-esim-works": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:guide:install-esim": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:africa": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:asia": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:balkans": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:caribbean": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:central-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:europe": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:middle-east": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:north-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:oceania": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:south-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "de:region:southeast-asia": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:albania": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.albania (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "en:destination:bali": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:egypt": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.egypt (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "en:destination:japan": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:morocco": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.morocco (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "en:destination:switzerland": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:thailand": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:turkey": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:united-arab-emirates": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:united-kingdom": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:destination:united-states": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:guide:airport-connectivity": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:guide:esim-vs-physical-sim": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:guide:esim-vs-roaming": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:guide:how-esim-works": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:guide:install-esim": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:africa": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:asia": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:balkans": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:caribbean": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:central-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:europe": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:middle-east": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:north-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:oceania": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:south-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "en:region:southeast-asia": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:albania": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.albania (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "ro:destination:bali": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:egypt": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:greece": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:morocco": {
+      "state": "published",
+      "lot": "p1-lot-1",
+      "approvedOn": "2026-09-21",
+      "evidence": "data/plan-report.json destinations.byMarket.morocco (P1); quality gate, similarity, page audit, SEO regression"
+    },
+    "ro:destination:thailand": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:turkey": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:united-arab-emirates": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:united-kingdom": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:destination:united-states": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:guide:airport-connectivity": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:guide:esim-vs-roaming": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:guide:how-esim-works": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:guide:install-esim": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:africa": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:asia": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:balkans": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:caribbean": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:central-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:europe": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:middle-east": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:north-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:oceania": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:south-america": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    },
+    "ro:region:southeast-asia": {
+      "state": "published",
+      "lot": "baseline",
+      "approvedOn": "2026-09-21",
+      "evidence": "live on livdar.com at 8e7cc44"
+    }
+  }
+}

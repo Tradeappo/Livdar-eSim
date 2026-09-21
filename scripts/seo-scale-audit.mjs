@@ -1,4 +1,5 @@
 import { readFileSync, existsSync } from 'node:fs';
+import { expectedPublishedUrls } from './publication.mjs';
 import { enumeratePages } from './page-audit.mjs';
 import { buildBaseline } from './seo-baseline.mjs';
 
@@ -17,7 +18,12 @@ const required = [
   'docs/seo-scale-runbook.md',
 ];
 
+// The expected count comes from the publication registry, so adding a page
+// means approving it there, and a page that appears without approval fails.
+const expected = expectedPublishedUrls();
+
 const report = {
+  expectedPublishedUrls: expected,
   generatedAt: new Date().toISOString(),
   indexableUrlCount: pages.length,
   locales: baseline.locales,
@@ -38,9 +44,9 @@ const report = {
   requiredFiles: Object.fromEntries(required.map((file) => [file, existsSync(new URL(file, root))])),
 };
 
-report.ok = report.indexableUrlCount === 91
-  && report.canonicalCount === 91
-  && report.hreflangClusterCount === 91
+report.ok = report.indexableUrlCount === expected
+  && report.canonicalCount === expected
+  && report.hreflangClusterCount === expected
   && report.programmatic.generationEnabled === false
   && report.operations.publishingEnabled === false
   && Object.values(report.requiredFiles).every(Boolean);

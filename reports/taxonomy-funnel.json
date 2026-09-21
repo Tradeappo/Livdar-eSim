@@ -1,0 +1,1798 @@
+{
+  "generatedAt": "2026-09-21T20:29:29.436Z",
+  "generationEnabled": false,
+  "family": "connectivity-destination",
+  "capacity": {
+    "declaredDimensionProduct": 630,
+    "withRealEntities": 97818,
+    "geoEntities": {
+      "country": 126,
+      "region": 11,
+      "city": 0,
+      "district": 0,
+      "airport": 0
+    },
+    "scaleTargets": [
+      300000,
+      1000000,
+      5000000,
+      20000000
+    ],
+    "note": "The declared dimensions multiply to 630 because each geography level is one value, not a list of places. With the entity lists the repo actually holds (126 countries, 11 regions, no city, district or airport list) the model reaches the figure below. The 300,000 target needs a city and airport dataset that does not exist in the repo yet."
+  },
+  "steps": [
+    {
+      "step": "country x intent x vertical x locale",
+      "remaining": 89964
+    },
+    {
+      "step": "vertical has a product today (connectivity)",
+      "remaining": 12852
+    },
+    {
+      "step": "intent with a page family (discover = destination page); other intents have no destination level demand measured",
+      "remaining": 2142
+    },
+    {
+      "step": "locale is a planned research market",
+      "remaining": 1386
+    },
+    {
+      "step": "measured demand clears the plan rule (P1/P2 everywhere, P3 where asked)",
+      "remaining": 614
+    },
+    {
+      "step": "locale is live (en, de, ro)",
+      "remaining": 173
+    },
+    {
+      "step": "passes every hard gate (authored, reviewed, approved, fresh sources, metadata)",
+      "remaining": 32
+    }
+  ],
+  "blockingReasons": {
+    "insufficient-unique-content": 141,
+    "quality-review-pending": 141,
+    "insufficient-quality-score": 141,
+    "lifecycle-not-approved": 141,
+    "incomplete-metadata": 141,
+    "insufficient-demand": 7
+  },
+  "sourceAgeDays": 5,
+  "sourcesGoStaleOn": "2026-12-14",
+  "eligible": [
+    "en:destination:turkey",
+    "de:destination:turkey",
+    "ro:destination:turkey",
+    "en:destination:united-kingdom",
+    "de:destination:united-kingdom",
+    "ro:destination:united-kingdom",
+    "ro:destination:greece",
+    "en:destination:switzerland",
+    "de:destination:switzerland",
+    "en:destination:albania",
+    "de:destination:albania",
+    "ro:destination:albania",
+    "en:destination:united-arab-emirates",
+    "de:destination:united-arab-emirates",
+    "ro:destination:united-arab-emirates",
+    "en:destination:japan",
+    "de:destination:japan",
+    "en:destination:thailand",
+    "de:destination:thailand",
+    "ro:destination:thailand",
+    "en:destination:bali",
+    "de:destination:bali",
+    "ro:destination:bali",
+    "en:destination:united-states",
+    "de:destination:united-states",
+    "ro:destination:united-states",
+    "en:destination:egypt",
+    "de:destination:egypt",
+    "ro:destination:egypt",
+    "en:destination:morocco",
+    "de:destination:morocco",
+    "ro:destination:morocco"
+  ],
+  "notYet": [
+    {
+      "key": "en:destination:spain",
+      "tier": "P1",
+      "localVolume": 9600,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:spain",
+      "tier": "P1",
+      "localVolume": 500,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:spain",
+      "tier": "P1",
+      "localVolume": 70,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:italy",
+      "tier": "P1",
+      "localVolume": 7730,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:italy",
+      "tier": "P1",
+      "localVolume": 600,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:italy",
+      "tier": "P1",
+      "localVolume": 150,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:france",
+      "tier": "P1",
+      "localVolume": 5220,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:france",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:france",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:germany",
+      "tier": "P1",
+      "localVolume": 4050,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:germany",
+      "tier": "P1",
+      "localVolume": 7780,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:germany",
+      "tier": "P1",
+      "localVolume": 150,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:greece",
+      "tier": "P1",
+      "localVolume": 9440,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:greece",
+      "tier": "P1",
+      "localVolume": 970,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:portugal",
+      "tier": "P1",
+      "localVolume": 5550,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:portugal",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:portugal",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:netherlands",
+      "tier": "P2",
+      "localVolume": 400,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:netherlands",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:netherlands",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:switzerland",
+      "tier": "P1",
+      "localVolume": 90,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:poland",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:poland",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:poland",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:romania",
+      "tier": "P3",
+      "localVolume": 880,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:serbia",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:serbia",
+      "tier": "P2",
+      "localVolume": 1080,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:serbia",
+      "tier": "P2",
+      "localVolume": 250,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:montenegro",
+      "tier": "P1",
+      "localVolume": 1800,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:montenegro",
+      "tier": "P1",
+      "localVolume": 2530,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:montenegro",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:sweden",
+      "tier": "P3",
+      "localVolume": 150,
+      "reasons": [
+        "insufficient-demand",
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:sweden",
+      "tier": "P3",
+      "localVolume": 400,
+      "reasons": [
+        "insufficient-demand",
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:norway",
+      "tier": "P2",
+      "localVolume": 150,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:norway",
+      "tier": "P2",
+      "localVolume": 3550,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:norway",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:cyprus",
+      "tier": "P2",
+      "localVolume": 850,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:cyprus",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:cyprus",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:saudi-arabia",
+      "tier": "P2",
+      "localVolume": 660,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:saudi-arabia",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:saudi-arabia",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:oman",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:oman",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:oman",
+      "tier": "P2",
+      "localVolume": 880,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:japan",
+      "tier": "P1",
+      "localVolume": 140,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:south-korea",
+      "tier": "P1",
+      "localVolume": 530,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:south-korea",
+      "tier": "P1",
+      "localVolume": 1210,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:south-korea",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:china",
+      "tier": "P1",
+      "localVolume": 1250,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:china",
+      "tier": "P1",
+      "localVolume": 2770,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:china",
+      "tier": "P1",
+      "localVolume": 170,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:taiwan",
+      "tier": "P3",
+      "localVolume": 200,
+      "reasons": [
+        "insufficient-demand",
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:taiwan",
+      "tier": "P3",
+      "localVolume": 500,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:india",
+      "tier": "P1",
+      "localVolume": 8230,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:india",
+      "tier": "P1",
+      "localVolume": 890,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:india",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:sri-lanka",
+      "tier": "P2",
+      "localVolume": 400,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:sri-lanka",
+      "tier": "P2",
+      "localVolume": 1770,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:sri-lanka",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:maldives",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:maldives",
+      "tier": "P2",
+      "localVolume": 700,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:maldives",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:georgia",
+      "tier": "P3",
+      "localVolume": 150,
+      "reasons": [
+        "insufficient-demand",
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:georgia",
+      "tier": "P3",
+      "localVolume": 500,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:vietnam",
+      "tier": "P1",
+      "localVolume": 7500,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:vietnam",
+      "tier": "P1",
+      "localVolume": 3450,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:vietnam",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:indonesia",
+      "tier": "P1",
+      "localVolume": 4670,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:indonesia",
+      "tier": "P1",
+      "localVolume": 2960,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:indonesia",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:singapore",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:singapore",
+      "tier": "P2",
+      "localVolume": 510,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:singapore",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:malaysia",
+      "tier": "P2",
+      "localVolume": 250,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:malaysia",
+      "tier": "P2",
+      "localVolume": 600,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:malaysia",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:philippines",
+      "tier": "P1",
+      "localVolume": 6280,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:philippines",
+      "tier": "P1",
+      "localVolume": 450,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:philippines",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:cambodia",
+      "tier": "P3",
+      "localVolume": 290,
+      "reasons": [
+        "insufficient-demand",
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:canada",
+      "tier": "P1",
+      "localVolume": 7300,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:canada",
+      "tier": "P1",
+      "localVolume": 5100,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:canada",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:mexico",
+      "tier": "P1",
+      "localVolume": 8400,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:mexico",
+      "tier": "P1",
+      "localVolume": 2550,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:mexico",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:costa-rica",
+      "tier": "P1",
+      "localVolume": 3760,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:costa-rica",
+      "tier": "P1",
+      "localVolume": 1050,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:costa-rica",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:dominican-republic",
+      "tier": "P2",
+      "localVolume": 150,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:dominican-republic",
+      "tier": "P2",
+      "localVolume": 700,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:dominican-republic",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:brazil",
+      "tier": "P2",
+      "localVolume": 200,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:brazil",
+      "tier": "P2",
+      "localVolume": 890,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:brazil",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:argentina",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:argentina",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:argentina",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:chile",
+      "tier": "P2",
+      "localVolume": 150,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:chile",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:chile",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:peru",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:peru",
+      "tier": "P2",
+      "localVolume": 500,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:peru",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:colombia",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:colombia",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:colombia",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:tunisia",
+      "tier": "P1",
+      "localVolume": 1250,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:tunisia",
+      "tier": "P1",
+      "localVolume": 1530,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:tunisia",
+      "tier": "P1",
+      "localVolume": 90,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:south-africa",
+      "tier": "P1",
+      "localVolume": 4800,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:south-africa",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:south-africa",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:kenya",
+      "tier": "P3",
+      "localVolume": 200,
+      "reasons": [
+        "insufficient-demand",
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:tanzania",
+      "tier": "P2",
+      "localVolume": 200,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:tanzania",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:tanzania",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:cape-verde",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:cape-verde",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:cape-verde",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:mauritius",
+      "tier": "P2",
+      "localVolume": 350,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:mauritius",
+      "tier": "P2",
+      "localVolume": 1000,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:mauritius",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:seychelles",
+      "tier": "P3",
+      "localVolume": 450,
+      "reasons": [
+        "insufficient-demand",
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:australia",
+      "tier": "P1",
+      "localVolume": 5120,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:australia",
+      "tier": "P1",
+      "localVolume": 1740,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:australia",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:new-zealand",
+      "tier": "P2",
+      "localVolume": 730,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:new-zealand",
+      "tier": "P2",
+      "localVolume": 1130,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:new-zealand",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:andorra",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:andorra",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:andorra",
+      "tier": "P1",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:namibia",
+      "tier": "P3",
+      "localVolume": 700,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:algeria",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:algeria",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:algeria",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "en:destination:curacao",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "de:destination:curacao",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    },
+    {
+      "key": "ro:destination:curacao",
+      "tier": "P2",
+      "localVolume": 0,
+      "reasons": [
+        "insufficient-unique-content",
+        "quality-review-pending",
+        "insufficient-quality-score",
+        "lifecycle-not-approved",
+        "incomplete-metadata"
+      ]
+    }
+  ]
+}
