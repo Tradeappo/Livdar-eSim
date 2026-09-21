@@ -14,6 +14,8 @@ test('V41 delivery delegates the main landmark and adds accessible image semanti
   assert.doesNotMatch(delivered, /<article class="region-card"><img\s+src=/);
   assert.match(delivered, /<article class="region-card"><img alt="" aria-hidden="true" decoding="async" loading="lazy"/);
   assert.match(delivered, /<img id="dImg" alt="" aria-hidden="true" decoding="async"/);
+  assert.match(delivered, /<h2 id="dTitle">/);
+  assert.doesNotMatch(delivered, /<h2 id="dTitle"[^>]*aria-label=/);
 });
 
 test('V41 tool controls are connected to their visible labels', () => {
