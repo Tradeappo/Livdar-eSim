@@ -1,6 +1,6 @@
 # Livdar SEO scale runbook
 
-Status: implementation branch only. Production merge and production deployment remain blocked until explicit approval.
+Status: SEO foundation merged in main. Verify the current Vercel production commit before treating a change as live.
 
 ## Non-negotiable contracts
 
@@ -61,6 +61,20 @@ Connect a read-only service account through `GOOGLE_SERVICE_ACCOUNT_JSON` and se
 
 Triage order: indexing/canonical issue, lost template content, intent change, competitor change, stale fact/source, internal-link loss. Do not auto-rewrite a page from an alert.
 
+Run `npm run gsc:report -- --out reports/gsc-latest.json` after the service account has read-only access to the exact GSC property. This script calls the official Search Analytics API with the read-only scope and writes a local report excluded from git. The 7/28/90 day windows compare equal non-overlapping periods, ending three days before execution. The report includes overall alerts and page/query opportunities, plus country and device breakdowns. Search Console may omit some low-volume query rows; totals use separate ungrouped requests rather than summing incomplete rows. Missing credentials cause an explicit error; no traffic values are invented.
+
+## Search engine discovery
+
+The production sitemap index is `https://livdar.com/sitemap.xml`; submit it through Google Search Console after verifying the domain property. The read-only GSC service account used by the report cannot submit a sitemap. IndexNow is a separate notification channel for participating search engines; it does not submit URLs to Google or guarantee indexing.
+
+Generate a unique key in the hosting environment and set `INDEXNOW_KEY` (8-128 allowed characters). Deploy and confirm that `https://livdar.com/indexnow-key.txt` returns exactly this key. `npm run indexnow:dry-run` prints the current 91 published URLs without printing the key. After a real content update, use `--paths` to select only changed canonical paths, for example:
+
+```bash
+INDEXNOW_CONFIRM_LIVE=true npm run indexnow:submit -- --paths /en/esim/japan/,/ro/esim/turcia/
+```
+
+Live submission also requires `INDEXNOW_CONFIRM_LIVE=true` and checks the key file on the canonical domain before making an IndexNow API request. The script refuses unpublished paths. A successful API status means receipt, not a promise that the page will be indexed.
+
 ## Refresh and removal policy
 
 - Destination facts: review within 90 days.
@@ -91,8 +105,9 @@ Run:
 npm test
 npm run qa
 npm run audit:scale
+npm run audit:discovery
 INDEXING_ENABLED=true npm run regression
 npm run build
 ```
 
-Then inspect the Vercel Preview on desktop and mobile, confirm HTTP status/canonical/hreflang/schema, check `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/llms-full.txt`, and verify the preview is noindex. Production remains untouched until approval after this evidence is reviewed.
+Then inspect the Vercel Preview on desktop and mobile, confirm HTTP status/canonical/hreflang/schema, check `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/llms-full.txt`, and verify the preview is noindex. Verify the deployment quota and the production commit before merging or deploying.
