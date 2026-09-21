@@ -11,6 +11,7 @@ import { marketStatus, REQUIRED_FOR_PUBLICATION } from '../lib/markets.js';
 import { runPageAudit } from './page-audit.mjs';
 import { runOrthographyCheck } from './orthography-check.mjs';
 import { runRegression } from './seo-regression.mjs';
+import { checkRegistry } from './publication.mjs';
 import { manifestProblems, DESTINATION_IMAGES, REGION_IMAGES } from '../lib/media.js';
 import { LOCALES, segment } from '../lib/i18n.js';
 import { DESTINATIONS, REGIONS, destinationSlug } from '../lib/destinations.js';
@@ -410,6 +411,16 @@ contentLocales().forEach((locale) => {
   (reg.drifted || []).slice(0, 10).forEach((d) => notes.push('  declared: ' + d));
   (reg.environmentNotes || []).forEach((message) => notes.push('  environment: ' + message));
   (reg.failures || []).forEach((f) => fail('SEO regression: ' + f));
+}
+
+// 8e bis. Publication registry. Routing, sitemap and hreflang follow the
+// registry, so a page cannot go live without an approved entry, and an entry
+// cannot claim a page that has no authored content behind it.
+{
+  const pub = checkRegistry();
+  notes.push('Publication registry: ' + pub.expectedPublishedUrls + ' published URL(s), ' + pub.unregisteredDrafts.length + ' authored draft(s) not routed');
+  pub.unregisteredDrafts.forEach((k) => notes.push('  draft, not published: ' + k));
+  pub.failures.forEach((f) => fail('Publication registry: ' + f));
 }
 
 // 8f. The sample catalogue may never be presented as a real offer.

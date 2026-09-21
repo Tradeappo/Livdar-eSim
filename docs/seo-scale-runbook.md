@@ -111,3 +111,13 @@ npm run build
 ```
 
 Then inspect the Vercel Preview on desktop and mobile, confirm HTTP status/canonical/hreflang/schema, check `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/llms-full.txt`, and verify the preview is noindex. Verify the deployment quota and the production commit before merging or deploying.
+
+## Publishing a page (since 2026-09-21)
+
+1. Pick the next page from `npm run inventory` (state `eligible`) and `npm run funnel`.
+2. Write the content in `lib/content/<locale>/`. Until the registry says otherwise it is a draft: not routed, not in the sitemap, not in hreflang or llms files.
+3. Move it through the lifecycle: `node scripts/publication.mjs qualify|draft|review|approve <locale>:<type>:<id>`, then `publish`. `publish` refuses content under the word floor.
+4. Run `npm test`, `npm run qa`, `npm run audit:scale`, `npm run audit:discovery`, `INDEXING_ENABLED=true npm run regression`. New URLs and any change to an existing cluster must be declared in `scripts/seo-regression.mjs`.
+5. After deploy, add the URL to `data/indexing-requests.json` priority and follow `npm run indexing:queue`.
+
+Rollback: `node scripts/publication.mjs retire <key>` and deploy. The page leaves routing, sitemap and hreflang; the content stays in the repo. Declare the removed URL in the regression allow list.

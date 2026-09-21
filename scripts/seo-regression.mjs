@@ -37,6 +37,18 @@ export const ALLOWED_DRIFT = [
     reason:
       'The three hub types carried only a BreadcrumbList. They are lists of pages, so they now also declare a CollectionPage with an ItemList of the pages they actually link to. Only published URLs are listed, and no price or availability is attached, because there is no Offer on this site while the catalogue is illustrative.',
   },
+  {
+    fields: ['title', 'description'],
+    paths: ['/ro/esim/egipt/', '/ro/regiuni/balkans/', '/ro/ghiduri/esim-vs-roaming/'],
+    reason:
+      'Romanian grammar correction only: "în afară X" is the adverb and was wrong before a noun; the preposition is "în afara X". The diacritic table had forced the adverb everywhere. Wording and meaning are otherwise unchanged.',
+  },
+  {
+    fields: ['hreflang', 'xDefault'],
+    paths: ['/ro/esim/egipt/'],
+    reason:
+      'Egypt now has English and German pages, so the Romanian page joins a three language cluster and x-default moves to the English page, the same rule every other destination cluster follows.',
+  },
 ];
 
 const COMPARED = [

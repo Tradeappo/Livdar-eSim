@@ -259,7 +259,18 @@ const out = {
     tierCounts: Object.fromEntries(Object.entries(tiers).map(([t, v]) => [t, v.length])),
     top: Object.values(destVolume).filter((d) => d.keywords > 0).sort((a, b) => b.total - a.total).map((d) => ({ id: d.id, volume: d.total, keywords: d.keywords, tier: tierOfDestination(d.id) })),
     rejected: Object.values(destVolume).filter((d) => d.keywords === 0).map((d) => ({ id: d.id, region: d.region })),
+    // Per market demand and the page decision for every destination, so the
+    // page inventory (scripts/page-inventory.mjs) reads the same decision the
+    // plan was built from instead of recomputing it.
+    byMarket: Object.fromEntries(DESTINATIONS.map((d) => [d.id, {
+      tier: tierOfDestination(d.id),
+      region: d.region,
+      volume: destVolume[d.id].byMarket,
+      pageIn: published.filter((m) => destinationGetsPage(d.id, m)),
+    }])),
   },
+  regions: Object.fromEntries(REGIONS.map((r) => [r.id, published.filter((m) => regionGetsPage(r.id, m))])),
+  topics: topicDetail,
   locales: { inInfrastructure: LOCALES.length, live: LIVE, builtPages: built, builtTotal },
   plan,
 };
