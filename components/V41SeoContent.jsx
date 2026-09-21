@@ -15,6 +15,7 @@ import {
   regionName,
 } from '../lib/destinations.js';
 import { routes } from '../lib/routes.js';
+import { hubDirectory } from '../lib/internal-links.js';
 
 function LinkGrid({ items }) {
   if (!items.length) return null;
@@ -34,7 +35,13 @@ function LinkGrid({ items }) {
   );
 }
 
-export default function V41SeoContent({ locale, includeEditorial = false }) {
+// `directory` is the eSIM hub variant. Search Console reported the hub as
+// "Crawled - currently not indexed", and its main content was a subset of the
+// home page (same marketplace, same destination grid, same region grid). The
+// hub now groups destinations by region and describes each one with that
+// page's own meta description, so the page says something the home page does
+// not. The home page keeps the generic grid it had.
+export default function V41SeoContent({ locale, includeEditorial = false, directory = false }) {
   const c = homeContent(locale);
   const t = ui(locale);
   const destinations = publishedDestinationIds(locale)
@@ -54,6 +61,7 @@ export default function V41SeoContent({ locale, includeEditorial = false }) {
       href: routes.region(locale, region.id),
       description: t.regionalEsims.sub,
     }));
+  const groups = directory ? hubDirectory(locale) : [];
   const guides = publishedGuideSlugs(locale).map((slug) => {
     const guide = guideContent(locale, slug);
     return {
@@ -104,9 +112,20 @@ export default function V41SeoContent({ locale, includeEditorial = false }) {
             <h2 id="seo-destinations-heading">{t.shopByDestination.title}</h2>
             <p>{t.shopByDestination.sub}</p>
           </div>
-          <a href={routes.esimHub(locale)}>{t.allDestinations}</a>
+          {directory ? null : <a href={routes.esimHub(locale)}>{t.allDestinations}</a>}
         </div>
-        <LinkGrid items={destinations} />
+        {directory ? (
+          groups.map((group) => (
+            <div className="seo-directory-group" key={group.id}>
+              <h3 id={'hub-region-' + group.id}>
+                {group.href ? <a href={group.href}>{group.title}</a> : group.title}
+              </h3>
+              <LinkGrid items={group.items} />
+            </div>
+          ))
+        ) : (
+          <LinkGrid items={destinations} />
+        )}
       </section>
 
       <section className="wrap section" aria-labelledby="seo-regions-heading">
