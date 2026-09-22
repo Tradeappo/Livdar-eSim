@@ -1,0 +1,27 @@
+name: atlas-search-console
+# Imports Search Console data and separates the four things that are usually
+# confused: discovered, indexed, impressions and clicks. Requesting indexing is
+# recorded elsewhere and is never counted as indexing.
+on:
+  schedule: [{ cron: '30 5 * * *' }]
+  workflow_dispatch:
+permissions: { contents: write, pull-requests: write }
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - env:
+          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+          GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
+          GSC_PROPERTY: ${{ secrets.GSC_PROPERTY }}
+        run: node scripts/gsc-report.mjs || echo "Search Console credentials are not configured; skipping the import."
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          branch: atlas/search-console
+          title: 'Atlas Search Console import'
+          commit-message: 'Atlas Search Console import'
+          body: 'Discovered, indexed, impressions and clicks, counted separately.'

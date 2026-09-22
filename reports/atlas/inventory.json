@@ -1,0 +1,609 @@
+{
+ "generatedAt": "2026-09-22T22:38:42.780Z",
+ "meaning": {
+  "candidate": "A combination the taxonomy allows: one family, one entity, one variant, one market. Not a page.",
+  "published": "The publication registry publishes it, so it routes and enters a sitemap.",
+  "live": "A request to https://livdar.com returned it and it passed the technical checks."
+ },
+ "entities": {
+  "cities": 31715,
+  "citiesTier1": 560,
+  "citiesTier2": 2391,
+  "citiesTier3": 8602,
+  "neighbourhoods": 2386,
+  "airports": 3244,
+  "countries": 249,
+  "cityPairs": 1762
+ },
+ "markets": {
+  "enumerable": 11,
+  "languages": 10,
+  "excluded": [
+   "ro-RO"
+  ],
+  "byState": {
+   "active": [
+    "en-US",
+    "en-GB",
+    "de-DE"
+   ],
+   "research": [
+    "ja-JP",
+    "zh-Hant-TW",
+    "it-IT",
+    "es-ES",
+    "fr-FR",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
+   ],
+   "evaluate": [
+    "ko-KR",
+    "tr-TR",
+    "id-ID",
+    "ru-RU",
+    "ar-AE",
+    "ar-SA"
+   ],
+   "excluded": [
+    "ro-RO"
+   ]
+  }
+ },
+ "verticals": 20,
+ "families": 31,
+ "candidates": {
+  "total": 889609,
+  "byVertical": {
+   "weather": 329810,
+   "destinations": 118020,
+   "transport": 87427,
+   "neighbourhoods": 53370,
+   "rents": 53370,
+   "relocation": 35200,
+   "airports": 32440,
+   "work": 32249,
+   "safety": 32249,
+   "cost-of-living": 29510,
+   "activities": 29510,
+   "comparisons": 17620,
+   "visas": 8217,
+   "property": 5600,
+   "education": 5600,
+   "connectivity": 5600,
+   "events": 5600,
+   "taxes": 2739,
+   "banking": 2739,
+   "health": 2739
+  },
+  "byAxis": {
+   "language": 804590,
+   "origin": 27907,
+   "audience": 57112
+  },
+  "byMarket": {
+   "en-US": 88188,
+   "de-DE": 88188,
+   "ja-JP": 88188,
+   "zh-Hant-TW": 88188,
+   "it-IT": 88188,
+   "es-ES": 88188,
+   "fr-FR": 88188,
+   "nl-NL": 88188,
+   "pl-PL": 88188,
+   "pt-BR": 88188,
+   "en-GB": 7729
+  },
+  "largestVerticalShare": 37.1,
+  "rows": [
+   {
+    "family": "weather.city-month",
+    "vertical": "weather",
+    "axis": "language",
+    "scope": "city:t2+air",
+    "entities": 2537,
+    "variants": 12,
+    "markets": 10,
+    "candidates": 304440
+   },
+   {
+    "family": "destinations.city-hub",
+    "vertical": "destinations",
+    "axis": "language",
+    "scope": "city:t3",
+    "entities": 11553,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 115530
+   },
+   {
+    "family": "relocation.city",
+    "vertical": "relocation",
+    "axis": "audience",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 32461
+   },
+   {
+    "family": "airports.guide",
+    "vertical": "airports",
+    "axis": "language",
+    "scope": "airport",
+    "entities": 3244,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 32440
+   },
+   {
+    "family": "transport.airport-to-city",
+    "vertical": "transport",
+    "axis": "language",
+    "scope": "airport:linked",
+    "entities": 3001,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 30010
+   },
+   {
+    "family": "neighbourhoods.city-where-to-stay",
+    "vertical": "neighbourhoods",
+    "axis": "language",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 29510
+   },
+   {
+    "family": "transport.city-getting-around",
+    "vertical": "transport",
+    "axis": "language",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 29510
+   },
+   {
+    "family": "cost-of-living.city",
+    "vertical": "cost-of-living",
+    "axis": "language",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 29510
+   },
+   {
+    "family": "rents.city",
+    "vertical": "rents",
+    "axis": "language",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 29510
+   },
+   {
+    "family": "work.city-salaries",
+    "vertical": "work",
+    "axis": "language",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 29510
+   },
+   {
+    "family": "safety.city",
+    "vertical": "safety",
+    "axis": "language",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 29510
+   },
+   {
+    "family": "activities.city-things-to-do",
+    "vertical": "activities",
+    "axis": "language",
+    "scope": "city:t2",
+    "entities": 2951,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 29510
+   },
+   {
+    "family": "transport.route-from-market",
+    "vertical": "transport",
+    "axis": "origin",
+    "scope": "city:t2+air",
+    "entities": 2537,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 27907
+   },
+   {
+    "family": "weather.city-best-time",
+    "vertical": "weather",
+    "axis": "language",
+    "scope": "city:t2+air",
+    "entities": 2537,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 25370
+   },
+   {
+    "family": "neighbourhoods.guide",
+    "vertical": "neighbourhoods",
+    "axis": "language",
+    "scope": "neighbourhood",
+    "entities": 2386,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 23860
+   },
+   {
+    "family": "rents.neighbourhood",
+    "vertical": "rents",
+    "axis": "language",
+    "scope": "neighbourhood",
+    "entities": 2386,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 23860
+   },
+   {
+    "family": "comparisons.city-vs-city",
+    "vertical": "comparisons",
+    "axis": "language",
+    "scope": "city:pair",
+    "entities": 1762,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 17620
+   },
+   {
+    "family": "property.city-buy",
+    "vertical": "property",
+    "axis": "language",
+    "scope": "city:t1",
+    "entities": 560,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 5600
+   },
+   {
+    "family": "education.city-schools",
+    "vertical": "education",
+    "axis": "language",
+    "scope": "city:t1",
+    "entities": 560,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 5600
+   },
+   {
+    "family": "connectivity.city-online",
+    "vertical": "connectivity",
+    "axis": "language",
+    "scope": "city:t1",
+    "entities": 560,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 5600
+   },
+   {
+    "family": "events.city-calendar",
+    "vertical": "events",
+    "axis": "language",
+    "scope": "city:t1",
+    "entities": 560,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 5600
+   },
+   {
+    "family": "work.country-working",
+    "vertical": "work",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "visas.country-visit",
+    "vertical": "visas",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "visas.country-residency",
+    "vertical": "visas",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "visas.country-digital-nomad",
+    "vertical": "visas",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "taxes.country",
+    "vertical": "taxes",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "banking.country",
+    "vertical": "banking",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "health.country",
+    "vertical": "health",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "relocation.country",
+    "vertical": "relocation",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "safety.country-advice",
+    "vertical": "safety",
+    "axis": "audience",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
+    "family": "destinations.country-hub",
+    "vertical": "destinations",
+    "axis": "language",
+    "scope": "country",
+    "entities": 249,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 2490
+   }
+  ]
+ },
+ "registry": {
+  "rows": 123,
+  "funnel": {
+   "candidate": 123,
+   "data_ready": 123,
+   "measured": 123,
+   "qa_passed": 123,
+   "approved": 123,
+   "published": 123,
+   "live": 0,
+   "discovered": 0,
+   "indexed": 0,
+   "performing": 0,
+   "rejected": 0,
+   "blocked": 0,
+   "retired": 0,
+   "stale": 0,
+   "canonicalized": 0
+  }
+ },
+ "blockedByMissingSource": {
+  "families": [
+   {
+    "family": "neighbourhoods.city-where-to-stay",
+    "missing": [
+     "neighbourhood-facts-verified"
+    ]
+   },
+   {
+    "family": "neighbourhoods.guide",
+    "missing": [
+     "neighbourhood-facts-verified"
+    ]
+   },
+   {
+    "family": "transport.airport-to-city",
+    "missing": [
+     "ground-transport-verified"
+    ]
+   },
+   {
+    "family": "transport.city-getting-around",
+    "missing": [
+     "transit-fares-verified"
+    ]
+   },
+   {
+    "family": "cost-of-living.city",
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "rents.city",
+    "missing": [
+     "rent-index-verified"
+    ]
+   },
+   {
+    "family": "rents.neighbourhood",
+    "missing": [
+     "rent-index-verified"
+    ]
+   },
+   {
+    "family": "property.city-buy",
+    "missing": [
+     "property-price-verified"
+    ]
+   },
+   {
+    "family": "work.city-salaries",
+    "missing": [
+     "salary-data-verified"
+    ]
+   },
+   {
+    "family": "work.country-working",
+    "missing": [
+     "work-rules-verified"
+    ]
+   },
+   {
+    "family": "visas.country-visit",
+    "missing": [
+     "visa-rules-verified"
+    ]
+   },
+   {
+    "family": "visas.country-residency",
+    "missing": [
+     "visa-rules-verified"
+    ]
+   },
+   {
+    "family": "visas.country-digital-nomad",
+    "missing": [
+     "visa-rules-verified"
+    ]
+   },
+   {
+    "family": "taxes.country",
+    "missing": [
+     "tax-rules-verified"
+    ]
+   },
+   {
+    "family": "banking.country",
+    "missing": [
+     "banking-rules-verified"
+    ]
+   },
+   {
+    "family": "health.country",
+    "missing": [
+     "health-rules-verified"
+    ]
+   },
+   {
+    "family": "relocation.country",
+    "missing": [
+     "visa-rules-verified",
+     "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "relocation.city",
+    "missing": [
+     "cost-of-living-verified",
+     "visa-rules-verified"
+    ]
+   },
+   {
+    "family": "safety.city",
+    "missing": [
+     "safety-data-verified"
+    ]
+   },
+   {
+    "family": "safety.country-advice",
+    "missing": [
+     "travel-advice-verified"
+    ]
+   },
+   {
+    "family": "education.city-schools",
+    "missing": [
+     "school-data-verified"
+    ]
+   },
+   {
+    "family": "connectivity.city-online",
+    "missing": [
+     "connectivity-data-verified"
+    ]
+   },
+   {
+    "family": "activities.city-things-to-do",
+    "missing": [
+     "attractions-verified"
+    ]
+   },
+   {
+    "family": "events.city-calendar",
+    "missing": [
+     "events-verified"
+    ]
+   },
+   {
+    "family": "comparisons.city-vs-city",
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   }
+  ],
+  "candidates": 381432,
+  "missingSources": {
+   "neighbourhood-facts-verified": 2,
+   "ground-transport-verified": 1,
+   "transit-fares-verified": 1,
+   "cost-of-living-verified": 4,
+   "rent-index-verified": 2,
+   "property-price-verified": 1,
+   "salary-data-verified": 1,
+   "work-rules-verified": 1,
+   "visa-rules-verified": 5,
+   "tax-rules-verified": 1,
+   "banking-rules-verified": 1,
+   "health-rules-verified": 1,
+   "safety-data-verified": 1,
+   "travel-advice-verified": 1,
+   "school-data-verified": 1,
+   "connectivity-data-verified": 1,
+   "attractions-verified": 1,
+   "events-verified": 1
+  },
+  "publishableNow": 508177
+ }
+}

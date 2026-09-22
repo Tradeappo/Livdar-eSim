@@ -21,6 +21,53 @@
    "rows": 96,
    "units": 1056,
    "market": "us"
+  },
+  "geonames-cities": {
+   "url": "https://download.geonames.org/export/dump/cities15000.zip",
+   "retrievedAt": "2026-09-22T22:36:06.323Z",
+   "licence": "CC BY 4.0",
+   "rows": 34101,
+   "sha256": "a6e0124e489867314f552f64ee5b07d6f904498d3104c1cf2c2853f0f324c45c",
+   "fields": [
+    "geonameId",
+    "name",
+    "asciiName",
+    "lat",
+    "lon",
+    "featureCode",
+    "countryCode",
+    "admin1",
+    "admin2",
+    "population",
+    "elevation",
+    "timezone"
+   ],
+   "maxAgeDays": 120,
+   "refresh": "monthly",
+   "expiresOn": "2027-01-20"
+  },
+  "ourairports": {
+   "url": "https://davidmegginson.github.io/ourairports-data/airports.csv",
+   "licence": "Public Domain",
+   "rows": 3244,
+   "sha256": "8d8db4706b4c56f00f426ad8191eb1795c4cf7b5061c388fb6fe0a4b65942c0a",
+   "fields": [
+    "ident",
+    "type",
+    "name",
+    "latitude_deg",
+    "longitude_deg",
+    "elevation_ft",
+    "iso_country",
+    "iso_region",
+    "municipality",
+    "scheduled_service",
+    "iata_code"
+   ],
+   "maxAgeDays": 60,
+   "refresh": "weekly",
+   "retrievedAt": "2026-09-22T22:35:58.197Z",
+   "expiresOn": "2026-11-21"
   }
  }
 }

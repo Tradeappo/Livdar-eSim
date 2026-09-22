@@ -1,0 +1,35 @@
+name: atlas-publish
+# Publishes an approved lot, or rolls one back. The registry is the only gate:
+# this workflow moves states and rebuilds the sitemap index, and it refuses to
+# run if any check that guards publication is failing.
+on:
+  workflow_dispatch:
+    inputs:
+      lot: { description: 'lot id', required: true }
+      action:
+        description: 'publish or retire'
+        required: true
+        default: 'publish'
+permissions: { contents: write, pull-requests: write }
+concurrency: { group: atlas-publish, cancel-in-progress: false }
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm test
+      - run: node scripts/quality-gate.mjs
+      - run: node scripts/atlas/qa.mjs --ci
+      - run: node scripts/dash-check.mjs
+      - run: node scripts/atlas/registry.mjs ${{ inputs.action }}-lot ${{ inputs.lot }}
+      - run: node scripts/atlas/reconcile.mjs --check
+      - run: node scripts/atlas/inventory.mjs --write
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          branch: atlas/${{ inputs.action }}-${{ inputs.lot }}
+          title: 'Atlas lot ${{ inputs.lot }}: ${{ inputs.action }}'
+          commit-message: 'Atlas lot ${{ inputs.lot }}: ${{ inputs.action }}'
+          body: 'Registry change for one lot. Rollback is the same workflow with action retire.'

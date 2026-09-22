@@ -1,0 +1,27 @@
+name: atlas-generate
+# Generates page models for a lot and runs the automatic checks over them.
+# Rejected pages are reported and never reach the registry.
+on:
+  workflow_dispatch:
+    inputs:
+      lot: { description: 'lot id', required: true }
+permissions: { contents: write, pull-requests: write }
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/atlas/funnel.mjs --lot ${{ inputs.lot }}
+      - run: node scripts/atlas/qa.mjs --lot ${{ inputs.lot }} --ci
+      - run: node scripts/dash-check.mjs
+      - run: node scripts/similarity-check.mjs
+      - run: npm test
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          branch: atlas/generate-${{ inputs.lot }}
+          title: 'Atlas lot ${{ inputs.lot }}: generated and checked'
+          commit-message: 'Atlas lot ${{ inputs.lot }}: models generated, QA run'
+          body: 'Models and QA for one lot. Publication is a separate workflow.'
