@@ -39,10 +39,10 @@ test('no candidate is given a volume it was not measured at', () => {
 });
 
 test('unwritten destinations are held back with reasons, not published', () => {
-  const canada = funnel.notYet.find((c) => c.key === 'en:destination:canada');
-  assert.ok(canada);
-  assert.ok(canada.reasons.includes('insufficient-unique-content'));
-  assert.ok(canada.reasons.includes('lifecycle-not-approved'));
+  const spain = funnel.notYet.find((c) => c.key === 'en:destination:spain');
+  assert.ok(spain);
+  assert.ok(spain.reasons.includes('insufficient-unique-content'));
+  assert.ok(spain.reasons.includes('lifecycle-not-approved'));
 });
 
 test('sources go stale inside the family window, which triggers refresh', () => {
@@ -63,4 +63,10 @@ test('indexing queue never repeats a request inside the waiting window', () => {
   const sent = ['/en/esim/', '/de/esim/', '/en/esim/turkey/'];
   sent.forEach((p) => assert.ok(!q.requestToday.includes(p)));
   assert.ok(q.requestToday.length <= q.quota);
+});
+
+test('lot P1-2 passes every gate on demand measured in its own locale', () => {
+  ['canada', 'vietnam', 'mexico', 'india', 'indonesia'].forEach((id) => {
+    ['en', 'de'].forEach((locale) => assert.ok(funnel.eligible.includes(locale + ':destination:' + id), locale + ' ' + id));
+  });
 });
