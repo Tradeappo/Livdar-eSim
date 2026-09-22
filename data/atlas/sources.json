@@ -1,0 +1,196 @@
+{
+  "note": "Every number on an Atlas page comes from one of these sources or is computed from them by a function in lib/. A source without a licence that allows commercial reuse is not listed. maxAgeDays is the freshness gate: a page whose data snapshot is older is held back from publication and flagged for refresh.",
+  "sources": [
+    {
+      "id": "geonames-cities",
+      "name": "GeoNames cities15000",
+      "url": "https://download.geonames.org/export/dump/cities15000.zip",
+      "licence": "CC BY 4.0",
+      "attribution": "GeoNames (geonames.org), CC BY 4.0",
+      "fields": [
+        "geonameId",
+        "name",
+        "asciiName",
+        "lat",
+        "lon",
+        "countryCode",
+        "admin1",
+        "population",
+        "timezone",
+        "elevation"
+      ],
+      "refresh": "monthly",
+      "maxAgeDays": 120
+    },
+    {
+      "id": "wikidata-cities",
+      "name": "Wikidata city items joined on the GeoNames id (P1566)",
+      "url": "https://query.wikidata.org/sparql",
+      "licence": "CC0 1.0",
+      "attribution": "Wikidata, CC0",
+      "fields": [
+        "qid",
+        "geonameId",
+        "coordinates (P625)",
+        "population (P1082, latest non deprecated)",
+        "elevation (P2044)",
+        "country (P17 or P131 chain, P297)",
+        "label.en",
+        "label.de",
+        "label.ro"
+      ],
+      "note": "Used when the GeoNames dump is not yet ingested. The time zone is then set only for countries with a single IANA zone in the runtime CLDR data; cities in multi zone countries get none and are held back.",
+      "refresh": "monthly",
+      "maxAgeDays": 120
+    },
+    {
+      "id": "wikidata-labels",
+      "name": "Wikidata city labels and identifiers",
+      "url": "https://query.wikidata.org/sparql",
+      "licence": "CC0 1.0",
+      "attribution": "Wikidata, CC0",
+      "fields": [
+        "qid",
+        "geonameId",
+        "label.en",
+        "label.de",
+        "label.ro"
+      ],
+      "refresh": "monthly",
+      "maxAgeDays": 120
+    },
+    {
+      "id": "wikidata-countries",
+      "name": "Wikidata country facts",
+      "url": "https://query.wikidata.org/sparql",
+      "licence": "CC0 1.0",
+      "attribution": "Wikidata, CC0",
+      "fields": [
+        "iso2",
+        "currency",
+        "officialLanguages",
+        "callingCode",
+        "drivingSide",
+        "plugTypes",
+        "voltage",
+        "frequency",
+        "emergencyNumber"
+      ],
+      "refresh": "monthly",
+      "maxAgeDays": 120,
+      "status": "rejected for publication",
+      "spotCheck": "2026-09-22: 255 countries pulled. Plug types missing for GB, DE, US, JP, GR, NL, RO and wrong for IT (only L listed; Italy uses C, F and L); currency empty for FR, NL, CZ (several values, not resolved); JP emergency number empty; US official languages listed as ch, es, sm. Not fit to print. City guide pages stay blocked until a verified country facts source replaces it."
+    },
+    {
+      "id": "ourairports",
+      "name": "OurAirports airports.csv",
+      "url": "https://davidmegginson.github.io/ourairports-data/airports.csv",
+      "licence": "Public Domain",
+      "attribution": "OurAirports (ourairports.com), public domain",
+      "fields": [
+        "ident",
+        "type",
+        "name",
+        "lat",
+        "lon",
+        "elevationFt",
+        "isoCountry",
+        "municipality",
+        "scheduledService",
+        "iata"
+      ],
+      "refresh": "weekly",
+      "maxAgeDays": 60
+    },
+    {
+      "id": "nasa-power-daily",
+      "name": "NASA POWER daily point data 2011-2020, reduced to monthly normals",
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point",
+      "licence": "CC BY 4.0; 'There are no restrictions on the use, access, and/or download of data from the NASA POWER Project' (AWS Open Data Registry entry)",
+      "attribution": "NASA Langley Research Center POWER Project, funded through the NASA Earth Science Directorate Applied Science Program",
+      "fields": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "PRECTOTCORR",
+        "RH2M",
+        "WS2M"
+      ],
+      "caveat": "Modelled values for a 0.5 by 0.625 degree grid cell (MERRA-2 based). They describe the area around the city, not a weather station, and are stated as such on the page.",
+      "refresh": "yearly",
+      "maxAgeDays": 400,
+      "derivation": "scripts/ingest/nasa-power.mjs: for each calendar month, the mean of the daily maxima and minima over 2011 to 2020, the mean monthly precipitation total, and the mean number of days with at least 1 mm of precipitation."
+    },
+    {
+      "id": "computed-solar",
+      "name": "Sunrise, sunset and day length",
+      "url": "lib/solar.mjs",
+      "licence": "computed",
+      "attribution": "Computed from the city coordinates with the NOAA solar position equations",
+      "fields": [
+        "sunrise",
+        "sunset",
+        "dayLengthMinutes"
+      ],
+      "refresh": "on build",
+      "maxAgeDays": 100000
+    },
+    {
+      "id": "computed-distance",
+      "name": "Great circle distance",
+      "url": "lib/geo.mjs",
+      "licence": "computed",
+      "attribution": "Computed from coordinates (haversine, mean Earth radius 6371.0088 km); straight line, not road distance",
+      "fields": [
+        "distanceKm"
+      ],
+      "refresh": "on build",
+      "maxAgeDays": 100000
+    },
+    {
+      "id": "iana-tz",
+      "name": "IANA time zone database via the runtime ICU data",
+      "url": "https://www.iana.org/time-zones",
+      "licence": "Public Domain",
+      "attribution": "IANA tz database",
+      "fields": [
+        "utcOffset",
+        "dst"
+      ],
+      "refresh": "on build",
+      "maxAgeDays": 100000
+    },
+    {
+      "id": "ahrefs-keywords",
+      "name": "Ahrefs Keywords Explorer, measured monthly volume",
+      "url": "https://ahrefs.com/keywords-explorer",
+      "licence": "Ahrefs subscription; volumes used internally for eligibility, never shown on pages",
+      "attribution": "internal",
+      "fields": [
+        "keyword",
+        "country",
+        "volume"
+      ],
+      "refresh": "quarterly",
+      "maxAgeDays": 120
+    },
+    {
+      "id": "country-facts-verified",
+      "name": "Country facts reviewed against primary sources",
+      "url": "data/entities/countries.json",
+      "licence": "compiled; each value cites its primary source",
+      "attribution": "Livdar, compiled from primary sources cited per value",
+      "fields": [
+        "currency",
+        "callingCode",
+        "plugTypes",
+        "voltage",
+        "drivingSide",
+        "emergencyNumber"
+      ],
+      "status": "not built yet",
+      "refresh": "quarterly",
+      "maxAgeDays": 120
+    }
+  ]
+}
