@@ -104,12 +104,11 @@
       "request": "refused, quota exceeded"
     },
     {
-      "observedAt": "2026-09-22T18:10:00Z",
-      "run": "18:00 UTC queue run",
-      "requested": [],
-      "accepted": [],
-      "refused": [],
-      "deferred": [
+      "observedAt": "2026-09-22T19:45:00Z",
+      "run": "22 September queue run, second attempt on the correct Search Console profile",
+      "property": "sc-domain:livdar.com, account livdarlive@gmail.com (profile u/6)",
+      "inspectedBefore": "all ten were inspected first: none was indexed. Seven answered 'Google nu cunoaste adresa URL', three 'Descoperita - nu este indexata'.",
+      "requested": [
         "/ro/esim/emiratele-arabe-unite/",
         "/en/esim/morocco/",
         "/en/esim/egypt/",
@@ -121,7 +120,91 @@
         "/de/esim/usa/",
         "/de/esim/thailand/"
       ],
-      "note": "No request was sent. Search Console answered 'you do not have access to this property' for livdar.com on every Google account signed in to the connected browsers (bogdancrastinoiu@, numaranglia@, alex.foru56@, alexandrubratosin36@, albratocasa@, luci24886@; checked u/0 to u/5 plus the in-app browser). Nothing was submitted, so no daily quota was consumed. The queue is unchanged and no URL was duplicated."
+      "accepted": [
+        "/ro/esim/emiratele-arabe-unite/",
+        "/en/esim/morocco/",
+        "/en/esim/egypt/",
+        "/de/esim/marokko/",
+        "/en/esim/albania/",
+        "/de/esim/albanien/",
+        "/en/esim/switzerland/",
+        "/en/esim/bali/",
+        "/de/esim/usa/",
+        "/de/esim/thailand/"
+      ],
+      "refused": [],
+      "deferred": [],
+      "note": "Each request was confirmed by the dialog 'Indexarea a fost solicitata'. No quota message appeared, so the daily limit was not reached. An accepted request is not an indexed page: the ten pages were still not indexed at the time of the request, and the earlier note of the same day (no access) was written before the correct profile was known."
+    },
+    {
+      "path": "/ro/esim/emiratele-arabe-unite/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, discovered, not indexed",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/en/esim/morocco/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/en/esim/egypt/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/de/esim/marokko/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/en/esim/albania/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/de/esim/albanien/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/en/esim/switzerland/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/en/esim/bali/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/de/esim/usa/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, discovered, not indexed",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+    },
+    {
+      "path": "/de/esim/thailand/",
+      "date": "2026-09-22",
+      "inspection": "not on Google, URL unknown to Google",
+      "request": "sent",
+      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
     }
   ]
 }

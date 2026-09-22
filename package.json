@@ -33,7 +33,8 @@
     "atlas:slugs": "node scripts/atlas/assign-slugs.mjs",
     "atlas:ingest": "node scripts/atlas/ingest/run.mjs",
     "atlas:climate": "node scripts/atlas/ingest/nasa-power.mjs",
-    "atlas:monitor": "node scripts/atlas/monitor.mjs"
+    "atlas:monitor": "node scripts/atlas/monitor.mjs",
+    "atlas:reconcile": "node scripts/atlas/reconcile.mjs --check"
   },
   "dependencies": {
     "next": "15.5.25",

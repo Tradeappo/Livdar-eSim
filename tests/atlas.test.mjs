@@ -7,7 +7,7 @@ import { slugify, monthSlug, parseMonthSlug, RESERVED_PREFIXES } from '../lib/at
 import { SEGMENTS as ESIM, LOCALES as ESIM_LOCALES } from '../lib/i18n.js';
 import { distanceKm, offsetsForYear } from '../lib/atlas/geo.js';
 import { sunTimes } from '../lib/atlas/solar.js';
-import { possibleCounts, pathFor, resolvePath, enumerate } from '../lib/atlas/taxonomy.js';
+import { possibleCounts, pathFor, resolvePath, enumerate, parseKey as parseKeyExport } from '../lib/atlas/taxonomy.js';
 import { evaluate, funnel } from '../lib/atlas/eligibility.js';
 import { buildModel } from '../lib/atlas/model.js';
 import { atlasSchema, modelText } from '../lib/atlas/schema.js';
@@ -35,6 +35,13 @@ test('atlas prefixes never collide with an eSIM segment in any locale', () => {
   ESIM_LOCALES.forEach((l) => Object.values(ESIM).forEach((t) => esim.add('/' + l.code + '/' + (t[l.code] || t.en) + '/')));
   RESERVED_PREFIXES.forEach((p) => assert.ok(!esim.has(p), p));
   assert.equal(RESERVED_PREFIXES.length, 6);
+});
+
+test('the language layout allows Atlas fallback while eSIM routes stay closed', () => {
+  const layout = readFileSync(new URL('../app/[lang]/layout.jsx', import.meta.url), 'utf8');
+  const esimRoute = readFileSync(new URL('../app/[lang]/[...slug]/page.jsx', import.meta.url), 'utf8');
+  assert.match(layout, /export const dynamicParams = true;/);
+  assert.match(esimRoute, /export const dynamicParams = false;/);
 });
 
 test('slugs and month slugs', () => {
@@ -93,8 +100,11 @@ test('serving: production only published, preview adds approved, wrong locale 40
   const hub = atlasModel('en', 'cities', [], PROD, ds);
   assert.ok(hub && hub.model.links.some((x) => x.href === '/en/cities/alphaburg/weather-in-may/'));
   assert.equal(atlasModel('de', 'staedte', [], PROD, ds), null);
-  assert.deepEqual(atlasStaticParams('en', 'cities', ds), [{ path: ['alphaburg', 'weather-in-may'] }, { path: [] }]);
-  assert.deepEqual(atlasStaticParams('de', 'staedte', ds), []);
+  // Production builds only the published page; a preview build also carries the
+  // approved one, which is how a lot is reviewed before it is published.
+  assert.deepEqual(atlasStaticParams('en', 'cities', ds, PROD), [{ path: ['alphaburg', 'weather-in-may'] }, { path: [] }]);
+  assert.deepEqual(atlasStaticParams('en', 'cities', ds, PREVIEW), [{ path: ['alphaburg', 'weather-in-may'] }, { path: ['alphaburg', 'weather-in-june'] }, { path: [] }]);
+  assert.deepEqual(atlasStaticParams('de', 'staedte', ds, PROD), []);
   const alt = atlasAlternates(ds, atlasModel('en', 'cities', ['alphaburg', 'weather-in-may'], PROD, ds).model);
   assert.deepEqual(alt.languages, { en: 'https://livdar.com/en/cities/alphaburg/weather-in-may/', 'x-default': 'https://livdar.com/en/cities/alphaburg/weather-in-may/' });
 });
@@ -132,11 +142,19 @@ test('slug pinning, CSV, ZIP and climate reduction', () => {
   assert.deepEqual([r[0].tmax, r[0].precipMm, r[0].wetDays], [15, 14, 7]);
 });
 
-test('the committed dataset: lot 1 approved, nothing published, Dubai held back', () => {
+test('the committed dataset: every registry entry still passes its gates, Dubai is not in it', () => {
   setDataset(null);
   const ds = loadDataset();
-  const states = {};
-  Object.values(ds.registry.entries).forEach((e) => { states[e.state] = (states[e.state] || 0) + 1; });
-  assert.equal(states.published || 0, 0);
+  const isLive = (k) => ds.registry.entries[k] && ds.registry.entries[k].state === 'published';
+  Object.entries(ds.registry.entries).forEach(([key, e]) => {
+    if (e.state === 'retired') return;
+    const r = evaluate(ds, parseKeyExport(key), { isLive });
+    assert.ok(['qa_passed', 'approved', 'published'].includes(r.stage), key + ': ' + r.stage + ' ' + r.reasons.join(', '));
+  });
+  // Dubai never entered the registry: its climate cell is mostly sea.
   assert.ok(!Object.keys(ds.registry.entries).some((k) => k.includes(':292223:')));
+  // The sitemaps carry exactly the published pages plus the section hub.
+  const published = Object.entries(ds.registry.entries).filter(([, e]) => e.state === 'published').map(([k]) => k);
+  const urls = new Set(atlasSitemapIds(ds).flatMap((x) => atlasSitemapEntries(ds, x.id).map((e) => e.url)));
+  assert.equal(urls.size, published.length + (published.length ? 1 : 0));
 });

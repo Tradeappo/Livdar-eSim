@@ -1,0 +1,37 @@
+name: atlas-ingest
+# Refreshes the Atlas source data and opens a pull request. It never publishes:
+# the registry is not touched here, so nothing reaches livdar.com without a
+# reviewed merge and a separate publication commit.
+on:
+  schedule: [{ cron: '0 4 * * 1' }]
+  workflow_dispatch:
+    inputs:
+      lot:
+        description: 'lot id whose cities get climate data (optional)'
+        required: false
+permissions: { contents: write, pull-requests: write }
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/atlas/ingest/run.mjs
+      - if: ${{ inputs.lot != '' }}
+        run: node scripts/atlas/ingest/nasa-power.mjs --lot ${{ inputs.lot }}
+      - run: node scripts/atlas/assign-slugs.mjs
+      - run: npm test && node scripts/atlas/qa.mjs --preview --ci && node scripts/atlas/funnel.mjs && node scripts/atlas/reconcile.mjs --check
+      - name: open pull request
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          git config user.name "atlas-ingest"
+          git config user.email "atlas-ingest@users.noreply.github.com"
+          b="atlas-ingest-$(date +%Y%m%d%H%M)"
+          git checkout -b "$b"
+          git add data/atlas reports/atlas
+          git diff --cached --quiet && { echo "no change"; exit 0; }
+          git commit -m "Atlas data refresh $(date +%F)"
+          git push origin "$b"
+          gh pr create --base main --head "$b" --title "Atlas data refresh $(date +%F)" --body "Automated ingest. Nothing is published by this pull request. Check reports/atlas/funnel.json before merging."

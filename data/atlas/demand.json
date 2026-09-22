@@ -1,6 +1,1014 @@
 {
- "note": "Measured monthly search volume, Ahrefs Keywords Explorer, US database, one exact phrasing per page. English pages are served to US and UK readers; only the US figure was bought, so the demand used for eligibility is a lower bound. Cost: 96 rows, 1,056 API units, 2026-09-22.",
+ "note": "Measured monthly search volume, Ahrefs Keywords Explorer, US database, one exact phrasing per page. English pages are served to US and UK readers; only the US figure was bought, so the demand used for eligibility is a lower bound. Cost: 96 rows, 1,056 API units, 2026-09-22. German pages use the German database and the phrase 'wetter {Stadt} {Monat}', measured 2026-09-22 (85 rows, 1,023 units; the phrasing test that chose it cost 88 more).",
  "records": [
+  {
+   "pageKey": "city-month:de:1850147:01",
+   "keywords": [
+    {
+     "keyword": "wetter tokio januar",
+     "market": "de",
+     "volume": 60
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:02",
+   "keywords": [
+    {
+     "keyword": "wetter tokio februar",
+     "market": "de",
+     "volume": 50
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:03",
+   "keywords": [
+    {
+     "keyword": "wetter tokio märz",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:04",
+   "keywords": [
+    {
+     "keyword": "wetter tokio april",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:05",
+   "keywords": [
+    {
+     "keyword": "wetter tokio mai",
+     "market": "de",
+     "volume": 90
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:06",
+   "keywords": [
+    {
+     "keyword": "wetter tokio juni",
+     "market": "de",
+     "volume": 70
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:07",
+   "keywords": [
+    {
+     "keyword": "wetter tokio juli",
+     "market": "de",
+     "volume": 90
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:08",
+   "keywords": [
+    {
+     "keyword": "wetter tokio august",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:09",
+   "keywords": [
+    {
+     "keyword": "wetter tokio september",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:10",
+   "keywords": [
+    {
+     "keyword": "wetter tokio oktober",
+     "market": "de",
+     "volume": 200
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:11",
+   "keywords": [
+    {
+     "keyword": "wetter tokio november",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:1850147:12",
+   "keywords": [
+    {
+     "keyword": "wetter tokio dezember",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:01",
+   "keywords": [
+    {
+     "keyword": "wetter athen januar",
+     "market": "de",
+     "volume": 60
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:02",
+   "keywords": [
+    {
+     "keyword": "wetter athen februar",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:03",
+   "keywords": [
+    {
+     "keyword": "wetter athen märz",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:04",
+   "keywords": [
+    {
+     "keyword": "wetter athen april",
+     "market": "de",
+     "volume": 200
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:05",
+   "keywords": [
+    {
+     "keyword": "wetter athen mai",
+     "market": "de",
+     "volume": 90
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:06",
+   "keywords": [
+    {
+     "keyword": "wetter athen juni",
+     "market": "de",
+     "volume": 40
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:07",
+   "keywords": [
+    {
+     "keyword": "wetter athen juli",
+     "market": "de",
+     "volume": 30
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:08",
+   "keywords": [
+    {
+     "keyword": "wetter athen august",
+     "market": "de",
+     "volume": 30
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:09",
+   "keywords": [
+    {
+     "keyword": "wetter athen september",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:10",
+   "keywords": [
+    {
+     "keyword": "wetter athen oktober",
+     "market": "de",
+     "volume": 250
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:11",
+   "keywords": [
+    {
+     "keyword": "wetter athen november",
+     "market": "de",
+     "volume": 200
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:264371:12",
+   "keywords": [
+    {
+     "keyword": "wetter athen dezember",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:01",
+   "keywords": [
+    {
+     "keyword": "wetter london januar",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:02",
+   "keywords": [
+    {
+     "keyword": "wetter london februar",
+     "market": "de",
+     "volume": 200
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:03",
+   "keywords": [
+    {
+     "keyword": "wetter london märz",
+     "market": "de",
+     "volume": 300
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:04",
+   "keywords": [
+    {
+     "keyword": "wetter london april",
+     "market": "de",
+     "volume": 350
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:05",
+   "keywords": [
+    {
+     "keyword": "wetter london mai",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:06",
+   "keywords": [
+    {
+     "keyword": "wetter london juni",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:07",
+   "keywords": [
+    {
+     "keyword": "wetter london juli",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:08",
+   "keywords": [
+    {
+     "keyword": "wetter london august",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:09",
+   "keywords": [
+    {
+     "keyword": "wetter london september",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:10",
+   "keywords": [
+    {
+     "keyword": "wetter london oktober",
+     "market": "de",
+     "volume": 200
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:11",
+   "keywords": [
+    {
+     "keyword": "wetter london november",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2643743:12",
+   "keywords": [
+    {
+     "keyword": "wetter london dezember",
+     "market": "de",
+     "volume": 200
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:01",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam januar",
+     "market": "de",
+     "volume": 10
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:02",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam februar",
+     "market": "de",
+     "volume": 40
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:03",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam märz",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:04",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam april",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:05",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam mai",
+     "market": "de",
+     "volume": 60
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:06",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam juni",
+     "market": "de",
+     "volume": 40
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:07",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam juli",
+     "market": "de",
+     "volume": 50
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:08",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam august",
+     "market": "de",
+     "volume": 20
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:09",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam september",
+     "market": "de",
+     "volume": 50
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:10",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam oktober",
+     "market": "de",
+     "volume": 60
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:11",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam november",
+     "market": "de",
+     "volume": 50
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2759794:12",
+   "keywords": [
+    {
+     "keyword": "wetter amsterdam dezember",
+     "market": "de",
+     "volume": 30
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:01",
+   "keywords": [
+    {
+     "keyword": "wetter paris januar",
+     "market": "de",
+     "volume": 70
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:02",
+   "keywords": [
+    {
+     "keyword": "wetter paris februar",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:03",
+   "keywords": [
+    {
+     "keyword": "wetter paris märz",
+     "market": "de",
+     "volume": 300
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:04",
+   "keywords": [
+    {
+     "keyword": "wetter paris april",
+     "market": "de",
+     "volume": 250
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:05",
+   "keywords": [
+    {
+     "keyword": "wetter paris mai",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:06",
+   "keywords": [
+    {
+     "keyword": "wetter paris juni",
+     "market": "de",
+     "volume": 50
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:07",
+   "keywords": [
+    {
+     "keyword": "wetter paris juli",
+     "market": "de",
+     "volume": 90
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:08",
+   "keywords": [
+    {
+     "keyword": "wetter paris august",
+     "market": "de",
+     "volume": 90
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:09",
+   "keywords": [
+    {
+     "keyword": "wetter paris september",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:10",
+   "keywords": [
+    {
+     "keyword": "wetter paris oktober",
+     "market": "de",
+     "volume": 250
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:11",
+   "keywords": [
+    {
+     "keyword": "wetter paris november",
+     "market": "de",
+     "volume": 60
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:2988507:12",
+   "keywords": [
+    {
+     "keyword": "wetter paris dezember",
+     "market": "de",
+     "volume": 70
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:01",
+   "keywords": [
+    {
+     "keyword": "wetter prag januar",
+     "market": "de",
+     "volume": 10
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:02",
+   "keywords": [
+    {
+     "keyword": "wetter prag februar",
+     "market": "de",
+     "volume": 20
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:03",
+   "keywords": [
+    {
+     "keyword": "wetter prag märz",
+     "market": "de",
+     "volume": 80
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:04",
+   "keywords": [
+    {
+     "keyword": "wetter prag april",
+     "market": "de",
+     "volume": 70
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:05",
+   "keywords": [
+    {
+     "keyword": "wetter prag mai",
+     "market": "de",
+     "volume": 40
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:06",
+   "keywords": [
+    {
+     "keyword": "wetter prag juni",
+     "market": "de",
+     "volume": 20
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:07",
+   "keywords": [
+    {
+     "keyword": "wetter prag juli",
+     "market": "de",
+     "volume": 20
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:08",
+   "keywords": [
+    {
+     "keyword": "wetter prag august",
+     "market": "de",
+     "volume": 40
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:09",
+   "keywords": [
+    {
+     "keyword": "wetter prag september",
+     "market": "de",
+     "volume": 20
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:10",
+   "keywords": [
+    {
+     "keyword": "wetter prag oktober",
+     "market": "de",
+     "volume": 70
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:11",
+   "keywords": [
+    {
+     "keyword": "wetter prag november",
+     "market": "de",
+     "volume": 40
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3067696:12",
+   "keywords": [
+    {
+     "keyword": "wetter prag dezember",
+     "market": "de",
+     "volume": 50
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:01",
+   "keywords": [
+    {
+     "keyword": "wetter rom januar",
+     "market": "de",
+     "volume": 450
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:02",
+   "keywords": [
+    {
+     "keyword": "wetter rom februar",
+     "market": "de",
+     "volume": 600
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:03",
+   "keywords": [
+    {
+     "keyword": "wetter rom märz",
+     "market": "de",
+     "volume": 900
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:04",
+   "keywords": [
+    {
+     "keyword": "wetter rom april",
+     "market": "de",
+     "volume": 700
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:05",
+   "keywords": [
+    {
+     "keyword": "wetter rom mai",
+     "market": "de",
+     "volume": 350
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:06",
+   "keywords": [
+    {
+     "keyword": "wetter rom juni",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:07",
+   "keywords": [
+    {
+     "keyword": "wetter rom juli",
+     "market": "de",
+     "volume": 100
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:08",
+   "keywords": [
+    {
+     "keyword": "wetter rom august",
+     "market": "de",
+     "volume": 150
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:09",
+   "keywords": [
+    {
+     "keyword": "wetter rom september",
+     "market": "de",
+     "volume": 300
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:10",
+   "keywords": [
+    {
+     "keyword": "wetter rom oktober",
+     "market": "de",
+     "volume": 1200
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:11",
+   "keywords": [
+    {
+     "keyword": "wetter rom november",
+     "market": "de",
+     "volume": 900
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
+  {
+   "pageKey": "city-month:de:3169070:12",
+   "keywords": [
+    {
+     "keyword": "wetter rom dezember",
+     "market": "de",
+     "volume": 500
+    }
+   ],
+   "measuredOn": "2026-09-22",
+   "source": "ahrefs-keywords"
+  },
   {
    "pageKey": "city-month:en:1850147:01",
    "keywords": [

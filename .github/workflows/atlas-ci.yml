@@ -1,0 +1,17 @@
+name: atlas-ci
+on:
+  push:
+    branches: ['**']
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm test
+      - run: node scripts/quality-gate.mjs
+      - run: node scripts/atlas/qa.mjs --preview --ci
+      - run: node scripts/atlas/funnel.mjs
+      - run: node scripts/atlas/reconcile.mjs --check

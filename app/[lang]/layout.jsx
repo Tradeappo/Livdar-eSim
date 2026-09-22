@@ -7,7 +7,11 @@ import { CONSENT_DEFAULT, GTM_ID, CLARITY_ID } from '../../lib/analytics.js';
 import ConsentBanner from '../../components/ConsentBanner.jsx';
 import { SITE_URL } from '../../lib/routes.js';
 
-export const dynamicParams = false;
+// Child routes decide which paths they serve. Atlas uses dynamicParams so
+// approved preview pages and published pages beyond the static build cap can
+// render on demand; the eSIM catch-all and locale pages remain closed by their
+// own dynamicParams=false declarations.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return contentLocales().map((lang) => ({ lang }));
