@@ -34,7 +34,14 @@ Not proposed now, with the reason:
 - Greece in EN (9,440): lot P1-3 together with the other EU destinations.
 - Every destination in RO: no destination outside the live set clears 500 a month in ro-ro.
 
-## Lot C-1: connectivity clusters (5 pages)
+## Lot C-1: connectivity clusters (3 pages written, 2 folded)
+
+On writing, the two German rows turned out to compete with live pages:
+/de/ratgeber/esim-vs-roaming/ already explains where EU roaming ends and what
+the country list of a German tariff means, and /de/esim/schweiz/ already owns
+the Swiss roaming question. They are not published as separate URLs. If Search
+Console later shows those queries landing on the existing pages with low CTR,
+the fix is a section on those pages, not a new page.
 
 | Page | Locale | Topic, measured volume | Note |
 | --- | --- | --- | --- |

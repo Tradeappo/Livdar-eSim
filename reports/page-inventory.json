@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-09-21T22:45:28.085Z",
+  "generatedAt": "2026-09-21T22:47:11.937Z",
   "reconciliation": {
     "handoffDeclared": 1342,
     "handoffRowSum": 1331,
     "handoffNote": "The 16 September handoff declared 1,342 but its page plan rows add up to 1,331; its cluster table adds up to 1,334. None of the three is produced by a committed script. The gap of 11 equals one page per market for the 11 markets the handoff counted, the same size as its Homepage row, which points to that row being counted twice. It cannot be proven from the repo because the handoff figures were written by hand.",
     "researchPlanNow": 1285,
     "researchPlanNote": "scripts/plan-report.mjs recomputes the plan from data/ on every run: 1,285 pages over 12 research markets. It counts en-us and en-gb separately.",
-    "distinctUrls": 1226,
+    "distinctUrls": 1229,
     "distinctUrlsNote": "The inventory converts research markets into site locales. English is one set of URLs, so en-us and en-gb pages that share a destination or a topic collapse into one URL."
   },
   "totals": {
-    "live": 109,
+    "live": 112,
     "eligible": 255,
     "rejected": 772,
     "blocked_market": 711,
@@ -79,7 +79,7 @@
       "blocked_market": 24
     },
     "guide (live)": {
-      "live": 13
+      "live": 16
     },
     "legal": {
       "live": 6
@@ -87,7 +87,7 @@
   },
   "byLocale": {
     "en": {
-      "live": 39,
+      "live": 42,
       "eligible": 125,
       "rejected": 67,
       "blocked_data": 24
@@ -13887,6 +13887,24 @@
       "type": "guide (live)",
       "locale": "en",
       "key": "airport-connectivity",
+      "state": "live"
+    },
+    {
+      "type": "guide (live)",
+      "locale": "en",
+      "key": "what-is-data-roaming",
+      "state": "live"
+    },
+    {
+      "type": "guide (live)",
+      "locale": "en",
+      "key": "pocket-wifi-vs-esim",
+      "state": "live"
+    },
+    {
+      "type": "guide (live)",
+      "locale": "en",
+      "key": "international-sim-card",
       "state": "live"
     },
     {
