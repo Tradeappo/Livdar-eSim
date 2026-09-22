@@ -3,21 +3,99 @@
   "minDaysBetweenRequests": 14,
   "dailyQuotaObserved": 10,
   "priority": [
-    "/ro/esim/emiratele-arabe-unite/", "/en/esim/morocco/", "/en/esim/egypt/", "/de/esim/marokko/", "/en/esim/albania/", "/de/esim/albanien/",
-    "/en/esim/switzerland/", "/en/esim/bali/", "/de/esim/usa/", "/de/esim/thailand/", "/ro/esim/statele-unite/", "/ro/esim/thailanda/",
-    "/en/guides/", "/de/ratgeber/", "/ro/ghiduri/"
+    "/ro/esim/emiratele-arabe-unite/",
+    "/en/esim/morocco/",
+    "/en/esim/egypt/",
+    "/de/esim/marokko/",
+    "/en/esim/albania/",
+    "/de/esim/albanien/",
+    "/en/esim/switzerland/",
+    "/en/esim/bali/",
+    "/de/esim/usa/",
+    "/de/esim/thailand/",
+    "/ro/esim/statele-unite/",
+    "/ro/esim/thailanda/",
+    "/en/guides/",
+    "/de/ratgeber/",
+    "/ro/ghiduri/",
+    "/en/esim/canada/",
+    "/en/esim/mexico/",
+    "/en/esim/vietnam/",
+    "/en/esim/india/",
+    "/de/esim/kanada/",
+    "/de/esim/vietnam/",
+    "/en/esim/indonesia/",
+    "/de/esim/mexiko/",
+    "/de/esim/indien/",
+    "/de/esim/indonesien/"
   ],
   "observations": [
-    { "path": "/en/esim/", "date": "2026-09-21", "inspection": "on Google, last crawled 2026-09-19", "request": "sent", "why": "the page changed in PR #7 after the last crawl" },
-    { "path": "/de/esim/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/ro/esim/", "date": "2026-09-21", "inspection": "not on Google, discovered not indexed", "request": "sent" },
-    { "path": "/en/esim/turkey/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/en/esim/japan/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/en/esim/united-arab-emirates/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/en/esim/thailand/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/de/esim/tuerkei/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/de/esim/japan/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/ro/esim/grecia/", "date": "2026-09-21", "inspection": "not on Google", "request": "sent" },
-    { "path": "/ro/esim/emiratele-arabe-unite/", "date": "2026-09-21", "inspection": "not on Google", "request": "refused, quota exceeded" }
+    {
+      "path": "/en/esim/",
+      "date": "2026-09-21",
+      "inspection": "on Google, last crawled 2026-09-19",
+      "request": "sent",
+      "why": "the page changed in PR #7 after the last crawl"
+    },
+    {
+      "path": "/de/esim/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/ro/esim/",
+      "date": "2026-09-21",
+      "inspection": "not on Google, discovered not indexed",
+      "request": "sent"
+    },
+    {
+      "path": "/en/esim/turkey/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/en/esim/japan/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/en/esim/united-arab-emirates/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/en/esim/thailand/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/de/esim/tuerkei/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/de/esim/japan/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/ro/esim/grecia/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "sent"
+    },
+    {
+      "path": "/ro/esim/emiratele-arabe-unite/",
+      "date": "2026-09-21",
+      "inspection": "not on Google",
+      "request": "refused, quota exceeded"
+    }
   ]
 }

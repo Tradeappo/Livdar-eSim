@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T20:28:40.132Z",
+  "generatedAt": "2026-09-21T22:45:28.085Z",
   "reconciliation": {
     "handoffDeclared": 1342,
     "handoffRowSum": 1331,
@@ -10,16 +10,16 @@
     "distinctUrlsNote": "The inventory converts research markets into site locales. English is one set of URLs, so en-us and en-gb pages that share a destination or a topic collapse into one URL."
   },
   "totals": {
-    "live": 99,
-    "eligible": 265,
+    "live": 109,
+    "eligible": 255,
     "rejected": 772,
     "blocked_market": 711,
     "blocked_data": 151
   },
   "byType": {
     "destination": {
-      "live": 32,
-      "eligible": 141,
+      "live": 42,
+      "eligible": 131,
       "rejected": 772,
       "blocked_market": 441
     },
@@ -87,14 +87,14 @@
   },
   "byLocale": {
     "en": {
-      "live": 34,
-      "eligible": 130,
+      "live": 39,
+      "eligible": 125,
       "rejected": 67,
       "blocked_data": 24
     },
     "de": {
-      "live": 33,
-      "eligible": 90,
+      "live": 38,
+      "eligible": 85,
       "rejected": 67,
       "blocked_data": 29
     },
@@ -438,8 +438,7 @@
       "type": "destination",
       "locale": "en",
       "key": "india",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
@@ -507,15 +506,13 @@
       "type": "destination",
       "locale": "en",
       "key": "vietnam",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
       "locale": "en",
       "key": "indonesia",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
@@ -568,15 +565,13 @@
       "type": "destination",
       "locale": "en",
       "key": "canada",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
       "locale": "en",
       "key": "mexico",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
@@ -1309,8 +1304,7 @@
       "type": "destination",
       "locale": "de",
       "key": "india",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
@@ -1378,15 +1372,13 @@
       "type": "destination",
       "locale": "de",
       "key": "vietnam",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
       "locale": "de",
       "key": "indonesia",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
@@ -1439,15 +1431,13 @@
       "type": "destination",
       "locale": "de",
       "key": "canada",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
       "locale": "de",
       "key": "mexico",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",

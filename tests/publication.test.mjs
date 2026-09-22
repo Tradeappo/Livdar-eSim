@@ -44,5 +44,5 @@ test('every live destination is authored and published in the registry', () => {
       assert.ok(authoredIds(locale, 'destination').includes(id));
     });
   });
-  assert.equal(expectedPublishedUrls(registry), 99);
+  assert.equal(expectedPublishedUrls(registry), 109);
 });

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T21:53:25.268Z",
+  "generatedAt": "2026-09-21T22:45:27.987Z",
   "generationEnabled": false,
   "family": "connectivity-destination",
   "capacity": {
@@ -47,15 +47,15 @@
     },
     {
       "step": "passes every hard gate on demand measured in this locale",
-      "remaining": 22
+      "remaining": 32
     }
   ],
   "blockingReasons": {
-    "insufficient-unique-content": 141,
-    "quality-review-pending": 141,
-    "insufficient-quality-score": 141,
-    "lifecycle-not-approved": 141,
-    "incomplete-metadata": 141,
+    "insufficient-unique-content": 131,
+    "quality-review-pending": 131,
+    "insufficient-quality-score": 131,
+    "lifecycle-not-approved": 131,
+    "incomplete-metadata": 131,
     "insufficient-demand": 98,
     "unvalidated-demand": 64
   },
@@ -74,12 +74,22 @@
     "de:destination:united-arab-emirates",
     "en:destination:japan",
     "de:destination:japan",
+    "en:destination:india",
+    "de:destination:india",
     "en:destination:thailand",
     "de:destination:thailand",
+    "en:destination:vietnam",
+    "de:destination:vietnam",
+    "en:destination:indonesia",
+    "de:destination:indonesia",
     "en:destination:bali",
     "de:destination:bali",
     "en:destination:united-states",
     "de:destination:united-states",
+    "en:destination:canada",
+    "de:destination:canada",
+    "en:destination:mexico",
+    "de:destination:mexico",
     "en:destination:egypt",
     "de:destination:egypt",
     "en:destination:morocco",
@@ -847,30 +857,6 @@
       ]
     },
     {
-      "key": "en:destination:india",
-      "tier": "P1",
-      "measuredLocalVolume": 8230,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "de:destination:india",
-      "tier": "P1",
-      "measuredLocalVolume": 890,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
       "key": "ro:destination:india",
       "tier": "P1",
       "measuredLocalVolume": 0,
@@ -989,60 +975,12 @@
       ]
     },
     {
-      "key": "en:destination:vietnam",
-      "tier": "P1",
-      "measuredLocalVolume": 7500,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "de:destination:vietnam",
-      "tier": "P1",
-      "measuredLocalVolume": 3450,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
       "key": "ro:destination:vietnam",
       "tier": "P1",
       "measuredLocalVolume": 0,
       "reasons": [
         "insufficient-demand",
         "unvalidated-demand",
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "en:destination:indonesia",
-      "tier": "P1",
-      "measuredLocalVolume": 4670,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "de:destination:indonesia",
-      "tier": "P1",
-      "measuredLocalVolume": 2960,
-      "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -1196,60 +1134,12 @@
       ]
     },
     {
-      "key": "en:destination:canada",
-      "tier": "P1",
-      "measuredLocalVolume": 7300,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "de:destination:canada",
-      "tier": "P1",
-      "measuredLocalVolume": 5100,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
       "key": "ro:destination:canada",
       "tier": "P1",
       "measuredLocalVolume": 0,
       "reasons": [
         "insufficient-demand",
         "unvalidated-demand",
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "en:destination:mexico",
-      "tier": "P1",
-      "measuredLocalVolume": 8400,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "de:destination:mexico",
-      "tier": "P1",
-      "measuredLocalVolume": 2550,
-      "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
