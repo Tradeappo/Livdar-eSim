@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T22:47:12.020Z",
+  "generatedAt": "2026-09-22T09:20:10.675Z",
   "generationEnabled": false,
   "family": "connectivity-destination",
   "capacity": {
@@ -47,15 +47,15 @@
     },
     {
       "step": "passes every hard gate on demand measured in this locale",
-      "remaining": 32
+      "remaining": 35
     }
   ],
   "blockingReasons": {
-    "insufficient-unique-content": 131,
-    "quality-review-pending": 131,
-    "insufficient-quality-score": 131,
-    "lifecycle-not-approved": 131,
-    "incomplete-metadata": 131,
+    "insufficient-unique-content": 128,
+    "quality-review-pending": 128,
+    "insufficient-quality-score": 128,
+    "lifecycle-not-approved": 128,
+    "incomplete-metadata": 128,
     "insufficient-demand": 98,
     "unvalidated-demand": 64
   },
@@ -65,7 +65,10 @@
     "en:destination:turkey",
     "de:destination:turkey",
     "ro:destination:turkey",
+    "en:destination:spain",
+    "en:destination:italy",
     "de:destination:united-kingdom",
+    "en:destination:greece",
     "en:destination:switzerland",
     "de:destination:switzerland",
     "en:destination:albania",
@@ -159,18 +162,6 @@
   ],
   "notYet": [
     {
-      "key": "en:destination:spain",
-      "tier": "P1",
-      "measuredLocalVolume": 9600,
-      "reasons": [
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
       "key": "de:destination:spain",
       "tier": "P1",
       "measuredLocalVolume": 500,
@@ -188,18 +179,6 @@
       "measuredLocalVolume": 70,
       "reasons": [
         "insufficient-demand",
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "en:destination:italy",
-      "tier": "P1",
-      "measuredLocalVolume": 7730,
-      "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",
@@ -302,18 +281,6 @@
       "measuredLocalVolume": 150,
       "reasons": [
         "insufficient-demand",
-        "insufficient-unique-content",
-        "quality-review-pending",
-        "insufficient-quality-score",
-        "lifecycle-not-approved",
-        "incomplete-metadata"
-      ]
-    },
-    {
-      "key": "en:destination:greece",
-      "tier": "P1",
-      "measuredLocalVolume": 9440,
-      "reasons": [
         "insufficient-unique-content",
         "quality-review-pending",
         "insufficient-quality-score",

@@ -57,6 +57,25 @@ pages); the vs_alternatives rows (they are competitor brand queries, blocked
 until comparisons can be verified); mobile data abroad (no topic clears 500 in a
 live locale).
 
+## Lot P1-3a: EU destinations for US and UK readers (3 pages, EN)
+
+| Destination | EN local (us + gb) | Angle |
+| --- | --- | --- |
+| Spain | 9,600 | US, UK and EU plans are three different answers; Gibraltar and Andorra are outside EU roaming; ferries to the islands |
+| Greece | 9,440 | islands near the Turkish coast join Turkish networks; ferries are not covered by EU roaming |
+| Italy | 7,730 | Swiss networks around the northern lakes; San Marino outside the EU; rail coverage |
+
+Facts checked on 2026-09-22: EU roaming covers land networks only, not ship
+satellite networks (europa.eu Your Europe roaming FAQ); Spanish networks are
+Movistar, Vodafone, MasOrange (Orange and Yoigo) and Digi; Vodafone Italia was
+merged into Fastweb on 1 January 2026 and keeps the Vodafone brand; the Greek
+networks are Cosmote, Vodafone and Nova (Wind Hellas rebranded in 2023). No
+prices and no US or UK operator tariffs are stated, because they change.
+
+Next, lot P1-3b: Portugal (5,550), France (5,220) and Germany (4,050) in EN,
+same rules. DE and RO stay out: their local volume for these countries is
+below 500 or the intent is domestic.
+
 ## Taxonomy extension
 
 The 300,000 target needs entity lists the repo does not hold. The first real
