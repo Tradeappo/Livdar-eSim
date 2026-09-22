@@ -37,6 +37,13 @@ test('atlas prefixes never collide with an eSIM segment in any locale', () => {
   assert.equal(RESERVED_PREFIXES.length, 6);
 });
 
+test('the language layout allows Atlas fallback while eSIM routes stay closed', () => {
+  const layout = readFileSync(new URL('../app/[lang]/layout.jsx', import.meta.url), 'utf8');
+  const esimRoute = readFileSync(new URL('../app/[lang]/[...slug]/page.jsx', import.meta.url), 'utf8');
+  assert.match(layout, /export const dynamicParams = true;/);
+  assert.match(esimRoute, /export const dynamicParams = false;/);
+});
+
 test('slugs and month slugs', () => {
   assert.equal(slugify('München', 'de'), 'muenchen');
   assert.equal(slugify('Brașov', 'ro'), 'brasov');
