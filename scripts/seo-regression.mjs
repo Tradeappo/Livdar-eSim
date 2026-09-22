@@ -49,6 +49,12 @@ export const ALLOWED_DRIFT = [
     reason:
       'Egypt now has English and German pages, so the Romanian page joins a three language cluster and x-default moves to the English page, the same rule every other destination cluster follows.',
   },
+  {
+    fields: ['hreflang', 'xDefault'],
+    paths: ['/ro/esim/grecia/'],
+    reason:
+      'Greece now has an English page (lot P1-3), so the Romanian page joins a two language cluster and x-default moves to the English page, the same rule every other destination cluster follows.',
+  },
 ];
 
 const COMPARED = [

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T22:47:11.937Z",
+  "generatedAt": "2026-09-22T09:20:10.599Z",
   "reconciliation": {
     "handoffDeclared": 1342,
     "handoffRowSum": 1331,
@@ -10,16 +10,16 @@
     "distinctUrlsNote": "The inventory converts research markets into site locales. English is one set of URLs, so en-us and en-gb pages that share a destination or a topic collapse into one URL."
   },
   "totals": {
-    "live": 112,
-    "eligible": 255,
+    "live": 115,
+    "eligible": 252,
     "rejected": 772,
     "blocked_market": 711,
     "blocked_data": 151
   },
   "byType": {
     "destination": {
-      "live": 42,
-      "eligible": 131,
+      "live": 45,
+      "eligible": 128,
       "rejected": 772,
       "blocked_market": 441
     },
@@ -87,8 +87,8 @@
   },
   "byLocale": {
     "en": {
-      "live": 42,
-      "eligible": 125,
+      "live": 45,
+      "eligible": 122,
       "rejected": 67,
       "blocked_data": 24
     },
@@ -156,15 +156,13 @@
       "type": "destination",
       "locale": "en",
       "key": "spain",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
       "locale": "en",
       "key": "italy",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
@@ -190,8 +188,7 @@
       "type": "destination",
       "locale": "en",
       "key": "greece",
-      "state": "eligible",
-      "why": "tier P1"
+      "state": "live"
     },
     {
       "type": "destination",
