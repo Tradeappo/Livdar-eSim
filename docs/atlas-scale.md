@@ -145,3 +145,41 @@ and are never turned into lists of Atlas links in return.
 | atlas-monitor | Checks Atlas and eSIM daily, flags expired data. | Delete in bulk. |
 | atlas-search-console | Imports Search Console, separating discovered, indexed, impressions and clicks. | Treat an indexing request as indexing. |
 | atlas-reconcile | Finds published pages that no longer pass their gates. | Retire anything that still passes. |
+
+## Prioritisation
+
+The inventory is ranked by what a page is worth, not by how easy it is to
+generate. Three mechanisms do that work, and none of them deletes a family.
+
+**Priority per vertical.** `VERTICAL_PRIORITY` in `lib/atlas/verticals.js`
+sets high for relocation, visas, work, cost of living, rents, property, taxes,
+banking, health, education, connectivity and comparisons; medium for
+transport, safety, neighbourhoods, activities and events; low for weather,
+airports and the descriptive hubs.
+
+**The market gate.** A high or medium priority family is enumerated in every
+researched market, because it is worth measuring there. A low priority family
+is enumerated only in the languages of markets that are already active, and it
+earns more markets by producing measured demand. That single rule moved
+weather from 37 percent of the inventory to 6 percent without removing a
+single page or family.
+
+**Scoring version two.** Demand fell from 0.40 to 0.24 of the weight.
+Commercial intent, decision value and monetisation now carry 0.34 between
+them, which is more than demand, so a page a reader acts on can outrank a page
+a reader skims with several times the volume. A family prior cannot claim
+commercial intent on its own: where a measured cost per click exists it is
+blended in, so the declared judgement is checked against what the market pays.
+`legacyScore` is kept so the two versions can be compared on the same inputs.
+
+Two families are selected whatever they score. `destinations.city-hub` and
+`destinations.country-hub` are marked `structural`, because every city family
+links up to them and dropping them orphans the commercial pages above them.
+Any family with pages already published is selected too: live pages are not
+retired to improve a distribution table.
+
+**The guardrail** is a signal, not a quota. No percentage is imposed without
+data. When one family passes 10 percent of the inventory, a vertical passes 25
+percent, a single low priority family passes 8 percent or all low priority
+families together pass 20 percent, `node scripts/atlas/prioritise.mjs` names
+it with the number. Nothing is cut silently.
