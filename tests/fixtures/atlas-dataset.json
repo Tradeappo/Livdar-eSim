@@ -1,0 +1,497 @@
+{
+ "manifest": {
+  "sources": {
+   "geonames-cities": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   },
+   "wikidata-labels": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   },
+   "ourairports": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   },
+   "nasa-power-daily": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   },
+   "computed-solar": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   },
+   "computed-distance": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   },
+   "iana-tz": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   },
+   "country-facts-verified": {
+    "retrievedAt": "2026-09-20T00:00:00.000Z",
+    "fixture": true
+   }
+  }
+ },
+ "cities": [
+  {
+   "id": 9000001,
+   "name": "Alphaburg",
+   "asciiName": "Alphaburg",
+   "lat": 48.2,
+   "lon": 16.37,
+   "iso2": "AT",
+   "admin1": "09",
+   "population": 1850000,
+   "elevation": 171,
+   "timezone": "Europe/Vienna",
+   "names": {
+    "en": "Alphaburg",
+    "de": "Alphaburg",
+    "ro": "Alphaburg"
+   }
+  },
+  {
+   "id": 9000002,
+   "name": "Betaville",
+   "asciiName": "Betaville",
+   "lat": 38.72,
+   "lon": -9.14,
+   "iso2": "PT",
+   "admin1": "14",
+   "population": 505000,
+   "elevation": 45,
+   "timezone": "Europe/Lisbon",
+   "names": {
+    "en": "Betaville",
+    "de": "Betaville",
+    "ro": "Betaville"
+   }
+  },
+  {
+   "id": 9000003,
+   "name": "Gammaport",
+   "asciiName": "Gammaport",
+   "lat": -33.87,
+   "lon": 151.21,
+   "iso2": "AU",
+   "admin1": "02",
+   "population": 4600000,
+   "elevation": 58,
+   "timezone": "Australia/Sydney",
+   "names": {
+    "en": "Gammaport",
+    "de": "Gammahafen",
+    "ro": "Gammaport"
+   }
+  }
+ ],
+ "countries": {
+  "AT": {
+   "currency": "EUR",
+   "callingCode": "+43",
+   "drivingSide": "right",
+   "plugTypes": [
+    "C",
+    "F"
+   ],
+   "voltage": "230",
+   "emergencyNumber": "112",
+   "officialLanguages": [
+    "de"
+   ]
+  },
+  "PT": {
+   "currency": "EUR",
+   "callingCode": "+351",
+   "drivingSide": "right",
+   "plugTypes": [
+    "C",
+    "F"
+   ],
+   "voltage": "230",
+   "emergencyNumber": "112",
+   "officialLanguages": [
+    "pt"
+   ]
+  },
+  "AU": {
+   "currency": "AUD",
+   "callingCode": "+61",
+   "drivingSide": "left",
+   "plugTypes": [
+    "I"
+   ],
+   "voltage": "230",
+   "emergencyNumber": "000",
+   "officialLanguages": [
+    "en"
+   ]
+  }
+ },
+ "airports": [
+  {
+   "ident": "XAAA",
+   "iata": "XAA",
+   "icao": "XAAA",
+   "type": "large_airport",
+   "name": "Alphaburg International Airport",
+   "lat": 48.11,
+   "lon": 16.57,
+   "elevationFt": 600,
+   "iso2": "AT",
+   "municipality": "Alphaburg",
+   "scheduled": true
+  },
+  {
+   "ident": "XBBB",
+   "iata": "XBB",
+   "icao": "XBBB",
+   "type": "large_airport",
+   "name": "Betaville Airport",
+   "lat": 38.77,
+   "lon": -9.13,
+   "elevationFt": 374,
+   "iso2": "PT",
+   "municipality": "Betaville",
+   "scheduled": true
+  },
+  {
+   "ident": "XCCC",
+   "iata": "XCC",
+   "icao": null,
+   "type": "medium_airport",
+   "name": "Gammaport Field",
+   "lat": -33.95,
+   "lon": 151.18,
+   "elevationFt": 21,
+   "iso2": "AU",
+   "municipality": "Gammaport",
+   "scheduled": true
+  },
+  {
+   "ident": "XDDD",
+   "iata": "XDD",
+   "icao": null,
+   "type": "small_airport",
+   "name": "Delta Strip",
+   "lat": 48.3,
+   "lon": 16.4,
+   "elevationFt": 500,
+   "iso2": "AT",
+   "municipality": "Alphaburg",
+   "scheduled": false
+  }
+ ],
+ "climate": {
+  "9000001": {
+   "period": "2011-2020",
+   "months": [
+    {
+     "tmax": 8.0,
+     "tmin": 1,
+     "tmean": 5,
+     "precipMm": 80,
+     "wetDays": 12.0,
+     "rh": 75,
+     "wind": 3.1
+    },
+    {
+     "tmax": 9.5,
+     "tmin": 2,
+     "tmean": 6,
+     "precipMm": 75,
+     "wetDays": 11.2,
+     "rh": 74,
+     "wind": 3.1
+    },
+    {
+     "tmax": 11.0,
+     "tmin": 3,
+     "tmean": 7,
+     "precipMm": 70,
+     "wetDays": 10.4,
+     "rh": 73,
+     "wind": 3.1
+    },
+    {
+     "tmax": 12.5,
+     "tmin": 4,
+     "tmean": 8,
+     "precipMm": 65,
+     "wetDays": 9.6,
+     "rh": 72,
+     "wind": 3.1
+    },
+    {
+     "tmax": 14.0,
+     "tmin": 5,
+     "tmean": 9,
+     "precipMm": 60,
+     "wetDays": 8.8,
+     "rh": 71,
+     "wind": 3.1
+    },
+    {
+     "tmax": 15.5,
+     "tmin": 6,
+     "tmean": 10,
+     "precipMm": 55,
+     "wetDays": 8.0,
+     "rh": 70,
+     "wind": 3.1
+    },
+    {
+     "tmax": 17.0,
+     "tmin": 7,
+     "tmean": 11,
+     "precipMm": 50,
+     "wetDays": 7.199999999999999,
+     "rh": 69,
+     "wind": 3.1
+    },
+    {
+     "tmax": 18,
+     "tmin": 6,
+     "tmean": 11.0,
+     "precipMm": 61,
+     "wetDays": 8.8,
+     "rh": 68,
+     "wind": 3.1
+    },
+    {
+     "tmax": 16,
+     "tmin": 5,
+     "tmean": 9.8,
+     "precipMm": 64,
+     "wetDays": 9.2,
+     "rh": 67,
+     "wind": 3.1
+    },
+    {
+     "tmax": 14,
+     "tmin": 4,
+     "tmean": 8.6,
+     "precipMm": 67,
+     "wetDays": 9.6,
+     "rh": 66,
+     "wind": 3.1
+    },
+    {
+     "tmax": 12,
+     "tmin": 3,
+     "tmean": 7.4,
+     "precipMm": 70,
+     "wetDays": 10.0,
+     "rh": 65,
+     "wind": 3.1
+    },
+    {
+     "tmax": 10,
+     "tmin": 2,
+     "tmean": 6.2,
+     "precipMm": 73,
+     "wetDays": 10.4,
+     "rh": 64,
+     "wind": 3.1
+    }
+   ]
+  },
+  "9000002": {
+   "period": "2011-2020",
+   "months": [
+    {
+     "tmax": 8.0,
+     "tmin": 1,
+     "tmean": 5,
+     "precipMm": 80,
+     "wetDays": 12.0,
+     "rh": 75,
+     "wind": 3.1
+    },
+    {
+     "tmax": 9.5,
+     "tmin": 2,
+     "tmean": 6,
+     "precipMm": 75,
+     "wetDays": 11.2,
+     "rh": 74,
+     "wind": 3.1
+    },
+    {
+     "tmax": 11.0,
+     "tmin": 3,
+     "tmean": 7,
+     "precipMm": 70,
+     "wetDays": 10.4,
+     "rh": 73,
+     "wind": 3.1
+    },
+    {
+     "tmax": 12.5,
+     "tmin": 4,
+     "tmean": 8,
+     "precipMm": 65,
+     "wetDays": 9.6,
+     "rh": 72,
+     "wind": 3.1
+    },
+    {
+     "tmax": 14.0,
+     "tmin": 5,
+     "tmean": 9,
+     "precipMm": 60,
+     "wetDays": 8.8,
+     "rh": 71,
+     "wind": 3.1
+    },
+    {
+     "tmax": 15.5,
+     "tmin": 6,
+     "tmean": 10,
+     "precipMm": 55,
+     "wetDays": 8.0,
+     "rh": 70,
+     "wind": 3.1
+    },
+    {
+     "tmax": 17.0,
+     "tmin": 7,
+     "tmean": 11,
+     "precipMm": 50,
+     "wetDays": 7.199999999999999,
+     "rh": 69,
+     "wind": 3.1
+    },
+    {
+     "tmax": 18,
+     "tmin": 6,
+     "tmean": 11.0,
+     "precipMm": 61,
+     "wetDays": 8.8,
+     "rh": 68,
+     "wind": 3.1
+    },
+    {
+     "tmax": 16,
+     "tmin": 5,
+     "tmean": 9.8,
+     "precipMm": 64,
+     "wetDays": 9.2,
+     "rh": 67,
+     "wind": 3.1
+    },
+    {
+     "tmax": 14,
+     "tmin": 4,
+     "tmean": 8.6,
+     "precipMm": 67,
+     "wetDays": 9.6,
+     "rh": 66,
+     "wind": 3.1
+    },
+    {
+     "tmax": 12,
+     "tmin": 3,
+     "tmean": 7.4,
+     "precipMm": 70,
+     "wetDays": 10.0,
+     "rh": 65,
+     "wind": 3.1
+    },
+    {
+     "tmax": 10,
+     "tmin": 2,
+     "tmean": 6.2,
+     "precipMm": 73,
+     "wetDays": 10.4,
+     "rh": 64,
+     "wind": 3.1
+    }
+   ]
+  }
+ },
+ "slugs": {
+  "cities": {
+   "9000001": {
+    "en": "alphaburg",
+    "de": "alphaburg",
+    "ro": "alphaburg"
+   },
+   "9000002": {
+    "en": "betaville",
+    "de": "betaville",
+    "ro": "betaville"
+   },
+   "9000003": {
+    "en": "gammaport",
+    "de": "gammahafen",
+    "ro": "gammaport"
+   }
+  },
+  "airports": {
+   "XAA": {
+    "en": "xaa-alphaburg",
+    "de": "xaa-alphaburg",
+    "ro": "xaa-alphaburg"
+   },
+   "XBB": {
+    "en": "xbb-betaville",
+    "de": "xbb-betaville",
+    "ro": "xbb-betaville"
+   },
+   "XCC": {
+    "en": "xcc-gammaport",
+    "de": "xcc-gammaport",
+    "ro": "xcc-gammaport"
+   }
+  }
+ },
+ "demand": {
+  "records": [
+   {
+    "pageKey": "city-guide:en:9000001",
+    "keywords": [
+     {
+      "keyword": "alphaburg travel",
+      "market": "us",
+      "volume": 900
+     }
+    ],
+    "measuredOn": "2026-09-20"
+   },
+   {
+    "pageKey": "city-month:en:9000001:05",
+    "keywords": [
+     {
+      "keyword": "alphaburg weather may",
+      "market": "us",
+      "volume": 300
+     }
+    ],
+    "measuredOn": "2026-09-20"
+   },
+   {
+    "pageKey": "airport:en:XAA",
+    "keywords": [
+     {
+      "keyword": "xaa airport",
+      "market": "us",
+      "volume": 50
+     }
+    ],
+    "measuredOn": "2026-09-20"
+   }
+  ]
+ },
+ "registry": {
+  "entries": {}
+ },
+ "esimLinks": {
+  "en": {
+   "AT": "/en/esim/austria/"
+  }
+ }
+}

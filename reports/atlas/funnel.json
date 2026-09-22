@@ -1,0 +1,84 @@
+{
+ "generatedAt": "2026-09-22T13:04:04.255Z",
+ "possible": {
+  "entities": {
+   "cities": 8,
+   "airports": 0
+  },
+  "rows": [
+   {
+    "family": "city-guide",
+    "entities": 8,
+    "variants": 1,
+    "locales": 3,
+    "possible": 24
+   },
+   {
+    "family": "city-month",
+    "entities": 8,
+    "variants": 12,
+    "locales": 3,
+    "possible": 288
+   },
+   {
+    "family": "airport",
+    "entities": 0,
+    "variants": 1,
+    "locales": 3,
+    "possible": 0
+   }
+  ],
+  "total": 312
+ },
+ "families": {
+  "city-guide": {
+   "counts": {
+    "possible": 24,
+    "data_ready": 0,
+    "demand_validated": 0,
+    "qa_passed": 0,
+    "approved": 0,
+    "published": 0
+   },
+   "reasons": {
+    "missing-source": 24,
+    "incomplete-country-facts": 24
+   }
+  },
+  "city-month": {
+   "counts": {
+    "possible": 288,
+    "data_ready": 252,
+    "demand_validated": 77,
+    "qa_passed": 77,
+    "approved": 77,
+    "published": 0
+   },
+   "reasons": {
+    "approved-not-published": 77,
+    "marine-grid-cell": 36,
+    "insufficient-demand": 7,
+    "unmeasured-demand": 168
+   }
+  },
+  "airport": {
+   "counts": {
+    "possible": 0,
+    "data_ready": 0,
+    "demand_validated": 0,
+    "qa_passed": 0,
+    "approved": 0,
+    "published": 0
+   },
+   "reasons": {}
+  }
+ },
+ "totals": {
+  "possible": 312,
+  "data_ready": 252,
+  "demand_validated": 77,
+  "qa_passed": 77,
+  "approved": 77,
+  "published": 0
+ }
+}

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/fetch-media.mjs && node scripts/quality-gate.mjs && next build",
+    "build": "node scripts/fetch-media.mjs && node scripts/quality-gate.mjs && node scripts/atlas/qa.mjs --preview --ci && next build",
     "start": "next start",
     "test": "node --test tests/*.test.mjs",
     "qa": "node scripts/quality-gate.mjs",
@@ -26,7 +26,14 @@
     "publication:check": "node scripts/publication.mjs check",
     "inventory": "node scripts/page-inventory.mjs",
     "funnel": "node scripts/taxonomy-funnel.mjs",
-    "indexing:queue": "node scripts/indexing-queue.mjs"
+    "indexing:queue": "node scripts/indexing-queue.mjs",
+    "atlas:funnel": "node scripts/atlas/funnel.mjs",
+    "atlas:qa": "node scripts/atlas/qa.mjs --preview",
+    "atlas:registry": "node scripts/atlas/registry.mjs",
+    "atlas:slugs": "node scripts/atlas/assign-slugs.mjs",
+    "atlas:ingest": "node scripts/atlas/ingest/run.mjs",
+    "atlas:climate": "node scripts/atlas/ingest/nasa-power.mjs",
+    "atlas:monitor": "node scripts/atlas/monitor.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

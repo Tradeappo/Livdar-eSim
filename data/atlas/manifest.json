@@ -1,0 +1,26 @@
+{
+ "note": "retrievedAt is when the data left the official endpoint. Lot 1 was pulled from a browser session (the build sandbox has no outbound network); the same scripts in scripts/ingest reproduce it in CI.",
+ "sources": {
+  "wikidata-cities": {
+   "retrievedAt": "2026-09-22T12:20:00.000Z",
+   "url": "https://query.wikidata.org/sparql",
+   "rows": 8,
+   "sha256": "e24adff605e427d469087475e1e380bc332e9cbc29b9e8fc84302d3dee67c98e",
+   "method": "SPARQL on P1566 for 8 GeoNames ids; latest non deprecated P1082; country via P17 or P131 chain"
+  },
+  "nasa-power-daily": {
+   "retrievedAt": "2026-09-22T12:27:06.500Z",
+   "url": "https://power.larc.nasa.gov/api/temporal/daily/point",
+   "rows": 8,
+   "period": "20110101-20201231",
+   "sha256": "3afa0d5b9beb3fe2fc95fa3478b97ac3b358a9a03a825b65219fe31e81cb6ee7",
+   "reducedSha256": "48a657243d4e999f911a32c69d068235e5185c728f4eda5f6996dddf6711cd74"
+  },
+  "ahrefs-keywords": {
+   "retrievedAt": "2026-09-22T12:15:00.000Z",
+   "rows": 96,
+   "units": 1056,
+   "market": "us"
+  }
+ }
+}
