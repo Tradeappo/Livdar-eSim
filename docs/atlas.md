@@ -39,6 +39,18 @@ the only presentation. The new design replaces those two files; models, URLs,
 canonical, internal links and schema stay the same. Slugs are pinned in
 `data/atlas/slugs.json` and never recomputed.
 
+## Automation
+
+| Workflow | What it does | What it may not do |
+| --- | --- | --- |
+| atlas-ci | tests, quality gate, Atlas QA, funnel, reconciliation | nothing else |
+| atlas-ingest (weekly) | refreshes GeoNames, OurAirports, Wikidata labels and, on demand, NASA POWER for one lot; opens a pull request | publish a page |
+| atlas-monitor (daily) | checks every published Atlas URL and a sample of eSIM URLs on livdar.com, plus stale data | change the site |
+
+`scripts/atlas/reconcile.mjs` is the rollback: it lists published pages that no
+longer pass their gates and, with `--retire`, takes them out of routing and the
+sitemaps one page at a time.
+
 ## Commands
 
     npm run atlas:funnel
