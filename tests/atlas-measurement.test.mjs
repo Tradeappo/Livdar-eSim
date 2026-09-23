@@ -32,6 +32,33 @@ test('the measurement files are real provider output, with a cost recorded', () 
   assert.ok(rows.length >= 100, 'only ' + rows.length + ' keywords measured');
 });
 
+// A probe is a few hand chosen phrasings sent into a market to see whether
+// anything is there. It is not planned, it is not a survey, and the verdicts
+// would be distorted by it, so it lives outside the measurement store. This
+// test is the guard: it fails if a probe is ever dropped into the store, and
+// it fails if a probe stops saying what it cost or what it is not evidence
+// for.
+test('a probe is kept out of the measurement store and states its own limits', () => {
+  const probeDir = new URL('../data/atlas/probes/', import.meta.url);
+  const probes = readdirSync(probeDir).filter((f) => f.endsWith('.json'));
+  assert.ok(probes.length >= 1, 'no probes, so this test is not looking at anything');
+  for (const f of probes) {
+    const j = JSON.parse(readFileSync(new URL(f, probeDir), 'utf8'));
+    assert.ok(j.unitsTotal > 0, f + ' records no cost');
+    assert.ok(j.caution && j.caution.length > 40, f + ' does not say what it is not evidence for');
+    for (const [market, m] of Object.entries(j.markets)) {
+      assert.ok(m.asked >= m.returned, market + ' returned more rows than it asked for');
+      assert.ok(m.finding && m.finding.length > 0, market + ' has no finding');
+      // A phrasing the provider had no row for is a stronger negative than a
+      // zero, so it has to be recorded rather than quietly dropped.
+      const missing = m.asked - m.returned;
+      if (missing > 0) assert.equal((m.notReturned || []).length, missing, market + ' lost ' + missing + ' phrasings without recording them');
+    }
+  }
+  // The store itself must not contain one.
+  for (const f of files) assert.ok(!/probe/.test(f), f + ' is a probe sitting in the measurement store');
+});
+
 test('a pattern is judged on its best entity, not its worst', () => {
   const v = verdicts(rows);
   const byPattern = Object.fromEntries(v.map((x) => [x.pattern, x]));

@@ -9,13 +9,13 @@ important is left only in the Ahrefs interface.
 | | units |
 | --- | --- |
 | Workspace limit | 2,000,000 |
-| Used, measured on 23 September | 882,221 |
-| Remaining | 1,117,779 |
+| Used, measured on 23 September | 883,413 |
+| Remaining | 1,116,587 |
 
 The figure is the one the meter returns, not one I added up. My own receipts
-for the market research below total 5,620 units and the meter moved 6,690 over
-the same period. The difference of 1,070 is unexplained, and the meter is the
-number to trust.
+for the work below total 6,302 units, 5,620 on the market research and 682 on
+the language probes, and the meter moved 7,882 over the same period. The
+difference of 1,580 is unexplained, and the meter is the number to trust.
 
 ## What was measured, and why it was worth measuring
 
@@ -162,17 +162,59 @@ English markets are materially more winnable, and the reason is visible in
 the data: these are small sites answering one question per page in the local
 language, not large sites translated into it.
 
+## The four thin markets, asked in their own languages
+
+The shared seed could not settle ja-JP, zh-Hant-TW, pl-PL and nl-NL, so each
+was asked again in its own language: ten head phrasings written for the
+market rather than translated into it, 682 units in total.
+`data/atlas/probes/ahrefs-thin-markets-2026-09-23.json` holds the result, and
+it lives in a new `probes` directory rather than in the measurement store
+because a hand chosen probe would distort the phrasing verdicts. The
+directory README says what the distinction is and a test enforces it.
+
+Three of the four have demand. It simply does not sit where an English
+taxonomy would put it.
+
+**ja-JP.** The one head term is working holiday cost, 2,500 a month at
+difficulty 0 with a measurable cost per click. Every cost of living and
+relocation phrasing sits between 10 and 100. Japanese demand in this space is
+a work and visa intent, not a cost of living one.
+
+**pl-PL.** The generic phrase takes 90 a month. One country variant, prices
+in Croatia, takes 600 at difficulty 1. Seven to one in favour of the country
+page over the concept page.
+
+**nl-NL.** Emigrating to Portugal takes 500 at difficulty 0 with a real cost
+per click, against 60 for the concept phrase. Same pattern as Polish, a
+different vertical.
+
+**zh-Hant-TW.** Nothing found. Five of the ten phrasings returned no row at
+all and the five that did total twenty searches a month between them. That
+agrees with the shared seed research, where Taiwan had the smallest common
+keyword set of all ten markets at ten keywords. Taiwan should not carry these
+families until somebody who reads the market designs a better probe, and the
+honest statement is that nothing was found rather than that nothing is there.
+
+The probe is ten phrasings per market. It can show where demand sits; it
+cannot prove absence. That caveat is in the file and a test checks it is
+still there.
+
+One result is worth more than the four market verdicts. In all three markets
+that have demand, the phrasing with a country in it beats the concept
+phrasing by between five and seven times. That is a direct argument for the
+country level families added today and against generic concept hubs, measured
+independently in three languages.
+
 ## Still worth doing before 8 October
 
 Ranked by what stays useful after the plan lapses.
 
-1. A seed in the local language for ja-JP, zh-Hant-TW, pl-PL and nl-NL, so
-   the four thin markets are judged on their own terms rather than on an
-   English seed. Cheap, and it decides whether four of the eleven primary
-   markets carry these families at all.
-2. Top pages for the relocation, visas, rents and salaries verticals, seeded
+1. Top pages for the relocation, visas, rents and salaries verticals, seeded
    from internations.org, internationalliving.com, housinganywhere.com and
    payscale.com. Same method, same export shape, about 900 units per target.
+2. A Japanese probe on the working holiday intent the first probe found, since
+   that is where ja-JP demand actually is and it is a different family set
+   from the one the English research produced.
 3. Referring domains shared by two or more competitors, which is the link
    target dataset and is expensive to rebuild later.
 4. Brand Radar and AI citation data if the account exposes it, for the queries
