@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-22T23:28:17.077Z",
+ "generatedAt": "2026-09-23T17:43:25.702Z",
  "basis": "Family level priors and entity level signals. No page reaches measured through this report.",
  "target": 300000,
  "candidates": {
@@ -39,8 +39,8 @@
    "low": 96054
   },
   "byBand": {
-   "high-value": 763354,
-   "medium-value": 173046,
+   "high-value": 792864,
+   "medium-value": 143536,
    "low-value": 131164
   },
   "shares": {
@@ -50,8 +50,8 @@
     "low": 9
    },
    "byBand": {
-    "high-value": 71.5,
-    "medium-value": 16.2,
+    "high-value": 74.3,
+    "medium-value": 13.4,
     "low-value": 12.3
    }
   },
@@ -183,16 +183,6 @@
  ],
  "top20": [
   {
-   "family": "property.city-buy",
-   "vertical": "property",
-   "priority": "high",
-   "band": "high-value",
-   "prior": 0.922,
-   "candidates": 29510,
-   "markets": 10,
-   "entities": 2951
-  },
-  {
    "family": "taxes.country-remote-work",
    "vertical": "taxes",
    "priority": "high",
@@ -290,6 +280,16 @@
    "prior": 0.892,
    "candidates": 32461,
    "markets": 11,
+   "entities": 2951
+  },
+  {
+   "family": "property.city-buy",
+   "vertical": "property",
+   "priority": "high",
+   "band": "high-value",
+   "prior": 0.892,
+   "candidates": 29510,
+   "markets": 10,
    "entities": 2951
   },
   {
@@ -476,6 +476,13 @@
    "keptBecause": null
   },
   {
+   "family": "neighbourhoods.city-where-to-stay",
+   "priority": "medium",
+   "prior": 0.813,
+   "candidates": 29510,
+   "keptBecause": null
+  },
+  {
    "family": "visas.country-visit",
    "priority": "high",
    "prior": 0.808,
@@ -483,9 +490,9 @@
    "keptBecause": null
   },
   {
-   "family": "neighbourhoods.city-where-to-stay",
+   "family": "safety.city",
    "priority": "medium",
-   "prior": 0.702,
+   "prior": 0.677,
    "candidates": 29510,
    "keptBecause": null
   },
@@ -515,13 +522,6 @@
    "priority": "medium",
    "prior": 0.63,
    "candidates": 30010,
-   "keptBecause": null
-  },
-  {
-   "family": "safety.city",
-   "priority": "medium",
-   "prior": 0.612,
-   "candidates": 29510,
    "keptBecause": null
   },
   {
@@ -763,7 +763,7 @@
    {
     "family": "neighbourhoods.city-where-to-stay",
     "priority": "medium",
-    "band": "medium-value",
+    "band": "high-value",
     "candidates": 29510,
     "missing": [
      "neighbourhood-facts-verified"
