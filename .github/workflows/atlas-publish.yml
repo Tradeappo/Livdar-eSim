@@ -25,6 +25,7 @@ jobs:
       - run: node scripts/atlas/qa.mjs --ci
       - run: node scripts/dash-check.mjs
       - run: node scripts/atlas/registry.mjs ${{ inputs.action }}-lot ${{ inputs.lot }}
+      - run: node scripts/atlas/links.mjs --ci
       - run: node scripts/atlas/reconcile.mjs --check
       - run: node scripts/atlas/inventory.mjs --write
       - uses: peter-evans/create-pull-request@v6

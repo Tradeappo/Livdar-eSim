@@ -14,4 +14,5 @@ jobs:
       - run: node scripts/quality-gate.mjs
       - run: node scripts/atlas/qa.mjs --preview --ci
       - run: node scripts/atlas/funnel.mjs
+      - run: node scripts/atlas/links.mjs --ci
       - run: node scripts/atlas/reconcile.mjs --check

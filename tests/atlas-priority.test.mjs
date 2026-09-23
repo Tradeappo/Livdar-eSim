@@ -177,3 +177,12 @@ test('an unmeasured page still cannot be approved, whatever its priors', () => {
   assert.equal(d.approve, false);
   assert.ok(d.vetoes.includes('noMeasuredDemand'));
 });
+
+test('every published page clears the internal link floor and no hub is an orphan', async () => {
+  const { auditLinks } = await import('../scripts/atlas/links.mjs');
+  const a = auditLinks();
+  assert.equal(a.belowFloor, 0, JSON.stringify(a.belowFloorPaths));
+  assert.ok(a.minInbound >= a.floor, 'the weakest page has ' + a.minInbound + ' inbound links');
+  assert.deepEqual(a.hubsWithNoInboundLink, [], 'a section hub is reachable only through the sitemap');
+  assert.equal(a.pass, true);
+});
