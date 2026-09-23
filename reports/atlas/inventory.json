@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-23T17:52:24.331Z",
+ "generatedAt": "2026-09-23T22:51:44.944Z",
  "meaning": {
   "candidate": "A combination the taxonomy allows: one family, one entity, one variant, one market. Not a page.",
   "published": "The publication registry publishes it, so it routes and enters a sitemap.",
@@ -51,11 +51,11 @@
   }
  },
  "verticals": 22,
- "families": 42,
+ "families": 45,
  "candidates": {
-  "total": 1067664,
+  "total": 1092813,
   "byVertical": {
-   "cost-of-living": 147991,
+   "cost-of-living": 173140,
    "work": 147779,
    "rents": 139390,
    "relocation": 129822,
@@ -79,24 +79,24 @@
    "tools": 20
   },
   "byAxis": {
-   "audience": 224873,
-   "language": 814884,
+   "audience": 227612,
+   "language": 837294,
    "origin": 27907
   },
   "byMarket": {
-   "en-US": 142890,
-   "en-GB": 22980,
-   "de-DE": 142890,
-   "ja-JP": 94863,
-   "zh-Hant-TW": 94863,
-   "it-IT": 94863,
-   "es-ES": 94863,
-   "fr-FR": 94863,
-   "nl-NL": 94863,
-   "pl-PL": 94863,
-   "pt-BR": 94863
+   "en-US": 145380,
+   "en-GB": 23229,
+   "de-DE": 145380,
+   "ja-JP": 97353,
+   "zh-Hant-TW": 97353,
+   "it-IT": 97353,
+   "es-ES": 97353,
+   "fr-FR": 97353,
+   "nl-NL": 97353,
+   "pl-PL": 97353,
+   "pt-BR": 97353
   },
-  "largestVerticalShare": 6.2,
+  "largestVerticalShare": 6,
   "rows": [
    {
     "family": "relocation.city",
@@ -372,6 +372,19 @@
     "candidates": 23106
    },
    {
+    "family": "cost-of-living.item-country",
+    "vertical": "cost-of-living",
+    "axis": "language",
+    "scope": "country",
+    "priority": "high",
+    "marketGate": "research",
+    "prior": 0.771,
+    "entities": 249,
+    "variants": 8,
+    "markets": 10,
+    "candidates": 19920
+   },
+   {
     "family": "comparisons.city-vs-city",
     "vertical": "comparisons",
     "axis": "language",
@@ -515,6 +528,19 @@
     "candidates": 2739
    },
    {
+    "family": "cost-of-living.country-vs-market",
+    "vertical": "cost-of-living",
+    "axis": "audience",
+    "scope": "country",
+    "priority": "high",
+    "marketGate": "research",
+    "prior": 0.898,
+    "entities": 249,
+    "variants": 1,
+    "markets": 11,
+    "candidates": 2739
+   },
+   {
     "family": "taxes.country",
     "vertical": "taxes",
     "axis": "audience",
@@ -591,6 +617,19 @@
     "variants": 1,
     "markets": 11,
     "candidates": 2739
+   },
+   {
+    "family": "cost-of-living.country",
+    "vertical": "cost-of-living",
+    "axis": "language",
+    "scope": "country",
+    "priority": "high",
+    "marketGate": "research",
+    "prior": 0.878,
+    "entities": 249,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 2490
    },
    {
     "family": "destinations.country-hub",
@@ -734,6 +773,18 @@
    },
    {
     "family": "cost-of-living.city-vs-market",
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "cost-of-living.country",
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "cost-of-living.country-vs-market",
     "missing": [
      "cost-of-living-verified"
     ]
@@ -890,9 +941,9 @@
     ]
    }
   ],
-  "candidates": 943703,
+  "candidates": 948932,
   "missingSources": {
-   "cost-of-living-verified": 9,
+   "cost-of-living-verified": 11,
    "visa-rules-verified": 7,
    "work-rules-verified": 3,
    "salary-data-verified": 2,
@@ -911,6 +962,6 @@
    "attractions-verified": 1,
    "events-verified": 1
   },
-  "publishableNow": 123961
+  "publishableNow": 143881
  }
 }

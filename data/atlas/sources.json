@@ -237,6 +237,25 @@
    "maxAgeDays": 120
   },
   {
+   "id": "item-price-verified",
+   "name": "Single item consumer prices from official or openly licensed sources",
+   "url": "",
+   "licence": "to be established per item and country",
+   "attribution": "to be established per item and country",
+   "fields": [
+    "country",
+    "item",
+    "price",
+    "currency",
+    "asOf",
+    "source"
+   ],
+   "refresh": "monthly",
+   "maxAgeDays": 60,
+   "state": "not built yet",
+   "note": "Fuel prices are published weekly by the European Commission Weekly Oil Bulletin and by national regulators elsewhere. Food, restaurant and transport prices come from national statistical offices. Each item needs its own licensed source before cost-of-living.item-country can leave the gate, and the family is enumerated and blocked until then."
+  },
+  {
    "id": "rent-index-verified",
    "name": "Residential rent levels from an openly licensed or official source",
    "url": null,

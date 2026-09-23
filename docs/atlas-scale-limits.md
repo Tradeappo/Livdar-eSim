@@ -78,21 +78,20 @@ Serving generates a capped set at build time and renders the rest on first
 request with revalidation, so build time does not grow with the published
 count.
 
-## What would still break above a million
+## What is fixed, and what would still break above a million
+
+Three of the four things this section used to list have been done and are no
+longer risks: the registry is sharded at 4,096 buckets, the measurement store
+is 1,024 shards of newline delimited JSON that append rather than rewrite, and
+the link audit counts inbound links in passes over partitions instead of
+holding the graph. What follows is what genuinely remains.
 
 These are known and unfixed, listed so nobody discovers them at the wrong
 moment.
 
-The link audit builds the whole graph in memory. At a million pages that is
-tens of millions of edges in one process. It needs the same treatment as the
-similarity check, computing inbound counts per shard rather than globally.
-
-The measurement store is one file, exactly as the registry was. It has 123
-rows today. It needs sharding before the first bulk run, not after.
-
 Publication rewrites the sitemap set on every lot. At a million pages that is
 25 files rebuilt to add 250 URLs. It should append to the newest file and
-leave the others alone.
+leave the others alone. This one is still open.
 
 The QA and generation scripts hold a lot in memory at once. They need
 checkpointing so a run of a hundred thousand can resume rather than restart.

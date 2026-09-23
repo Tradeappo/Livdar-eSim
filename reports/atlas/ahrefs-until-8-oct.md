@@ -9,12 +9,13 @@ important is left only in the Ahrefs interface.
 | | units |
 | --- | --- |
 | Workspace limit | 2,000,000 |
-| Used before today | 849,449 |
-| Spent on 23 September | 5,342 |
-| Remaining | about 1,145,000 |
+| Used, measured on 23 September | 882,221 |
+| Remaining | 1,117,779 |
 
-The 23 September spend breaks down as 4,122 on demand measurement in en-US and
-1,220 on competitor intelligence.
+The figure is the one the meter returns, not one I added up. My own receipts
+for the market research below total 5,620 units and the meter moved 6,690 over
+the same period. The difference of 1,070 is unexplained, and the meter is the
+number to trust.
 
 ## What was measured, and why it was worth measuring
 
@@ -28,7 +29,7 @@ already paid for.
 families, and `reports/atlas/phrasing-verdicts.json` holds the verdict on each
 of the 34 patterns behind them: 19 strong, 8 thin, 2 entity bound, 5 dead.
 
-## What the competitor research says, and why it matters more than the volumes
+## The United States research
 
 `data/atlas/competitors/cost-of-living-us-2026-09-23.json` holds the top pages
 of numbeo.com and its organic competitors in the United States.
@@ -58,15 +59,120 @@ programme, and it is recorded here rather than argued away. The sites winning
 this space are in the hundreds to low thousands of pages. Page count is not
 what earns the share; being the page that answers the comparison is.
 
+## The other ten primary markets
+
+`data/atlas/competitors/markets-2026-09-23.json` holds competitor sets for
+de-DE, fr-FR, es-ES, it-IT, en-GB, pt-BR, nl-NL, pl-PL, ja-JP and
+zh-Hant-TW, plus the top pages of the strongest local site in each market
+where one exists. Every market used the same seed, numbeo.com, so the market
+figures are comparable with each other.
+
+### The cluster is not the same size in every market
+
+| market | largest common keyword set |
+| --- | --- |
+| fr-FR | 1,238 |
+| it-IT | 738 |
+| en-GB | 640 |
+| es-ES | 463 |
+| de-DE | 310 |
+| pt-BR | 286 |
+| pl-PL | 58 |
+| nl-NL | 55 |
+| ja-JP | 16 |
+| zh-Hant-TW | 10 |
+
+This is now recorded per market in `lib/atlas/markets.js` as `atlasCluster`.
+It changes nothing on its own, and the file says so: the seed is an English
+language site, so a small figure can mean the cluster is served by sites that
+seed does not resemble rather than that no cluster exists. What it does mean
+is that ja-JP, zh-Hant-TW, pl-PL and nl-NL have not been shown to have demand
+for these families. The eSIM research justified those markets for eSIM. It
+does not justify enumerating relocation and cost of living pages there, and
+each of the four needs a seed in its own language before it is judged. That
+is the next research to run, and it is cheap.
+
+### Three page shapes Livdar did not have
+
+Each one was found in the data, not reasoned into existence, and each is now a
+family in `lib/atlas/verticals.js` carrying the evidence that justifies it.
+The inventory went from 42 families and 1,067,664 candidates to 45 and
+1,092,813, which is 25,149 added.
+
+**Cost of living at country level.** Livdar had `cost-of-living.city` and no
+country equivalent at all. In Germany, auslandsguru.com holds 11.0 percent
+share at domain rating **7** with 157 pages, and all twenty of its top pages
+are `/lebenshaltungskosten/{country}/`. A domain rating of seven is not
+outranking anybody on authority. In France the same shape appears as
+`/cout-de-la-vie/{country}/`. New family: `cost-of-living.country`.
+
+**The reader's own country as the fixed side of a comparison.** Sixteen of
+livingcost.org's top twenty pages in the United Kingdom are
+`/cost/{other-country}/united-kingdom`. The same site measured in another
+market would rank a different set of URLs entirely. This is the audience axis
+in its clearest form, and it is the strongest argument yet against identical
+translations: the page cannot be shared between markets because one side of
+the comparison changes. New family: `cost-of-living.country-vs-market`.
+
+**One priced item, one country.** This is the largest single earner in the
+French data and effectively the whole of the Italian data.
+Combien-coute.net's traffic base is `/cigarette/{country}/` and
+`/essence/{country}/` pages, hikersbay.com ranks in Italian on almost nothing
+but single item price questions, and preciosmundi.com splits country prices
+into `/precios-supermercado` and `/precio-restaurantes`. New family:
+`cost-of-living.item-country`, eight items per country.
+
+Tobacco is not one of the eight, and that is a decision rather than an
+oversight. It is the item the competitors earn most on, the exclusion costs
+real traffic, and it is written into `PRICE_ITEMS` so it can be reversed
+knowingly if that is what is wanted.
+
+The family is blocked at the source gate: `item-price-verified` is new in
+`data/atlas/sources.json` and is not built. Fuel prices are published weekly
+by the European Commission Weekly Oil Bulletin and by national regulators
+elsewhere; food and transport prices come from national statistical offices.
+Each item needs its own licensed source before a page can be generated.
+
+### A correction the English language taxonomy would not have produced
+
+In Brazil, custodevida.com.br holds 7.1 percent share, and nine of its top
+twenty pages are `/comparar/{state-city}/{state-city}/`, all inside Brazil.
+Not one international comparison appears. The existing pair rule in
+`lib/atlas/inventory.js` already mixes domestic pairs with cross border ones,
+so no code changed, but the evidence is now recorded on
+`comparisons.city-vs-city`: the domestic half is the half that earns, and a
+taxonomy written from English would have assumed the opposite.
+
+### The ranking page finding repeats in a second language
+
+Laenderdaten.info in Germany earns far more from its ranked lists across all
+countries, the richest countries, intelligence by country, the most dangerous
+countries, the largest countries, than from its per country data pages. That
+is the same result the United States research produced, in a different
+language and against a different competitive set, which is the closest thing
+to independent confirmation this kind of research offers.
+
+### Low authority wins outside English
+
+The pattern across markets is consistent and it matters for what Livdar can
+expect. In the United States the leaders are domain rating 66 to 90. In
+Germany the top share is held at domain rating 7, in Italy at 48 with local
+sites at 3, 10 and 15 holding share, in Spain at 30, in Brazil at 34. Non
+English markets are materially more winnable, and the reason is visible in
+the data: these are small sites answering one question per page in the local
+language, not large sites translated into it.
+
 ## Still worth doing before 8 October
 
 Ranked by what stays useful after the plan lapses.
 
-1. Top pages for the relocation, visas, rents and salaries verticals, seeded
+1. A seed in the local language for ja-JP, zh-Hant-TW, pl-PL and nl-NL, so
+   the four thin markets are judged on their own terms rather than on an
+   English seed. Cheap, and it decides whether four of the eleven primary
+   markets carry these families at all.
+2. Top pages for the relocation, visas, rents and salaries verticals, seeded
    from internations.org, internationalliving.com, housinganywhere.com and
    payscale.com. Same method, same export shape, about 900 units per target.
-2. The same for the non English markets, starting with de-DE, es-ES and it-IT,
-   where no competitor research exists at all.
 3. Referring domains shared by two or more competitors, which is the link
    target dataset and is expensive to rebuild later.
 4. Brand Radar and AI citation data if the account exposes it, for the queries
@@ -75,4 +181,6 @@ Ranked by what stays useful after the plan lapses.
 
 Bulk search volume is deliberately not on this list. DataForSEO measures it at
 roughly one hundredth of the Ahrefs unit cost, and the units that expire are
-better spent on the data DataForSEO cannot produce.
+better spent on the data DataForSEO cannot produce. How much bulk measurement
+remains is still to be recalculated once the language seeded research above
+has pruned the patterns that do not exist in the thin markets.
