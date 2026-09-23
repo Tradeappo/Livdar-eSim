@@ -1,16 +1,16 @@
 {
- "generatedAt": "2026-09-23T17:43:25.702Z",
+ "generatedAt": "2026-09-23T17:52:23.826Z",
  "basis": "Family level priors and entity level signals. No page reaches measured through this report.",
  "target": 300000,
  "candidates": {
-  "total": 1067564,
-  "selected": 325180,
+  "total": 1067664,
+  "selected": 325200,
   "reachedTarget": true,
-  "familiesSelected": 14,
-  "familiesTotal": 39
+  "familiesSelected": 16,
+  "familiesTotal": 42
  },
  "distributionAll": {
-  "total": 1067564,
+  "total": 1067664,
   "byVertical": {
    "cost-of-living": 147991,
    "work": 147779,
@@ -31,15 +31,17 @@
    "airports": 6488,
    "events": 5600,
    "taxes": 5478,
-   "banking": 2739
+   "banking": 2739,
+   "rankings": 80,
+   "tools": 20
   },
   "byPriority": {
-   "high": 763354,
+   "high": 763454,
    "medium": 208156,
    "low": 96054
   },
   "byBand": {
-   "high-value": 792864,
+   "high-value": 792964,
    "medium-value": 143536,
    "low-value": 131164
   },
@@ -91,7 +93,7 @@
   ]
  },
  "distributionSelected": {
-  "total": 325180,
+  "total": 325200,
   "byVertical": {
    "relocation": 129822,
    "weather": 60888,
@@ -103,15 +105,16 @@
    "health": 2739,
    "banking": 2739,
    "connectivity": 2739,
-   "visas": 2739
+   "visas": 2739,
+   "tools": 20
   },
   "byPriority": {
-   "high": 240688,
+   "high": 240708,
    "medium": 0,
    "low": 84492
   },
   "byBand": {
-   "high-value": 240688,
+   "high-value": 240708,
    "medium-value": 0,
    "low-value": 84492
   },
@@ -223,6 +226,16 @@
    "entities": 249
   },
   {
+   "family": "tools.cost-calculator",
+   "vertical": "tools",
+   "priority": "high",
+   "band": "high-value",
+   "prior": 0.912,
+   "candidates": 10,
+   "markets": 10,
+   "entities": 1
+  },
+  {
    "family": "relocation.country",
    "vertical": "relocation",
    "priority": "high",
@@ -251,6 +264,16 @@
    "candidates": 127083,
    "markets": 11,
    "entities": 11553
+  },
+  {
+   "family": "tools.cost-comparison",
+   "vertical": "tools",
+   "priority": "high",
+   "band": "high-value",
+   "prior": 0.903,
+   "candidates": 10,
+   "markets": 10,
+   "entities": 1
   },
   {
    "family": "visas.country-digital-nomad",
@@ -361,26 +384,6 @@
    "candidates": 5600,
    "markets": 10,
    "entities": 560
-  },
-  {
-   "family": "comparisons.city-vs-city",
-   "vertical": "comparisons",
-   "priority": "high",
-   "band": "high-value",
-   "prior": 0.866,
-   "candidates": 17620,
-   "markets": 10,
-   "entities": 1762
-  },
-  {
-   "family": "health.city",
-   "vertical": "health",
-   "priority": "high",
-   "band": "high-value",
-   "prior": 0.844,
-   "candidates": 29510,
-   "markets": 10,
-   "entities": 2951
   }
  ],
  "notSelected": [
@@ -487,6 +490,13 @@
    "priority": "high",
    "prior": 0.808,
    "candidates": 2739,
+   "keptBecause": null
+  },
+  {
+   "family": "rankings.index",
+   "priority": "high",
+   "prior": 0.742,
+   "candidates": 80,
    "keptBecause": null
   },
   {
@@ -629,8 +639,8 @@
   "singleFamilyOfLowPriority": 0.08
  },
  "blocked": {
-  "families": 33,
-  "candidates": 943603,
+  "families": 36,
+  "candidates": 943703,
   "rows": [
    {
     "family": "relocation.city",
@@ -932,6 +942,33 @@
     "candidates": 2739,
     "missing": [
      "travel-advice-verified"
+    ]
+   },
+   {
+    "family": "rankings.index",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 80,
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "tools.cost-comparison",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 10,
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "tools.cost-calculator",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 10,
+    "missing": [
+     "cost-of-living-verified"
     ]
    }
   ]
