@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22 }
+        with: { node-version: 24 }
       - run: node scripts/atlas/funnel.mjs --lot ${{ inputs.lot }}
       - run: node scripts/atlas/qa.mjs --lot ${{ inputs.lot }} --ci
       - run: node scripts/dash-check.mjs

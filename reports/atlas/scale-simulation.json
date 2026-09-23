@@ -1,0 +1,225 @@
+{
+ "generatedAt": "2026-09-23T22:07:04.685Z",
+ "constants": {
+  "registryBytesPerEntry": 308,
+  "registryEntriesMeasured": 123,
+  "measurementBytesPerRow": 320,
+  "linkEdgesPerPage": 12
+ },
+ "similarityConfig": {
+  "bands": 32,
+  "signatureLength": 128
+ },
+ "rows": [
+  {
+   "pages": 300000,
+   "registry": {
+    "totalGb": 0.09,
+    "perShardMb": 0.02,
+    "shards": 4096,
+    "entriesPerShard": 73
+   },
+   "measurements": {
+    "totalGb": 0.14,
+    "perShardMb": 0.14,
+    "shards": 1024
+   },
+   "sitemaps": {
+    "files": 8,
+    "indexesNeeded": 1,
+    "withinOneIndex": true
+   },
+   "linking": {
+    "edges": 3600000,
+    "edgesGbIfHeldInMemory": 0.14,
+    "streamable": true,
+    "floor": 3
+   },
+   "similarity": {
+    "lshCandidatePairs": 2400000,
+    "exhaustivePairs": 44999850000,
+    "savedRatio": 99.99
+   },
+   "verdict": [
+    "no bottleneck at this size with the current shape"
+   ]
+  },
+  {
+   "pages": 1000000,
+   "registry": {
+    "totalGb": 0.31,
+    "perShardMb": 0.08,
+    "shards": 4096,
+    "entriesPerShard": 244
+   },
+   "measurements": {
+    "totalGb": 0.48,
+    "perShardMb": 0.47,
+    "shards": 1024
+   },
+   "sitemaps": {
+    "files": 25,
+    "indexesNeeded": 1,
+    "withinOneIndex": true
+   },
+   "linking": {
+    "edges": 12000000,
+    "edgesGbIfHeldInMemory": 0.48,
+    "streamable": true,
+    "floor": 3
+   },
+   "similarity": {
+    "lshCandidatePairs": 8000000,
+    "exhaustivePairs": 499999500000,
+    "savedRatio": 100
+   },
+   "verdict": [
+    "no bottleneck at this size with the current shape"
+   ]
+  },
+  {
+   "pages": 20000000,
+   "registry": {
+    "totalGb": 6.16,
+    "perShardMb": 1.5,
+    "shards": 4096,
+    "entriesPerShard": 4883
+   },
+   "measurements": {
+    "totalGb": 9.6,
+    "perShardMb": 9.38,
+    "shards": 1024
+   },
+   "sitemaps": {
+    "files": 500,
+    "indexesNeeded": 1,
+    "withinOneIndex": true
+   },
+   "linking": {
+    "edges": 240000000,
+    "edgesGbIfHeldInMemory": 9.6,
+    "streamable": true,
+    "floor": 3
+   },
+   "similarity": {
+    "lshCandidatePairs": 160000000,
+    "exhaustivePairs": 199999990000000,
+    "savedRatio": 100
+   },
+   "verdict": [
+    "link graph above 8 GB, it must be computed per shard and never held whole",
+    "generation and QA must checkpoint, a full rerun is no longer affordable"
+   ]
+  },
+  {
+   "pages": 50000000,
+   "registry": {
+    "totalGb": 15.4,
+    "perShardMb": 3.76,
+    "shards": 4096,
+    "entriesPerShard": 12207
+   },
+   "measurements": {
+    "totalGb": 24,
+    "perShardMb": 23.44,
+    "shards": 1024
+   },
+   "sitemaps": {
+    "files": 1250,
+    "indexesNeeded": 1,
+    "withinOneIndex": true
+   },
+   "linking": {
+    "edges": 600000000,
+    "edgesGbIfHeldInMemory": 24,
+    "streamable": true,
+    "floor": 3
+   },
+   "similarity": {
+    "lshCandidatePairs": 400000000,
+    "exhaustivePairs": 1249999975000000,
+    "savedRatio": 100
+   },
+   "verdict": [
+    "measurement store above 20 GB, move it out of the repository to object storage",
+    "link graph above 8 GB, it must be computed per shard and never held whole",
+    "generation and QA must checkpoint, a full rerun is no longer affordable",
+    "the repository is the wrong home for the data, object storage plus a key value index"
+   ]
+  },
+  {
+   "pages": 100000000,
+   "registry": {
+    "totalGb": 30.8,
+    "perShardMb": 7.52,
+    "shards": 4096,
+    "entriesPerShard": 24414
+   },
+   "measurements": {
+    "totalGb": 48,
+    "perShardMb": 46.88,
+    "shards": 1024
+   },
+   "sitemaps": {
+    "files": 2500,
+    "indexesNeeded": 1,
+    "withinOneIndex": true
+   },
+   "linking": {
+    "edges": 1200000000,
+    "edgesGbIfHeldInMemory": 48,
+    "streamable": true,
+    "floor": 3
+   },
+   "similarity": {
+    "lshCandidatePairs": 800000000,
+    "exhaustivePairs": 4999999950000000,
+    "savedRatio": 100
+   },
+   "verdict": [
+    "registry shard above 5 MB, raise the shard count",
+    "measurement store above 20 GB, move it out of the repository to object storage",
+    "link graph above 8 GB, it must be computed per shard and never held whole",
+    "generation and QA must checkpoint, a full rerun is no longer affordable",
+    "the repository is the wrong home for the data, object storage plus a key value index"
+   ]
+  }
+ ],
+ "ceilings": [
+  {
+   "file": "lib/atlas/serve.js",
+   "name": "STATIC_CAP",
+   "value": 5000,
+   "kind": "safety cap",
+   "blocksScale": "no, it limits one run rather than the total"
+  },
+  {
+   "file": "lib/atlas/sitemap.js",
+   "name": "CAP",
+   "value": 40000,
+   "kind": "shape parameter",
+   "blocksScale": "no, it limits one run rather than the total"
+  },
+  {
+   "file": "lib/atlas/selection.js",
+   "name": "TARGET",
+   "value": 300000,
+   "kind": "safety cap",
+   "blocksScale": "no, it limits one run rather than the total"
+  },
+  {
+   "file": "lib/atlas/registry-store.js",
+   "name": "REGISTRY_SHARDS",
+   "value": 4096,
+   "kind": "shape parameter",
+   "blocksScale": "only through shard size, which the simulation checks at each step"
+  },
+  {
+   "file": "lib/atlas/measurement-store.js",
+   "name": "MEASUREMENT_SHARDS",
+   "value": 1024,
+   "kind": "shape parameter",
+   "blocksScale": "only through shard size, which the simulation checks at each step"
+  }
+ ]
+}

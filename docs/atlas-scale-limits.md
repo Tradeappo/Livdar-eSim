@@ -110,3 +110,68 @@ cohorts have matured so there is no baseline.
 
 That is the correct answer. The first step on the ladder is 250, and the way
 to earn it is to wait two weeks and measure, not to publish more.
+
+## Beyond twenty million
+
+Twenty million is the minimum design target, not a ceiling. The simulation in
+`scripts/atlas/scale-simulation.mjs` runs the measured constants up to a
+hundred million and says what gives way where. Every figure below is computed,
+not estimated: 308 bytes per registry entry measured on the committed
+registry, 320 per measurement row, twelve link edges per page from the recipes
+in use.
+
+| Pages | Registry per shard | Measurements | Sitemap files | Link edges | First bottleneck |
+| --- | --- | --- | --- | --- | --- |
+| 300,000 | 0.02 MB | 0.14 GB | 8 | 3.6M | none |
+| 1,000,000 | 0.08 MB | 0.48 GB | 25 | 12M | none |
+| 20,000,000 | 1.5 MB | 9.6 GB | 500 | 240M | link graph, checkpointing |
+| 50,000,000 | 3.8 MB | 24 GB | 1,250 | 600M | data leaves the repository |
+| 100,000,000 | 7.5 MB | 48 GB | 2,500 | 1.2B | registry shard count |
+
+Sitemaps never become a problem. At a hundred million pages the set is 2,500
+files against an index limit of 50,000, so one index holds the lot with room
+to spare.
+
+## The migration path, with the number that triggers each step
+
+**Files to sharded files.** Done. The registry shards at 4,096 buckets, the
+measurement store at 1,024 as newline delimited JSON that appends instead of
+rewriting, and both are keyed by a stable hash so nothing moves between
+buckets as the site grows.
+
+**Sharded files to object storage.** Trigger: the measurement store passing
+about 20 GB, which is fifty million pages. Reason: a git repository is the
+wrong home for tens of gigabytes that change daily. Complexity is moderate,
+because both stores already read and write one shard at a time, so the change
+is where a shard lives rather than what a shard is.
+
+**Object storage to a key value index.** Trigger: needing a single page's
+state in under ten milliseconds at a hundred million pages, or wanting queries
+the file layout cannot answer. Until then the shard read is fast enough and
+costs nothing to operate.
+
+**Distributed processing.** Trigger: a generation pass that cannot finish
+inside one run even with checkpointing, which is tens of millions of pages.
+The batch boundaries and the resume records already exist, so the work is
+distributing runs that are already partitioned rather than partitioning them.
+
+## Peak memory, which is the thing that actually breaks first
+
+Holding the link graph is what kills a single process: 240 million edges at
+twenty million pages, 1.2 billion at a hundred million, which is 48 GB.
+`lib/atlas/linking-scale.js` never holds it. It counts inbound links in
+passes over partitions, into counter shards whose number grows with the site
+so that entries per shard stay under fifty thousand. Peak memory at a hundred
+million pages is under four megabytes against 48 GB for the whole graph, and
+the guarantee is a ceiling rather than a constant: entries per shard never
+pass the target because a new shard level is added before they can.
+
+## Ceilings in the code
+
+`node scripts/atlas/scale-simulation.mjs` audits them. There are five
+constants that look like limits. Two are shape parameters, the registry and
+measurement shard counts, and the simulation watches their shard size at every
+step. The rest are safety caps on a single run, not on the total: the static
+generation cap, the sitemap file size, and the selection target. None of them
+caps how large the programme can become, and all of them are one constant to
+change.
