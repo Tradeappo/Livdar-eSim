@@ -26,6 +26,8 @@ jobs:
       - run: node scripts/dash-check.mjs
       - run: node scripts/atlas/registry.mjs ${{ inputs.action }}-lot ${{ inputs.lot }}
       - run: node scripts/atlas/links.mjs --ci
+      - name: Scale gate, which must return GO before a lot is published
+        run: node scripts/atlas/cohort-report.mjs --write
       - run: node scripts/atlas/reconcile.mjs --check
       - run: node scripts/atlas/inventory.mjs --write
       - uses: peter-evans/create-pull-request@v6

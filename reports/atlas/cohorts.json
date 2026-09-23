@@ -1,0 +1,160 @@
+{
+ "generatedAt": "2026-09-23T18:28:24.616Z",
+ "ladder": [
+  250,
+  1000,
+  5000,
+  25000,
+  100000,
+  300000,
+  1000000,
+  3000000,
+  5000000,
+  10000000,
+  20000000
+ ],
+ "published": 123,
+ "nextStep": 250,
+ "cohorts": [
+  {
+   "id": "lot-002@2026-09-22",
+   "publishedOn": "2026-09-22",
+   "market": "de",
+   "families": [
+    "city-month"
+   ],
+   "pages": 46,
+   "counts": {
+    "published": 46,
+    "errors": 0
+   },
+   "ageDays": 1,
+   "rates": {
+    "liveRate": null,
+    "discoveryRate": null,
+    "indexationRate": null,
+    "top10Rate": null,
+    "zeroImpressionRate": null,
+    "zeroClickRate": null,
+    "ctr": null,
+    "avgPosition": null,
+    "duplicateRate": null,
+    "cannibalisationRate": null,
+    "errorRate": 0
+   },
+   "per1k": {
+    "impressions": null,
+    "clicks": null,
+    "conversions": null,
+    "valueCents": null,
+    "indexed": null
+   },
+   "lag": {
+    "daysToFirstDiscovery": null,
+    "daysToFirstIndex": null,
+    "medianDaysToIndex": null
+   }
+  },
+  {
+   "id": "lot-001@2026-09-22",
+   "publishedOn": "2026-09-22",
+   "market": "en",
+   "families": [
+    "city-month"
+   ],
+   "pages": 77,
+   "counts": {
+    "published": 77,
+    "errors": 0
+   },
+   "ageDays": 1,
+   "rates": {
+    "liveRate": null,
+    "discoveryRate": null,
+    "indexationRate": null,
+    "top10Rate": null,
+    "zeroImpressionRate": null,
+    "zeroClickRate": null,
+    "ctr": null,
+    "avgPosition": null,
+    "duplicateRate": null,
+    "cannibalisationRate": null,
+    "errorRate": 0
+   },
+   "per1k": {
+    "impressions": null,
+    "clicks": null,
+    "conversions": null,
+    "valueCents": null,
+    "indexed": null
+   },
+   "lag": {
+    "daysToFirstDiscovery": null,
+    "daysToFirstIndex": null,
+    "medianDaysToIndex": null
+   }
+  }
+ ],
+ "marginals": [
+  {
+   "from": "lot-002@2026-09-22",
+   "to": "lot-001@2026-09-22",
+   "pages": {
+    "previous": 46,
+    "current": 77
+   },
+   "comparable": false,
+   "comparableNote": "A cohort younger than fourteen days has not had time to be indexed, so a ratio against it is not evidence.",
+   "ratios": {
+    "impressionsPer1k": null,
+    "clicksPer1k": null,
+    "indexedPer1k": null,
+    "conversionsPer1k": null,
+    "indexationRate": null,
+    "top10Rate": null
+   },
+   "deltas": {
+    "zeroImpressionRate": null,
+    "duplicateRate": null
+   }
+  }
+ ],
+ "baseline": {
+  "established": false,
+  "maturedCohorts": 0,
+  "need": 3,
+  "note": "Fewer than three cohorts have reached fourteen days. There is no empirical baseline yet, so no threshold is applied and the gate cannot return GO on performance grounds."
+ },
+ "gate": {
+  "verdict": "HOLD",
+  "step": 250,
+  "reasons": [
+   "The newest cohort is 1 days old. It needs 14 before its indexation means anything.",
+   "The newest cohort has no Search Console measurement, so its indexation is unknown rather than poor.",
+   "Fewer than three cohorts have reached fourteen days. There is no empirical baseline yet, so no threshold is applied and the gate cannot return GO on performance grounds."
+  ],
+  "stops": [],
+  "holds": []
+ },
+ "siteWideSearchConsole": {
+  "date": "2026-09-23",
+  "source": "Search Console page indexing report, u/6, sc-domain:livdar.com",
+  "dataAsOf": "2026-09-21",
+  "indexed": 43,
+  "notIndexed": 51,
+  "reasons": {
+   "discovered, not indexed": 48,
+   "duplicate without user selected canonical": 1,
+   "page with redirect": 1,
+   "crawled, not indexed": 1
+  },
+  "sitemapIndex": {
+   "submitted": "2026-09-16",
+   "lastRead": "2026-09-20",
+   "status": "success",
+   "pagesDiscovered": 107
+  },
+  "note": "The sitemap index was last read on 20 September, before the Atlas pages were published, so none of the Atlas URLs are in the Google sitemap view yet. Indexed counts pages, and it is not the same number as requests accepted."
+ },
+ "note": "Per cohort Search Console figures are null until the atlas-search-console import runs. Null means unmeasured, never zero."
+}
