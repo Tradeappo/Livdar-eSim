@@ -1,0 +1,601 @@
+{
+ "generatedAt": "2026-09-24T06:29:09.579Z",
+ "meaning": "Nineteen tools ordered by reachability, value and shippability, discounted when their sources do not exist. Volume is not the ordering: the two largest terms in the research sit near the bottom because difficulty 74 and 69 are not winnable from a standing start.",
+ "buildableNow": [
+  "moving-cost",
+  "cost-of-living-comparison",
+  "travel-budget"
+ ],
+ "blockedCount": 16,
+ "blockingSources": [
+  {
+   "id": "rent-index-verified",
+   "state": "not-built",
+   "tools": [
+    "rent-affordability",
+    "where-should-i-live",
+    "relocation-budget",
+    "city-comparison",
+    "neighbourhood-matcher"
+   ]
+  },
+  {
+   "id": "visa-rules-verified",
+   "state": "not-built",
+   "tools": [
+    "relocation-checklist",
+    "destination-matcher",
+    "visa-eligibility"
+   ]
+  },
+  {
+   "id": "tax-rules-verified",
+   "state": "not-built",
+   "tools": [
+    "net-salary",
+    "income-tax",
+    "country-comparison"
+   ]
+  },
+  {
+   "id": "neighbourhood-facts-verified",
+   "state": "not-built",
+   "tools": [
+    "neighbourhood-matcher",
+    "where-should-i-stay"
+   ]
+  },
+  {
+   "id": "stay-inventory-verified",
+   "state": "not-built",
+   "tools": [
+    "event-trip-planner",
+    "where-should-i-stay"
+   ]
+  },
+  {
+   "id": "transit-fares-verified",
+   "state": "unknown",
+   "tools": [
+    "commute"
+   ]
+  },
+  {
+   "id": "country-facts-verified",
+   "state": "unknown",
+   "tools": [
+    "relocation-checklist"
+   ]
+  },
+  {
+   "id": "salary-data-verified",
+   "state": "not-built",
+   "tools": [
+    "salary-calculator"
+   ]
+  },
+  {
+   "id": "connectivity-data-verified",
+   "state": "unknown",
+   "tools": [
+    "destination-matcher"
+   ]
+  },
+  {
+   "id": "events-verified",
+   "state": "not-built",
+   "tools": [
+    "event-trip-planner"
+   ]
+  },
+  {
+   "id": "venue-data-verified",
+   "state": "not-built",
+   "tools": [
+    "event-trip-planner"
+   ]
+  },
+  {
+   "id": "property-price-verified",
+   "state": "unknown",
+   "tools": [
+    "property-affordability"
+   ]
+  }
+ ],
+ "queue": [
+  {
+   "id": "moving-cost",
+   "name": "Moving cost calculator",
+   "family": "tools.calculator",
+   "queueScore": 0.772,
+   "score": 0.772,
+   "volume": 2500,
+   "difficulty": 41,
+   "cpcUsd": 5,
+   "complexity": "small",
+   "sourcesReady": true,
+   "missingSources": [],
+   "inputs": [
+    "origin city",
+    "destination city",
+    "home size",
+    "date"
+   ],
+   "leadsTo": [
+    "moving-service"
+   ],
+   "competitor": "removals companies and comparison sites, none of them a relocation product",
+   "note": "The highest cost per click measured anywhere in this research, and the only top tool that needs no licensed dataset. That combination is why it is first."
+  },
+  {
+   "id": "cost-of-living-comparison",
+   "name": "Cost of living comparison",
+   "family": "tools.cost-comparison",
+   "queueScore": 0.574,
+   "score": 0.574,
+   "volume": 49000,
+   "difficulty": null,
+   "cpcUsd": 0.45,
+   "complexity": "medium",
+   "sourcesReady": true,
+   "missingSources": [],
+   "inputs": [
+    "city a",
+    "city b",
+    "income"
+   ],
+   "leadsTo": [
+    "relocation-service",
+    "stay-booking"
+   ],
+   "competitor": "numbeo, whose comparison page takes 24,427 visits, ten times its next best page",
+   "note": "Measured on 23 September as the single biggest page in the competitive set. Difficulty is not recorded for the head term; the pair pages underneath it are where a new site enters."
+  },
+  {
+   "id": "travel-budget",
+   "name": "Travel budget",
+   "family": "tools.calculator",
+   "queueScore": 0.548,
+   "score": 0.548,
+   "volume": 150,
+   "difficulty": 9,
+   "cpcUsd": 0.7,
+   "complexity": "small",
+   "sourcesReady": true,
+   "missingSources": [],
+   "inputs": [
+    "destination",
+    "nights",
+    "style"
+   ],
+   "leadsTo": [
+    "stay-booking"
+   ],
+   "competitor": "travel blogs with static tables",
+   "note": null
+  },
+  {
+   "id": "commute",
+   "name": "Commute calculator",
+   "family": "tools.calculator",
+   "queueScore": 0.263,
+   "score": 0.585,
+   "volume": 350,
+   "difficulty": 9,
+   "cpcUsd": 2,
+   "complexity": "medium",
+   "sourcesReady": false,
+   "missingSources": [
+    "transit-fares-verified"
+   ],
+   "inputs": [
+    "home area",
+    "work area",
+    "mode"
+   ],
+   "leadsTo": [
+    "rental-lead",
+    "stay-booking"
+   ],
+   "competitor": "mapping products, which answer the route and not the cost or the choice",
+   "note": "Two dollars a click at difficulty 9. It is the tool that connects Areas to Stay, which no competitor in the set does."
+  },
+  {
+   "id": "rent-affordability",
+   "name": "Rent affordability",
+   "family": "tools.calculator",
+   "queueScore": 0.255,
+   "score": 0.566,
+   "volume": 3600,
+   "difficulty": 31,
+   "cpcUsd": 0.3,
+   "complexity": "small",
+   "sourcesReady": false,
+   "missingSources": [
+    "rent-index-verified"
+   ],
+   "inputs": [
+    "income",
+    "city",
+    "household size"
+   ],
+   "leadsTo": [
+    "rental-lead"
+   ],
+   "competitor": "US rental portals, almost entirely domestic",
+   "note": "The largest winnable volume of the calculators. Every competitor answers it for one country, and the cross border version is the gap."
+  },
+  {
+   "id": "relocation-checklist",
+   "name": "Relocation checklist",
+   "family": "tools.calculator",
+   "queueScore": 0.248,
+   "score": 0.552,
+   "volume": 150,
+   "difficulty": 12,
+   "cpcUsd": 0.9,
+   "complexity": "small",
+   "sourcesReady": false,
+   "missingSources": [
+    "visa-rules-verified",
+    "country-facts-verified"
+   ],
+   "inputs": [
+    "origin",
+    "destination",
+    "date",
+    "household"
+   ],
+   "leadsTo": [
+    "relocation-service",
+    "moving-service"
+   ],
+   "competitor": "blog posts with static lists",
+   "note": null
+  },
+  {
+   "id": "where-should-i-live",
+   "name": "Where should I live",
+   "family": "tools.matcher",
+   "queueScore": 0.245,
+   "score": 0.544,
+   "volume": 1500,
+   "difficulty": 1,
+   "cpcUsd": 0.1,
+   "complexity": "medium",
+   "sourcesReady": false,
+   "missingSources": [
+    "rent-index-verified"
+   ],
+   "inputs": [
+    "budget",
+    "climate",
+    "language",
+    "work situation",
+    "priorities"
+   ],
+   "leadsTo": [
+    "premium-tool",
+    "stay-booking",
+    "relocation-service"
+   ],
+   "competitor": "quiz sites with no data behind the answer",
+   "note": "The best ratio of demand to difficulty in the entire programme, 1,500 a month at difficulty 1. It is also the planner in its page form and it walks the same graph paths, so it is worth more than its own traffic."
+  },
+  {
+   "id": "relocation-budget",
+   "name": "Relocation budget",
+   "family": "tools.calculator",
+   "queueScore": 0.226,
+   "score": 0.502,
+   "volume": 150,
+   "difficulty": 12,
+   "cpcUsd": 0.9,
+   "complexity": "medium",
+   "sourcesReady": false,
+   "missingSources": [
+    "rent-index-verified"
+   ],
+   "inputs": [
+    "origin",
+    "destination",
+    "household",
+    "timeline"
+   ],
+   "leadsTo": [
+    "relocation-service",
+    "moving-service"
+   ],
+   "competitor": "relocation agencies, gated behind a contact form",
+   "note": "Small volume, high intent, and the natural end of the Move funnel."
+  },
+  {
+   "id": "salary-calculator",
+   "name": "Salary calculator",
+   "family": "tools.calculator",
+   "queueScore": 0.217,
+   "score": 0.482,
+   "volume": 148000,
+   "difficulty": 69,
+   "cpcUsd": 0.4,
+   "complexity": "large",
+   "sourcesReady": false,
+   "missingSources": [
+    "salary-data-verified"
+   ],
+   "inputs": [
+    "role",
+    "city",
+    "experience"
+   ],
+   "leadsTo": [
+    "job-listing",
+    "premium-tool"
+   ],
+   "competitor": "payscale, glassdoor, national payroll sites",
+   "note": "Recorded at full size and explicitly not a launch target. Difficulty 69 against incumbents who own this term."
+  },
+  {
+   "id": "net-salary",
+   "name": "Net salary calculator",
+   "family": "tools.calculator",
+   "queueScore": 0.209,
+   "score": 0.464,
+   "volume": 2300,
+   "difficulty": 59,
+   "cpcUsd": 1.6,
+   "complexity": "large",
+   "sourcesReady": false,
+   "missingSources": [
+    "tax-rules-verified"
+   ],
+   "inputs": [
+    "gross salary",
+    "country",
+    "status"
+   ],
+   "leadsTo": [
+    "relocation-service",
+    "premium-tool"
+   ],
+   "competitor": "national payroll sites, one country each",
+   "note": "Difficulty 59 and a tax source that does not exist. The cross border version, what this salary is worth after tax in that country, is the differentiated one and it needs the hardest source in the programme."
+  },
+  {
+   "id": "income-tax",
+   "name": "Tax calculator",
+   "family": "tools.calculator",
+   "queueScore": 0.201,
+   "score": 0.447,
+   "volume": 351000,
+   "difficulty": 74,
+   "cpcUsd": 0.9,
+   "complexity": "research",
+   "sourcesReady": false,
+   "missingSources": [
+    "tax-rules-verified"
+   ],
+   "inputs": [
+    "income",
+    "country",
+    "status"
+   ],
+   "leadsTo": [
+    "premium-tool"
+   ],
+   "competitor": "national tax authorities and accounting software",
+   "note": "The largest number in the research and the least winnable. It is in the list so that nobody proposes it later as if it were new."
+  },
+  {
+   "id": "city-comparison",
+   "name": "City comparison",
+   "family": "tools.cost-comparison",
+   "queueScore": 0.2,
+   "score": 0.445,
+   "volume": null,
+   "difficulty": null,
+   "cpcUsd": null,
+   "complexity": "small",
+   "sourcesReady": false,
+   "missingSources": [
+    "rent-index-verified"
+   ],
+   "inputs": [
+    "city a",
+    "city b"
+   ],
+   "leadsTo": [
+    "relocation-service"
+   ],
+   "competitor": "expatistan and livingcost, both of which rank on exactly this shape",
+   "note": null
+  },
+  {
+   "id": "country-comparison",
+   "name": "Country comparison",
+   "family": "tools.cost-comparison",
+   "queueScore": 0.2,
+   "score": 0.445,
+   "volume": null,
+   "difficulty": null,
+   "cpcUsd": null,
+   "complexity": "small",
+   "sourcesReady": false,
+   "missingSources": [
+    "tax-rules-verified"
+   ],
+   "inputs": [
+    "country a",
+    "country b"
+   ],
+   "leadsTo": [
+    "relocation-service"
+   ],
+   "competitor": "livingcost, whose British pages are sixteen of its top twenty",
+   "note": null
+  },
+  {
+   "id": "neighbourhood-matcher",
+   "name": "Neighbourhood matcher",
+   "family": "tools.matcher",
+   "queueScore": 0.178,
+   "score": 0.395,
+   "volume": null,
+   "difficulty": null,
+   "cpcUsd": null,
+   "complexity": "medium",
+   "sourcesReady": false,
+   "missingSources": [
+    "neighbourhood-facts-verified",
+    "rent-index-verified"
+   ],
+   "inputs": [
+    "city",
+    "budget",
+    "persona",
+    "commute anchor"
+   ],
+   "leadsTo": [
+    "rental-lead",
+    "stay-booking"
+   ],
+   "competitor": "none found that uses data rather than editorial",
+   "note": "No measured demand for the tool itself. It is here because it is the persona axis made interactive, and because the neighbourhood pages it sits on do have measured demand in every market."
+  },
+  {
+   "id": "destination-matcher",
+   "name": "Remote work destination matcher",
+   "family": "tools.matcher",
+   "queueScore": 0.178,
+   "score": 0.395,
+   "volume": null,
+   "difficulty": null,
+   "cpcUsd": null,
+   "complexity": "medium",
+   "sourcesReady": false,
+   "missingSources": [
+    "visa-rules-verified",
+    "connectivity-data-verified"
+   ],
+   "inputs": [
+    "budget",
+    "timezone",
+    "climate",
+    "visa status"
+   ],
+   "leadsTo": [
+    "premium-tool",
+    "relocation-service"
+   ],
+   "competitor": "nomads.com, whose city profiles take between 10 and 47 visits each",
+   "note": "The competitor is explicit negative evidence, which is a reason to build the tool and not the thousand city pages behind it."
+  },
+  {
+   "id": "event-trip-planner",
+   "name": "Event trip planner",
+   "family": "tools.matcher",
+   "queueScore": 0.164,
+   "score": 0.365,
+   "volume": null,
+   "difficulty": null,
+   "cpcUsd": 1.4,
+   "complexity": "large",
+   "sourcesReady": false,
+   "missingSources": [
+    "events-verified",
+    "venue-data-verified",
+    "stay-inventory-verified"
+   ],
+   "inputs": [
+    "event",
+    "budget",
+    "nights"
+   ],
+   "leadsTo": [
+    "stay-booking",
+    "ticket"
+   ],
+   "competitor": "none, and hotels near a named venue is 3,000 a month at difficulty 2",
+   "note": "The tool form of stay.near-venue, which carries the best combination of volume, difficulty and value measured anywhere. Three missing sources is what keeps it out of the top of the queue."
+  },
+  {
+   "id": "where-should-i-stay",
+   "name": "Where should I stay",
+   "family": "tools.matcher",
+   "queueScore": 0.162,
+   "score": 0.36,
+   "volume": null,
+   "difficulty": null,
+   "cpcUsd": 0.3,
+   "complexity": "medium",
+   "sourcesReady": false,
+   "missingSources": [
+    "neighbourhood-facts-verified",
+    "stay-inventory-verified"
+   ],
+   "inputs": [
+    "city",
+    "trip purpose",
+    "budget",
+    "anchor"
+   ],
+   "leadsTo": [
+    "stay-booking"
+   ],
+   "competitor": "booking sites answer availability, not which area",
+   "note": "Best areas to stay in Rome is 700 a month at difficulty 3, which is the page this tool sits on."
+  },
+  {
+   "id": "property-affordability",
+   "name": "Property affordability",
+   "family": "tools.calculator",
+   "queueScore": 0.158,
+   "score": 0.351,
+   "volume": 50,
+   "difficulty": 63,
+   "cpcUsd": 0.5,
+   "complexity": "medium",
+   "sourcesReady": false,
+   "missingSources": [
+    "property-price-verified"
+   ],
+   "inputs": [
+    "income",
+    "deposit",
+    "country"
+   ],
+   "leadsTo": [
+    "property-lead"
+   ],
+   "competitor": "mortgage lenders, domestic",
+   "note": null
+  },
+  {
+   "id": "visa-eligibility",
+   "name": "Visa eligibility",
+   "family": "tools.calculator",
+   "queueScore": 0.15,
+   "score": 0.332,
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "complexity": "large",
+   "sourcesReady": false,
+   "missingSources": [
+    "visa-rules-verified"
+   ],
+   "inputs": [
+    "nationality",
+    "destination",
+    "purpose",
+    "income"
+   ],
+   "leadsTo": [
+    "relocation-service"
+   ],
+   "competitor": "immigration firms, gated",
+   "note": "Ten searches a month for the tool and 3,300 for the UAE golden visa, 2,900 for the Spanish nomad visa. Nobody searches for the tool; they search for the answer it gives. It is kept for product role and it should be built into the visa pages rather than as a destination of its own."
+  }
+ ]
+}

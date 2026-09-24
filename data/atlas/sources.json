@@ -227,14 +227,36 @@
   },
   {
    "id": "cost-of-living-verified",
-   "name": "Consumer price levels from an openly licensed statistical source",
-   "url": null,
-   "licence": "to be established per source",
-   "attribution": "per value",
-   "status": "not built yet",
-   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "name": "Country level consumer price levels from Eurostat and the World Bank",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_ppp_ind",
+   "licence": "Eurostat reuse policy plus CC BY 4.0",
+   "attribution": "Source: Eurostat, prc_ppp_ind. World Bank, International Comparison Program, CC BY 4.0.",
+   "status": "built",
+   "note": "City level is not in this source and is not estimated from it. The city families point at cost-of-living-city-verified, which does not exist.",
    "refresh": "quarterly",
-   "maxAgeDays": 120
+   "maxAgeDays": 120,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY. 199 countries: 36 with the full twelve category Eurostat basket, 3 with the Eurostat headline only, 160 with the World Bank ratio only. All eleven priority destinations covered.",
+   "ingest": "scripts/atlas/ingest/cost-of-living.mjs",
+   "store": "data/atlas/sources/cost-of-living/normalized.json",
+   "freshnessClass": "prices"
+  },
+  {
+   "id": "cost-of-living-city-verified",
+   "name": "City level consumer price levels",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "prices",
+   "candidates": "No openly licensed city level consumer price index exists across the priority destinations. Eurostat is national. Some national offices publish regional indices, a few cities publish their own, and none of it is comparable across countries.",
+   "note": "Split out of cost-of-living-verified on 2026-09-24 when that source was built at country level. The split is the point: four city scoped families stay blocked on a named source instead of silently inheriting a country figure and presenting it as a city one.",
+   "blocks": [
+    "relocation.city",
+    "cost-of-living.city",
+    "cost-of-living.city-vs-market",
+    "comparisons.city-vs-home"
+   ]
   },
   {
    "id": "item-price-verified",

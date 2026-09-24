@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T00:59:04.907Z",
+ "generatedAt": "2026-09-24T06:29:09.042Z",
  "meaning": "Families ranked by prior, what they lead to and whether an answer engine can quote them. Blocked families are ranked too, because the blocker is the finding.",
  "groups": {
   "evergreen": [
@@ -167,7 +167,7 @@
     "surface": "move",
     "opportunity": 0.404,
     "candidates": 2739,
-    "status": "blocked",
+    "status": "source-ready",
     "leadsTo": []
    },
    {
@@ -257,7 +257,7 @@
     "surface": "tools",
     "opportunity": 0.828,
     "candidates": 80,
-    "status": "blocked",
+    "status": "eligible",
     "leadsTo": [
      "moving-service",
      "premium-tool",
@@ -269,7 +269,7 @@
     "surface": "tools",
     "opportunity": 0.555,
     "candidates": 30,
-    "status": "blocked",
+    "status": "eligible",
     "leadsTo": [
      "premium-tool",
      "stay-booking",
@@ -281,7 +281,7 @@
     "surface": "tools",
     "opportunity": 0.41,
     "candidates": 10,
-    "status": "blocked",
+    "status": "source-ready",
     "leadsTo": []
    },
    {
@@ -289,7 +289,7 @@
     "surface": "tools",
     "opportunity": 0.406,
     "candidates": 10,
-    "status": "blocked",
+    "status": "source-ready",
     "leadsTo": []
    },
    {
@@ -297,7 +297,7 @@
     "surface": "tools",
     "opportunity": 0.334,
     "candidates": 80,
-    "status": "blocked",
+    "status": "source-ready",
     "leadsTo": []
    }
   ],
@@ -307,7 +307,7 @@
     "surface": "tools",
     "opportunity": 0.828,
     "candidates": 80,
-    "status": "blocked",
+    "status": "eligible",
     "leadsTo": [
      "moving-service",
      "premium-tool",
@@ -495,7 +495,7 @@
     "surface": "move",
     "opportunity": 0.404,
     "candidates": 2739,
-    "status": "blocked",
+    "status": "source-ready",
     "leadsTo": []
    },
    {
@@ -543,7 +543,7 @@
     "surface": "move",
     "opportunity": 0.395,
     "candidates": 2490,
-    "status": "blocked",
+    "status": "eligible",
     "leadsTo": []
    },
    {
@@ -575,7 +575,7 @@
    "evidenceState": "measured",
    "evidenceWeight": 1,
    "candidates": 80,
-   "status": "blocked"
+   "status": "eligible"
   },
   {
    "family": "stay.city-type",
@@ -623,7 +623,7 @@
    "evidenceState": "measured",
    "evidenceWeight": 1,
    "candidates": 30,
-   "status": "blocked"
+   "status": "eligible"
   },
   {
    "family": "connectivity.country-sim-gap",
@@ -779,7 +779,7 @@
    "evidenceState": "predates the evidence field",
    "evidenceWeight": 0.9,
    "candidates": 10,
-   "status": "blocked"
+   "status": "source-ready"
   },
   {
    "family": "taxes.country",
@@ -827,7 +827,7 @@
    "evidenceState": "predates the evidence field",
    "evidenceWeight": 0.9,
    "candidates": 10,
-   "status": "blocked"
+   "status": "source-ready"
   },
   {
    "family": "work.city-jobs-category",
@@ -851,7 +851,7 @@
    "evidenceState": "predates the evidence field",
    "evidenceWeight": 0.9,
    "candidates": 2739,
-   "status": "blocked"
+   "status": "source-ready"
   },
   {
    "family": "comparisons.city-vs-home",
@@ -935,7 +935,7 @@
    "evidenceState": "predates the evidence field",
    "evidenceWeight": 0.9,
    "candidates": 2490,
-   "status": "blocked"
+   "status": "eligible"
   },
   {
    "family": "visas.country-residency",
@@ -995,7 +995,7 @@
    "evidenceState": "predates the evidence field",
    "evidenceWeight": 0.9,
    "candidates": 17620,
-   "status": "blocked"
+   "status": "source-ready"
   },
   {
    "family": "health.city",
@@ -1127,7 +1127,7 @@
    "evidenceState": "predates the evidence field",
    "evidenceWeight": 0.9,
    "candidates": 80,
-   "status": "blocked"
+   "status": "source-ready"
   },
   {
    "family": "services.country-admin",

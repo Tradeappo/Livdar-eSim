@@ -1,8 +1,68 @@
 {
- "generatedAt": "2026-09-24T00:59:04.500Z",
+ "generatedAt": "2026-09-24T06:29:09.529Z",
  "target": 250,
  "total": 250,
  "allocations": [
+  {
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 2490,
+   "status": "eligible",
+   "pages": 51
+  },
+  {
+   "family": "tools.calculator",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 80,
+   "status": "eligible",
+   "pages": 41
+  },
+  {
+   "family": "tools.matcher",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 30,
+   "status": "eligible",
+   "pages": 30
+  },
+  {
+   "family": "cost-of-living.country-vs-market",
+   "surface": "move",
+   "priority": "high",
+   "axis": "audience",
+   "markets": 11,
+   "candidates": 2739,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 17620,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "rankings.index",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 80,
+   "status": "source-ready",
+   "pages": 12
+  },
   {
    "family": "transport.route-from-market",
    "surface": "transport",
@@ -10,7 +70,8 @@
    "axis": "origin",
    "markets": 11,
    "candidates": 27907,
-   "pages": 45
+   "status": "source-ready",
+   "pages": 12
   },
   {
    "family": "weather.city-month",
@@ -19,7 +80,8 @@
    "axis": "language",
    "markets": 2,
    "candidates": 60888,
-   "pages": 41
+   "status": "published",
+   "pages": 12
   },
   {
    "family": "weather.city-best-time",
@@ -28,7 +90,8 @@
    "axis": "language",
    "markets": 2,
    "candidates": 5074,
-   "pages": 41
+   "status": "source-ready",
+   "pages": 12
   },
   {
    "family": "airports.guide",
@@ -37,7 +100,8 @@
    "axis": "language",
    "markets": 2,
    "candidates": 6488,
-   "pages": 41
+   "status": "source-ready",
+   "pages": 12
   },
   {
    "family": "destinations.city-hub",
@@ -46,7 +110,8 @@
    "axis": "language",
    "markets": 2,
    "candidates": 23106,
-   "pages": 41
+   "status": "source-ready",
+   "pages": 12
   },
   {
    "family": "destinations.country-hub",
@@ -55,17 +120,46 @@
    "axis": "language",
    "markets": 2,
    "candidates": 498,
-   "pages": 41
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "tools.cost-comparison",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 10,
+   "status": "source-ready",
+   "pages": 10
+  },
+  {
+   "family": "tools.cost-calculator",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 10,
+   "status": "source-ready",
+   "pages": 10
   }
  ],
  "bySurface": {
-  "transport": 86,
-  "climate": 82,
-  "areas": 82
+  "move": 63,
+  "tools": 115,
+  "transport": 24,
+  "climate": 24,
+  "areas": 24
  },
  "byPriority": {
-  "medium": 45,
-  "low": 205
+  "high": 178,
+  "medium": 12,
+  "low": 60
+ },
+ "byStatus": {
+  "eligible": 122,
+  "source-ready": 116,
+  "published": 12
  },
  "answers": [
   {
@@ -87,6 +181,9 @@
   {
    "question": "market-variance",
    "what": "Do the non English markets index at the same rate as English"
+  },
+  {
+   "question": "demand"
   }
  ],
  "cannotAnswer": {
@@ -94,15 +191,13 @@
    "pulse",
    "stay",
    "work",
-   "move",
    "connectivity",
    "sport",
    "community",
-   "tools",
    "safety"
   ],
   "why": "Every family on these surfaces is blocked on a source that does not exist, so none of them can produce a page to publish.",
-  "consequence": "This cohort measures whether the machine works. It does not measure whether the programme is right, because no high priority family is in it."
+  "consequence": "Nine of the twelve surfaces are still absent. The cohort now tests one high value surface properly and says nothing about the other nine."
  },
- "honestSummary": "Not one page in this cohort is from a high priority family. That is not a design choice, it is what the source gate permits today, and it is the strongest argument in the programme for spending the next unit of effort on data licensing rather than on more keyword research."
+ "honestSummary": "122 of 250 pages are from families where the source exists and the demand was measured. Those pages test whether the programme is right. The rest test whether the machine works, which is also worth knowing and is what the whole cohort could do before the cost of living source was built."
 }

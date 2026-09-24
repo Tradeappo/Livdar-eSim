@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T00:59:03.359Z",
+ "generatedAt": "2026-09-24T06:29:07.954Z",
  "meaning": {
   "candidate": "A combination the taxonomy allows: one family, one entity, one variant, one market. Not a page.",
   "published": "The publication registry publishes it, so it routes and enters a sitemap.",
@@ -964,7 +964,7 @@
    {
     "family": "relocation.city",
     "missing": [
-     "cost-of-living-verified",
+     "cost-of-living-city-verified",
      "visa-rules-verified"
     ]
    },
@@ -1022,13 +1022,13 @@
    {
     "family": "cost-of-living.city",
     "missing": [
-     "cost-of-living-verified"
+     "cost-of-living-city-verified"
     ]
    },
    {
     "family": "cost-of-living.city-vs-market",
     "missing": [
-     "cost-of-living-verified"
+     "cost-of-living-city-verified"
     ]
    },
    {
@@ -1125,7 +1125,7 @@
    {
     "family": "comparisons.city-vs-home",
     "missing": [
-     "cost-of-living-verified"
+     "cost-of-living-city-verified"
     ]
    },
    {
@@ -1266,8 +1266,9 @@
   ],
   "candidates": 1812686,
   "missingSources": {
-   "cost-of-living-verified": 14,
+   "cost-of-living-city-verified": 4,
    "visa-rules-verified": 7,
+   "cost-of-living-verified": 10,
    "work-rules-verified": 4,
    "salary-data-verified": 3,
    "rent-index-verified": 3,

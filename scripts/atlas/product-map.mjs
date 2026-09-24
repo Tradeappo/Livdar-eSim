@@ -36,12 +36,24 @@ export function sourceStates() {
 
 // Which families already have measured keywords behind them, from the
 // measurement store rather than from a claim.
+// Two things count as measured and both are real measurement rather than a
+// claim. The en-US plan is keyword level: 600 rows naming the family each
+// keyword belongs to. The evidence state is family level: a family that says
+// `measured` is pointing at an export in data/atlas/probes or
+// data/atlas/competitors with the volumes in it, and a test checks that the
+// file it names exists.
+//
+// Reading only the plan undercounted badly, because the plan is en-US only
+// and the September research measured families that the plan predates.
 export function measuredFamilies() {
   const set = new Set();
   try {
     const plan = readJson('data/atlas/measurement-plan.json');
     for (const row of plan.batches || plan.rows || []) if (row.family) set.add(row.family);
   } catch { /* the plan is optional */ }
+  for (const [id, f] of Object.entries(FAMILIES)) {
+    if (f.evidenceState === 'measured' && f.evidence && f.evidence.source) set.add(id);
+  }
   return set;
 }
 
