@@ -500,12 +500,12 @@
    ]
   },
   {
-   "url": "",
-   "licence": "to be established per candidate source",
-   "attribution": "to be established per candidate source",
+   "url": "https://query.wikidata.org/sparql",
+   "licence": "CC0 1.0, Wikidata, public domain dedication",
+   "attribution": "Venue records from Wikidata (CC0)",
    "id": "venue-data-verified",
    "name": "Venues that host events",
-   "state": "not built yet",
+   "state": "built",
    "fields": [
     "venueId",
     "name",
@@ -514,14 +514,28 @@
     "lon",
     "capacity"
    ],
-   "refresh": "monthly",
-   "maxAgeDays": 180,
-   "candidates": "Wikidata for major venues, which is CC0 and sufficient for the stay near venue family; OSM for the rest.",
-   "licenceRisk": "Low. Wikidata is CC0.",
-   "coverage": "Major venues are well covered in Wikidata; small ones are not, which matches the family scope of major venues only.",
+   "refresh": "yearly",
+   "maxAgeDays": 1825,
+   "candidates": "Wikidata, five venue classes: stadium, sports venue, concert hall, event venue, arena.",
+   "licenceRisk": "None. CC0 permits commercial reuse without attribution, and attribution is given anyway.",
+   "coverage": "9,438 venues across 3,766 cities in 16 countries. 4,145 carry a capacity.",
    "rateLimits": "SPARQL endpoint limits apply, and the volume here is small.",
-   "blocks": [
-    "stay.near-venue"
+   "blocks": [],
+   "status": "built",
+   "confidence": "declared",
+   "commercialReuse": true,
+   "storageRights": "unrestricted, CC0",
+   "freshnessClass": "reference",
+   "ingestScript": "scripts/atlas/ingest/venues.mjs",
+   "store": "data/atlas/sources/venues/by-country/*.json",
+   "access": "public SPARQL endpoint, fetched through a browser because the sandbox has no network route to it",
+   "cost": "none",
+   "lastSuccessfulIngest": "2026-09-24",
+   "caution": "Wikidata is community edited, so every value carries confidence , the lowest rank that publishes. A page that needs an official capacity must get it from the operator.",
+   "unlocks": [
+    "venues.city",
+    "stay.near-venue",
+    "events.venue"
    ]
   },
   {
