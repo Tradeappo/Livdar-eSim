@@ -17,7 +17,7 @@
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { run as qa } from './cohort-qa.mjs';
-import { getEntry, writeEntries, countByState } from '../../lib/atlas/registry-store.js';
+import { getEntry, writeEntries, countByState, allEntries, deleteEntries } from '../../lib/atlas/registry-store.js';
 import { canTransition } from '../../lib/atlas/states.js';
 
 const ROOT = new URL('../../', import.meta.url);
@@ -72,7 +72,20 @@ export function run({ now = new Date(), cohort = '001' } = {}) {
     };
   }
 
-  return { ok: true, cohort, lot: LOT, toRegister: Object.keys(updates).length, refused, updates, report };
+  // A cohort can be rebuilt, and when it is, pages the previous build claimed
+  // may no longer be selected. Those entries still carry this lot and still
+  // read `approved`, which means a lot claimed them, and none does. They are
+  // un-claimed here rather than left to inflate the funnel with pages nothing
+  // will publish. Anything that reached `published` is left alone: that has a
+  // history worth keeping and `retired` is the state for withdrawing it.
+  const selected = new Set(report.models.map((m) => m.path));
+  const stale = [];
+  for (const [key, entry] of allEntries()) {
+    if (entry.lot !== LOT || selected.has(key)) continue;
+    if (entry.state === 'approved') stale.push(key);
+  }
+
+  return { ok: true, cohort, lot: LOT, toRegister: Object.keys(updates).length, refused, stale, updates, report };
 }
 
 if (import.meta.url === 'file://' + process.argv[1]) {
@@ -81,6 +94,7 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   if (!r.ok) { console.log(JSON.stringify(r, null, 1)); process.exit(1); }
   let written = null;
   if (process.argv.includes('--write')) {
+    if (r.stale.length) deleteEntries(r.stale);
     written = writeEntries(r.updates);
     mkdirSync(new URL('data/atlas/lots/', ROOT), { recursive: true });
     writeFileSync(new URL('data/atlas/lots/' + r.lot + '.json', ROOT), JSON.stringify({
@@ -92,6 +106,7 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   }
   console.log(JSON.stringify({
     ok: r.ok, cohort: r.cohort, lot: r.lot, toRegister: r.toRegister, refused: r.refused.length,
+    unclaimed: r.stale.length, unclaimedPaths: r.stale,
     written, funnel: written ? countByState() : undefined,
   }, null, 1));
 }

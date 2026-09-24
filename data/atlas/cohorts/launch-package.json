@@ -1,19 +1,19 @@
 {
- "generatedAt": "2026-09-24T13:35:57.541Z",
+ "generatedAt": "2026-09-24T19:50:00.303Z",
  "meaning": "Every URL in every approved cohort, with the metadata needed to compare the cohorts against each other after launch. The cohorts are published together so that any difference between them is a difference in the pages rather than in how long they have been live.",
  "cohorts": [
   "001",
   "002"
  ],
  "missingCohorts": [],
- "pages": 367,
+ "pages": 500,
  "byCohort": {
   "001": 250,
-  "002": 117
+  "002": 250
  },
  "bySurface": {
   "tools": 69,
-  "move": 203,
+  "move": 336,
   "work": 23,
   "climate": 72
  },
@@ -22,50 +22,50 @@
   "tools.cost-comparison": 9,
   "tools.cost-calculator": 5,
   "tools.matcher": 8,
-  "cost-of-living.country": 203,
+  "cost-of-living.country": 336,
   "work.country-salaries": 23,
   "rankings.index": 24,
   "weather.country-best-time": 72
  },
  "byLanguage": {
-  "pl": 41,
-  "en": 87,
-  "de": 42,
-  "ja": 35,
-  "pt": 37,
-  "it": 35,
-  "es": 34,
-  "fr": 39,
-  "nl": 17
+  "pl": 64,
+  "en": 100,
+  "de": 52,
+  "ja": 53,
+  "pt": 44,
+  "it": 51,
+  "es": 53,
+  "fr": 53,
+  "nl": 30
  },
  "byMarket": {
-  "pl-PL": 41,
-  "en-US": 87,
-  "de-DE": 42,
-  "ja-JP": 35,
-  "pt-BR": 37,
-  "it-IT": 35,
-  "es-ES": 34,
-  "fr-FR": 39,
-  "nl-NL": 17
+  "pl-PL": 64,
+  "en-US": 100,
+  "de-DE": 52,
+  "ja-JP": 53,
+  "pt-BR": 44,
+  "it-IT": 51,
+  "es-ES": 53,
+  "fr-FR": 53,
+  "nl-NL": 30
  },
  "byBand": {
   "contested": 9,
   "long-shot": 3,
-  "winnable": 308,
-  "unknown": 47
+  "winnable": 411,
+  "unknown": 77
  },
- "destinations": 55,
- "totalVolume": 920230,
+ "destinations": 83,
+ "totalVolume": 962070,
  "opportunity": {
   "measuredForKeyword": 19,
-  "marketMedian": 348,
+  "marketMedian": 481,
   "notMeasured": 0,
   "note": "A SERP measured for the exact keyword is the real answer. The market median is a weaker one and is labelled, so a reader cannot mistake it for a measurement of this page."
  },
  "sourceConfidence": {
-  "official-derived": 57,
-  "official": 231,
+  "official-derived": 163,
+  "official": 258,
   "modelled": 7,
   "official-proxy": 72
  },
@@ -418,7 +418,7 @@
    "cluster": "cost-of-living.country::JP",
    "alternates": 8,
    "words": {
-    "count": 378,
+    "count": 407,
     "unit": "words"
    }
   },
@@ -457,7 +457,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 439,
+    "count": 464,
     "unit": "words"
    }
   },
@@ -496,7 +496,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 416,
+    "count": 439,
     "unit": "words"
    }
   },
@@ -535,7 +535,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 429,
+    "count": 458,
     "unit": "words"
    }
   },
@@ -613,7 +613,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 8,
    "words": {
-    "count": 428,
+    "count": 457,
     "unit": "words"
    }
   },
@@ -652,7 +652,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 426,
+    "count": 455,
     "unit": "words"
    }
   },
@@ -691,7 +691,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 426,
+    "count": 455,
     "unit": "words"
    }
   },
@@ -925,7 +925,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 429,
+    "count": 459,
     "unit": "words"
    }
   },
@@ -964,7 +964,7 @@
    "cluster": "cost-of-living.country::GR",
    "alternates": 8,
    "words": {
-    "count": 426,
+    "count": 455,
     "unit": "words"
    }
   },
@@ -1081,7 +1081,7 @@
    "cluster": "cost-of-living.country::FR",
    "alternates": 7,
    "words": {
-    "count": 420,
+    "count": 449,
     "unit": "words"
    }
   },
@@ -1159,7 +1159,7 @@
    "cluster": "cost-of-living.country::JP",
    "alternates": 8,
    "words": {
-    "count": 393,
+    "count": 418,
     "unit": "words"
    }
   },
@@ -1237,7 +1237,7 @@
    "cluster": "cost-of-living.country::DE",
    "alternates": 8,
    "words": {
-    "count": 428,
+    "count": 457,
     "unit": "words"
    }
   },
@@ -1276,7 +1276,7 @@
    "cluster": "cost-of-living.country::IS",
    "alternates": 5,
    "words": {
-    "count": 427,
+    "count": 456,
     "unit": "words"
    }
   },
@@ -1315,7 +1315,7 @@
    "cluster": "cost-of-living.country::AL",
    "alternates": 2,
    "words": {
-    "count": 427,
+    "count": 456,
     "unit": "words"
    }
   },
@@ -1354,7 +1354,7 @@
    "cluster": "cost-of-living.country::HR",
    "alternates": 7,
    "words": {
-    "count": 429,
+    "count": 458,
     "unit": "words"
    }
   },
@@ -1393,7 +1393,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 427,
+    "count": 456,
     "unit": "words"
    }
   },
@@ -1432,7 +1432,7 @@
    "cluster": "cost-of-living.country::SE",
    "alternates": 8,
    "words": {
-    "count": 427,
+    "count": 456,
     "unit": "words"
    }
   },
@@ -1510,7 +1510,7 @@
    "cluster": "cost-of-living.country::TR",
    "alternates": 8,
    "words": {
-    "count": 427,
+    "count": 450,
     "unit": "words"
    }
   },
@@ -1666,7 +1666,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 446,
+    "count": 471,
     "unit": "words"
    }
   },
@@ -1744,7 +1744,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 429,
+    "count": 459,
     "unit": "words"
    }
   },
@@ -1783,7 +1783,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 386,
+    "count": 405,
     "unit": "words"
    }
   },
@@ -1822,7 +1822,7 @@
    "cluster": "cost-of-living.country::CY",
    "alternates": 5,
    "words": {
-    "count": 419,
+    "count": 448,
     "unit": "words"
    }
   },
@@ -1861,7 +1861,7 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 8,
    "words": {
-    "count": 429,
+    "count": 458,
     "unit": "words"
    }
   },
@@ -1978,7 +1978,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -2017,7 +2017,7 @@
    "cluster": "cost-of-living.country::NL",
    "alternates": 7,
    "words": {
-    "count": 431,
+    "count": 460,
     "unit": "words"
    }
   },
@@ -2056,7 +2056,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 439,
+    "count": 463,
     "unit": "words"
    }
   },
@@ -2095,7 +2095,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 8,
    "words": {
-    "count": 445,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -2290,7 +2290,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 387,
+    "count": 414,
     "unit": "words"
    }
   },
@@ -2329,7 +2329,7 @@
    "cluster": "cost-of-living.country::SE",
    "alternates": 8,
    "words": {
-    "count": 385,
+    "count": 411,
     "unit": "words"
    }
   },
@@ -2368,7 +2368,7 @@
    "cluster": "cost-of-living.country::JP",
    "alternates": 8,
    "words": {
-    "count": 391,
+    "count": 415,
     "unit": "words"
    }
   },
@@ -2407,7 +2407,7 @@
    "cluster": "cost-of-living.country::TH",
    "alternates": 1,
    "words": {
-    "count": 772,
+    "count": 841,
     "unit": "characters"
    }
   },
@@ -2602,7 +2602,7 @@
    "cluster": "cost-of-living.country::BG",
    "alternates": 6,
    "words": {
-    "count": 388,
+    "count": 414,
     "unit": "words"
    }
   },
@@ -2641,7 +2641,7 @@
    "cluster": "cost-of-living.country::CY",
    "alternates": 5,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -2680,7 +2680,7 @@
    "cluster": "cost-of-living.country::HU",
    "alternates": 4,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -2719,7 +2719,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -2758,7 +2758,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 387,
+    "count": 414,
     "unit": "words"
    }
   },
@@ -2797,7 +2797,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 441,
+    "count": 463,
     "unit": "words"
    }
   },
@@ -2836,7 +2836,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 440,
+    "count": 464,
     "unit": "words"
    }
   },
@@ -2875,7 +2875,7 @@
    "cluster": "cost-of-living.country::DE",
    "alternates": 8,
    "words": {
-    "count": 445,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -2914,7 +2914,7 @@
    "cluster": "cost-of-living.country::JP",
    "alternates": 8,
    "words": {
-    "count": 337,
+    "count": 363,
     "unit": "words"
    }
   },
@@ -2992,7 +2992,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 387,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -3031,7 +3031,7 @@
    "cluster": "cost-of-living.country::GR",
    "alternates": 8,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -3070,7 +3070,7 @@
    "cluster": "cost-of-living.country::HR",
    "alternates": 7,
    "words": {
-    "count": 387,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -3109,7 +3109,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 385,
+    "count": 411,
     "unit": "words"
    }
   },
@@ -3148,7 +3148,7 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 8,
    "words": {
-    "count": 387,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -3187,7 +3187,7 @@
    "cluster": "cost-of-living.country::TR",
    "alternates": 8,
    "words": {
-    "count": 389,
+    "count": 408,
     "unit": "words"
    }
   },
@@ -3226,7 +3226,7 @@
    "cluster": "cost-of-living.country::JP",
    "alternates": 8,
    "words": {
-    "count": 396,
+    "count": 424,
     "unit": "words"
    }
   },
@@ -3265,7 +3265,7 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 8,
    "words": {
-    "count": 452,
+    "count": 480,
     "unit": "words"
    }
   },
@@ -3304,7 +3304,7 @@
    "cluster": "cost-of-living.country::DE",
    "alternates": 8,
    "words": {
-    "count": 445,
+    "count": 469,
     "unit": "words"
    }
   },
@@ -3343,7 +3343,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 446,
+    "count": 471,
     "unit": "words"
    }
   },
@@ -3382,7 +3382,7 @@
    "cluster": "cost-of-living.country::GR",
    "alternates": 8,
    "words": {
-    "count": 443,
+    "count": 467,
     "unit": "words"
    }
   },
@@ -3421,7 +3421,7 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 8,
    "words": {
-    "count": 446,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -3460,7 +3460,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 443,
+    "count": 467,
     "unit": "words"
    }
   },
@@ -3499,7 +3499,7 @@
    "cluster": "cost-of-living.country::TR",
    "alternates": 8,
    "words": {
-    "count": 444,
+    "count": 467,
     "unit": "words"
    }
   },
@@ -3538,7 +3538,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 382,
+    "count": 402,
     "unit": "words"
    }
   },
@@ -3577,7 +3577,7 @@
    "cluster": "cost-of-living.country::GB",
    "alternates": 2,
    "words": {
-    "count": 397,
+    "count": 422,
     "unit": "words"
    }
   },
@@ -3616,7 +3616,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 443,
+    "count": 468,
     "unit": "words"
    }
   },
@@ -3655,7 +3655,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 440,
+    "count": 465,
     "unit": "words"
    }
   },
@@ -4279,7 +4279,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 8,
    "words": {
-    "count": 386,
+    "count": 412,
     "unit": "words"
    }
   },
@@ -4318,7 +4318,7 @@
    "cluster": "cost-of-living.country::NL",
    "alternates": 7,
    "words": {
-    "count": 388,
+    "count": 414,
     "unit": "words"
    }
   },
@@ -4357,7 +4357,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 463,
+    "count": 482,
     "unit": "words"
    }
   },
@@ -4396,7 +4396,7 @@
    "cluster": "cost-of-living.country::IS",
    "alternates": 5,
    "words": {
-    "count": 447,
+    "count": 475,
     "unit": "words"
    }
   },
@@ -4435,7 +4435,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 446,
+    "count": 471,
     "unit": "words"
    }
   },
@@ -4474,7 +4474,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 1016,
+    "count": 1078,
     "unit": "characters"
    }
   },
@@ -4513,7 +4513,7 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 8,
    "words": {
-    "count": 387,
+    "count": 416,
     "unit": "words"
    }
   },
@@ -4552,7 +4552,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 384,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -4591,7 +4591,7 @@
    "cluster": "cost-of-living.country::FR",
    "alternates": 7,
    "words": {
-    "count": 445,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -4630,7 +4630,7 @@
    "cluster": "cost-of-living.country::NL",
    "alternates": 7,
    "words": {
-    "count": 447,
+    "count": 472,
     "unit": "words"
    }
   },
@@ -4669,7 +4669,7 @@
    "cluster": "cost-of-living.country::TR",
    "alternates": 8,
    "words": {
-    "count": 445,
+    "count": 467,
     "unit": "words"
    }
   },
@@ -4786,7 +4786,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 447,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -4903,7 +4903,7 @@
    "cluster": "cost-of-living.country::BG",
    "alternates": 6,
    "words": {
-    "count": 454,
+    "count": 484,
     "unit": "words"
    }
   },
@@ -4942,7 +4942,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 448,
+    "count": 476,
     "unit": "words"
    }
   },
@@ -4981,7 +4981,7 @@
    "cluster": "cost-of-living.country::BG",
    "alternates": 6,
    "words": {
-    "count": 447,
+    "count": 473,
     "unit": "words"
    }
   },
@@ -5020,7 +5020,7 @@
    "cluster": "cost-of-living.country::IS",
    "alternates": 5,
    "words": {
-    "count": 442,
+    "count": 466,
     "unit": "words"
    }
   },
@@ -5059,7 +5059,7 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 3,
    "words": {
-    "count": 443,
+    "count": 467,
     "unit": "words"
    }
   },
@@ -5176,7 +5176,7 @@
    "cluster": "cost-of-living.country::AT",
    "alternates": 2,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -5254,7 +5254,7 @@
    "cluster": "cost-of-living.country::CZ",
    "alternates": 3,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -5293,7 +5293,7 @@
    "cluster": "cost-of-living.country::HU",
    "alternates": 4,
    "words": {
-    "count": 449,
+    "count": 477,
     "unit": "words"
    }
   },
@@ -5332,7 +5332,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 449,
+    "count": 477,
     "unit": "words"
    }
   },
@@ -5371,7 +5371,7 @@
    "cluster": "cost-of-living.country::HR",
    "alternates": 7,
    "words": {
-    "count": 446,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -5410,7 +5410,7 @@
    "cluster": "cost-of-living.country::HU",
    "alternates": 4,
    "words": {
-    "count": 439,
+    "count": 463,
     "unit": "words"
    }
   },
@@ -5449,7 +5449,7 @@
    "cluster": "cost-of-living.country::SE",
    "alternates": 8,
    "words": {
-    "count": 444,
+    "count": 469,
     "unit": "words"
    }
   },
@@ -5488,7 +5488,7 @@
    "cluster": "cost-of-living.country::CA",
    "alternates": 2,
    "words": {
-    "count": 778,
+    "count": 846,
     "unit": "characters"
    }
   },
@@ -5605,7 +5605,7 @@
    "cluster": "cost-of-living.country::CA",
    "alternates": 2,
    "words": {
-    "count": 367,
+    "count": 393,
     "unit": "words"
    }
   },
@@ -5683,7 +5683,7 @@
    "cluster": "cost-of-living.country::FR",
    "alternates": 7,
    "words": {
-    "count": 451,
+    "count": 479,
     "unit": "words"
    }
   },
@@ -5722,7 +5722,7 @@
    "cluster": "cost-of-living.country::GR",
    "alternates": 8,
    "words": {
-    "count": 449,
+    "count": 477,
     "unit": "words"
    }
   },
@@ -5761,7 +5761,7 @@
    "cluster": "cost-of-living.country::HR",
    "alternates": 7,
    "words": {
-    "count": 452,
+    "count": 480,
     "unit": "words"
    }
   },
@@ -5800,7 +5800,7 @@
    "cluster": "cost-of-living.country::CY",
    "alternates": 5,
    "words": {
-    "count": 442,
+    "count": 466,
     "unit": "words"
    }
   },
@@ -5839,7 +5839,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 446,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -5878,7 +5878,7 @@
    "cluster": "cost-of-living.country::GB",
    "alternates": 2,
    "words": {
-    "count": 870,
+    "count": 939,
     "unit": "characters"
    }
   },
@@ -6151,7 +6151,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 446,
+    "count": 474,
     "unit": "words"
    }
   },
@@ -6190,7 +6190,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 452,
+    "count": 480,
     "unit": "words"
    }
   },
@@ -6229,7 +6229,7 @@
    "cluster": "cost-of-living.country::DE",
    "alternates": 8,
    "words": {
-    "count": 1032,
+    "count": 1098,
     "unit": "characters"
    }
   },
@@ -6268,7 +6268,7 @@
    "cluster": "cost-of-living.country::BG",
    "alternates": 6,
    "words": {
-    "count": 388,
+    "count": 418,
     "unit": "words"
    }
   },
@@ -6307,7 +6307,7 @@
    "cluster": "cost-of-living.country::DE",
    "alternates": 8,
    "words": {
-    "count": 386,
+    "count": 415,
     "unit": "words"
    }
   },
@@ -6346,7 +6346,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 387,
+    "count": 416,
     "unit": "words"
    }
   },
@@ -6385,7 +6385,7 @@
    "cluster": "cost-of-living.country::CH",
    "alternates": 9,
    "words": {
-    "count": 441,
+    "count": 461,
     "unit": "words"
    }
   },
@@ -6424,7 +6424,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 446,
+    "count": 472,
     "unit": "words"
    }
   },
@@ -6541,7 +6541,7 @@
    "cluster": "cost-of-living.country::TR",
    "alternates": 8,
    "words": {
-    "count": 451,
+    "count": 476,
     "unit": "words"
    }
   },
@@ -6580,7 +6580,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 387,
+    "count": 417,
     "unit": "words"
    }
   },
@@ -6619,7 +6619,7 @@
    "cluster": "cost-of-living.country::AT",
    "alternates": 2,
    "words": {
-    "count": 445,
+    "count": 473,
     "unit": "words"
    }
   },
@@ -6658,7 +6658,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 8,
    "words": {
-    "count": 447,
+    "count": 475,
     "unit": "words"
    }
   },
@@ -6697,7 +6697,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 445,
+    "count": 473,
     "unit": "words"
    }
   },
@@ -6736,7 +6736,7 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 3,
    "words": {
-    "count": 449,
+    "count": 477,
     "unit": "words"
    }
   },
@@ -6775,7 +6775,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 446,
+    "count": 472,
     "unit": "words"
    }
   },
@@ -6970,7 +6970,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 8,
    "words": {
-    "count": 467,
+    "count": 492,
     "unit": "words"
    }
   },
@@ -7009,7 +7009,7 @@
    "cluster": "cost-of-living.country::DE",
    "alternates": 8,
    "words": {
-    "count": 447,
+    "count": 475,
     "unit": "words"
    }
   },
@@ -7048,7 +7048,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 452,
+    "count": 480,
     "unit": "words"
    }
   },
@@ -7087,7 +7087,7 @@
    "cluster": "cost-of-living.country::FR",
    "alternates": 7,
    "words": {
-    "count": 1025,
+    "count": 1089,
     "unit": "characters"
    }
   },
@@ -7126,7 +7126,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 1027,
+    "count": 1085,
     "unit": "characters"
    }
   },
@@ -7165,7 +7165,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 387,
+    "count": 417,
     "unit": "words"
    }
   },
@@ -7204,7 +7204,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 384,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -7243,7 +7243,7 @@
    "cluster": "cost-of-living.country::JP",
    "alternates": 8,
    "words": {
-    "count": 340,
+    "count": 369,
     "unit": "words"
    }
   },
@@ -7282,7 +7282,7 @@
    "cluster": "cost-of-living.country::NL",
    "alternates": 7,
    "words": {
-    "count": 384,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -7321,7 +7321,7 @@
    "cluster": "cost-of-living.country::GR",
    "alternates": 8,
    "words": {
-    "count": 443,
+    "count": 468,
     "unit": "words"
    }
   },
@@ -7360,7 +7360,7 @@
    "cluster": "cost-of-living.country::SE",
    "alternates": 8,
    "words": {
-    "count": 445,
+    "count": 471,
     "unit": "words"
    }
   },
@@ -7477,7 +7477,7 @@
    "cluster": "cost-of-living.country::DE",
    "alternates": 8,
    "words": {
-    "count": 467,
+    "count": 492,
     "unit": "words"
    }
   },
@@ -7516,7 +7516,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 466,
+    "count": 491,
     "unit": "words"
    }
   },
@@ -7555,7 +7555,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 468,
+    "count": 494,
     "unit": "words"
    }
   },
@@ -7594,7 +7594,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 465,
+    "count": 490,
     "unit": "words"
    }
   },
@@ -7633,7 +7633,7 @@
    "cluster": "cost-of-living.country::NL",
    "alternates": 7,
    "words": {
-    "count": 1026,
+    "count": 1094,
     "unit": "characters"
    }
   },
@@ -7672,7 +7672,7 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 8,
    "words": {
-    "count": 1035,
+    "count": 1101,
     "unit": "characters"
    }
   },
@@ -7711,7 +7711,7 @@
    "cluster": "cost-of-living.country::CZ",
    "alternates": 3,
    "words": {
-    "count": 384,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -7750,7 +7750,7 @@
    "cluster": "cost-of-living.country::SE",
    "alternates": 8,
    "words": {
-    "count": 385,
+    "count": 414,
     "unit": "words"
    }
   },
@@ -7789,7 +7789,7 @@
    "cluster": "cost-of-living.country::TR",
    "alternates": 8,
    "words": {
-    "count": 385,
+    "count": 406,
     "unit": "words"
    }
   },
@@ -7906,7 +7906,7 @@
    "cluster": "cost-of-living.country::GR",
    "alternates": 8,
    "words": {
-    "count": 384,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -7984,7 +7984,7 @@
    "cluster": "cost-of-living.country::IS",
    "alternates": 5,
    "words": {
-    "count": 467,
+    "count": 492,
     "unit": "words"
    }
   },
@@ -8023,7 +8023,7 @@
    "cluster": "cost-of-living.country::HU",
    "alternates": 4,
    "words": {
-    "count": 1033,
+    "count": 1098,
     "unit": "characters"
    }
   },
@@ -8062,7 +8062,7 @@
    "cluster": "cost-of-living.country::NO",
    "alternates": 9,
    "words": {
-    "count": 1049,
+    "count": 1117,
     "unit": "characters"
    }
   },
@@ -8101,7 +8101,7 @@
    "cluster": "cost-of-living.country::SE",
    "alternates": 8,
    "words": {
-    "count": 1044,
+    "count": 1110,
     "unit": "characters"
    }
   },
@@ -8140,7 +8140,7 @@
    "cluster": "cost-of-living.country::TR",
    "alternates": 8,
    "words": {
-    "count": 1020,
+    "count": 1083,
     "unit": "characters"
    }
   },
@@ -8179,7 +8179,7 @@
    "cluster": "cost-of-living.country::PT",
    "alternates": 10,
    "words": {
-    "count": 395,
+    "count": 421,
     "unit": "words"
    }
   },
@@ -8218,7 +8218,7 @@
    "cluster": "cost-of-living.country::BE",
    "alternates": 1,
    "words": {
-    "count": 386,
+    "count": 415,
     "unit": "words"
    }
   },
@@ -8257,7 +8257,7 @@
    "cluster": "cost-of-living.country::FR",
    "alternates": 7,
    "words": {
-    "count": 386,
+    "count": 415,
     "unit": "words"
    }
   },
@@ -8296,7 +8296,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 8,
    "words": {
-    "count": 386,
+    "count": 415,
     "unit": "words"
    }
   },
@@ -8335,7 +8335,7 @@
    "cluster": "cost-of-living.country::BG",
    "alternates": 6,
    "words": {
-    "count": 448,
+    "count": 475,
     "unit": "words"
    }
   },
@@ -8374,7 +8374,7 @@
    "cluster": "cost-of-living.country::HR",
    "alternates": 7,
    "words": {
-    "count": 446,
+    "count": 471,
     "unit": "words"
    }
   },
@@ -8452,7 +8452,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 398,
+    "count": 424,
     "unit": "words"
    }
   },
@@ -8491,7 +8491,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 8,
    "words": {
-    "count": 1055,
+    "count": 1123,
     "unit": "characters"
    }
   },
@@ -8530,7 +8530,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 1035,
+    "count": 1101,
     "unit": "characters"
    }
   },
@@ -8569,7 +8569,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 385,
+    "count": 414,
     "unit": "words"
    }
   },
@@ -8725,7 +8725,7 @@
    "cluster": "cost-of-living.country::NL",
    "alternates": 7,
    "words": {
-    "count": 473,
+    "count": 498,
     "unit": "words"
    }
   },
@@ -8764,7 +8764,7 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 8,
    "words": {
-    "count": 468,
+    "count": 493,
     "unit": "words"
    }
   },
@@ -8803,7 +8803,7 @@
    "cluster": "cost-of-living.country::CZ",
    "alternates": 3,
    "words": {
-    "count": 1025,
+    "count": 1091,
     "unit": "characters"
    }
   },
@@ -8842,7 +8842,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 1053,
+    "count": 1124,
     "unit": "characters"
    }
   },
@@ -8881,7 +8881,7 @@
    "cluster": "cost-of-living.country::ES",
    "alternates": 9,
    "words": {
-    "count": 1029,
+    "count": 1088,
     "unit": "characters"
    }
   },
@@ -8920,7 +8920,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 1027,
+    "count": 1090,
     "unit": "characters"
    }
   },
@@ -9232,7 +9232,7 @@
    "cluster": "cost-of-living.country::BG",
    "alternates": 6,
    "words": {
-    "count": 470,
+    "count": 497,
     "unit": "words"
    }
   },
@@ -9271,7 +9271,7 @@
    "cluster": "cost-of-living.country::CY",
    "alternates": 5,
    "words": {
-    "count": 467,
+    "count": 492,
     "unit": "words"
    }
   },
@@ -9310,7 +9310,7 @@
    "cluster": "cost-of-living.country::DK",
    "alternates": 9,
    "words": {
-    "count": 468,
+    "count": 494,
     "unit": "words"
    }
   },
@@ -9349,7 +9349,7 @@
    "cluster": "cost-of-living.country::FR",
    "alternates": 7,
    "words": {
-    "count": 467,
+    "count": 492,
     "unit": "words"
    }
   },
@@ -9388,7 +9388,7 @@
    "cluster": "cost-of-living.country::GR",
    "alternates": 8,
    "words": {
-    "count": 465,
+    "count": 490,
     "unit": "words"
    }
   },
@@ -9427,7 +9427,7 @@
    "cluster": "cost-of-living.country::HR",
    "alternates": 7,
    "words": {
-    "count": 468,
+    "count": 493,
     "unit": "words"
    }
   },
@@ -9466,7 +9466,7 @@
    "cluster": "cost-of-living.country::IT",
    "alternates": 9,
    "words": {
-    "count": 465,
+    "count": 490,
     "unit": "words"
    }
   },
@@ -9505,7 +9505,7 @@
    "cluster": "cost-of-living.country::JP",
    "alternates": 8,
    "words": {
-    "count": 415,
+    "count": 440,
     "unit": "words"
    }
   },
@@ -9544,7 +9544,7 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 3,
    "words": {
-    "count": 465,
+    "count": 490,
     "unit": "words"
    }
   },
@@ -9583,7 +9583,7 @@
    "cluster": "cost-of-living.country::SE",
    "alternates": 8,
    "words": {
-    "count": 467,
+    "count": 493,
     "unit": "words"
    }
   },
@@ -9622,7 +9622,7 @@
    "cluster": "cost-of-living.country::MT",
    "alternates": 10,
    "words": {
-    "count": 398,
+    "count": 424,
     "unit": "words"
    }
   },
@@ -10875,6 +10875,84 @@
    }
   },
   {
+   "url": "https://livdar.com/en/cost-of-living/thailand/",
+   "path": "/en/cost-of-living/thailand/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "TH",
+   "destinationName": "Thailand",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 2600,
+   "difficulty": 7,
+   "band": "winnable",
+   "expectedValue": 2418,
+   "keyword": "cost of living in thailand",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TH",
+   "alternates": 8,
+   "words": {
+    "count": 397,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/new-zealand/",
+   "path": "/en/cost-of-living/new-zealand/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "NZ",
+   "destinationName": "New Zealand",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 2400,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 2400,
+   "keyword": "cost of living in new zealand",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::NZ",
+   "alternates": 6,
+   "words": {
+    "count": 402,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/it/quando-andare/thailandia/",
    "path": "/it/quando-andare/thailandia/",
    "cohort": "002",
@@ -11031,6 +11109,162 @@
    }
   },
   {
+   "url": "https://livdar.com/en/cost-of-living/colombia/",
+   "path": "/en/cost-of-living/colombia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "CO",
+   "destinationName": "Colombia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 2600,
+   "difficulty": 17,
+   "band": "winnable",
+   "expectedValue": 2158,
+   "keyword": "cost of living in colorado",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CO",
+   "alternates": 3,
+   "words": {
+    "count": 398,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/australia/",
+   "path": "/en/cost-of-living/australia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "AU",
+   "destinationName": "Australia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 2300,
+   "difficulty": 8,
+   "band": "winnable",
+   "expectedValue": 2116,
+   "keyword": "cost of living in australia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AU",
+   "alternates": 8,
+   "words": {
+    "count": 398,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/canada/",
+   "path": "/en/cost-of-living/canada/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "CA",
+   "destinationName": "Canada",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 2200,
+   "difficulty": 10,
+   "band": "winnable",
+   "expectedValue": 1980,
+   "keyword": "cost of living in canada",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CA",
+   "alternates": 6,
+   "words": {
+    "count": 398,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/costa-rica/",
+   "path": "/en/cost-of-living/costa-rica/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "CR",
+   "destinationName": "Costa Rica",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 2100,
+   "difficulty": 7,
+   "band": "winnable",
+   "expectedValue": 1953,
+   "keyword": "cost of living in costa rica",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CR",
+   "alternates": 6,
+   "words": {
+    "count": 404,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/nl/beste-reistijd/japan/",
    "path": "/nl/beste-reistijd/japan/",
    "cohort": "002",
@@ -11066,6 +11300,45 @@
    "alternates": 9,
    "words": {
     "count": 478,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/panama/",
+   "path": "/en/cost-of-living/panama/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "PA",
+   "destinationName": "Panama",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1800,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 1800,
+   "keyword": "cost of living in panama",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PA",
+   "alternates": 5,
+   "words": {
+    "count": 397,
     "unit": "words"
    }
   },
@@ -11304,6 +11577,84 @@
    }
   },
   {
+   "url": "https://livdar.com/de/lebenshaltungskosten/deutschland/",
+   "path": "/de/lebenshaltungskosten/deutschland/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "DE",
+   "destinationName": "Deutschland",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 2200,
+   "difficulty": 23,
+   "band": "winnable",
+   "expectedValue": 1694,
+   "keyword": "lebenshaltungskosten deutschland",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::DE",
+   "alternates": 1,
+   "words": {
+    "count": 412,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/puerto-rico/",
+   "path": "/en/cost-of-living/puerto-rico/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "PR",
+   "destinationName": "Puerto Rico",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1600,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 1600,
+   "keyword": "cost of living in puerto rico",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PR",
+   "alternates": 2,
+   "words": {
+    "count": 403,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/ja/best-season/thailand/",
    "path": "/ja/best-season/thailand/",
    "cohort": "002",
@@ -11343,6 +11694,45 @@
    }
   },
   {
+   "url": "https://livdar.com/en/cost-of-living/vietnam/",
+   "path": "/en/cost-of-living/vietnam/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "VN",
+   "destinationName": "Vietnam",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1600,
+   "difficulty": 1,
+   "band": "winnable",
+   "expectedValue": 1584,
+   "keyword": "cost of living in vietnam",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::VN",
+   "alternates": 7,
+   "words": {
+    "count": 397,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/it/quando-andare/messico/",
    "path": "/it/quando-andare/messico/",
    "cohort": "002",
@@ -11378,6 +11768,45 @@
    "alternates": 8,
    "words": {
     "count": 487,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/china/",
+   "path": "/en/cost-of-living/china/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "CN",
+   "destinationName": "China",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1500,
+   "difficulty": 3,
+   "band": "winnable",
+   "expectedValue": 1455,
+   "keyword": "cost of living in china",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CN",
+   "alternates": 7,
+   "words": {
+    "count": 397,
     "unit": "words"
    }
   },
@@ -11460,6 +11889,45 @@
    }
   },
   {
+   "url": "https://livdar.com/en/cost-of-living/mexico/",
+   "path": "/en/cost-of-living/mexico/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "MX",
+   "destinationName": "Mexico",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1400,
+   "difficulty": 4,
+   "band": "winnable",
+   "expectedValue": 1344,
+   "keyword": "cost of living in mexico",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MX",
+   "alternates": 5,
+   "words": {
+    "count": 397,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/it/quando-andare/giappone/",
    "path": "/it/quando-andare/giappone/",
    "cohort": "002",
@@ -11538,6 +12006,84 @@
    }
   },
   {
+   "url": "https://livdar.com/en/cost-of-living/philippines/",
+   "path": "/en/cost-of-living/philippines/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "PH",
+   "destinationName": "Philippines",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1300,
+   "difficulty": 2,
+   "band": "winnable",
+   "expectedValue": 1274,
+   "keyword": "cost of living in philippines",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PH",
+   "alternates": 7,
+   "words": {
+    "count": 397,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pt/custo-de-vida/argentina/",
+   "path": "/pt/custo-de-vida/argentina/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pt",
+   "originMarket": "pt-BR",
+   "destination": "AR",
+   "destinationName": "Argentina",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1200,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 1200,
+   "keyword": "custo de vida na argentina",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 7,
+    "reachableCompetitors": 2.5,
+    "weakestDomainRating": 1,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AR",
+   "alternates": 5,
+   "words": {
+    "count": 392,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/fr/quand-partir/grece/",
    "path": "/fr/quand-partir/grece/",
    "cohort": "002",
@@ -11573,6 +12119,123 @@
    "alternates": 3,
    "words": {
     "count": 499,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/singapore/",
+   "path": "/en/cost-of-living/singapore/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "SG",
+   "destinationName": "Singapore",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1200,
+   "difficulty": 2,
+   "band": "winnable",
+   "expectedValue": 1176,
+   "keyword": "cost of living in singapore",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SG",
+   "alternates": 7,
+   "words": {
+    "count": 400,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/india/",
+   "path": "/en/cost-of-living/india/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "IN",
+   "destinationName": "India",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 1000,
+   "difficulty": 2,
+   "band": "winnable",
+   "expectedValue": 980,
+   "keyword": "cost of living in india",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::IN",
+   "alternates": 3,
+   "words": {
+    "count": 397,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/en/cost-of-living/belize/",
+   "path": "/en/cost-of-living/belize/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "en",
+   "originMarket": "en-US",
+   "destination": "BZ",
+   "destinationName": "Belize",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 900,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 900,
+   "keyword": "cost of living in belize",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 8,
+    "reachableCompetitors": 1.1,
+    "weakestDomainRating": 34,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BZ",
+   "alternates": 2,
+   "words": {
+    "count": 397,
     "unit": "words"
    }
   },
@@ -11694,6 +12357,45 @@
    }
   },
   {
+   "url": "https://livdar.com/pt/custo-de-vida/brasil/",
+   "path": "/pt/custo-de-vida/brasil/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pt",
+   "originMarket": "pt-BR",
+   "destination": "BR",
+   "destinationName": "Brasil",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 800,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 800,
+   "keyword": "custo de vida no brasil",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 7,
+    "reachableCompetitors": 2.5,
+    "weakestDomainRating": 1,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BR",
+   "alternates": 5,
+   "words": {
+    "count": 392,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/",
    "path": "/es/mejor-epoca-para-viajar/vietnam/",
    "cohort": "002",
@@ -11808,6 +12510,45 @@
    "words": {
     "count": 1382,
     "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/de/lebenshaltungskosten/thailand/",
+   "path": "/de/lebenshaltungskosten/thailand/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "TH",
+   "destinationName": "Thailand",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 600,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 600,
+   "keyword": "lebenshaltungskosten thailand",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TH",
+   "alternates": 8,
+   "words": {
+    "count": 349,
+    "unit": "words"
    }
   },
   {
@@ -12084,6 +12825,123 @@
    }
   },
   {
+   "url": "https://livdar.com/pt/custo-de-vida/uruguai/",
+   "path": "/pt/custo-de-vida/uruguai/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pt",
+   "originMarket": "pt-BR",
+   "destination": "UY",
+   "destinationName": "Uruguai",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 350,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 350,
+   "keyword": "custo de vida no uruguai",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 7,
+    "reachableCompetitors": 2.5,
+    "weakestDomainRating": 1,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::UY",
+   "alternates": 2,
+   "words": {
+    "count": 392,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pt/custo-de-vida/estados-unidos/",
+   "path": "/pt/custo-de-vida/estados-unidos/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pt",
+   "originMarket": "pt-BR",
+   "destination": "US",
+   "destinationName": "Estados Unidos",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 350,
+   "difficulty": 1,
+   "band": "winnable",
+   "expectedValue": 347,
+   "keyword": "custo de vida nos eua",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 7,
+    "reachableCompetitors": 2.5,
+    "weakestDomainRating": 1,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::US",
+   "alternates": 4,
+   "words": {
+    "count": 422,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pt/custo-de-vida/paraguai/",
+   "path": "/pt/custo-de-vida/paraguai/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pt",
+   "originMarket": "pt-BR",
+   "destination": "PY",
+   "destinationName": "Paraguai",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 300,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 300,
+   "keyword": "custo de vida no paraguai",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 7,
+    "reachableCompetitors": 2.5,
+    "weakestDomainRating": 1,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PY",
+   "alternates": 4,
+   "words": {
+    "count": 394,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/pl/kiedy-jechac/japonia/",
    "path": "/pl/kiedy-jechac/japonia/",
    "cohort": "002",
@@ -12155,9 +13013,48 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::FI",
-   "alternates": 2,
+   "alternates": 4,
    "words": {
-    "count": 429,
+    "count": 459,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/maurice/",
+   "path": "/fr/cout-de-la-vie/maurice/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "MU",
+   "destinationName": "Maurice",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 300,
+   "difficulty": 1,
+   "band": "winnable",
+   "expectedValue": 297,
+   "keyword": "cout de la vie ile maurice",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MU",
+   "alternates": 1,
+   "words": {
+    "count": 405,
     "unit": "words"
    }
   },
@@ -12196,7 +13093,319 @@
    "cluster": "cost-of-living.country::GB",
    "alternates": 6,
    "words": {
-    "count": 387,
+    "count": 416,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/de/lebenshaltungskosten/vereinigte-staaten/",
+   "path": "/de/lebenshaltungskosten/vereinigte-staaten/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "US",
+   "destinationName": "Vereinigte Staaten",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "lebenshaltungskosten usa",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::US",
+   "alternates": 4,
+   "words": {
+    "count": 371,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/albanie/",
+   "path": "/fr/cout-de-la-vie/albanie/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "AL",
+   "destinationName": "Albanie",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "cout de la vie albanie",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AL",
+   "alternates": 3,
+   "words": {
+    "count": 474,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/australie/",
+   "path": "/fr/cout-de-la-vie/australie/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "AU",
+   "destinationName": "Australie",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "cout de la vie en australie",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AU",
+   "alternates": 8,
+   "words": {
+    "count": 405,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/canada/",
+   "path": "/fr/cout-de-la-vie/canada/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "CA",
+   "destinationName": "Canada",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "cout de la vie au canada",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CA",
+   "alternates": 6,
+   "words": {
+    "count": 407,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/viet-nam/",
+   "path": "/fr/cout-de-la-vie/viet-nam/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "VN",
+   "destinationName": "Viêt Nam",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "cout de la vie vietnam",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::VN",
+   "alternates": 7,
+   "words": {
+    "count": 406,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/australia/",
+   "path": "/it/costo-della-vita/australia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "AU",
+   "destinationName": "Australia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "costo della vita in australia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AU",
+   "alternates": 8,
+   "words": {
+    "count": 394,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pt/custo-de-vida/chile/",
+   "path": "/pt/custo-de-vida/chile/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pt",
+   "originMarket": "pt-BR",
+   "destination": "CL",
+   "destinationName": "Chile",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "custo de vida no chile",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 7,
+    "reachableCompetitors": 2.5,
+    "weakestDomainRating": 1,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CL",
+   "alternates": 2,
+   "words": {
+    "count": 393,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pt/custo-de-vida/luxemburgo/",
+   "path": "/pt/custo-de-vida/luxemburgo/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pt",
+   "originMarket": "pt-BR",
+   "destination": "LU",
+   "destinationName": "Luxemburgo",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 250,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 250,
+   "keyword": "custo de vida em luxemburgo",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 7,
+    "reachableCompetitors": 2.5,
+    "weakestDomainRating": 1,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::LU",
+   "alternates": 7,
+   "words": {
+    "count": 469,
     "unit": "words"
    }
   },
@@ -12279,6 +13488,84 @@
    }
   },
   {
+   "url": "https://livdar.com/de/lebenshaltungskosten/australien/",
+   "path": "/de/lebenshaltungskosten/australien/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "AU",
+   "destinationName": "Australien",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 200,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 200,
+   "keyword": "lebenshaltungskosten australien",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AU",
+   "alternates": 8,
+   "words": {
+    "count": 349,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/de/lebenshaltungskosten/costa-rica/",
+   "path": "/de/lebenshaltungskosten/costa-rica/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "CR",
+   "destinationName": "Costa Rica",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 200,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 200,
+   "keyword": "costa rica lebenshaltungskosten",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CR",
+   "alternates": 6,
+   "words": {
+    "count": 354,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/en/cost-of-living/romania/",
    "path": "/en/cost-of-living/romania/",
    "cohort": "002",
@@ -12313,7 +13600,124 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 6,
    "words": {
-    "count": 426,
+    "count": 455,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/costa-rica/",
+   "path": "/fr/cout-de-la-vie/costa-rica/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "CR",
+   "destinationName": "Costa Rica",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 200,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 200,
+   "keyword": "cout de la vie costa rica",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CR",
+   "alternates": 6,
+   "words": {
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/coree-du-sud/",
+   "path": "/fr/cout-de-la-vie/coree-du-sud/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "KR",
+   "destinationName": "Corée du Sud",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 200,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 200,
+   "keyword": "cout de la vie en corée du sud",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::KR",
+   "alternates": 3,
+   "words": {
+    "count": 415,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/thailande/",
+   "path": "/fr/cout-de-la-vie/thailande/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "TH",
+   "destinationName": "Thaïlande",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 200,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 200,
+   "keyword": "cout de la vie en thailande",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TH",
+   "alternates": 8,
+   "words": {
+    "count": 407,
     "unit": "words"
    }
   },
@@ -12357,6 +13761,45 @@
    }
   },
   {
+   "url": "https://livdar.com/de/lebenshaltungskosten/kanada/",
+   "path": "/de/lebenshaltungskosten/kanada/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "CA",
+   "destinationName": "Kanada",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 200,
+   "difficulty": 1,
+   "band": "winnable",
+   "expectedValue": 198,
+   "keyword": "lebenshaltungskosten kanada",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CA",
+   "alternates": 6,
+   "words": {
+    "count": 350,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/en/cost-of-living/luxembourg/",
    "path": "/en/cost-of-living/luxembourg/",
    "cohort": "002",
@@ -12389,9 +13832,48 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::LU",
+   "alternates": 7,
+   "words": {
+    "count": 456,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/maroc/",
+   "path": "/fr/cout-de-la-vie/maroc/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "MA",
+   "destinationName": "Maroc",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 200,
+   "difficulty": 1,
+   "band": "winnable",
+   "expectedValue": 198,
+   "keyword": "cout de la vie au maroc",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MA",
    "alternates": 2,
    "words": {
-    "count": 426,
+    "count": 408,
     "unit": "words"
    }
   },
@@ -12430,7 +13912,124 @@
    "cluster": "cost-of-living.country::AT",
    "alternates": 6,
    "words": {
-    "count": 426,
+    "count": 455,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/de/lebenshaltungskosten/panama/",
+   "path": "/de/lebenshaltungskosten/panama/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "PA",
+   "destinationName": "Panama",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "panama lebenshaltungskosten",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PA",
+   "alternates": 5,
+   "words": {
+    "count": 349,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/de/lebenshaltungskosten/singapur/",
+   "path": "/de/lebenshaltungskosten/singapur/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "SG",
+   "destinationName": "Singapur",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "singapur lebenshaltungskosten",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SG",
+   "alternates": 7,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/de/lebenshaltungskosten/vietnam/",
+   "path": "/de/lebenshaltungskosten/vietnam/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "VN",
+   "destinationName": "Vietnam",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "vietnam lebenshaltungskosten",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::VN",
+   "alternates": 7,
+   "words": {
+    "count": 349,
     "unit": "words"
    }
   },
@@ -12467,9 +14066,9 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::BE",
-   "alternates": 4,
+   "alternates": 5,
    "words": {
-    "count": 428,
+    "count": 457,
     "unit": "words"
    }
   },
@@ -12508,7 +14107,7 @@
    "cluster": "cost-of-living.country::BG",
    "alternates": 2,
    "words": {
-    "count": 430,
+    "count": 460,
     "unit": "words"
    }
   },
@@ -12545,9 +14144,9 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::HU",
-   "alternates": 4,
+   "alternates": 5,
    "words": {
-    "count": 426,
+    "count": 455,
     "unit": "words"
    }
   },
@@ -12586,7 +14185,7 @@
    "cluster": "cost-of-living.country::LT",
    "alternates": 2,
    "words": {
-    "count": 429,
+    "count": 458,
     "unit": "words"
    }
   },
@@ -12623,9 +14222,555 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::LV",
+   "alternates": 3,
+   "words": {
+    "count": 459,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/bresil/",
+   "path": "/fr/cout-de-la-vie/bresil/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "BR",
+   "destinationName": "Brésil",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "cout de la vie au bresil",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BR",
+   "alternates": 5,
+   "words": {
+    "count": 407,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/chine/",
+   "path": "/fr/cout-de-la-vie/chine/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "CN",
+   "destinationName": "Chine",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "cout de la vie en chine",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CN",
+   "alternates": 7,
+   "words": {
+    "count": 407,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/cap-vert/",
+   "path": "/fr/cout-de-la-vie/cap-vert/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "CV",
+   "destinationName": "Cap-Vert",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "cout de la vie cap vert",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CV",
+   "alternates": 1,
+   "words": {
+    "count": 406,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/luxembourg/",
+   "path": "/fr/cout-de-la-vie/luxembourg/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "LU",
+   "destinationName": "Luxembourg",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "cout de la vie luxembourg",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::LU",
+   "alternates": 7,
+   "words": {
+    "count": 476,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/fr/cout-de-la-vie/philippines/",
+   "path": "/fr/cout-de-la-vie/philippines/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "fr",
+   "originMarket": "fr-FR",
+   "destination": "PH",
+   "destinationName": "Philippines",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "cout de la vie philippines",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 44,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PH",
+   "alternates": 7,
+   "words": {
+    "count": 406,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/albania/",
+   "path": "/it/costo-della-vita/albania/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "AL",
+   "destinationName": "Albania",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "costo della vita in albania",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AL",
+   "alternates": 3,
+   "words": {
+    "count": 466,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/cina/",
+   "path": "/it/costo-della-vita/cina/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "CN",
+   "destinationName": "Cina",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "costo della vita in cina",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CN",
+   "alternates": 7,
+   "words": {
+    "count": 396,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/thailandia/",
+   "path": "/it/costo-della-vita/thailandia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "TH",
+   "destinationName": "Thailandia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "costo della vita in thailandia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TH",
+   "alternates": 8,
+   "words": {
+    "count": 396,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/australia/",
+   "path": "/ja/seikatsuhi/australia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "AU",
+   "destinationName": "オーストラリア",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "オーストラリア 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AU",
+   "alternates": 8,
+   "words": {
+    "count": 865,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/malaysia/",
+   "path": "/ja/seikatsuhi/malaysia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "MY",
+   "destinationName": "マレーシア",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "マレーシア 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MY",
    "alternates": 2,
    "words": {
-    "count": 430,
+    "count": 854,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/philippines/",
+   "path": "/ja/seikatsuhi/philippines/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "PH",
+   "destinationName": "フィリピン",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "フィリピン 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PH",
+   "alternates": 7,
+   "words": {
+    "count": 856,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/singapore/",
+   "path": "/ja/seikatsuhi/singapore/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "SG",
+   "destinationName": "シンガポール",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "シンガポール 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SG",
+   "alternates": 7,
+   "words": {
+    "count": 865,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/vietnam/",
+   "path": "/ja/seikatsuhi/vietnam/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "VN",
+   "destinationName": "ベトナム",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "ベトナム 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::VN",
+   "alternates": 7,
+   "words": {
+    "count": 853,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/tajlandia/",
+   "path": "/pl/koszty-zycia/tajlandia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "TH",
+   "destinationName": "Tajlandia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 150,
+   "keyword": "koszty życia w tajlandii",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TH",
+   "alternates": 8,
+   "words": {
+    "count": 352,
     "unit": "words"
    }
   },
@@ -12786,6 +14931,279 @@
    }
   },
   {
+   "url": "https://livdar.com/de/lebenshaltungskosten/neuseeland/",
+   "path": "/de/lebenshaltungskosten/neuseeland/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "de",
+   "originMarket": "de-DE",
+   "destination": "NZ",
+   "destinationName": "Neuseeland",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 150,
+   "difficulty": 21,
+   "band": "winnable",
+   "expectedValue": 119,
+   "keyword": "lebenshaltungskosten neuseeland",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1.3,
+    "weakestDomainRating": 36,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::NZ",
+   "alternates": 6,
+   "words": {
+    "count": 349,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/argentina/",
+   "path": "/it/costo-della-vita/argentina/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "AR",
+   "destinationName": "Argentina",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 100,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 100,
+   "keyword": "costo della vita in argentina",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AR",
+   "alternates": 5,
+   "words": {
+    "count": 392,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/brasile/",
+   "path": "/it/costo-della-vita/brasile/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "BR",
+   "destinationName": "Brasile",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 100,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 100,
+   "keyword": "costo della vita in brasile",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BR",
+   "alternates": 5,
+   "words": {
+    "count": 396,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/canada/",
+   "path": "/it/costo-della-vita/canada/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "CA",
+   "destinationName": "Canada",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 100,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 100,
+   "keyword": "costo della vita in canada",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CA",
+   "alternates": 6,
+   "words": {
+    "count": 397,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/costa-rica/",
+   "path": "/it/costo-della-vita/costa-rica/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "CR",
+   "destinationName": "Costa Rica",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 100,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 100,
+   "keyword": "costa rica costo della vita",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CR",
+   "alternates": 6,
+   "words": {
+    "count": 402,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/singapore/",
+   "path": "/it/costo-della-vita/singapore/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "SG",
+   "destinationName": "Singapore",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 100,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 100,
+   "keyword": "singapore costo della vita",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SG",
+   "alternates": 7,
+   "words": {
+    "count": 394,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/vietnam/",
+   "path": "/it/costo-della-vita/vietnam/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "VN",
+   "destinationName": "Vietnam",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 100,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 100,
+   "keyword": "costo della vita in vietnam",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::VN",
+   "alternates": 7,
+   "words": {
+    "count": 396,
+    "unit": "words"
+   }
+  },
+  {
    "url": "https://livdar.com/pl/kiedy-jechac/peru/",
    "path": "/pl/kiedy-jechac/peru/",
    "cohort": "002",
@@ -12822,6 +15240,84 @@
    "words": {
     "count": 440,
     "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/tunisia/",
+   "path": "/it/costo-della-vita/tunisia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "TN",
+   "destinationName": "Tunisia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 90,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 90,
+   "keyword": "costo della vita in tunisia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TN",
+   "alternates": 1,
+   "words": {
+    "count": 396,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/indonesia/",
+   "path": "/ja/seikatsuhi/indonesia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "ID",
+   "destinationName": "インドネシア",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 90,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 90,
+   "keyword": "インドネシア 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::ID",
+   "alternates": 1,
+   "words": {
+    "count": 864,
+    "unit": "characters"
    }
   },
   {
@@ -12898,7 +15394,46 @@
    "cluster": "cost-of-living.country::EE",
    "alternates": 2,
    "words": {
-    "count": 426,
+    "count": 455,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/espana/",
+   "path": "/es/coste-de-vida/espana/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "ES",
+   "destinationName": "España",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 90,
+   "difficulty": 2,
+   "band": "winnable",
+   "expectedValue": 88,
+   "keyword": "coste de vida en españa",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::ES",
+   "alternates": 1,
+   "words": {
+    "count": 493,
     "unit": "words"
    }
   },
@@ -12935,9 +15470,87 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::ME",
-   "alternates": 2,
+   "alternates": 3,
    "words": {
-    "count": 426,
+    "count": 457,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/georgia/",
+   "path": "/it/costo-della-vita/georgia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "GE",
+   "destinationName": "Georgia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 80,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 80,
+   "keyword": "costo della vita in georgia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::GE",
+   "alternates": 3,
+   "words": {
+    "count": 396,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/russia/",
+   "path": "/it/costo-della-vita/russia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "RU",
+   "destinationName": "Russia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 80,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 80,
+   "keyword": "costo della vita in russia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::RU",
+   "alternates": 1,
+   "words": {
+    "count": 396,
     "unit": "words"
    }
   },
@@ -13052,9 +15665,126 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::IS",
-   "alternates": 1,
+   "alternates": 3,
    "words": {
-    "count": 384,
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/lussemburgo/",
+   "path": "/it/costo-della-vita/lussemburgo/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "LU",
+   "destinationName": "Lussemburgo",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 70,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 70,
+   "keyword": "lussemburgo costo della vita",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::LU",
+   "alternates": 7,
+   "words": {
+    "count": 467,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/lettonia/",
+   "path": "/it/costo-della-vita/lettonia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "LV",
+   "destinationName": "Lettonia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 70,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 70,
+   "keyword": "costo della vita in lettonia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::LV",
+   "alternates": 3,
+   "words": {
+    "count": 471,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/albania/",
+   "path": "/pl/koszty-zycia/albania/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "AL",
+   "destinationName": "Albania",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 70,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 70,
+   "keyword": "koszty życia w albanii",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AL",
+   "alternates": 3,
+   "words": {
+    "count": 414,
     "unit": "words"
    }
   },
@@ -13093,7 +15823,7 @@
    "cluster": "cost-of-living.country::GB",
    "alternates": 6,
    "words": {
-    "count": 345,
+    "count": 371,
     "unit": "words"
    }
   },
@@ -13132,7 +15862,7 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 6,
    "words": {
-    "count": 384,
+    "count": 410,
     "unit": "words"
    }
   },
@@ -13171,7 +15901,7 @@
    "cluster": "cost-of-living.country::SI",
    "alternates": 2,
    "words": {
-    "count": 429,
+    "count": 458,
     "unit": "words"
    }
   },
@@ -13210,7 +15940,7 @@
    "cluster": "cost-of-living.country::IE",
    "alternates": 1,
    "words": {
-    "count": 441,
+    "count": 465,
     "unit": "words"
    }
   },
@@ -13247,9 +15977,87 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::NL",
-   "alternates": 1,
+   "alternates": 2,
    "words": {
-    "count": 447,
+    "count": 471,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/australia/",
+   "path": "/pl/koszty-zycia/australia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "AU",
+   "destinationName": "Australia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 60,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 60,
+   "keyword": "koszty życia w australii",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AU",
+   "alternates": 8,
+   "words": {
+    "count": 353,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/filipiny/",
+   "path": "/pl/koszty-zycia/filipiny/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "PH",
+   "destinationName": "Filipiny",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 60,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 60,
+   "keyword": "filipiny koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PH",
+   "alternates": 7,
+   "words": {
+    "count": 351,
     "unit": "words"
    }
   },
@@ -13290,6 +16098,45 @@
    "words": {
     "count": 440,
     "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/south-korea/",
+   "path": "/ja/seikatsuhi/south-korea/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "KR",
+   "destinationName": "韓国",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 90,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 54,
+   "keyword": "韓国 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::KR",
+   "alternates": 3,
+   "words": {
+    "count": 847,
+    "unit": "characters"
    }
   },
   {
@@ -13364,9 +16211,87 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::BE",
+   "alternates": 5,
+   "words": {
+    "count": 412,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/australia/",
+   "path": "/es/coste-de-vida/australia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "AU",
+   "destinationName": "Australia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 50,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 50,
+   "keyword": "coste de vida en australia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AU",
+   "alternates": 8,
+   "words": {
+    "count": 411,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/estados-unidos/",
+   "path": "/es/coste-de-vida/estados-unidos/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "US",
+   "destinationName": "Estados Unidos",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 50,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 50,
+   "keyword": "coste de vida estados unidos",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::US",
    "alternates": 4,
    "words": {
-    "count": 386,
+    "count": 448,
     "unit": "words"
    }
   },
@@ -13405,7 +16330,202 @@
    "cluster": "cost-of-living.country::AT",
    "alternates": 6,
    "words": {
-    "count": 439,
+    "count": 464,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/india/",
+   "path": "/ja/seikatsuhi/india/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "IN",
+   "destinationName": "インド",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 50,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 50,
+   "keyword": "インド 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::IN",
+   "alternates": 3,
+   "words": {
+    "count": 843,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/new-zealand/",
+   "path": "/ja/seikatsuhi/new-zealand/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "NZ",
+   "destinationName": "ニュージーランド",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 50,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 50,
+   "keyword": "ニュージーランド 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::NZ",
+   "alternates": 6,
+   "words": {
+    "count": 868,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/islandia/",
+   "path": "/pl/koszty-zycia/islandia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "IS",
+   "destinationName": "Islandia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 50,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 50,
+   "keyword": "islandia koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::IS",
+   "alternates": 3,
+   "words": {
+    "count": 413,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/nowa-zelandia/",
+   "path": "/pl/koszty-zycia/nowa-zelandia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "NZ",
+   "destinationName": "Nowa Zelandia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 50,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 50,
+   "keyword": "nowa zelandia koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::NZ",
+   "alternates": 6,
+   "words": {
+    "count": 356,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/stany-zjednoczone/",
+   "path": "/pl/koszty-zycia/stany-zjednoczone/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "US",
+   "destinationName": "Stany Zjednoczone",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 50,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 50,
+   "keyword": "koszty życia w usa",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::US",
+   "alternates": 4,
+   "words": {
+    "count": 373,
     "unit": "words"
    }
   },
@@ -13442,9 +16562,126 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::FR",
-   "alternates": 2,
+   "alternates": 3,
    "words": {
-    "count": 386,
+    "count": 412,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/it/costo-della-vita/panama/",
+   "path": "/it/costo-della-vita/panama/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "it",
+   "originMarket": "it-IT",
+   "destination": "PA",
+   "destinationName": "Panama",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 70,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 42,
+   "keyword": "panama costo della vita",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 15,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PA",
+   "alternates": 5,
+   "words": {
+    "count": 391,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/brazylia/",
+   "path": "/pl/koszty-zycia/brazylia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "BR",
+   "destinationName": "Brazylia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 70,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 42,
+   "keyword": "koszty życia w brazylii",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BR",
+   "alternates": 5,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/wietnam/",
+   "path": "/pl/koszty-zycia/wietnam/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "VN",
+   "destinationName": "Wietnam",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 70,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 42,
+   "keyword": "wietnam koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::VN",
+   "alternates": 7,
+   "words": {
+    "count": 351,
     "unit": "words"
    }
   },
@@ -13483,7 +16720,46 @@
    "cluster": "cost-of-living.country::RS",
    "alternates": 2,
    "words": {
-    "count": 427,
+    "count": 458,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/tailandia/",
+   "path": "/es/coste-de-vida/tailandia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "TH",
+   "destinationName": "Tailandia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 40,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 40,
+   "keyword": "coste de vida en tailandia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TH",
+   "alternates": 8,
+   "words": {
+    "count": 410,
     "unit": "words"
    }
   },
@@ -13520,9 +16796,9 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::SE",
-   "alternates": 1,
+   "alternates": 2,
    "words": {
-    "count": 451,
+    "count": 479,
     "unit": "words"
    }
   },
@@ -13559,34 +16835,73 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::FR",
-   "alternates": 2,
+   "alternates": 3,
    "words": {
-    "count": 445,
+    "count": 469,
     "unit": "words"
    }
   },
   {
-   "url": "https://livdar.com/en/cost-of-living/slovakia/",
-   "path": "/en/cost-of-living/slovakia/",
+   "url": "https://livdar.com/pl/koszty-zycia/argentyna/",
+   "path": "/pl/koszty-zycia/argentyna/",
    "cohort": "002",
    "surface": "move",
    "family": "cost-of-living.country",
-   "language": "en",
-   "originMarket": "en-US",
-   "destination": "SK",
-   "destinationName": "Slovakia",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "AR",
+   "destinationName": "Argentyna",
    "intent": "What daily life costs in this country, and how that compares with its neighbours",
    "priority": "high",
-   "volume": 30,
+   "volume": 40,
    "difficulty": 0,
    "band": "winnable",
-   "expectedValue": 30,
-   "keyword": "cost of living in slovakia",
+   "expectedValue": 40,
+   "keyword": "koszty życia w argentynie",
    "opportunity": {
     "basis": "market median, this keyword was not measured",
-    "entryPosition": 8,
-    "reachableCompetitors": 1.1,
-    "weakestDomainRating": 34,
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AR",
+   "alternates": 5,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/czarnogora/",
+   "path": "/pl/koszty-zycia/czarnogora/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "ME",
+   "destinationName": "Czarnogóra",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 40,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 40,
+   "keyword": "czarnogóra koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
     "hasAiOverview": null
    },
    "sourceType": {
@@ -13597,10 +16912,88 @@
     "quotable": true
    },
    "indexPolicy": "always",
-   "cluster": "cost-of-living.country::SK",
-   "alternates": 2,
+   "cluster": "cost-of-living.country::ME",
+   "alternates": 3,
    "words": {
-    "count": 426,
+    "count": 414,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/argentina/",
+   "path": "/es/coste-de-vida/argentina/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "AR",
+   "destinationName": "Argentina",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 30,
+   "keyword": "coste de vida en argentina",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AR",
+   "alternates": 5,
+   "words": {
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/luxemburgo/",
+   "path": "/es/coste-de-vida/luxemburgo/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "LU",
+   "destinationName": "Luxemburgo",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 30,
+   "keyword": "coste de vida en luxemburgo",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::LU",
+   "alternates": 7,
+   "words": {
+    "count": 491,
     "unit": "words"
    }
   },
@@ -13639,7 +17032,631 @@
    "cluster": "cost-of-living.country::CY",
    "alternates": 3,
    "words": {
-    "count": 447,
+    "count": 475,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/finland/",
+   "path": "/ja/seikatsuhi/finland/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "FI",
+   "destinationName": "フィンランド",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 30,
+   "keyword": "フィンランド 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::FI",
+   "alternates": 4,
+   "words": {
+    "count": 1121,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/curacao/",
+   "path": "/nl/kosten-van-levensonderhoud/curacao/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "CW",
+   "destinationName": "Curaçao",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 30,
+   "keyword": "levensonderhoud curacao",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CW",
+   "alternates": 1,
+   "words": {
+    "count": 366,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/kanada/",
+   "path": "/pl/koszty-zycia/kanada/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "CA",
+   "destinationName": "Kanada",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 30,
+   "keyword": "koszty życia w kanadzie",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CA",
+   "alternates": 6,
+   "words": {
+    "count": 353,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/finlandia/",
+   "path": "/pl/koszty-zycia/finlandia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "FI",
+   "destinationName": "Finlandia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 30,
+   "keyword": "koszty życia w finlandii",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::FI",
+   "alternates": 4,
+   "words": {
+    "count": 417,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/meksyk/",
+   "path": "/pl/koszty-zycia/meksyk/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "MX",
+   "destinationName": "Meksyk",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 30,
+   "keyword": "koszty życia w meksyku",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MX",
+   "alternates": 5,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/chiny/",
+   "path": "/pl/koszty-zycia/chiny/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "CN",
+   "destinationName": "Chiny",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 40,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 24,
+   "keyword": "koszty życia w chinach",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CN",
+   "alternates": 7,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/egipt/",
+   "path": "/pl/koszty-zycia/egipt/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "EG",
+   "destinationName": "Egipt",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 40,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 24,
+   "keyword": "koszty życia w egipcie",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::EG",
+   "alternates": 1,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/malezja/",
+   "path": "/pl/koszty-zycia/malezja/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "MY",
+   "destinationName": "Malezja",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 40,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 24,
+   "keyword": "malezja koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MY",
+   "alternates": 2,
+   "words": {
+    "count": 351,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/paragwaj/",
+   "path": "/pl/koszty-zycia/paragwaj/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "PY",
+   "destinationName": "Paragwaj",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 40,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 24,
+   "keyword": "paragwaj koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PY",
+   "alternates": 4,
+   "words": {
+    "count": 351,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/chile/",
+   "path": "/es/coste-de-vida/chile/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "CL",
+   "destinationName": "Chile",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "coste de vida en chile",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CL",
+   "alternates": 2,
+   "words": {
+    "count": 411,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/costa-rica/",
+   "path": "/es/coste-de-vida/costa-rica/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "CR",
+   "destinationName": "Costa Rica",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "coste de vida en costa rica",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CR",
+   "alternates": 6,
+   "words": {
+    "count": 417,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/mexico/",
+   "path": "/es/coste-de-vida/mexico/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "MX",
+   "destinationName": "México",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "coste de vida en mexico",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MX",
+   "alternates": 5,
+   "words": {
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/nueva-zelanda/",
+   "path": "/es/coste-de-vida/nueva-zelanda/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "NZ",
+   "destinationName": "Nueva Zelanda",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "coste de vida en nueva zelanda",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::NZ",
+   "alternates": 6,
+   "words": {
+    "count": 415,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/panama/",
+   "path": "/es/coste-de-vida/panama/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "PA",
+   "destinationName": "Panamá",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "coste de vida en panama",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PA",
+   "alternates": 5,
+   "words": {
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/filipinas/",
+   "path": "/es/coste-de-vida/filipinas/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "PH",
+   "destinationName": "Filipinas",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "coste de vida en filipinas",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PH",
+   "alternates": 7,
+   "words": {
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/uruguay/",
+   "path": "/es/coste-de-vida/uruguay/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "UY",
+   "destinationName": "Uruguay",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "coste de vida en uruguay",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::UY",
+   "alternates": 2,
+   "words": {
+    "count": 410,
     "unit": "words"
    }
   },
@@ -13678,7 +17695,7 @@
    "cluster": "cost-of-living.country::GB",
    "alternates": 6,
    "words": {
-    "count": 396,
+    "count": 424,
     "unit": "words"
    }
   },
@@ -13715,9 +17732,9 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::CZ",
-   "alternates": 4,
+   "alternates": 2,
    "words": {
-    "count": 444,
+    "count": 468,
     "unit": "words"
    }
   },
@@ -13756,7 +17773,436 @@
    "cluster": "cost-of-living.country::GB",
    "alternates": 6,
    "words": {
-    "count": 395,
+    "count": 419,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/mexico/",
+   "path": "/ja/seikatsuhi/mexico/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "MX",
+   "destinationName": "メキシコ",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "メキシコ 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MX",
+   "alternates": 5,
+   "words": {
+    "count": 852,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/denemarken/",
+   "path": "/nl/kosten-van-levensonderhoud/denemarken/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "DK",
+   "destinationName": "Denemarken",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "levensonderhoud denemarken",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::DK",
+   "alternates": 1,
+   "words": {
+    "count": 425,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/griekenland/",
+   "path": "/nl/kosten-van-levensonderhoud/griekenland/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "GR",
+   "destinationName": "Griekenland",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "kosten levensonderhoud griekenland",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::GR",
+   "alternates": 1,
+   "words": {
+    "count": 422,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/zweden/",
+   "path": "/nl/kosten-van-levensonderhoud/zweden/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "SE",
+   "destinationName": "Zweden",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 20,
+   "keyword": "levensonderhoud zweden",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SE",
+   "alternates": 2,
+   "words": {
+    "count": 421,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/china/",
+   "path": "/ja/seikatsuhi/china/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "CN",
+   "destinationName": "中国",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 18,
+   "keyword": "中国 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CN",
+   "alternates": 7,
+   "words": {
+    "count": 839,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/georgia/",
+   "path": "/ja/seikatsuhi/georgia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "GE",
+   "destinationName": "ジョージア",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 18,
+   "keyword": "ジョージア 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::GE",
+   "alternates": 3,
+   "words": {
+    "count": 856,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/bialorus/",
+   "path": "/pl/koszty-zycia/bialorus/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "BY",
+   "destinationName": "Białoruś",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 18,
+   "keyword": "koszty życia na białorusi",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BY",
+   "alternates": 1,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/kolumbia/",
+   "path": "/pl/koszty-zycia/kolumbia/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "CO",
+   "destinationName": "Kolumbia",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 18,
+   "keyword": "koszty życia w kolumbii",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CO",
+   "alternates": 3,
+   "words": {
+    "count": 353,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/gruzja/",
+   "path": "/pl/koszty-zycia/gruzja/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "GE",
+   "destinationName": "Gruzja",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 18,
+   "keyword": "koszty życia w gruzji",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::GE",
+   "alternates": 3,
+   "words": {
+    "count": 352,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/korea-poludniowa/",
+   "path": "/pl/koszty-zycia/korea-poludniowa/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "KR",
+   "destinationName": "Korea Południowa",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 18,
+   "keyword": "koszty życia w korei południowej",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::KR",
+   "alternates": 3,
+   "words": {
+    "count": 358,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/pl/koszty-zycia/singapur/",
+   "path": "/pl/koszty-zycia/singapur/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "pl",
+   "originMarket": "pl-PL",
+   "destination": "SG",
+   "destinationName": "Singapur",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 30,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 18,
+   "keyword": "singapur koszty życia",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 4,
+    "reachableCompetitors": 4,
+    "weakestDomainRating": 7,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SG",
+   "alternates": 7,
+   "words": {
+    "count": 355,
     "unit": "words"
    }
   },
@@ -13795,7 +18241,202 @@
    "cluster": "cost-of-living.country::PL",
    "alternates": 1,
    "words": {
-    "count": 446,
+    "count": 471,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/china/",
+   "path": "/es/coste-de-vida/china/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "CN",
+   "destinationName": "China",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 12,
+   "keyword": "coste de vida en china",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::CN",
+   "alternates": 7,
+   "words": {
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/republica-dominicana/",
+   "path": "/es/coste-de-vida/republica-dominicana/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "DO",
+   "destinationName": "República Dominicana",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 12,
+   "keyword": "coste de vida en republica dominicana",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::DO",
+   "alternates": 1,
+   "words": {
+    "count": 415,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/marruecos/",
+   "path": "/es/coste-de-vida/marruecos/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "MA",
+   "destinationName": "Marruecos",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 12,
+   "keyword": "coste de vida en marruecos",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::MA",
+   "alternates": 2,
+   "words": {
+    "count": 414,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/paraguay/",
+   "path": "/es/coste-de-vida/paraguay/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "PY",
+   "destinationName": "Paraguay",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 12,
+   "keyword": "coste de vida en paraguay",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PY",
+   "alternates": 4,
+   "words": {
+    "count": 410,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/es/coste-de-vida/singapur/",
+   "path": "/es/coste-de-vida/singapur/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "SG",
+   "destinationName": "Singapur",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 20,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 12,
+   "keyword": "coste de vida en singapur",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SG",
+   "alternates": 7,
+   "words": {
+    "count": 413,
     "unit": "words"
    }
   },
@@ -13834,7 +18475,7 @@
    "cluster": "cost-of-living.country::CY",
    "alternates": 3,
    "words": {
-    "count": 385,
+    "count": 414,
     "unit": "words"
    }
   },
@@ -13873,7 +18514,7 @@
    "cluster": "cost-of-living.country::GB",
    "alternates": 6,
    "words": {
-    "count": 344,
+    "count": 373,
     "unit": "words"
    }
   },
@@ -13912,7 +18553,7 @@
    "cluster": "cost-of-living.country::HR",
    "alternates": 1,
    "words": {
-    "count": 387,
+    "count": 416,
     "unit": "words"
    }
   },
@@ -13949,9 +18590,9 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::HU",
-   "alternates": 4,
+   "alternates": 5,
    "words": {
-    "count": 384,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -13990,7 +18631,163 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 6,
    "words": {
-    "count": 384,
+    "count": 413,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/frankrijk/",
+   "path": "/nl/kosten-van-levensonderhoud/frankrijk/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "FR",
+   "destinationName": "Frankrijk",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 10,
+   "keyword": "kosten levensonderhoud frankrijk",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::FR",
+   "alternates": 3,
+   "words": {
+    "count": 424,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/nederland/",
+   "path": "/nl/kosten-van-levensonderhoud/nederland/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "NL",
+   "destinationName": "Nederland",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": 3,
+   "band": "winnable",
+   "expectedValue": 10,
+   "keyword": "kosten levensonderhoud nederland",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::NL",
+   "alternates": 2,
+   "words": {
+    "count": 422,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/noorwegen/",
+   "path": "/nl/kosten-van-levensonderhoud/noorwegen/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "NO",
+   "destinationName": "Noorwegen",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 10,
+   "keyword": "levensonderhoud noorwegen",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::NO",
+   "alternates": 1,
+   "words": {
+    "count": 425,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/",
+   "path": "/nl/kosten-van-levensonderhoud/filipijnen/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "PH",
+   "destinationName": "Filipijnen",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": 0,
+   "band": "winnable",
+   "expectedValue": 10,
+   "keyword": "kosten levensonderhoud filipijnen",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PH",
+   "alternates": 7,
+   "words": {
+    "count": 362,
     "unit": "words"
    }
   },
@@ -14027,9 +18824,9 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::BE",
-   "alternates": 4,
+   "alternates": 5,
    "words": {
-    "count": 445,
+    "count": 470,
     "unit": "words"
    }
   },
@@ -14066,48 +18863,48 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::HU",
-   "alternates": 4,
+   "alternates": 5,
    "words": {
-    "count": 443,
+    "count": 468,
     "unit": "words"
    }
   },
   {
-   "url": "https://livdar.com/en/cost-of-living/czechia/",
-   "path": "/en/cost-of-living/czechia/",
+   "url": "https://livdar.com/es/coste-de-vida/andorra/",
+   "path": "/es/coste-de-vida/andorra/",
    "cohort": "002",
    "surface": "move",
    "family": "cost-of-living.country",
-   "language": "en",
-   "originMarket": "en-US",
-   "destination": "CZ",
-   "destinationName": "Czechia",
+   "language": "es",
+   "originMarket": "es-ES",
+   "destination": "AD",
+   "destinationName": "Andorra",
    "intent": "What daily life costs in this country, and how that compares with its neighbours",
    "priority": "high",
    "volume": 10,
    "difficulty": null,
    "band": "unknown",
    "expectedValue": 6,
-   "keyword": "cost of living in czechia",
+   "keyword": "coste de vida andorra",
    "opportunity": {
     "basis": "market median, this keyword was not measured",
-    "entryPosition": 8,
-    "reachableCompetitors": 1.1,
-    "weakestDomainRating": 34,
+    "entryPosition": 9,
+    "reachableCompetitors": 1,
+    "weakestDomainRating": 37,
     "hasAiOverview": null
    },
    "sourceType": {
-    "lowestConfidence": "official",
+    "lowestConfidence": "official-derived",
     "sources": [
-     "Eurostat"
+     "World Bank"
     ],
     "quotable": true
    },
    "indexPolicy": "always",
-   "cluster": "cost-of-living.country::CZ",
-   "alternates": 4,
+   "cluster": "cost-of-living.country::AD",
+   "alternates": 1,
    "words": {
-    "count": 426,
+    "count": 412,
     "unit": "words"
    }
   },
@@ -14144,10 +18941,49 @@
    },
    "indexPolicy": "always",
    "cluster": "cost-of-living.country::CZ",
-   "alternates": 4,
+   "alternates": 2,
    "words": {
-    "count": 450,
+    "count": 478,
     "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/argentina/",
+   "path": "/ja/seikatsuhi/argentina/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "AR",
+   "destinationName": "アルゼンチン",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "アルゼンチン 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::AR",
+   "alternates": 5,
+   "words": {
+    "count": 861,
+    "unit": "characters"
    }
   },
   {
@@ -14185,7 +19021,163 @@
    "cluster": "cost-of-living.country::AT",
    "alternates": 6,
    "words": {
-    "count": 1048,
+    "count": 1112,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/belgium/",
+   "path": "/ja/seikatsuhi/belgium/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "BE",
+   "destinationName": "ベルギー",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "ベルギー 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BE",
+   "alternates": 5,
+   "words": {
+    "count": 1112,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/brazil/",
+   "path": "/ja/seikatsuhi/brazil/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "BR",
+   "destinationName": "ブラジル",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "ブラジル 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::BR",
+   "alternates": 5,
+   "words": {
+    "count": 850,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/iceland/",
+   "path": "/ja/seikatsuhi/iceland/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "IS",
+   "destinationName": "アイスランド",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "アイスランド 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::IS",
+   "alternates": 3,
+   "words": {
+    "count": 1121,
+    "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/ja/seikatsuhi/luxembourg/",
+   "path": "/ja/seikatsuhi/luxembourg/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "ja",
+   "originMarket": "ja-JP",
+   "destination": "LU",
+   "destinationName": "ルクセンブルク",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "ルクセンブルク 生活費",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 6,
+    "reachableCompetitors": 2,
+    "weakestDomainRating": 0,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::LU",
+   "alternates": 7,
+   "words": {
+    "count": 1121,
     "unit": "characters"
    }
   },
@@ -14224,8 +19216,203 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 6,
    "words": {
-    "count": 1028,
+    "count": 1094,
     "unit": "characters"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/hongarije/",
+   "path": "/nl/kosten-van-levensonderhoud/hongarije/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "HU",
+   "destinationName": "Hongarije",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "kosten levensonderhoud hongarije",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::HU",
+   "alternates": 5,
+   "words": {
+    "count": 422,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/italie/",
+   "path": "/nl/kosten-van-levensonderhoud/italie/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "IT",
+   "destinationName": "Italië",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "kosten levensonderhoud italie",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official",
+    "sources": [
+     "Eurostat"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::IT",
+   "alternates": 1,
+   "words": {
+    "count": 422,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/paraguay/",
+   "path": "/nl/kosten-van-levensonderhoud/paraguay/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "PY",
+   "destinationName": "Paraguay",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "kosten levensonderhoud paraguay",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::PY",
+   "alternates": 4,
+   "words": {
+    "count": 362,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/suriname/",
+   "path": "/nl/kosten-van-levensonderhoud/suriname/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "SR",
+   "destinationName": "Suriname",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "kosten levensonderhoud suriname",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::SR",
+   "alternates": 1,
+   "words": {
+    "count": 362,
+    "unit": "words"
+   }
+  },
+  {
+   "url": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/",
+   "path": "/nl/kosten-van-levensonderhoud/thailand/",
+   "cohort": "002",
+   "surface": "move",
+   "family": "cost-of-living.country",
+   "language": "nl",
+   "originMarket": "nl-NL",
+   "destination": "TH",
+   "destinationName": "Thailand",
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "priority": "high",
+   "volume": 10,
+   "difficulty": null,
+   "band": "unknown",
+   "expectedValue": 6,
+   "keyword": "levensonderhoud thailand",
+   "opportunity": {
+    "basis": "market median, this keyword was not measured",
+    "entryPosition": 3,
+    "reachableCompetitors": 6,
+    "weakestDomainRating": 11,
+    "hasAiOverview": null
+   },
+   "sourceType": {
+    "lowestConfidence": "official-derived",
+    "sources": [
+     "World Bank"
+    ],
+    "quotable": true
+   },
+   "indexPolicy": "always",
+   "cluster": "cost-of-living.country::TH",
+   "alternates": 8,
+   "words": {
+    "count": 361,
+    "unit": "words"
    }
   },
   {
@@ -14263,7 +19450,7 @@
    "cluster": "cost-of-living.country::AT",
    "alternates": 6,
    "words": {
-    "count": 384,
+    "count": 413,
     "unit": "words"
    }
   },
@@ -14302,7 +19489,7 @@
    "cluster": "cost-of-living.country::AT",
    "alternates": 6,
    "words": {
-    "count": 443,
+    "count": 469,
     "unit": "words"
    }
   },
@@ -14341,7 +19528,7 @@
    "cluster": "cost-of-living.country::CY",
    "alternates": 3,
    "words": {
-    "count": 441,
+    "count": 466,
     "unit": "words"
    }
   },
@@ -14380,7 +19567,7 @@
    "cluster": "cost-of-living.country::RO",
    "alternates": 6,
    "words": {
-    "count": 443,
+    "count": 468,
     "unit": "words"
    }
   }

@@ -10,8 +10,8 @@ gone and the branch is on GitHub with a pull request open. `next build` failed
 for a reason unrelated to the Atlas and now passes. The climate source was
 wrong in a way that made every best time answer wrong, and is fixed. Best time
 demand is measured in all nine markets, the climate surface is built in all
-nine languages, and cohort 002 is assembled, QA clean and approved at 117
-pages against a target of 250. The two remaining steps, places and travel
+nine languages, and cohort 002 is assembled, QA clean and approved at its
+full target of 250. The two remaining steps, places and travel
 advice, are blocked by the environment's network policy and no longer by
 anything in the code.
 
@@ -61,10 +61,10 @@ These came from the owner across several sessions. Do not relitigate them.
 | Base | `origin/main` = `1a5f1255e03b2c7286e18b7807087b152196be4b` |
 | Pull request | open, and it is the delivery mechanism now rather than a bundle |
 | Working tree | clean |
-| Tests | **252 passing, 0 failing** (`npm test`) |
-| Dash check | 1,062 files, 0 violations (`npm run dashcheck`) |
+| Tests | **260 passing, 0 failing** (`npm test`) |
+| Dash check | 1,184 files, 0 violations (`npm run dashcheck`) |
 | Build | `next build` compiles, 159 static pages |
-| Registry funnel | 123 published, 367 approved |
+| Registry funnel | 123 published, 500 approved |
 
 ### The push blocker is gone
 
@@ -110,10 +110,11 @@ failed to produce.
 
 **Do not rebuild or modify cohort 001.** It is finished.
 
-### Cohort 002: 117 pages, approved, QA clean
+### Cohort 002: 250 pages, approved, QA clean
 
 `data/atlas/cohorts/cohort-002.json` and `cohort-002-pages.json`. 72 climate
-pages in 9 languages plus 45 cost of living pages. See section 7.
+pages in 9 languages plus 178 cost of living pages across 71 countries. See
+section 7.
 
 ### The climate surface
 
@@ -291,24 +292,40 @@ neither is a code problem.
 
 ## 7. Cohort 002, as built
 
-**Cohort 002 is done: 117 pages, QA clean, approved, not deployed.** The
-target was 250 and the shortfall of 133 is reported rather than padded.
+**Cohort 002 is done: 250 pages, QA clean, approved, not deployed.**
 
-### The arithmetic, resolved
+### The arithmetic, and why it was never the real limit
 
-There are **367 eligible pages in total**. Cohort 001 took 250 and cohort 002
-took the remaining 117: the 72 climate pages this session added, and the 45
-cost of living pages cohort 001 had no room for. Every other surface is
-blocked on a source that cannot be built from this environment, so 117 is not
-a selection failure, it is the whole inventory.
+It first came out at 117, and the reason was worth understanding rather than
+reporting. Every unbuilt surface is blocked on a source, which is true, and it
+made the wrong conclusion look obvious: that 117 was the whole inventory.
+
+It was not. `cost-of-living-verified` covers **199 countries** and only about
+**two hundred country and market pairs had ever been measured**. The binding
+constraint on the largest built family was the third eligibility condition,
+not the first: a source covering an entity is worthless until a keyword for
+that entity in that market has a volume. Measuring the gap took eligible pages
+from 367 to 502 for about 12,500 Ahrefs units, and cohort 002 to its target.
+
+The lesson generalises, so check it before concluding a cohort is short:
+**source coverage and measured demand are different numbers, and the second
+one is the one you can move without new data.**
 
 | Thing | Cohort 001 | Cohort 002 |
 | --- | --- | --- |
-| Pages | 250 | 117 |
+| Pages | 250 | 250 |
 | Lot | lot-003 | lot-004 |
 | Surfaces | tools, move, work | climate, move |
+| Families | 7 | 2 |
+| Entities | 43 | 71 |
 | QA | 22 checks, 0 failures | 22 checks, 0 failures |
 | Orphans | 0 | 0 |
+| English share | 22 percent | 18 percent |
+
+The English share matters: the SERP work found English the hardest of the nine
+markets, 1.1 reachable competitors per page against 6.0 in Dutch, and cohort
+001 gave it the largest share anyway. Cohort 002 corrects it, and a test
+asserts the correction rather than leaving it in a report.
 
 The builder takes `--cohort NNN` and excludes every earlier cohort by page
 identity rather than by path, reading the exclusion from the manifests so it
@@ -369,13 +386,11 @@ decision for the owner.
 3. **When the government hosts are unblocked**, try `travel-advice-verified`
    from the UK FCDO and the US State Department. It would unlock Safety
    cheaply and was never attempted.
-4. **Decide whether to launch at 367 rather than wait for 500.** The standing
-   instruction is that cohorts launch together so the surfaces are comparable
-   from the same start date, and both cohorts are ready. Waiting for a third
-   cohort means waiting for the network policy. This is the owner's call and
-   it is the main open question.
+4. **Both cohorts are full and ready, so the launch is a decision rather than
+   a wait.** 500 pages, 250 in each cohort, launching together so the surfaces
+   are comparable from the same start date.
 5. **The launch package exists** at `data/atlas/cohorts/launch-package.json`,
-   367 URLs with cohort, surface, family, language, origin market,
+   500 URLs with cohort, surface, family, language, origin market,
    destination, intent, priority, volume, difficulty, SERP opportunity and
    source type. Rebuild it with `node scripts/atlas/launch-package.mjs
    --write` after any cohort change.
@@ -384,8 +399,12 @@ decision for the owner.
    withheld whenever an input is unknown and always carries its raw metrics.
    It has never had credentials. The one number to argue with once real data
    exists is `IMPRESSION_REFERENCE`.
-7. **Ahrefs**: about 980,000 units of 2,000,000 used. **The allowance resets 8
-   October 2026.** Spend targeted units only.
+7. **Ahrefs**: about 995,000 units of 2,000,000 used. **The allowance resets 8
+   October 2026.** Spend targeted units only. The cheapest remaining yield is
+   more of what this session did: measure demand for entities the built
+   sources already cover. `salary-data-verified` covers 35 countries against
+   25 measured pairs, and `rent-index-verified` covers 36 and feeds nothing
+   yet.
 
 **Do not publish either cohort before both are ready.** They are both ready
 now, which makes step 4 the decision that matters.
@@ -428,15 +447,16 @@ eligible ones.
 ## 10. Commands that matter
 
 ```
-npm test                                   # 252 tests, must stay at 0 failures
-npm run dashcheck                          # 1,062 files, must stay at 0
+npm test                                   # 260 tests, must stay at 0 failures
+npm run dashcheck                          # 1,184 files, must stay at 0
 npx next build                             # must compile; 159 static pages
 node scripts/atlas/cohort-qa.mjs           # 22 checks over cohort 001
 node scripts/atlas/cohort-qa.mjs --cohort 002
 node scripts/atlas/cohort-pages.mjs        # rebuild the cohort manifest
 node scripts/atlas/cohort-pages.mjs --cohort 002 --write
 node scripts/atlas/cohort-register.mjs --cohort 002 --write
-node scripts/atlas/launch-package.mjs      # 367 URLs with their metadata
+node scripts/atlas/launch-package.mjs      # 500 URLs with their metadata
+node scripts/atlas/measure-cost-of-living.mjs   # probe to plan and measurements
 node scripts/atlas/ingest/climate-normals.mjs   # gate the climate capture
 node scripts/atlas/measure-best-time.mjs   # probe to plan and measurements
 node scripts/atlas/inventory.mjs           # candidates, eligible, funnel

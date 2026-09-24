@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T13:28:59.341Z",
+ "generatedAt": "2026-09-24T19:43:27.300Z",
  "cohort": "002",
  "target": 250,
  "meaning": "A cohort of the Atlas, selected from pages that are eligible rather than from families that could be. Eligible means four things at once: every source the family needs is built, the source covers this entity, a keyword for this entity in this market was measured with volume above zero, and the tool or ranking behind a global page can actually be computed.",
@@ -7,9 +7,9 @@
   "001"
  ],
  "excluded": 250,
- "poolAfterExclusion": 117,
+ "poolAfterExclusion": 252,
  "eligible": {
-  "eligiblePages": 367,
+  "eligiblePages": 502,
   "families": 8,
   "sourceReadyFamilies": 7,
   "blockedFamilies": 51,
@@ -19,81 +19,81 @@
    "tools.cost-comparison": 9,
    "tools.cost-calculator": 5,
    "tools.matcher": 8,
-   "cost-of-living.country": 203,
+   "cost-of-living.country": 338,
    "work.country-salaries": 23,
    "rankings.index": 24
   },
   "bySurface": {
    "tools": 69,
    "climate": 72,
-   "move": 203,
+   "move": 338,
    "work": 23
   },
   "byMarket": {
-   "pl-PL": 41,
-   "en-US": 87,
-   "de-DE": 42,
-   "ja-JP": 35,
-   "pt-BR": 37,
-   "fr-FR": 39,
-   "it-IT": 35,
-   "nl-NL": 17,
-   "es-ES": 34
+   "pl-PL": 64,
+   "en-US": 102,
+   "de-DE": 52,
+   "ja-JP": 53,
+   "pt-BR": 44,
+   "fr-FR": 53,
+   "it-IT": 51,
+   "nl-NL": 30,
+   "es-ES": 53
   },
   "byPriority": {
-   "high": 295,
+   "high": 430,
    "medium": 0,
    "low": 72
   },
-  "destinations": 55,
+  "destinations": 84,
   "serpMeasured": 19,
   "markets": 9,
-  "highShare": 80.4
+  "highShare": 85.7
  },
  "allocation": {
-  "cost-of-living.country": 45,
+  "cost-of-living.country": 178,
   "weather.country-best-time": 72
  },
  "available": {
   "weather.country-best-time": 72,
-  "cost-of-living.country": 45
+  "cost-of-living.country": 180
  },
- "shortfall": 133,
+ "shortfall": 0,
  "withoutPath": [],
  "duplicates": [],
  "summary": {
-  "pages": 117,
+  "pages": 250,
   "byFamily": {
    "weather.country-best-time": 72,
-   "cost-of-living.country": 45
+   "cost-of-living.country": 178
   },
   "bySurface": {
    "climate": 72,
-   "move": 45
+   "move": 178
   },
   "byMarket": {
-   "en-US": 33,
-   "de-DE": 11,
-   "fr-FR": 11,
-   "it-IT": 12,
-   "nl-NL": 9,
-   "es-ES": 8,
-   "ja-JP": 7,
-   "pl-PL": 15,
-   "pt-BR": 11
+   "en-US": 46,
+   "de-DE": 21,
+   "fr-FR": 25,
+   "it-IT": 28,
+   "nl-NL": 22,
+   "es-ES": 27,
+   "ja-JP": 25,
+   "pt-BR": 18,
+   "pl-PL": 38
   },
   "byBand": {
-   "winnable": 100,
-   "unknown": 17
+   "winnable": 203,
+   "unknown": 47
   },
   "byPriority": {
    "low": 72,
-   "high": 45
+   "high": 178
   },
-  "entities": 39,
+  "entities": 71,
   "languages": 9,
-  "totalVolume": 244930,
-  "highShare": 38.5,
+  "totalVolume": 286770,
+  "highShare": 71.2,
   "measurability": {
    "weather.country-best-time": {
     "pages": 72,
@@ -102,9 +102,9 @@
     "note": "supports a rate for this family"
    },
    "cost-of-living.country": {
-    "pages": 45,
+    "pages": 178,
     "measurable": true,
-    "marginPoints": 14.6,
+    "marginPoints": 7.3,
     "note": "supports a rate for this family"
    }
   }
@@ -1873,6 +1873,128 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "TH",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in thailand",
+   "volume": 2600,
+   "difficulty": 7,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2418,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/thailand/",
+   "canonical": "https://livdar.com/en/cost-of-living/thailand/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/thailandia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/tajlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NZ",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in new zealand",
+   "volume": 2400,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2400,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/new-zealand/",
+   "canonical": "https://livdar.com/en/cost-of-living/new-zealand/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::NZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/neuseeland/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/nueva-zelanda/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/new-zealand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/nowa-zelandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -2121,6 +2243,230 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CO",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in colorado",
+   "volume": 2600,
+   "difficulty": 17,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2158,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/colombia/",
+   "canonical": "https://livdar.com/en/cost-of-living/colombia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/colombia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/kolumbia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/colombia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AU",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in australia",
+   "volume": 2300,
+   "difficulty": 8,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2116,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/australia/",
+   "canonical": "https://livdar.com/en/cost-of-living/australia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/australien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/australia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/australie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/australia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/australia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/australia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CA",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in canada",
+   "volume": 2200,
+   "difficulty": 10,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1980,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/canada/",
+   "canonical": "https://livdar.com/en/cost-of-living/canada/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/kanada/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/canada/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/canada/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/kanada/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CR",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in costa rica",
+   "volume": 2100,
+   "difficulty": 7,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1953,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/costa-rica/",
+   "canonical": "https://livdar.com/en/cost-of-living/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -2191,6 +2537,59 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PA",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in panama",
+   "volume": 1800,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1800,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/panama/",
+   "canonical": "https://livdar.com/en/cost-of-living/panama/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/panama/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/panama/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/panama/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
     }
    ]
   },
@@ -2626,6 +3025,84 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "DE",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten deutschland",
+   "volume": 2200,
+   "difficulty": 23,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1694,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/deutschland/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/deutschland/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::DE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/deutschland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PR",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in puerto rico",
+   "volume": 1600,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1600,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/puerto-rico/",
+   "canonical": "https://livdar.com/en/cost-of-living/puerto-rico/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/puerto-rico/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/puerto-rico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -2705,6 +3182,67 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "VN",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in vietnam",
+   "volume": 1600,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1584,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/vietnam/",
+   "canonical": "https://livdar.com/en/cost-of-living/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::VN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -2771,6 +3309,67 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CN",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in china",
+   "volume": 1500,
+   "difficulty": 3,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1455,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/china/",
+   "canonical": "https://livdar.com/en/cost-of-living/china/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/china/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chine/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/china/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/chiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/china/"
     }
    ]
   },
@@ -2926,6 +3525,59 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MX",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in mexico",
+   "volume": 1400,
+   "difficulty": 4,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1344,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/mexico/",
+   "canonical": "https://livdar.com/en/cost-of-living/mexico/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::MX",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/mexico/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -3056,6 +3708,120 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PH",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in philippines",
+   "volume": 1300,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1274,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/philippines/",
+   "canonical": "https://livdar.com/en/cost-of-living/philippines/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/filipinas/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/philippines/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/philippines/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/filipiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AR",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida na argentina",
+   "volume": 1200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1200,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/argentina/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/argentina/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/argentina/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/argentina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/argentina/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/argentyna/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/argentina/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -3102,6 +3868,153 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/best-time-to-visit/greece/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SG",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in singapore",
+   "volume": 1200,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1176,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/singapore/",
+   "canonical": "https://livdar.com/en/cost-of-living/singapore/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/singapur/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/singapur/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/singapore/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/singapore/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/singapur/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "IN",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in india",
+   "volume": 1000,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 980,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/india/",
+   "canonical": "https://livdar.com/en/cost-of-living/india/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::IN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/india/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/india/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/india/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BZ",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in belize",
+   "volume": 900,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 900,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/belize/",
+   "canonical": "https://livdar.com/en/cost-of-living/belize/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/belize/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/belize/"
     }
    ]
   },
@@ -3292,6 +4205,59 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BR",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida no brasil",
+   "volume": 800,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 800,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/brasil/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/brasil/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/bresil/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/brasile/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/brazil/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/brazylia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/brasil/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -3472,6 +4438,71 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "TH",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten thailand",
+   "volume": 600,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 600,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/thailand/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/thailand/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/thailandia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/tajlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
     }
    ]
   },
@@ -3942,6 +4973,145 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "UY",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida no uruguai",
+   "volume": 350,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 350,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/uruguai/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/uruguai/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::UY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/uruguay/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/uruguai/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "US",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida nos eua",
+   "volume": 350,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 347,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/estados-unidos/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/estados-unidos/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::US",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigte-staaten/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/estados-unidos/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/stany-zjednoczone/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/estados-unidos/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PY",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida no paraguai",
+   "volume": 300,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 300,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/paraguai/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/paraguai/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/paraguay/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/paraguay/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/paragwaj/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/paraguai/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -4051,8 +5221,53 @@
      "href": "https://livdar.com/en/cost-of-living/finland/"
     },
     {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/finland/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/finlandia/"
+    },
+    {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/finland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MU",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie ile maurice",
+   "volume": 300,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 297,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/maurice/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/maurice/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::MU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/maurice/"
     }
    ]
   },
@@ -4110,6 +5325,450 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "US",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten usa",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/vereinigte-staaten/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/vereinigte-staaten/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::US",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigte-staaten/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/estados-unidos/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/stany-zjednoczone/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/estados-unidos/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AL",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie albanie",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/albanie/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/albanie/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/albanie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/albania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/albania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AU",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie en australie",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/australie/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/australie/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/australien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/australia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/australie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/australia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/australia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/australia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CA",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie au canada",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/canada/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/canada/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/kanada/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/canada/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/canada/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/kanada/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "VN",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie vietnam",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/viet-nam/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/viet-nam/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::VN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AU",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in australia",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/australia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/australia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/australien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/australia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/australie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/australia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/australia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/australia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CL",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida no chile",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/chile/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/chile/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/chile/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/chile/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LU",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida em luxemburgo",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/luxemburgo/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/luxemburgo/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/luxembourg/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lussemburgo/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/luxembourg/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
     }
    ]
   },
@@ -4241,6 +5900,128 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "AU",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten australien",
+   "volume": 200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 200,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/australien/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/australien/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/australien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/australia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/australie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/australia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/australia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/australia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CR",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "costa rica lebenshaltungskosten",
+   "volume": 200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 200,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/costa-rica/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "RO",
    "market": "en-US",
    "language": "en",
@@ -4289,6 +6070,173 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/romania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CR",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie costa rica",
+   "volume": 200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 200,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/costa-rica/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "KR",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie en corée du sud",
+   "volume": 200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 200,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/coree-du-sud/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/coree-du-sud/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::KR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/coree-du-sud/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/south-korea/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/korea-poludniowa/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "TH",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie en thailande",
+   "volume": 200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 200,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/thailande/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/thailande/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/thailandia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/tajlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
     }
    ]
   },
@@ -4369,6 +6317,63 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "CA",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten kanada",
+   "volume": 200,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 198,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/kanada/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/kanada/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/kanada/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/canada/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/canada/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/kanada/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "LU",
    "market": "en-US",
    "language": "en",
@@ -4399,8 +6404,69 @@
      "href": "https://livdar.com/en/cost-of-living/luxembourg/"
     },
     {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/luxembourg/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lussemburgo/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/luxembourg/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/luxemburgo/"
+    },
+    {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MA",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie au maroc",
+   "volume": 200,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 198,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/maroc/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/maroc/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::MA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/marruecos/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/maroc/"
     }
    ]
   },
@@ -4467,6 +6533,181 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "PA",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "panama lebenshaltungskosten",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/panama/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/panama/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/panama/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/panama/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/panama/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SG",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "singapur lebenshaltungskosten",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/singapur/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/singapur/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/singapur/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/singapur/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/singapore/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/singapore/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/singapur/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "VN",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "vietnam lebenshaltungskosten",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/vietnam/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::VN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "BE",
    "market": "en-US",
    "language": "en",
@@ -4499,6 +6740,10 @@
     {
      "hreflang": "en",
      "href": "https://livdar.com/en/cost-of-living/belgium/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/belgium/"
     },
     {
      "hreflang": "pt",
@@ -4585,6 +6830,10 @@
     {
      "hreflang": "en",
      "href": "https://livdar.com/en/cost-of-living/hungary/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/hongarije/"
     },
     {
      "hreflang": "pl",
@@ -4677,8 +6926,810 @@
      "href": "https://livdar.com/en/cost-of-living/latvia/"
     },
     {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lettonia/"
+    },
+    {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/latvia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BR",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie au bresil",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/bresil/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/bresil/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/bresil/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/brasile/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/brazil/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/brazylia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/brasil/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CN",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie en chine",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/chine/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/chine/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/china/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chine/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/china/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/chiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CV",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie cap vert",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/cap-vert/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/cap-vert/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CV",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/cap-vert/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LU",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie luxembourg",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/luxembourg/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/luxembourg/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/luxembourg/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lussemburgo/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/luxembourg/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PH",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "cout de la vie philippines",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/philippines/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/philippines/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/filipinas/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/philippines/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/philippines/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/filipiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AL",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in albania",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/albania/",
+   "canonical": "https://livdar.com/it/costo-della-vita/albania/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/albanie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/albania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/albania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CN",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in cina",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/cina/",
+   "canonical": "https://livdar.com/it/costo-della-vita/cina/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/china/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chine/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/china/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/chiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "TH",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in thailandia",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/thailandia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/thailandia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/thailandia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/tajlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AU",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "オーストラリア 生活費",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/australia/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/australia/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::AU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/australien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/australia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/australie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/australia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/australia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/australia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MY",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "マレーシア 生活費",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/malaysia/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/malaysia/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::MY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/malaysia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/malezja/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PH",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "フィリピン 生活費",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/philippines/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/philippines/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::PH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/filipinas/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/philippines/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/philippines/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/filipiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SG",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "シンガポール 生活費",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/singapore/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/singapore/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::SG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/singapur/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/singapur/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/singapore/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/singapore/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/singapur/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "VN",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ベトナム 生活費",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/vietnam/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/vietnam/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::VN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "TH",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w tajlandii",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/tajlandia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/tajlandia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/thailandia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/tajlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
     }
    ]
   },
@@ -4924,6 +7975,405 @@
   },
   {
    "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NZ",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten neuseeland",
+   "volume": 150,
+   "difficulty": 21,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 119,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/neuseeland/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/neuseeland/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::NZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/neuseeland/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/nueva-zelanda/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/new-zealand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/nowa-zelandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AR",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in argentina",
+   "volume": 100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 100,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/argentina/",
+   "canonical": "https://livdar.com/it/costo-della-vita/argentina/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/argentina/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/argentina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/argentina/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/argentyna/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/argentina/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BR",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in brasile",
+   "volume": 100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 100,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/brasile/",
+   "canonical": "https://livdar.com/it/costo-della-vita/brasile/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/bresil/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/brasile/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/brazil/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/brazylia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/brasil/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CA",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in canada",
+   "volume": 100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 100,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/canada/",
+   "canonical": "https://livdar.com/it/costo-della-vita/canada/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/kanada/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/canada/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/canada/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/kanada/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CR",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costa rica costo della vita",
+   "volume": 100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 100,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/costa-rica/",
+   "canonical": "https://livdar.com/it/costo-della-vita/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SG",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "singapore costo della vita",
+   "volume": 100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 100,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/singapore/",
+   "canonical": "https://livdar.com/it/costo-della-vita/singapore/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/singapur/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/singapur/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/singapore/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/singapore/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/singapur/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "VN",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in vietnam",
+   "volume": 100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 100,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/vietnam/",
+   "canonical": "https://livdar.com/it/costo-della-vita/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::VN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
    "family": "weather.country-best-time",
    "surface": "climate",
    "vertical": "weather",
@@ -4982,6 +8432,80 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "TN",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in tunisia",
+   "volume": 90,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 90,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/tunisia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/tunisia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/tunisia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "ID",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "インドネシア 生活費",
+   "volume": 90,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 90,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/indonesia/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/indonesia/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::ID",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/indonesia/"
     }
    ]
   },
@@ -5095,6 +8619,43 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "ES",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en españa",
+   "volume": 90,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 88,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/espana/",
+   "canonical": "https://livdar.com/es/coste-de-vida/espana/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::ES",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/espana/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "ME",
    "market": "en-US",
    "language": "en",
@@ -5125,8 +8686,94 @@
      "href": "https://livdar.com/en/cost-of-living/montenegro/"
     },
     {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/czarnogora/"
+    },
+    {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/montenegro/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GE",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in georgia",
+   "volume": 80,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 80,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/georgia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/georgia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/georgia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/georgia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/gruzja/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "RU",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in russia",
+   "volume": 80,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 80,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/russia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/russia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::RU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/russia/"
     }
    ]
   },
@@ -5274,6 +8921,165 @@
     {
      "hreflang": "de",
      "href": "https://livdar.com/de/lebenshaltungskosten/island/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/iceland/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/islandia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LU",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "lussemburgo costo della vita",
+   "volume": 70,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 70,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/lussemburgo/",
+   "canonical": "https://livdar.com/it/costo-della-vita/lussemburgo/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/luxembourg/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lussemburgo/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/luxembourg/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LV",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in lettonia",
+   "volume": 70,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 70,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/lettonia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/lettonia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LV",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/latvia/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lettonia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/latvia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AL",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w albanii",
+   "volume": 70,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 70,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/albania/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/albania/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/albanie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/albania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/albania/"
     }
    ]
   },
@@ -5503,6 +9309,136 @@
     {
      "hreflang": "it",
      "href": "https://livdar.com/it/costo-della-vita/paesi-bassi/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/nederland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AU",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w australii",
+   "volume": 60,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 60,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/australia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/australia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/australien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/australia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/australie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/australia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/australia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/australia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PH",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "filipiny koszty życia",
+   "volume": 60,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 60,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/filipiny/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/filipiny/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/filipinas/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/philippines/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/philippines/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/filipiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
     }
    ]
   },
@@ -5562,6 +9498,51 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "KR",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "韓国 生活費",
+   "volume": 90,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 54,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/south-korea/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/south-korea/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::KR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/coree-du-sud/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/south-korea/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/korea-poludniowa/"
     }
    ]
   },
@@ -5680,12 +9661,130 @@
      "href": "https://livdar.com/en/cost-of-living/belgium/"
     },
     {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/belgium/"
+    },
+    {
      "hreflang": "pt",
      "href": "https://livdar.com/pt/custo-de-vida/belgica/"
     },
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/belgium/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AU",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en australia",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/australia/",
+   "canonical": "https://livdar.com/es/coste-de-vida/australia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/australien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/australia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/australie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/australia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/australia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/australia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/australia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "US",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida estados unidos",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/estados-unidos/",
+   "canonical": "https://livdar.com/es/coste-de-vida/estados-unidos/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::US",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigte-staaten/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/estados-unidos/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/stany-zjednoczone/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/estados-unidos/"
     }
    ]
   },
@@ -5752,6 +9851,259 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "IN",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "インド 生活費",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/india/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/india/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::IN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/india/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/india/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/india/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NZ",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ニュージーランド 生活費",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/new-zealand/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/new-zealand/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::NZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/neuseeland/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/nueva-zelanda/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/new-zealand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/nowa-zelandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "IS",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "islandia koszty życia",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/islandia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/islandia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::IS",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/island/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/iceland/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/islandia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NZ",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "nowa zelandia koszty życia",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/nowa-zelandia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/nowa-zelandia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::NZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/neuseeland/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/nueva-zelanda/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/new-zealand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/nowa-zelandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "US",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w usa",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/stany-zjednoczone/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/stany-zjednoczone/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::US",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigte-staaten/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/estados-unidos/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/stany-zjednoczone/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/estados-unidos/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "FR",
    "market": "de-DE",
    "language": "de",
@@ -5784,6 +10136,177 @@
     {
      "hreflang": "it",
      "href": "https://livdar.com/it/costo-della-vita/francia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/frankrijk/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PA",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "panama costo della vita",
+   "volume": 70,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 42,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/panama/",
+   "canonical": "https://livdar.com/it/costo-della-vita/panama/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/panama/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/panama/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/panama/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BR",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w brazylii",
+   "volume": 70,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 42,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/brazylia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/brazylia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/bresil/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/brasile/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/brazil/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/brazylia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/brasil/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "VN",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "wietnam koszty życia",
+   "volume": 70,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 42,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/wietnam/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/wietnam/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::VN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/vietnam/"
     }
    ]
   },
@@ -5834,6 +10357,71 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "TH",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en tailandia",
+   "volume": 40,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 40,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/tailandia/",
+   "canonical": "https://livdar.com/es/coste-de-vida/tailandia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/thailandia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/tajlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "SE",
    "market": "fr-FR",
    "language": "fr",
@@ -5862,6 +10450,10 @@
     {
      "hreflang": "fr",
      "href": "https://livdar.com/fr/cout-de-la-vie/suede/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/zweden/"
     }
    ]
   },
@@ -5903,6 +10495,10 @@
     {
      "hreflang": "it",
      "href": "https://livdar.com/it/costo-della-vita/francia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/frankrijk/"
     }
    ]
   },
@@ -5912,10 +10508,108 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
-   "entity": "SK",
-   "market": "en-US",
-   "language": "en",
-   "keyword": "cost of living in slovakia",
+   "entity": "AR",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w argentynie",
+   "volume": 40,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 40,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/argentyna/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/argentyna/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/argentina/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/argentina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/argentina/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/argentyna/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/argentina/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "ME",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "czarnogóra koszty życia",
+   "volume": 40,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 40,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/czarnogora/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/czarnogora/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::ME",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/montenegro/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/czarnogora/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/montenegro/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AR",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en argentina",
    "volume": 30,
    "difficulty": 0,
    "cpcUsd": null,
@@ -5928,10 +10622,63 @@
    "dataSources": [
     "cost-of-living-verified"
    ],
-   "path": "/en/cost-of-living/slovakia/",
-   "canonical": "https://livdar.com/en/cost-of-living/slovakia/",
+   "path": "/es/coste-de-vida/argentina/",
+   "canonical": "https://livdar.com/es/coste-de-vida/argentina/",
    "slugFrom": "cldr",
-   "cluster": "cost-of-living.country::SK",
+   "cluster": "cost-of-living.country::AR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/argentina/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/argentina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/argentina/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/argentyna/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/argentina/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LU",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en luxemburgo",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/luxemburgo/",
+   "canonical": "https://livdar.com/es/coste-de-vida/luxemburgo/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LU",
    "scope": "country",
    "minWords": 320,
    "indexPolicy": "always",
@@ -5939,11 +10686,31 @@
    "alternates": [
     {
      "hreflang": "en",
-     "href": "https://livdar.com/en/cost-of-living/slovakia/"
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/luxembourg/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lussemburgo/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/luxembourg/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/luxemburgo/"
     },
     {
      "hreflang": "x-default",
-     "href": "https://livdar.com/en/cost-of-living/slovakia/"
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
     }
    ]
   },
@@ -5989,6 +10756,802 @@
     {
      "hreflang": "pt",
      "href": "https://livdar.com/pt/custo-de-vida/chipre/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "FI",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "フィンランド 生活費",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/finland/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/finland/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::FI",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/finland/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/finland/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/finlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/finland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CW",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "levensonderhoud curacao",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/curacao/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/curacao/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CW",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/curacao/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CA",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w kanadzie",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/kanada/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/kanada/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/kanada/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/canada/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/canada/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/kanada/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/canada/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "FI",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w finlandii",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/finlandia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/finlandia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::FI",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/finland/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/finland/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/finlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/finland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MX",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w meksyku",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/meksyk/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/meksyk/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::MX",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/mexico/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CN",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w chinach",
+   "volume": 40,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 24,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/chiny/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/chiny/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/china/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chine/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/china/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/chiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "EG",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w egipcie",
+   "volume": 40,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 24,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/egipt/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/egipt/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::EG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/egipt/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MY",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "malezja koszty życia",
+   "volume": 40,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 24,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/malezja/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/malezja/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::MY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/malaysia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/malezja/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PY",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "paragwaj koszty życia",
+   "volume": 40,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 24,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/paragwaj/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/paragwaj/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/paraguay/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/paraguay/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/paragwaj/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/paraguai/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CL",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en chile",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/chile/",
+   "canonical": "https://livdar.com/es/coste-de-vida/chile/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/chile/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/chile/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CR",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en costa rica",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/costa-rica/",
+   "canonical": "https://livdar.com/es/coste-de-vida/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MX",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en mexico",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/mexico/",
+   "canonical": "https://livdar.com/es/coste-de-vida/mexico/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::MX",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/mexico/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NZ",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en nueva zelanda",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/nueva-zelanda/",
+   "canonical": "https://livdar.com/es/coste-de-vida/nueva-zelanda/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::NZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/neuseeland/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/nueva-zelanda/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/new-zealand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/nowa-zelandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/new-zealand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PA",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en panama",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/panama/",
+   "canonical": "https://livdar.com/es/coste-de-vida/panama/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/panama/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/panama/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/panama/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/panama/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PH",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en filipinas",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/filipinas/",
+   "canonical": "https://livdar.com/es/coste-de-vida/filipinas/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/filipinas/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/philippines/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/philippines/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/filipiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "UY",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en uruguay",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/uruguay/",
+   "canonical": "https://livdar.com/es/coste-de-vida/uruguay/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::UY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/uruguay/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/uruguai/"
     }
    ]
   },
@@ -6081,20 +11644,12 @@
    "aeo": [],
    "alternates": [
     {
-     "hreflang": "en",
-     "href": "https://livdar.com/en/cost-of-living/czechia/"
-    },
-    {
      "hreflang": "fr",
      "href": "https://livdar.com/fr/cout-de-la-vie/tchequie/"
     },
     {
      "hreflang": "it",
      "href": "https://livdar.com/it/costo-della-vita/cechia/"
-    },
-    {
-     "hreflang": "x-default",
-     "href": "https://livdar.com/en/cost-of-living/czechia/"
     }
    ]
   },
@@ -6161,6 +11716,513 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "MX",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "メキシコ 生活費",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/mexico/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/mexico/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::MX",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/mexico/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "DK",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "levensonderhoud denemarken",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/denemarken/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/denemarken/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::DK",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/denemarken/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GR",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud griekenland",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/griekenland/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/griekenland/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/griekenland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SE",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "levensonderhoud zweden",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/zweden/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/zweden/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/suede/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/zweden/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CN",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "中国 生活費",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/china/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/china/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::CN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/china/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chine/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/china/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/chiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GE",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ジョージア 生活費",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/georgia/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/georgia/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::GE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/georgia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/georgia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/gruzja/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BY",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia na białorusi",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/bialorus/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/bialorus/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/bialorus/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CO",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w kolumbii",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/kolumbia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/kolumbia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/colombia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/kolumbia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/colombia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GE",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w gruzji",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/gruzja/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/gruzja/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/georgia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/georgia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/gruzja/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "KR",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w korei południowej",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/korea-poludniowa/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/korea-poludniowa/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::KR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/coree-du-sud/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/south-korea/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/korea-poludniowa/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SG",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "singapur koszty życia",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/singapur/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/singapur/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/singapur/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/singapur/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/singapore/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/singapore/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/singapur/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "PL",
    "market": "pt-BR",
    "language": "pt",
@@ -6189,6 +12251,255 @@
     {
      "hreflang": "pt",
      "href": "https://livdar.com/pt/custo-de-vida/polonia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CN",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en china",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/china/",
+   "canonical": "https://livdar.com/es/coste-de-vida/china/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CN",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/china/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chine/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/china/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/chiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/china/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "DO",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en republica dominicana",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/republica-dominicana/",
+   "canonical": "https://livdar.com/es/coste-de-vida/republica-dominicana/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::DO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/republica-dominicana/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "MA",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en marruecos",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/marruecos/",
+   "canonical": "https://livdar.com/es/coste-de-vida/marruecos/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::MA",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/marruecos/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/maroc/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PY",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en paraguay",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/paraguay/",
+   "canonical": "https://livdar.com/es/coste-de-vida/paraguay/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/paraguay/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/paraguay/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/paragwaj/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/paraguai/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SG",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida en singapur",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/es/coste-de-vida/singapur/",
+   "canonical": "https://livdar.com/es/coste-de-vida/singapur/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/singapur/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/singapur/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/singapore/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/singapore/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/singapur/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/singapore/"
     }
    ]
   },
@@ -6367,6 +12678,10 @@
      "href": "https://livdar.com/en/cost-of-living/hungary/"
     },
     {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/hongarije/"
+    },
+    {
      "hreflang": "pl",
      "href": "https://livdar.com/pl/koszty-zycia/wegry/"
     },
@@ -6443,6 +12758,190 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "FR",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud frankrijk",
+   "volume": 10,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 10,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/frankrijk/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/frankrijk/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::FR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/frankreich/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/francia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/frankrijk/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NL",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud nederland",
+   "volume": 10,
+   "difficulty": 3,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 10,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/nederland/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/nederland/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::NL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/paesi-bassi/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/nederland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NO",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "levensonderhoud noorwegen",
+   "volume": 10,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 10,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/noorwegen/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/noorwegen/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::NO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/noorwegen/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PH",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud filipijnen",
+   "volume": 10,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 10,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/filipijnen/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/filipinas/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/philippines/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/philippines/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/filipijnen/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/filipiny/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/philippines/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "BE",
    "market": "pt-BR",
    "language": "pt",
@@ -6475,6 +12974,10 @@
     {
      "hreflang": "en",
      "href": "https://livdar.com/en/cost-of-living/belgium/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/belgium/"
     },
     {
      "hreflang": "pt",
@@ -6522,6 +13025,10 @@
      "href": "https://livdar.com/en/cost-of-living/hungary/"
     },
     {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/hongarije/"
+    },
+    {
      "hreflang": "pl",
      "href": "https://livdar.com/pl/koszty-zycia/wegry/"
     },
@@ -6541,10 +13048,10 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
-   "entity": "CZ",
-   "market": "en-US",
-   "language": "en",
-   "keyword": "cost of living in czechia",
+   "entity": "AD",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "coste de vida andorra",
    "volume": 10,
    "difficulty": null,
    "cpcUsd": null,
@@ -6557,30 +13064,18 @@
    "dataSources": [
     "cost-of-living-verified"
    ],
-   "path": "/en/cost-of-living/czechia/",
-   "canonical": "https://livdar.com/en/cost-of-living/czechia/",
+   "path": "/es/coste-de-vida/andorra/",
+   "canonical": "https://livdar.com/es/coste-de-vida/andorra/",
    "slugFrom": "cldr",
-   "cluster": "cost-of-living.country::CZ",
+   "cluster": "cost-of-living.country::AD",
    "scope": "country",
    "minWords": 320,
    "indexPolicy": "always",
    "aeo": [],
    "alternates": [
     {
-     "hreflang": "en",
-     "href": "https://livdar.com/en/cost-of-living/czechia/"
-    },
-    {
-     "hreflang": "fr",
-     "href": "https://livdar.com/fr/cout-de-la-vie/tchequie/"
-    },
-    {
-     "hreflang": "it",
-     "href": "https://livdar.com/it/costo-della-vita/cechia/"
-    },
-    {
-     "hreflang": "x-default",
-     "href": "https://livdar.com/en/cost-of-living/czechia/"
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/andorra/"
     }
    ]
   },
@@ -6616,20 +13111,65 @@
    "aeo": [],
    "alternates": [
     {
-     "hreflang": "en",
-     "href": "https://livdar.com/en/cost-of-living/czechia/"
-    },
-    {
      "hreflang": "fr",
      "href": "https://livdar.com/fr/cout-de-la-vie/tchequie/"
     },
     {
      "hreflang": "it",
      "href": "https://livdar.com/it/costo-della-vita/cechia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AR",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "アルゼンチン 生活費",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/argentina/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/argentina/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::AR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/argentina/"
     },
     {
-     "hreflang": "x-default",
-     "href": "https://livdar.com/en/cost-of-living/czechia/"
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/argentina/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/argentina/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/argentyna/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/argentina/"
     }
    ]
   },
@@ -6696,6 +13236,218 @@
    "surface": "move",
    "vertical": "cost-of-living",
    "priority": "high",
+   "entity": "BE",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ベルギー 生活費",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/belgium/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/belgium/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::BE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/belgien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/belgium/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/belgica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BR",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ブラジル 生活費",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/brazil/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/brazil/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::BR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/bresil/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/brasile/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/brazil/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/brazylia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/brasil/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "IS",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "アイスランド 生活費",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/iceland/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/iceland/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::IS",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/island/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/iceland/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/islandia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LU",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ルクセンブルク 生活費",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/luxembourg/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/luxembourg/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::LU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/luxembourg/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/lussemburgo/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/luxembourg/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/luxemburgo/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
    "entity": "RO",
    "market": "ja-JP",
    "language": "ja",
@@ -6744,6 +13496,247 @@
     {
      "hreflang": "x-default",
      "href": "https://livdar.com/en/cost-of-living/romania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "HU",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud hongarije",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/hongarije/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/hongarije/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::HU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/hongarije/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wegry/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/hungria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "IT",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud italie",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/italie/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/italie/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::IT",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/italie/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PY",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud paraguay",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/paraguay/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/paraguay/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/paraguay/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/paraguay/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/paragwaj/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/paraguai/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SR",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "kosten levensonderhoud suriname",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/suriname/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/suriname/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/suriname/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "TH",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "levensonderhoud thailand",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/nl/kosten-van-levensonderhoud/thailand/",
+   "canonical": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::TH",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/coste-de-vida/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/thailandia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/kosten-van-levensonderhoud/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/tajlandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/thailand/"
     }
    ]
   },

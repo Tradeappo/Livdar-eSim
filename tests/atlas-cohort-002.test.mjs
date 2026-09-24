@@ -29,31 +29,43 @@ test('cohort 002 exists and takes nothing cohort 001 already has', () => {
   for (const p of two.pages) assert.ok(!one.pages.some((q) => q.path === p.path), p.path + ' is in both cohorts');
 });
 
-test('cohort 002 reports its shortfall rather than padding to the target', () => {
+test('cohort 002 is full, and its size is the target rather than whatever was left', () => {
   const two = read(TWO);
-  // There are not 250 eligible pages left, and the honest response is a short
-  // cohort with the gap stated. Padding it with pages that are not eligible is
-  // the failure this asserts against.
+  // It was 117 before the cost of living demand was measured, because the
+  // constraint was never the data: the source covers 199 countries and only
+  // about two hundred country and market pairs had a keyword. Measuring the
+  // gap took the cohort to its target without loosening anything.
   assert.equal(two.target, TARGET);
-  assert.equal(two.pages.length + two.shortfall, TARGET);
-  assert.ok(two.shortfall > 0, 'cohort 002 is full, so this test is out of date rather than passing');
+  assert.equal(two.pages.length, TARGET);
+  assert.equal(two.shortfall, 0);
   assert.equal(two.summary.pages, two.pages.length);
-  // When the cohort falls short, it took everything the pool had, so the two
-  // numbers have to agree. If they ever diverge, something eligible was
-  // available and was not selected.
-  assert.equal(two.poolAfterExclusion, two.pages.length);
+  // The pool has to be at least the target, or the cohort could not have been
+  // filled, and the selection must never exceed what was eligible.
+  assert.ok(two.poolAfterExclusion >= two.pages.length, 'more pages were selected than were eligible');
   assert.equal(two.excluded, read(ONE).pages.length);
   assert.deepEqual(two.withoutPath, []);
   assert.deepEqual(two.duplicates, []);
 });
 
-test('the climate surface is what cohort 002 is mostly made of', () => {
+test('cohort 002 carries the new surface and corrects the market balance', () => {
   const two = read(TWO);
+  const one = read(ONE);
+  // The whole climate surface sits in cohort 002, which is what makes the two
+  // cohorts comparable as an experiment rather than as a before and after.
   assert.ok(two.summary.bySurface.climate >= 70, 'climate contributes only ' + two.summary.bySurface.climate);
   assert.equal(two.summary.languages, 9);
   // Every market is represented, because a cohort drawn from one market
   // measures that market and generalises to nothing.
   assert.equal(Object.keys(two.summary.byMarket).length, 9);
+
+  // The SERP work found English the hardest market of the nine: 1.1 reachable
+  // competitors per page against 6.0 in Dutch. Cohort 001 gave English its
+  // largest share anyway, which was right on volume and wrong on competition.
+  // Cohort 002 was supposed to correct that, and this asserts it did rather
+  // than leaving the intention in a report.
+  const shareOne = one.summary.byMarket['en-US'] / one.pages.length;
+  const shareTwo = two.summary.byMarket['en-US'] / two.pages.length;
+  assert.ok(shareTwo < shareOne, 'English share went from ' + shareOne + ' to ' + shareTwo);
 });
 
 test('every family in a cohort has a link quota, so none can orphan itself', () => {
