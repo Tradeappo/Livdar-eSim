@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { servePage, staticParamsFor, groupOfSegment, alternatePathsFor, pages } from '../lib/atlas/serve-pages.js';
+import { servePage, staticParamsFor, groupOfSegment, alternatePathsFor, pages, allStaticParamsFor, MANIFESTS } from '../lib/atlas/serve-pages.js';
 import { ATLAS_SEGMENTS } from '../lib/atlas/atlas-urls.js';
 import { sitemapIds, sitemapEntries, isPagesSitemap } from '../lib/atlas/sitemap-pages.js';
 
@@ -117,5 +117,41 @@ test('no Atlas route folder collides with a route the site already has', () => {
   for (const b of before) {
     assert.ok(existing.includes(b), 'the existing route ' + b + ' has gone missing');
     assert.ok(!mine.has(b), 'an Atlas segment took over ' + b);
+  }
+});
+
+test('every page in every cohort manifest is a page the route will generate', () => {
+  // The check that was missing, and its absence cost the whole Atlas. Every
+  // other check in this repository runs against the page models: QA builds
+  // them, the link wiring walks them, the launch package counts them. None of
+  // them looks at what the site will actually generate, and the site was
+  // generating none of it.
+  //
+  // Two separate faults, both invisible upstream. `serve-pages.js` named the
+  // first cohort manifest by hand, so cohort 002 could pass QA and be
+  // registered and still not exist. And the route took its language from the
+  // parent segment, which generates the three locales the eSIM site
+  // publishes, so six of the nine Atlas languages were never generated. With
+  // `dynamicParams = false` a page that is not generated is a 404.
+  const models = MANIFESTS
+    .map((m) => new URL('../' + m, import.meta.url))
+    .filter((u) => existsSync(u))
+    .flatMap((u) => JSON.parse(readFileSync(u, 'utf8')).pages);
+  assert.ok(models.length >= 400, 'only ' + models.length + ' pages in the manifests');
+
+  const generated = new Set();
+  for (const seg of segments()) {
+    for (const p of allStaticParamsFor(seg)) generated.add('/' + p.lang + '/' + seg + '/' + p.path.join('/') + '/');
+  }
+  const missing = models.map((m) => m.path).filter((p) => !generated.has(p));
+  assert.deepEqual(missing.slice(0, 10), [], missing.length + ' pages would 404: the route does not generate them');
+  assert.equal(generated.size, models.length, 'the route generates ' + generated.size + ' paths for ' + models.length + ' pages');
+
+  // And every language the manifests use is covered, not only the ones the
+  // eSIM site publishes.
+  const languages = new Set(models.map((m) => m.path.split('/')[1]));
+  assert.ok(languages.size >= 8, 'the manifests only use ' + languages.size + ' languages, so this test is not looking at much');
+  for (const l of languages) {
+    assert.ok([...generated].some((p) => p.startsWith('/' + l + '/')), l + ' is in the manifest and would never be generated');
   }
 });

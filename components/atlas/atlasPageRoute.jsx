@@ -40,10 +40,14 @@ export function makeAtlasPageRoute(segmentName) {
     return <AtlasPage model={hit.model} alternatePaths={alternatePathsFor(hit.model)} />;
   }
 
-  async function generateStaticParams({ params }) {
-    const { lang } = await params;
-    const { staticParamsFor } = await import('../../lib/atlas/serve-pages.js');
-    return staticParamsFor(lang, segmentName);
+  // The route returns its own language as well as its own path, rather than
+  // taking the language from the parent segment. The parent generates the
+  // three locales the eSIM site publishes and the Atlas runs in nine, so
+  // inheriting meant six languages were never generated at all, and with
+  // `dynamicParams = false` that is a 404 rather than a slow page.
+  async function generateStaticParams() {
+    const { allStaticParamsFor } = await import('../../lib/atlas/serve-pages.js');
+    return allStaticParamsFor(segmentName);
   }
 
   return { Page, generateMetadata, generateStaticParams };
