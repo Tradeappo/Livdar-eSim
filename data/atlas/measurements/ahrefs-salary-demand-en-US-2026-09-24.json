@@ -1,0 +1,36 @@
+{
+ "country": "us",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 1680,
+ "family": "work.country-salaries",
+ "market": "en-US",
+ "note": "Discovered from the market head term for earnings and resolved to a country by subtraction. Occupations, employers, football divisions, ages and cities all fail to resolve and are refused, which is why a probe of four hundred rows yields far fewer pages than rows.",
+ "keywords": [
+  {
+   "keyword": "average salary in us",
+   "volume": 67000,
+   "difficulty": 75
+  },
+  {
+   "keyword": "average salary in italy",
+   "volume": 1400,
+   "difficulty": 4
+  },
+  {
+   "keyword": "average salary in spain",
+   "volume": 1400,
+   "difficulty": 6
+  },
+  {
+   "keyword": "average salary in france",
+   "volume": 800,
+   "difficulty": 2
+  },
+  {
+   "keyword": "average salary in germany",
+   "volume": 600,
+   "difficulty": 16
+  }
+ ]
+}

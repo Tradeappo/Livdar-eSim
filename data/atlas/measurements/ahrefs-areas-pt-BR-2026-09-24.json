@@ -1,0 +1,31 @@
+{
+ "country": "br",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 840,
+ "family": "neighbourhoods.city-where-to-stay",
+ "market": "pt-BR",
+ "note": "Discovered from the market head term for city districts and resolved to a city by subtraction against the names that market actually used. A remainder that is not one of those names is refused, which is what keeps a map request, a best and worst question and a city with no district data out.",
+ "keywords": [
+  {
+   "keyword": "bairros de sao paulo",
+   "volume": 2500,
+   "difficulty": 0
+  },
+  {
+   "keyword": "bairros de nova york",
+   "volume": 1200,
+   "difficulty": 0
+  },
+  {
+   "keyword": "bairros de londres",
+   "volume": 400,
+   "difficulty": 0
+  },
+  {
+   "keyword": "bairros de paris",
+   "volume": 350,
+   "difficulty": 0
+  }
+ ]
+}

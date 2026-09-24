@@ -1,0 +1,2307 @@
+{
+ "provider": "Ahrefs Keywords Explorer, matching terms",
+ "endpoint": "keywords-explorer-matching-terms",
+ "capturedOn": "2026-09-24",
+ "family": "work.country-salaries",
+ "method": "Phrase match on the head term each market actually uses for what people earn, ordered by volume. The head terms are not translations of one another: German and Dutch compound into one noun, the Romance markets use an adjective after the noun, Polish uses a prepositional phrase that inflects the country, and Japanese asks about annual income rather than salary.",
+ "unitsPerRow": 21,
+ "unitsTotal": 9257,
+ "unitsSpent": 9257,
+ "note": "Keywords are stored exactly as the provider returned them, diacritics included, because the join onto the measurement plan is an exact string match and a stripped accent would silently fail to rejoin on the next measurement.",
+ "caution": "A discovery probe, not a survey. Each market was asked one head term in phrase match and what came back was kept in volume order, so it shows which countries carry demand on that phrasing and roughly how much. It cannot prove absence: a country missing here may sit below the row limit or be searched through a phrasing this head term does not contain. Volumes across markets are comparable only as orders of magnitude. The floor differs per market (none for en-US, 150 for de/fr/it/es/pt, 100 for nl, 200 for pl, 300 for ja) because the markets differ by an order of magnitude in how much of this demand exists at all.",
+ "markets": {
+  "en-US": {
+   "country": "us",
+   "floor": 0,
+   "rows": [
+    {
+     "keyword": "average salary in us",
+     "volume": 67000,
+     "difficulty": 75
+    },
+    {
+     "keyword": "what is the average salary in the us",
+     "volume": 12000,
+     "difficulty": 63
+    },
+    {
+     "keyword": "average salary in california",
+     "volume": 11000,
+     "difficulty": 35
+    },
+    {
+     "keyword": "average salary in nyc",
+     "volume": 5800,
+     "difficulty": 16
+    },
+    {
+     "keyword": "average salary in japan",
+     "volume": 5400,
+     "difficulty": 8
+    },
+    {
+     "keyword": "average salary in the us",
+     "volume": 5300,
+     "difficulty": 70
+    },
+    {
+     "keyword": "average salary in florida",
+     "volume": 5000,
+     "difficulty": 33
+    },
+    {
+     "keyword": "average salary in new york",
+     "volume": 4000,
+     "difficulty": 27
+    },
+    {
+     "keyword": "average salary in texas",
+     "volume": 4000,
+     "difficulty": 27
+    },
+    {
+     "keyword": "average salary in nj",
+     "volume": 3900,
+     "difficulty": 10
+    },
+    {
+     "keyword": "average salary in mexico",
+     "volume": 2800,
+     "difficulty": 1
+    },
+    {
+     "keyword": "average salary in ohio",
+     "volume": 2200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in chicago",
+     "volume": 2200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in america",
+     "volume": 2100,
+     "difficulty": 3
+    },
+    {
+     "keyword": "average salary in los angeles",
+     "volume": 2100,
+     "difficulty": 13
+    },
+    {
+     "keyword": "average salary in michigan",
+     "volume": 2000,
+     "difficulty": 21
+    },
+    {
+     "keyword": "average salary in georgia",
+     "volume": 1900,
+     "difficulty": 8
+    },
+    {
+     "keyword": "average salary in illinois",
+     "volume": 1900,
+     "difficulty": 12
+    },
+    {
+     "keyword": "average salary in massachusetts",
+     "volume": 1900,
+     "difficulty": 16
+    },
+    {
+     "keyword": "what's the average salary in the us",
+     "volume": 1800,
+     "difficulty": 70
+    },
+    {
+     "keyword": "average salary in usa",
+     "volume": 1700,
+     "difficulty": 80
+    },
+    {
+     "keyword": "average salary in nc",
+     "volume": 1700,
+     "difficulty": 5
+    },
+    {
+     "keyword": "average salary in bay area",
+     "volume": 1700,
+     "difficulty": 19
+    },
+    {
+     "keyword": "average salary in india",
+     "volume": 1600,
+     "difficulty": 2
+    },
+    {
+     "keyword": "average salary in maryland",
+     "volume": 1500,
+     "difficulty": 8
+    },
+    {
+     "keyword": "average salary in arizona",
+     "volume": 1400,
+     "difficulty": 6
+    },
+    {
+     "keyword": "average salary in italy",
+     "volume": 1400,
+     "difficulty": 4
+    },
+    {
+     "keyword": "average salary in spain",
+     "volume": 1400,
+     "difficulty": 6
+    },
+    {
+     "keyword": "average salary in china",
+     "volume": 1300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in virginia",
+     "volume": 1300,
+     "difficulty": 9
+    },
+    {
+     "keyword": "average salary in san diego",
+     "volume": 1200,
+     "difficulty": 6
+    },
+    {
+     "keyword": "what is the average salary in california",
+     "volume": 1000,
+     "difficulty": 40
+    },
+    {
+     "keyword": "average salary in pa",
+     "volume": 1000,
+     "difficulty": 14
+    },
+    {
+     "keyword": "average salary in miami",
+     "volume": 1000,
+     "difficulty": 1
+    },
+    {
+     "keyword": "average salary in seattle",
+     "volume": 1000,
+     "difficulty": 12
+    },
+    {
+     "keyword": "average salary in philippines",
+     "volume": 1000,
+     "difficulty": 2
+    },
+    {
+     "keyword": "average salary in colorado",
+     "volume": 1000,
+     "difficulty": 7
+    },
+    {
+     "keyword": "average salary in ct",
+     "volume": 900,
+     "difficulty": 14
+    },
+    {
+     "keyword": "average salary in missouri",
+     "volume": 900,
+     "difficulty": 12
+    },
+    {
+     "keyword": "the average salary in iran jobs",
+     "volume": 900,
+     "difficulty": null
+    },
+    {
+     "keyword": "average salary in utah",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in indiana",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in alabama",
+     "volume": 900,
+     "difficulty": 8
+    },
+    {
+     "keyword": "average salary in tennessee",
+     "volume": 800,
+     "difficulty": 5
+    },
+    {
+     "keyword": "average salary in washington state",
+     "volume": 800,
+     "difficulty": 7
+    },
+    {
+     "keyword": "average salary in south korea",
+     "volume": 800,
+     "difficulty": 2
+    },
+    {
+     "keyword": "whats the average salary in the us",
+     "volume": 800,
+     "difficulty": 70
+    },
+    {
+     "keyword": "what is the average salary in america",
+     "volume": 800,
+     "difficulty": 41
+    },
+    {
+     "keyword": "average salary in las vegas",
+     "volume": 800,
+     "difficulty": 4
+    },
+    {
+     "keyword": "average salary in france",
+     "volume": 800,
+     "difficulty": 2
+    },
+    {
+     "keyword": "average salary in wisconsin",
+     "volume": 800,
+     "difficulty": 1
+    },
+    {
+     "keyword": "average salary in 1960",
+     "volume": 800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in the us developers",
+     "volume": 800,
+     "difficulty": null
+    },
+    {
+     "keyword": "average salary in u.s. per hour",
+     "volume": 700,
+     "difficulty": 57
+    },
+    {
+     "keyword": "average salary in kansas",
+     "volume": 700,
+     "difficulty": 3
+    },
+    {
+     "keyword": "average salary in atlanta",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in dubai",
+     "volume": 700,
+     "difficulty": 1
+    },
+    {
+     "keyword": "average salary in mn",
+     "volume": 700,
+     "difficulty": 4
+    },
+    {
+     "keyword": "average salary in switzerland",
+     "volume": 700,
+     "difficulty": 6
+    },
+    {
+     "keyword": "average salary in oklahoma",
+     "volume": 700,
+     "difficulty": 5
+    },
+    {
+     "keyword": "what is the average salary in the united states",
+     "volume": 700,
+     "difficulty": 1
+    },
+    {
+     "keyword": "average salary in canada",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in oregon",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in the united states",
+     "volume": 600,
+     "difficulty": 76
+    },
+    {
+     "keyword": "average salary in vietnam",
+     "volume": 600,
+     "difficulty": 3
+    },
+    {
+     "keyword": "average salary in houston",
+     "volume": 600,
+     "difficulty": 7
+    },
+    {
+     "keyword": "average salary in thailand",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in united states",
+     "volume": 600,
+     "difficulty": 76
+    },
+    {
+     "keyword": "average salary in germany",
+     "volume": 600,
+     "difficulty": 16
+    },
+    {
+     "keyword": "what is average salary in us",
+     "volume": 600,
+     "difficulty": 70
+    },
+    {
+     "keyword": "average salary in mississippi",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in australia",
+     "volume": 600,
+     "difficulty": 14
+    },
+    {
+     "keyword": "average salary in south carolina",
+     "volume": 600,
+     "difficulty": 9
+    },
+    {
+     "keyword": "average salary in hawaii",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in iowa",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in louisiana",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in 2025",
+     "volume": 500,
+     "difficulty": null
+    },
+    {
+     "keyword": "average salary in uk",
+     "volume": 500,
+     "difficulty": 8
+    },
+    {
+     "keyword": "average salary in austin tx",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "average salary in north carolina",
+     "volume": 500,
+     "difficulty": 3
+    }
+   ],
+   "asked": 80,
+   "returned": 80,
+   "head": "average salary in",
+   "limit": 80,
+   "notReturned": [],
+   "finding": "The head term is about the United States itself at 67,000 a month. Everything below it is dominated by states and cities, and the countries that do appear are the four the salary source covers plus Japan, Mexico, China and the Philippines, which it does not."
+  },
+  "de-DE": {
+   "country": "de",
+   "floor": 150,
+   "rows": [
+    {
+     "keyword": "durchschnittsgehalt deutschland",
+     "volume": 29000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland netto",
+     "volume": 6000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland brutto",
+     "volume": 2300,
+     "difficulty": 30
+    },
+    {
+     "keyword": "durchschnittsgehalt schweiz",
+     "volume": 1300,
+     "difficulty": 31
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland (netto)",
+     "volume": 1100,
+     "difficulty": null
+    },
+    {
+     "keyword": "durchschnittsgehalt",
+     "volume": 1000,
+     "difficulty": 2
+    },
+    {
+     "keyword": "durchschnittsgehalt usa",
+     "volume": 900,
+     "difficulty": 13
+    },
+    {
+     "keyword": "was ist das durchschnittsgehalt in deutschland",
+     "volume": 800,
+     "difficulty": 16
+    },
+    {
+     "keyword": "durchschnittsgehalt münchen",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "brutto durchschnittsgehalt deutschland",
+     "volume": 700,
+     "difficulty": 30
+    },
+    {
+     "keyword": "netto durchschnittsgehalt deutschland",
+     "volume": 700,
+     "difficulty": 30
+    },
+    {
+     "keyword": "durchschnittsgehalt polen",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt in deutschland",
+     "volume": 500,
+     "difficulty": 22
+    },
+    {
+     "keyword": "durchschnittsgehalt netto deutschland",
+     "volume": 500,
+     "difficulty": 30
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland 2025",
+     "volume": 500,
+     "difficulty": 13
+    },
+    {
+     "keyword": "durchschnittsgehalt japan",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt norwegen",
+     "volume": 400,
+     "difficulty": 1
+    },
+    {
+     "keyword": "durchschnittsgehalt thailand",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland 2026",
+     "volume": 350,
+     "difficulty": null
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland pro monat",
+     "volume": 350,
+     "difficulty": null
+    },
+    {
+     "keyword": "durchschnittsgehalt spanien",
+     "volume": 350,
+     "difficulty": 1
+    },
+    {
+     "keyword": "durchschnittsgehalt rentenpunkt 2026",
+     "volume": 350,
+     "difficulty": null
+    },
+    {
+     "keyword": "durchschnittsgehalt rentenpunkt 2025",
+     "volume": 350,
+     "difficulty": null
+    },
+    {
+     "keyword": "durchschnittsgehalt russland",
+     "volume": 350,
+     "difficulty": 7
+    },
+    {
+     "keyword": "deutschland durchschnittsgehalt",
+     "volume": 300,
+     "difficulty": 17
+    },
+    {
+     "keyword": "durchschnittsgehalt tschechien",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt china",
+     "volume": 300,
+     "difficulty": 1
+    },
+    {
+     "keyword": "durchschnittsgehalt türkei",
+     "volume": 300,
+     "difficulty": 1
+    },
+    {
+     "keyword": "durchschnittsgehalt 2025",
+     "volume": 300,
+     "difficulty": null
+    },
+    {
+     "keyword": "deutsches durchschnittsgehalt",
+     "volume": 300,
+     "difficulty": 34
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland netto single",
+     "volume": 300,
+     "difficulty": null
+    },
+    {
+     "keyword": "durchschnittsgehalt rumänien",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt berlin",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt dänemark",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt vietnam",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt schweden",
+     "volume": 250,
+     "difficulty": 11
+    },
+    {
+     "keyword": "durchschnittsgehalt indien",
+     "volume": 250,
+     "difficulty": 1
+    },
+    {
+     "keyword": "durchschnittsgehalt italien",
+     "volume": 250,
+     "difficulty": 10
+    },
+    {
+     "keyword": "durchschnittsgehalt hamburg",
+     "volume": 200,
+     "difficulty": 2
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland vollzeit",
+     "volume": 200,
+     "difficulty": 28
+    },
+    {
+     "keyword": "durchschnittsgehalt südkorea",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt beamte deutschland",
+     "volume": 200,
+     "difficulty": 7
+    },
+    {
+     "keyword": "anwalt durchschnittsgehalt",
+     "volume": 200,
+     "difficulty": 1
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland jahr",
+     "volume": 200,
+     "difficulty": 28
+    },
+    {
+     "keyword": "durchschnittsgehalt australien",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt portugal",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt physiotherapeut",
+     "volume": 200,
+     "difficulty": 3
+    },
+    {
+     "keyword": "durchschnittsgehalt ukraine",
+     "volume": 200,
+     "difficulty": 7
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland median",
+     "volume": 200,
+     "difficulty": 33
+    },
+    {
+     "keyword": "durchschnittsgehalt kroatien",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt philippinen",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt niederlande",
+     "volume": 200,
+     "difficulty": 1
+    },
+    {
+     "keyword": "brutto durchschnittsgehalt deutschland 2025",
+     "volume": 200,
+     "difficulty": null
+    },
+    {
+     "keyword": "durchschnittsgehalt bundesliga",
+     "volume": 200,
+     "difficulty": 2
+    },
+    {
+     "keyword": "durchschnittsgehalt luxemburg",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland 2024",
+     "volume": 200,
+     "difficulty": 9
+    },
+    {
+     "keyword": "median durchschnittsgehalt deutschland",
+     "volume": 150,
+     "difficulty": 30
+    },
+    {
+     "keyword": "durchschnittsgehalt arzt",
+     "volume": 150,
+     "difficulty": 31
+    },
+    {
+     "keyword": "durchschnittsgehalt deutschland frauen",
+     "volume": 150,
+     "difficulty": 26
+    },
+    {
+     "keyword": "durchschnittsgehalt sachsen anhalt",
+     "volume": 150,
+     "difficulty": 0
+    }
+   ],
+   "asked": 60,
+   "returned": 60,
+   "head": "durchschnittsgehalt",
+   "limit": 60,
+   "notReturned": [],
+   "finding": "The richest market for this family: fifteen countries the source covers carry demand here, from Poland at 600 to Luxembourg at 200, and the German figure itself is 29,000 a month."
+  },
+  "fr-FR": {
+   "country": "fr",
+   "floor": 150,
+   "rows": [
+    {
+     "keyword": "salaire moyen france",
+     "volume": 32000,
+     "difficulty": 3
+    },
+    {
+     "keyword": "salaire moyen en france",
+     "volume": 8400,
+     "difficulty": 3
+    },
+    {
+     "keyword": "salaire moyen suisse",
+     "volume": 6000,
+     "difficulty": 22
+    },
+    {
+     "keyword": "salaire moyen france 2025",
+     "volume": 4700,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen maroc",
+     "volume": 3800,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen",
+     "volume": 2900,
+     "difficulty": 2
+    },
+    {
+     "keyword": "salaire moyen paris",
+     "volume": 2900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen ligue 1",
+     "volume": 2700,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen usa",
+     "volume": 2400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen canada",
+     "volume": 2100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen portugal",
+     "volume": 1900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen ligue 2",
+     "volume": 1800,
+     "difficulty": 10
+    },
+    {
+     "keyword": "salaire moyen japon",
+     "volume": 1700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen francais",
+     "volume": 1600,
+     "difficulty": 2
+    },
+    {
+     "keyword": "quel est le salaire moyen en france",
+     "volume": 1500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen thailande",
+     "volume": 1300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen allemagne",
+     "volume": 1100,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen chine",
+     "volume": 1100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen inde",
+     "volume": 1100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen etats unis",
+     "volume": 1100,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen espagne",
+     "volume": 1000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen ingénieur",
+     "volume": 1000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen luxembourg",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen pologne",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen corée du sud",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen algerie",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen vietnam",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen madagascar",
+     "volume": 800,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen italie",
+     "volume": 800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen australie",
+     "volume": 800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen medecin generaliste",
+     "volume": 700,
+     "difficulty": 51
+    },
+    {
+     "keyword": "salaire moyen en suisse",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen russie",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen au maroc",
+     "volume": 700,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen france 2026",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen egypte",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen français",
+     "volume": 700,
+     "difficulty": 33
+    },
+    {
+     "keyword": "salaire moyen tunisie",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen norvege",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen roumanie",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen en chine",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen senegal",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen net france",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen en inde",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen turquie",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen japon en yen",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen mexique",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen notaire",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen en france 2025",
+     "volume": 450,
+     "difficulty": 4
+    },
+    {
+     "keyword": "salaire moyen philippines",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen psychologue",
+     "volume": 450,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salaire moyen monaco",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen en thaïlande",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen au japon",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen avocat",
+     "volume": 450,
+     "difficulty": 2
+    },
+    {
+     "keyword": "salaire moyen danemark",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen net en france",
+     "volume": 450,
+     "difficulty": 2
+    },
+    {
+     "keyword": "salaire moyen bali",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen dentiste",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salaire moyen new york",
+     "volume": 450,
+     "difficulty": 0
+    }
+   ],
+   "asked": 60,
+   "returned": 60,
+   "head": "salaire moyen",
+   "limit": 60,
+   "notReturned": [],
+   "finding": "Eleven covered countries, led by Portugal at 1,900 and Germany at 1,100. Switzerland at 6,000 is the second largest term in the market and Eurostat does not cover it, so it cannot be answered."
+  },
+  "it-IT": {
+   "country": "it",
+   "floor": 150,
+   "rows": [
+    {
+     "keyword": "stipendio medio italia",
+     "volume": 19000,
+     "difficulty": 5
+    },
+    {
+     "keyword": "stipendio medio in italia",
+     "volume": 1900,
+     "difficulty": 7
+    },
+    {
+     "keyword": "stipendio medio italiano netto",
+     "volume": 1700,
+     "difficulty": 8
+    },
+    {
+     "keyword": "stipendio medio svizzera",
+     "volume": 1500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio italia netto",
+     "volume": 1400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio russia",
+     "volume": 1300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio italiano",
+     "volume": 1100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio giappone",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio polonia",
+     "volume": 800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio germania",
+     "volume": 800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio romania",
+     "volume": 800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio australia",
+     "volume": 700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio italia 2025",
+     "volume": 700,
+     "difficulty": null
+    },
+    {
+     "keyword": "stipendio medio milano",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio spagna",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio serie c",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio serie b",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio cina",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio netto italia",
+     "volume": 500,
+     "difficulty": 5
+    },
+    {
+     "keyword": "stipendio medio danimarca",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio italia operaio",
+     "volume": 450,
+     "difficulty": 5
+    },
+    {
+     "keyword": "stipendio medio francia",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio serie d",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio americano",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio",
+     "volume": 400,
+     "difficulty": 2
+    },
+    {
+     "keyword": "stipendio medio brasile",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio svizzera in euro",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio in svizzera",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "qual è lo stipendio medio in italia",
+     "volume": 400,
+     "difficulty": 6
+    },
+    {
+     "keyword": "stipendio medio usa",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio professore superiori",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio norvegia",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio calciatore serie c",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio infermiere",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio albania",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "lugano stipendio medio",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio austria",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio bulgaria",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio new york",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio farmacista",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio italia 2026",
+     "volume": 300,
+     "difficulty": null
+    },
+    {
+     "keyword": "stipendio medio calciatore serie b",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio professore universitario",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio medico di base",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio india",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio lussemburgo",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio in cina",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio italia al mese",
+     "volume": 300,
+     "difficulty": 5
+    },
+    {
+     "keyword": "stipendio medio portogallo",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "quanto è lo stipendio medio in italia",
+     "volume": 300,
+     "difficulty": 3
+    },
+    {
+     "keyword": "stipendio medio in giappone",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio filippine",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio in romania",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio in spagna",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio finlandia",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio giocatore serie b",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio in polonia",
+     "volume": 250,
+     "difficulty": 1
+    },
+    {
+     "keyword": "stipendio medio stati uniti",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio irlanda",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "stipendio medio argentina",
+     "volume": 250,
+     "difficulty": 0
+    }
+   ],
+   "asked": 60,
+   "returned": 60,
+   "head": "stipendio medio",
+   "limit": 60,
+   "notReturned": [],
+   "finding": "Fifteen covered countries, the widest spread of any market here, reaching Albania, Bulgaria, Finland and Ireland. A third of the list is football divisions and occupations rather than places."
+  },
+  "es-ES": {
+   "country": "es",
+   "floor": 150,
+   "rows": [
+    {
+     "keyword": "salario medio españa",
+     "volume": 17000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio en españa",
+     "volume": 3500,
+     "difficulty": 15
+    },
+    {
+     "keyword": "salario medio españa 2025",
+     "volume": 2900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio españa 2026",
+     "volume": 1200,
+     "difficulty": null
+    },
+    {
+     "keyword": "cual es el salario medio en españa",
+     "volume": 700,
+     "difficulty": 9
+    },
+    {
+     "keyword": "salario medio alemania",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio en españa 2025",
+     "volume": 500,
+     "difficulty": null
+    },
+    {
+     "keyword": "salario medio madrid",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio argentina",
+     "volume": 400,
+     "difficulty": 7
+    },
+    {
+     "keyword": "salario medio suiza",
+     "volume": 400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio españa mensual",
+     "volume": 400,
+     "difficulty": 5
+    },
+    {
+     "keyword": "salario medio",
+     "volume": 350,
+     "difficulty": 2
+    },
+    {
+     "keyword": "cuál es el salario medio en españa",
+     "volume": 350,
+     "difficulty": 2
+    },
+    {
+     "keyword": "salario medio en españa 2026",
+     "volume": 300,
+     "difficulty": null
+    },
+    {
+     "keyword": "salario medio españa neto",
+     "volume": 300,
+     "difficulty": 5
+    },
+    {
+     "keyword": "salario medio francia",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio neto españa",
+     "volume": 250,
+     "difficulty": 7
+    },
+    {
+     "keyword": "salario medio eeuu",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio japon",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio en suiza",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio neto españa 2025",
+     "volume": 200,
+     "difficulty": null
+    },
+    {
+     "keyword": "salario medio colombia",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio de españa",
+     "volume": 200,
+     "difficulty": 8
+    },
+    {
+     "keyword": "salario medio anual españa",
+     "volume": 200,
+     "difficulty": 9
+    },
+    {
+     "keyword": "salario medio china",
+     "volume": 200,
+     "difficulty": 2
+    },
+    {
+     "keyword": "salario medio estados unidos",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio mexico",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio en madrid",
+     "volume": 150,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salario medio en colombia",
+     "volume": 150,
+     "difficulty": 20
+    },
+    {
+     "keyword": "salario medio portugal",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio noruega",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio en argentina",
+     "volume": 150,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salario medio venezuela",
+     "volume": 150,
+     "difficulty": 74
+    },
+    {
+     "keyword": "salario medio en alemania",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "cuanto es el salario medio en españa",
+     "volume": 150,
+     "difficulty": 9
+    },
+    {
+     "keyword": "salario medio europa",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio españa 2024",
+     "volume": 150,
+     "difficulty": 6
+    },
+    {
+     "keyword": "salario medio español",
+     "volume": 150,
+     "difficulty": 12
+    },
+    {
+     "keyword": "salario medio polonia",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio madrid 2025",
+     "volume": 150,
+     "difficulty": null
+    },
+    {
+     "keyword": "salario medio en china",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio italia",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio australia",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio en francia",
+     "volume": 150,
+     "difficulty": 0
+    }
+   ],
+   "asked": 44,
+   "returned": 44,
+   "head": "salario medio",
+   "limit": 55,
+   "notReturned": [],
+   "finding": "Seven covered countries. The market asks about Spain and then, at a tenth of the volume, about Germany, France and the United States."
+  },
+  "pt-BR": {
+   "country": "br",
+   "floor": 150,
+   "rows": [
+    {
+     "keyword": "salario medio brasil",
+     "volume": 3000,
+     "difficulty": 2
+    },
+    {
+     "keyword": "salário médio eua mensal",
+     "volume": 1300,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salario medio eua",
+     "volume": 500,
+     "difficulty": 12
+    },
+    {
+     "keyword": "salario medio do brasileiro",
+     "volume": 400,
+     "difficulty": 7
+    },
+    {
+     "keyword": "salario medio de um medico",
+     "volume": 400,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salário médio brasileiro",
+     "volume": 400,
+     "difficulty": 10
+    },
+    {
+     "keyword": "salário medio brasil",
+     "volume": 300,
+     "difficulty": 5
+    },
+    {
+     "keyword": "salario medio japao",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio no brasil",
+     "volume": 250,
+     "difficulty": 5
+    },
+    {
+     "keyword": "qual o salario medio do brasileiro",
+     "volume": 200,
+     "difficulty": 12
+    },
+    {
+     "keyword": "salario medio portugal",
+     "volume": 200,
+     "difficulty": 1
+    },
+    {
+     "keyword": "salário médio nos estados unidos",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio de um medico no brasil",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "salario medio estados unidos",
+     "volume": 150,
+     "difficulty": 11
+    },
+    {
+     "keyword": "salario medio medico brasil",
+     "volume": 150,
+     "difficulty": 2
+    },
+    {
+     "keyword": "salario medio brasileiro",
+     "volume": 150,
+     "difficulty": 14
+    },
+    {
+     "keyword": "salário médio brasil",
+     "volume": 150,
+     "difficulty": 4
+    },
+    {
+     "keyword": "salario medio argentina",
+     "volume": 150,
+     "difficulty": 0
+    }
+   ],
+   "asked": 18,
+   "returned": 18,
+   "head": "salário médio",
+   "limit": 55,
+   "notReturned": [],
+   "finding": "Almost nothing for this family beyond Brazil itself, which Eurostat does not cover. Only Portugal and the United States resolve."
+  },
+  "nl-NL": {
+   "country": "nl",
+   "floor": 100,
+   "rows": [
+    {
+     "keyword": "gemiddeld salaris nederland",
+     "volume": 8400,
+     "difficulty": 9
+    },
+    {
+     "keyword": "gemiddeld salaris nederland per leeftijd",
+     "volume": 600,
+     "difficulty": 8
+    },
+    {
+     "keyword": "gemiddeld salaris",
+     "volume": 450,
+     "difficulty": 11
+    },
+    {
+     "keyword": "gemiddeld salaris per leeftijd",
+     "volume": 300,
+     "difficulty": 7
+    },
+    {
+     "keyword": "gemiddeld salaris 40 jarige",
+     "volume": 200,
+     "difficulty": 7
+    },
+    {
+     "keyword": "wat is gemiddeld salaris in nederland",
+     "volume": 200,
+     "difficulty": 8
+    },
+    {
+     "keyword": "wat is een gemiddeld salaris",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "gemiddeld salaris spanje",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "gemiddeld salaris hbo",
+     "volume": 150,
+     "difficulty": 1
+    },
+    {
+     "keyword": "gemiddeld salaris 30 jarige",
+     "volume": 150,
+     "difficulty": 8
+    },
+    {
+     "keyword": "gemiddeld salaris nederland netto",
+     "volume": 150,
+     "difficulty": 5
+    },
+    {
+     "keyword": "wat is een gemiddeld salaris in nederland",
+     "volume": 150,
+     "difficulty": 7
+    },
+    {
+     "keyword": "gemiddeld salaris automonteur",
+     "volume": 150,
+     "difficulty": 0
+    },
+    {
+     "keyword": "gemiddeld salaris eredivisie",
+     "volume": 150,
+     "difficulty": 6
+    },
+    {
+     "keyword": "gemiddeld salaris zwitserland",
+     "volume": 100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "gemiddeld salaris nederland 2025",
+     "volume": 100,
+     "difficulty": null
+    }
+   ],
+   "asked": 16,
+   "returned": 16,
+   "head": "gemiddeld salaris",
+   "limit": 50,
+   "notReturned": [],
+   "finding": "The weakest market measured. Dutch asks about its own average salary by age bracket, not about other countries, and only Spain clears the floor."
+  },
+  "pl-PL": {
+   "country": "pl",
+   "floor": 200,
+   "rows": [
+    {
+     "keyword": "średnie zarobki w polsce",
+     "volume": 3500,
+     "difficulty": 13
+    },
+    {
+     "keyword": "zarobki w wojsku",
+     "volume": 2200,
+     "difficulty": 1
+    },
+    {
+     "keyword": "zarobki w polsce",
+     "volume": 1700,
+     "difficulty": 18
+    },
+    {
+     "keyword": "zarobki w policji",
+     "volume": 1600,
+     "difficulty": 1
+    },
+    {
+     "keyword": "zarobki w policji 2025",
+     "volume": 1000,
+     "difficulty": 1
+    },
+    {
+     "keyword": "zarobki w szwajcarii",
+     "volume": 900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w wojsku 2025",
+     "volume": 900,
+     "difficulty": 1
+    },
+    {
+     "keyword": "zarobki w niemczech",
+     "volume": 600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w wojsku 2026",
+     "volume": 600,
+     "difficulty": 3
+    },
+    {
+     "keyword": "zarobki w biedronce",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w norwegii",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w straży granicznej",
+     "volume": 500,
+     "difficulty": 26
+    },
+    {
+     "keyword": "zarobki w policji 2025 tabela",
+     "volume": 500,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w dino",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w lidlu",
+     "volume": 500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w usa",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "średnie zarobki w niemczech",
+     "volume": 450,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w policji 2026",
+     "volume": 450,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w czechach",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w straży pożarnej",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w szwecji",
+     "volume": 350,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w wojsku 2026 netto",
+     "volume": 300,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w ekstraklasie",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "średnie zarobki w usa",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w policji 2025 netto",
+     "volume": 300,
+     "difficulty": null
+    },
+    {
+     "keyword": "srednie zarobki w polsce",
+     "volume": 300,
+     "difficulty": 9
+    },
+    {
+     "keyword": "zarobki w danii",
+     "volume": 300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "średnie zarobki w warszawie",
+     "volume": 300,
+     "difficulty": 2
+    },
+    {
+     "keyword": "zarobki w wojsku 2025 netto",
+     "volume": 250,
+     "difficulty": null
+    },
+    {
+     "keyword": "średnie zarobki w polsce 2025",
+     "volume": 250,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w hiszpanii",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w policji 2026 tabela",
+     "volume": 250,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w holandii",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w turcji",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w wot",
+     "volume": 250,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w wojsku 2026 tabela",
+     "volume": 250,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w wojsku 2025 tabela",
+     "volume": 200,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w biedronce 2026",
+     "volume": 200,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w danii na budowie",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w służbie zdrowia",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "maja chwalińska zarobki w karierze",
+     "volume": 200,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w polsce 2025",
+     "volume": 200,
+     "difficulty": null
+    },
+    {
+     "keyword": "średnie zarobki w norwegii",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w chinach",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w rosji",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "średnie zarobki w szwajcarii",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w policji 2026 netto",
+     "volume": 200,
+     "difficulty": null
+    },
+    {
+     "keyword": "zarobki w egipcie",
+     "volume": 200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "zarobki w australii",
+     "volume": 200,
+     "difficulty": 0
+    }
+   ],
+   "asked": 49,
+   "returned": 49,
+   "head": "zarobki w",
+   "limit": 55,
+   "notReturned": [],
+   "finding": "Nine covered countries, led by Germany at 600 and the Czech Republic at 350. Most of the market is employers and uniformed services rather than places: the police, the army, Biedronka and Lidl."
+  },
+  "ja-JP": {
+   "country": "jp",
+   "floor": 300,
+   "rows": [
+    {
+     "keyword": "平均年収",
+     "volume": 51000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "30代 平均年収",
+     "volume": 11000,
+     "difficulty": 66
+    },
+    {
+     "keyword": "日本 平均年収",
+     "volume": 11000,
+     "difficulty": 24
+    },
+    {
+     "keyword": "30歳 平均年収",
+     "volume": 10000,
+     "difficulty": 2
+    },
+    {
+     "keyword": "20代 平均年収",
+     "volume": 9000,
+     "difficulty": 1
+    },
+    {
+     "keyword": "日本の平均年収",
+     "volume": 7600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "平均年収 中央値",
+     "volume": 7300,
+     "difficulty": 8
+    },
+    {
+     "keyword": "新卒 平均年収",
+     "volume": 7200,
+     "difficulty": 0
+    },
+    {
+     "keyword": "25歳 平均年収",
+     "volume": 5700,
+     "difficulty": 1
+    },
+    {
+     "keyword": "日本人 平均年収",
+     "volume": 5700,
+     "difficulty": 19
+    },
+    {
+     "keyword": "平均年収 おかしい",
+     "volume": 5500,
+     "difficulty": 0
+    },
+    {
+     "keyword": "日本平均年収",
+     "volume": 5200,
+     "difficulty": 23
+    },
+    {
+     "keyword": "35歳 平均年収",
+     "volume": 4400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "27歳 平均年収",
+     "volume": 4300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "28歳 平均年収",
+     "volume": 4300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "40歳 平均年収",
+     "volume": 4200,
+     "difficulty": 1
+    },
+    {
+     "keyword": "26歳 平均年収",
+     "volume": 4100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "アメリカ 平均年収",
+     "volume": 4100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "平均年収 男性",
+     "volume": 4100,
+     "difficulty": 20
+    },
+    {
+     "keyword": "日本人平均年収",
+     "volume": 3900,
+     "difficulty": 22
+    },
+    {
+     "keyword": "40代 平均年収",
+     "volume": 3700,
+     "difficulty": 72
+    },
+    {
+     "keyword": "サラリーマン 平均年収",
+     "volume": 3500,
+     "difficulty": 66
+    },
+    {
+     "keyword": "大卒 平均年収",
+     "volume": 3100,
+     "difficulty": 3
+    },
+    {
+     "keyword": "女性 平均年収",
+     "volume": 3100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "看護師 平均年収",
+     "volume": 3100,
+     "difficulty": 8
+    },
+    {
+     "keyword": "24歳 平均年収",
+     "volume": 3000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "45歳 平均年収",
+     "volume": 2800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "32歳 平均年収",
+     "volume": 2700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "50歳 平均年収",
+     "volume": 2600,
+     "difficulty": 0
+    },
+    {
+     "keyword": "平均年収ランキング",
+     "volume": 2500,
+     "difficulty": 2
+    },
+    {
+     "keyword": "29歳 平均年収",
+     "volume": 2400,
+     "difficulty": 0
+    },
+    {
+     "keyword": "医者 平均年収",
+     "volume": 2300,
+     "difficulty": 4
+    },
+    {
+     "keyword": "20代平均年収",
+     "volume": 2300,
+     "difficulty": 70
+    },
+    {
+     "keyword": "東京 平均年収",
+     "volume": 2300,
+     "difficulty": 0
+    },
+    {
+     "keyword": "日本人の平均年収",
+     "volume": 2100,
+     "difficulty": 22
+    },
+    {
+     "keyword": "平均年収 日本",
+     "volume": 2100,
+     "difficulty": 22
+    },
+    {
+     "keyword": "50代 平均年収",
+     "volume": 2100,
+     "difficulty": 1
+    },
+    {
+     "keyword": "平均年収 20代",
+     "volume": 2100,
+     "difficulty": 10
+    },
+    {
+     "keyword": "33歳 平均年収",
+     "volume": 2100,
+     "difficulty": 0
+    },
+    {
+     "keyword": "31歳 平均年収",
+     "volume": 2000,
+     "difficulty": 53
+    },
+    {
+     "keyword": "34歳 平均年収",
+     "volume": 2000,
+     "difficulty": 0
+    },
+    {
+     "keyword": "高卒 平均年収",
+     "volume": 1900,
+     "difficulty": 0
+    },
+    {
+     "keyword": "23歳 平均年収",
+     "volume": 1800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "中国 平均年収",
+     "volume": 1800,
+     "difficulty": 0
+    },
+    {
+     "keyword": "30代平均年収",
+     "volume": 1800,
+     "difficulty": 1
+    },
+    {
+     "keyword": "薬剤師 平均年収",
+     "volume": 1800,
+     "difficulty": 2
+    },
+    {
+     "keyword": "37歳 平均年収",
+     "volume": 1700,
+     "difficulty": 0
+    },
+    {
+     "keyword": "弁護士 平均年収",
+     "volume": 1700,
+     "difficulty": 1
+    },
+    {
+     "keyword": "年齢別 平均年収",
+     "volume": 1700,
+     "difficulty": 35
+    },
+    {
+     "keyword": "タイ 平均年収",
+     "volume": 1600,
+     "difficulty": 0
+    }
+   ],
+   "asked": 50,
+   "returned": 50,
+   "head": "平均年収",
+   "limit": 50,
+   "notReturned": [],
+   "finding": "Japanese asks this by age and occupation almost exclusively. Of the countries named, only the United States is covered by the salary source."
+  }
+ }
+}

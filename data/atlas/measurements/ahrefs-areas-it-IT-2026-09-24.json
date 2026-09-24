@@ -1,0 +1,41 @@
+{
+ "country": "it",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 840,
+ "family": "neighbourhoods.city-where-to-stay",
+ "market": "it-IT",
+ "note": "Discovered from the market head term for city districts and resolved to a city by subtraction against the names that market actually used. A remainder that is not one of those names is refused, which is what keeps a map request, a best and worst question and a city with no district data out.",
+ "keywords": [
+  {
+   "keyword": "quartieri di napoli",
+   "volume": 2000,
+   "difficulty": 0
+  },
+  {
+   "keyword": "quartieri new york",
+   "volume": 1600,
+   "difficulty": 0
+  },
+  {
+   "keyword": "quartieri torino",
+   "volume": 800,
+   "difficulty": 64
+  },
+  {
+   "keyword": "quartieri parigi",
+   "volume": 800,
+   "difficulty": 0
+  },
+  {
+   "keyword": "quartieri di londra",
+   "volume": 800,
+   "difficulty": 0
+  },
+  {
+   "keyword": "quartieri tokyo",
+   "volume": 600,
+   "difficulty": 0
+  }
+ ]
+}

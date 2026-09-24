@@ -1,0 +1,41 @@
+{
+ "country": "nl",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 840,
+ "family": "neighbourhoods.city-where-to-stay",
+ "market": "nl-NL",
+ "note": "Discovered from the market head term for city districts and resolved to a city by subtraction against the names that market actually used. A remainder that is not one of those names is refused, which is what keeps a map request, a best and worst question and a city with no district data out.",
+ "keywords": [
+  {
+   "keyword": "wijken amsterdam",
+   "volume": 700,
+   "difficulty": 0
+  },
+  {
+   "keyword": "wijken londen",
+   "volume": 300,
+   "difficulty": 0
+  },
+  {
+   "keyword": "wijken parijs",
+   "volume": 250,
+   "difficulty": 0
+  },
+  {
+   "keyword": "new york wijken",
+   "volume": 200,
+   "difficulty": 0
+  },
+  {
+   "keyword": "wijken barcelona",
+   "volume": 200,
+   "difficulty": 0
+  },
+  {
+   "keyword": "wijken berlijn",
+   "volume": 200,
+   "difficulty": 2
+  }
+ ]
+}

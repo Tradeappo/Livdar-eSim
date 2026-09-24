@@ -1,0 +1,41 @@
+{
+ "country": "es",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 924,
+ "family": "neighbourhoods.city-where-to-stay",
+ "market": "es-ES",
+ "note": "Discovered from the market head term for city districts and resolved to a city by subtraction against the names that market actually used. A remainder that is not one of those names is refused, which is what keeps a map request, a best and worst question and a city with no district data out.",
+ "keywords": [
+  {
+   "keyword": "barrios de madrid",
+   "volume": 8300,
+   "difficulty": 1
+  },
+  {
+   "keyword": "barrios de barcelona",
+   "volume": 2900,
+   "difficulty": 2
+  },
+  {
+   "keyword": "barrios de nueva york",
+   "volume": 1100,
+   "difficulty": 0
+  },
+  {
+   "keyword": "barrios de londres",
+   "volume": 900,
+   "difficulty": 0
+  },
+  {
+   "keyword": "barrios de paris",
+   "volume": 500,
+   "difficulty": 0
+  },
+  {
+   "keyword": "barrios de tokio",
+   "volume": 350,
+   "difficulty": 0
+  }
+ ]
+}

@@ -194,14 +194,19 @@
   },
   {
    "id": "neighbourhood-facts-verified",
-   "name": "District boundaries, size and character reviewed against primary sources",
-   "url": null,
-   "licence": "to be established per source",
-   "attribution": "per value",
-   "status": "not built yet",
-   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
-   "refresh": "quarterly",
-   "maxAgeDays": 120
+   "name": "District and neighbourhood facts for large cities, derived from GeoNames",
+   "url": "https://www.geonames.org/",
+   "licence": "CC BY 4.0",
+   "attribution": "Place names, coordinates and populations from GeoNames, CC BY 4.0",
+   "status": "built",
+   "note": "Names, coordinates and populations are the provider's. The link from a district to its city is not: GeoNames records no parent, so it is derived by proximity and the record is marked official-derived for that reason. Qualifying cities within 25 km of a larger one are folded into it, which is what stops New York having five competing hubs.",
+   "refresh": "yearly",
+   "maxAgeDays": 400,
+   "builtOn": "2026-09-24",
+   "coverage": "CITY_READY. 95 cities in 50 countries, 2,119 districts and neighbouring places. Coverage below city level is uneven between countries and the page says how many places it is naming rather than claiming to name them all.",
+   "ingest": "scripts/atlas/ingest/neighbourhood-facts.mjs",
+   "store": "data/atlas/sources/neighbourhoods/facts.json",
+   "freshnessClass": "reference"
   },
   {
    "id": "ground-transport-verified",
