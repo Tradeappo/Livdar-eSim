@@ -1,14 +1,22 @@
-// The first real cohort, written as a manifest of URLs.
+// A cohort, written as a manifest of URLs.
 //
-//   node scripts/atlas/cohort-pages.mjs
+//   node scripts/atlas/cohort-pages.mjs                     cohort 001
 //   node scripts/atlas/cohort-pages.mjs --write
+//   node scripts/atlas/cohort-pages.mjs --cohort 002        cohort 002
+//   node scripts/atlas/cohort-pages.mjs --cohort 002 --write
+//
+// A later cohort selects from what the earlier ones did not take. The
+// exclusion is by family, entity and market rather than by path, because the
+// path can change when a slug is reassigned and the identity of a page
+// cannot. Selecting a page that is already in cohort 001 would publish one
+// URL twice and make both cohorts unmeasurable.
 //
 // Every row is a page that passed all four eligibility conditions, carries a
 // path, a canonical, an hreflang cluster and the provenance of the data it
 // will render. Nothing here is published by running it; it produces the list
 // that a publication run reads.
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { eligiblePages, summary } from '../../lib/atlas/eligibility-pages.js';
 import { selectCohort, cohortSummary, TARGET } from '../../lib/atlas/cohort-pages.js';
 import { atlasPath, clusterKey } from '../../lib/atlas/atlas-urls.js';
@@ -19,9 +27,26 @@ import { RANKINGS } from '../../lib/atlas/rankings.js';
 const ROOT = new URL('../../', import.meta.url);
 const SITE = 'https://livdar.com';
 
-export function build({ target = TARGET } = {}) {
+export const pageKey = (p) => p.family + '|' + p.entity + '|' + p.market;
+
+// The pages earlier cohorts already took. Reading them from the manifests
+// rather than from a list kept here means the exclusion cannot drift from
+// what was actually selected.
+export function taken(before = []) {
+  const keys = new Set();
+  for (const id of before) {
+    const u = new URL('data/atlas/cohorts/cohort-' + id + '.json', ROOT);
+    if (!existsSync(u)) continue;
+    for (const p of JSON.parse(readFileSync(u, 'utf8')).pages || []) keys.add(pageKey(p));
+  }
+  return keys;
+}
+
+export function build({ target = TARGET, cohort = '001', after = [] } = {}) {
   const resolved = eligiblePages();
-  const { selected, allocation, available, shortfall } = selectCohort(resolved.pages, { target });
+  const already = taken(after);
+  const pool = resolved.pages.filter((p) => !already.has(pageKey(p)));
+  const { selected, allocation, available, shortfall } = selectCohort(pool, { target });
 
   // Paths first, because a page without one cannot be in a cohort and the
   // failure has to be loud rather than a silently shorter list.
@@ -83,8 +108,12 @@ export function build({ target = TARGET } = {}) {
 
   return {
     generatedAt: new Date().toISOString(),
+    cohort,
     target,
-    meaning: 'The first cohort of the Atlas, selected from pages that are eligible rather than from families that could be. Eligible means four things at once: every source the family needs is built, the source covers this entity, a keyword for this entity in this market was measured with volume above zero, and the tool or ranking behind a global page can actually be computed.',
+    meaning: 'A cohort of the Atlas, selected from pages that are eligible rather than from families that could be. Eligible means four things at once: every source the family needs is built, the source covers this entity, a keyword for this entity in this market was measured with volume above zero, and the tool or ranking behind a global page can actually be computed.',
+    selectedAfter: after,
+    excluded: already.size,
+    poolAfterExclusion: pool.length,
     eligible: summary(resolved),
     allocation, available, shortfall,
     withoutPath, duplicates,
@@ -94,10 +123,16 @@ export function build({ target = TARGET } = {}) {
 }
 
 if (import.meta.url === 'file://' + process.argv[1]) {
-  const c = build();
+  const i = process.argv.indexOf('--cohort');
+  const cohort = i >= 0 ? process.argv[i + 1] : '001';
+  // Every cohort before this one is excluded, so 003 would exclude 001 and
+  // 002 without any further change here.
+  const after = [];
+  for (let n = 1; n < Number(cohort); n++) after.push(String(n).padStart(3, '0'));
+  const c = build({ cohort, after });
   if (process.argv.includes('--write')) {
     mkdirSync(new URL('data/atlas/cohorts/', ROOT), { recursive: true });
-    writeFileSync(new URL('data/atlas/cohorts/cohort-001.json', ROOT), JSON.stringify(c, null, 1) + '\n');
+    writeFileSync(new URL('data/atlas/cohorts/cohort-' + cohort + '.json', ROOT), JSON.stringify(c, null, 1) + '\n');
   }
   const { pages, ...rest } = c;
   console.log(JSON.stringify({ ...rest, eligible: { eligiblePages: c.eligible.eligiblePages, families: c.eligible.families } }, null, 1));

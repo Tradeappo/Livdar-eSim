@@ -2,7 +2,8 @@
 //
 //   node scripts/atlas/cohort-qa.mjs
 //   node scripts/atlas/cohort-qa.mjs --write
-//   node scripts/atlas/cohort-qa.mjs --ci      exit 1 on any failure
+//   node scripts/atlas/cohort-qa.mjs --ci                exit 1 on any failure
+//   node scripts/atlas/cohort-qa.mjs --cohort 002        a later cohort
 //
 // The checks run against the page models, not against a rendered site, which
 // means they run before anything is deployed rather than after. A check that
@@ -198,15 +199,17 @@ export function run({ cohortFile = 'data/atlas/cohorts/cohort-001.json', now = n
 }
 
 if (import.meta.url === 'file://' + process.argv[1]) {
-  const r = run();
+  const i = process.argv.indexOf('--cohort');
+  const cohort = i >= 0 ? process.argv[i + 1] : '001';
+  const r = run({ cohortFile: 'data/atlas/cohorts/cohort-' + cohort + '.json' });
   if (process.argv.includes('--write')) {
     mkdirSync(new URL('reports/atlas/', ROOT), { recursive: true });
     const { models, ...rest } = r;
-    writeFileSync(new URL('reports/atlas/cohort-001-qa.json', ROOT), JSON.stringify(rest, null, 1) + '\n');
+    writeFileSync(new URL('reports/atlas/cohort-' + cohort + '-qa.json', ROOT), JSON.stringify(rest, null, 1) + '\n');
     mkdirSync(new URL('data/atlas/cohorts/', ROOT), { recursive: true });
-    writeFileSync(new URL('data/atlas/cohorts/cohort-001-pages.json', ROOT), JSON.stringify({
+    writeFileSync(new URL('data/atlas/cohorts/cohort-' + cohort + '-pages.json', ROOT), JSON.stringify({
       generatedAt: r.generatedAt,
-      meaning: 'Every page of the first cohort as a model: metadata, content, provenance, internal links and alternates. This is what a publication run reads and what QA checked.',
+      meaning: 'Every page of cohort ' + cohort + ' as a model: metadata, content, provenance, internal links and alternates. This is what a publication run reads and what QA checked.',
       pages: models.map(({ page, ...m }) => m),
     }, null, 1) + '\n');
   }

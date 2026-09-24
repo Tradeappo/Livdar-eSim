@@ -1,0 +1,6967 @@
+{
+ "generatedAt": "2026-09-24T13:28:59.341Z",
+ "cohort": "002",
+ "target": 250,
+ "meaning": "A cohort of the Atlas, selected from pages that are eligible rather than from families that could be. Eligible means four things at once: every source the family needs is built, the source covers this entity, a keyword for this entity in this market was measured with volume above zero, and the tool or ranking behind a global page can actually be computed.",
+ "selectedAfter": [
+  "001"
+ ],
+ "excluded": 250,
+ "poolAfterExclusion": 117,
+ "eligible": {
+  "eligiblePages": 367,
+  "families": 8,
+  "sourceReadyFamilies": 7,
+  "blockedFamilies": 51,
+  "byFamily": {
+   "tools.calculator": 23,
+   "weather.country-best-time": 72,
+   "tools.cost-comparison": 9,
+   "tools.cost-calculator": 5,
+   "tools.matcher": 8,
+   "cost-of-living.country": 203,
+   "work.country-salaries": 23,
+   "rankings.index": 24
+  },
+  "bySurface": {
+   "tools": 69,
+   "climate": 72,
+   "move": 203,
+   "work": 23
+  },
+  "byMarket": {
+   "pl-PL": 41,
+   "en-US": 87,
+   "de-DE": 42,
+   "ja-JP": 35,
+   "pt-BR": 37,
+   "fr-FR": 39,
+   "it-IT": 35,
+   "nl-NL": 17,
+   "es-ES": 34
+  },
+  "byPriority": {
+   "high": 295,
+   "medium": 0,
+   "low": 72
+  },
+  "destinations": 55,
+  "serpMeasured": 19,
+  "markets": 9,
+  "highShare": 80.4
+ },
+ "allocation": {
+  "cost-of-living.country": 45,
+  "weather.country-best-time": 72
+ },
+ "available": {
+  "weather.country-best-time": 72,
+  "cost-of-living.country": 45
+ },
+ "shortfall": 133,
+ "withoutPath": [],
+ "duplicates": [],
+ "summary": {
+  "pages": 117,
+  "byFamily": {
+   "weather.country-best-time": 72,
+   "cost-of-living.country": 45
+  },
+  "bySurface": {
+   "climate": 72,
+   "move": 45
+  },
+  "byMarket": {
+   "en-US": 33,
+   "de-DE": 11,
+   "fr-FR": 11,
+   "it-IT": 12,
+   "nl-NL": 9,
+   "es-ES": 8,
+   "ja-JP": 7,
+   "pl-PL": 15,
+   "pt-BR": 11
+  },
+  "byBand": {
+   "winnable": 100,
+   "unknown": 17
+  },
+  "byPriority": {
+   "low": 72,
+   "high": 45
+  },
+  "entities": 39,
+  "languages": 9,
+  "totalVolume": 244930,
+  "highShare": 38.5,
+  "measurability": {
+   "weather.country-best-time": {
+    "pages": 72,
+    "measurable": true,
+    "marginPoints": 11.5,
+    "note": "supports a rate for this family"
+   },
+   "cost-of-living.country": {
+    "pages": 45,
+    "measurable": true,
+    "marginPoints": 14.6,
+    "note": "supports a rate for this family"
+   }
+  }
+ },
+ "pages": [
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit japan",
+   "volume": 51000,
+   "difficulty": 3,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 49470,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/japan/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/japan/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CR",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit costa rica",
+   "volume": 13000,
+   "difficulty": 8,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 11960,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/costa-rica/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::CR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/costa-rica/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IS",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit iceland",
+   "volume": 12000,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 11880,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/iceland/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/iceland/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IS",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/island/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/islandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/islande/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/ijsland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "GR",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit greece",
+   "volume": 9500,
+   "difficulty": 5,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 9025,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/greece/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/greece/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::GR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/greece/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/grece/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/greece/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "beste reisezeit thailand",
+   "volume": 8800,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 8712,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/de/beste-reisezeit/thailand/",
+   "canonical": "https://livdar.com/de/beste-reisezeit/thailand/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit thailand",
+   "volume": 8700,
+   "difficulty": 10,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 7830,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/thailand/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/thailand/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CH",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit switzerland",
+   "volume": 7700,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 7546,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/switzerland/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/switzerland/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::CH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/switzerland/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/switzerland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/switzerland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IT",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit italy",
+   "volume": 7600,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 7448,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/italy/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/italy/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IT",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/italy/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wlochy/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/italia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CR",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "costa rica beste reisezeit",
+   "volume": 6600,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 6600,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/de/beste-reisezeit/costa-rica/",
+   "canonical": "https://livdar.com/de/beste-reisezeit/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::CR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/costa-rica/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "PT",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit portugal",
+   "volume": 6500,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 6370,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/portugal/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/portugal/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::PT",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/portugal/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/portugal/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/portugal/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "quand partir en thailande",
+   "volume": 6400,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 6336,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/fr/quand-partir/thailande/",
+   "canonical": "https://livdar.com/fr/quand-partir/thailande/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit vietnam",
+   "volume": 6400,
+   "difficulty": 3,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 6208,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/vietnam/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "beste reisezeit japan",
+   "volume": 6000,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 5940,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/de/beste-reisezeit/japan/",
+   "canonical": "https://livdar.com/de/beste-reisezeit/japan/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "ES",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit spain",
+   "volume": 4800,
+   "difficulty": 3,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 4656,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/spain/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/spain/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::ES",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/spain/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/spain/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "quand partir au vietnam",
+   "volume": 4200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 4200,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/fr/quand-partir/viet-nam/",
+   "canonical": "https://livdar.com/fr/quand-partir/viet-nam/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "vietnam beste reisezeit",
+   "volume": 4100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 4100,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/de/beste-reisezeit/vietnam/",
+   "canonical": "https://livdar.com/de/beste-reisezeit/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CR",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "costa rica quand partir",
+   "volume": 3800,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3800,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/fr/quand-partir/costa-rica/",
+   "canonical": "https://livdar.com/fr/quand-partir/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::CR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/costa-rica/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MX",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "quand partir au mexique",
+   "volume": 3600,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3600,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/fr/quand-partir/mexique/",
+   "canonical": "https://livdar.com/fr/quand-partir/mexique/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MX",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/mexiko/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/mexique/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/messico/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "quand partir au japon",
+   "volume": 3500,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3500,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/fr/quand-partir/japon/",
+   "canonical": "https://livdar.com/fr/quand-partir/japon/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "HR",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit croatia",
+   "volume": 3500,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3430,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/croatia/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/croatia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::HR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/croatia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/chorwacja/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/croatia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "PE",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit peru",
+   "volume": 3400,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3366,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/peru/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/peru/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::PE",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/peru/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/peru/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MX",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "beste reisezeit mexiko",
+   "volume": 3300,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3267,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/de/beste-reisezeit/mexiko/",
+   "canonical": "https://livdar.com/de/beste-reisezeit/mexiko/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MX",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/mexiko/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/mexique/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/messico/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "vietnam quando andare",
+   "volume": 3100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3100,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/it/quando-andare/vietnam/",
+   "canonical": "https://livdar.com/it/quando-andare/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TR",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit turkey",
+   "volume": 3100,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3069,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/tuerkiye/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/tuerkiye/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/tuerkiye/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/tuerkiye/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/turcja/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/tuerkiye/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "NO",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit norway",
+   "volume": 3100,
+   "difficulty": 3,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 3007,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/norway/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/norway/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::NO",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/norway/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/norway/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MA",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit morocco",
+   "volume": 3000,
+   "difficulty": 2,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2940,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/morocco/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/morocco/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MA",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/morocco/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/marokko/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/maroko/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/morocco/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IS",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "beste reisezeit island",
+   "volume": 2700,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2700,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/de/beste-reisezeit/island/",
+   "canonical": "https://livdar.com/de/beste-reisezeit/island/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IS",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/island/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/islandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/islande/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/ijsland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "thailandia quando andare",
+   "volume": 2400,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2400,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/it/quando-andare/thailandia/",
+   "canonical": "https://livdar.com/it/quando-andare/thailandia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MX",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit mexico",
+   "volume": 2400,
+   "difficulty": 4,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2304,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/mexico/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/mexico/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MX",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/mexiko/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/mexique/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/messico/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "FR",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "best time to visit france",
+   "volume": 2300,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2277,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/en/best-time-to-visit/france/",
+   "canonical": "https://livdar.com/en/best-time-to-visit/france/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::FR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/france/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/france/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "ID",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "indonesia quando andare",
+   "volume": 2200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 2200,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/it/quando-andare/indonesia/",
+   "canonical": "https://livdar.com/it/quando-andare/indonesia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::ID",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/indonesia/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/indonesia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/indonesie/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd japan",
+   "volume": 1900,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1900,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/japan/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/japan/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IS",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "quand partir en islande",
+   "volume": 1800,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1800,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/fr/quand-partir/islande/",
+   "canonical": "https://livdar.com/fr/quand-partir/islande/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IS",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/island/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/islandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/islande/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/ijsland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd thailand",
+   "volume": 1800,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1800,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/thailand/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/thailand/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a tailandia",
+   "volume": 1700,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1700,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/tailandia/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CR",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costa rica quando andare",
+   "volume": 1700,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1700,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/it/quando-andare/costa-rica/",
+   "canonical": "https://livdar.com/it/quando-andare/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::CR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/costa-rica/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CR",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd costa rica",
+   "volume": 1700,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1700,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/costa-rica/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::CR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/costa-rica/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd vietnam",
+   "volume": 1700,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1700,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/vietnam/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "タイ ベストシーズン",
+   "volume": 1600,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1600,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/ja/best-season/thailand/",
+   "canonical": "https://livdar.com/ja/best-season/thailand/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MX",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "messico quando andare",
+   "volume": 2100,
+   "difficulty": 28,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1512,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/it/quando-andare/messico/",
+   "canonical": "https://livdar.com/it/quando-andare/messico/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MX",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/mexiko/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/mexique/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/messico/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a japon",
+   "volume": 1400,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1400,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/japon/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/japon/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ベトナム ベストシーズン",
+   "volume": 1400,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1400,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/ja/best-season/vietnam/",
+   "canonical": "https://livdar.com/ja/best-season/vietnam/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "quando andare in giappone",
+   "volume": 1300,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1300,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/it/quando-andare/giappone/",
+   "canonical": "https://livdar.com/it/quando-andare/giappone/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TR",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "トルコ ベストシーズン",
+   "volume": 1300,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1300,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/ja/best-season/tuerkiye/",
+   "canonical": "https://livdar.com/ja/best-season/tuerkiye/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "weather.country-best-time::TR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/tuerkiye/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/tuerkiye/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/turcja/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/tuerkiye/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "GR",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "quand partir en grece",
+   "volume": 1200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 1200,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/fr/quand-partir/grece/",
+   "canonical": "https://livdar.com/fr/quand-partir/grece/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::GR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/greece/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/grece/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/greece/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "ID",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd indonesie",
+   "volume": 900,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 900,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/indonesie/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/indonesie/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::ID",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/indonesia/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/indonesia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/indonesie/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MX",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd mexico",
+   "volume": 900,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 900,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/mexico/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/mexico/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MX",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/mexiko/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/mexique/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/messico/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "PE",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd peru",
+   "volume": 900,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 900,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/peru/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/peru/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::PE",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/peru/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/peru/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a vietnam",
+   "volume": 800,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 800,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/vietnam/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CH",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "スイス ベストシーズン",
+   "volume": 700,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 700,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/ja/best-season/switzerland/",
+   "canonical": "https://livdar.com/ja/best-season/switzerland/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "weather.country-best-time::CH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/switzerland/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/switzerland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/switzerland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IT",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "イタリア ベストシーズン",
+   "volume": 700,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 700,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/ja/best-season/italy/",
+   "canonical": "https://livdar.com/ja/best-season/italy/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "weather.country-best-time::IT",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/italy/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wlochy/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/italia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IS",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd ijsland",
+   "volume": 600,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 600,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/ijsland/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/ijsland/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IS",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/island/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/islandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/islande/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/ijsland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do tajlandii",
+   "volume": 600,
+   "difficulty": 1,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 594,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/tajlandia/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/tajlandia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "CR",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a costa rica",
+   "volume": 500,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 500,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/costa-rica/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/costa-rica/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::CR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/costa-rica/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/costa-rica/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/costa-rica/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/costa-rica/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/costa-rica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/costa-rica/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "PE",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a peru",
+   "volume": 450,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 450,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/peru/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/peru/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::PE",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/peru/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/peru/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "VN",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do wietnamu",
+   "volume": 450,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 450,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/wietnam/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/wietnam/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::VN",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/vietnam/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/vietnam/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/viet-nam/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/vietnam/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/vietnam/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/vietnam/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wietnam/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/vietnam/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IS",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a islandia",
+   "volume": 400,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 400,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/islandia/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/islandia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IS",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/island/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/islandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/islande/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/ijsland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/iceland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MA",
+   "market": "nl-NL",
+   "language": "nl",
+   "keyword": "beste reistijd marokko",
+   "volume": 400,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 400,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/nl/beste-reistijd/marokko/",
+   "canonical": "https://livdar.com/nl/beste-reistijd/marokko/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MA",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/morocco/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/marokko/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/maroko/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/morocco/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do japonii",
+   "volume": 300,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 300,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/japonia/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/japonia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "FI",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in finland",
+   "volume": 300,
+   "difficulty": 1,
+   "cpcUsd": 0.04,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 297,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/finland/",
+   "canonical": "https://livdar.com/en/cost-of-living/finland/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::FI",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/finland/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/finland/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GB",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in the uk",
+   "volume": 350,
+   "difficulty": 27,
+   "cpcUsd": 0.15,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 256,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/united-kingdom/",
+   "canonical": "https://livdar.com/en/cost-of-living/united-kingdom/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GB",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigtes-koenigreich/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/royaume-uni/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/regno-unito/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wielka-brytania/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "ID",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a indonesia",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/indonesia/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/indonesia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::ID",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/indonesia/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/indonesia/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/indonesie/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MX",
+   "market": "es-ES",
+   "language": "es",
+   "keyword": "mejor epoca para viajar a mexico",
+   "volume": 250,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 250,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/es/mejor-epoca-para-viajar/mexico/",
+   "canonical": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MX",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/mexiko/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/mexique/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/messico/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "RO",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in romania",
+   "volume": 200,
+   "difficulty": 0,
+   "cpcUsd": 0.04,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 200,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/romania/",
+   "canonical": "https://livdar.com/en/cost-of-living/romania/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::RO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/rumaenien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/romania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/rumunia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/romenia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MX",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do meksyku",
+   "volume": 200,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 200,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/meksyk/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/meksyk/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MX",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/mexiko/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/mexico/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/mexique/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/messico/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/mexico/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/meksyk/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/mexico/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LU",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in luxembourg",
+   "volume": 200,
+   "difficulty": 1,
+   "cpcUsd": 0.01,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 198,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/luxembourg/",
+   "canonical": "https://livdar.com/en/cost-of-living/luxembourg/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/luxembourg/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AT",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in austria",
+   "volume": 200,
+   "difficulty": 3,
+   "cpcUsd": 0.02,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 194,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/austria/",
+   "canonical": "https://livdar.com/en/cost-of-living/austria/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AT",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/austria/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/austria/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/austria/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/austria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BE",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in belgium",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/belgium/",
+   "canonical": "https://livdar.com/en/cost-of-living/belgium/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/belgien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/belgica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BG",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in bulgaria",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": 0.05,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/bulgaria/",
+   "canonical": "https://livdar.com/en/cost-of-living/bulgaria/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BG",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/bulgaria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/bulgaria/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "HU",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in hungary",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": 0.01,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/hungary/",
+   "canonical": "https://livdar.com/en/cost-of-living/hungary/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::HU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wegry/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/hungria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LT",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in lithuania",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": 0.05,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/lithuania/",
+   "canonical": "https://livdar.com/en/cost-of-living/lithuania/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LT",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/lithuania/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/lithuania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "LV",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in latvia",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": 0.01,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/latvia/",
+   "canonical": "https://livdar.com/en/cost-of-living/latvia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::LV",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/latvia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/latvia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "HR",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do chorwacji",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/chorwacja/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/chorwacja/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::HR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/croatia/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/chorwacja/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/croatia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IT",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "melhor epoca para viajar para italia",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pt/melhor-epoca-para-viajar/italia/",
+   "canonical": "https://livdar.com/pt/melhor-epoca-para-viajar/italia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IT",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/italy/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wlochy/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/italia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "PT",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "melhor epoca para viajar para portugal",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pt/melhor-epoca-para-viajar/portugal/",
+   "canonical": "https://livdar.com/pt/melhor-epoca-para-viajar/portugal/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::PT",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/portugal/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/portugal/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/portugal/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TH",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "melhor epoca para viajar para tailandia",
+   "volume": 150,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 150,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pt/melhor-epoca-para-viajar/tailandia/",
+   "canonical": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TH",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/thailand/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/thailande/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/thailandia/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/thailand/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/thailand/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/tajlandia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/tailandia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/thailand/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "PE",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do peru",
+   "volume": 100,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 100,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/peru/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/peru/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::PE",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/peru/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/peru/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "PE",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "melhor epoca para viajar para o peru",
+   "volume": 90,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 90,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pt/melhor-epoca-para-viajar/peru/",
+   "canonical": "https://livdar.com/pt/melhor-epoca-para-viajar/peru/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::PE",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/peru/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/peru/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/peru/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/peru/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "EE",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in estonia",
+   "volume": 90,
+   "difficulty": 2,
+   "cpcUsd": 0.05,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 88,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/estonia/",
+   "canonical": "https://livdar.com/en/cost-of-living/estonia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::EE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/estonia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/estonia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "ME",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in montenegro",
+   "volume": 80,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 80,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/montenegro/",
+   "canonical": "https://livdar.com/en/cost-of-living/montenegro/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::ME",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/montenegro/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/montenegro/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "MA",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do maroka",
+   "volume": 80,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 80,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/maroko/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/maroko/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::MA",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/morocco/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/marokko/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/maroko/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/morocco/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "TR",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do turcji",
+   "volume": 80,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 80,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/turcja/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/turcja/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::TR",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/tuerkiye/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/tuerkiye/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/turcja/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/tuerkiye/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "IS",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten island",
+   "volume": 70,
+   "difficulty": 0,
+   "cpcUsd": 0.02,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 70,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/island/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/island/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::IS",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/island/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GB",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten england",
+   "volume": 60,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 60,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/vereinigtes-koenigreich/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/vereinigtes-koenigreich/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GB",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigtes-koenigreich/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/royaume-uni/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/regno-unito/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wielka-brytania/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "RO",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten rumänien",
+   "volume": 60,
+   "difficulty": 0,
+   "cpcUsd": 0.02,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 60,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/rumaenien/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/rumaenien/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::RO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/rumaenien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/romania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/rumunia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/romenia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SI",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in slovenia",
+   "volume": 60,
+   "difficulty": 0,
+   "cpcUsd": 0.35,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 60,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/slovenia/",
+   "canonical": "https://livdar.com/en/cost-of-living/slovenia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SI",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/slovenia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/slovenia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "IE",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in irlanda",
+   "volume": 60,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 60,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/irlanda/",
+   "canonical": "https://livdar.com/it/costo-della-vita/irlanda/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::IE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/irlanda/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "NL",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in olanda",
+   "volume": 60,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 60,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/paesi-bassi/",
+   "canonical": "https://livdar.com/it/costo-della-vita/paesi-bassi/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::NL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/paesi-bassi/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "IT",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "kiedy jechać do włoch",
+   "volume": 100,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 60,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pl/kiedy-jechac/wlochy/",
+   "canonical": "https://livdar.com/pl/kiedy-jechac/wlochy/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::IT",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/best-season/italy/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/wlochy/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/italia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/italy/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "weather.country-best-time",
+   "surface": "climate",
+   "vertical": "weather",
+   "priority": "low",
+   "entity": "JP",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "melhor epoca para viajar para o japao",
+   "volume": 90,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "geonames-cities",
+    "climate-normals-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 54,
+   "dataSources": [
+    "climate-normals-verified",
+    "geonames-cities"
+   ],
+   "path": "/pt/melhor-epoca-para-viajar/japao/",
+   "canonical": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/",
+   "slugFrom": "cldr",
+   "cluster": "weather.country-best-time::JP",
+   "scope": "country",
+   "minWords": 340,
+   "indexPolicy": "always",
+   "aeo": [
+    "direct-answer",
+    "fact-table",
+    "comparison"
+   ],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/beste-reisezeit/japan/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    },
+    {
+     "hreflang": "es",
+     "href": "https://livdar.com/es/mejor-epoca-para-viajar/japon/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/quand-partir/japon/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/quando-andare/giappone/"
+    },
+    {
+     "hreflang": "nl",
+     "href": "https://livdar.com/nl/beste-reistijd/japan/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/kiedy-jechac/japonia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/melhor-epoca-para-viajar/japao/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/best-time-to-visit/japan/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BE",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten belgien",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/belgien/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/belgien/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/belgien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/belgica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AT",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in austria",
+   "volume": 50,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 50,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/austria/",
+   "canonical": "https://livdar.com/it/costo-della-vita/austria/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AT",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/austria/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/austria/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/austria/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/austria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "FR",
+   "market": "de-DE",
+   "language": "de",
+   "keyword": "lebenshaltungskosten frankreich",
+   "volume": 80,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 48,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/de/lebenshaltungskosten/frankreich/",
+   "canonical": "https://livdar.com/de/lebenshaltungskosten/frankreich/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::FR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/frankreich/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/francia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "RS",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in serbia",
+   "volume": 40,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 40,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/serbia/",
+   "canonical": "https://livdar.com/en/cost-of-living/serbia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::RS",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/serbia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/serbia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SE",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "coût de la vie en suède",
+   "volume": 40,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 40,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/suede/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/suede/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/suede/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "FR",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in francia",
+   "volume": 40,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 40,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/francia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/francia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::FR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/frankreich/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/francia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "SK",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in slovakia",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/slovakia/",
+   "canonical": "https://livdar.com/en/cost-of-living/slovakia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::SK",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/slovakia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/slovakia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CY",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "coût de la vie à chypre",
+   "volume": 30,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 30,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/chypre/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/chypre/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chypre/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/cypr/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/chipre/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GB",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "coût de la vie en angleterre",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/royaume-uni/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/royaume-uni/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GB",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigtes-koenigreich/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/royaume-uni/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/regno-unito/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wielka-brytania/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CZ",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in repubblica ceca",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/cechia/",
+   "canonical": "https://livdar.com/it/costo-della-vita/cechia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/czechia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/tchequie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cechia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/czechia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GB",
+   "market": "it-IT",
+   "language": "it",
+   "keyword": "costo della vita in inghilterra",
+   "volume": 20,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 20,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/it/costo-della-vita/regno-unito/",
+   "canonical": "https://livdar.com/it/costo-della-vita/regno-unito/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GB",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigtes-koenigreich/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/royaume-uni/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/regno-unito/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wielka-brytania/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "PL",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida na polônia",
+   "volume": 30,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 18,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/polonia/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/polonia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::PL",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/polonia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CY",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia na cyprze",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/cypr/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/cypr/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chypre/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/cypr/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/chipre/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "GB",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w anglii",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/wielka-brytania/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/wielka-brytania/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::GB",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/vereinigtes-koenigreich/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/royaume-uni/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/regno-unito/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wielka-brytania/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/united-kingdom/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "HR",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w chorwacji",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/chorwacja/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/chorwacja/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::HR",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/chorwacja/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "HU",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia na węgrzech",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/wegry/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/wegry/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::HU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wegry/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/hungria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "RO",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w rumunii",
+   "volume": 20,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 12,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/rumunia/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/rumunia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::RO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/rumaenien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/romania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/rumunia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/romenia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "BE",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida na bélgica",
+   "volume": 10,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 10,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/belgica/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/belgica/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::BE",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/belgien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/belgica/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/belgium/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "HU",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida na hungria",
+   "volume": 10,
+   "difficulty": 0,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "winnable",
+   "expectedValue": 10,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/hungria/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/hungria/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::HU",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/wegry/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/hungria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/hungary/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CZ",
+   "market": "en-US",
+   "language": "en",
+   "keyword": "cost of living in czechia",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/en/cost-of-living/czechia/",
+   "canonical": "https://livdar.com/en/cost-of-living/czechia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/czechia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/tchequie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cechia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/czechia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CZ",
+   "market": "fr-FR",
+   "language": "fr",
+   "keyword": "coût de la vie en république tchèque",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/fr/cout-de-la-vie/tchequie/",
+   "canonical": "https://livdar.com/fr/cout-de-la-vie/tchequie/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CZ",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/czechia/"
+    },
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/tchequie/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/cechia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/czechia/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AT",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "オーストリア 生活費",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/austria/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/austria/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::AT",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/austria/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/austria/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/austria/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/austria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "RO",
+   "market": "ja-JP",
+   "language": "ja",
+   "keyword": "ルーマニア 生活費",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/ja/seikatsuhi/romania/",
+   "canonical": "https://livdar.com/ja/seikatsuhi/romania/",
+   "slugFrom": "cldr-english-fallback",
+   "cluster": "cost-of-living.country::RO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/rumaenien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/romania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/rumunia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/romenia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AT",
+   "market": "pl-PL",
+   "language": "pl",
+   "keyword": "koszty życia w austrii",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pl/koszty-zycia/austria/",
+   "canonical": "https://livdar.com/pl/koszty-zycia/austria/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AT",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/austria/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/austria/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/austria/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/austria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "AT",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida na áustria",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/austria/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/austria/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::AT",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    },
+    {
+     "hreflang": "it",
+     "href": "https://livdar.com/it/costo-della-vita/austria/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/austria/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/austria/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/austria/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/austria/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "CY",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida no chipre",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/chipre/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/chipre/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::CY",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "fr",
+     "href": "https://livdar.com/fr/cout-de-la-vie/chypre/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/cypr/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/chipre/"
+    }
+   ]
+  },
+  {
+   "serpMeasured": false,
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "priority": "high",
+   "entity": "RO",
+   "market": "pt-BR",
+   "language": "pt",
+   "keyword": "custo de vida na romênia",
+   "volume": 10,
+   "difficulty": null,
+   "cpcUsd": null,
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "axis": "language",
+   "band": "unknown",
+   "expectedValue": 6,
+   "dataSources": [
+    "cost-of-living-verified"
+   ],
+   "path": "/pt/custo-de-vida/romenia/",
+   "canonical": "https://livdar.com/pt/custo-de-vida/romenia/",
+   "slugFrom": "cldr",
+   "cluster": "cost-of-living.country::RO",
+   "scope": "country",
+   "minWords": 320,
+   "indexPolicy": "always",
+   "aeo": [],
+   "alternates": [
+    {
+     "hreflang": "de",
+     "href": "https://livdar.com/de/lebenshaltungskosten/rumaenien/"
+    },
+    {
+     "hreflang": "en",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    },
+    {
+     "hreflang": "ja",
+     "href": "https://livdar.com/ja/seikatsuhi/romania/"
+    },
+    {
+     "hreflang": "pl",
+     "href": "https://livdar.com/pl/koszty-zycia/rumunia/"
+    },
+    {
+     "hreflang": "pt",
+     "href": "https://livdar.com/pt/custo-de-vida/romenia/"
+    },
+    {
+     "hreflang": "x-default",
+     "href": "https://livdar.com/en/cost-of-living/romania/"
+    }
+   ]
+  }
+ ]
+}
