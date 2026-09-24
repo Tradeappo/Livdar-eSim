@@ -128,7 +128,13 @@ export function run({ probe = 'data/atlas/probes/best-time-2026-09-24.json' } = 
       const prev = kept.find((k) => k.iso2 === c.iso2);
       if (prev) {
         skipped.duplicate++;
-        if (r.volume > prev.volume) { prev.keyword = r.keyword; prev.volume = r.volume; prev.difficulty = r.difficulty ?? null; }
+        // The stronger keyword wins, and on a tie the shorter one does. Two
+        // Portuguese phrasings for Thailand both measure 150 a month, one of
+        // them a question wrapped around the other, and the page should target
+        // the head phrase rather than the wrapper.
+        const better = r.volume > prev.volume
+          || (r.volume === prev.volume && r.keyword.length < prev.keyword.length);
+        if (better) { prev.keyword = r.keyword; prev.volume = r.volume; prev.difficulty = r.difficulty ?? null; }
         continue;
       }
       if (seen.has(r.keyword)) continue;
@@ -187,11 +193,15 @@ if (import.meta.url === 'file://' + process.argv[1]) {
     }
     const planUrl = new URL('data/atlas/measurement-plan.json', ROOT);
     const plan = JSON.parse(readFileSync(planUrl, 'utf8'));
-    const have = new Set(plan.rows.map((x) => x.family + '|' + x.entity + '|' + x.market));
-    const added = r.rows.filter((x) => !have.has(x.family + '|' + x.entity + '|' + x.market));
-    plan.rows.push(...added);
+    // This family's rows are derived from the probe in their entirety, so they
+    // are replaced rather than appended to. An append only write let the plan
+    // keep a keyword the regenerated measurement file no longer carried, and
+    // the join between them is an exact string match, so the page silently
+    // stopped being eligible. Replacing keeps the two in step by construction.
+    const before = plan.rows.length;
+    plan.rows = plan.rows.filter((x) => x.family !== FAMILY).concat(r.rows);
     writeFileSync(planUrl, JSON.stringify(plan, null, 1) + '\n');
-    console.error('plan rows added: ' + added.length);
+    console.error('plan rows for ' + FAMILY + ': ' + r.rows.length + ' (total ' + before + ' to ' + plan.rows.length + ')');
   }
   const { files, rows, ...summary } = r;
   console.log(JSON.stringify(summary, null, 1));
