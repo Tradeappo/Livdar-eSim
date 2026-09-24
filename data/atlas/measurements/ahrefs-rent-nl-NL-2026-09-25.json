@@ -1,0 +1,47 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "nl",
+ "market": "nl-NL",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 69,
+ "families": [
+  "rents.country-inflation"
+ ],
+ "note": "Rent movement demand, asked in the words each market uses for its own regulated increase. The French keyword is the name of the reference index and the Dutch one is the name of the annual rise, which is why both are large and both are answered by the same published series.",
+ "caution": "Several phrasings with demand ask for a rent level rather than a rent movement. They are recorded and not planned, because no comparable level exists for these countries and answering a price question with an index would be answering a different question.",
+ "keywords": [
+  {
+   "keyword": "huurverhoging 2026",
+   "volume": 4400,
+   "difficulty": 0,
+   "cpc": 8,
+   "family": "rents.country-inflation",
+   "entity": "NL",
+   "market": "nl-NL"
+  },
+  {
+   "keyword": "huurverhoging",
+   "volume": 1300,
+   "difficulty": 12,
+   "cpc": 10,
+   "family": "rents.country-inflation",
+   "entity": "NL",
+   "market": "nl-NL",
+   "notPlanned": "the same question as the planned keyword, without the year the page is about"
+  },
+  {
+   "keyword": "huurprijzen 2026",
+   "volume": 100,
+   "difficulty": null,
+   "cpc": null,
+   "family": "rents.country-inflation",
+   "entity": "NL",
+   "market": "nl-NL",
+   "notPlanned": "asks for a price level, which this source does not publish"
+  }
+ ],
+ "notReturned": []
+}

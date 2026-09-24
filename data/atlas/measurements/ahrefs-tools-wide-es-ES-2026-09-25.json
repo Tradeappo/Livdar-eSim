@@ -1,0 +1,98 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "es",
+ "market": "es-ES",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 184,
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison"
+ ],
+ "note": "The second pass over the Tools surface. Constructed keywords in the idiom of each market, for every tool in the queue rather than the ones that already had a page. The parent topic was selected as well as the volume, and it changed four decisions: the phrase for a country comparison returns a map question in every market except German, and the phrase for a rent calculator returns the annual increase in Spanish, Italian and Brazilian Portuguese.",
+ "caution": "A null volume means the provider returned no row. Volume alone did not decide a page here: a keyword whose parent topic is a different question was not planned however large it was.",
+ "keywords": [
+  {
+   "keyword": "calculadora alquiler",
+   "volume": 150,
+   "difficulty": 47,
+   "cpc": 60,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "es-ES",
+   "notPlanned": "the Spanish parent topic is the annual rent revision, not affordability"
+  },
+  {
+   "keyword": "cuanto alquiler puedo pagar",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "es-ES",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "cuanto puedo pagar de alquiler",
+   "volume": 0,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "es-ES",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "donde emigrar",
+   "volume": 20,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "es-ES"
+  },
+  {
+   "keyword": "a que pais emigrar",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "es-ES",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "donde alojarse",
+   "volume": 80,
+   "difficulty": 0,
+   "cpc": 35,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "es-ES"
+  },
+  {
+   "keyword": "comparar paises",
+   "volume": 40,
+   "difficulty": 1,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "es-ES",
+   "notPlanned": "the parent topic is the real size of countries"
+  },
+  {
+   "keyword": "presupuesto de viaje",
+   "volume": 90,
+   "difficulty": 0,
+   "cpc": 10,
+   "family": "tools.calculator",
+   "entity": "travel-budget",
+   "market": "es-ES",
+   "notPlanned": "stronger than the keyword in use, and changing it would move a URL an approved cohort already carries"
+  }
+ ],
+ "notReturned": []
+}

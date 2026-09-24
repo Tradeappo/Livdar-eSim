@@ -50,18 +50,37 @@ test('cohort 002 is full, and its size is the target rather than whatever was le
 test('cohort 002 is a spread across surfaces rather than a spread across families', () => {
   const two = read(TWO);
   const one = read(ONE);
-  // The first version of this cohort was 178 cost of living pages and 72
-  // climate pages: two families, two surfaces, and an experiment that could
-  // only answer whether climate outranks cost of living. The cohort exists to
-  // answer which part of the product earns the strongest signal, and it
-  // cannot do that carrying two of its surfaces however well it is balanced
-  // inside them.
+  // The history of this assertion is the history of the cohort. The first
+  // version was 178 cost of living pages and 72 climate pages: two families,
+  // two surfaces, an experiment that could only answer whether climate
+  // outranks cost of living. The second was six surfaces and still had Climate
+  // at 57 and Move at 58, which is the same failure in a milder form, because
+  // both are the surfaces with the most eligible pages rather than the most
+  // product. The third is this one.
   const surfaces = Object.keys(two.summary.bySurface);
-  assert.ok(surfaces.length >= 5, 'cohort 002 carries only ' + surfaces.length + ' surfaces');
-  assert.ok(Object.keys(two.summary.byFamily).length >= 7, 'cohort 002 carries only ' + Object.keys(two.summary.byFamily).length + ' families');
-  // No surface is most of the cohort.
+  assert.ok(surfaces.length >= 8, 'cohort 002 carries only ' + surfaces.length + ' surfaces');
+  assert.ok(Object.keys(two.summary.byFamily).length >= 12, 'cohort 002 carries only ' + Object.keys(two.summary.byFamily).length + ' families');
+  // No surface is most of the cohort, and none is more than a quarter of it.
   for (const [s, n] of Object.entries(two.summary.bySurface)) {
-    assert.ok(n <= two.pages.length * 0.3, s + ' is ' + n + ' of ' + two.pages.length + ' pages');
+    assert.ok(n <= two.pages.length * 0.25, s + ' is ' + n + ' of ' + two.pages.length + ' pages');
+  }
+  // Climate is the surface with no transaction behind it and the one the brief
+  // asked for by name. It is capped rather than balanced: whatever the fair
+  // share rule would have given it, it takes twenty five at most.
+  assert.ok((two.summary.bySurface.climate || 0) <= 25, 'climate is ' + two.summary.bySurface.climate + ' pages');
+  // And the two surfaces that were most of the previous version are together
+  // less than a third of this one.
+  const wasDominant = (two.summary.bySurface.climate || 0) + (two.summary.bySurface.move || 0);
+  assert.ok(wasDominant < two.pages.length / 3, 'climate and move are ' + wasDominant + ' of ' + two.pages.length);
+  // Every surface the product has a built source for is present. Community and
+  // Safety are absent and the selection has to say so with a number rather
+  // than by omission.
+  for (const s of ['areas', 'pulse', 'stay', 'work', 'move', 'sport', 'tools']) {
+    assert.ok(two.summary.bySurface[s] > 0, s + ' carries no pages');
+  }
+  for (const s of ['community', 'safety']) {
+    assert.ok(two.selection.surfacesShort[s], s + ' is absent and the selection does not record it as short');
+    assert.equal(two.selection.surfacesShort[s].available, 0);
   }
 
   // The floors are what stop a surface being absent, and every surface with
@@ -79,7 +98,11 @@ test('cohort 002 is a spread across surfaces rather than a spread across familie
   // its size are different things, and a reader of the result has to be able
   // to tell them apart.
   assert.equal(sel.experimentalSubset.pages + sel.filler.pages, two.pages.length);
-  assert.ok(sel.experimentalSubset.pages >= 60, 'the diversified subset is only ' + sel.experimentalSubset.pages + ' pages');
+  assert.ok(sel.experimentalSubset.pages >= 150, 'the diversified subset is only ' + sel.experimentalSubset.pages + ' pages');
+  // The filler is the part that exists to reach the size rather than to answer
+  // the question, and it is the number the brief asks to be minimised.
+  assert.ok(sel.filler.pages <= 100, 'the filler is ' + sel.filler.pages + ' pages');
+  assert.equal(sel.overCeiling.pages, 0, sel.overCeiling.pages + ' pages were taken over a surface ceiling');
   const roles = new Set(two.pages.map((p) => p.role));
   assert.deepEqual([...roles].sort(), ['diversified subset', 'filler']);
 

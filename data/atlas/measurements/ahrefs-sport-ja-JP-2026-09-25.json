@@ -1,0 +1,73 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "jp",
+ "market": "ja-JP",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 132,
+ "families": [
+  "sport.city-season"
+ ],
+ "note": "City and activity demand for the Sport surface, asked only for the cities the climate normals cover. The phrasing is the market own: the Spanish market puts the activity before the city with no preposition, the Italian market asks for what is near the city rather than in it, and the Japanese market puts the city first.",
+ "caution": "Three keywords with real demand were not planned because the page this source can build would answer a different question: outdoor swimming in a city whose air never reaches the band is an indoor pool search, and snorkelling is decided by the sea.",
+ "keywords": [
+  {
+   "keyword": "東京 ハイキング",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc": 1,
+   "family": "sport.city-season",
+   "entity": "1850147:hiking",
+   "market": "ja-JP"
+  },
+  {
+   "keyword": "東京 サイクリング",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc": 4,
+   "family": "sport.city-season",
+   "entity": "1850147:cycling",
+   "market": "ja-JP"
+  },
+  {
+   "keyword": "東京 ランニング",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc": 4,
+   "family": "sport.city-season",
+   "entity": "1850147:running",
+   "market": "ja-JP"
+  },
+  {
+   "keyword": "大阪 ランニング",
+   "volume": 60,
+   "difficulty": null,
+   "cpc": null,
+   "family": "sport.city-season",
+   "entity": "1853909:running",
+   "market": "ja-JP"
+  },
+  {
+   "keyword": "札幌 ハイキング",
+   "volume": 60,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "sport.city-season",
+   "entity": "2128295:hiking",
+   "market": "ja-JP"
+  },
+  {
+   "keyword": "沖縄 シュノーケリング",
+   "volume": 2500,
+   "difficulty": 44,
+   "cpc": 15,
+   "family": "sport.city-season",
+   "entity": "1850147:swimming",
+   "market": "ja-JP",
+   "notPlanned": "refused: snorkelling is decided by water clarity and sea temperature and this source holds neither, and the city in the keyword is Naha rather than Tokyo"
+  }
+ ],
+ "notReturned": []
+}

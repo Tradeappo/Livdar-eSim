@@ -1,0 +1,74 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "es",
+ "market": "es-ES",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 132,
+ "families": [
+  "sport.city-season"
+ ],
+ "note": "City and activity demand for the Sport surface, asked only for the cities the climate normals cover. The phrasing is the market own: the Spanish market puts the activity before the city with no preposition, the Italian market asks for what is near the city rather than in it, and the Japanese market puts the city first.",
+ "caution": "Three keywords with real demand were not planned because the page this source can build would answer a different question: outdoor swimming in a city whose air never reaches the band is an indoor pool search, and snorkelling is decided by the sea.",
+ "keywords": [
+  {
+   "keyword": "senderismo barcelona",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc": 6,
+   "family": "sport.city-season",
+   "entity": "3128760:hiking",
+   "market": "es-ES"
+  },
+  {
+   "keyword": "rutas de senderismo madrid",
+   "volume": 250,
+   "difficulty": 2,
+   "cpc": 2,
+   "family": "sport.city-season",
+   "entity": "3117735:hiking",
+   "market": "es-ES"
+  },
+  {
+   "keyword": "correr en madrid",
+   "volume": 30,
+   "difficulty": 0,
+   "cpc": 35,
+   "family": "sport.city-season",
+   "entity": "3117735:running",
+   "market": "es-ES"
+  },
+  {
+   "keyword": "correr en barcelona",
+   "volume": 20,
+   "difficulty": 62,
+   "cpc": null,
+   "family": "sport.city-season",
+   "entity": "3128760:running",
+   "market": "es-ES"
+  },
+  {
+   "keyword": "ciclismo en barcelona",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "sport.city-season",
+   "entity": "3128760:cycling",
+   "market": "es-ES",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "nadar en barcelona",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "sport.city-season",
+   "entity": "3128760:swimming",
+   "market": "es-ES",
+   "notPlanned": "no measured demand"
+  }
+ ],
+ "notReturned": []
+}

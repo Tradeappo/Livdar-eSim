@@ -1,0 +1,77 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "fr",
+ "market": "fr-FR",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 138,
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison"
+ ],
+ "note": "The second pass over the Tools surface. Constructed keywords in the idiom of each market, for every tool in the queue rather than the ones that already had a page. The parent topic was selected as well as the volume, and it changed four decisions: the phrase for a country comparison returns a map question in every market except German, and the phrase for a rent calculator returns the annual increase in Spanish, Italian and Brazilian Portuguese.",
+ "caution": "A null volume means the provider returned no row. Volume alone did not decide a page here: a keyword whose parent topic is a different question was not planned however large it was.",
+ "keywords": [
+  {
+   "keyword": "calculer son loyer maximum",
+   "volume": 40,
+   "difficulty": 3,
+   "cpc": 35,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "ou s'expatrier",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc": 10,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "dans quel pays s'expatrier",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc": 20,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "fr-FR",
+   "notPlanned": "the same question in fewer searches"
+  },
+  {
+   "keyword": "ou dormir",
+   "volume": 90,
+   "difficulty": 0,
+   "cpc": 45,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "ou loger",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "fr-FR",
+   "notPlanned": "the same question in fewer searches"
+  },
+  {
+   "keyword": "comparer les pays",
+   "volume": 20,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "fr-FR",
+   "notPlanned": "the parent topic is the size of countries"
+  }
+ ],
+ "notReturned": []
+}

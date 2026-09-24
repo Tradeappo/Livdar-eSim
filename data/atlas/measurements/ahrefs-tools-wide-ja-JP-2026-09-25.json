@@ -1,0 +1,88 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "jp",
+ "market": "ja-JP",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 161,
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison"
+ ],
+ "note": "The second pass over the Tools surface. Constructed keywords in the idiom of each market, for every tool in the queue rather than the ones that already had a page. The parent topic was selected as well as the volume, and it changed four decisions: the phrase for a country comparison returns a map question in every market except German, and the phrase for a rent calculator returns the annual increase in Spanish, Italian and Brazilian Portuguese.",
+ "caution": "A null volume means the provider returned no row. Volume alone did not decide a page here: a keyword whose parent topic is a different question was not planned however large it was.",
+ "keywords": [
+  {
+   "keyword": "家賃 目安",
+   "volume": 9800,
+   "difficulty": 0,
+   "cpc": 2,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "ja-JP"
+  },
+  {
+   "keyword": "家賃 年収",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc": 6,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "ja-JP",
+   "notPlanned": "the same question in fewer searches"
+  },
+  {
+   "keyword": "海外移住 おすすめ 国",
+   "volume": 10,
+   "difficulty": 0,
+   "cpc": 25,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "ja-JP"
+  },
+  {
+   "keyword": "移住 どこ",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "ja-JP",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "どこに泊まる",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "ja-JP",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "国 比較",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "ja-JP",
+   "notPlanned": "no parent topic returned, so the intent cannot be told apart from the map question"
+  },
+  {
+   "keyword": "旅行 予算",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc": 20,
+   "family": "tools.calculator",
+   "entity": "travel-budget",
+   "market": "ja-JP",
+   "notPlanned": "the pair already has a keyword"
+  }
+ ],
+ "notReturned": []
+}

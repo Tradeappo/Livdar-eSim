@@ -662,7 +662,13 @@
    "caveat": "Modelled values for a 0.5 by 0.625 degree grid cell (MERRA-2 based), stated as such on the page. Only T2M is a monthly normal: T2M_MAX and T2M_MIN on this endpoint are the extremes over the whole period, are stored as tmaxExtreme and tminExtreme, and are never scored or presented as a typical day.",
    "refresh": "when the provider publishes a new normals period",
    "maxAgeDays": 3650,
-   "derivation": "scripts/atlas/ingest/climate-normals.mjs: the provider's own monthly climatology, gated on period, grid cell distance, physical range and the agreement between each monthly precipitation total and its own daily rate."
+   "derivation": "scripts/atlas/ingest/climate-normals.mjs: the provider's own monthly climatology, gated on period, grid cell distance, physical range and the agreement between each monthly precipitation total and its own daily rate.",
+   "status": "built",
+   "builtOn": "2026-09-25",
+   "coverage": "CITY_READY. 55 cities in 23 countries, monthly normals over 2001 to 2020. A country best time page is only honest for a country with measured cities in it, and there are 23 of those rather than 249.",
+   "ingest": "scripts/atlas/ingest/climate-normals.mjs",
+   "store": "data/atlas/sources/climate/normals.json",
+   "freshnessClass": "reference"
   }
  ]
 }

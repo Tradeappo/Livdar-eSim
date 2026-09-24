@@ -1,0 +1,47 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "fr",
+ "market": "fr-FR",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 69,
+ "families": [
+  "rents.country-inflation"
+ ],
+ "note": "Rent movement demand, asked in the words each market uses for its own regulated increase. The French keyword is the name of the reference index and the Dutch one is the name of the annual rise, which is why both are large and both are answered by the same published series.",
+ "caution": "Several phrasings with demand ask for a rent level rather than a rent movement. They are recorded and not planned, because no comparable level exists for these countries and answering a price question with an index would be answering a different question.",
+ "keywords": [
+  {
+   "keyword": "irl 2026",
+   "volume": 4300,
+   "difficulty": 18,
+   "cpc": 1,
+   "family": "rents.country-inflation",
+   "entity": "FR",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "augmentation loyer 2026",
+   "volume": 2700,
+   "difficulty": 26,
+   "cpc": 1,
+   "family": "rents.country-inflation",
+   "entity": "FR",
+   "market": "fr-FR",
+   "notPlanned": "the same question as the planned keyword, which is the name of the index itself"
+  },
+  {
+   "keyword": "indice de reference des loyers",
+   "volume": 600,
+   "difficulty": 45,
+   "cpc": 1,
+   "family": "rents.country-inflation",
+   "entity": "FR",
+   "market": "fr-FR",
+   "notPlanned": "the same index, spelled out, at a fifth of the volume and two and a half times the difficulty"
+  }
+ ],
+ "notReturned": []
+}

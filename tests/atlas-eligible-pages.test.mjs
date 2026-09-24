@@ -21,18 +21,31 @@ test('a measured volume belongs to the market it was measured in', () => {
 
 test('a tool page is refused when the tool itself cannot be built', () => {
   const built = builtSources();
-  // Both live in tools.calculator and both inherit the same family source,
-  // which is built. Only one of them is a page.
+  // Three tools in tools.calculator, all inheriting the same family source,
+  // which is built. Two of them are pages and one is not, and the difference is
+  // the tool's own source list rather than the family's.
+  //
+  // Rent affordability used to be the example of the refusal and is now the
+  // example of the opposite. It was held for rent-level-verified on the grounds
+  // that a rent index cannot price a city, which is true and is a different
+  // question: what a reader asks is what share of an income should go on rent,
+  // and that is answered from the income. The tool was respecified on
+  // 2026-09-25 and the refusal example moved to net salary, which genuinely
+  // cannot be computed without tax rules for each country.
   const moving = globalEntityState('tools.calculator', 'moving-cost', built);
   const rent = globalEntityState('tools.calculator', 'rent-affordability', built);
+  const net = globalEntityState('tools.calculator', 'net-salary', built);
   assert.equal(moving.ok, true, 'the moving cost calculator needs no licensed source and should be buildable');
-  assert.equal(rent.ok, false, 'rent affordability was allowed through without a rent level');
-  assert.deepEqual(rent.missing, ['rent-level-verified']);
+  assert.equal(rent.ok, true, 'rent affordability computes a share of an income and needs no rent level');
+  assert.equal(net.ok, false, 'net salary was allowed through without tax rules');
+  assert.deepEqual(net.missing, ['tax-rules-verified']);
 
   const { pages } = eligiblePages();
   const entities = new Set(pages.filter((p) => p.family.startsWith('tools.')).map((p) => p.entity));
   assert.ok(entities.has('moving-cost'));
-  assert.ok(!entities.has('rent-affordability'), 'an unbuildable tool reached the eligible set');
+  assert.ok(entities.has('rent-affordability'), 'a buildable tool with measured demand is missing from the eligible set');
+  assert.ok(!entities.has('net-salary'), 'an unbuildable tool reached the eligible set');
+  assert.ok(!entities.has('visa-eligibility'), 'an unbuildable tool reached the eligible set');
 });
 
 test('an entity that is not a real tool or ranking is refused rather than passed through', () => {

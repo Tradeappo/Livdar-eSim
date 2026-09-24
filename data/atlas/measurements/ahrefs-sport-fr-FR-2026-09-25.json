@@ -1,0 +1,73 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "fr",
+ "market": "fr-FR",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 132,
+ "families": [
+  "sport.city-season"
+ ],
+ "note": "City and activity demand for the Sport surface, asked only for the cities the climate normals cover. The phrasing is the market own: the Spanish market puts the activity before the city with no preposition, the Italian market asks for what is near the city rather than in it, and the Japanese market puts the city first.",
+ "caution": "Three keywords with real demand were not planned because the page this source can build would answer a different question: outdoor swimming in a city whose air never reaches the band is an indoor pool search, and snorkelling is decided by the sea.",
+ "keywords": [
+  {
+   "keyword": "randonnee nice",
+   "volume": 150,
+   "difficulty": 31,
+   "cpc": 15,
+   "family": "sport.city-season",
+   "entity": "2990440:hiking",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "velo a paris",
+   "volume": 100,
+   "difficulty": 45,
+   "cpc": 45,
+   "family": "sport.city-season",
+   "entity": "2988507:cycling",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "courir a paris",
+   "volume": 90,
+   "difficulty": 65,
+   "cpc": 3,
+   "family": "sport.city-season",
+   "entity": "2988507:running",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "courir a lyon",
+   "volume": 80,
+   "difficulty": 0,
+   "cpc": 2,
+   "family": "sport.city-season",
+   "entity": "2996944:running",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "randonnee pres de lyon",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc": 15,
+   "family": "sport.city-season",
+   "entity": "2996944:hiking",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "natation paris",
+   "volume": 150,
+   "difficulty": 8,
+   "cpc": 50,
+   "family": "sport.city-season",
+   "entity": "2988507:swimming",
+   "market": "fr-FR",
+   "notPlanned": "refused on intent: no month in Paris reaches the outdoor band, so this is a search for an indoor pool"
+  }
+ ],
+ "notReturned": []
+}

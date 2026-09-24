@@ -1,0 +1,55 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "gb",
+ "market": "en-GB",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 88,
+ "families": [
+  "events.country-holidays",
+  "events.subdivision-holidays"
+ ],
+ "note": "Public holiday demand in this market, for the countries and regions the holiday source covers. Constructed keywords rather than discovered ones: a holiday page is about a named place in a named year and there is no head term to subtract a place out of. Every phrasing asked is here, including the ones with no demand.",
+ "caution": "A null volume means the provider returned no row for that phrase. That is weaker evidence than a measured zero, and neither is treated as demand.",
+ "keywords": [
+  {
+   "keyword": "irish bank holidays 2026",
+   "volume": 1600,
+   "difficulty": 0,
+   "cpc": 10,
+   "family": "events.country-holidays",
+   "entity": "IE",
+   "market": "en-GB"
+  },
+  {
+   "keyword": "spanish bank holidays 2026",
+   "volume": 350,
+   "difficulty": null,
+   "cpc": 140,
+   "family": "events.country-holidays",
+   "entity": "ES",
+   "market": "en-GB"
+  },
+  {
+   "keyword": "public holidays in germany 2026",
+   "volume": 250,
+   "difficulty": 38,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "DE",
+   "market": "en-GB"
+  },
+  {
+   "keyword": "public holidays in france 2026",
+   "volume": 250,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "FR",
+   "market": "en-GB"
+  }
+ ],
+ "notReturned": []
+}
