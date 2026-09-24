@@ -634,6 +634,25 @@
    "blocks": [
     "tools.calculator rent affordability variant"
    ]
+  },
+  {
+   "id": "climate-normals-verified",
+   "name": "NASA POWER climatology, twenty year monthly normals 2001-2020",
+   "url": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+   "licence": "CC BY 4.0; 'There are no restrictions on the use, access, and/or download of data from the NASA POWER Project' (AWS Open Data Registry entry)",
+   "attribution": "NASA Langley Research Center POWER Project, funded through the NASA Earth Science Directorate Applied Science Program",
+   "fields": [
+    "T2M",
+    "T2M_MAX",
+    "T2M_MIN",
+    "PRECTOTCORR",
+    "RH2M",
+    "WS2M"
+   ],
+   "caveat": "Modelled values for a 0.5 by 0.625 degree grid cell (MERRA-2 based), stated as such on the page. Only T2M is a monthly normal: T2M_MAX and T2M_MIN on this endpoint are the extremes over the whole period, are stored as tmaxExtreme and tminExtreme, and are never scored or presented as a typical day.",
+   "refresh": "when the provider publishes a new normals period",
+   "maxAgeDays": 3650,
+   "derivation": "scripts/atlas/ingest/climate-normals.mjs: the provider's own monthly climatology, gated on period, grid cell distance, physical range and the agreement between each monthly precipitation total and its own daily rate."
   }
  ]
 }

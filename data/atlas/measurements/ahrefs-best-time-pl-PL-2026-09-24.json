@@ -1,0 +1,56 @@
+{
+ "country": "pl",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 630,
+ "family": "weather.country-best-time",
+ "market": "pl-PL",
+ "note": "Phrase match on the head term this market actually uses, then the country resolved by removing that head term and the articles around it. A keyword whose remainder is not exactly a country name is refused, which is what keeps a city page out of a country family.",
+ "keywords": [
+  {
+   "keyword": "kiedy jechać do tajlandii",
+   "volume": 600,
+   "difficulty": 1
+  },
+  {
+   "keyword": "kiedy jechać do wietnamu",
+   "volume": 450,
+   "difficulty": 0
+  },
+  {
+   "keyword": "kiedy jechać do japonii",
+   "volume": 300,
+   "difficulty": 0
+  },
+  {
+   "keyword": "kiedy jechać do meksyku",
+   "volume": 200,
+   "difficulty": 0
+  },
+  {
+   "keyword": "kiedy jechać do chorwacji",
+   "volume": 150,
+   "difficulty": 0
+  },
+  {
+   "keyword": "kiedy jechać do włoch",
+   "volume": 100,
+   "difficulty": null
+  },
+  {
+   "keyword": "kiedy jechać do peru",
+   "volume": 100,
+   "difficulty": 0
+  },
+  {
+   "keyword": "kiedy jechać do turcji",
+   "volume": 80,
+   "difficulty": 0
+  },
+  {
+   "keyword": "kiedy jechać do maroka",
+   "volume": 80,
+   "difficulty": 0
+  }
+ ]
+}

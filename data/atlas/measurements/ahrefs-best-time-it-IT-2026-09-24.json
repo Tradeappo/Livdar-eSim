@@ -1,0 +1,41 @@
+{
+ "country": "it",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 840,
+ "family": "weather.country-best-time",
+ "market": "it-IT",
+ "note": "Phrase match on the head term this market actually uses, then the country resolved by removing that head term and the articles around it. A keyword whose remainder is not exactly a country name is refused, which is what keeps a city page out of a country family.",
+ "keywords": [
+  {
+   "keyword": "vietnam quando andare",
+   "volume": 3100,
+   "difficulty": 0
+  },
+  {
+   "keyword": "quando andare in thailandia",
+   "volume": 2400,
+   "difficulty": 0
+  },
+  {
+   "keyword": "indonesia quando andare",
+   "volume": 2200,
+   "difficulty": 0
+  },
+  {
+   "keyword": "messico quando andare",
+   "volume": 2100,
+   "difficulty": 28
+  },
+  {
+   "keyword": "costa rica quando andare",
+   "volume": 1700,
+   "difficulty": 0
+  },
+  {
+   "keyword": "quando andare in giappone",
+   "volume": 1300,
+   "difficulty": 0
+  }
+ ]
+}

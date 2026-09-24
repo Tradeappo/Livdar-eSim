@@ -1,0 +1,36 @@
+{
+ "country": "br",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 630,
+ "family": "weather.country-best-time",
+ "market": "pt-BR",
+ "note": "Phrase match on the head term this market actually uses, then the country resolved by removing that head term and the articles around it. A keyword whose remainder is not exactly a country name is refused, which is what keeps a city page out of a country family.",
+ "keywords": [
+  {
+   "keyword": "melhor epoca para viajar para portugal",
+   "volume": 150,
+   "difficulty": 0
+  },
+  {
+   "keyword": "qual a melhor época para viajar para tailândia",
+   "volume": 150,
+   "difficulty": null
+  },
+  {
+   "keyword": "melhor epoca para viajar para italia",
+   "volume": 150,
+   "difficulty": 0
+  },
+  {
+   "keyword": "melhor epoca para viajar para o japao",
+   "volume": 90,
+   "difficulty": null
+  },
+  {
+   "keyword": "melhor epoca para viajar para o peru",
+   "volume": 90,
+   "difficulty": 0
+  }
+ ]
+}

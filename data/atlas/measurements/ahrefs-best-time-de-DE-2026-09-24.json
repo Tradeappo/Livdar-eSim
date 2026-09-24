@@ -1,0 +1,41 @@
+{
+ "country": "de",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 840,
+ "family": "weather.country-best-time",
+ "market": "de-DE",
+ "note": "Phrase match on the head term this market actually uses, then the country resolved by removing that head term and the articles around it. A keyword whose remainder is not exactly a country name is refused, which is what keeps a city page out of a country family.",
+ "keywords": [
+  {
+   "keyword": "beste reisezeit thailand",
+   "volume": 8800,
+   "difficulty": 1
+  },
+  {
+   "keyword": "costa rica beste reisezeit",
+   "volume": 6600,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reisezeit japan",
+   "volume": 6000,
+   "difficulty": 1
+  },
+  {
+   "keyword": "vietnam beste reisezeit",
+   "volume": 4100,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reisezeit mexiko",
+   "volume": 3300,
+   "difficulty": 1
+  },
+  {
+   "keyword": "beste reisezeit island",
+   "volume": 2700,
+   "difficulty": 0
+  }
+ ]
+}

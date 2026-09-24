@@ -254,3 +254,58 @@ test('a city answer is ranked, complete and traceable', () => {
   assert.equal(forCity('0'), null);
   assert.ok(citiesOfCountry('JP').length >= 3);
 });
+
+// The country resolver behind the best time family. It decides which pages
+// exist, so the cases it must refuse matter as much as the ones it accepts.
+test('the country is resolved by subtraction, so a city keeps its own page', async () => {
+  const { countryOf, run: measure, NAMES, HEADS } = await import('../scripts/atlas/measure-best-time.mjs');
+
+  // Accepted, in every market's own grammar and word order.
+  assert.equal(countryOf('best time to visit japan', 'en-US').iso2, 'JP');
+  assert.equal(countryOf('beste reisezeit thailand', 'de-DE').iso2, 'TH');
+  assert.equal(countryOf('thailand beste reisezeit', 'de-DE').iso2, 'TH');
+  assert.equal(countryOf('quand partir au japon', 'fr-FR').iso2, 'JP');
+  assert.equal(countryOf('quando andare in giappone', 'it-IT').iso2, 'JP');
+  assert.equal(countryOf('giappone quando andare', 'it-IT').iso2, 'JP');
+  assert.equal(countryOf('mejor epoca para viajar a japon', 'es-ES').iso2, 'JP');
+  assert.equal(countryOf('melhor epoca para viajar para o japao', 'pt-BR').iso2, 'JP');
+  assert.equal(countryOf('beste reistijd ijsland', 'nl-NL').iso2, 'IS');
+  assert.equal(countryOf('タイ ベストシーズン', 'ja-JP').iso2, 'TH');
+  // Polish inflects, so the genitive is the only form that ever appears.
+  assert.equal(countryOf('kiedy jechać do tajlandii', 'pl-PL').iso2, 'TH');
+  assert.equal(countryOf('kiedy jechać do włoch', 'pl-PL').iso2, 'IT');
+  // Diacritics are folded for matching but the keyword itself is untouched.
+  assert.equal(countryOf('mejor época para viajar a japón', 'es-ES').iso2, 'JP');
+
+  // Refused. A city wearing a country name is the case this exists for: a
+  // search for `mexico city` is not demand for a page about Mexico.
+  assert.equal(countryOf('best time to visit mexico city', 'en-US').iso2, undefined);
+  assert.equal(countryOf('best time to visit tokyo', 'en-US').iso2, undefined);
+  assert.equal(countryOf('best time to visit dubai', 'en-US').iso2, undefined);
+  assert.equal(countryOf('beste reisezeit bali', 'de-DE').iso2, undefined);
+  assert.equal(countryOf('madeira quando andare', 'it-IT').iso2, undefined);
+  assert.equal(countryOf('沖縄 ベストシーズン', 'ja-JP').iso2, undefined);
+  // The head term with no destination is not a page.
+  assert.equal(countryOf('quand partir', 'fr-FR').iso2, undefined);
+  // And the Polish head term's unrelated medical sense must never become a
+  // travel page about a country.
+  assert.equal(countryOf('kiedy jechać do szpitala poród', 'pl-PL').iso2, undefined);
+
+  // Every market has a head term and a name table, or its keywords silently
+  // resolve to nothing.
+  for (const m of Object.keys(HEADS)) assert.ok(NAMES[m], m + ' has a head term but no country names');
+
+  // The run only produces pages for countries the climate source covers, and
+  // the plan it writes is one page per country per market.
+  const r = measure();
+  assert.ok(r.pages > 50, 'only ' + r.pages + ' measured pages');
+  assert.equal(r.demandWithoutClimate.length, 0, 'a page was planned for a country with no climate data');
+  const seen = new Set();
+  for (const row of r.rows) {
+    assert.equal(row.family, 'weather.country-best-time');
+    assert.match(row.entity, /^[A-Z]{2}$/);
+    const key = row.entity + '|' + row.market;
+    assert.ok(!seen.has(key), 'two pages planned for ' + key);
+    seen.add(key);
+  }
+});
