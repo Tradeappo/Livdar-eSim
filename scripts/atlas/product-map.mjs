@@ -129,9 +129,39 @@ export function report(p = entityPools()) {
     const stage = SURFACES[r.surface].stage;
     byStage[stage] = (byStage[stage] || 0) + r.candidates;
   }
+  // The funnel, counted state by state rather than collapsed into a total.
+  // The distinction the whole programme rests on is the first line: a
+  // candidate is a combination that has been thought about, and a page is a
+  // file that answers a request. Nothing here converts one into the other.
+  const measured = measuredFamilies();
+  const published = publishedFamilies();
+  const sum = (fn) => all.filter(fn).reduce((t, r) => t + r.candidates, 0);
+  const inventory = {
+    candidate: all.reduce((t, r) => t + r.candidates, 0),
+    byPriority: {
+      high: sum((r) => r.priority === 'high'),
+      medium: sum((r) => r.priority === 'medium'),
+      low: sum((r) => r.priority === 'low'),
+    },
+    sourceReady: sum((r) => r.missingSources.length === 0),
+    keywordMeasured: sum((r) => measured.has(r.family)),
+    serpMeasured: 0,
+    blocked: sum((r) => r.missingSources.length > 0),
+    eligible: sum((r) => r.missingSources.length === 0 && measured.has(r.family)),
+    approved: 0,
+    publishReady: sum((r) => r.missingSources.length === 0 && r.evidenceState !== 'declared-pending-measurement'),
+    published: sum((r) => published.has(r.family)),
+    notes: {
+      serpMeasured: 'No SERP measurement has been run. It is zero rather than absent, which is a different claim from unknown.',
+      approved: 'Approval is a per page state in the registry and not a family property, so it cannot be summed here. The registry funnel below carries it.',
+      publishReady: 'Families whose sources exist and which are not waiting on research. It is an upper bound on what could be generated, not a plan.',
+      published: 'Candidates belonging to families that have at least one published page, which is why it is larger than the 123 pages that exist.',
+    },
+  };
   return {
     generatedAt: new Date().toISOString(),
     meaning: 'One row per family. Status is computed from the source states and the measurement store, never declared. Candidates are combinations, not pages: a candidate becomes a page only after the source gate, the measurement gate and the quality gate.',
+    inventory,
     totals: {
       surfaces: Object.keys(bySurface).length,
       verticals: Object.keys(VERTICALS).length,

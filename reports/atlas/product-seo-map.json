@@ -1,11 +1,33 @@
 {
- "generatedAt": "2026-09-24T00:24:53.164Z",
+ "generatedAt": "2026-09-24T00:59:04.907Z",
  "meaning": "One row per family. Status is computed from the source states and the measurement store, never declared. Candidates are combinations, not pages: a candidate becomes a page only after the source gate, the measurement gate and the quality gate.",
+ "inventory": {
+  "candidate": 2937117,
+  "byPriority": {
+   "high": 1800423,
+   "medium": 1033920,
+   "low": 102774
+  },
+  "sourceReady": 123961,
+  "keywordMeasured": 692364,
+  "serpMeasured": 0,
+  "blocked": 2813156,
+  "eligible": 0,
+  "approved": 0,
+  "publishReady": 123961,
+  "published": 60888,
+  "notes": {
+   "serpMeasured": "No SERP measurement has been run. It is zero rather than absent, which is a different claim from unknown.",
+   "approved": "Approval is a per page state in the registry and not a family property, so it cannot be summed here. The registry funnel below carries it.",
+   "publishReady": "Families whose sources exist and which are not waiting on research. It is an upper bound on what could be generated, not a plan.",
+   "published": "Candidates belonging to families that have at least one published page, which is why it is larger than the 123 pages that exist."
+  }
+ },
  "totals": {
   "surfaces": 12,
   "verticals": 27,
   "families": 64,
-  "candidates": 2963997,
+  "candidates": 2937117,
   "transactions": 17
  },
  "byStatus": {
@@ -15,7 +37,7 @@
   "published": 1
  },
  "candidatesByStatus": {
-  "blocked": 2646542,
+  "blocked": 2619662,
   "research-needed": 193494,
   "source-ready": 63073,
   "published": 60888
@@ -23,7 +45,7 @@
  "byStage": {
   "transaction": 615237,
   "intent": 871245,
-  "discovery": 1477515
+  "discovery": 1450635
  },
  "bySurface": [
   {
@@ -141,17 +163,6 @@
    ]
   },
   {
-   "surface": "community",
-   "stage": "discovery",
-   "families": 1,
-   "candidates": 33600,
-   "blocked": 1,
-   "researchNeeded": 0,
-   "verticals": [
-    "community"
-   ]
-  },
-  {
    "surface": "connectivity",
    "stage": "transaction",
    "families": 2,
@@ -171,6 +182,17 @@
    "researchNeeded": 0,
    "verticals": [
     "safety"
+   ]
+  },
+  {
+   "surface": "community",
+   "stage": "discovery",
+   "families": 1,
+   "candidates": 6720,
+   "blocked": 1,
+   "researchNeeded": 0,
+   "verticals": [
+    "community"
    ]
   }
  ],
@@ -1366,46 +1388,6 @@
    "status": "blocked"
   },
   {
-   "surface": "work",
-   "vertical": "work",
-   "family": "work.city-jobs-category",
-   "entity": "city:t2",
-   "axis": "language",
-   "variants": 6,
-   "intent": "Work of one kind in this city: who hires, what it pays, whether a foreigner can take it",
-   "markets": 10,
-   "marketGate": "research",
-   "sources": [
-    "geonames-cities",
-    "salary-data-verified",
-    "work-rules-verified"
-   ],
-   "missingSources": [
-    "salary-data-verified",
-    "work-rules-verified"
-   ],
-   "leadsTo": [
-    "job-listing",
-    "relocation-service"
-   ],
-   "monetisationScore": 0.08,
-   "aeo": [
-    "fact-table",
-    "eligibility"
-   ],
-   "quotability": 0.5,
-   "graphNodes": [
-    "city"
-   ],
-   "indexPolicy": "always",
-   "lifecycleShape": null,
-   "evidenceState": "measured",
-   "priority": "high",
-   "prior": 0.803,
-   "candidates": 177060,
-   "status": "blocked"
-  },
-  {
    "surface": "pulse",
    "vertical": "events",
    "family": "events.recurring",
@@ -1960,6 +1942,46 @@
    "status": "blocked"
   },
   {
+   "surface": "work",
+   "vertical": "work",
+   "family": "work.city-jobs-category",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 6,
+   "intent": "Work of one kind in this city: who hires, what it pays, whether a foreigner can take it",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "salary-data-verified",
+    "work-rules-verified"
+   ],
+   "missingSources": [
+    "salary-data-verified",
+    "work-rules-verified"
+   ],
+   "leadsTo": [
+    "job-listing",
+    "relocation-service"
+   ],
+   "monetisationScore": 0.08,
+   "aeo": [
+    "fact-table",
+    "eligibility"
+   ],
+   "quotability": 0.5,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.604,
+   "candidates": 177060,
+   "status": "blocked"
+  },
+  {
    "surface": "sport",
    "vertical": "sport",
    "family": "sport.route",
@@ -2170,8 +2192,8 @@
    "axis": "language",
    "variants": 6,
    "intent": "How to meet people in this city around one interest",
-   "markets": 10,
-   "marketGate": "research",
+   "markets": 2,
+   "marketGate": "active",
    "sources": [
     "geonames-cities",
     "community-listings-verified"
@@ -2194,9 +2216,9 @@
    "indexPolicy": "hub only, never the individual group or meetup",
    "lifecycleShape": null,
    "evidenceState": "competitor-observed",
-   "priority": "medium",
+   "priority": "low",
    "prior": 0.482,
-   "candidates": 33600,
+   "candidates": 6720,
    "status": "blocked"
   },
   {

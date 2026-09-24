@@ -1,16 +1,16 @@
 {
- "generatedAt": "2026-09-24T00:24:54.164Z",
+ "generatedAt": "2026-09-24T00:59:03.943Z",
  "basis": "Family level priors and entity level signals. No page reaches measured through this report.",
  "target": 300000,
  "candidates": {
-  "total": 2963997,
+  "total": 2937117,
   "selected": 328019,
   "reachedTarget": true,
   "familiesSelected": 19,
   "familiesTotal": 64
  },
  "distributionAll": {
-  "total": 2963997,
+  "total": 2937117,
   "byVertical": {
    "places": 390540,
    "events": 376520,
@@ -26,7 +26,6 @@
    "comparisons": 76811,
    "weather": 65962,
    "education": 35110,
-   "community": 33600,
    "health": 32249,
    "connectivity": 32249,
    "safety": 32249,
@@ -34,6 +33,7 @@
    "activities": 29510,
    "destinations": 23604,
    "visas": 10956,
+   "community": 6720,
    "airports": 6488,
    "taxes": 5478,
    "banking": 2739,
@@ -42,27 +42,44 @@
   },
   "byPriority": {
    "high": 1800423,
-   "medium": 1067520,
-   "low": 96054
+   "medium": 1033920,
+   "low": 102774
   },
   "byBand": {
-   "high-value": 1422443,
-   "medium-value": 1199730,
-   "low-value": 341824
+   "high-value": 1245383,
+   "medium-value": 1376790,
+   "low-value": 314944
   },
   "shares": {
    "byPriority": {
-    "high": 60.7,
-    "medium": 36,
-    "low": 3.2
+    "high": 61.3,
+    "medium": 35.2,
+    "low": 3.5
    },
    "byBand": {
-    "high-value": 48,
-    "medium-value": 40.5,
-    "low-value": 11.5
+    "high-value": 42.4,
+    "medium-value": 46.9,
+    "low-value": 10.7
    }
   },
-  "warnings": []
+  "warnings": [
+   {
+    "kind": "family share",
+    "name": "places.city-category",
+    "candidates": 295100,
+    "share": 10,
+    "threshold": 0.1,
+    "priority": "medium"
+   },
+   {
+    "kind": "family share",
+    "name": "sport.city-activity",
+    "candidates": 295100,
+    "share": 10,
+    "threshold": 0.1,
+    "priority": "medium"
+   }
+  ]
  },
  "distributionSelected": {
   "total": 328019,
@@ -501,13 +518,6 @@
    "keptBecause": null
   },
   {
-   "family": "work.city-jobs-category",
-   "priority": "high",
-   "prior": 0.803,
-   "candidates": 177060,
-   "keptBecause": null
-  },
-  {
    "family": "events.recurring",
    "priority": "high",
    "prior": 0.779,
@@ -620,6 +630,13 @@
    "keptBecause": null
   },
   {
+   "family": "work.city-jobs-category",
+   "priority": "high",
+   "prior": 0.604,
+   "candidates": 177060,
+   "keptBecause": null
+  },
+  {
    "family": "sport.route",
    "priority": "medium",
    "prior": 0.586,
@@ -656,10 +673,10 @@
   },
   {
    "family": "community.city-topic",
-   "priority": "medium",
+   "priority": "low",
    "prior": 0.482,
-   "candidates": 33600,
-   "keptBecause": null
+   "candidates": 6720,
+   "keptBecause": "The search surface is tiny and the intent is real and expensive. A newcomer looking for a language exchange is worth more than the volume suggests, the hub costs one page per city per topic, and the surface is where Livdar own product data will eventually come from rather than from a third party feed. Leashed to the active markets, not removed."
   },
   {
    "family": "airports.guide",
@@ -770,7 +787,7 @@
    {
     "family": "work.city-jobs-category",
     "priority": "high",
-    "band": "high-value",
+    "band": "medium-value",
     "candidates": 177060,
     "missing": [
      "salary-data-verified",

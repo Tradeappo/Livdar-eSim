@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T00:24:53.596Z",
+ "generatedAt": "2026-09-24T00:59:03.359Z",
  "meaning": {
   "candidate": "A combination the taxonomy allows: one family, one entity, one variant, one market. Not a page.",
   "published": "The publication registry publishes it, so it routes and enters a sitemap.",
@@ -53,7 +53,7 @@
  "verticals": 27,
  "families": 64,
  "candidates": {
-  "total": 2963997,
+  "total": 2937117,
   "byVertical": {
    "places": 390540,
    "events": 376520,
@@ -69,7 +69,6 @@
    "comparisons": 76811,
    "weather": 65962,
    "education": 35110,
-   "community": 33600,
    "health": 32249,
    "connectivity": 32249,
    "safety": 32249,
@@ -77,6 +76,7 @@
    "activities": 29510,
    "destinations": 23604,
    "visas": 10956,
+   "community": 6720,
    "airports": 6488,
    "taxes": 5478,
    "banking": 2739,
@@ -85,7 +85,7 @@
   },
   "byAxis": {
    "audience": 244046,
-   "language": 2396944,
+   "language": 2370064,
    "persona": 177060,
    "time": 118040,
    "origin": 27907
@@ -94,14 +94,14 @@
    "en-US": 332349,
    "en-GB": 24723,
    "de-DE": 332349,
-   "ja-JP": 284322,
-   "zh-Hant-TW": 284322,
-   "it-IT": 284322,
-   "es-ES": 284322,
-   "fr-FR": 284322,
-   "nl-NL": 284322,
-   "pl-PL": 284322,
-   "pt-BR": 284322
+   "ja-JP": 280962,
+   "zh-Hant-TW": 280962,
+   "it-IT": 280962,
+   "es-ES": 280962,
+   "fr-FR": 280962,
+   "nl-NL": 280962,
+   "pl-PL": 280962,
+   "pt-BR": 280962
   },
   "largestVerticalShare": 2.2,
   "rows": [
@@ -177,7 +177,7 @@
     "scope": "city:t2",
     "priority": "high",
     "marketGate": "research",
-    "prior": 0.803,
+    "prior": 0.604,
     "entities": 2951,
     "variants": 6,
     "markets": 10,
@@ -286,19 +286,6 @@
     "variants": 12,
     "markets": 2,
     "candidates": 60888
-   },
-   {
-    "family": "community.city-topic",
-    "vertical": "community",
-    "axis": "language",
-    "scope": "city:t1",
-    "priority": "medium",
-    "marketGate": "research",
-    "prior": 0.482,
-    "entities": 560,
-    "variants": 6,
-    "markets": 10,
-    "candidates": 33600
    },
    {
     "family": "cost-of-living.city-vs-market",
@@ -572,6 +559,19 @@
     "variants": 6,
     "markets": 11,
     "candidates": 16434
+   },
+   {
+    "family": "community.city-topic",
+    "vertical": "community",
+    "axis": "language",
+    "scope": "city:t1",
+    "priority": "low",
+    "marketGate": "active",
+    "prior": 0.482,
+    "entities": 560,
+    "variants": 6,
+    "markets": 2,
+    "candidates": 6720
    },
    {
     "family": "airports.guide",
@@ -1286,6 +1286,6 @@
    "travel-advice-verified": 1,
    "attractions-verified": 1
   },
-  "publishableNow": 1151311
+  "publishableNow": 1124431
  }
 }

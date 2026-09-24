@@ -41,8 +41,12 @@ test('the priority of every vertical matches the programme', () => {
   // the largest volumes anywhere in the Atlas research outside the calculator
   // head terms. They were medium when nobody had measured them.
   const high = ['relocation', 'visas', 'work', 'cost-of-living', 'rents', 'property', 'taxes', 'banking', 'health', 'education', 'connectivity', 'comparisons', 'stay', 'events', 'neighbourhoods'];
-  const medium = ['transport', 'safety', 'activities', 'places', 'sport', 'community', 'services'];
-  const low = ['weather', 'airports', 'destinations'];
+  const medium = ['transport', 'safety', 'activities', 'places', 'sport', 'services'];
+  // Community joined the low tier on 2026-09-24 on its own measurement, not
+  // on a judgement: expat meetup in Amsterdam is 10 a month and four other
+  // phrasings across nine markets returned zero or no row at all. It is
+  // leashed rather than removed because what little it has is expensive.
+  const low = ['weather', 'airports', 'destinations', 'community'];
   for (const v of high) assert.equal(VERTICAL_PRIORITY[v], 'high', v);
   for (const v of medium) assert.equal(VERTICAL_PRIORITY[v], 'medium', v);
   for (const v of low) assert.equal(VERTICAL_PRIORITY[v], 'low', v);

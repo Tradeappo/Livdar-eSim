@@ -1,0 +1,2467 @@
+{
+ "generatedAt": "2026-09-24T00:59:04.078Z",
+ "meaning": "Destinations, which are where people want to go, scored separately from markets, which are who is searching. Tiers are quantiles of the measured scores rather than labels. The insufficient evidence tier is a statement about the measurement and not a low score.",
+ "countries": {
+  "cuts": {
+   "priority": 0.455,
+   "expansion": 0.383
+  },
+  "tiers": {
+   "priority": [
+    {
+     "id": "spain",
+     "overall": 0.539,
+     "strongest": "visa",
+     "spread": 0.067,
+     "surfaces": 3,
+     "per": {
+      "move": 0.531,
+      "work": 0.51,
+      "visa": 0.577
+     }
+    },
+    {
+     "id": "japan",
+     "overall": 0.496,
+     "strongest": "move",
+     "spread": 0.126,
+     "surfaces": 3,
+     "per": {
+      "move": 0.549,
+      "work": 0.517,
+      "visa": 0.423
+     }
+    },
+    {
+     "id": "portugal",
+     "overall": 0.491,
+     "strongest": "move",
+     "spread": 0.072,
+     "surfaces": 3,
+     "per": {
+      "move": 0.526,
+      "work": 0.454,
+      "visa": 0.494
+     }
+    },
+    {
+     "id": "uae",
+     "overall": 0.484,
+     "strongest": "visa",
+     "spread": 0.121,
+     "surfaces": 3,
+     "per": {
+      "move": 0.426,
+      "work": 0.479,
+      "visa": 0.547
+     }
+    },
+    {
+     "id": "italy",
+     "overall": 0.48,
+     "strongest": "work",
+     "spread": 0.004,
+     "surfaces": 3,
+     "per": {
+      "move": 0.481,
+      "work": 0.482,
+      "visa": 0.478
+     }
+    },
+    {
+     "id": "thailand",
+     "overall": 0.476,
+     "strongest": "move",
+     "spread": 0.084,
+     "surfaces": 3,
+     "per": {
+      "move": 0.517,
+      "work": 0.433,
+      "visa": 0.478
+     }
+    },
+    {
+     "id": "canada",
+     "overall": 0.474,
+     "strongest": "move",
+     "spread": 0.098,
+     "surfaces": 3,
+     "per": {
+      "move": 0.537,
+      "work": 0.445,
+      "visa": 0.439
+     }
+    },
+    {
+     "id": "new-zealand",
+     "overall": 0.467,
+     "strongest": "move",
+     "spread": 0.137,
+     "surfaces": 3,
+     "per": {
+      "move": 0.529,
+      "work": 0.392,
+      "visa": 0.48
+     }
+    },
+    {
+     "id": "united-kingdom",
+     "overall": 0.466,
+     "strongest": "visa",
+     "spread": 0.059,
+     "surfaces": 2,
+     "per": {
+      "move": 0.436,
+      "work": null,
+      "visa": 0.495
+     }
+    },
+    {
+     "id": "france",
+     "overall": 0.456,
+     "strongest": "move",
+     "spread": 0.039,
+     "surfaces": 3,
+     "per": {
+      "move": 0.482,
+      "work": 0.444,
+      "visa": 0.443
+     }
+    },
+    {
+     "id": "costa-rica",
+     "overall": 0.455,
+     "strongest": "move",
+     "spread": 0.067,
+     "surfaces": 3,
+     "per": {
+      "move": 0.48,
+      "work": 0.472,
+      "visa": 0.413
+     }
+    }
+   ],
+   "expansion": [
+    {
+     "id": "greece",
+     "overall": 0.451,
+     "strongest": "move",
+     "spread": 0.088,
+     "surfaces": 3,
+     "per": {
+      "move": 0.499,
+      "work": 0.411,
+      "visa": 0.442
+     }
+    },
+    {
+     "id": "mexico",
+     "overall": 0.443,
+     "strongest": "work",
+     "spread": 0.083,
+     "surfaces": 3,
+     "per": {
+      "move": 0.452,
+      "work": 0.48,
+      "visa": 0.397
+     }
+    },
+    {
+     "id": "ireland",
+     "overall": 0.436,
+     "strongest": "move",
+     "spread": 0.151,
+     "surfaces": 3,
+     "per": {
+      "move": 0.521,
+      "work": 0.37,
+      "visa": 0.416
+     }
+    },
+    {
+     "id": "panama",
+     "overall": 0.429,
+     "strongest": "move",
+     "spread": 0.011,
+     "surfaces": 3,
+     "per": {
+      "move": 0.435,
+      "work": 0.427,
+      "visa": 0.424
+     }
+    },
+    {
+     "id": "netherlands",
+     "overall": 0.424,
+     "strongest": "move",
+     "spread": 0.102,
+     "surfaces": 2,
+     "per": {
+      "move": 0.475,
+      "work": 0.373,
+      "visa": null
+     }
+    },
+    {
+     "id": "switzerland",
+     "overall": 0.418,
+     "strongest": "move",
+     "spread": 0.238,
+     "surfaces": 3,
+     "per": {
+      "move": 0.537,
+      "work": 0.417,
+      "visa": 0.299
+     }
+    },
+    {
+     "id": "germany",
+     "overall": 0.415,
+     "strongest": "move",
+     "spread": 0.112,
+     "surfaces": 3,
+     "per": {
+      "move": 0.47,
+      "work": 0.418,
+      "visa": 0.358
+     }
+    },
+    {
+     "id": "norway",
+     "overall": 0.415,
+     "strongest": "work",
+     "spread": 0.053,
+     "surfaces": 3,
+     "per": {
+      "move": 0.423,
+      "work": 0.438,
+      "visa": 0.385
+     }
+    },
+    {
+     "id": "philippines",
+     "overall": 0.415,
+     "strongest": "visa",
+     "spread": 0.035,
+     "surfaces": 3,
+     "per": {
+      "move": 0.412,
+      "work": 0.399,
+      "visa": 0.434
+     }
+    },
+    {
+     "id": "brazil",
+     "overall": 0.402,
+     "strongest": "move",
+     "spread": 0.057,
+     "surfaces": 3,
+     "per": {
+      "move": 0.429,
+      "work": 0.406,
+      "visa": 0.372
+     }
+    },
+    {
+     "id": "vietnam",
+     "overall": 0.396,
+     "strongest": "move",
+     "spread": 0.044,
+     "surfaces": 3,
+     "per": {
+      "move": 0.421,
+      "work": 0.391,
+      "visa": 0.377
+     }
+    },
+    {
+     "id": "australia",
+     "overall": 0.393,
+     "strongest": "move",
+     "spread": 0.23,
+     "surfaces": 3,
+     "per": {
+      "move": 0.489,
+      "work": 0.432,
+      "visa": 0.259
+     }
+    },
+    {
+     "id": "austria",
+     "overall": 0.39,
+     "strongest": "visa",
+     "spread": 0.088,
+     "surfaces": 3,
+     "per": {
+      "move": 0.416,
+      "work": 0.333,
+      "visa": 0.421
+     }
+    },
+    {
+     "id": "poland",
+     "overall": 0.388,
+     "strongest": "move",
+     "spread": 0.033,
+     "surfaces": 3,
+     "per": {
+      "move": 0.4,
+      "work": 0.367,
+      "visa": 0.396
+     }
+    },
+    {
+     "id": "singapore",
+     "overall": 0.387,
+     "strongest": "move",
+     "spread": 0.071,
+     "surfaces": 3,
+     "per": {
+      "move": 0.418,
+      "work": 0.397,
+      "visa": 0.347
+     }
+    },
+    {
+     "id": "colombia",
+     "overall": 0.387,
+     "strongest": "work",
+     "spread": 0.04,
+     "surfaces": 3,
+     "per": {
+      "move": 0.371,
+      "work": 0.411,
+      "visa": 0.379
+     }
+    },
+    {
+     "id": "sweden",
+     "overall": 0.383,
+     "strongest": "move",
+     "spread": 0.128,
+     "surfaces": 3,
+     "per": {
+      "move": 0.429,
+      "work": 0.42,
+      "visa": 0.301
+     }
+    }
+   ],
+   "long-tail": [
+    {
+     "id": "saudi-arabia",
+     "overall": 0.38,
+     "strongest": "work",
+     "spread": 0.101,
+     "surfaces": 3,
+     "per": {
+      "move": 0.362,
+      "work": 0.44,
+      "visa": 0.339
+     }
+    },
+    {
+     "id": "south-africa",
+     "overall": 0.379,
+     "strongest": "move",
+     "spread": 0.066,
+     "surfaces": 3,
+     "per": {
+      "move": 0.406,
+      "work": 0.39,
+      "visa": 0.34
+     }
+    },
+    {
+     "id": "iceland",
+     "overall": 0.378,
+     "strongest": "work",
+     "spread": 0.206,
+     "surfaces": 3,
+     "per": {
+      "move": 0.444,
+      "work": 0.448,
+      "visa": 0.242
+     }
+    },
+    {
+     "id": "argentina",
+     "overall": 0.377,
+     "strongest": "work",
+     "spread": 0.015,
+     "surfaces": 3,
+     "per": {
+      "move": 0.37,
+      "work": 0.385,
+      "visa": 0.377
+     }
+    },
+    {
+     "id": "india",
+     "overall": 0.375,
+     "strongest": "work",
+     "spread": 0.261,
+     "surfaces": 3,
+     "per": {
+      "move": 0.434,
+      "work": 0.476,
+      "visa": 0.215
+     }
+    },
+    {
+     "id": "cyprus",
+     "overall": 0.37,
+     "strongest": "work",
+     "spread": 0.071,
+     "surfaces": 3,
+     "per": {
+      "move": 0.356,
+      "work": 0.412,
+      "visa": 0.341
+     }
+    },
+    {
+     "id": "denmark",
+     "overall": 0.368,
+     "strongest": "move",
+     "spread": 0.127,
+     "surfaces": 3,
+     "per": {
+      "move": 0.412,
+      "work": 0.407,
+      "visa": 0.285
+     }
+    },
+    {
+     "id": "qatar",
+     "overall": 0.368,
+     "strongest": "work",
+     "spread": 0.109,
+     "surfaces": 3,
+     "per": {
+      "move": 0.338,
+      "work": 0.438,
+      "visa": 0.329
+     }
+    },
+    {
+     "id": "taiwan",
+     "overall": 0.365,
+     "strongest": "visa",
+     "spread": 0.04,
+     "surfaces": 3,
+     "per": {
+      "move": 0.352,
+      "work": 0.352,
+      "visa": 0.392
+     }
+    },
+    {
+     "id": "indonesia",
+     "overall": 0.361,
+     "strongest": "move",
+     "spread": 0.062,
+     "surfaces": 3,
+     "per": {
+      "move": 0.384,
+      "work": 0.376,
+      "visa": 0.322
+     }
+    },
+    {
+     "id": "malta",
+     "overall": 0.354,
+     "strongest": "move",
+     "spread": 0.148,
+     "surfaces": 3,
+     "per": {
+      "move": 0.434,
+      "work": 0.341,
+      "visa": 0.286
+     }
+    },
+    {
+     "id": "romania",
+     "overall": 0.352,
+     "strongest": "visa",
+     "spread": 0.109,
+     "surfaces": 3,
+     "per": {
+      "move": 0.312,
+      "work": 0.322,
+      "visa": 0.421
+     }
+    },
+    {
+     "id": "bulgaria",
+     "overall": 0.347,
+     "strongest": "visa",
+     "spread": 0.075,
+     "surfaces": 3,
+     "per": {
+      "move": 0.341,
+      "work": 0.313,
+      "visa": 0.388
+     }
+    },
+    {
+     "id": "croatia",
+     "overall": 0.338,
+     "strongest": "visa",
+     "spread": 0.093,
+     "surfaces": 3,
+     "per": {
+      "move": 0.32,
+      "work": 0.3,
+      "visa": 0.393
+     }
+    },
+    {
+     "id": "estonia",
+     "overall": 0.337,
+     "strongest": "visa",
+     "spread": 0.11,
+     "surfaces": 3,
+     "per": {
+      "move": 0.309,
+      "work": 0.296,
+      "visa": 0.406
+     }
+    },
+    {
+     "id": "turkey",
+     "overall": 0.334,
+     "strongest": "move",
+     "spread": 0.066,
+     "surfaces": 3,
+     "per": {
+      "move": 0.359,
+      "work": 0.35,
+      "visa": 0.293
+     }
+    },
+    {
+     "id": "south-korea",
+     "overall": 0.323,
+     "strongest": "work",
+     "spread": 0.245,
+     "surfaces": 3,
+     "per": {
+      "move": 0.375,
+      "work": 0.42,
+      "visa": 0.175
+     }
+    },
+    {
+     "id": "hungary",
+     "overall": 0.309,
+     "strongest": "visa",
+     "spread": 0.061,
+     "surfaces": 3,
+     "per": {
+      "move": 0.307,
+      "work": 0.279,
+      "visa": 0.34
+     }
+    },
+    {
+     "id": "malaysia",
+     "overall": 0.301,
+     "strongest": "work",
+     "spread": 0.222,
+     "surfaces": 3,
+     "per": {
+      "move": 0.37,
+      "work": 0.378,
+      "visa": 0.156
+     }
+    },
+    {
+     "id": "morocco",
+     "overall": 0.28,
+     "strongest": "work",
+     "spread": 0.186,
+     "surfaces": 3,
+     "per": {
+      "move": 0.323,
+      "work": 0.352,
+      "visa": 0.166
+     }
+    },
+    {
+     "id": "czechia",
+     "overall": 0.211,
+     "strongest": "visa",
+     "spread": 0.178,
+     "surfaces": 3,
+     "per": {
+      "move": 0.15,
+      "work": 0.156,
+      "visa": 0.328
+     }
+    },
+    {
+     "id": "georgia",
+     "overall": 0.156,
+     "strongest": "move",
+     "spread": 0.29,
+     "surfaces": 3,
+     "per": {
+      "move": 0.29,
+      "work": 0.177,
+      "visa": 0
+     }
+    }
+   ]
+  }
+ },
+ "cities": {
+  "cuts": {
+   "priority": 0.521,
+   "expansion": 0.442
+  },
+  "tiers": {
+   "priority": [
+    {
+     "id": "miami",
+     "overall": 0.601,
+     "strongest": "discovery",
+     "spread": 0.246,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.689,
+      "relocation": 0.443,
+      "stay": 0.672
+     }
+    },
+    {
+     "id": "new-york",
+     "overall": 0.578,
+     "strongest": "discovery",
+     "spread": 0.257,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.674,
+      "relocation": 0.417,
+      "stay": 0.642
+     }
+    },
+    {
+     "id": "london",
+     "overall": 0.565,
+     "strongest": "discovery",
+     "spread": 0.24,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.657,
+      "relocation": 0.417,
+      "stay": 0.622
+     }
+    },
+    {
+     "id": "paris",
+     "overall": 0.552,
+     "strongest": "discovery",
+     "spread": 0.266,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.648,
+      "relocation": 0.382,
+      "stay": 0.626
+     }
+    },
+    {
+     "id": "dubai",
+     "overall": 0.549,
+     "strongest": "discovery",
+     "spread": 0.169,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.612,
+      "relocation": 0.443,
+      "stay": 0.591
+     }
+    },
+    {
+     "id": "san-francisco",
+     "overall": 0.548,
+     "strongest": "discovery",
+     "spread": 0.242,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.669,
+      "relocation": 0.427,
+      "stay": null
+     }
+    },
+    {
+     "id": "rome",
+     "overall": 0.543,
+     "strongest": "stay",
+     "spread": 0.288,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.622,
+      "relocation": 0.36,
+      "stay": 0.648
+     }
+    },
+    {
+     "id": "los-angeles",
+     "overall": 0.538,
+     "strongest": "discovery",
+     "spread": 0.221,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.648,
+      "relocation": 0.427,
+      "stay": null
+     }
+    },
+    {
+     "id": "tokyo",
+     "overall": 0.537,
+     "strongest": "discovery",
+     "spread": 0.29,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.635,
+      "relocation": 0.345,
+      "stay": 0.631
+     }
+    },
+    {
+     "id": "barcelona",
+     "overall": 0.522,
+     "strongest": "discovery",
+     "spread": 0.252,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.612,
+      "relocation": 0.36,
+      "stay": 0.595
+     }
+    },
+    {
+     "id": "mexico-city",
+     "overall": 0.522,
+     "strongest": "discovery",
+     "spread": 0.23,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.612,
+      "relocation": 0.382,
+      "stay": 0.571
+     }
+    },
+    {
+     "id": "amsterdam",
+     "overall": 0.521,
+     "strongest": "discovery",
+     "spread": 0.25,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.622,
+      "relocation": 0.372,
+      "stay": 0.568
+     }
+    }
+   ],
+   "expansion": [
+    {
+     "id": "austin",
+     "overall": 0.519,
+     "strongest": "discovery",
+     "spread": 0.318,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.678,
+      "relocation": 0.36,
+      "stay": null
+     }
+    },
+    {
+     "id": "singapore",
+     "overall": 0.517,
+     "strongest": "discovery",
+     "spread": 0.147,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.583,
+      "relocation": 0.436,
+      "stay": 0.532
+     }
+    },
+    {
+     "id": "lisbon",
+     "overall": 0.51,
+     "strongest": "discovery",
+     "spread": 0.194,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.599,
+      "relocation": 0.405,
+      "stay": 0.526
+     }
+    },
+    {
+     "id": "toronto",
+     "overall": 0.51,
+     "strongest": "discovery",
+     "spread": 0.241,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.631,
+      "relocation": 0.39,
+      "stay": null
+     }
+    },
+    {
+     "id": "bali",
+     "overall": 0.502,
+     "strongest": "discovery",
+     "spread": 0.143,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.56,
+      "relocation": 0.417,
+      "stay": 0.53
+     }
+    },
+    {
+     "id": "vancouver",
+     "overall": 0.495,
+     "strongest": "discovery",
+     "spread": 0.21,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.6,
+      "relocation": 0.39,
+      "stay": null
+     }
+    },
+    {
+     "id": "madrid",
+     "overall": 0.49,
+     "strongest": "discovery",
+     "spread": 0.251,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.596,
+      "relocation": 0.345,
+      "stay": 0.528
+     }
+    },
+    {
+     "id": "milan",
+     "overall": 0.464,
+     "strongest": "discovery",
+     "spread": 0.244,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.571,
+      "relocation": 0.327,
+      "stay": 0.495
+     }
+    },
+    {
+     "id": "zurich",
+     "overall": 0.462,
+     "strongest": "discovery",
+     "spread": 0.235,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.562,
+      "relocation": 0.327,
+      "stay": 0.498
+     }
+    },
+    {
+     "id": "seoul",
+     "overall": 0.462,
+     "strongest": "discovery",
+     "spread": 0.292,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.57,
+      "relocation": 0.278,
+      "stay": 0.537
+     }
+    },
+    {
+     "id": "istanbul",
+     "overall": 0.458,
+     "strongest": "discovery",
+     "spread": 0.224,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.551,
+      "relocation": 0.327,
+      "stay": 0.495
+     }
+    },
+    {
+     "id": "berlin",
+     "overall": 0.456,
+     "strongest": "discovery",
+     "spread": 0.197,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.542,
+      "relocation": 0.345,
+      "stay": 0.481
+     }
+    },
+    {
+     "id": "vienna",
+     "overall": 0.453,
+     "strongest": "discovery",
+     "spread": 0.224,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.551,
+      "relocation": 0.327,
+      "stay": 0.481
+     }
+    },
+    {
+     "id": "chiang-mai",
+     "overall": 0.453,
+     "strongest": "discovery",
+     "spread": 0.096,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.501,
+      "relocation": 0.405,
+      "stay": null
+     }
+    },
+    {
+     "id": "dublin",
+     "overall": 0.451,
+     "strongest": "discovery",
+     "spread": 0.247,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.574,
+      "relocation": 0.327,
+      "stay": null
+     }
+    },
+    {
+     "id": "bangkok",
+     "overall": 0.451,
+     "strongest": "discovery",
+     "spread": 0.224,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.551,
+      "relocation": 0.327,
+      "stay": 0.476
+     }
+    },
+    {
+     "id": "prague",
+     "overall": 0.45,
+     "strongest": "discovery",
+     "spread": 0.268,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.569,
+      "relocation": 0.301,
+      "stay": 0.481
+     }
+    },
+    {
+     "id": "athens",
+     "overall": 0.45,
+     "strongest": "discovery",
+     "spread": 0.258,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.552,
+      "relocation": 0.294,
+      "stay": 0.504
+     }
+    },
+    {
+     "id": "hong-kong",
+     "overall": 0.442,
+     "strongest": "discovery",
+     "spread": 0.14,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.512,
+      "relocation": 0.372,
+      "stay": null
+     }
+    }
+   ],
+   "long-tail": [
+    {
+     "id": "copenhagen",
+     "overall": 0.441,
+     "strongest": "discovery",
+     "spread": 0.227,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.554,
+      "relocation": 0.327,
+      "stay": null
+     }
+    },
+    {
+     "id": "porto",
+     "overall": 0.439,
+     "strongest": "discovery",
+     "spread": 0.221,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.548,
+      "relocation": 0.327,
+      "stay": 0.443
+     }
+    },
+    {
+     "id": "abu-dhabi",
+     "overall": 0.439,
+     "strongest": "discovery",
+     "spread": 0.187,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.532,
+      "relocation": 0.345,
+      "stay": null
+     }
+    },
+    {
+     "id": "munich",
+     "overall": 0.434,
+     "strongest": "discovery",
+     "spread": 0.266,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.567,
+      "relocation": 0.301,
+      "stay": null
+     }
+    },
+    {
+     "id": "budapest",
+     "overall": 0.425,
+     "strongest": "discovery",
+     "spread": 0.248,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.549,
+      "relocation": 0.301,
+      "stay": null
+     }
+    },
+    {
+     "id": "buenos-aires",
+     "overall": 0.417,
+     "strongest": "discovery",
+     "spread": 0.232,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.533,
+      "relocation": 0.301,
+      "stay": null
+     }
+    },
+    {
+     "id": "malaga",
+     "overall": 0.415,
+     "strongest": "discovery",
+     "spread": 0.14,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.485,
+      "relocation": 0.345,
+      "stay": null
+     }
+    },
+    {
+     "id": "sydney",
+     "overall": 0.413,
+     "strongest": "discovery",
+     "spread": 0.223,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.524,
+      "relocation": 0.301,
+      "stay": null
+     }
+    },
+    {
+     "id": "medellin",
+     "overall": 0.404,
+     "strongest": "discovery",
+     "spread": 0.236,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.522,
+      "relocation": 0.286,
+      "stay": null
+     }
+    },
+    {
+     "id": "geneva",
+     "overall": 0.403,
+     "strongest": "discovery",
+     "spread": 0.25,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.528,
+      "relocation": 0.278,
+      "stay": null
+     }
+    },
+    {
+     "id": "rio-de-janeiro",
+     "overall": 0.403,
+     "strongest": "discovery",
+     "spread": 0.218,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.512,
+      "relocation": 0.294,
+      "stay": null
+     }
+    },
+    {
+     "id": "valencia",
+     "overall": 0.402,
+     "strongest": "discovery",
+     "spread": 0.187,
+     "surfaces": 3,
+     "per": {
+      "discovery": 0.488,
+      "relocation": 0.301,
+      "stay": 0.417
+     }
+    },
+    {
+     "id": "melbourne",
+     "overall": 0.402,
+     "strongest": "discovery",
+     "spread": 0.216,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.51,
+      "relocation": 0.294,
+      "stay": null
+     }
+    },
+    {
+     "id": "stockholm",
+     "overall": 0.4,
+     "strongest": "discovery",
+     "spread": 0.213,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.507,
+      "relocation": 0.294,
+      "stay": null
+     }
+    },
+    {
+     "id": "florence",
+     "overall": 0.399,
+     "strongest": "discovery",
+     "spread": 0.313,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.555,
+      "relocation": 0.242,
+      "stay": null
+     }
+    },
+    {
+     "id": "oslo",
+     "overall": 0.398,
+     "strongest": "discovery",
+     "spread": 0.239,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.517,
+      "relocation": 0.278,
+      "stay": null
+     }
+    },
+    {
+     "id": "taipei",
+     "overall": 0.398,
+     "strongest": "discovery",
+     "spread": 0.239,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.517,
+      "relocation": 0.278,
+      "stay": null
+     }
+    },
+    {
+     "id": "nice",
+     "overall": 0.383,
+     "strongest": "discovery",
+     "spread": 0.23,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.498,
+      "relocation": 0.268,
+      "stay": null
+     }
+    },
+    {
+     "id": "bogota",
+     "overall": 0.379,
+     "strongest": "discovery",
+     "spread": 0.245,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.501,
+      "relocation": 0.256,
+      "stay": null
+     }
+    },
+    {
+     "id": "auckland",
+     "overall": 0.374,
+     "strongest": "discovery",
+     "spread": 0.236,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.492,
+      "relocation": 0.256,
+      "stay": null
+     }
+    },
+    {
+     "id": "sao-paulo",
+     "overall": 0.367,
+     "strongest": "discovery",
+     "spread": 0.25,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.492,
+      "relocation": 0.242,
+      "stay": null
+     }
+    },
+    {
+     "id": "kuala-lumpur",
+     "overall": 0.366,
+     "strongest": "discovery",
+     "spread": 0.22,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.476,
+      "relocation": 0.256,
+      "stay": null
+     }
+    },
+    {
+     "id": "reykjavik",
+     "overall": 0.362,
+     "strongest": "discovery",
+     "spread": 0.328,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.526,
+      "relocation": 0.198,
+      "stay": null
+     }
+    },
+    {
+     "id": "warsaw",
+     "overall": 0.356,
+     "strongest": "discovery",
+     "spread": 0.264,
+     "surfaces": 2,
+     "per": {
+      "discovery": 0.488,
+      "relocation": 0.224,
+      "stay": null
+     }
+    }
+   ],
+   "insufficient-evidence": [
+    {
+     "id": "alicante",
+     "overall": 0.39,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.39,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "palma",
+     "overall": 0.372,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.372,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "ibiza",
+     "overall": 0.488,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.488,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "seville",
+     "overall": 0.522,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.522,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "tenerife",
+     "overall": 0.472,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.472,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "las-palmas",
+     "overall": 0.301,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.301,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "faro",
+     "overall": 0.382,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.382,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "madeira",
+     "overall": 0.427,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.427,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "basel",
+     "overall": 0.417,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.417,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "lucerne",
+     "overall": 0.504,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.504,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "interlaken",
+     "overall": 0.481,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.481,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "lausanne",
+     "overall": 0.417,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.417,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "venice",
+     "overall": 0.566,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.566,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "naples",
+     "overall": 0.548,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.548,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "bologna",
+     "overall": 0.495,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.495,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "lyon",
+     "overall": 0.472,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.472,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "bordeaux",
+     "overall": 0.481,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.481,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "marseille",
+     "overall": 0.492,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.492,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "split",
+     "overall": 0.467,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.467,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "valletta",
+     "overall": 0.327,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.327,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "cancun",
+     "overall": 0.598,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.598,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "osaka",
+     "overall": 0.617,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.617,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "ho-chi-minh-city",
+     "overall": 0.485,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.485,
+      "relocation": null,
+      "stay": null
+     }
+    },
+    {
+     "id": "manila",
+     "overall": 0.507,
+     "strongest": "discovery",
+     "spread": 0,
+     "surfaces": 1,
+     "per": {
+      "discovery": 0.507,
+      "relocation": null,
+      "stay": null
+     }
+    }
+   ]
+  }
+ },
+ "byOrigin": {
+  "en-US": {
+   "finding": "Canada, Japan, Spain and Switzerland lead. The English speaking world plus Japan.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "canada",
+     "volume": 2500,
+     "difficulty": 12,
+     "cpcUsd": 0.3,
+     "surface": "move",
+     "phrasing": "moving to canada"
+    },
+    {
+     "destination": "japan",
+     "volume": 2100,
+     "difficulty": 0,
+     "cpcUsd": 0.4,
+     "surface": "move",
+     "phrasing": "moving to japan"
+    },
+    {
+     "destination": "spain",
+     "volume": 1700,
+     "difficulty": 3,
+     "cpcUsd": 0.45,
+     "surface": "move",
+     "phrasing": "moving to spain"
+    },
+    {
+     "destination": "switzerland",
+     "volume": 1700,
+     "difficulty": 6,
+     "cpcUsd": 0.7,
+     "surface": "move",
+     "phrasing": "moving to switzerland"
+    },
+    {
+     "destination": "ireland",
+     "volume": 1500,
+     "difficulty": 5,
+     "cpcUsd": 0.5,
+     "surface": "move",
+     "phrasing": "moving to ireland"
+    },
+    {
+     "destination": "thailand",
+     "volume": 1500,
+     "difficulty": 1,
+     "cpcUsd": 0.25,
+     "surface": "move",
+     "phrasing": "moving to thailand"
+    }
+   ]
+  },
+  "en-GB": {
+   "finding": "Australia leads, and the cost per click is the highest of any origin market: France at ninety cents, Dubai at a dollar, the Netherlands at seventy.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "australia",
+     "volume": 1900,
+     "difficulty": 0,
+     "cpcUsd": 0.7,
+     "surface": "move",
+     "phrasing": "moving to australia"
+    },
+    {
+     "destination": "spain",
+     "volume": 1100,
+     "difficulty": 5,
+     "cpcUsd": 0.6,
+     "surface": "move",
+     "phrasing": "moving to spain"
+    },
+    {
+     "destination": "canada",
+     "volume": 1000,
+     "difficulty": 21,
+     "cpcUsd": 0.45,
+     "surface": "move",
+     "phrasing": "moving to canada"
+    },
+    {
+     "destination": "france",
+     "volume": 800,
+     "difficulty": 0,
+     "cpcUsd": 0.9,
+     "surface": "move",
+     "phrasing": "moving to france"
+    },
+    {
+     "destination": "uae",
+     "volume": 700,
+     "difficulty": 2,
+     "cpcUsd": 1,
+     "surface": "move",
+     "phrasing": "moving to dubai"
+    },
+    {
+     "destination": "new-zealand",
+     "volume": 700,
+     "difficulty": 0,
+     "cpcUsd": 0.4,
+     "surface": "move",
+     "phrasing": "moving to new zealand"
+    }
+   ]
+  },
+  "de-DE": {
+   "finding": "A completely different ranking from English. Austria first, then Switzerland, Sweden, Canada and Cyprus. Spain is sixth. Nobody would have predicted Cyprus at a thousand a month.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "austria",
+     "volume": 2200,
+     "difficulty": 1,
+     "cpcUsd": 0.01,
+     "surface": "move",
+     "phrasing": "auswandern nach österreich"
+    },
+    {
+     "destination": "switzerland",
+     "volume": 1400,
+     "difficulty": 41,
+     "cpcUsd": 0.07,
+     "surface": "move",
+     "phrasing": "auswandern in die schweiz"
+    },
+    {
+     "destination": "sweden",
+     "volume": 1200,
+     "difficulty": 0,
+     "cpcUsd": 0.09,
+     "surface": "move",
+     "phrasing": "auswandern nach schweden"
+    },
+    {
+     "destination": "canada",
+     "volume": 1200,
+     "difficulty": 0,
+     "cpcUsd": 0.05,
+     "surface": "move",
+     "phrasing": "auswandern nach kanada"
+    },
+    {
+     "destination": "cyprus",
+     "volume": 1000,
+     "difficulty": 2,
+     "cpcUsd": 0.2,
+     "surface": "move",
+     "phrasing": "auswandern nach zypern"
+    },
+    {
+     "destination": "spain",
+     "volume": 900,
+     "difficulty": 0,
+     "cpcUsd": 0.04,
+     "surface": "move",
+     "phrasing": "auswandern nach spanien"
+    }
+   ]
+  },
+  "fr-FR": {
+   "finding": "The weakest relocation origin measured. The top term is 250 a month. French relocation demand is either expressed differently or is genuinely small, and one probe cannot tell which.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "spain",
+     "volume": 250,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "partir vivre en espagne"
+    },
+    {
+     "destination": "italy",
+     "volume": 150,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "s'installer en italie"
+    },
+    {
+     "destination": "switzerland",
+     "volume": 150,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "s'installer en suisse"
+    },
+    {
+     "destination": "portugal",
+     "volume": 100,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "s'installer au portugal"
+    },
+    {
+     "destination": "canada",
+     "volume": 100,
+     "difficulty": 0,
+     "cpcUsd": 0.35,
+     "surface": "move",
+     "phrasing": "s'installer au canada"
+    },
+    {
+     "destination": "morocco",
+     "volume": 100,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "s'installer au maroc"
+    }
+   ]
+  },
+  "es-ES": {
+   "finding": "Switzerland first by a wide margin, then Thailand, Ireland and Andorra. Not one of those four would appear in an English ranking.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "switzerland",
+     "volume": 1000,
+     "difficulty": 0,
+     "cpcUsd": 0.1,
+     "surface": "move",
+     "phrasing": "vivir en suiza"
+    },
+    {
+     "destination": "thailand",
+     "volume": 500,
+     "difficulty": 0,
+     "cpcUsd": 0.1,
+     "surface": "move",
+     "phrasing": "vivir en tailandia"
+    },
+    {
+     "destination": "ireland",
+     "volume": 500,
+     "difficulty": 0,
+     "cpcUsd": 0.2,
+     "surface": "move",
+     "phrasing": "vivir en irlanda"
+    },
+    {
+     "destination": "andorra",
+     "volume": 450,
+     "difficulty": 0,
+     "cpcUsd": 0.15,
+     "surface": "move",
+     "phrasing": "vivir en andorra"
+    },
+    {
+     "destination": "uae",
+     "volume": 300,
+     "difficulty": 0,
+     "cpcUsd": 0.4,
+     "surface": "move",
+     "phrasing": "vivir en dubai"
+    },
+    {
+     "destination": "portugal",
+     "volume": 200,
+     "difficulty": 0,
+     "cpcUsd": 0.04,
+     "surface": "move",
+     "phrasing": "vivir en portugal"
+    }
+   ]
+  },
+  "it-IT": {
+   "finding": "Spain and Switzerland tied at the top, then Canada and Portugal. The Canary Islands appear as their own destination at 300, which is a region rather than a country and is worth noting.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "spain",
+     "volume": 500,
+     "difficulty": 0,
+     "cpcUsd": 0.05,
+     "surface": "move",
+     "phrasing": "trasferirsi in spagna"
+    },
+    {
+     "destination": "switzerland",
+     "volume": 500,
+     "difficulty": 36,
+     "cpcUsd": 0.1,
+     "surface": "move",
+     "phrasing": "trasferirsi in svizzera"
+    },
+    {
+     "destination": "canada",
+     "volume": 350,
+     "difficulty": 0,
+     "cpcUsd": 0.05,
+     "surface": "move",
+     "phrasing": "trasferirsi in canada"
+    },
+    {
+     "destination": "portugal",
+     "volume": 300,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "trasferirsi in portogallo"
+    },
+    {
+     "destination": "spain",
+     "volume": 300,
+     "difficulty": 0,
+     "cpcUsd": 0.09,
+     "surface": "move",
+     "phrasing": "vivere alle canarie"
+    },
+    {
+     "destination": "uae",
+     "volume": 200,
+     "difficulty": 0,
+     "cpcUsd": 0.15,
+     "surface": "move",
+     "phrasing": "trasferirsi a dubai"
+    }
+   ]
+  },
+  "nl-NL": {
+   "finding": "Spain at 1,800 is far ahead, and the cost per click across this market is the second highest measured: Switzerland ninety cents, Dubai seventy, Australia sixty, Canada fifty.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "spain",
+     "volume": 1800,
+     "difficulty": 30,
+     "cpcUsd": 0.04,
+     "surface": "move",
+     "phrasing": "emigreren naar spanje"
+    },
+    {
+     "destination": "sweden",
+     "volume": 800,
+     "difficulty": 0,
+     "cpcUsd": 0.2,
+     "surface": "move",
+     "phrasing": "emigreren naar zweden"
+    },
+    {
+     "destination": "canada",
+     "volume": 600,
+     "difficulty": 0,
+     "cpcUsd": 0.5,
+     "surface": "move",
+     "phrasing": "emigreren naar canada"
+    },
+    {
+     "destination": "portugal",
+     "volume": 500,
+     "difficulty": 0,
+     "cpcUsd": 0.25,
+     "surface": "move",
+     "phrasing": "emigreren naar portugal"
+    },
+    {
+     "destination": "norway",
+     "volume": 450,
+     "difficulty": 0,
+     "cpcUsd": 0.15,
+     "surface": "move",
+     "phrasing": "emigreren naar noorwegen"
+    },
+    {
+     "destination": "germany",
+     "volume": 450,
+     "difficulty": 3,
+     "cpcUsd": 0.4,
+     "surface": "move",
+     "phrasing": "emigreren naar duitsland"
+    }
+   ]
+  },
+  "pl-PL": {
+   "finding": "The largest wording finding in the whole programme. Polish relocation intent is not expressed as emigration, it is expressed as work: work in Germany 7,100, work in the Netherlands 3,700, work in Norway 3,400, against emigration to Germany at 30 and emigration to Spain at 30. For pl-PL the primary surface is Work, not Move.",
+   "primarySurface": "work",
+   "top": [
+    {
+     "destination": "germany",
+     "volume": 7100,
+     "difficulty": 4,
+     "cpcUsd": 0.04,
+     "surface": "work",
+     "phrasing": "praca w niemczech"
+    },
+    {
+     "destination": "netherlands",
+     "volume": 3700,
+     "difficulty": 5,
+     "cpcUsd": 0.15,
+     "surface": "work",
+     "phrasing": "praca w holandii"
+    },
+    {
+     "destination": "norway",
+     "volume": 3400,
+     "difficulty": 4,
+     "cpcUsd": 0.02,
+     "surface": "work",
+     "phrasing": "praca w norwegii"
+    },
+    {
+     "destination": "ireland",
+     "volume": 500,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "work",
+     "phrasing": "praca w irlandii"
+    },
+    {
+     "destination": "uae",
+     "volume": 300,
+     "difficulty": 0,
+     "cpcUsd": 0.01,
+     "surface": "work",
+     "phrasing": "praca w dubaju"
+    },
+    {
+     "destination": "canada",
+     "volume": 250,
+     "difficulty": 0,
+     "cpcUsd": 0.15,
+     "surface": "move",
+     "phrasing": "emigracja do kanady"
+    }
+   ]
+  },
+  "pt-BR": {
+   "finding": "Portugal at 2,100 dominates and nothing else is close. Ireland second at 700, Spain 600. A shared language plus a citizenship route beats every other factor in this market.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "portugal",
+     "volume": 2100,
+     "difficulty": 0,
+     "cpcUsd": 0.15,
+     "surface": "move",
+     "phrasing": "morar em portugal"
+    },
+    {
+     "destination": "ireland",
+     "volume": 700,
+     "difficulty": 0,
+     "cpcUsd": 0.05,
+     "surface": "move",
+     "phrasing": "morar na irlanda"
+    },
+    {
+     "destination": "spain",
+     "volume": 600,
+     "difficulty": 0,
+     "cpcUsd": 0.06,
+     "surface": "move",
+     "phrasing": "morar na espanha"
+    },
+    {
+     "destination": "united-states",
+     "volume": 450,
+     "difficulty": 0,
+     "cpcUsd": 0.09,
+     "surface": "move",
+     "phrasing": "morar nos estados unidos"
+    },
+    {
+     "destination": "germany",
+     "volume": 300,
+     "difficulty": 0,
+     "cpcUsd": 0.07,
+     "surface": "move",
+     "phrasing": "morar na alemanha"
+    },
+    {
+     "destination": "canada",
+     "volume": 300,
+     "difficulty": 0,
+     "cpcUsd": 0.08,
+     "surface": "move",
+     "phrasing": "morar no canadá"
+    }
+   ]
+  },
+  "ja-JP": {
+   "finding": "Japanese relocation demand points at Southeast Asia and Australia, not Europe. Thailand 2,300, Malaysia 2,200, Australia 1,100, Hawaii 600, Switzerland 600. Europe carries the value instead of the volume: Italy at a dollar forty a click and France at two dollars.",
+   "primarySurface": "move",
+   "top": [
+    {
+     "destination": "thailand",
+     "volume": 2300,
+     "difficulty": 0,
+     "cpcUsd": 0.25,
+     "surface": "move",
+     "phrasing": "タイ 移住"
+    },
+    {
+     "destination": "malaysia",
+     "volume": 2200,
+     "difficulty": 0,
+     "cpcUsd": 0.2,
+     "surface": "move",
+     "phrasing": "マレーシア 移住"
+    },
+    {
+     "destination": "australia",
+     "volume": 1100,
+     "difficulty": 0,
+     "cpcUsd": 0.25,
+     "surface": "move",
+     "phrasing": "オーストラリア 移住"
+    },
+    {
+     "destination": "canada",
+     "volume": 700,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "カナダ 移住"
+    },
+    {
+     "destination": "switzerland",
+     "volume": 600,
+     "difficulty": 0,
+     "cpcUsd": 0.01,
+     "surface": "move",
+     "phrasing": "スイス 移住"
+    },
+    {
+     "destination": "united-states",
+     "volume": 600,
+     "difficulty": 0,
+     "cpcUsd": 0.3,
+     "surface": "move",
+     "phrasing": "ハワイ 移住"
+    }
+   ]
+  },
+  "zh-Hant-TW": {
+   "finding": "Taiwan is not an outbound relocation origin market. Every destination returns between ten and seventy a month. The one real term is a working holiday in Japan at 350. This is the third independent method to reach the same conclusion about Taiwan, and the earlier one about its Areas and Stay demand stands unchanged.",
+   "primarySurface": "work",
+   "top": [
+    {
+     "destination": "japan",
+     "volume": 350,
+     "difficulty": 1,
+     "cpcUsd": 0.15,
+     "surface": "work",
+     "phrasing": "打工度假 日本"
+    },
+    {
+     "destination": "australia",
+     "volume": 100,
+     "difficulty": 1,
+     "cpcUsd": 0.08,
+     "surface": "work",
+     "phrasing": "打工度假 澳洲"
+    },
+    {
+     "destination": "japan",
+     "volume": 70,
+     "difficulty": 0,
+     "cpcUsd": 0.02,
+     "surface": "move",
+     "phrasing": "移民 日本"
+    },
+    {
+     "destination": "portugal",
+     "volume": 60,
+     "difficulty": 0,
+     "cpcUsd": 0.4,
+     "surface": "move",
+     "phrasing": "移民 葡萄牙"
+    },
+    {
+     "destination": "new-zealand",
+     "volume": 60,
+     "difficulty": null,
+     "cpcUsd": null,
+     "surface": "move",
+     "phrasing": "移民 紐西蘭"
+    },
+    {
+     "destination": "united-states",
+     "volume": 50,
+     "difficulty": 1,
+     "cpcUsd": 0.7,
+     "surface": "move",
+     "phrasing": "移民 美國"
+    }
+   ]
+  }
+ },
+ "byReach": [
+  {
+   "destination": "canada",
+   "origins": [
+    "en-US",
+    "de-DE",
+    "en-GB",
+    "ja-JP",
+    "nl-NL",
+    "it-IT",
+    "pt-BR",
+    "pl-PL",
+    "fr-FR",
+    "es-ES",
+    "zh-Hant-TW"
+   ],
+   "totalVolume": 7120
+  },
+  {
+   "destination": "portugal",
+   "origins": [
+    "pt-BR",
+    "en-US",
+    "de-DE",
+    "en-GB",
+    "nl-NL",
+    "ja-JP",
+    "it-IT",
+    "es-ES",
+    "fr-FR",
+    "zh-Hant-TW",
+    "pl-PL"
+   ],
+   "totalVolume": 6130
+  },
+  {
+   "destination": "spain",
+   "origins": [
+    "nl-NL",
+    "en-US",
+    "en-GB",
+    "de-DE",
+    "pt-BR",
+    "it-IT",
+    "fr-FR",
+    "ja-JP",
+    "pl-PL",
+    "zh-Hant-TW"
+   ],
+   "totalVolume": 7490
+  },
+  {
+   "destination": "switzerland",
+   "origins": [
+    "en-US",
+    "de-DE",
+    "es-ES",
+    "ja-JP",
+    "en-GB",
+    "it-IT",
+    "nl-NL",
+    "fr-FR",
+    "pl-PL",
+    "pt-BR"
+   ],
+   "totalVolume": 6390
+  },
+  {
+   "destination": "thailand",
+   "origins": [
+    "ja-JP",
+    "en-US",
+    "es-ES",
+    "en-GB",
+    "de-DE",
+    "nl-NL",
+    "fr-FR",
+    "it-IT",
+    "zh-Hant-TW"
+   ],
+   "totalVolume": 5250
+  },
+  {
+   "destination": "uae",
+   "origins": [
+    "en-GB",
+    "de-DE",
+    "es-ES",
+    "pl-PL",
+    "ja-JP",
+    "nl-NL",
+    "it-IT",
+    "pt-BR",
+    "fr-FR"
+   ],
+   "totalVolume": 2760
+  },
+  {
+   "destination": "japan",
+   "origins": [
+    "en-US",
+    "zh-Hant-TW",
+    "en-GB",
+    "de-DE",
+    "pt-BR",
+    "it-IT",
+    "es-ES",
+    "fr-FR"
+   ],
+   "totalVolume": 3590
+  },
+  {
+   "destination": "italy",
+   "origins": [
+    "en-US",
+    "de-DE",
+    "en-GB",
+    "nl-NL",
+    "ja-JP",
+    "fr-FR",
+    "es-ES",
+    "pt-BR"
+   ],
+   "totalVolume": 2680
+  },
+  {
+   "destination": "netherlands",
+   "origins": [
+    "pl-PL",
+    "en-GB",
+    "pt-BR",
+    "es-ES",
+    "it-IT",
+    "de-DE",
+    "fr-FR"
+   ],
+   "totalVolume": 4550
+  },
+  {
+   "destination": "france",
+   "origins": [
+    "en-GB",
+    "nl-NL",
+    "ja-JP",
+    "pt-BR",
+    "de-DE",
+    "it-IT",
+    "es-ES"
+   ],
+   "totalVolume": 1590
+  },
+  {
+   "destination": "germany",
+   "origins": [
+    "pl-PL",
+    "nl-NL",
+    "pt-BR",
+    "ja-JP",
+    "es-ES",
+    "it-IT"
+   ],
+   "totalVolume": 8320
+  },
+  {
+   "destination": "australia",
+   "origins": [
+    "en-GB",
+    "en-US",
+    "ja-JP",
+    "nl-NL",
+    "pt-BR",
+    "zh-Hant-TW"
+   ],
+   "totalVolume": 5340
+  },
+  {
+   "destination": "greece",
+   "origins": [
+    "en-US",
+    "en-GB",
+    "de-DE",
+    "it-IT",
+    "nl-NL",
+    "fr-FR"
+   ],
+   "totalVolume": 1450
+  },
+  {
+   "destination": "ireland",
+   "origins": [
+    "en-US",
+    "pt-BR",
+    "es-ES",
+    "pl-PL"
+   ],
+   "totalVolume": 3200
+  },
+  {
+   "destination": "united-states",
+   "origins": [
+    "ja-JP",
+    "pt-BR",
+    "zh-Hant-TW",
+    "es-ES"
+   ],
+   "totalVolume": 1120
+  },
+  {
+   "destination": "new-zealand",
+   "origins": [
+    "en-US",
+    "en-GB",
+    "zh-Hant-TW"
+   ],
+   "totalVolume": 2260
+  },
+  {
+   "destination": "sweden",
+   "origins": [
+    "de-DE",
+    "nl-NL",
+    "pl-PL"
+   ],
+   "totalVolume": 2020
+  },
+  {
+   "destination": "united-kingdom",
+   "origins": [
+    "pt-BR",
+    "it-IT",
+    "zh-Hant-TW"
+   ],
+   "totalVolume": 210
+  },
+  {
+   "destination": "norway",
+   "origins": [
+    "pl-PL",
+    "nl-NL"
+   ],
+   "totalVolume": 3880
+  },
+  {
+   "destination": "malaysia",
+   "origins": [
+    "ja-JP",
+    "zh-Hant-TW"
+   ],
+   "totalVolume": 2220
+  },
+  {
+   "destination": "cyprus",
+   "origins": [
+    "de-DE",
+    "en-GB"
+   ],
+   "totalVolume": 1350
+  },
+  {
+   "destination": "belgium",
+   "origins": [
+    "nl-NL",
+    "fr-FR"
+   ],
+   "totalVolume": 330
+  },
+  {
+   "destination": "austria",
+   "origins": [
+    "de-DE"
+   ],
+   "totalVolume": 2200
+  },
+  {
+   "destination": "costa-rica",
+   "origins": [
+    "en-US"
+   ],
+   "totalVolume": 1000
+  },
+  {
+   "destination": "andorra",
+   "origins": [
+    "es-ES"
+   ],
+   "totalVolume": 450
+  }
+ ],
+ "pairsMeasured": 150
+}

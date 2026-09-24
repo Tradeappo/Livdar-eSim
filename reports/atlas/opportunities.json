@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T00:24:53.164Z",
+ "generatedAt": "2026-09-24T00:59:04.907Z",
  "meaning": "Families ranked by prior, what they lead to and whether an answer engine can quote them. Blocked families are ranked too, because the blocker is the finding.",
  "groups": {
   "evergreen": [
@@ -57,17 +57,6 @@
      "promoted-listing",
      "experience-booking",
      "coworking-booking"
-    ]
-   },
-   {
-    "family": "work.city-jobs-category",
-    "surface": "work",
-    "opportunity": 0.504,
-    "candidates": 177060,
-    "status": "blocked",
-    "leadsTo": [
-     "job-listing",
-     "relocation-service"
     ]
    },
    {
@@ -161,6 +150,17 @@
     "candidates": 2739,
     "status": "blocked",
     "leadsTo": []
+   },
+   {
+    "family": "work.city-jobs-category",
+    "surface": "work",
+    "opportunity": 0.405,
+    "candidates": 177060,
+    "status": "blocked",
+    "leadsTo": [
+     "job-listing",
+     "relocation-service"
+    ]
    },
    {
     "family": "cost-of-living.country-vs-market",
@@ -343,7 +343,7 @@
     "family": "community.city-topic",
     "surface": "community",
     "opportunity": 0.242,
-    "candidates": 33600,
+    "candidates": 6720,
     "status": "blocked",
     "leadsTo": [
      "promoted-listing"
@@ -406,17 +406,6 @@
     "status": "blocked",
     "leadsTo": [
      "stay-booking"
-    ]
-   },
-   {
-    "family": "work.city-jobs-category",
-    "surface": "work",
-    "opportunity": 0.504,
-    "candidates": 177060,
-    "status": "blocked",
-    "leadsTo": [
-     "job-listing",
-     "relocation-service"
     ]
    },
    {
@@ -489,6 +478,17 @@
     "candidates": 2739,
     "status": "blocked",
     "leadsTo": []
+   },
+   {
+    "family": "work.city-jobs-category",
+    "surface": "work",
+    "opportunity": 0.405,
+    "candidates": 177060,
+    "status": "blocked",
+    "leadsTo": [
+     "job-listing",
+     "relocation-service"
+    ]
    },
    {
     "family": "cost-of-living.country-vs-market",
@@ -647,18 +647,6 @@
    "evidenceState": "competitor-observed",
    "evidenceWeight": 0.85,
    "candidates": 295100,
-   "status": "blocked"
-  },
-  {
-   "family": "work.city-jobs-category",
-   "surface": "work",
-   "opportunity": 0.504,
-   "prior": 0.803,
-   "monetisationScore": 0.08,
-   "quotability": 0.5,
-   "evidenceState": "measured",
-   "evidenceWeight": 1,
-   "candidates": 177060,
    "status": "blocked"
   },
   {
@@ -839,6 +827,18 @@
    "evidenceState": "predates the evidence field",
    "evidenceWeight": 0.9,
    "candidates": 10,
+   "status": "blocked"
+  },
+  {
+   "family": "work.city-jobs-category",
+   "surface": "work",
+   "opportunity": 0.405,
+   "prior": 0.604,
+   "monetisationScore": 0.08,
+   "quotability": 0.5,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 177060,
    "status": "blocked"
   },
   {
@@ -1246,7 +1246,7 @@
    "quotability": 0.2,
    "evidenceState": "competitor-observed",
    "evidenceWeight": 0.85,
-   "candidates": 33600,
+   "candidates": 6720,
    "status": "blocked"
   },
   {

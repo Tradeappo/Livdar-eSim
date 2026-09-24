@@ -1,0 +1,108 @@
+{
+ "generatedAt": "2026-09-24T00:59:04.500Z",
+ "target": 250,
+ "total": 250,
+ "allocations": [
+  {
+   "family": "transport.route-from-market",
+   "surface": "transport",
+   "priority": "medium",
+   "axis": "origin",
+   "markets": 11,
+   "candidates": 27907,
+   "pages": 45
+  },
+  {
+   "family": "weather.city-month",
+   "surface": "climate",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 60888,
+   "pages": 41
+  },
+  {
+   "family": "weather.city-best-time",
+   "surface": "climate",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 5074,
+   "pages": 41
+  },
+  {
+   "family": "airports.guide",
+   "surface": "transport",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 6488,
+   "pages": 41
+  },
+  {
+   "family": "destinations.city-hub",
+   "surface": "areas",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 23106,
+   "pages": 41
+  },
+  {
+   "family": "destinations.country-hub",
+   "surface": "areas",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 498,
+   "pages": 41
+  }
+ ],
+ "bySurface": {
+  "transport": 86,
+  "climate": 82,
+  "areas": 82
+ },
+ "byPriority": {
+  "medium": 45,
+  "low": 205
+ },
+ "answers": [
+  {
+   "question": "discovery",
+   "what": "How long does a new page take to be crawled, and does an incremental sitemap change that"
+  },
+  {
+   "question": "indexation",
+   "what": "What share of published pages are indexed after two weeks, which is the baseline every later cohort is compared against"
+  },
+  {
+   "question": "family-variance",
+   "what": "Do families differ in indexation rate, or is the rate a property of the site"
+  },
+  {
+   "question": "lifecycle",
+   "what": "Does the sitemap chunk assignment hold across lots without rewriting settled files"
+  },
+  {
+   "question": "market-variance",
+   "what": "Do the non English markets index at the same rate as English"
+  }
+ ],
+ "cannotAnswer": {
+  "surfaces": [
+   "pulse",
+   "stay",
+   "work",
+   "move",
+   "connectivity",
+   "sport",
+   "community",
+   "tools",
+   "safety"
+  ],
+  "why": "Every family on these surfaces is blocked on a source that does not exist, so none of them can produce a page to publish.",
+  "consequence": "This cohort measures whether the machine works. It does not measure whether the programme is right, because no high priority family is in it."
+ },
+ "honestSummary": "Not one page in this cohort is from a high priority family. That is not a design choice, it is what the source gate permits today, and it is the strongest argument in the programme for spending the next unit of effort on data licensing rather than on more keyword research."
+}
