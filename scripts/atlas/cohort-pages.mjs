@@ -18,7 +18,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { eligiblePages, summary } from '../../lib/atlas/eligibility-pages.js';
-import { selectCohort, cohortSummary, TARGET } from '../../lib/atlas/cohort-pages.js';
+import { selectCohort, selectDiversified, cohortSummary, TARGET } from '../../lib/atlas/cohort-pages.js';
 import { atlasPath, clusterKey } from '../../lib/atlas/atlas-urls.js';
 import { FAMILIES } from '../../lib/atlas/verticals.js';
 import { TOOLS } from '../../lib/atlas/tools-queue.js';
@@ -42,11 +42,20 @@ export function taken(before = []) {
   return keys;
 }
 
-export function build({ target = TARGET, cohort = '001', after = [] } = {}) {
+export function build({ target = TARGET, cohort = '001', after = [], diversified = null } = {}) {
   const resolved = eligiblePages();
   const already = taken(after);
   const pool = resolved.pages.filter((p) => !already.has(pageKey(p)));
-  const { selected, allocation, available, shortfall } = selectCohort(pool, { target });
+  // Cohort 001 is the control and is selected by the rule it was selected by.
+  // Every later cohort is selected for surface spread first, because the
+  // question the second cohort exists to answer is which part of the product
+  // earns the strongest signal, and a cohort that carries two surfaces cannot
+  // answer it however well it is balanced inside them.
+  const spread = diversified ?? cohort !== '001';
+  const picked = spread ? selectDiversified(pool, { target }) : selectCohort(pool, { target });
+  const { selected, shortfall } = picked;
+  const allocation = picked.allocation ?? null;
+  const available = picked.available;
 
   // Paths first, because a page without one cannot be in a cohort and the
   // failure has to be loud rather than a silently shorter list.
@@ -75,6 +84,7 @@ export function build({ target = TARGET, cohort = '001', after = [] } = {}) {
       minWords: FAMILIES[p.family].minWords ?? null,
       indexPolicy: FAMILIES[p.family].indexPolicy ?? 'always',
       aeo: FAMILIES[p.family].aeo ?? [],
+      role: p.role ?? null,
     });
   }
 
@@ -116,6 +126,21 @@ export function build({ target = TARGET, cohort = '001', after = [] } = {}) {
     poolAfterExclusion: pool.length,
     eligible: summary(resolved),
     allocation, available, shortfall,
+    // How the cohort was selected, and which pages are there to answer the
+    // question rather than to fill the cohort to its size. A reader who
+    // cannot tell the two apart will read the filler as part of the
+    // experiment.
+    selection: spread
+      ? {
+        rule: 'surface floors first, then a capped fill, then an uncapped fill only if the target is still short',
+        floors: picked.floors,
+        ceilings: picked.ceilings,
+        surfacesShort: picked.surfacesShort,
+        experimentalSubset: picked.experimental,
+        filler: picked.filler,
+        overCeiling: picked.overCeiling,
+      }
+      : { rule: 'equal share across families, surplus to whoever has room' },
     withoutPath, duplicates,
     summary: cohortSummary(rows),
     pages: rows,

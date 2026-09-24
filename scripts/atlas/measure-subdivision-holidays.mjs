@@ -13,6 +13,15 @@
 // in every language it has, so the table is built from the source and only
 // the abbreviations a market uses in place of a name are written down.
 //
+// Two regions that keep an identical calendar get one page between them, and
+// that is not a rounding decision. Hamburg, Bremen, Lower Saxony and
+// Schleswig-Holstein keep exactly the same ten days, and four pages saying
+// the same ten dates under four names is the duplicate the quality gate
+// exists to refuse: measured at 87 percent similar, which is above this
+// programme's own threshold of 80. The region with the most demand keeps the
+// page, the page names the others outright, and the demand given up is
+// recorded rather than lost from the report.
+//
 // A city is not a region, and this is the refusal that matters. `feiertage
 // muenchen`, `festivos barcelona` and `feiertage leipzig` all resolve to
 // nothing here, because the holidays that apply in Munich are Bavaria's and
@@ -23,7 +32,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { writeMeasurement } from './measurement-file.mjs';
 import { rootFrom } from '../../lib/atlas/repo-root.js';
 import { fold, stripHead, MARKET_LANG, MARKET_COUNTRY } from '../../lib/atlas/keyword-country.js';
-import { store as holidayStore } from '../../lib/atlas/holidays.js';
+import { store as holidayStore, forSubdivision, splitEntity } from '../../lib/atlas/holidays.js';
 import { HEADS, FILLERS } from './measure-holidays.mjs';
 
 const ROOT = rootFrom(import.meta.url);
@@ -96,10 +105,11 @@ export function run({ probe = PROBE } = {}) {
   const files = {};
   const rows = [];
   const skipped = { notARegion: 0, duplicate: 0, zeroVolume: 0 };
+  const collapsed = [];
   const byMethod = {};
 
   for (const [market, block] of Object.entries(j.markets || {})) {
-    const kept = [];
+    let kept = [];
     for (const r of block.rows || []) {
       const c = regionOf(r.keyword, market);
       if (!c.entity) { skipped.notARegion++; continue; }
@@ -114,6 +124,25 @@ export function run({ probe = PROBE } = {}) {
       }
       kept.push({ keyword: r.keyword, volume: r.volume, difficulty: r.difficulty ?? null, entity: c.entity });
     }
+    // Identical calendars collapse onto the region with the most demand.
+    const signature = (entity) => {
+      const split = splitEntity(entity);
+      const d = split && forSubdivision(split.iso2, split.shortName);
+      return d ? split.iso2 + '::' + d.days.map((h) => h.date).sort().join(',') : entity;
+    };
+    const best = new Map();
+    for (const k of kept) {
+      const sig = signature(k.entity);
+      const prev = best.get(sig);
+      if (!prev || k.volume > prev.volume) best.set(sig, k);
+    }
+    for (const k of kept) {
+      const sig = signature(k.entity);
+      if (best.get(sig) !== k) {
+        collapsed.push({ entity: k.entity, keyword: k.keyword, volume: k.volume, onto: best.get(sig).entity, market });
+      }
+    }
+    kept = [...best.values()].sort((a, b) => b.volume - a.volume);
     if (!kept.length) continue;
     files[market] = {
       country: block.country,
@@ -142,6 +171,11 @@ export function run({ probe = PROBE } = {}) {
     entities: new Set(rows.map((r) => r.entity)).size,
     resolvedBy: byMethod,
     skipped,
+    // Regions given up because another region keeps exactly the same days.
+    // The demand is real and is not being served, so it is named with its
+    // volume rather than disappearing into a count.
+    collapsedOntoAnother: collapsed.map((x) => x.entity + ' onto ' + x.onto + ' (' + x.keyword + ': ' + x.volume + ')'),
+    volumeGivenUp: collapsed.reduce((n, x) => n + x.volume, 0),
     totalVolume: Object.values(files).flatMap((f) => f.keywords).reduce((t, k) => t + k.volume, 0),
     files,
     rows,

@@ -31,10 +31,10 @@ test('cohort 002 exists and takes nothing cohort 001 already has', () => {
 
 test('cohort 002 is full, and its size is the target rather than whatever was left', () => {
   const two = read(TWO);
-  // It was 117 before the cost of living demand was measured, because the
-  // constraint was never the data: the source covers 199 countries and only
-  // about two hundred country and market pairs had a keyword. Measuring the
-  // gap took the cohort to its target without loosening anything.
+  // It was 117 before the cost of living demand was measured, and then 250 of
+  // two families, which reached the target and missed the point. It is 250
+  // again and it carries six surfaces, because four more sources were built
+  // rather than because the selection was loosened.
   assert.equal(two.target, TARGET);
   assert.equal(two.pages.length, TARGET);
   assert.equal(two.shortfall, 0);
@@ -47,22 +47,48 @@ test('cohort 002 is full, and its size is the target rather than whatever was le
   assert.deepEqual(two.duplicates, []);
 });
 
-test('cohort 002 carries the new surface and corrects the market balance', () => {
+test('cohort 002 is a spread across surfaces rather than a spread across families', () => {
   const two = read(TWO);
   const one = read(ONE);
-  // The whole climate surface sits in cohort 002, which is what makes the two
-  // cohorts comparable as an experiment rather than as a before and after.
-  assert.ok(two.summary.bySurface.climate >= 70, 'climate contributes only ' + two.summary.bySurface.climate);
+  // The first version of this cohort was 178 cost of living pages and 72
+  // climate pages: two families, two surfaces, and an experiment that could
+  // only answer whether climate outranks cost of living. The cohort exists to
+  // answer which part of the product earns the strongest signal, and it
+  // cannot do that carrying two of its surfaces however well it is balanced
+  // inside them.
+  const surfaces = Object.keys(two.summary.bySurface);
+  assert.ok(surfaces.length >= 5, 'cohort 002 carries only ' + surfaces.length + ' surfaces');
+  assert.ok(Object.keys(two.summary.byFamily).length >= 7, 'cohort 002 carries only ' + Object.keys(two.summary.byFamily).length + ' families');
+  // No surface is most of the cohort.
+  for (const [s, n] of Object.entries(two.summary.bySurface)) {
+    assert.ok(n <= two.pages.length * 0.3, s + ' is ' + n + ' of ' + two.pages.length + ' pages');
+  }
+
+  // The floors are what stop a surface being absent, and every surface with
+  // pages available got at least its floor or everything it had.
+  const sel = two.selection;
+  assert.ok(sel && sel.floors, 'the cohort does not record how it was selected');
+  for (const [surface, want] of Object.entries(sel.floors)) {
+    const short = sel.surfacesShort[surface];
+    const got = sel.experimentalSubset.bySurface[surface] || 0;
+    if (short) assert.equal(got, short.available, surface + ' had ' + short.available + ' pages and took ' + got);
+    else assert.ok(got >= want, surface + ' took ' + got + ' against a floor of ' + want);
+  }
+
+  // The pages that answer the question and the pages that fill the cohort to
+  // its size are different things, and a reader of the result has to be able
+  // to tell them apart.
+  assert.equal(sel.experimentalSubset.pages + sel.filler.pages, two.pages.length);
+  assert.ok(sel.experimentalSubset.pages >= 60, 'the diversified subset is only ' + sel.experimentalSubset.pages + ' pages');
+  const roles = new Set(two.pages.map((p) => p.role));
+  assert.deepEqual([...roles].sort(), ['diversified subset', 'filler']);
+
   assert.equal(two.summary.languages, 9);
-  // Every market is represented, because a cohort drawn from one market
-  // measures that market and generalises to nothing.
   assert.equal(Object.keys(two.summary.byMarket).length, 9);
 
   // The SERP work found English the hardest market of the nine: 1.1 reachable
   // competitors per page against 6.0 in Dutch. Cohort 001 gave English its
   // largest share anyway, which was right on volume and wrong on competition.
-  // Cohort 002 was supposed to correct that, and this asserts it did rather
-  // than leaving the intention in a report.
   const shareOne = one.summary.byMarket['en-US'] / one.pages.length;
   const shareTwo = two.summary.byMarket['en-US'] / two.pages.length;
   assert.ok(shareTwo < shareOne, 'English share went from ' + shareOne + ' to ' + shareTwo);
