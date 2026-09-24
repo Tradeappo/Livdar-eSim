@@ -54,9 +54,19 @@ test('the priority of every vertical matches the programme', () => {
   assert.ok(counts.high.length > counts.low.length, 'the low priority families outnumber the high priority ones');
 });
 
-test('a low priority family is leashed to the active markets, not deleted', () => {
+test('a low priority family is leashed to the active markets until it measures its way out', () => {
+  // The rule has two halves and the second one used to be a comment rather
+  // than code: a low priority family is held to the active markets, and it
+  // earns the wider gate by producing measured demand. A family that has
+  // written measurements into itself has done that.
   for (const f of familyIds()) {
-    assert.equal(marketGateOf(f), priorityOf(f) === 'low' ? 'active' : 'research');
+    const leashed = priorityOf(f) === 'low' && FAMILIES[f].evidenceState !== 'measured';
+    assert.equal(marketGateOf(f), leashed ? 'active' : 'research', f);
+  }
+  const earned = familyIds().filter((f) => priorityOf(f) === 'low' && FAMILIES[f].evidenceState === 'measured');
+  for (const f of earned) {
+    assert.ok(FAMILIES[f].evidence, f + ' claims measured evidence and does not say where it is');
+    assert.equal(familyCount(f).markets, enumerableLanguages().length, f + ' earned the wider gate and did not get it');
   }
   assert.equal(familyCount('weather.city-month').markets, activeLanguages().length);
   assert.equal(familyCount('cost-of-living.city').markets, enumerableLanguages().length);
