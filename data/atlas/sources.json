@@ -437,14 +437,19 @@
   },
   {
    "id": "events-verified",
-   "name": "Dated events from organiser and city official calendars",
-   "url": null,
-   "licence": "to be established per source",
-   "attribution": "per value",
-   "status": "not built yet",
-   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
-   "refresh": "quarterly",
-   "maxAgeDays": 120
+   "name": "Public holiday dates from the OpenHolidays data set",
+   "url": "https://github.com/openpotato/openholidaysapi.data",
+   "licence": "ODbL 1.0",
+   "attribution": "Public holiday dates from the OpenHolidays data set, ODbL 1.0, compiled from official national sources",
+   "status": "built",
+   "note": "Public holidays only, which is one slice of Pulse and not the whole of it. What is on in a city this weekend still has no source: every event feed worth having is licensed, behind a portal this container cannot reach, or a scrape the brief forbids. A day typed Optional is not counted, and whether a day applies everywhere is read from the subdivision list rather than from which parliament passed it, because in Germany and Switzerland those two answers differ for most days.",
+   "refresh": "yearly",
+   "maxAgeDays": 200,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY for 36 countries in the 2026 and 2027 window. Brazil is in the data set and stops at 2025, so it is excluded: feriados 2026 is 705,000 searches a month and cannot be answered from this source.",
+   "ingest": "scripts/atlas/ingest/public-holidays.mjs",
+   "store": "data/atlas/sources/events/public-holidays.json",
+   "freshnessClass": "reference"
   },
   {
    "url": "",
