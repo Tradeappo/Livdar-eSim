@@ -1,0 +1,49 @@
+{
+ "capturedOn": "2026-09-24",
+ "provider": "Eurostat",
+ "licence": "Eurostat reuse policy, commercial reuse permitted with attribution",
+ "attribution": "Source: Eurostat, earn_nt_net and earn_mw_cur",
+ "captureMethod": "Browser fetch against the live API, reduced in the page before transfer.",
+ "warning": "Gross and net are separate series and are never mixed. The earnings series is one household case only, a single person with no children on the national average wage, and comparing it to any other case would be comparing different things.",
+ "series": {
+  "grossAnnual": {
+   "dataset": "earn_nt_net",
+   "estruct": "GRS",
+   "ecase": "P1_NCH_AW100",
+   "caseLabel": "Single person without children earning 100 percent of the average wage",
+   "currency": "EUR",
+   "unitMeaning": "Annual gross earnings, euro",
+   "metricKind": "level",
+   "period": "2025",
+   "providerUpdated": "2026-09-04T23:00:00+0200",
+   "values": {"AT":62628,"BE":59544,"BG":18621.54,"CY":34692,"CZ":26773.49,"DE":58008,"DK":71610.26,"EE":29364,"EL":29652,"ES":35076,"FI":54528,"FR":44400,"HR":24612,"HU":23206,"IE":61716,"IT":40056,"LT":31380,"LU":83760,"LV":26208,"MT":32868,"NL":60636,"PL":26628.3,"PT":27768,"RO":23722.04,"SE":50559.99,"SI":38964,"SK":24240}
+  },
+  "netAnnual": {
+   "dataset": "earn_nt_net",
+   "estruct": "NET",
+   "ecase": "P1_NCH_AW100",
+   "caseLabel": "Single person without children earning 100 percent of the average wage",
+   "currency": "EUR",
+   "unitMeaning": "Annual net earnings after income tax and social contributions, euro",
+   "metricKind": "level",
+   "period": "2025",
+   "providerUpdated": "2026-09-04T23:00:00+0200",
+   "values": {"AT":42346.93,"BE":36414.44,"BG":14449.94,"CY":28339.82,"CZ":20900.93,"DE":36534.77,"DK":45429.63,"EE":22537.46,"EL":21498.27,"ES":27040.72,"FI":37689.65,"FR":32346.04,"HR":16891.93,"HU":15431.99,"IE":47026.77,"IT":27787.67,"LT":19092.56,"LU":55876.57,"LV":19035.44,"MT":25272.86,"NL":40793.43,"PL":19086.3,"PT":21449.05,"RO":13877.39,"SE":38949.55,"SI":24275.58,"SK":18096.61}
+  },
+  "minimumWageMonthly": {
+   "dataset": "earn_mw_cur",
+   "currency": "EUR",
+   "unitMeaning": "Statutory monthly minimum wage, euro",
+   "metricKind": "level",
+   "period": "2026-S2",
+   "providerUpdated": "2026-07-31T11:00:00+0200",
+   "methodology": "Statutory national minimum wage where one exists. Countries with collectively bargained minima rather than a statutory one are absent rather than zero.",
+   "values": {"AL":531,"BE":2234,"BG":620,"CY":1088,"CZ":923,"DE":2343,"EE":946,"EL":1073,"ES":1425,"FR":1867,"HR":1050,"HU":906,"IE":2391,"LT":1153,"LU":2771,"LV":780,"MD":313,"ME":670,"MK":624,"MT":994,"NL":2338,"PL":1119,"PT":1073,"RO":825,"RS":743,"SI":1482,"SK":915,"TR":621,"UA":169,"US":1103}
+  }
+ },
+ "notCovered": {
+  "byOccupation": "earn_ses runs every four years and uses ISCO groups that do not map cleanly onto the job titles people search for. It is a separate ingest and a separate decision.",
+  "byCity": "Not published below the country anywhere in this series.",
+  "outsideEurope": "Japan, Canada, New Zealand, the UAE, Thailand and Costa Rica are not in these series. Their national offices publish equivalents and each needs its own adapter."
+ }
+}

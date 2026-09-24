@@ -1,0 +1,94 @@
+{
+ "country": "br",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 198,
+ "measuredOn": "2026-09-24",
+ "market": "pt-BR",
+ "families": [
+  "tools.calculator",
+  "tools.cost-comparison",
+  "tools.cost-calculator",
+  "tools.matcher",
+  "rankings.index"
+ ],
+ "note": "Tool and ranking demand, measured in the language of each market rather than translated from English. The phrasings are the ones a resident of that market would type, so the German row for the moving calculator is umzugskosten rechner and the British one is removal costs calculator, and neither is a translation of the other. Zero volume rows are kept because a measured zero is a finding: it says this shape of page should not be built in this market.",
+ "notReturned": [
+  "calculadora orcamento viagem",
+  "custo de morar fora"
+ ],
+ "keywords": [
+  {
+   "keyword": "calculadora de salario",
+   "volume": 9900,
+   "difficulty": 8,
+   "cpc": 1,
+   "family": "tools.calculator",
+   "entity": "salary-calculator"
+  },
+  {
+   "keyword": "comparador custo de vida",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "cost-of-living-comparison"
+  },
+  {
+   "keyword": "calculadora custo de vida",
+   "volume": 20,
+   "difficulty": 15,
+   "cpc": null,
+   "family": "tools.cost-calculator",
+   "entity": "cost-of-living-calculator"
+  },
+  {
+   "keyword": "calcular frete mudanca",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.calculator",
+   "entity": "moving-cost"
+  },
+  {
+   "keyword": "onde morar",
+   "volume": 90,
+   "difficulty": 0,
+   "cpc": 8,
+   "family": "tools.matcher",
+   "entity": "where-should-i-live"
+  },
+  {
+   "keyword": "comparar cidades",
+   "volume": 20,
+   "difficulty": 10,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "city-comparison"
+  },
+  {
+   "keyword": "paises mais baratos para morar",
+   "volume": 30,
+   "difficulty": 0,
+   "cpc": 1,
+   "family": "rankings.index",
+   "entity": "cheapest-countries"
+  },
+  {
+   "keyword": "paises mais caros do mundo",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "most-expensive-countries"
+  },
+  {
+   "keyword": "paises mais baratos da europa",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 5,
+   "family": "rankings.index",
+   "entity": "cheapest-countries-europe"
+  }
+ ]
+}

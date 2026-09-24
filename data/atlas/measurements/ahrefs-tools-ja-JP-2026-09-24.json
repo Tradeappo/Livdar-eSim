@@ -1,0 +1,106 @@
+{
+ "country": "jp",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 242,
+ "measuredOn": "2026-09-24",
+ "market": "ja-JP",
+ "families": [
+  "tools.calculator",
+  "tools.cost-comparison",
+  "tools.cost-calculator",
+  "tools.matcher",
+  "rankings.index"
+ ],
+ "note": "Tool and ranking demand, measured in the language of each market rather than translated from English. The phrasings are the ones a resident of that market would type, so the German row for the moving calculator is umzugskosten rechner and the British one is removal costs calculator, and neither is a translation of the other. Zero volume rows are kept because a measured zero is a finding: it says this shape of page should not be built in this market.",
+ "keywords": [
+  {
+   "keyword": "給与計算",
+   "volume": 17000,
+   "difficulty": 4,
+   "cpc": 100,
+   "family": "tools.calculator",
+   "entity": "salary-calculator"
+  },
+  {
+   "keyword": "生活費 比較",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "cost-of-living-comparison"
+  },
+  {
+   "keyword": "生活費 計算",
+   "volume": 150,
+   "difficulty": 2,
+   "cpc": 40,
+   "family": "tools.cost-calculator",
+   "entity": "cost-of-living-calculator"
+  },
+  {
+   "keyword": "引越し 費用 見積もり",
+   "volume": 90,
+   "difficulty": 49,
+   "cpc": 25,
+   "family": "tools.calculator",
+   "entity": "moving-cost"
+  },
+  {
+   "keyword": "どこに住むべきか",
+   "volume": 40,
+   "difficulty": null,
+   "cpc": 80,
+   "family": "tools.matcher",
+   "entity": "where-should-i-live"
+  },
+  {
+   "keyword": "旅行 費用 計算",
+   "volume": 30,
+   "difficulty": null,
+   "cpc": 6,
+   "family": "tools.calculator",
+   "entity": "travel-budget"
+  },
+  {
+   "keyword": "海外移住 費用",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc": 80,
+   "family": "tools.calculator",
+   "entity": "relocation-budget"
+  },
+  {
+   "keyword": "都市 比較",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "city-comparison"
+  },
+  {
+   "keyword": "物価の安い国",
+   "volume": 1100,
+   "difficulty": 0,
+   "cpc": 1,
+   "family": "rankings.index",
+   "entity": "cheapest-countries"
+  },
+  {
+   "keyword": "物価の高い国",
+   "volume": 150,
+   "difficulty": 2,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "most-expensive-countries"
+  },
+  {
+   "keyword": "ヨーロッパ 物価 安い国",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc": 2,
+   "family": "rankings.index",
+   "entity": "cheapest-countries-europe"
+  }
+ ]
+}

@@ -267,7 +267,10 @@ test('every dimension can be split on, and a typo is an error not an empty repor
 });
 
 test('the tools queue puts shippable before impressive', () => {
-  const blocked = new Set(['cost-of-living-verified', 'rent-index-verified', 'tax-rules-verified', 'visa-rules-verified', 'events-verified', 'venue-data-verified', 'stay-inventory-verified', 'neighbourhood-facts-verified', 'salary-data-verified', 'property-price-verified', 'transit-fares-verified', 'connectivity-data-verified', 'country-facts-verified']);
+  // Every source any tool names, blocked. Derived rather than listed, because
+  // a hardcoded list quietly stops testing the thing it was written for the
+  // moment a tool starts depending on a source the list never heard of.
+  const blocked = new Set(TOOLS.flatMap((t) => t.sources).filter((s) => !s.startsWith('none')));
   const q = queue(blocked);
   assert.equal(q[0].id, 'moving-cost', 'the queue no longer starts with the only buildable tool');
   assert.equal(q[0].sourcesReady, true);

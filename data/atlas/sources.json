@@ -279,14 +279,19 @@
   },
   {
    "id": "rent-index-verified",
-   "name": "Residential rent levels from an openly licensed or official source",
-   "url": null,
-   "licence": "to be established per source",
-   "attribution": "per value",
-   "status": "not built yet",
-   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "name": "Country level rent indices, rent inflation and housing cost overburden from Eurostat",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_midx",
+   "licence": "Eurostat reuse policy, commercial reuse permitted with attribution",
+   "attribution": "Source: Eurostat, prc_hicp_midx, prc_hicp_aind and ilc_lvho07a",
+   "status": "built",
+   "note": "Three different metrics, stored apart. An index is not a level, an annual change is not a price, and an overburden rate counts owners as well as renters. The city families point at rent-city-verified, which does not exist.",
    "refresh": "quarterly",
-   "maxAgeDays": 120
+   "maxAgeDays": 120,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY. 36 countries for the rent index and rent inflation, 30 for housing cost overburden. No rent level in euros exists in any Eurostat series and none is derived.",
+   "ingest": "scripts/atlas/ingest/rent-and-salary.mjs",
+   "store": "data/atlas/sources/rent/normalized.json",
+   "freshnessClass": "rent"
   },
   {
    "id": "property-price-verified",
@@ -301,14 +306,19 @@
   },
   {
    "id": "salary-data-verified",
-   "name": "Earnings by occupation from national statistical offices",
-   "url": null,
-   "licence": "to be established per source",
-   "attribution": "per value",
-   "status": "not built yet",
-   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "name": "Country level gross and net earnings and minimum wages from Eurostat",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/earn_nt_net",
+   "licence": "Eurostat reuse policy, commercial reuse permitted with attribution",
+   "attribution": "Source: Eurostat, earn_nt_net and earn_mw_cur",
+   "status": "built",
+   "note": "Gross and net are separate series and are never mixed. Occupation level earnings are a different dataset on a four year cycle and are not in this source.",
    "refresh": "quarterly",
-   "maxAgeDays": 120
+   "maxAgeDays": 120,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY. 27 countries for gross and net annual earnings, 30 for statutory minimum wages. One household case only: a single person without children on the average wage.",
+   "ingest": "scripts/atlas/ingest/rent-and-salary.mjs",
+   "store": "data/atlas/sources/salary/normalized.json",
+   "freshnessClass": "salary"
   },
   {
    "id": "work-rules-verified",
@@ -567,6 +577,48 @@
    "rateLimits": "n/a for first party data.",
    "blocks": [
     "community.city-topic"
+   ]
+  },
+  {
+   "id": "rent-city-verified",
+   "name": "City level rent levels and indices",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "rent",
+   "candidates": "Split out of rent-index-verified on 2026-09-24 when that source was built at country level. Eurostat publishes nothing below the country. Some national offices publish city rent levels and none are comparable across borders. Deriving a city rent from a national index would be inventing a number.",
+   "blocks": [
+    "rents.city",
+    "rents.neighbourhood"
+   ]
+  },
+  {
+   "id": "salary-city-verified",
+   "name": "City level earnings",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "salary",
+   "candidates": "Split out of salary-data-verified for the same reason. Earnings by city are published by a handful of offices, on incompatible definitions, and never for the occupations people search for.",
+   "blocks": [
+    "work.city-salaries",
+    "work.city-jobs-category"
+   ]
+  },
+  {
+   "id": "rent-level-verified",
+   "name": "Rent levels in currency",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "rent",
+   "candidates": "A handful of national offices publish average rents paid in currency. Eurostat publishes none. Marketplace asking prices are forbidden and are a different measure.",
+   "note": "Separated from the rent index on 2026-09-24. An affordability calculator needs a level, not an index, and marking it buildable off an index would have produced a tool that cannot answer its own question.",
+   "blocks": [
+    "tools.calculator rent affordability variant"
    ]
   }
  ]

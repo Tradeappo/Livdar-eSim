@@ -7,7 +7,7 @@ import JsonLd from '../JsonLd.jsx';
 import { atlasSchema } from '../../lib/atlas/schema.js';
 
 const L = {
-  faq: { en: 'Questions', de: 'Fragen', ro: 'Întrebări' },
+  questions: { en: 'Questions', de: 'Fragen', ro: 'Întrebări' },
   related: { en: 'Related pages', de: 'Weitere Seiten', ro: 'Pagini înrudite' },
   sources: { en: 'Sources', de: 'Quellen', ro: 'Surse' },
   crumbs: { en: 'Breadcrumb', de: 'Brotkrumen', ro: 'Navigare' },
@@ -15,12 +15,17 @@ const L = {
 
 export default function AtlasPage({ model, alternatePaths }) {
   const l = model.locale;
+  // The eSIM families carry their labels in the table above; the Atlas data
+  // families carry theirs on the model, because they exist in nine languages
+  // and a table here would be a second place for the same nine strings to
+  // drift apart. A model with labels wins; anything else falls back.
+  const t = (key) => model.labels?.[key] || L[key]?.[l] || L[key]?.en;
   return (
     <>
       <Header locale={l} alternatePaths={alternatePaths} />
       <main id="main" className="atlas">
         <div className="wrap atlas-wrap">
-          <nav className="atlas-crumbs" aria-label={L.crumbs[l]}>
+          <nav className="atlas-crumbs" aria-label={t('crumbs')}>
             <a href={'/' + l + '/'}>Livdar</a>
             {model.breadcrumbs.map((b, i) => (
               <span key={i}>
@@ -37,8 +42,8 @@ export default function AtlasPage({ model, alternatePaths }) {
               ))}
             </dl>
           ) : null}
-          {model.sections.map((s) => (
-            <section key={s.id} className="atlas-section">
+          {model.sections.map((s, si) => (
+            <section key={s.id || si} className="atlas-section">
               {s.heading ? <h2>{s.heading}</h2> : null}
               {s.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
             </section>
@@ -62,7 +67,7 @@ export default function AtlasPage({ model, alternatePaths }) {
           ) : null}
           {model.faq.length ? (
             <section className="atlas-section">
-              <h2>{L.faq[l]}</h2>
+              <h2>{t('questions')}</h2>
               {model.faq.map((q, i) => (
                 <details key={i} open><summary>{q.q}</summary><p>{q.a}</p></details>
               ))}
@@ -70,13 +75,13 @@ export default function AtlasPage({ model, alternatePaths }) {
           ) : null}
           {model.links.length ? (
             <section className="atlas-section">
-              <h2>{L.related[l]}</h2>
+              <h2>{t('related')}</h2>
               <ul className="atlas-links">{model.links.map((x, i) => <li key={i}><a href={x.href}>{x.text}</a></li>)}</ul>
             </section>
           ) : null}
           {model.sources.length ? (
             <section className="atlas-section atlas-sources">
-              <h2>{L.sources[l]}</h2>
+              <h2>{t('sources')}</h2>
               <ul>{model.sources.map((s, i) => <li key={i}>{s.attribution}{s.retrievedAt ? ' (' + s.retrievedAt.slice(0, 10) + ')' : ''}</li>)}</ul>
             </section>
           ) : null}

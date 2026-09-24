@@ -14,11 +14,18 @@ import { MARKETS } from '../../lib/atlas/markets.js';
 import { FAMILIES, VERTICALS } from '../../lib/atlas/verticals.js';
 import { loadDataset } from '../../lib/atlas/data.js';
 import { funnel } from '../../lib/atlas/states.js';
+import { allEntries, isSharded } from '../../lib/atlas/registry-store.js';
+import { eligiblePages, summary as eligibleSummary } from '../../lib/atlas/eligibility-pages.js';
 
 export function report() {
   const inv = inventory(entityPools());
   const ds = loadDataset();
-  const registry = Object.values(ds.registry.entries || {});
+  // The registry moved to sharded files, and reading the flat one meant this
+  // report kept printing the state of the programme as it was before the
+  // shards existed. The sharded store is the registry whenever it is present.
+  const registry = isSharded()
+    ? [...allEntries()].map(([, v]) => v)
+    : Object.values(ds.registry.entries || {});
   return {
     generatedAt: new Date().toISOString(),
     meaning: {
@@ -45,8 +52,14 @@ export function report() {
     },
     registry: {
       rows: registry.length,
+      sharded: isSharded(),
       funnel: funnel(registry),
     },
+    // Eligible resolved per page rather than per family. A family being
+    // eligible says nothing about how many of its pages have a covered
+    // entity and a measured keyword, and the difference between the two
+    // numbers was seventy two fold the first time it was computed.
+    eligible: eligibleSummary(eligiblePages()),
     blockedByMissingSource: blockedFamilies(),
   };
 }
@@ -86,6 +99,9 @@ if (import.meta.url === 'file://' + process.argv[1]) {
     weatherSharePercent: r.candidates.largestVerticalShare,
     byVertical: r.candidates.byVertical,
     registryFunnel: r.registry.funnel,
+    eligiblePages: r.eligible.eligiblePages,
+    eligibleFamilies: r.eligible.families,
+    eligibleBySurface: r.eligible.bySurface,
     blocked: { families: r.blockedByMissingSource.families.length, candidates: r.blockedByMissingSource.candidates, publishableNow: r.blockedByMissingSource.publishableNow },
   }, null, 1));
 }

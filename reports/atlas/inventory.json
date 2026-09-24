@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T06:29:07.954Z",
+ "generatedAt": "2026-09-24T08:04:40.965Z",
  "meaning": {
   "candidate": "A combination the taxonomy allows: one family, one entity, one variant, one market. Not a page.",
   "published": "The publication registry publishes it, so it routes and enters a sitemap.",
@@ -51,13 +51,13 @@
   }
  },
  "verticals": 27,
- "families": 64,
+ "families": 65,
  "candidates": {
-  "total": 2937117,
+  "total": 2939607,
   "byVertical": {
    "places": 390540,
    "events": 376520,
-   "work": 324839,
+   "work": 327329,
    "sport": 295100,
    "neighbourhoods": 230430,
    "stay": 206570,
@@ -85,23 +85,23 @@
   },
   "byAxis": {
    "audience": 244046,
-   "language": 2370064,
+   "language": 2372554,
    "persona": 177060,
    "time": 118040,
    "origin": 27907
   },
   "byMarket": {
-   "en-US": 332349,
+   "en-US": 332598,
    "en-GB": 24723,
-   "de-DE": 332349,
-   "ja-JP": 280962,
-   "zh-Hant-TW": 280962,
-   "it-IT": 280962,
-   "es-ES": 280962,
-   "fr-FR": 280962,
-   "nl-NL": 280962,
-   "pl-PL": 280962,
-   "pt-BR": 280962
+   "de-DE": 332598,
+   "ja-JP": 281211,
+   "zh-Hant-TW": 281211,
+   "it-IT": 281211,
+   "es-ES": 281211,
+   "fr-FR": 281211,
+   "nl-NL": 281211,
+   "pl-PL": 281211,
+   "pt-BR": 281211
   },
   "largestVerticalShare": 2.2,
   "rows": [
@@ -808,6 +808,19 @@
     "candidates": 2490
    },
    {
+    "family": "work.country-salaries",
+    "vertical": "work",
+    "axis": "language",
+    "scope": "country",
+    "priority": "high",
+    "marketGate": "research",
+    "prior": 0.796,
+    "entities": 249,
+    "variants": 1,
+    "markets": 10,
+    "candidates": 2490
+   },
+   {
     "family": "destinations.country-hub",
     "vertical": "destinations",
     "axis": "language",
@@ -940,13 +953,14 @@
   ]
  },
  "registry": {
-  "rows": 123,
+  "rows": 373,
+  "sharded": true,
   "funnel": {
-   "candidate": 123,
-   "data_ready": 123,
-   "measured": 123,
-   "qa_passed": 123,
-   "approved": 123,
+   "candidate": 373,
+   "data_ready": 373,
+   "measured": 373,
+   "qa_passed": 373,
+   "approved": 373,
    "published": 123,
    "live": 0,
    "discovered": 0,
@@ -958,6 +972,45 @@
    "stale": 0,
    "canonicalized": 0
   }
+ },
+ "eligible": {
+  "eligiblePages": 295,
+  "families": 7,
+  "sourceReadyFamilies": 8,
+  "blockedFamilies": 50,
+  "byFamily": {
+   "tools.calculator": 23,
+   "tools.cost-comparison": 9,
+   "tools.cost-calculator": 5,
+   "tools.matcher": 8,
+   "cost-of-living.country": 203,
+   "work.country-salaries": 23,
+   "rankings.index": 24
+  },
+  "bySurface": {
+   "tools": 69,
+   "move": 203,
+   "work": 23
+  },
+  "byMarket": {
+   "pl-PL": 32,
+   "en-US": 70,
+   "de-DE": 36,
+   "ja-JP": 30,
+   "pt-BR": 32,
+   "it-IT": 29,
+   "es-ES": 26,
+   "fr-FR": 32,
+   "nl-NL": 8
+  },
+  "byPriority": {
+   "high": 295,
+   "medium": 0,
+   "low": 0
+  },
+  "destinations": 49,
+  "markets": 9,
+  "highShare": 100
  },
  "blockedByMissingSource": {
   "families": [
@@ -1003,7 +1056,7 @@
    {
     "family": "work.city-salaries",
     "missing": [
-     "salary-data-verified"
+     "salary-city-verified"
     ]
    },
    {
@@ -1046,13 +1099,13 @@
    {
     "family": "rents.city",
     "missing": [
-     "rent-index-verified"
+     "rent-city-verified"
     ]
    },
    {
     "family": "rents.neighbourhood",
     "missing": [
-     "rent-index-verified"
+     "rent-city-verified"
     ]
    },
    {
@@ -1184,9 +1237,15 @@
     ]
    },
    {
+    "family": "work.country-salaries",
+    "missing": [
+     "salary-data-verified"
+    ]
+   },
+   {
     "family": "work.city-jobs-category",
     "missing": [
-     "salary-data-verified",
+     "salary-city-verified",
      "work-rules-verified"
     ]
    },
@@ -1264,14 +1323,15 @@
     ]
    }
   ],
-  "candidates": 1812686,
+  "candidates": 1815176,
   "missingSources": {
    "cost-of-living-city-verified": 4,
    "visa-rules-verified": 7,
    "cost-of-living-verified": 10,
    "work-rules-verified": 4,
-   "salary-data-verified": 3,
-   "rent-index-verified": 3,
+   "salary-city-verified": 2,
+   "salary-data-verified": 2,
+   "rent-city-verified": 2,
    "property-price-verified": 1,
    "tax-rules-verified": 3,
    "banking-rules-verified": 1,
@@ -1279,6 +1339,7 @@
    "school-data-verified": 2,
    "connectivity-data-verified": 2,
    "neighbourhood-facts-verified": 4,
+   "rent-index-verified": 1,
    "events-verified": 5,
    "country-facts-verified": 1,
    "transit-fares-verified": 1,

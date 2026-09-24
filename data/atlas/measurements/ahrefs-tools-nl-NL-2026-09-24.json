@@ -1,0 +1,86 @@
+{
+ "country": "nl",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 176,
+ "measuredOn": "2026-09-24",
+ "market": "nl-NL",
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison",
+  "rankings.index"
+ ],
+ "note": "Tool and ranking demand, measured in the language of each market rather than translated from English. The phrasings are the ones a resident of that market would type, so the German row for the moving calculator is umzugskosten rechner and the British one is removal costs calculator, and neither is a translation of the other. Zero volume rows are kept because a measured zero is a finding: it says this shape of page should not be built in this market.",
+ "notReturned": [
+  "kosten van levensonderhoud vergelijken",
+  "kosten van levensonderhoud berekenen",
+  "reisbudget berekenen"
+ ],
+ "keywords": [
+  {
+   "keyword": "salaris calculator",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc": 3,
+   "family": "tools.calculator",
+   "entity": "salary-calculator"
+  },
+  {
+   "keyword": "verhuiskosten berekenen",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc": 170,
+   "family": "tools.calculator",
+   "entity": "moving-cost"
+  },
+  {
+   "keyword": "waar moet ik wonen",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": 30,
+   "family": "tools.matcher",
+   "entity": "where-should-i-live"
+  },
+  {
+   "keyword": "kosten emigreren",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.calculator",
+   "entity": "relocation-budget"
+  },
+  {
+   "keyword": "steden vergelijken",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "city-comparison"
+  },
+  {
+   "keyword": "goedkoopste landen om te wonen",
+   "volume": 20,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "cheapest-countries"
+  },
+  {
+   "keyword": "duurste landen ter wereld",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "most-expensive-countries"
+  },
+  {
+   "keyword": "goedkoopste landen in europa",
+   "volume": 50,
+   "difficulty": 9,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "cheapest-countries-europe"
+  }
+ ]
+}

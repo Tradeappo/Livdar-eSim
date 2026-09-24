@@ -23,6 +23,7 @@ import { atlasSitemapIds, atlasSitemapEntries } from '../lib/atlas/sitemap.js';
 import { atlasAlternates } from '../lib/atlas/serve.js';
 import { buildModel as buildAtlasModel } from '../lib/atlas/model.js';
 import { parseKey as parseAtlasKey } from '../lib/atlas/taxonomy.js';
+import { sitemapIds as atlasPageSitemapIds, sitemapEntries as atlasPageSitemapEntries, isPagesSitemap } from '../lib/atlas/sitemap-pages.js';
 
 const REGION_IDS = REGIONS.filter((r) => r.id !== 'global').map((r) => r.id);
 
@@ -36,7 +37,9 @@ export async function generateSitemaps() {
     if (publishedGuideSlugs(locale).length) ids.push({ id: locale + '-guides' });
   });
   // Livdar Atlas: published pages only, one file per locale and page family.
-  return ids.concat(atlasSitemapIds(loadAtlas()));
+  // The data page families are split by language and surface instead, so a
+  // crawl log answers the surface question without a join.
+  return ids.concat(atlasSitemapIds(loadAtlas())).concat(atlasPageSitemapIds());
 }
 
 function entry(path, alternates, priority, changeFrequency, family = 'core') {
@@ -80,6 +83,9 @@ function guideEntries(locale) {
 
 export default async function sitemap({ id }) {
   const raw = String(id || '');
+  if (isPagesSitemap(raw)) {
+    return atlasPageSitemapEntries(raw, { absolute, lastModified: lastModifiedFor('atlas') });
+  }
   if (raw.startsWith('atlas-')) {
     const ds = loadAtlas();
     const isLive = (k) => ds.registry.entries[k] && ds.registry.entries[k].state === 'published';
