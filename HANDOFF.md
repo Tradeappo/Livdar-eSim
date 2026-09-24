@@ -1,8 +1,19 @@
 # Livdar Atlas: handoff to a fresh session
 
-Written 25 September 2026. Read this top to bottom before touching anything.
-It is written for a session with no memory of the work, and its job is to stop
-you repeating three days of it.
+Written 25 September 2026, revised 24 September 2026 by the session that
+picked it up. Read this top to bottom before touching anything. It is written
+for a session with no memory of the work, and its job is to stop you repeating
+it.
+
+**What the revising session changed, in one paragraph.** The push blocker is
+gone and the branch is on GitHub with a pull request open. `next build` failed
+for a reason unrelated to the Atlas and now passes. The climate source was
+wrong in a way that made every best time answer wrong, and is fixed. Best time
+demand is measured in all nine markets, the climate surface is built in all
+nine languages, and cohort 002 is assembled, QA clean and approved at 117
+pages against a target of 250. The two remaining steps, places and travel
+advice, are blocked by the environment's network policy and no longer by
+anything in the code.
 
 ---
 
@@ -46,42 +57,32 @@ These came from the owner across several sessions. Do not relitigate them.
 | Thing | Value |
 | --- | --- |
 | Repo | `Tradeappo/Livdar-eSim` |
-| Branch | `atlas-priority` |
-| HEAD | run `git rev-parse HEAD` after unbundling; the last work commit is `b9eb12d` and the handoff commits sit on top of it |
+| Branch | `claude/seo-handoff-partial-data-7rs7zi` (pushed) |
 | Base | `origin/main` = `1a5f1255e03b2c7286e18b7807087b152196be4b` |
-| Commits ahead of main | 19 at the time of writing, plus any handoff amendments |
+| Pull request | open, and it is the delivery mechanism now rather than a bundle |
 | Working tree | clean |
-| Tests | **220 passing, 0 failing** (`npm test`) |
-| Dash check | 923 files, 0 violations (`npm run dashcheck`) |
-| Test files | 26 under `tests/` |
+| Tests | **252 passing, 0 failing** (`npm test`) |
+| Dash check | 1,062 files, 0 violations (`npm run dashcheck`) |
+| Build | `next build` compiles, 159 static pages |
+| Registry funnel | 123 published, 367 approved |
+
+### The push blocker is gone
+
+The previous session could not push: the git proxy refused the repository and
+twenty commits lived only in a bundle. The repository is in the authorised set
+now, the history was verified and pushed intact, and CI is green on it. If a
+future session hits the same 403 again, it is an environment setting and not
+something to retry in a loop: the repository has to be in that session's
+authorised set.
 
 ### Nothing is merged and nothing is live
 
-- There is **no PR**. `atlas-priority` has never been pushed.
-- **Push is blocked** and retrying is a waste of time. The exact error:
-  > `remote: access denied by the git proxy: Tradeappo/Livdar-eSim is not in
-  > this session's authorized repository set, so the proxy will not inject a
-  > credential for it.`
-  The fix is on the owner's side: add the repo to the session's authorised
-  set. Until then the bundle is the delivery mechanism.
-- The only Atlas pages **live in production** are **123 `city-month` weather
-  pages** from the earlier eSIM-era taxonomy (`lib/atlas/taxonomy.js`,
-  families `city-guide` / `city-month` / `airport`). Everything described
-  below is `approved`, not published.
-
-### Recovery
-
-The bundle carries the complete history; its head matches HEAD exactly.
-
-```
-git bundle unbundle livdar-atlas-priority.bundle
-git checkout atlas-priority
-```
-
-Delivered files (in the conversation, and under `/mnt/user-data/outputs/`):
-
-- `livdar-atlas-priority.bundle` (5.2 MB, all 17 commits, verified complete)
-- `atlas-all-17-commits.patch` (24 MB)
+The only Atlas pages **live in production** are **123 `city-month` weather
+pages** from the earlier eSIM-era taxonomy (`lib/atlas/taxonomy.js`, families
+`city-guide` / `city-month` / `airport`). Both cohorts are `approved` and
+neither is deployed. Production is READY on `main`; the branch has its own
+Preview deployment, which is READY and which every commit before the build fix
+failed to produce.
 
 ---
 
@@ -109,14 +110,33 @@ Delivered files (in the conversation, and under `/mnt/user-data/outputs/`):
 
 **Do not rebuild or modify cohort 001.** It is finished.
 
-### Sources built (13 usable ids)
+### Cohort 002: 117 pages, approved, QA clean
+
+`data/atlas/cohorts/cohort-002.json` and `cohort-002-pages.json`. 72 climate
+pages in 9 languages plus 45 cost of living pages. See section 7.
+
+### The climate surface
+
+`weather.country-best-time`, in all nine cohort languages, with a URL segment
+per language that is the phrase that language actually searches:
+`best-time-to-visit`, `beste-reisezeit`, `quand-partir`, `quando-andare`,
+`mejor-epoca-para-viajar`, `melhor-epoca-para-viajar`, `beste-reistijd`,
+`kiedy-jechac`, `best-season`. Route folders exist for all nine.
+
+The page answers from several measured cities, names them, and where they
+disagree it reports the disagreement. Japan in January is Naha at 89 and
+Sapporo at 4.2, and saying so is the thing no competitor does.
+
+### Sources built (14 usable ids)
 
 `cost-of-living-verified` (199 countries), `rent-index-verified` (36),
 `salary-data-verified` (35), `venue-data-verified` (9,438 venues in 3,766
 cities across 16 countries), plus the entity and computed sources
 (`geonames-cities`, `wikidata-cities`, `wikidata-labels`, `ourairports`,
 `nasa-power-daily`, `computed-solar`, `computed-distance`, `iana-tz`,
-`ahrefs-keywords`).
+`ahrefs-keywords`), plus `climate-normals-verified` (55 cities, 23 countries,
+registered with per entity coverage rather than as universal, so a country
+with no measured cities cannot look eligible).
 
 ### Tools built: 8 of 20
 
@@ -220,140 +240,155 @@ declares good Japanese pages thin.
 | Cheapest vs most expensive lists 84 percent similar | One page reversed. They now carry the two different warnings they need. |
 | Registry migration false negative | It compared entry counts; the sharded store legitimately holds more. Now checks that everything in the flat file arrived. |
 | Inventory read the flat registry | The store moved to shards and the report kept printing the pre-shard state. |
+| Climate extremes scored as typical days | `T2M_MAX` and `T2M_MIN` on the climatology endpoint are the twenty year extremes, not the mean daily maximum and minimum. The comfort model scored them as a typical afternoon and answered that the best time to visit Tokyo was February. It scores the monthly mean now, and the extremes are stored under names that say what they are. |
+| Climate family had no link quota | Added to the cohort without an entry in the `WANTS` table, so it fell through to the fill path where every page links to the same first few. Eight English pages were orphans. A test now asserts no family in a cohort is missing a quota. |
+| Morocco and Turkey were the same page | 88 percent similar in English, 90 in Polish: same best month, same verdict, only the country name different. The page states the measured numbers behind the verdict now, and their Junes differ by 23mm of rain. |
+| Plan and measurements drifted | The plan writer appended rather than replaced, so a regenerated probe left a stale keyword behind. The join is an exact string match, so a page silently stopped being eligible. The family's rows are replaced wholesale now. |
+| Multi word country names mis-cased | `Costo della vita in repubblica Ceca`. The heading fallback raises the last token, which cannot case a two word name. Multi word alternates are stored. |
+| `new URL('../../', import.meta.url)` | Correct in Node, fatal in webpack, which tries to resolve the literal as a module. It broke `next build` entirely. Use `rootFrom` from `lib/atlas/repo-root.js`. |
 | Market gate promise unkept | The comment said a low-priority family "earns further markets by producing measured demand"; the code read only the priority. Now reads `evidenceState` too. |
 
 ---
 
-## 6. Environment blockers (these are real, not solvable in code)
+## 6. Environment blockers
 
-1. **Push is 403.** See section 2. Needs the owner.
-2. **The sandbox has no network route to most data hosts.** `curl` returns
-   `000` / `403 CONNECT` for `ec.europa.eu`, `api.worldbank.org`,
-   `query.wikidata.org`, `overpass-api.de`, `power.larc.nasa.gov`,
-   `download.geofabrik.de`, `gov.uk`, `restcountries.com`.
-   **The workaround that works:** drive the browser pane
-   (`mcp__remote-devices__Claude_Browser__*`), navigate to the target origin
-   (CORS blocks cross-origin fetches, so you must be *on* that origin), then
-   `fetch` in-page and **reduce the payload in the page** before returning it.
-   Large results land in a tool-results file on disk rather than in context;
-   read them with `node`, not with Read.
-3. **`npm install` / `next build` cannot run here.** The npm registry is
-   unreachable, so there is no `node_modules`. Everything checkable without a
-   bundler has been checked.
-4. **Geofabrik extracts are unreachable and unusable here** (multi-gigabyte
-   binaries cannot come through a browser tab).
-5. **MCP servers disconnect and reconnect frequently.** Long browser jobs
-   survive in `window.__*` as long as the tab stays open. Save results to disk
-   as soon as a job finishes.
+Two of the five are resolved. The two that remain are network policy and
+nothing else, so do not look for a code workaround.
+
+**Resolved.**
+
+1. **Push works.** See section 2.
+2. **`npm install` and `next build` work.** The npm registry is reachable, so
+   there is a `node_modules`, and the build passes after the webpack fix in
+   section 5. The previous session could not run a build at all, which is why
+   that bug survived twenty commits.
+
+**Still blocked, and only the owner can change it.**
+
+3. **The network policy denies every data host.** Not a routing quirk: the
+   egress proxy answers 403 to CONNECT. Confirmed denied are
+   `power.larc.nasa.gov`, `overpass-api.de`, `overpass.kumi.systems`,
+   `api.worldbank.org`, `query.wikidata.org`, `www.gov.uk`,
+   `travel.state.gov`, `ec.europa.eu` and `example.com`. Confirmed allowed are
+   `api.github.com`, `raw.githubusercontent.com` and the package registries.
+   The `WebFetch` tool is behind the same proxy and is refused too, so there
+   is no second route. The previous session's browser workaround is not
+   available here either.
+   **The fix is the environment's Network access setting**, in the cloud
+   environment menu in the session title bar, then Edit: either a broader
+   access level or those hosts added to the allowed domains.
+4. **Geofabrik extracts remain unusable** regardless, being multi gigabyte
+   binaries.
+5. **MCP servers still disconnect.** Save anything long running to disk as
+   soon as it finishes.
+
+What this costs, concretely: places stays `PARTIAL` at 13 cities of 44, so the
+Areas surface cannot be built, and travel advice was never attempted, so
+Safety cannot be. Both were steps 5 and 6 of the old continuation list and
+neither is a code problem.
 
 ---
 
-## 7. Where cohort 002 actually got to
+## 7. Cohort 002, as built
 
-The current task is **cohort 002: 250 more eligible pages, maximum surface
-diversity**, then prepare cohort 001 + 002 for **one launch of about 500
-pages**. Neither cohort may be published before both are ready.
+**Cohort 002 is done: 117 pages, QA clean, approved, not deployed.** The
+target was 250 and the shortfall of 133 is reported rather than padded.
 
-### The hard arithmetic you need to know
+### The arithmetic, resolved
 
-There are **295 eligible pages in total**. Cohort 001 took 250. **Only 45
-remain.** Cohort 002 therefore needs roughly **205 genuinely new eligible
-pages**, and every one of them requires a source that is not built yet. This
-is the whole problem.
+There are **367 eligible pages in total**. Cohort 001 took 250 and cohort 002
+took the remaining 117: the 72 climate pages this session added, and the 45
+cost of living pages cohort 001 had no room for. Every other surface is
+blocked on a source that cannot be built from this environment, so 117 is not
+a selection failure, it is the whole inventory.
 
-### Done this session
+| Thing | Cohort 001 | Cohort 002 |
+| --- | --- | --- |
+| Pages | 250 | 117 |
+| Lot | lot-003 | lot-004 |
+| Surfaces | tools, move, work | climate, move |
+| QA | 22 checks, 0 failures | 22 checks, 0 failures |
+| Orphans | 0 | 0 |
 
-**Climate expanded from 8 cities to 55**, across 23 countries.
-`data/atlas/sources/climate/nasa-power-climatology-2026-09-25.json`. Fetched
-from the NASA POWER **climatology** endpoint (the provider's own 20-year
-normals, 2001-2020) rather than the daily endpoint, so every city is on one
-period. Precipitation arrives mm/day and is converted to mm/month.
+The builder takes `--cohort NNN` and excludes every earlier cohort by page
+identity rather than by path, reading the exclusion from the manifests so it
+cannot drift from what was selected.
 
-**Why climate:** it carries the largest measured demand in the programme.
-`best time to visit japan` = **51,000/month at difficulty 3**. Iceland 12,000
-at 1, Greece 9,500 at 5, Switzerland 7,700 at 2, Italy 7,600 at 2, Portugal
-6,500 at 2, Thailand 8,700 at 10. The shape carries into German
-(`beste reisezeit thailand` 8,800 at difficulty 1), French
-(`quand partir en thailande` 6,400 at 1) and Italian. 37 phrasings, 4
-languages, median difficulty about 2, against a source already built.
+### The climate source, and the thing that was wrong with it
 
-**One new family added on that evidence:** `weather.country-best-time`.
-Defined honestly: a country is not one climate, so the answer is computed over
-several measured cities, the page names which, and where the cities disagree
-**the disagreement is the answer** rather than something averaged away. That
-is the thing no competitor does.
+`data/atlas/sources/climate/normals.json`, 55 cities across 23 countries, all
+on one period so that cities inside a country can be compared. Built by
+`scripts/atlas/ingest/climate-normals.mjs`, which gates a capture rather than
+fetching one, so the expensive half never has to be repeated.
 
-**`lib/atlas/climate.js` written** (reader + comfort model). The comfort model
-is entirely visible: bands and penalties stated as constants, every score able
-to show its components, `mostDivided` and `dividedCountry` computed per
-country. **It has no tests yet and has not been run against the new store.**
+**Only `tmean` is a normal.** The provider's `T2M_MAX` and `T2M_MIN` on this
+endpoint are the extreme values over the whole twenty year period. They are
+stored as `tmaxExtreme` and `tminExtreme` and never scored. No page built on
+this source may state a typical daytime high or an overnight low, and
+`NOT_SCORED` in `lib/atlas/climate.js` records that.
 
-**Places (Overpass) is PARTIAL and blocked.**
-`data/atlas/sources/places/osm-counts-2026-09-25.json`, `state: "PARTIAL"`.
-Bounding-box counts work and are the correct non-bulk shape, but the public
-Overpass instance rate-limited the run: **13 cities of 44 complete, 42
-individual queries failed on slot exhaustion.** Finishing needs a self-hosted
-Overpass, a Geofabrik extract (unreachable), or a run paced over hours.
-Recorded caution: **coworking is badly under-tagged in OSM** (Dubai shows 0
-coworking and 3 bars, which is a fact about the map, not about Dubai).
-
-### Surfaces, and what each one actually needs
+### Surfaces, and what each one still needs
 
 | Surface | State | Blocking source |
 | --- | --- | --- |
-| Climate | **Best opportunity. Source now built for 55 cities / 23 countries.** | none |
-| Move | 2 families ready, 18 blocked | `visa-rules-verified` (7 families) |
-| Areas | 2 hub families ready, 7 blocked | `places-data-verified` (partial), `neighbourhood-facts-verified` |
-| Transport | `airports.guide`, `transport.route-from-market` ready | none for those two |
-| Tools | 6 ready (already spent on cohort 001) | `tax-rules-verified` |
-| Work | 1 ready (spent) | `work-rules-verified`, `salary-city-verified` |
+| Climate | **Built. 72 pages in cohort 002.** | none |
+| Move | 2 families ready and spent | `visa-rules-verified` (7 families) |
+| Transport | measured and refused, see below | none, and that is the point |
+| Areas | 2 hub families ready, 7 blocked | `places-data-verified` (PARTIAL, network blocked) |
+| Tools | 6 ready, spent on cohort 001 | `tax-rules-verified` |
+| Work | 1 ready, spent | `work-rules-verified`, `salary-city-verified` |
 | Stay | 0 ready | `rent-city-verified`, `stay-inventory-verified` (commercial) |
 | Pulse | 0 ready | `events-verified` (no licensable feed exists) |
 | Sport | 0 ready | `sport-routes-verified` |
-| Safety | 0 ready | `safety-data-verified`, `travel-advice-verified` |
-| Community | 0 ready | `community-listings-verified` (first-party or nothing) |
+| Safety | 0 ready | `travel-advice-verified` (network blocked) |
+| Community | 0 ready | `community-listings-verified` (first party or nothing) |
 
-**Beware of cannibalisation.** `weather.city-month` and `destinations.city-hub`
-overlap the already-published `city-month` and the existing `city-guide` route
-shape. Do not put them in cohort 002.
+**Transport was measured and refused, so do not spend units on it again.**
+`airports.guide` has real volume and prohibitive difficulty: median 43 over
+fifteen airports, Split 93, Dubrovnik 88, Narita 71. The airport's own site
+holds its own name. `transport.route-from-market` is the mirror image:
+difficulty 0 and 1, and 0 to 150 searches a month. Both keep their entries
+with the measurement attached.
+
+**Beware of cannibalisation.** `weather.city-month` and
+`destinations.city-hub` overlap the already published `city-month` and the
+existing `city-guide` route shape. Do not add them.
 
 ---
 
 ## 8. Exact order to continue
 
-1. **Finish the climate line.** Write
-   `scripts/atlas/ingest/climate-normals.mjs` to gate the capture (range
-   checks, unit checks, provenance, freshness class `reference`) and write
-   `data/atlas/sources/climate/normals.json` keyed by city id with `iso2`.
-   Then point `lib/atlas/climate.js` at it and **write its tests**. The comfort
-   model is untested code right now.
-2. **Measure the remaining best-time demand** in the languages not yet
-   covered: es-ES, pt-BR, nl-NL, pl-PL, ja-JP. Targeted Ahrefs only; the
-   en/de/fr/it evidence is already in hand and is in section 7.
-3. **Build the content pack** for `weather.country-best-time` in the 9 cohort
-   languages, following the existing pattern in `lib/atlas/content/lang/*.js`.
-   Add a segment to `lib/atlas/atlas-urls.js` and route folders under
-   `app/[lang]/`. Sentences must be selected by the data, as elsewhere.
-4. **Add the surfaces that are cheapest next:** `airports.guide` and
-   `transport.route-from-market` need no new source. Measure their demand and
-   build them. That gives Transport / Getting Around.
-5. **Retry places over a longer window** or find a legal alternative, to
-   unlock Areas. Do not fake it; if it stays partial, report the shortfall and
-   move on. The brief explicitly permits this.
-6. **Try `travel-advice-verified`** from government sources (UK FCDO, US State
-   Department) through the browser. That would unlock Safety cheaply. It was
-   never attempted; `gov.uk` failed only because the fetch was cross-origin.
-7. **Assemble cohort 002** with `scripts/atlas/cohort-pages.mjs` extended for
-   a second cohort, run the same 22 QA checks, register at `approved`.
-8. **Only then** build the combined ~500 page launch package, with per-URL
-   metadata for cohort, surface, family, language, origin market, destination,
-   intent, priority, volume, difficulty, SERP opportunity and source type.
-9. **Prepare the GSC comparison design** (by surface, family, language,
-   destination, cohort) and a signal score that keeps raw metrics alongside it.
+Everything cheap has been done. What is left is either blocked or is a
+decision for the owner.
 
-**Do not publish either cohort before both are ready.** That is the point of
-the exercise: launching together makes the surfaces comparable from the same
-start date.
+1. **Ask the owner to widen the network policy** (section 6). Nothing else
+   unblocks Areas or Safety, and both are pure environment.
+2. **When places is unblocked**, finish the Overpass run over a longer window
+   and build Areas. The caution already recorded stands: coworking is badly
+   under tagged in OSM, and Dubai showing 0 coworking is a fact about the map.
+3. **When the government hosts are unblocked**, try `travel-advice-verified`
+   from the UK FCDO and the US State Department. It would unlock Safety
+   cheaply and was never attempted.
+4. **Decide whether to launch at 367 rather than wait for 500.** The standing
+   instruction is that cohorts launch together so the surfaces are comparable
+   from the same start date, and both cohorts are ready. Waiting for a third
+   cohort means waiting for the network policy. This is the owner's call and
+   it is the main open question.
+5. **The launch package exists** at `data/atlas/cohorts/launch-package.json`,
+   367 URLs with cohort, surface, family, language, origin market,
+   destination, intent, priority, volume, difficulty, SERP opportunity and
+   source type. Rebuild it with `node scripts/atlas/launch-package.mjs
+   --write` after any cohort change.
+6. **The GSC comparison design exists** in `lib/atlas/gsc-cohort.js`:
+   dimensions, the unknown is not zero rule, and a signal score that is
+   withheld whenever an input is unknown and always carries its raw metrics.
+   It has never had credentials. The one number to argue with once real data
+   exists is `IMPRESSION_REFERENCE`.
+7. **Ahrefs**: about 980,000 units of 2,000,000 used. **The allowance resets 8
+   October 2026.** Spend targeted units only.
+
+**Do not publish either cohort before both are ready.** They are both ready
+now, which makes step 4 the decision that matters.
 
 ---
 
@@ -393,10 +428,17 @@ eligible ones.
 ## 10. Commands that matter
 
 ```
-npm test                                   # 220 tests, must stay at 0 failures
-npm run dashcheck                          # 923 files, must stay at 0
+npm test                                   # 252 tests, must stay at 0 failures
+npm run dashcheck                          # 1,062 files, must stay at 0
+npx next build                             # must compile; 159 static pages
 node scripts/atlas/cohort-qa.mjs           # 22 checks over cohort 001
+node scripts/atlas/cohort-qa.mjs --cohort 002
 node scripts/atlas/cohort-pages.mjs        # rebuild the cohort manifest
+node scripts/atlas/cohort-pages.mjs --cohort 002 --write
+node scripts/atlas/cohort-register.mjs --cohort 002 --write
+node scripts/atlas/launch-package.mjs      # 367 URLs with their metadata
+node scripts/atlas/ingest/climate-normals.mjs   # gate the climate capture
+node scripts/atlas/measure-best-time.mjs   # probe to plan and measurements
 node scripts/atlas/inventory.mjs           # candidates, eligible, funnel
 node scripts/atlas/serp-report.mjs         # per-market SERP comparison
 node scripts/atlas/ingest/venues.mjs       # venue ingest (Wikidata capture)
@@ -405,6 +447,7 @@ node scripts/atlas/ingest/venues.mjs       # venue ingest (Wikidata capture)
 Key modules: `lib/atlas/eligibility-pages.js`, `lib/atlas/cohort-pages.js`,
 `lib/atlas/atlas-model.js`, `lib/atlas/atlas-urls.js`, `lib/atlas/atlas-links.js`,
 `lib/atlas/serp.js`, `lib/atlas/climate.js`, `lib/atlas/rankings.js`,
+`lib/atlas/gsc-cohort.js`, `lib/atlas/repo-root.js`,
 `lib/atlas/content/` (9 language packs, terms, tool copy, ranking copy,
 country forms).
 
