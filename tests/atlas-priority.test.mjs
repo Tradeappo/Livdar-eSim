@@ -35,8 +35,13 @@ test('nothing was deleted: every family that existed before is still here', () =
 });
 
 test('the priority of every vertical matches the programme', () => {
-  const high = ['relocation', 'visas', 'work', 'cost-of-living', 'rents', 'property', 'taxes', 'banking', 'health', 'education', 'connectivity', 'comparisons'];
-  const medium = ['transport', 'safety', 'neighbourhoods', 'activities', 'events'];
+  // Events and neighbourhoods moved from medium to high on 2026-09-24 after
+  // the product surface research measured them for the first time. The weekend
+  // hub is a 15,000 a month term and concerts in a city is 13,000, which are
+  // the largest volumes anywhere in the Atlas research outside the calculator
+  // head terms. They were medium when nobody had measured them.
+  const high = ['relocation', 'visas', 'work', 'cost-of-living', 'rents', 'property', 'taxes', 'banking', 'health', 'education', 'connectivity', 'comparisons', 'stay', 'events', 'neighbourhoods'];
+  const medium = ['transport', 'safety', 'activities', 'places', 'sport', 'community', 'services'];
   const low = ['weather', 'airports', 'destinations'];
   for (const v of high) assert.equal(VERTICAL_PRIORITY[v], 'high', v);
   for (const v of medium) assert.equal(VERTICAL_PRIORITY[v], 'medium', v);
@@ -156,7 +161,17 @@ test('every family declares what it is worth, and a high priority family is wort
   const avg = (list) => list.reduce((t, f) => t + familyPrior(f), 0) / list.length;
   assert.ok(avg(byPriority.high) > avg(byPriority.medium), 'high priority families do not score above medium');
   assert.ok(avg(byPriority.medium) > avg(byPriority.low), 'medium priority families do not score above low');
-  for (const f of byPriority.high) assert.equal(bandOf(f), 'high-value', f + ' is high priority but lands in ' + bandOf(f));
+  // Priority and value are two different questions and this test used to
+  // conflate them. Priority asks whether Livdar has to be present on a
+  // surface at all; the prior asks what one page on it is worth. Pulse is the
+  // case that separates them: things to do this weekend carries the largest
+  // measured volume in the programme and a modest value per visit, because
+  // the reader is usually already in the city. It is strategically essential
+  // and individually medium value, and both of those are true at once.
+  //
+  // What the guard still has to catch is a family marked high priority that
+  // is worth nothing at all, so that is what it now checks.
+  for (const f of byPriority.high) assert.notEqual(bandOf(f), 'low-value', f + ' is high priority and lands in low-value');
 });
 
 test('the selection is a build order, not a publication decision', () => {

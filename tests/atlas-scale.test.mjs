@@ -254,7 +254,7 @@ test('internal linking guarantees a floor of crawlable inlinks and names orphans
 test('every family declares a vertical, an axis, a scope and its sources', () => {
   for (const [id, f] of Object.entries(FAMILIES)) {
     assert.ok(VERTICALS[f.vertical], id + ' has no known vertical');
-    assert.ok(['language', 'audience', 'origin'].includes(f.axis), id + ' has axis ' + f.axis);
+    assert.ok(['language', 'audience', 'origin', 'persona', 'time'].includes(f.axis), id + ' has axis ' + f.axis);
     assert.ok(Array.isArray(f.requiredSources) && f.requiredSources.length, id + ' declares no sources');
     assert.ok(f.uniqueness && f.uniqueness.length > 20, id + ' has no uniqueness rule');
     assert.ok(f.minWords >= 250, id + ' would allow a thin page');

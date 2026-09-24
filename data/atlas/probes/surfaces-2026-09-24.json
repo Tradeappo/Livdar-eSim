@@ -1,0 +1,537 @@
+{
+ "note": "Demand probes for the product surfaces that had no research. Two kinds of probe are mixed here on purpose. The en-US probes ask what these shapes are worth to an English speaking audience searching about foreign cities. The de-DE and es-ES probes ask the same questions in the local language about local cities, which is how a resident or a new arrival actually searches. Comparing the two is the finding.",
+ "caution": "Ten to twelve phrasings per surface is a probe, not a survey. It shows where demand sits and roughly how large it is. It cannot prove absence, only that nothing was found on the phrasings asked. A zero row here means Ahrefs returned a volume of zero; a phrasing in notReturned means it returned no row at all.",
+ "provider": "ahrefs",
+ "tool": "keywords-explorer-overview",
+ "select": "keyword,volume,difficulty,cpc",
+ "measuredOn": "2026-09-24",
+ "cpcUnit": "USD cents, as the API returns them",
+ "unitsPerRow": 22,
+ "unitsTotal": 2112,
+ "markets": {
+  "en-US": {
+   "country": "us",
+   "asked": 66,
+   "returned": 55,
+   "finding": "Commercial intent is high and difficulty is low across most of these shapes, but volumes for foreign cities are small because the searcher is in the wrong country. The exceptions are tools and event types, which are asked about from anywhere.",
+   "surfaces": {
+    "areas": {
+     "keywords": [
+      {
+       "keyword": "best restaurants in soho",
+       "volume": 1100,
+       "difficulty": 2,
+       "cpc": 50
+      },
+      {
+       "keyword": "best areas to stay in rome",
+       "volume": 700,
+       "difficulty": 3,
+       "cpc": 30
+      },
+      {
+       "keyword": "best neighborhoods in lisbon",
+       "volume": 300,
+       "difficulty": 3,
+       "cpc": 15
+      },
+      {
+       "keyword": "malls in dubai",
+       "volume": 250,
+       "difficulty": 66,
+       "cpc": 60
+      },
+      {
+       "keyword": "best gyms in dubai",
+       "volume": 100,
+       "difficulty": 0,
+       "cpc": 35
+      },
+      {
+       "keyword": "best areas to live in dubai",
+       "volume": 70,
+       "difficulty": 0,
+       "cpc": 60
+      },
+      {
+       "keyword": "where to live in barcelona",
+       "volume": 50,
+       "difficulty": 0,
+       "cpc": 40
+      },
+      {
+       "keyword": "rooftop bars in barcelona",
+       "volume": 40,
+       "difficulty": 0,
+       "cpc": 6
+      },
+      {
+       "keyword": "coworking in bali",
+       "volume": 20,
+       "difficulty": 1,
+       "cpc": 400
+      },
+      {
+       "keyword": "best neighborhoods for expats in madrid",
+       "volume": 0,
+       "difficulty": null,
+       "cpc": null
+      }
+     ],
+     "notReturned": [
+      "cafes in dubai marina",
+      "best cafes to work from in lisbon"
+     ]
+    },
+    "pulse": {
+     "keywords": [
+      {
+       "keyword": "concerts in chicago",
+       "volume": 13000,
+       "difficulty": 19,
+       "cpc": 3
+      },
+      {
+       "keyword": "f1 las vegas tickets",
+       "volume": 6000,
+       "difficulty": 69,
+       "cpc": 20
+      },
+      {
+       "keyword": "hotels near madison square garden",
+       "volume": 3000,
+       "difficulty": 2,
+       "cpc": 140
+      },
+      {
+       "keyword": "things to do in miami this weekend",
+       "volume": 2600,
+       "difficulty": 26,
+       "cpc": 30
+      },
+      {
+       "keyword": "events in austin this weekend",
+       "volume": 2200,
+       "difficulty": 10,
+       "cpc": 7
+      },
+      {
+       "keyword": "what to do in nyc tonight",
+       "volume": 700,
+       "difficulty": 48,
+       "cpc": 40
+      },
+      {
+       "keyword": "christmas markets in vienna",
+       "volume": 400,
+       "difficulty": 6,
+       "cpc": 40
+      },
+      {
+       "keyword": "festivals in barcelona",
+       "volume": 200,
+       "difficulty": 7,
+       "cpc": 5
+      },
+      {
+       "keyword": "events in dubai today",
+       "volume": 150,
+       "difficulty": 64,
+       "cpc": 70
+      },
+      {
+       "keyword": "marathon london 2027",
+       "volume": 10,
+       "difficulty": null,
+       "cpc": null
+      }
+     ],
+     "notReturned": [
+      "where to stay for f1 miami",
+      "restaurants near coachella"
+     ]
+    },
+    "stay": {
+     "keywords": [
+      {
+       "keyword": "student accommodation london",
+       "volume": 500,
+       "difficulty": 40,
+       "cpc": 160
+      },
+      {
+       "keyword": "coliving lisbon",
+       "volume": 150,
+       "difficulty": 14,
+       "cpc": 80
+      },
+      {
+       "keyword": "serviced apartments dubai",
+       "volume": 150,
+       "difficulty": 8,
+       "cpc": 80
+      },
+      {
+       "keyword": "pet friendly apartments austin",
+       "volume": 100,
+       "difficulty": null,
+       "cpc": 250
+      },
+      {
+       "keyword": "short term rentals lisbon",
+       "volume": 70,
+       "difficulty": 2,
+       "cpc": 110
+      },
+      {
+       "keyword": "rooms for rent in barcelona",
+       "volume": 40,
+       "difficulty": 3,
+       "cpc": 60
+      }
+     ],
+     "notReturned": [
+      "roommates in berlin",
+      "monthly apartments in mexico city",
+      "apartments near metro madrid",
+      "digital nomad apartments bali"
+     ]
+    },
+    "sport": {
+     "keywords": [
+      {
+       "keyword": "sailing in croatia",
+       "volume": 500,
+       "difficulty": 5,
+       "cpc": 50
+      },
+      {
+       "keyword": "paddle boarding miami",
+       "volume": 150,
+       "difficulty": 2,
+       "cpc": 50
+      },
+      {
+       "keyword": "hiking near barcelona",
+       "volume": 100,
+       "difficulty": 0,
+       "cpc": 15
+      },
+      {
+       "keyword": "diving in tenerife",
+       "volume": 70,
+       "difficulty": 58,
+       "cpc": 35
+      },
+      {
+       "keyword": "surf spots in portugal",
+       "volume": 30,
+       "difficulty": 0,
+       "cpc": 20
+      },
+      {
+       "keyword": "kayaking in dubai",
+       "volume": 10,
+       "difficulty": 0,
+       "cpc": 30
+      },
+      {
+       "keyword": "best running routes in london",
+       "volume": 10,
+       "difficulty": 0,
+       "cpc": null
+      },
+      {
+       "keyword": "cycling routes in mallorca",
+       "volume": 10,
+       "difficulty": null,
+       "cpc": null
+      }
+     ],
+     "notReturned": []
+    },
+    "community": {
+     "keywords": [
+      {
+       "keyword": "language exchange madrid",
+       "volume": 150,
+       "difficulty": 2,
+       "cpc": null
+      }
+     ],
+     "notReturned": [
+      "expat meetups in berlin",
+      "running clubs in lisbon",
+      "tech networking events london"
+     ]
+    },
+    "work": {
+     "keywords": [
+      {
+       "keyword": "remote jobs europe",
+       "volume": 350,
+       "difficulty": 47,
+       "cpc": 80
+      },
+      {
+       "keyword": "jobs with visa sponsorship",
+       "volume": 90,
+       "difficulty": 12,
+       "cpc": 15
+      },
+      {
+       "keyword": "average salary amsterdam",
+       "volume": 60,
+       "difficulty": 2,
+       "cpc": null
+      },
+      {
+       "keyword": "english speaking jobs in berlin",
+       "volume": 50,
+       "difficulty": 4,
+       "cpc": 20
+      },
+      {
+       "keyword": "jobs for expats in spain",
+       "volume": 40,
+       "difficulty": 17,
+       "cpc": 20
+      },
+      {
+       "keyword": "hospitality jobs dubai",
+       "volume": 20,
+       "difficulty": 1,
+       "cpc": 25
+      },
+      {
+       "keyword": "tech jobs in amsterdam",
+       "volume": 20,
+       "difficulty": 0,
+       "cpc": null
+      },
+      {
+       "keyword": "software engineer salary berlin",
+       "volume": 20,
+       "difficulty": 0,
+       "cpc": null
+      }
+     ],
+     "notReturned": []
+    },
+    "tools": {
+     "keywords": [
+      {
+       "keyword": "tax calculator",
+       "volume": 351000,
+       "difficulty": 74,
+       "cpc": 90
+      },
+      {
+       "keyword": "salary calculator",
+       "volume": 148000,
+       "difficulty": 69,
+       "cpc": 40
+      },
+      {
+       "keyword": "cost of living calculator",
+       "volume": 39000,
+       "difficulty": 78,
+       "cpc": 45
+      },
+      {
+       "keyword": "rent affordability calculator",
+       "volume": 3600,
+       "difficulty": 31,
+       "cpc": 30
+      },
+      {
+       "keyword": "moving cost calculator",
+       "volume": 2500,
+       "difficulty": 41,
+       "cpc": 500
+      },
+      {
+       "keyword": "net salary calculator",
+       "volume": 2300,
+       "difficulty": 59,
+       "cpc": 160
+      },
+      {
+       "keyword": "where should i live quiz",
+       "volume": 1500,
+       "difficulty": 1,
+       "cpc": 10
+      },
+      {
+       "keyword": "commute calculator",
+       "volume": 350,
+       "difficulty": 9,
+       "cpc": 200
+      },
+      {
+       "keyword": "relocation checklist",
+       "volume": 150,
+       "difficulty": 12,
+       "cpc": 90
+      },
+      {
+       "keyword": "travel budget calculator",
+       "volume": 150,
+       "difficulty": 9,
+       "cpc": 70
+      },
+      {
+       "keyword": "property affordability calculator",
+       "volume": 50,
+       "difficulty": 63,
+       "cpc": 50
+      },
+      {
+       "keyword": "visa eligibility check",
+       "volume": 10,
+       "difficulty": null,
+       "cpc": null
+      }
+     ],
+     "notReturned": []
+    }
+   }
+  },
+  "de-DE": {
+   "country": "de",
+   "asked": 8,
+   "returned": 8,
+   "finding": "Every shape that looked small in English is large in German. Events today in Berlin is 6,700 a month against 150 for events in Dubai today asked in English. Rooms, which returned nothing at all in English, is 1,600. Coworking Berlin carries a four dollar cost per click.",
+   "keywords": [
+    {
+     "keyword": "veranstaltungen berlin heute",
+     "volume": 6700,
+     "difficulty": 25,
+     "cpc": 30,
+     "surface": "pulse"
+    },
+    {
+     "keyword": "was kann man in berlin machen",
+     "volume": 5400,
+     "difficulty": 3,
+     "cpc": 10,
+     "surface": "pulse"
+    },
+    {
+     "keyword": "wg zimmer berlin",
+     "volume": 1600,
+     "difficulty": 9,
+     "cpc": 20,
+     "surface": "stay"
+    },
+    {
+     "keyword": "möblierte wohnung münchen",
+     "volume": 600,
+     "difficulty": 1,
+     "cpc": 50,
+     "surface": "stay"
+    },
+    {
+     "keyword": "coworking berlin",
+     "volume": 600,
+     "difficulty": 3,
+     "cpc": 400,
+     "surface": "areas"
+    },
+    {
+     "keyword": "beste stadtteile berlin",
+     "volume": 150,
+     "difficulty": 0,
+     "cpc": null,
+     "surface": "areas"
+    },
+    {
+     "keyword": "laufstrecken berlin",
+     "volume": 100,
+     "difficulty": 0,
+     "cpc": 20,
+     "surface": "sport"
+    },
+    {
+     "keyword": "restaurants in berlin mitte",
+     "volume": 90,
+     "difficulty": 58,
+     "cpc": 25,
+     "surface": "areas"
+    }
+   ],
+   "notReturned": []
+  },
+  "es-ES": {
+   "country": "es",
+   "asked": 8,
+   "returned": 8,
+   "finding": "The same again. Coliving Madrid is 2,900 against 150 for coliving Lisbon asked in English, and rooms to rent in Barcelona is 1,600 at difficulty 2 against 40 for the English phrasing. Coworking Barcelona carries a three dollar cost per click.",
+   "keywords": [
+    {
+     "keyword": "coliving madrid",
+     "volume": 2900,
+     "difficulty": 24,
+     "cpc": 60,
+     "surface": "stay"
+    },
+    {
+     "keyword": "que hacer en madrid este fin de semana",
+     "volume": 2800,
+     "difficulty": 12,
+     "cpc": 20,
+     "surface": "pulse"
+    },
+    {
+     "keyword": "coworking barcelona",
+     "volume": 2100,
+     "difficulty": 13,
+     "cpc": 300,
+     "surface": "areas"
+    },
+    {
+     "keyword": "habitaciones en alquiler barcelona",
+     "volume": 1600,
+     "difficulty": 2,
+     "cpc": 15,
+     "surface": "stay"
+    },
+    {
+     "keyword": "eventos en barcelona",
+     "volume": 600,
+     "difficulty": 22,
+     "cpc": 20,
+     "surface": "pulse"
+    },
+    {
+     "keyword": "mejores barrios de madrid",
+     "volume": 400,
+     "difficulty": 0,
+     "cpc": 2,
+     "surface": "areas"
+    },
+    {
+     "keyword": "restaurantes en malasaña",
+     "volume": 90,
+     "difficulty": 3,
+     "cpc": 20,
+     "surface": "areas"
+    },
+    {
+     "keyword": "rutas para correr madrid",
+     "volume": 30,
+     "difficulty": null,
+     "cpc": null,
+     "surface": "sport"
+    }
+   ],
+   "notReturned": []
+  }
+ },
+ "conclusions": [
+  "Areas, Pulse and Stay are local language surfaces first. The same question asked in the local language about a local city returns between ten and forty times the volume of the English phrasing about a foreign city: 6,700 against 150 for events today, 1,600 against nothing for rooms, 2,900 against 150 for coliving. An English taxonomy translated outward would have missed almost all of this, and a market gate that enumerates these families only where they were measured in English would have been wrong.",
+  "Commercial value and search volume point in different directions, and the monetisation map has to carry both. Hotels near Madison Square Garden is 3,000 a month at difficulty 2 with a cost per click of one dollar forty. Concerts in Chicago is 13,000 a month at difficulty 19 with a cost per click of three cents. The second has four times the volume and a fraction of the value.",
+  "Tools are the largest single opportunity measured anywhere in this research, and the winnable ones are the narrow ones. Tax calculator is 351,000 a month at difficulty 74 and salary calculator 148,000 at 69, which are not winnable from a standing start. Where should I live quiz is 1,500 at difficulty 1, moving cost calculator is 2,500 at difficulty 41 with a five dollar cost per click, and commute calculator is 350 at difficulty 9 with a two dollar cost per click.",
+  "Several phrasings the brief assumed are dead in English and have to be recorded as such: cafes in a named neighbourhood, where to stay for a named race, restaurants near a named festival, roommates in a named city, and tech networking events in a named city all returned nothing. The intents behind them are real; these exact phrasings are not how they are searched."
+ ]
+}

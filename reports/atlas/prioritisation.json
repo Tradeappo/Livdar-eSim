@@ -1,26 +1,32 @@
 {
- "generatedAt": "2026-09-23T22:51:38.564Z",
+ "generatedAt": "2026-09-24T00:24:54.164Z",
  "basis": "Family level priors and entity level signals. No page reaches measured through this report.",
  "target": 300000,
  "candidates": {
-  "total": 1092813,
-  "selected": 327939,
+  "total": 2963997,
+  "selected": 328019,
   "reachedTarget": true,
-  "familiesSelected": 17,
-  "familiesTotal": 45
+  "familiesSelected": 19,
+  "familiesTotal": 64
  },
  "distributionAll": {
-  "total": 1092813,
+  "total": 2963997,
   "byVertical": {
+   "places": 390540,
+   "events": 376520,
+   "work": 324839,
+   "sport": 295100,
+   "neighbourhoods": 230430,
+   "stay": 206570,
+   "services": 193494,
    "cost-of-living": 173140,
-   "work": 147779,
    "rents": 139390,
    "relocation": 129822,
    "transport": 87427,
+   "comparisons": 76811,
    "weather": 65962,
-   "neighbourhoods": 53370,
-   "comparisons": 50081,
    "education": 35110,
+   "community": 33600,
    "health": 32249,
    "connectivity": 32249,
    "safety": 32249,
@@ -29,71 +35,37 @@
    "destinations": 23604,
    "visas": 10956,
    "airports": 6488,
-   "events": 5600,
    "taxes": 5478,
    "banking": 2739,
-   "rankings": 80,
-   "tools": 20
+   "tools": 130,
+   "rankings": 80
   },
   "byPriority": {
-   "high": 788603,
-   "medium": 208156,
+   "high": 1800423,
+   "medium": 1067520,
    "low": 96054
   },
   "byBand": {
-   "high-value": 818113,
-   "medium-value": 143536,
-   "low-value": 131164
+   "high-value": 1422443,
+   "medium-value": 1199730,
+   "low-value": 341824
   },
   "shares": {
    "byPriority": {
-    "high": 72.2,
-    "medium": 19,
-    "low": 8.8
+    "high": 60.7,
+    "medium": 36,
+    "low": 3.2
    },
    "byBand": {
-    "high-value": 74.9,
-    "medium-value": 13.1,
-    "low-value": 12
+    "high-value": 48,
+    "medium-value": 40.5,
+    "low-value": 11.5
    }
   },
-  "warnings": [
-   {
-    "kind": "family share",
-    "name": "relocation.city",
-    "candidates": 127083,
-    "share": 11.6,
-    "threshold": 0.1,
-    "priority": "high"
-   },
-   {
-    "kind": "family share",
-    "name": "rents.city",
-    "candidates": 115530,
-    "share": 10.6,
-    "threshold": 0.1,
-    "priority": "high"
-   },
-   {
-    "kind": "family share",
-    "name": "cost-of-living.city",
-    "candidates": 115530,
-    "share": 10.6,
-    "threshold": 0.1,
-    "priority": "high"
-   },
-   {
-    "kind": "family share",
-    "name": "work.city-salaries",
-    "candidates": 115530,
-    "share": 10.6,
-    "threshold": 0.1,
-    "priority": "high"
-   }
-  ]
+  "warnings": []
  },
  "distributionSelected": {
-  "total": 327939,
+  "total": 328019,
   "byVertical": {
    "relocation": 129822,
    "weather": 60888,
@@ -106,15 +78,16 @@
    "banking": 2739,
    "connectivity": 2739,
    "visas": 2739,
-   "tools": 20
+   "tools": 100,
+   "stay": 0
   },
   "byPriority": {
-   "high": 243447,
+   "high": 243527,
    "medium": 0,
    "low": 84492
   },
   "byBand": {
-   "high-value": 243447,
+   "high-value": 243527,
    "medium-value": 0,
    "low-value": 84492
   },
@@ -150,7 +123,7 @@
     "kind": "family share",
     "name": "relocation.city",
     "candidates": 127083,
-    "share": 38.8,
+    "share": 38.7,
     "threshold": 0.1,
     "priority": "high"
    },
@@ -204,6 +177,16 @@
    "candidates": 2739,
    "markets": 11,
    "entities": 249
+  },
+  {
+   "family": "tools.calculator",
+   "vertical": "tools",
+   "priority": "high",
+   "band": "high-value",
+   "prior": 0.915,
+   "candidates": 80,
+   "markets": 10,
+   "entities": 1
   },
   {
    "family": "banking.country",
@@ -264,6 +247,16 @@
    "candidates": 127083,
    "markets": 11,
    "entities": 11553
+  },
+  {
+   "family": "stay.near-venue",
+   "vertical": "stay",
+   "priority": "high",
+   "band": "high-value",
+   "prior": 0.905,
+   "candidates": 0,
+   "markets": 10,
+   "entities": 0
   },
   {
    "family": "tools.cost-comparison",
@@ -336,6 +329,16 @@
    "entities": 249
   },
   {
+   "family": "stay.city-type",
+   "vertical": "stay",
+   "priority": "high",
+   "band": "high-value",
+   "prior": 0.887,
+   "candidates": 206570,
+   "markets": 10,
+   "entities": 2951
+  },
+  {
    "family": "rents.city",
    "vertical": "rents",
    "priority": "high",
@@ -354,36 +357,6 @@
    "candidates": 2739,
    "markets": 11,
    "entities": 249
-  },
-  {
-   "family": "work.city-jobs",
-   "vertical": "work",
-   "priority": "high",
-   "band": "high-value",
-   "prior": 0.882,
-   "candidates": 29510,
-   "markets": 10,
-   "entities": 2951
-  },
-  {
-   "family": "cost-of-living.country",
-   "vertical": "cost-of-living",
-   "priority": "high",
-   "band": "high-value",
-   "prior": 0.878,
-   "candidates": 2490,
-   "markets": 10,
-   "entities": 249
-  },
-  {
-   "family": "visas.country-residency",
-   "vertical": "visas",
-   "priority": "high",
-   "band": "high-value",
-   "prior": 0.875,
-   "candidates": 2739,
-   "markets": 11,
-   "entities": 249
   }
  ],
  "notSelected": [
@@ -392,6 +365,13 @@
    "priority": "high",
    "prior": 0.891,
    "candidates": 2739,
+   "keptBecause": null
+  },
+  {
+   "family": "stay.city-type",
+   "priority": "high",
+   "prior": 0.887,
+   "candidates": 206570,
    "keptBecause": null
   },
   {
@@ -451,6 +431,13 @@
    "keptBecause": null
   },
   {
+   "family": "tools.matcher",
+   "priority": "high",
+   "prior": 0.865,
+   "candidates": 30,
+   "keptBecause": null
+  },
+  {
    "family": "health.city",
    "priority": "high",
    "prior": 0.844,
@@ -465,10 +452,24 @@
    "keptBecause": null
   },
   {
+   "family": "neighbourhoods.city-best-for",
+   "priority": "high",
+   "prior": 0.831,
+   "candidates": 177060,
+   "keptBecause": null
+  },
+  {
    "family": "connectivity.city-online",
    "priority": "high",
    "prior": 0.83,
    "candidates": 29510,
+   "keptBecause": null
+  },
+  {
+   "family": "comparisons.country-vs-country",
+   "priority": "high",
+   "prior": 0.827,
+   "candidates": 26730,
    "keptBecause": null
   },
   {
@@ -487,7 +488,7 @@
   },
   {
    "family": "neighbourhoods.city-where-to-stay",
-   "priority": "medium",
+   "priority": "high",
    "prior": 0.813,
    "candidates": 29510,
    "keptBecause": null
@@ -500,10 +501,31 @@
    "keptBecause": null
   },
   {
+   "family": "work.city-jobs-category",
+   "priority": "high",
+   "prior": 0.803,
+   "candidates": 177060,
+   "keptBecause": null
+  },
+  {
+   "family": "events.recurring",
+   "priority": "high",
+   "prior": 0.779,
+   "candidates": 0,
+   "keptBecause": null
+  },
+  {
    "family": "cost-of-living.item-country",
    "priority": "high",
    "prior": 0.771,
    "candidates": 19920,
+   "keptBecause": null
+  },
+  {
+   "family": "events.series-city",
+   "priority": "high",
+   "prior": 0.755,
+   "candidates": 16800,
    "keptBecause": null
   },
   {
@@ -514,6 +536,20 @@
    "keptBecause": null
   },
   {
+   "family": "events.city-window",
+   "priority": "high",
+   "prior": 0.709,
+   "candidates": 118040,
+   "keptBecause": null
+  },
+  {
+   "family": "events.city-type",
+   "priority": "high",
+   "prior": 0.684,
+   "candidates": 236080,
+   "keptBecause": null
+  },
+  {
    "family": "safety.city",
    "priority": "medium",
    "prior": 0.677,
@@ -521,10 +557,24 @@
    "keptBecause": null
   },
   {
-   "family": "neighbourhoods.guide",
+   "family": "places.city-category",
    "priority": "medium",
+   "prior": 0.676,
+   "candidates": 295100,
+   "keptBecause": null
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "priority": "high",
    "prior": 0.674,
    "candidates": 23860,
+   "keptBecause": null
+  },
+  {
+   "family": "places.neighbourhood-category",
+   "priority": "medium",
+   "prior": 0.673,
+   "candidates": 95440,
    "keptBecause": null
   },
   {
@@ -532,6 +582,13 @@
    "priority": "medium",
    "prior": 0.653,
    "candidates": 27907,
+   "keptBecause": null
+  },
+  {
+   "family": "services.country-admin",
+   "priority": "medium",
+   "prior": 0.653,
+   "candidates": 16434,
    "keptBecause": null
   },
   {
@@ -549,10 +606,31 @@
    "keptBecause": null
   },
   {
+   "family": "sport.city-activity",
+   "priority": "medium",
+   "prior": 0.629,
+   "candidates": 295100,
+   "keptBecause": null
+  },
+  {
    "family": "transport.city-getting-around",
    "priority": "medium",
    "prior": 0.611,
    "candidates": 29510,
+   "keptBecause": null
+  },
+  {
+   "family": "sport.route",
+   "priority": "medium",
+   "prior": 0.586,
+   "candidates": 0,
+   "keptBecause": null
+  },
+  {
+   "family": "places.poi",
+   "priority": "medium",
+   "prior": 0.56,
+   "candidates": 0,
    "keptBecause": null
   },
   {
@@ -577,11 +655,25 @@
    "keptBecause": "It collects the twelve month pages into one decision and is the natural link hub for them."
   },
   {
+   "family": "community.city-topic",
+   "priority": "medium",
+   "prior": 0.482,
+   "candidates": 33600,
+   "keptBecause": null
+  },
+  {
    "family": "airports.guide",
    "priority": "low",
    "prior": 0.431,
    "candidates": 6488,
    "keptBecause": "Named airport queries have real volume and the page carries the transfer and city links."
+  },
+  {
+   "family": "services.city-practical",
+   "priority": "medium",
+   "prior": 0.412,
+   "candidates": 177060,
+   "keptBecause": null
   }
  ],
  "markets": {
@@ -653,9 +745,38 @@
   "singleFamilyOfLowPriority": 0.08
  },
  "blocked": {
-  "families": 38,
-  "candidates": 948932,
+  "families": 49,
+  "candidates": 1812686,
   "rows": [
+   {
+    "family": "events.city-type",
+    "priority": "high",
+    "band": "medium-value",
+    "candidates": 236080,
+    "missing": [
+     "events-verified"
+    ]
+   },
+   {
+    "family": "neighbourhoods.city-best-for",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 177060,
+    "missing": [
+     "neighbourhood-facts-verified",
+     "rent-index-verified"
+    ]
+   },
+   {
+    "family": "work.city-jobs-category",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 177060,
+    "missing": [
+     "salary-data-verified",
+     "work-rules-verified"
+    ]
+   },
    {
     "family": "relocation.city",
     "priority": "high",
@@ -664,6 +785,15 @@
     "missing": [
      "cost-of-living-verified",
      "visa-rules-verified"
+    ]
+   },
+   {
+    "family": "events.city-window",
+    "priority": "high",
+    "band": "medium-value",
+    "candidates": 118040,
+    "missing": [
+     "events-verified"
     ]
    },
    {
@@ -691,6 +821,15 @@
     "candidates": 115530,
     "missing": [
      "rent-index-verified"
+    ]
+   },
+   {
+    "family": "places.neighbourhood-category",
+    "priority": "medium",
+    "band": "medium-value",
+    "candidates": 95440,
+    "missing": [
+     "neighbourhood-facts-verified"
     ]
    },
    {
@@ -786,7 +925,7 @@
    },
    {
     "family": "neighbourhoods.city-where-to-stay",
-    "priority": "medium",
+    "priority": "high",
     "band": "high-value",
     "candidates": 29510,
     "missing": [
@@ -803,6 +942,16 @@
     ]
    },
    {
+    "family": "comparisons.country-vs-country",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 26730,
+    "missing": [
+     "cost-of-living-verified",
+     "tax-rules-verified"
+    ]
+   },
+   {
     "family": "rents.neighbourhood",
     "priority": "high",
     "band": "high-value",
@@ -813,7 +962,7 @@
    },
    {
     "family": "neighbourhoods.guide",
-    "priority": "medium",
+    "priority": "high",
     "band": "medium-value",
     "candidates": 23860,
     "missing": [
@@ -827,6 +976,24 @@
     "candidates": 17620,
     "missing": [
      "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "events.series-city",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 16800,
+    "missing": [
+     "events-verified"
+    ]
+   },
+   {
+    "family": "services.country-admin",
+    "priority": "medium",
+    "band": "medium-value",
+    "candidates": 16434,
+    "missing": [
+     "country-facts-verified"
     ]
    },
    {
@@ -986,6 +1153,24 @@
     ]
    },
    {
+    "family": "tools.calculator",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 80,
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "tools.matcher",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 30,
+    "missing": [
+     "cost-of-living-verified"
+    ]
+   },
+   {
     "family": "tools.cost-comparison",
     "priority": "high",
     "band": "high-value",
@@ -1001,6 +1186,15 @@
     "candidates": 10,
     "missing": [
      "cost-of-living-verified"
+    ]
+   },
+   {
+    "family": "events.recurring",
+    "priority": "high",
+    "band": "high-value",
+    "candidates": 0,
+    "missing": [
+     "events-verified"
     ]
    }
   ]

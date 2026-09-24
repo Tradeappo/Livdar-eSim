@@ -9,13 +9,15 @@ important is left only in the Ahrefs interface.
 | | units |
 | --- | --- |
 | Workspace limit | 2,000,000 |
-| Used, measured on 23 September | 883,413 |
-| Remaining | 1,116,587 |
+| Used, measured on 24 September | 896,499 |
+| Remaining | 1,103,501 |
 
-The figure is the one the meter returns, not one I added up. My own receipts
-for the work below total 6,302 units, 5,620 on the market research and 682 on
-the language probes, and the meter moved 7,882 over the same period. The
-difference of 1,580 is unexplained, and the meter is the number to trust.
+The figure is the one the meter returns, not one I added up. My own receipts across both days total 13,938 units: 5,620 on the market
+research, 682 on the language probes, 6,272 on the product surface discovery
+and 1,364 on the surface probe across nine markets. The meter moved 21,036
+over the same period. The difference of 7,098 is unexplained, it grew on the
+second day, and the meter is the number to trust. Worth watching rather than
+worth worrying about at this budget, but worth watching.
 
 ## What was measured, and why it was worth measuring
 
@@ -205,21 +207,46 @@ phrasing by between five and seven times. That is a direct argument for the
 country level families added today and against generic concept hubs, measured
 independently in three languages.
 
+## 24 September: the product surfaces
+
+`data/atlas/competitors/surfaces-2026-09-24.json` and two probe files hold
+the discovery for the seven product surfaces that had no research at all.
+Seven platform competitors rather than SEO blogs, and probes in nine
+languages.
+
+The result that changes the programme: asked in the local language about a
+local city, Areas, Pulse and Stay return between ten and forty times the
+volume of the English phrasing about a foreign city, and all eleven markets
+came back positive, including the four that the cost of living seed had
+called thin the day before. `reports/atlas/gap-report.md` has the table.
+
+The highest cost per click measured anywhere in this research is coworking in
+London at six dollars, and coworking is a category inside a places family
+rather than a family of its own. The largest Stay intent everywhere is rooms
+and shared housing, which is close to invisible in English.
+
 ## Still worth doing before 8 October
 
 Ranked by what stays useful after the plan lapses.
 
-1. Top pages for the relocation, visas, rents and salaries verticals, seeded
+1. Local language probes for Work, Sport and Community, which were measured
+   only in en-US against foreign cities. Every surface probed locally so far
+   came back an order of magnitude larger, so this is the cheapest remaining
+   research with the best odds.
+2. Top pages for the relocation, visas, rents and salaries verticals, seeded
    from internations.org, internationalliving.com, housinganywhere.com and
    payscale.com. Same method, same export shape, about 900 units per target.
-2. A Japanese probe on the working holiday intent the first probe found, since
-   that is where ja-JP demand actually is and it is a different family set
-   from the one the English research produced.
-3. Referring domains shared by two or more competitors, which is the link
+3. A local competitor set for Areas, Pulse and Stay in the five largest
+   markets, since the competitor research so far is en-US and en-GB only for
+   these surfaces and the demand is not.
+4. A Japanese probe on the working holiday intent the first probe found, since
+   that is a real ja-JP intent and a different family set from the one the
+   English research produced.
+5. Referring domains shared by two or more competitors, which is the link
    target dataset and is expensive to rebuild later.
-4. Brand Radar and AI citation data if the account exposes it, for the queries
+6. Brand Radar and AI citation data if the account exposes it, for the queries
    the measurement found strong.
-5. Keyword gaps between Livdar and the three efficient competitors.
+7. Keyword gaps between Livdar and the three efficient competitors.
 
 Bulk search volume is deliberately not on this list. DataForSEO measures it at
 roughly one hundredth of the Ahrefs unit cost, and the units that expire are

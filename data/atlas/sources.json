@@ -408,6 +408,144 @@
    "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
    "refresh": "quarterly",
    "maxAgeDays": 120
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "places-data-verified",
+   "name": "Places and local business data",
+   "state": "not built yet",
+   "fields": [
+    "poiId",
+    "name",
+    "category",
+    "lat",
+    "lon",
+    "neighbourhoodId",
+    "openingHours",
+    "priceBand",
+    "rating",
+    "reviewCount"
+   ],
+   "refresh": "weekly",
+   "maxAgeDays": 30,
+   "candidates": "OpenStreetMap via Overpass or a bulk extract is openly licensed under ODbL and is the only candidate with unrestricted commercial reuse. Foursquare Places has an open data release. Google Places forbids storing and displaying most fields, so it cannot back a published page.",
+   "licenceRisk": "ODbL requires attribution and share alike on derived databases, which has to be read properly before a page is generated from it.",
+   "coverage": "OSM POI density varies by city by an order of magnitude; the gate in lib/atlas/poi-gate.js is what stops that becoming thin pages.",
+   "rateLimits": "Overpass is rate limited and unsuitable for bulk; a planet or regional extract is the realistic path.",
+   "blocks": [
+    "places.city-category",
+    "places.neighbourhood-category",
+    "places.poi",
+    "services.city-practical"
+   ]
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "stay-inventory-verified",
+   "name": "Stay inventory and prices",
+   "state": "not built yet",
+   "fields": [
+    "city",
+    "stayType",
+    "medianPrice",
+    "currency",
+    "availability",
+    "asOf"
+   ],
+   "refresh": "daily",
+   "maxAgeDays": 7,
+   "candidates": "Affiliate feeds from a booking partner for hotels; a rental marketplace partnership or the operator own published listings for rooms, coliving and monthly.",
+   "licenceRisk": "Affiliate terms usually permit price display only alongside a booking link, which shapes the page rather than blocking it.",
+   "coverage": "Hotels are global. Rooms, coliving and student housing are concentrated in the cities where those markets exist, which is where the measured demand is anyway.",
+   "rateLimits": "Partner dependent, unknown until a partner exists.",
+   "blocks": [
+    "stay.city-type",
+    "stay.near-venue"
+   ]
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "venue-data-verified",
+   "name": "Venues that host events",
+   "state": "not built yet",
+   "fields": [
+    "venueId",
+    "name",
+    "city",
+    "lat",
+    "lon",
+    "capacity"
+   ],
+   "refresh": "monthly",
+   "maxAgeDays": 180,
+   "candidates": "Wikidata for major venues, which is CC0 and sufficient for the stay near venue family; OSM for the rest.",
+   "licenceRisk": "Low. Wikidata is CC0.",
+   "coverage": "Major venues are well covered in Wikidata; small ones are not, which matches the family scope of major venues only.",
+   "rateLimits": "SPARQL endpoint limits apply, and the volume here is small.",
+   "blocks": [
+    "stay.near-venue"
+   ]
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "sport-routes-verified",
+   "name": "Routes, spots and outdoor conditions",
+   "state": "not built yet",
+   "fields": [
+    "routeId",
+    "activity",
+    "city",
+    "distanceKm",
+    "ascentM",
+    "difficulty",
+    "startLat",
+    "startLon",
+    "conditionsFeed"
+   ],
+   "refresh": "monthly for routes, hourly for conditions",
+   "maxAgeDays": 365,
+   "candidates": "OpenStreetMap for routes and paths. Marine and wind conditions from an openly licensed forecast source. Tides from a national hydrographic office.",
+   "licenceRisk": "ODbL again for OSM. Forecast providers vary from open to strictly non commercial and each has to be checked per feed.",
+   "coverage": "Good in Europe and North America, thin elsewhere.",
+   "rateLimits": "Forecast APIs are typically limited by calls per day, which suits a page that caches a daily conditions block.",
+   "note": "Live conditions are a block on a page, never a page of their own. A wind reading does not deserve a URL.",
+   "blocks": [
+    "sport.city-activity",
+    "sport.route"
+   ]
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "community-listings-verified",
+   "name": "Community groups and recurring meetups",
+   "state": "not built yet",
+   "fields": [
+    "groupId",
+    "city",
+    "topic",
+    "cadence",
+    "nextMeeting",
+    "organiserType"
+   ],
+   "refresh": "daily",
+   "maxAgeDays": 14,
+   "candidates": "Livdar own community data once the product has it. Third party meetup platforms generally forbid redistribution of their listings, so this is a first party source or nothing.",
+   "licenceRisk": "High for third party listings, which is part of why the family indexes the hub and never the group.",
+   "coverage": "Starts at zero and grows with the product.",
+   "rateLimits": "n/a for first party data.",
+   "blocks": [
+    "community.city-topic"
+   ]
   }
  ]
 }

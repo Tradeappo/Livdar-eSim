@@ -52,7 +52,12 @@ test('a probe is kept out of the measurement store and states its own limits', (
       // A phrasing the provider had no row for is a stronger negative than a
       // zero, so it has to be recorded rather than quietly dropped.
       const missing = m.asked - m.returned;
-      if (missing > 0) assert.equal((m.notReturned || []).length, missing, market + ' lost ' + missing + ' phrasings without recording them');
+      // A probe may group its phrasings by surface, in which case the record
+      // of what came back empty lives with each surface rather than with the
+      // market.
+      const recorded = (m.notReturned || []).length
+        + Object.values(m.surfaces || {}).reduce((n, s) => n + (s.notReturned || []).length, 0);
+      if (missing > 0) assert.equal(recorded, missing, market + ' lost ' + missing + ' phrasings without recording them');
     }
   }
   // The store itself must not contain one.
