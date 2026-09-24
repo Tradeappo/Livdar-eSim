@@ -47,9 +47,9 @@ These came from the owner across several sessions. Do not relitigate them.
 | --- | --- |
 | Repo | `Tradeappo/Livdar-eSim` |
 | Branch | `atlas-priority` |
-| HEAD | `0ebb9d03dc9291541fdf32d39ed05800c6a4f3b2` |
+| HEAD | run `git rev-parse HEAD` after unbundling; the last work commit is `b9eb12d` and the handoff commits sit on top of it |
 | Base | `origin/main` = `1a5f1255e03b2c7286e18b7807087b152196be4b` |
-| Commits ahead of main | **19** |
+| Commits ahead of main | 19 at the time of writing, plus any handoff amendments |
 | Working tree | clean |
 | Tests | **220 passing, 0 failing** (`npm test`) |
 | Dash check | 923 files, 0 violations (`npm run dashcheck`) |
