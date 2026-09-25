@@ -17,7 +17,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { run as gscImport, rowFor } from '../scripts/atlas/gsc-import.mjs';
 import { check as gscCheck } from '../scripts/gsc-check.mjs';
-import { DIMENSIONS, METRICS, UNKNOWN } from '../lib/atlas/gsc-cohort.js';
+import { DIMENSIONS, METRICS, UNKNOWN, positions, POSITION_BUCKETS } from '../lib/atlas/gsc-cohort.js';
 import { generateKeyPairSync } from 'node:crypto';
 
 // A throwaway key generated here rather than a placeholder string, so the test
@@ -147,4 +147,36 @@ test('configured, authorised and granted are three answers, not one', async () =
   // And never the key itself, in any branch.
   const secret = privateKey.split('\n')[1];
   for (const r of [none, refused, ok]) assert.ok(!JSON.stringify(r).includes(secret), 'the key itself reached the report');
+});
+
+test('where the pages rank is three buckets and two kinds of unknown', () => {
+  // An average position over two hundred pages hides the only thing worth
+  // knowing. Two cohorts can share an average of forty and one of them can have
+  // thirty pages on the first page of results while the other has none.
+  assert.deepEqual(POSITION_BUCKETS.map((b) => b.key), ['top10', 'top20', 'top100']);
+  const p = positions([
+    { position: 4, impressions: 900 },
+    { position: 10, impressions: 40 },
+    { position: 15, impressions: 12 },
+    { position: 101, impressions: 1 },
+    { position: UNKNOWN, impressions: 0 },
+    { position: UNKNOWN, impressions: UNKNOWN },
+  ]);
+  assert.equal(p.top10, 2, 'position ten is on the first page of results');
+  assert.equal(p.top20, 3);
+  assert.equal(p.top100, 3);
+  assert.equal(p.ranked, 4);
+  // The two unknowns are different facts and are never added together. A page
+  // Search Console covered and did not return earned nothing; a page nobody
+  // imported is not measured at all.
+  assert.equal(p.notShown, 1);
+  assert.equal(p.unknown, 1);
+});
+
+test('the import reports every surface separately', async () => {
+  const r = await gscImport({ env: {}, fetchImpl: async () => { throw new Error('no'); } });
+  // Without credentials there is no per surface block to report, and that is the
+  // point: it is not an empty one.
+  assert.equal(r.imported, false);
+  assert.equal(r.bySurface, undefined);
 });

@@ -26,7 +26,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { build as launchPackage } from './launch-package.mjs';
-import { emptyRow, cohortReport, importGaps, DIMENSIONS } from '../../lib/atlas/gsc-cohort.js';
+import { emptyRow, cohortReport, importGaps, positions, DIMENSIONS, POSITION_BUCKETS } from '../../lib/atlas/gsc-cohort.js';
 import { dateRange, getAccessToken, querySearchAnalytics, serviceAccountFromEnv } from '../lib/google-search-console.mjs';
 
 const ROOT = new URL('../../', import.meta.url);
@@ -117,6 +117,13 @@ export async function run({ days = 28, env = process.env, fetchImpl = fetch, now
     indexedNote: 'indexed stays unknown: the Search Analytics API reports impressions, not index state. The Pages report is a separate import and is not wired yet.',
     rows,
     report: cohortReport(rows),
+    // Per surface, because every target in the brief is per surface and an
+    // average over two hundred pages hides the only thing worth knowing.
+    bySurface: Object.fromEntries([...new Set(rows.map((r) => r.surface))].sort().map((s) => {
+      const mine = rows.filter((r) => r.surface === s);
+      return [s, { pages: mine.length, ...positions(mine), impressionsPerPage: Math.round((mine.reduce((t2, r) => t2 + (r.impressions || 0), 0) / mine.length) * 10) / 10, clicksPerPage: Math.round((mine.reduce((t2, r) => t2 + (r.clicks || 0), 0) / mine.length) * 100) / 100 }];
+    })),
+    buckets: POSITION_BUCKETS.map((b) => b.key),
     gaps: importGaps(rows).slice(0, 8),
   };
 }
