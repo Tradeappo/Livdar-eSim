@@ -1,0 +1,57 @@
+{
+ "verifiedOn": "2026-09-25",
+ "meaning": "The state of the five hundred pages on the production origin after the call to action work, the audits and the four defects they found. Every figure was read from https://livdar.com or from a Google served file, not from this repository.",
+
+ "allFiveHundred": {
+  "method": "scripts/atlas/verify-live.mjs, one request per published URL, the served HTML compared against the page model field by field",
+  "urls": 500,
+  "clean": 500,
+  "checked": ["http status", "title equals the model", "description equals the model", "h1 equals the model", "canonical points at itself", "robots is index follow", "html lang equals the page language", "every hreflang the model declares including x-default", "two call to action blocks", "four call to action links", "two distinct positions", "at least three internal links", "structured data present", "member of exactly one sitemap", "a tool present exactly where the model declares one"],
+  "note": "Node's built in fetch ignores HTTPS_PROXY unless NODE_USE_ENV_PROXY=1 is set. Without it every request returns 403 from the egress proxy: five hundred identical failures that look exactly like a site that is down."
+ },
+
+ "audits": {
+  "entity": { "script": "scripts/atlas/audit-entities.mjs", "pagesAudited": 500, "withADestinationEntity": 404, "fieldsPerPage": 10, "reported": 0, "foundAndFixed": "twenty one meta descriptions in five languages that took the country as an argument and never used it" },
+  "language": { "script": "scripts/atlas/audit-language.mjs", "pages": 500, "visibleStrings": 23465, "leaks": 0, "note": "two corrections took it from four hundred false positives to zero: a fixture is a leak only where that language's pack would produce something different, and the marker exclusions are read from each language's own pack file one column at a time" },
+  "tools": { "distinct": 10, "pagesWithATool": 62, "staticPages": 9, "staticReasons": { "city-comparison": "declares two cities as its inputs and the only price data that exists is national", "relocation-budget": "composes three other tools and needs a city level rent that is not published" }, "verifiedInBrowser": "10 of 10 at 390 by 844: renders, output changes when a control changes, controls at least 44 pixels tall with a 16 pixel font, every control labelled, no horizontal overflow, tool_view then tool_start then tool_complete, no reader input in any event" }
+ },
+
+ "defectsFound": [
+  { "what": "five hundred pages declared an x-default and none carried it", "why": "the hreflang map the language switcher needs drops x-default, correctly, and the route passed that same map to the metadata builder", "hidden": "cohort QA has an x-default check and it passes, because it reads the page model rather than the served HTML", "fixed": true, "verified": "x-default present on production" },
+  { "what": "the moving cost calculator rendered three working selects above an output that never appeared", "why": "the implementation takes moveSize and returns a range and three scenarios; the component sent size and looked for a total, and reported unknown move size: undefined to nobody", "fixed": true, "verified": "output changes and tool_complete fires" },
+  { "what": "six sizes and five transports were English on every page", "why": "the labels live inside the implementation and a select is not in the page model, so the language audit could not see it", "fixed": true },
+  { "what": "twenty one meta descriptions never named their country", "why": "the salary descriptions in Italian, Polish, Spanish, Dutch and Portuguese say there rather than the name, while English, German, French and Japanese name it", "fixed": true },
+  { "what": "robots.txt closed the JavaScript bundle", "why": "harmless while every page was server rendered prose, and not harmless once sixty two tool pages carried a calculator that only exists after the bundle loads", "fixed": true, "verified": "robots.txt now disallows /api/ only" }
+ ],
+
+ "indexability": {
+  "robotsTxt": "Allow /, Disallow /api/ only, 74 sitemaps listed including all 58 Atlas ones",
+  "sitemaps": { "atlasUrls": 500, "missing": 0, "extra": 0, "duplicates": 0, "lastmodOnEvery": true },
+  "xDefault": { "pagesCarryingOne": 336, "pagesInAClusterWithNoEnglishPage": 164, "rule": "present exactly where the cluster has an English page and pointing at it; cohort-pages.mjs refuses to nominate an arbitrary language otherwise, because x-default is optional and a wrong one sends a reader to a language nobody chose" },
+  "routeEdgeCases": { "unknownAtlasPath": "404", "missingTrailingSlash": "308 to the canonical form", "uppercaseLocale": "404" }
+ },
+
+ "observability": {
+  "vercelRuntimeErrors": 0,
+  "vercel4xxOr5xx": 0,
+  "window": "the last twenty four hours on the production deployment",
+  "note": "the 502s and ChunkLoadErrors seen during the earlier browser sweep did not appear here, which is where a Vercel generated 502 would appear. Each affected page rendered perfectly when re-opened alone and each chunk answered 200 on retest, so it reads as this container's egress under sixty five concurrent browser sessions rather than the origin."
+ },
+
+ "notConnected": {
+  "searchConsole": { "connected": false, "missing": ["GSC_PROPERTY", "GSC_CLIENT_EMAIL", "GSC_PRIVATE_KEY", "the service account added as a user of the property"], "whyNotDoneHere": "no service account key exists in this project and Search Console asked this container to sign in" },
+  "tagManagerChanges": { "applied": false, "missing": ["five event names in the GA4 event tag trigger", "nine data layer variables and nine parameter rows"], "whyNotDoneHere": "Tag Manager redirected this container to the Google sign in page" },
+  "ga4CustomDimensions": { "applied": false, "whyNotDoneHere": "Analytics redirected this container to the Google sign in page" },
+  "clarity": { "connected": false, "missing": ["the Clarity project id, then NEXT_PUBLIC_CLARITY_ID in Vercel"], "whyNotDoneHere": "Clarity asked this container to sign in, so there is no id to set. A guess would be worse than empty: the loader is gated on the value, so empty renders no script and wrong renders a broken tag on all five hundred pages" },
+  "authenticationTest": "Search Console, Tag Manager, Analytics and Clarity were each opened at a URL that only renders for a signed in account. All four returned a sign in form. Ahrefs, which can hold a Search Console connection, has no GSC data for the Livdar project either."
+ },
+
+ "measurementPipeline": {
+  "search": { "script": "scripts/atlas/gsc-import.mjs", "built": true, "runs": false, "blockedBy": "the three repository secrets", "metrics": ["impressions", "clicks", "ctr", "position", "top10", "top20", "top100", "pages shown to nobody"], "indexedRate": "stays unknown: Search Analytics reports impressions and not index state, and the Pages report is a separate import" },
+  "behaviour": { "script": "scripts/atlas/ga4-import.mjs", "built": true, "runs": false, "blockedBy": "GA4_PROPERTY_ID and a service account with Viewer on the property", "metrics": ["sessions", "users", "engaged sessions", "engagement rate", "average engagement time", "cta click rate", "downstream rate", "outbound rate", "tool start rate over views", "tool completion rate over starts", "four commercial intent counts"] },
+  "dimensions": ["cohort", "surface", "family", "language", "market", "destination", "entity"],
+  "rule": "an absent number is unknown and never zero, in both halves"
+ },
+
+ "checks": { "tests": 347, "dashcheck": { "files": 1560, "dashVariants": 0 }, "qualityGate": "passed", "cohortQa": "001 and 002 both pass" }
+}
