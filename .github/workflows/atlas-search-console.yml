@@ -54,12 +54,14 @@ jobs:
 
       # Configured, authorised and granted are three different questions with
       # three different remedies, so they are answered separately and written
-      # into the job summary. --ci exits 1 unless the property answered.
+      # into the job summary. --ci exits 1 unless the property answered. The
+      # output lives in RUNNER_TEMP, outside the checkout, so the import pull
+      # request can never pick it up.
       - name: Preflight
         run: |
           set -o pipefail
-          node scripts/gsc-check.mjs --ci | tee gsc-check.json
-          { echo '### Search Console'; echo '```json'; cat gsc-check.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          node scripts/gsc-check.mjs --ci | tee "$RUNNER_TEMP/gsc-check.json"
+          { echo '### Search Console'; echo '```json'; cat "$RUNNER_TEMP/gsc-check.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
       - run: node scripts/gsc-report.mjs
 
