@@ -27,7 +27,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { build as launchPackage } from './launch-package.mjs';
 import { emptyRow, cohortReport, importGaps, positions, DIMENSIONS, POSITION_BUCKETS } from '../../lib/atlas/gsc-cohort.js';
-import { dateRange, getAccessToken, querySearchAnalytics, serviceAccountFromEnv } from '../lib/google-search-console.mjs';
+import { dateRange, getAccessToken, querySearchAnalytics, googleCredentialsFromEnv } from '../lib/google-search-console.mjs';
 
 const ROOT = new URL('../../', import.meta.url);
 
@@ -52,13 +52,13 @@ export function rowFor(page) {
   };
 }
 
-export async function run({ days = 28, env = process.env, fetchImpl = fetch, now = new Date() } = {}) {
+export async function run({ days = 28, env = process.env, fetchImpl = fetch, now = new Date(), read } = {}) {
   const pkg = launchPackage();
   const rows = pkg.rows.map(rowFor);
   const byPath = new Map(rows.map((r) => [r.key, r]));
 
   const property = env.GSC_PROPERTY || null;
-  const account = serviceAccountFromEnv(env);
+  const account = googleCredentialsFromEnv(env, read);
   if (!property || !account.credentials) {
     const missing = [property ? null : 'GSC_PROPERTY', ...(account.missing || [])].filter(Boolean);
     // Not an error and not a silent pass. The file is not written, the rows stay
@@ -74,7 +74,7 @@ export async function run({ days = 28, env = process.env, fetchImpl = fetch, now
     };
   }
 
-  const token = await getAccessToken(account.credentials, fetchImpl);
+  const token = await getAccessToken(account.credentials, fetchImpl, undefined, read);
   const range = dateRange(days, new Date(now.getTime() - 3 * 86400000));
   const gsc = await querySearchAnalytics({
     accessToken: token, property, ...range.current, dimensions: ['page'], fetchImpl,
@@ -109,7 +109,8 @@ export async function run({ days = 28, env = process.env, fetchImpl = fetch, now
   return {
     imported: true,
     property,
-    credentialShape: account.shape,
+    credentialShape: account.source,
+    principal: account.principal,
     window: range.current,
     pages: rows.length,
     matched,

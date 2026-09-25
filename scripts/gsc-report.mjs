@@ -4,7 +4,7 @@ import {
   compareTotals,
   dateRange,
   getAccessToken,
-  serviceAccountFromEnv,
+  googleCredentialsFromEnv,
   querySearchAnalytics,
   summarizeTotal,
   topOpportunities,
@@ -13,12 +13,11 @@ import {
 const property = process.env.GSC_PROPERTY;
 if (!property) throw new Error('GSC_PROPERTY is required, for example sc-domain:livdar.com.');
 
-const account = serviceAccountFromEnv();
+const account = googleCredentialsFromEnv();
 if (!account.credentials) {
   throw new Error('Search Console credentials are missing: ' + account.missing.join(', ') + '. Nothing was imported.');
 }
-const credentials = account.credentials;
-const accessToken = await getAccessToken(credentials);
+const accessToken = await getAccessToken(account.credentials);
 const report = {
   generatedAt: new Date().toISOString(),
   property,

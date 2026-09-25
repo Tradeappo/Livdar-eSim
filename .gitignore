@@ -19,3 +19,7 @@ public/img/CREDITS.json
 public/img/incoming/*
 !public/img/incoming/.gitkeep
 public/img/shared/
+
+# Written by google-github-actions/auth (Workload Identity Federation). Holds no
+# key, but it must never be committed by the import pull request.
+gha-creds-*.json

@@ -18,34 +18,52 @@ import assert from 'node:assert/strict';
 import { run as gscImport, rowFor } from '../scripts/atlas/gsc-import.mjs';
 import { check as gscCheck } from '../scripts/gsc-check.mjs';
 import { DIMENSIONS, METRICS, UNKNOWN, positions, POSITION_BUCKETS } from '../lib/atlas/gsc-cohort.js';
-import { generateKeyPairSync } from 'node:crypto';
-
-// A throwaway key generated here rather than a placeholder string, so the test
-// walks the real signing path. A service account key arrives from the
-// environment with its newlines escaped more often than not, so it is escaped
-// here too: that unescaping is a line of production code and this is the only
-// thing that exercises it.
-const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048, privateKeyEncoding: { type: 'pkcs8', format: 'pem' }, publicKeyEncoding: { type: 'spki', format: 'pem' } });
-const ESCAPED_KEY = privateKey.replace(/\n/g, '\\n');
-
+// A stand-in for what google-github-actions/auth writes when it authenticates
+// through Workload Identity Federation. No key anywhere: the file says where the
+// OIDC token comes from, which pool it is presented to and which service
+// account is impersonated. Read through an injected reader so the test touches
+// no disk.
+const SA = 'importer@example.iam.gserviceaccount.com';
+const WIF_FILE = {
+  type: 'external_account',
+  audience: '//iam.googleapis.com/projects/123/locations/global/workloadIdentityPools/github/providers/livdar-esim',
+  subject_token_type: 'urn:ietf:params:oauth:token-type:jwt',
+  token_url: 'https://sts.googleapis.com/v1/token',
+  service_account_impersonation_url: 'https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/' + SA + ':generateAccessToken',
+  credential_source: { url: 'https://oidc.example.test/token?audience=x', headers: { Authorization: 'Bearer runner' }, format: { type: 'json', subject_token_field_name: 'value' } },
+};
+const read = () => JSON.stringify(WIF_FILE);
 const CREDS = {
   GSC_PROPERTY: 'sc-domain:example.test',
-  GSC_CLIENT_EMAIL: 'importer@example.iam.gserviceaccount.com',
-  GSC_PRIVATE_KEY: ESCAPED_KEY,
+  GOOGLE_APPLICATION_CREDENTIALS: '/tmp/wif.json',
 };
 
-// A stand-in for Google that answers the token call and one page level query.
-function fakeGoogle({ rows = [], siteStatus = 200 } = {}) {
+// A stand-in for Google: the OIDC token, the token exchange, the impersonation,
+// and one page level query.
+function fakeGoogle({ rows = [], siteStatus = 200, impersonationStatus = 200 } = {}) {
   const calls = [];
   return {
     calls,
-    fetch: async (url, opts) => {
-      calls.push(String(url));
-      if (String(url).includes('oauth2.googleapis.com/token')) {
-        return { ok: true, status: 200, json: async () => ({ access_token: 'token-for-the-test' }) };
+    fetch: async (url, opts = {}) => {
+      calls.push({ url: String(url), body: opts.body });
+      if (String(url).startsWith('https://oidc.example.test/')) {
+        return { ok: true, status: 200, text: async () => JSON.stringify({ value: 'github-oidc-jwt' }) };
+      }
+      if (String(url) === WIF_FILE.token_url) {
+        const body = JSON.parse(opts.body);
+        assert.equal(body.subjectToken, 'github-oidc-jwt');
+        assert.equal(body.audience, WIF_FILE.audience);
+        return { ok: true, status: 200, json: async () => ({ access_token: 'federated' }) };
+      }
+      if (String(url) === WIF_FILE.service_account_impersonation_url) {
+        assert.equal(opts.headers.authorization, 'Bearer federated');
+        return impersonationStatus === 200
+          ? { ok: true, status: 200, json: async () => ({ accessToken: 'token-for-the-test' }) }
+          : { ok: false, status: impersonationStatus, json: async () => ({ error: { message: 'Permission iam.serviceAccounts.getAccessToken denied' } }) };
       }
       if (/webmasters\/v3\/sites\/[^/]+$/.test(String(url))) {
-        return { ok: siteStatus === 200, status: siteStatus, json: async () => (siteStatus === 200 ? { permissionLevel: 'siteOwner' } : { error: { message: 'User does not have sufficient permission.' } }) };
+        assert.equal(opts.headers.authorization, 'Bearer token-for-the-test');
+        return { ok: siteStatus === 200, status: siteStatus, json: async () => (siteStatus === 200 ? { permissionLevel: 'siteRestrictedUser' } : { error: { message: 'User does not have sufficient permission.' } }) };
       }
       assert.ok(String(url).includes('searchAnalytics/query'), 'unexpected call ' + url);
       const body = JSON.parse(opts.body);
@@ -59,8 +77,8 @@ test('without credentials the import refuses and names every missing one', async
   const r = await gscImport({ env: {}, fetchImpl: async () => { throw new Error('the import called Google without credentials'); } });
   assert.equal(r.imported, false);
   assert.ok(r.missing.includes('GSC_PROPERTY'));
-  assert.ok(r.missing.includes('GSC_CLIENT_EMAIL'));
-  assert.ok(r.missing.includes('GSC_PRIVATE_KEY'));
+  assert.ok(r.missing.some((m) => m.startsWith('GOOGLE_APPLICATION_CREDENTIALS')));
+  assert.ok(!r.missing.some((m) => /PRIVATE_KEY|SERVICE_ACCOUNT_JSON/.test(m)), 'a static key is never asked for');
   // And the rows it did build are unknown rather than zero, which is the rule
   // the whole module exists to protect.
   assert.equal(r.pages, 500);
@@ -93,9 +111,10 @@ test('a page level response lands on the right page with every metric', async ()
     { keys: [first.url], impressions: 1200, clicks: 84, ctr: 0.07, position: 6.4 },
     { keys: ['https://livdar.com/en/not-a-published-page/'], impressions: 9, clicks: 0, ctr: 0, position: 44 },
   ] });
-  const r = await gscImport({ env: CREDS, fetchImpl: g.fetch });
+  const r = await gscImport({ env: CREDS, fetchImpl: g.fetch, read });
   assert.equal(r.imported, true);
-  assert.equal(r.credentialShape, 'GSC_CLIENT_EMAIL and GSC_PRIVATE_KEY');
+  assert.equal(r.credentialShape, 'workload identity federation');
+  assert.equal(r.principal, SA);
   assert.equal(r.matched, 1);
   assert.deepEqual(r.unmatchedFromSearchConsole, ['/en/not-a-published-page/']);
 
@@ -128,25 +147,40 @@ test('configured, authorised and granted are three answers, not one', async () =
   const none = await gscCheck({}, async () => { throw new Error('no'); });
   assert.equal(none.configured, false);
   assert.ok(none.why.startsWith('not configured:'));
-  assert.equal(none.privateKey, 'absent');
+  assert.equal(none.staticKey, 'not used');
 
-  const refused = await gscCheck(CREDS, fakeGoogle({ siteStatus: 403 }).fetch);
+  const refused = await gscCheck(CREDS, fakeGoogle({ siteStatus: 403 }).fetch, read);
   assert.equal(refused.configured, true);
   assert.equal(refused.authorised, true, 'a valid token and no access is the case that has to be distinguishable');
   assert.equal(refused.granted, false);
   assert.ok(refused.why.includes('403'));
   // The remedy names the account to add and where to add it, because that is a
   // Search Console change and not a Google Cloud one.
-  assert.ok(refused.why.includes('importer@example.iam.gserviceaccount.com'));
+  assert.ok(refused.why.includes(SA));
   assert.ok(refused.why.includes('sc-domain:example.test'));
 
-  const ok = await gscCheck(CREDS, fakeGoogle({}).fetch);
+  const ok = await gscCheck(CREDS, fakeGoogle({}).fetch, read);
   assert.equal(ok.granted, true);
-  assert.equal(ok.permission, 'siteOwner');
+  assert.equal(ok.auth, 'workload identity federation');
+  assert.equal(ok.permission, 'siteRestrictedUser');
   assert.equal(ok.why, 'connected');
-  // And never the key itself, in any branch.
-  const secret = privateKey.split('\n')[1];
-  for (const r of [none, refused, ok]) assert.ok(!JSON.stringify(r).includes(secret), 'the key itself reached the report');
+  // And never a token, in any branch.
+  for (const r of [none, refused, ok]) assert.ok(!/github-oidc-jwt|federated"|token-for-the-test/.test(JSON.stringify(r)), 'a token reached the report');
+
+  // Federation that works up to the service account and no further is its own
+  // answer: not authorised, and the remedy names the missing binding.
+  const noBinding = await gscCheck(CREDS, fakeGoogle({ impersonationStatus: 403 }).fetch, read);
+  assert.equal(noBinding.configured, true);
+  assert.equal(noBinding.authorised, false);
+  assert.ok(noBinding.why.includes('workloadIdentityUser'));
+});
+
+test('a static service account key is refused, not used as a fallback', async () => {
+  const keyFile = () => JSON.stringify({ type: 'service_account', client_email: SA, private_key: 'not read' });
+  const r = await gscCheck({ ...CREDS, GSC_PRIVATE_KEY: 'x' }, async () => { throw new Error('Google was called with a static key'); }, keyFile);
+  assert.equal(r.configured, false);
+  assert.ok(r.why.includes('static service account keys are refused'));
+  assert.ok(r.staticKey.startsWith('ignored: GSC_PRIVATE_KEY'));
 });
 
 test('where the pages rank is three buckets and two kinds of unknown', () => {
@@ -240,11 +274,14 @@ test('the two rates that are not conventional are the ones the brief asks for', 
 });
 
 test('a token is minted for the API it is going to be used against', async () => {
-  // Two APIs share the token path now. A token minted for the Search Console
-  // scope fails against the Data API with a message that names neither.
-  const { createServiceAccountJwt } = await import('../scripts/lib/google-search-console.mjs');
-  const claim = (jwt) => JSON.parse(Buffer.from(jwt.split('.')[1], 'base64url').toString());
-  const creds = { client_email: 'a@b.iam.gserviceaccount.com', private_key: privateKey };
-  assert.match(claim(createServiceAccountJwt(creds)).scope, /webmasters\.readonly$/);
-  assert.match(claim(createServiceAccountJwt(creds, Math.floor(Date.now() / 1000), 'https://www.googleapis.com/auth/analytics.readonly')).scope, /analytics\.readonly$/);
+  // Two APIs share the token path. A token minted for the Search Console scope
+  // fails against the Data API with a message that names neither, so the scope
+  // asked of the impersonation is the caller's, not a default.
+  const { getAccessToken } = await import('../scripts/lib/google-search-console.mjs');
+  for (const scope of ['https://www.googleapis.com/auth/webmasters.readonly', 'https://www.googleapis.com/auth/analytics.readonly']) {
+    const g = fakeGoogle({});
+    await getAccessToken(WIF_FILE, g.fetch, scope);
+    const imp = g.calls.find((c) => c.url === WIF_FILE.service_account_impersonation_url);
+    assert.deepEqual(JSON.parse(imp.body).scope, [scope]);
+  }
 });
