@@ -39,7 +39,8 @@
     "gsc:check": "node scripts/gsc-check.mjs",
     "atlas:gsc": "node scripts/atlas/gsc-import.mjs",
     "atlas:language": "node scripts/atlas/audit-language.mjs",
-    "atlas:live": "node scripts/atlas/verify-live.mjs"
+    "atlas:live": "NODE_USE_ENV_PROXY=1 node scripts/atlas/verify-live.mjs",
+    "atlas:ga4": "node scripts/atlas/ga4-import.mjs"
   },
   "dependencies": {
     "next": "15.5.25",
