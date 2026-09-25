@@ -23,3 +23,6 @@ public/img/shared/
 # Written by google-github-actions/auth (Workload Identity Federation). Holds no
 # key, but it must never be committed by the import pull request.
 gha-creds-*.json
+
+# Preflight output of scripts/gsc-check.mjs. A log, never an input, never committed.
+gsc-check.json
