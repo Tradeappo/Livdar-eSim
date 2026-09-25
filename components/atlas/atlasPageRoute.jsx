@@ -7,7 +7,7 @@
 
 import { notFound } from 'next/navigation';
 import AtlasPage from './AtlasPage.jsx';
-import { servePage, alternatePathsFor } from '../../lib/atlas/serve-pages.js';
+import { servePage, alternatePathsFor, hreflangMapFor } from '../../lib/atlas/serve-pages.js';
 import { buildMetadata } from '../../lib/seo.js';
 
 export function makeAtlasPageRoute(segmentName) {
@@ -25,7 +25,8 @@ export function makeAtlasPageRoute(segmentName) {
       description: m.description,
       path: m.path,
       locale: m.locale,
-      alternates: alternatePathsFor(m),
+      // The metadata map, which keeps x-default; the switcher gets the other one.
+      alternates: hreflangMapFor(m),
       // Everything in the manifest passed cohort QA, which is the condition
       // for being indexable. A page that is not in the manifest never gets
       // here at all.

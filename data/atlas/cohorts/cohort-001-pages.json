@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-25T13:21:44.544Z",
+ "generatedAt": "2026-09-25T14:08:38.106Z",
  "meaning": "Every page of cohort 001 as a model: metadata, content, provenance, internal links and alternates. This is what a publication run reads and what QA checked.",
  "pages": [
   {
@@ -6735,20 +6735,70 @@
     "language": "en",
     "home": "US",
     "sizes": [
-     "room",
-     "studio",
-     "flat-1br",
-     "flat-2br",
-     "flat-3br",
-     "house-4br"
+     {
+      "id": "room",
+      "label": "One room",
+      "m3": 8
+     },
+     {
+      "id": "studio",
+      "label": "Studio",
+      "m3": 14
+     },
+     {
+      "id": "flat-1br",
+      "label": "One bedroom",
+      "m3": 22
+     },
+     {
+      "id": "flat-2br",
+      "label": "Two bedrooms",
+      "m3": 35
+     },
+     {
+      "id": "flat-3br",
+      "label": "Three bedrooms",
+      "m3": 50
+     },
+     {
+      "id": "house-4br",
+      "label": "Four bedroom house",
+      "m3": 70
+     }
     ],
     "transports": [
-     "van",
-     "truck",
-     "shared-load",
-     "container",
-     "air"
-    ]
+     {
+      "id": "van",
+      "label": "Van",
+      "minKm": 0,
+      "maxKm": 1200
+     },
+     {
+      "id": "truck",
+      "label": "Removals truck",
+      "minKm": 0,
+      "maxKm": 3000
+     },
+     {
+      "id": "shared-load",
+      "label": "Shared load",
+      "minKm": 150,
+      "maxKm": 3000
+     },
+     {
+      "id": "container",
+      "label": "Sea container",
+      "minKm": 800,
+      "maxKm": 20000
+     },
+     {
+      "id": "air",
+      "label": "Air freight",
+      "minKm": 500,
+      "maxKm": 20000
+     }
+    ],
+    "currency": "EUR"
    },
    "url": "https://livdar.com/en/tools/moving-cost-calculator/",
    "path": "/en/tools/moving-cost-calculator/",
@@ -13221,20 +13271,70 @@
     "language": "fr",
     "home": "FR",
     "sizes": [
-     "room",
-     "studio",
-     "flat-1br",
-     "flat-2br",
-     "flat-3br",
-     "house-4br"
+     {
+      "id": "room",
+      "label": "Une piece",
+      "m3": 8
+     },
+     {
+      "id": "studio",
+      "label": "Un studio",
+      "m3": 14
+     },
+     {
+      "id": "flat-1br",
+      "label": "Deux pieces",
+      "m3": 22
+     },
+     {
+      "id": "flat-2br",
+      "label": "Trois pieces",
+      "m3": 35
+     },
+     {
+      "id": "flat-3br",
+      "label": "Quatre pieces",
+      "m3": 50
+     },
+     {
+      "id": "house-4br",
+      "label": "Maison de cinq pieces",
+      "m3": 70
+     }
     ],
     "transports": [
-     "van",
-     "truck",
-     "shared-load",
-     "container",
-     "air"
-    ]
+     {
+      "id": "van",
+      "label": "Camionnette",
+      "minKm": 0,
+      "maxKm": 1200
+     },
+     {
+      "id": "truck",
+      "label": "Camion de demenagement",
+      "minKm": 0,
+      "maxKm": 3000
+     },
+     {
+      "id": "shared-load",
+      "label": "Groupage",
+      "minKm": 150,
+      "maxKm": 3000
+     },
+     {
+      "id": "container",
+      "label": "Conteneur maritime",
+      "minKm": 800,
+      "maxKm": 20000
+     },
+     {
+      "id": "air",
+      "label": "Fret aerien",
+      "minKm": 500,
+      "maxKm": 20000
+     }
+    ],
+    "currency": "EUR"
    },
    "url": "https://livdar.com/fr/outils/cout-demenagement/",
    "path": "/fr/outils/cout-demenagement/",
@@ -21674,20 +21774,70 @@
     "language": "it",
     "home": "IT",
     "sizes": [
-     "room",
-     "studio",
-     "flat-1br",
-     "flat-2br",
-     "flat-3br",
-     "house-4br"
+     {
+      "id": "room",
+      "label": "Una stanza",
+      "m3": 8
+     },
+     {
+      "id": "studio",
+      "label": "Un monolocale",
+      "m3": 14
+     },
+     {
+      "id": "flat-1br",
+      "label": "Un bilocale",
+      "m3": 22
+     },
+     {
+      "id": "flat-2br",
+      "label": "Un trilocale",
+      "m3": 35
+     },
+     {
+      "id": "flat-3br",
+      "label": "Un quadrilocale",
+      "m3": 50
+     },
+     {
+      "id": "house-4br",
+      "label": "Villa con quattro camere",
+      "m3": 70
+     }
     ],
     "transports": [
-     "van",
-     "truck",
-     "shared-load",
-     "container",
-     "air"
-    ]
+     {
+      "id": "van",
+      "label": "Furgone",
+      "minKm": 0,
+      "maxKm": 1200
+     },
+     {
+      "id": "truck",
+      "label": "Camion per traslochi",
+      "minKm": 0,
+      "maxKm": 3000
+     },
+     {
+      "id": "shared-load",
+      "label": "Carico condiviso",
+      "minKm": 150,
+      "maxKm": 3000
+     },
+     {
+      "id": "container",
+      "label": "Container navale",
+      "minKm": 800,
+      "maxKm": 20000
+     },
+     {
+      "id": "air",
+      "label": "Trasporto aereo",
+      "minKm": 500,
+      "maxKm": 20000
+     }
+    ],
+    "currency": "EUR"
    },
    "url": "https://livdar.com/it/strumenti/preventivo-trasloco/",
    "path": "/it/strumenti/preventivo-trasloco/",
@@ -32948,20 +33098,70 @@
     "language": "de",
     "home": "DE",
     "sizes": [
-     "room",
-     "studio",
-     "flat-1br",
-     "flat-2br",
-     "flat-3br",
-     "house-4br"
+     {
+      "id": "room",
+      "label": "Ein Zimmer",
+      "m3": 8
+     },
+     {
+      "id": "studio",
+      "label": "Ein Apartment",
+      "m3": 14
+     },
+     {
+      "id": "flat-1br",
+      "label": "Zwei Zimmer",
+      "m3": 22
+     },
+     {
+      "id": "flat-2br",
+      "label": "Drei Zimmer",
+      "m3": 35
+     },
+     {
+      "id": "flat-3br",
+      "label": "Vier Zimmer",
+      "m3": 50
+     },
+     {
+      "id": "house-4br",
+      "label": "Haus mit vier Schlafzimmern",
+      "m3": 70
+     }
     ],
     "transports": [
-     "van",
-     "truck",
-     "shared-load",
-     "container",
-     "air"
-    ]
+     {
+      "id": "van",
+      "label": "Transporter",
+      "minKm": 0,
+      "maxKm": 1200
+     },
+     {
+      "id": "truck",
+      "label": "Umzugswagen",
+      "minKm": 0,
+      "maxKm": 3000
+     },
+     {
+      "id": "shared-load",
+      "label": "Beiladung",
+      "minKm": 150,
+      "maxKm": 3000
+     },
+     {
+      "id": "container",
+      "label": "Seecontainer",
+      "minKm": 800,
+      "maxKm": 20000
+     },
+     {
+      "id": "air",
+      "label": "Luftfracht",
+      "minKm": 500,
+      "maxKm": 20000
+     }
+    ],
+    "currency": "EUR"
    },
    "url": "https://livdar.com/de/rechner/umzugskosten-rechner/",
    "path": "/de/rechner/umzugskosten-rechner/",
@@ -43960,20 +44160,70 @@
     "language": "es",
     "home": "ES",
     "sizes": [
-     "room",
-     "studio",
-     "flat-1br",
-     "flat-2br",
-     "flat-3br",
-     "house-4br"
+     {
+      "id": "room",
+      "label": "Una habitacion",
+      "m3": 8
+     },
+     {
+      "id": "studio",
+      "label": "Un estudio",
+      "m3": 14
+     },
+     {
+      "id": "flat-1br",
+      "label": "Un dormitorio",
+      "m3": 22
+     },
+     {
+      "id": "flat-2br",
+      "label": "Dos dormitorios",
+      "m3": 35
+     },
+     {
+      "id": "flat-3br",
+      "label": "Tres dormitorios",
+      "m3": 50
+     },
+     {
+      "id": "house-4br",
+      "label": "Casa de cuatro dormitorios",
+      "m3": 70
+     }
     ],
     "transports": [
-     "van",
-     "truck",
-     "shared-load",
-     "container",
-     "air"
-    ]
+     {
+      "id": "van",
+      "label": "Furgoneta",
+      "minKm": 0,
+      "maxKm": 1200
+     },
+     {
+      "id": "truck",
+      "label": "Camion de mudanzas",
+      "minKm": 0,
+      "maxKm": 3000
+     },
+     {
+      "id": "shared-load",
+      "label": "Carga compartida",
+      "minKm": 150,
+      "maxKm": 3000
+     },
+     {
+      "id": "container",
+      "label": "Contenedor maritimo",
+      "minKm": 800,
+      "maxKm": 20000
+     },
+     {
+      "id": "air",
+      "label": "Carga aerea",
+      "minKm": 500,
+      "maxKm": 20000
+     }
+    ],
+    "currency": "EUR"
    },
    "url": "https://livdar.com/es/herramientas/calcular-precio-mudanza/",
    "path": "/es/herramientas/calcular-precio-mudanza/",
@@ -52373,20 +52623,70 @@
     "language": "nl",
     "home": "NL",
     "sizes": [
-     "room",
-     "studio",
-     "flat-1br",
-     "flat-2br",
-     "flat-3br",
-     "house-4br"
+     {
+      "id": "room",
+      "label": "Een kamer",
+      "m3": 8
+     },
+     {
+      "id": "studio",
+      "label": "Een studio",
+      "m3": 14
+     },
+     {
+      "id": "flat-1br",
+      "label": "Een slaapkamer",
+      "m3": 22
+     },
+     {
+      "id": "flat-2br",
+      "label": "Twee slaapkamers",
+      "m3": 35
+     },
+     {
+      "id": "flat-3br",
+      "label": "Drie slaapkamers",
+      "m3": 50
+     },
+     {
+      "id": "house-4br",
+      "label": "Huis met vier slaapkamers",
+      "m3": 70
+     }
     ],
     "transports": [
-     "van",
-     "truck",
-     "shared-load",
-     "container",
-     "air"
-    ]
+     {
+      "id": "van",
+      "label": "Bestelwagen",
+      "minKm": 0,
+      "maxKm": 1200
+     },
+     {
+      "id": "truck",
+      "label": "Verhuiswagen",
+      "minKm": 0,
+      "maxKm": 3000
+     },
+     {
+      "id": "shared-load",
+      "label": "Gedeelde lading",
+      "minKm": 150,
+      "maxKm": 3000
+     },
+     {
+      "id": "container",
+      "label": "Zeecontainer",
+      "minKm": 800,
+      "maxKm": 20000
+     },
+     {
+      "id": "air",
+      "label": "Luchtvracht",
+      "minKm": 500,
+      "maxKm": 20000
+     }
+    ],
+    "currency": "EUR"
    },
    "url": "https://livdar.com/nl/tools/verhuiskosten-berekenen/",
    "path": "/nl/tools/verhuiskosten-berekenen/",
@@ -60532,20 +60832,70 @@
     "language": "ja",
     "home": "JP",
     "sizes": [
-     "room",
-     "studio",
-     "flat-1br",
-     "flat-2br",
-     "flat-3br",
-     "house-4br"
+     {
+      "id": "room",
+      "label": "一部屋",
+      "m3": 8
+     },
+     {
+      "id": "studio",
+      "label": "ワンルーム",
+      "m3": 14
+     },
+     {
+      "id": "flat-1br",
+      "label": "1LDK",
+      "m3": 22
+     },
+     {
+      "id": "flat-2br",
+      "label": "2LDK",
+      "m3": 35
+     },
+     {
+      "id": "flat-3br",
+      "label": "3LDK",
+      "m3": 50
+     },
+     {
+      "id": "house-4br",
+      "label": "戸建て（4寝室）",
+      "m3": 70
+     }
     ],
     "transports": [
-     "van",
-     "truck",
-     "shared-load",
-     "container",
-     "air"
-    ]
+     {
+      "id": "van",
+      "label": "バン",
+      "minKm": 0,
+      "maxKm": 1200
+     },
+     {
+      "id": "truck",
+      "label": "引越しトラック",
+      "minKm": 0,
+      "maxKm": 3000
+     },
+     {
+      "id": "shared-load",
+      "label": "混載便",
+      "minKm": 150,
+      "maxKm": 3000
+     },
+     {
+      "id": "container",
+      "label": "海上コンテナ",
+      "minKm": 800,
+      "maxKm": 20000
+     },
+     {
+      "id": "air",
+      "label": "航空便",
+      "minKm": 500,
+      "maxKm": 20000
+     }
+    ],
+    "currency": "EUR"
    },
    "url": "https://livdar.com/ja/tool/moving-cost/",
    "path": "/ja/tool/moving-cost/",
