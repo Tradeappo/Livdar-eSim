@@ -1,0 +1,30 @@
+{
+ "meaning": "Requests that actually reached the production origin, with what came back. This is what the live state is claimed from: nothing is marked live because it was deployed, only because a response was read.",
+ "productionDeployment": "dpl_GNfhcMQvJs53wrNP2w8RqXxbqZeg",
+ "commit": "bc4515a64514e304cb75f922e53bcb74b0448bb5",
+ "origin": "https://livdar.com",
+ "fetchedWith": "Vercel MCP web_fetch_vercel_url, because this container's egress proxy refuses livdar.com and every *.vercel.app host directly",
+ "at": "2026-09-25T01:13:00Z",
+ "runtime": { "node": "v24.20.0", "nodeMajor": 24, "environment": "production", "region": "iad1", "from": "GET /api/runtime" },
+ "siteChecks": [
+  { "url": "/robots.txt", "status": 200, "note": "Allow: /, and all 58 Atlas page sitemaps listed" },
+  { "url": "/sitemap.xml", "status": 200, "note": "sitemap index lists 58 atlas-pages files across nine languages" },
+  { "url": "/en/esim/spain/", "status": 200, "note": "the eSIM site is unaffected: own content, 33 internal links" },
+  { "url": "/en/", "status": 200, "note": "the eSIM home page still answers as itself" }
+ ],
+ "pages": [
+  { "path": "/en/cost-of-living/japan/", "surface": "move", "status": 200, "h1": "Cost of living in Japan", "canonical": "https://livdar.com/en/cost-of-living/japan/", "robots": "index, follow", "hreflang": 7, "internalLinks": 16 },
+  { "path": "/en/salaries/italy/", "surface": "work", "status": 200, "h1": "Average salary in Italy", "canonical": "https://livdar.com/en/salaries/italy/", "robots": "index, follow", "hreflang": 1, "internalLinks": 8, "note": "prerendered, with WebPage, BreadcrumbList and FAQPage in JSON-LD and the Eurostat licence in the sources block" },
+  { "path": "/en/best-time-to-visit/japan/", "surface": "climate", "status": 200, "h1": "Best time to visit Japan", "canonical": "https://livdar.com/en/best-time-to-visit/japan/", "robots": "index, follow", "hreflang": 3, "internalLinks": 16 },
+  { "path": "/de/feiertage/nordrhein-westfalen/", "surface": "pulse", "status": 200, "h1": "Nordrhein-Westfalen: Feiertage 2026", "canonical": "https://livdar.com/de/feiertage/nordrhein-westfalen/", "robots": "index, follow", "internalLinks": 16 },
+  { "path": "/es/zonas/madrid/", "surface": "areas", "status": 200, "h1": "Barrios de Madrid", "canonical": "https://livdar.com/es/zonas/madrid/", "robots": "index, follow", "hreflang": 2, "internalLinks": 14, "note": "51 table rows, the districts of Madrid" },
+  { "path": "/it/sport/trekking-vicino-milano/", "surface": "sport", "status": 200, "h1": "Trekking a Milano", "canonical": "https://livdar.com/it/sport/trekking-vicino-milano/", "robots": "index, follow", "internalLinks": 14 },
+  { "path": "/ja/sport/hiking-tokyo/", "surface": "sport", "status": 200, "h1": "東京のハイキング", "canonical": "https://livdar.com/ja/sport/hiking-tokyo/", "robots": "index, follow", "internalLinks": 14 },
+  { "path": "/nl/huurverhoging/nederland/", "surface": "stay", "status": 200, "h1": "Huurverhoging in Nederland in 2025", "canonical": "https://livdar.com/nl/huurverhoging/nederland/", "robots": "index, follow", "internalLinks": 14 },
+  { "path": "/fr/augmentation-des-loyers/france/", "surface": "stay", "status": 200, "h1": "Augmentation des loyers 2025 : France", "canonical": "https://livdar.com/fr/augmentation-des-loyers/france/", "robots": "index, follow", "internalLinks": 14 },
+  { "path": "/pl/kalkulatory/kalkulator-wynagrodzen/", "surface": "tools", "status": 200, "h1": "Kalkulator wynagrodzeń", "canonical": "https://livdar.com/pl/kalkulatory/kalkulator-wynagrodzen/", "robots": "index, follow", "hreflang": 9, "internalLinks": 14 },
+  { "path": "/pt/ferramentas/calculadora-de-salario/", "surface": "tools", "status": 200, "h1": "Calculadora de salario", "canonical": "https://livdar.com/pt/ferramentas/calculadora-de-salario/", "robots": "index, follow", "hreflang": 9, "internalLinks": 14 }
+ ],
+ "coverage": "Eleven pages, one per surface for all eight surfaces and one per language for all nine languages. The other 489 are published rather than live: they are in the same prerender manifest, the same route and the same sitemaps, and no request has been made for them, so the registry does not claim otherwise.",
+ "beforeTheFix": "On the first production deployment of this launch, seven of the nine languages answered 200 with the English eSIM home page in them, because the middleware sends a locale with no published eSIM market to the nearest live one. PR #19 fixed it and every page above was read after that deployment went READY."
+}
