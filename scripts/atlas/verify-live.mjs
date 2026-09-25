@@ -1,7 +1,12 @@
 // Structural validation of every published URL, against a running origin.
 //
-//   node scripts/atlas/verify-live.mjs --base https://livdar.com
+//   NODE_USE_ENV_PROXY=1 node scripts/atlas/verify-live.mjs --base https://livdar.com
 //   node scripts/atlas/verify-live.mjs --base http://127.0.0.1:3323 --json reports/atlas/live.json
+//
+// The environment variable is not optional against a remote origin. Node's built
+// in fetch ignores HTTPS_PROXY unless it is set, and behind an egress proxy that
+// means every request comes back 403: five hundred identical failures that look
+// exactly like a site that is down.
 //
 // Not a browser. One request per URL and the served HTML read as a crawler reads
 // it, because the questions that matter for five hundred pages are structural and

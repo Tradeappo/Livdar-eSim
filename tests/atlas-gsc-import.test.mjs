@@ -180,3 +180,71 @@ test('the import reports every surface separately', async () => {
   assert.equal(r.imported, false);
   assert.equal(r.bySurface, undefined);
 });
+
+// ---- the other half of the measurement: behaviour, from GA4 ----------------
+//
+// Same shape as the Search Console import above and the same rule: no credentials,
+// so it refuses and names what is missing rather than returning zeros. What can be
+// established without them is the arithmetic, and two of the rates are deliberate
+// rather than conventional.
+
+test('without credentials the GA4 import refuses and names what is missing', async () => {
+  const { run: ga4 } = await import('../scripts/atlas/ga4-import.mjs');
+  const r = await ga4({ env: {}, fetchImpl: async () => { throw new Error('the import called Google without credentials'); } });
+  assert.equal(r.imported, false);
+  assert.ok(r.missing.includes('GA4_PROPERTY_ID'));
+  assert.equal(r.pages, 500);
+  assert.equal(r.bySurface, null, 'an unmeasured surface block is worse than none');
+  // Every row is unknown rather than zero, which is the rule the whole pipeline
+  // rests on.
+  for (const row of r.rows.slice(0, 20)) {
+    assert.equal(row.sessions, null);
+    assert.equal(row.events, null);
+    assert.equal(row.source, 'not imported');
+    // And the dimensions are attached before anything is imported, so a report
+    // never re-derives a surface from a URL.
+    for (const k of ['cohort', 'surface', 'family', 'language', 'market']) assert.ok(row[k], row.path + ' has no ' + k);
+  }
+});
+
+test('the two rates that are not conventional are the ones the brief asks for', async () => {
+  const { summarise } = await import('../scripts/atlas/ga4-import.mjs');
+  const rows = [{
+    path: '/en/tools/x/', surface: 'tools', importedAt: 'now', sessions: 200, users: 150, engagedSessions: 120,
+    engagementSeconds: 6000,
+    // A hundred readers reached the tool, forty touched it, ten finished.
+    events: { page_view: 200, cta_click: 30, internal_cta_click: 18, outbound_click: 4, tool_view: 100, tool_start: 40, tool_complete: 10, notify_signup: 2, select_plan: 0, begin_checkout: 0, checkout_intent: 1 },
+  }];
+  const s = summarise(rows).tools;
+  assert.equal(s.sessions, 200);
+  assert.equal(s.engagementRate, 0.6);
+  assert.equal(s.averageEngagementSeconds, 30);
+  assert.equal(s.ctaClickRate, 0.15);
+  assert.equal(s.downstreamRate, 0.09);
+  // Over views and not over sessions. A tool below the fold that nobody scrolled
+  // to has not been offered, and dividing by sessions would report 0.2 here and
+  // turn a placement problem into an interest problem.
+  assert.equal(s.toolStartRate, 0.4);
+  assert.notEqual(s.toolStartRate, 40 / 200);
+  // Over starts, which only means anything because tool_complete stopped firing
+  // on mount.
+  assert.equal(s.toolCompletionRate, 0.25);
+  assert.deepEqual(s.commercialIntent, { notifySignup: 2, selectPlan: 0, beginCheckout: 0, checkoutIntent: 1 });
+
+  // A surface with nothing imported says so rather than reading as a surface that
+  // failed.
+  const none = summarise([{ path: '/en/a/', surface: 'move', importedAt: null }]).move;
+  assert.equal(none.measured, 0);
+  assert.ok(none.why.includes('no GA4 data'));
+  assert.equal(none.sessions, undefined, 'an unmeasured surface must not report a zero');
+});
+
+test('a token is minted for the API it is going to be used against', async () => {
+  // Two APIs share the token path now. A token minted for the Search Console
+  // scope fails against the Data API with a message that names neither.
+  const { createServiceAccountJwt } = await import('../scripts/lib/google-search-console.mjs');
+  const claim = (jwt) => JSON.parse(Buffer.from(jwt.split('.')[1], 'base64url').toString());
+  const creds = { client_email: 'a@b.iam.gserviceaccount.com', private_key: privateKey };
+  assert.match(claim(createServiceAccountJwt(creds)).scope, /webmasters\.readonly$/);
+  assert.match(claim(createServiceAccountJwt(creds, Math.floor(Date.now() / 1000), 'https://www.googleapis.com/auth/analytics.readonly')).scope, /analytics\.readonly$/);
+});

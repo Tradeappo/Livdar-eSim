@@ -54,11 +54,11 @@ export function parseServiceAccount(raw) {
   return credentials;
 }
 
-export function createServiceAccountJwt(credentials, nowSeconds = Math.floor(Date.now() / 1000)) {
+export function createServiceAccountJwt(credentials, nowSeconds = Math.floor(Date.now() / 1000), scope = READONLY_SCOPE) {
   const header = base64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
   const claim = base64url(JSON.stringify({
     iss: credentials.client_email,
-    scope: READONLY_SCOPE,
+    scope,
     aud: TOKEN_URL,
     iat: nowSeconds,
     exp: nowSeconds + 3600,
@@ -68,13 +68,16 @@ export function createServiceAccountJwt(credentials, nowSeconds = Math.floor(Dat
   return `${unsigned}.${signature}`;
 }
 
-export async function getAccessToken(credentials, fetchImpl = fetch) {
+// The scope is a parameter because two APIs now share this path: Search Console
+// reads webmasters.readonly and the GA4 Data API reads analytics.readonly, and a
+// token minted for the wrong one fails with a message that names neither.
+export async function getAccessToken(credentials, fetchImpl = fetch, scope = READONLY_SCOPE) {
   const response = await fetchImpl(TOKEN_URL, {
     method: 'POST',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: createServiceAccountJwt(credentials),
+      assertion: createServiceAccountJwt(credentials, Math.floor(Date.now() / 1000), scope),
     }),
   });
   const body = await response.json().catch(() => ({}));
