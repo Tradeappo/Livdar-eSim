@@ -5,6 +5,24 @@ import Header from '../Header.jsx';
 import Footer from '../Footer.jsx';
 import JsonLd from '../JsonLd.jsx';
 import { atlasSchema } from '../../lib/atlas/schema.js';
+import { AtlasCtaPair } from './AtlasCta.jsx';
+import AtlasTool from './AtlasTool.jsx';
+import { toolUi, inputTerm } from '../../lib/atlas/content/terms.js';
+import { atlasParams } from '../../lib/analytics.js';
+
+// The words the interactive tool needs, gathered once on the server so the
+// client component ships no vocabulary of its own. Both tables already exist in
+// nine languages and are checked by a test; a second copy inside a client
+// component would be a second chance for them to disagree.
+const TOOL_LABEL_KEYS = ['calculate', 'result', 'perMonth', 'perPerson', 'amount', 'equivalent', 'cheaper', 'dearer', 'same', 'gross', 'net', 'comfortableMonths', 'maxPriceLevel', 'matches', 'nothingFits', 'km', 'distance'];
+const TOOL_INPUT_KEYS = ['income', 'household size', 'country', 'country a', 'country b', 'city', 'home size', 'style', 'budget'];
+
+function toolLabels(locale) {
+  const out = {};
+  for (const k of TOOL_LABEL_KEYS) out[k] = toolUi(k, locale);
+  for (const k of TOOL_INPUT_KEYS) out[k] = inputTerm(k, locale);
+  return out;
+}
 
 const L = {
   questions: { en: 'Questions', de: 'Fragen', ro: 'Întrebări' },
@@ -42,6 +60,16 @@ export default function AtlasPage({ model, alternatePaths }) {
               ))}
             </dl>
           ) : null}
+          {/* The tool itself, where there is one, directly under the key facts:
+              it is what the page is for, and a calculator below the sources is a
+              calculator nobody uses. */}
+          {model.tool && model.tool.interactive ? (
+            <AtlasTool spec={model.tool} labels={toolLabels(l)} dims={atlasParams(model)} />
+          ) : null}
+          {/* The first of the two calls to action. After the direct answer and
+              the key facts, which is the point at which the reader has what they
+              came for and will either leave or go further. */}
+          <AtlasCtaPair cta={model.cta} model={model} position="mid" />
           {model.sections.map((s, si) => (
             <section key={s.id || si} className="atlas-section">
               {s.heading ? <h2>{s.heading}</h2> : null}
@@ -73,6 +101,10 @@ export default function AtlasPage({ model, alternatePaths }) {
               ))}
             </section>
           ) : null}
+          {/* The second, at the end of the answer and before the list of other
+              pages: the reader who read to the bottom is the one most likely to
+              take a step, and the related links are a different offer. */}
+          <AtlasCtaPair cta={model.cta} model={model} position="bottom" />
           {model.links.length ? (
             <section className="atlas-section">
               <h2>{t('related')}</h2>

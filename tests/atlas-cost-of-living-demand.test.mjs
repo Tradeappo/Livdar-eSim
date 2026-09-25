@@ -79,9 +79,25 @@ test('inflection and colloquial names resolve, and a shared first word does not'
   const rows = [{ iso: 'LC', name: 'santa lucia' }];
   assert.equal(stemMatch('santa catarina', rows), null);
   assert.equal(stemMatch('polsce', [{ iso: 'PL', name: 'polska' }]), 'PL');
-  // Two countries matching the same stem is a refusal, not a coin toss:
-  // `austrii` stems onto both Austria and Australia.
-  assert.equal(stemMatch('austrii', [{ iso: 'AT', name: 'austria' }, { iso: 'AU', name: 'australia' }]), null);
+  // `austrii` is the Polish locative of Austria and `australii` is the locative
+  // of Australia, and the rule now tells them apart: it forgives an ending and
+  // not a divergence, so only Austria keeps enough of its name to match.
+  assert.equal(stemMatch('austrii', [{ iso: 'AT', name: 'austria' }, { iso: 'AU', name: 'australia' }]), 'AT');
+  assert.equal(stemMatch('australii', [{ iso: 'AT', name: 'austria' }, { iso: 'AU', name: 'australia' }]), 'AU');
+
+  // What the rule must never do again. `cost of living in colorado` was two
+  // thousand six hundred searches a month and it built a page about Colombia,
+  // because four shared letters out of eight cleared a fifty-five per cent bar.
+  // `feiertage niedersachsen 2026` was forty-seven thousand and it built a
+  // second page about the Netherlands, on the same arithmetic, next to the
+  // correct page about Lower Saxony. Neither remainder is an inflection of
+  // anything.
+  assert.equal(stemMatch('colorado', [{ iso: 'CO', name: 'colombia' }]), null);
+  assert.equal(stemMatch('niedersachsen', [{ iso: 'NL', name: 'niederlande' }]), null);
+  assert.equal(countryOf('cost of living in colorado', 'en-US', iso).iso2, undefined);
+  // And the whole world, not a short list, because a stem match inside a short
+  // list is a match against whatever happens to be there.
+  assert.equal(countryOf('average salary in indiana', 'en-US', iso).iso2, undefined);
 });
 
 test('the measurement only plans pages the source and the language can carry', async () => {

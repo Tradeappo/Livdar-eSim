@@ -3,9 +3,11 @@ import assert from 'node:assert/strict';
 import { build as launchPackage, opportunityFor, sourceTypeOf, COHORTS } from '../scripts/atlas/launch-package.mjs';
 import { signalScore, comparison, DIMENSIONS, UNKNOWN, IMPRESSION_REFERENCE, aggregate, splitBy } from '../lib/atlas/gsc-cohort.js';
 import { CONFIDENCE } from '../lib/atlas/sources/provenance.js';
+import { ledger } from '../scripts/atlas/apply-keyword-corrections.mjs';
 
 test('the launch package covers every URL in every approved cohort', () => {
   const p = launchPackage();
+  const withdrawn = new Set(ledger().map((c) => c.path));
   assert.deepEqual(p.missingCohorts, [], 'a cohort has no manifest or no models');
   assert.deepEqual(p.cohorts, COHORTS);
   assert.equal(p.pages, p.rows.length);
@@ -21,7 +23,13 @@ test('the launch package covers every URL in every approved cohort', () => {
     for (const k of ['url', 'cohort', 'surface', 'family', 'language', 'originMarket', 'destination', 'keyword', 'intent']) {
       assert.ok(r[k], r.url + ' has no ' + k);
     }
-    assert.ok(r.volume > 0, r.url + ' carries no measured volume');
+    // A row with no volume is allowed only where the corrections ledger
+    // withdrew the keyword that carried it, and then it has to be in the
+    // ledger: a page quietly reading zero is a page whose demand nobody can
+    // account for. Two pages are there, both because a stem rule attributed
+    // someone else's keyword to them.
+    if (r.volume > 0) continue;
+    assert.ok(withdrawn.has(new URL(r.url).pathname), r.url + ' carries no measured volume and no correction explains it');
     assert.ok(r.words && r.words.count > 0, r.url + ' has no word count');
     assert.ok(r.opportunity && r.opportunity.basis, r.url + ' has no opportunity basis');
     assert.ok(r.sourceType, r.url + ' has no source type');

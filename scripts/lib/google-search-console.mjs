@@ -7,6 +7,39 @@ function base64url(value) {
   return Buffer.from(value).toString('base64url');
 }
 
+// The credentials, from whichever shape the environment holds them in.
+//
+// Two shapes exist because two things were built against two different
+// assumptions and neither noticed the other. This script has always read
+// GOOGLE_SERVICE_ACCOUNT_JSON; .github/workflows/atlas-search-console.yml has
+// always passed GSC_CLIENT_EMAIL and GSC_PRIVATE_KEY. So even with every secret
+// set the import could not have worked, and the `|| echo` behind it meant the
+// run went green anyway. Reading both shapes is the smaller half of the fix;
+// the workflow no longer swallowing the failure is the larger one.
+//
+// It returns what is missing rather than throwing, because the caller has to be
+// able to say which credential is absent and one that throws can only say that
+// something is.
+export function serviceAccountFromEnv(env = process.env) {
+  if (env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+    return { credentials: parseServiceAccount(env.GOOGLE_SERVICE_ACCOUNT_JSON), shape: 'GOOGLE_SERVICE_ACCOUNT_JSON' };
+  }
+  const missing = ['GSC_CLIENT_EMAIL', 'GSC_PRIVATE_KEY'].filter((k) => !env[k]);
+  if (missing.length) {
+    return { credentials: null, shape: null, missing: missing.concat(['GOOGLE_SERVICE_ACCOUNT_JSON (or the two above)']) };
+  }
+  return {
+    credentials: {
+      client_email: env.GSC_CLIENT_EMAIL,
+      // A private key in an environment variable arrives with its newlines
+      // escaped more often than not, and a key with literal backslash n in it
+      // fails to sign with an error that names neither the key nor the newline.
+      private_key: String(env.GSC_PRIVATE_KEY).replace(/\\n/g, '\n'),
+    },
+    shape: 'GSC_CLIENT_EMAIL and GSC_PRIVATE_KEY',
+  };
+}
+
 export function parseServiceAccount(raw) {
   if (!raw) throw new Error('GOOGLE_SERVICE_ACCOUNT_JSON is required.');
   let credentials;
