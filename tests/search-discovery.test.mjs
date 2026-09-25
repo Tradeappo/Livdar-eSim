@@ -1,9 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { generateKeyPairSync } from 'node:crypto';
 import {
   compareTotals,
-  createServiceAccountJwt,
+  googleCredentialsFromEnv,
   dateRange,
   topOpportunities,
 } from '../scripts/lib/google-search-console.mjs';
@@ -35,11 +34,13 @@ test('opportunities prioritize high-impression queries near page one', () => {
   assert.deepEqual(result.map((row) => row.key), ['weak']);
 });
 
-test('service account JWT is a signed three-part token', () => {
-  const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
-  const jwt = createServiceAccountJwt({
-    client_email: 'search-console@example.iam.gserviceaccount.com',
-    private_key: privateKey.export({ type: 'pkcs8', format: 'pem' }),
-  }, 1_700_000_000);
-  assert.equal(jwt.split('.').length, 3);
+test('Google credentials come only from workload identity federation', () => {
+  assert.ok(googleCredentialsFromEnv({}).missing[0].startsWith('GOOGLE_APPLICATION_CREDENTIALS'));
+  const key = googleCredentialsFromEnv({ GOOGLE_APPLICATION_CREDENTIALS: 'k.json' }, () => JSON.stringify({ type: 'service_account' }));
+  assert.equal(key.credentials, null);
+  const wif = googleCredentialsFromEnv({ GOOGLE_APPLICATION_CREDENTIALS: 'w.json' }, () => JSON.stringify({
+    type: 'external_account',
+    service_account_impersonation_url: 'https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/a%40b.iam.gserviceaccount.com:generateAccessToken',
+  }));
+  assert.equal(wif.principal, 'a@b.iam.gserviceaccount.com');
 });
