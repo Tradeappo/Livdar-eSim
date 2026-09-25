@@ -1,0 +1,31 @@
+{
+ "recordedOn": "2026-09-25",
+ "meaning": "Pages whose keyword was attributed to the wrong entity, found by scripts/atlas/audit-entities.mjs after the five hundred were published. The resolver that made the attribution has been tightened so the class cannot recur, and these two rows are the repair to what it already built. The URL and the body of each page were correct for the entity, so both stay published: the keyword is withdrawn, the volume it claimed goes to zero, and the heading is rebuilt from the entity rather than from the keyword.",
+ "rule": "A published URL is not withdrawn to fix a measurement error. The measurement is.",
+ "corrections": [
+  {
+   "path": "/en/cost-of-living/colombia/",
+   "entity": "CO",
+   "was": "cost of living in colorado",
+   "wasVolume": 2600,
+   "wasDifficulty": 17,
+   "becomes": "cost of living in colombia",
+   "volume": 0,
+   "why": "Colorado is a state of the United States and the page is about Colombia. The stem rule accepted four shared letters out of eight, and because no other country begins colo it returned a single confident hit. The heading took the keyword as written, so the page read Cost of living in Colorado above a body about Colombia.",
+   "demand": "none measured. The English market has no measured cost of living keyword for Colombia, so this page now carries no demand claim at all.",
+   "keywordMeasured": false
+  },
+  {
+   "path": "/de/feiertage/niederlande/",
+   "entity": "NL",
+   "was": "feiertage niedersachsen 2026",
+   "wasVolume": 47000,
+   "wasDifficulty": 0,
+   "becomes": "feiertage niederlande",
+   "volume": 0,
+   "why": "Niedersachsen is a German state, DE-NI, and its own page at /de/feiertage/niedersachsen/ is built from the same keyword and is correct. The country resolver reached Niederlande from nieder, six of its eleven letters, so one keyword paid for two pages and the forty-seven thousand was counted twice.",
+   "demand": "none measured. The German market has no measured holiday keyword for the Netherlands.",
+   "keywordMeasured": false
+  }
+ ]
+}
