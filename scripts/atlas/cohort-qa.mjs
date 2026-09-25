@@ -17,6 +17,9 @@ import { plain } from '../../lib/atlas/content/country-forms.js';
 import { atlasSchema } from '../../lib/atlas/schema.js';
 import { findNearDuplicates, NEAR_DUPLICATE_AT } from '../../lib/atlas/similarity-scale.js';
 import { FAMILIES } from '../../lib/atlas/verticals.js';
+import { wireCta } from '../../lib/atlas/atlas-cta.js';
+import { segment } from '../../lib/i18n.js';
+import { MANIFESTS } from '../../lib/atlas/serve-pages.js';
 import { check as checkFreshness } from '../../lib/atlas/sources/freshness.js';
 
 const ROOT = new URL('../../', import.meta.url);
@@ -46,6 +49,38 @@ function reverseNames() {
 // The word floor. Japanese is counted in characters, so it is compared
 // against a floor in characters rather than being declared thin by a rule
 // written for languages with spaces.
+// The eSIM publication registry, which is the authority on which destination
+// pages exist in which locale. A call to action into a locale that never
+// published that destination is a link into a redirect.
+let registryCache;
+function esimRegistry() {
+  if (registryCache !== undefined) return registryCache;
+  try { registryCache = JSON.parse(readFileSync(new URL('data/publication-registry.json', ROOT), 'utf8')); }
+  catch { registryCache = null; }
+  return registryCache;
+}
+
+// The second path segment of every eSIM destination URL, in every locale the
+// Atlas publishes in, so a call to action to one is recognised as leaving the
+// Atlas rather than as a broken Atlas link.
+const ESIM_SEGMENTS = new Set(['de', 'en', 'es', 'fr', 'it', 'ja', 'nl', 'pl', 'pt'].map((l) => segment('esim', l)));
+
+// Every other cohort's published pages, as the little the call to action
+// resolver needs from them. Read from the manifests they were written to, which
+// is the same file the routes serve, so a path here is a path that answers.
+function otherCohortPages(cohortFile) {
+  const mine = String(cohortFile).match(/cohort-(\d+)/);
+  const out = [];
+  for (const m of MANIFESTS) {
+    if (mine && m.includes('cohort-' + mine[1] + '-pages')) continue;
+    try {
+      const j = JSON.parse(readFileSync(new URL(m, ROOT), 'utf8'));
+      for (const p of j.pages || []) out.push({ path: p.path, locale: p.locale, family: p.family, entity: p.entity, h1: p.h1, entityName: p.entityName, surface: p.surface, links: [] });
+    } catch { /* a cohort with no manifest yet contributes nothing */ }
+  }
+  return out;
+}
+
 const floorFor = (page, model) => (model.locale === 'ja' ? 320 : FAMILIES[page.family].minWords || 260);
 
 export function run({ cohortFile = 'data/atlas/cohorts/cohort-001.json', now = new Date() } = {}) {
@@ -55,8 +90,13 @@ export function run({ cohortFile = 'data/atlas/cohorts/cohort-001.json', now = n
 
   // ---- build -------------------------------------------------------------
   const models = [];
+  // The cohort id comes from the manifest being read rather than from a field on
+  // every row, and it goes onto the model, because every measurement of this
+  // experiment is cut by cohort and a report that infers one from a filename will
+  // infer it wrong once.
+  const cohortId = cohort.cohort || (String(cohortFile).match(/cohort-(\d+)/) || [])[1] || null;
   for (const page of cohort.pages) {
-    const m = build(page, { now });
+    const m = build({ ...page, cohort: page.cohort || cohortId }, { now });
     if (m.refused) { fail('builds', { path: page.family + '/' + page.entity + '/' + page.language, why: m.refused }); continue; }
     m.page = page;
     models.push(m);
@@ -65,6 +105,34 @@ export function run({ cohortFile = 'data/atlas/cohorts/cohort-001.json', now = n
   // ---- internal links ----------------------------------------------------
   const rev = reverseNames();
   const linkReport = wire(models, (n, l) => rev[l]?.[n] || null);
+
+  // ---- calls to action ---------------------------------------------------
+  // After the links, because the last resort in the chain is the page's own
+  // first internal link, and that is what makes a broken call to action
+  // impossible rather than merely unlikely: every target was resolved against
+  // this same set of published models.
+  const otherPages = otherCohortPages(cohortFile);
+  const ctaReport = wireCta(models, { registry: esimRegistry(), alsoPublished: otherPages });
+  for (const p of ctaReport.without) fail('cta present', { path: p, why: 'no call to action could be resolved for this page' });
+  {
+    // Every page the site publishes, not only this cohort's, because a call to
+    // action deliberately crosses cohorts while an internal link deliberately
+    // does not.
+    const known = new Set([...models.map((m) => m.path), ...otherPages.map((m) => m.path)]);
+    for (const m of models) {
+      for (const c of [m.cta?.primary, m.cta?.secondary]) {
+        if (!c) continue;
+        if (c.href.startsWith('#')) continue;
+        if (c.href.startsWith('/' + m.locale + '/') && !known.has(c.href) && !ESIM_SEGMENTS.has(c.href.split('/')[2])) {
+          fail('cta resolves', { path: m.path, why: 'its call to action points at ' + c.href + ', which no cohort publishes' });
+        }
+        if (!c.href.startsWith('/' + m.locale + '/')) {
+          fail('cta language', { path: m.path, why: 'its call to action leaves the language: ' + c.href });
+        }
+        if (!c.label || !c.label.trim()) fail('cta label', { path: m.path, why: 'the call to action has no label' });
+      }
+    }
+  }
   for (const p of linkReport.orphans) fail('no orphans', { path: p, why: 'nothing in the cohort links to it' });
   for (const p of linkReport.noOutbound) fail('links out', { path: p, why: 'the page links nowhere' });
   const known = new Set(models.map((m) => m.path));
@@ -184,6 +252,7 @@ export function run({ cohortFile = 'data/atlas/cohorts/cohort-001.json', now = n
       'no orphans', 'links out', 'links resolve', 'near duplicate',
     ],
     nearDuplicateThreshold: NEAR_DUPLICATE_AT,
+    cta: { withPrimary: ctaReport.withPrimary, withSecondary: ctaReport.withSecondary, byKind: ctaReport.byKind, byType: ctaReport.byType, without: ctaReport.without.length },
     similarity: { comparisonsMade: dupes.comparisonsMade, pairsOverThreshold: dupes.duplicates.length, maxSimilarity: dupes.duplicates.length ? Math.max(...dupes.duplicates.map((d) => d.similarity)) : null },
     pass: failures.length === 0,
     failures: failures.slice(0, 200),

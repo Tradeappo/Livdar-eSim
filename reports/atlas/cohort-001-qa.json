@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-25T12:28:51.892Z",
+ "generatedAt": "2026-09-25T13:12:51.095Z",
  "cohort": "data/atlas/cohorts/cohort-001.json",
  "pages": 250,
  "expected": 250,
@@ -28,6 +28,30 @@
   "near duplicate"
  ],
  "nearDuplicateThreshold": 0.8,
+ "cta": {
+  "withPrimary": 250,
+  "withSecondary": 250,
+  "byKind": {
+   "tool": 37,
+   "season": 6,
+   "salary": 43,
+   "cost": 14,
+   "sibling": 133,
+   "ranking": 8,
+   "esim": 2,
+   "holidays": 7
+  },
+  "byType": {
+   "tool": 37,
+   "weather": 6,
+   "work": 52,
+   "cost-of-living": 114,
+   "rankings": 32,
+   "esim": 2,
+   "events": 7
+  },
+  "without": 0
+ },
  "similarity": {
   "comparisonsMade": 1504,
   "pairsOverThreshold": 0,

@@ -18,3 +18,61 @@
 .atlas details { border-bottom: 1px solid var(--line, #e4e6ea); padding: 10px 0; }
 .atlas summary { font-weight: 700; cursor: pointer; }
 .atlas .atlas-sources { font-size: 14px; color: var(--muted, #5d636d); }
+
+/* Calls to action, and the tool.
+ *
+ * The brief for these was mostly a list of things not to build: no giant
+ * marketing box, nothing that interrupts the prose, nothing that looks bolted
+ * on. So they are the width of the text they sit in, they use the same pill the
+ * rest of Livdar uses, and the supporting line is one line at the size of the
+ * small print rather than a paragraph of persuasion.
+ *
+ * Mobile first, and mobile is where this matters: the two calls to action stack,
+ * the pill is full width and taller than the forty four pixel tap target, and
+ * the secondary one reads as a second option rather than a second shout. From
+ * the width where two pills fit side by side they sit side by side, with the
+ * supporting line under each. */
+.atlas .atlas-cta-pair { display: grid; gap: 14px; margin: 22px 0 26px; }
+.atlas .atlas-cta-pair[data-position="bottom"] { margin: 30px 0 6px; padding-top: 22px; border-top: 1px solid var(--line, #e4e6ea); }
+.atlas .atlas-cta .btn { width: 100%; text-decoration: none; }
+.atlas .atlas-cta-note { margin: 7px 2px 0; font-size: 13.5px; line-height: 1.45; color: var(--muted, #5d636d); }
+.atlas .atlas-cta-secondary .btn { font-weight: 600; }
+
+@media (min-width: 620px) {
+  .atlas .atlas-cta-pair { grid-template-columns: 1fr 1fr; align-items: start; gap: 12px 16px; }
+  .atlas .atlas-cta-pair > :only-child { grid-column: 1 / -1; max-width: 420px; }
+}
+
+/* The tool. A form, not a widget: the same card as the facts above it, inputs
+ * that a thumb can hit, and the result in the place the eye already is rather
+ * than below a button that has to be pressed. Everything recalculates as you
+ * type, so there is no submit. */
+.atlas .atlas-tool { background: #fff; border: 1px solid var(--line, #e4e6ea); border-radius: 12px; padding: 16px; margin: 0 0 20px; }
+.atlas .atlas-tool-inputs { display: grid; gap: 12px; }
+.atlas .atlas-tool-inputs label { display: grid; gap: 5px; }
+.atlas .atlas-tool-inputs label > span { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted, #5d636d); }
+.atlas .atlas-tool-inputs input,
+.atlas .atlas-tool-inputs select {
+  font: inherit;
+  font-size: 16px; /* anything smaller makes iOS zoom the page on focus */
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong, #c8ccd3);
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+  width: 100%;
+}
+.atlas .atlas-tool-inputs input:focus-visible,
+.atlas .atlas-tool-inputs select:focus-visible { outline: 2px solid var(--accent, #1f6feb); outline-offset: 1px; }
+.atlas .atlas-tool-out { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line, #e4e6ea); }
+.atlas .atlas-tool-out p { margin: 0 0 6px; font-size: 18px; line-height: 1.4; }
+.atlas .atlas-tool-out p:last-child { margin-bottom: 0; }
+.atlas .atlas-tool-out .muted { color: var(--muted, #5d636d); font-size: 14px; font-weight: 400; }
+.atlas .atlas-tool-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; }
+.atlas .atlas-tool-list li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line, #e4e6ea); font-size: 15px; }
+.atlas .atlas-tool-list li:last-child { border-bottom: 0; }
+
+@media (min-width: 620px) {
+  .atlas .atlas-tool-inputs { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+}

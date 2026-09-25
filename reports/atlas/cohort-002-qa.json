@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-25T12:28:29.653Z",
+ "generatedAt": "2026-09-25T13:13:14.165Z",
  "cohort": "data/atlas/cohorts/cohort-002.json",
  "pages": 250,
  "expected": 250,
@@ -28,6 +28,37 @@
   "near duplicate"
  ],
  "nearDuplicateThreshold": 0.8,
+ "cta": {
+  "withPrimary": 250,
+  "withSecondary": 250,
+  "byKind": {
+   "holidays": 27,
+   "cost": 56,
+   "sibling": 99,
+   "esim": 14,
+   "tool": 26,
+   "sport": 5,
+   "rent": 1,
+   "salary": 3,
+   "ranking": 2,
+   "season": 5,
+   "areas": 12
+  },
+  "byType": {
+   "events": 38,
+   "cost-of-living": 83,
+   "esim": 14,
+   "tool": 25,
+   "sport": 22,
+   "rents": 1,
+   "neighbourhoods": 47,
+   "weather": 11,
+   "work": 6,
+   "rankings": 2,
+   "tools": 1
+  },
+  "without": 0
+ },
  "similarity": {
   "comparisonsMade": 584,
   "pairsOverThreshold": 0,

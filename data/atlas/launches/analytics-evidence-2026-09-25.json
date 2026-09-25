@@ -1,0 +1,66 @@
+{
+ "measuredOn": "2026-09-25",
+ "meaning": "What analytics does on the production origin, read with a headless Chromium against https://livdar.com rather than inferred from the repository. Every row here is an observation: a request the browser made, a response it received, or a value read out of the page after it loaded. Nothing in this file comes from reading the source.",
+ "method": "Chromium, one page load per row, consent left at its default for the first pass and accepted through the banner for the second. GA4 hits are requests to /g/collect, read from the network rather than from the dataLayer, because a dataLayer push is an intention and a request is a measurement.",
+ "gtm": {
+  "connected": true,
+  "container": "GTM-WKGXHXWC",
+  "loadedFrom": "https://www.googletagmanager.com/gtm.js?id=GTM-WKGXHXWC",
+  "status": 200,
+  "containersOnPage": ["GTM-WKGXHXWC", "G-DY02HH34DT"],
+  "duplicateContainer": false,
+  "secondGa4Snippet": false,
+  "secondGa4Note": "No gtag/js and no google-analytics.com script in the served HTML. The only GA4 loader is the one the container injects, so there is exactly one property and one path to it.",
+  "dataLayer": true,
+  "consentModeV2": {
+   "defaultsWrittenBeforeContainer": true,
+   "icsBeforeConsent": { "ad_storage": false, "analytics_storage": false, "ad_user_data": false, "ad_personalization": false, "functionality_storage": true, "personalization_storage": false, "security_storage": true },
+   "icsAfterAcceptAll": { "ad_storage": true, "analytics_storage": true, "ad_user_data": true, "ad_personalization": true, "functionality_storage": true, "personalization_storage": true, "security_storage": true },
+   "note": "google_tag_data.ics is Google's own internal state rather than the dataLayer, which is the distinction that hid an earlier bug: the dataLayer read granted while ics stayed denied and GA4 received nothing. Both now agree."
+  }
+ },
+ "ga4": {
+  "connected": true,
+  "measurementId": "G-DY02HH34DT",
+  "configuredIn": "the GTM container, not a page snippet",
+  "tagsInContainer": [
+   { "type": "__googtag", "tagId": "G-DY02HH34DT", "sendPageView": true, "trigger": "Event equals gtm.js, so every page", "configParameters": ["language", "market"] },
+   { "type": "__gaawe", "eventName": "the dataLayer event name", "measurementIdOverride": "G-DY02HH34DT", "trigger": "Event matches ^(search|view_destination|view_plan|select_plan|begin_checkout|checkout_intent|check_availability|notify_signup|cta_click|language_change)$", "eventParameters": ["language", "market", "destination", "region", "content_cluster", "plan_type", "cta_label", "cta_position", "search_term", "from_language", "to_language"] }
+  ],
+  "containerReadFrom": "the published gtm.js, which is what every visitor receives",
+  "pageViewVerified": true,
+  "hitsObserved": [
+   { "page": "/en/cost-of-living/colombia/", "event": "page_view", "gcs": "G100", "meaning": "before consent, cookieless ping, which is the Consent Mode v2 design rather than a leak" },
+   { "page": "/en/cost-of-living/colombia/", "event": "user_engagement", "gcs": "G111", "meaning": "after Accept all" },
+   { "page": "/en/esim/spain/", "event": "view_destination", "parameters": { "market": "en", "destination": "spain", "region": "europe", "content_cluster": "destination", "plan_type": "" } },
+   { "page": "/en/esim/spain/", "event": "check_availability", "parameters": { "market": "en", "destination": "spain", "region": "europe", "content_cluster": "destination", "plan_type": "", "cta_label": "Check availability", "cta_position": "after_intro" }, "meaning": "a call to action clicked in the browser, reaching GA4 with its label and position. The event survives the navigation it describes because the component holds the link until the tag reports back." }
+  ],
+  "atlasDimensionsCaptured": false,
+  "atlasDimensionsNote": "An Atlas page_view reaches GA4 with its real URL in dl and its title in dt, and with no custom parameters at all. The container asks for language and market; the Atlas pages push nothing into the dataLayer, so both are undefined and GA4 drops them. cohort, surface, family, entity, cta_type and cta_destination are not in the container's parameter table at all, and the Atlas event names are not in its trigger regex.",
+  "reservedParameterName": "language collides with a GA4 automatically collected parameter and is dropped: the eSIM pages push both language and market with the same value and only ep.market arrives. An Atlas parameter carrying the page language has to be named something else."
+ },
+ "clarity": {
+  "connected": false,
+  "why": "NEXT_PUBLIC_CLARITY_ID exists as a Production and Preview variable in the Vercel project and its value is empty, so the layout renders no script. Verified twice: no request to clarity.ms in the network log, and window.clarity is undefined after load.",
+  "remedy": "set NEXT_PUBLIC_CLARITY_ID in the Vercel project to the Clarity project id and redeploy. No code change is needed; the loader is already there and is gated on the value being non-empty."
+ },
+ "searchConsole": {
+  "connected": false,
+  "propertyInSearchConsole": "sc-domain:livdar.com exists and was read in the UI on 2026-09-21, so the property itself is verified",
+  "apiConnected": false,
+  "why": "The scheduled workflow has run once, at 2026-09-25T10:24:24Z, and GitHub records it as a success. The log shows GSC_CLIENT_EMAIL, GSC_PRIVATE_KEY and GSC_PROPERTY all printed blank, which is how GitHub prints a secret that does not exist, and the script exiting on 'GSC_PROPERTY is required'. The step was written as 'node scripts/gsc-report.mjs || echo ...', so the failure could not reach the conclusion.",
+  "secondDefect": "scripts/gsc-report.mjs read GOOGLE_SERVICE_ACCOUNT_JSON while the workflow passed GSC_CLIENT_EMAIL and GSC_PRIVATE_KEY, so the import would still have failed with all three secrets set. Both are fixed in this branch.",
+  "missingExactly": ["GSC_PROPERTY", "GSC_CLIENT_EMAIL", "GSC_PRIVATE_KEY"],
+  "missingWhere": "GitHub repository secrets for Tradeappo/Livdar-eSim. Not Vercel: the import runs in Actions, not in the app.",
+  "alsoRequired": "the service account named in GSC_CLIENT_EMAIL has to be added as a user of sc-domain:livdar.com in Search Console. A valid key with no access to the property reads as a 403 and scripts/gsc-check.mjs reports that case separately.",
+  "lastSuccessfulImport": null,
+  "run": "https://github.com/Tradeappo/Livdar-eSim/actions/runs/36123793117"
+ },
+ "vercelProduction": {
+  "project": "livdar-esim",
+  "variablesPresent": ["NEXT_PUBLIC_GTM_ID", "NEXT_PUBLIC_CLARITY_ID", "NEXT_PUBLIC_SITE_URL", "NEXT_PUBLIC_ALLOW_INDEXING", "LIVDAR_PROVIDER", "DATAFORSEO_LOGIN", "DATAFORSEO_PASSWORD", "DATAFORSEO_COST_CAP_USD"],
+  "note": "A variable existing is not a value. NEXT_PUBLIC_GTM_ID is set, because the container id appears in the served HTML. NEXT_PUBLIC_CLARITY_ID exists and is empty, because no script is rendered. No Search Console variable exists here, and none should: the import is a workflow.",
+  "allowIndexing": "true in Production"
+ },
+ "transient": "Two page loads recorded a 404 and a 502 on the same /_next/static chunk. Fetched three times directly afterwards it answered 200 with the same 38,215 bytes each time, so it is a CDN hiccup rather than a missing asset, and it is recorded here so it is not mistaken for one later."
+}
