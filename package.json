@@ -38,7 +38,8 @@
     "atlas:entities": "node scripts/atlas/audit-entities.mjs",
     "gsc:check": "node scripts/gsc-check.mjs",
     "atlas:gsc": "node scripts/atlas/gsc-import.mjs",
-    "atlas:language": "node scripts/atlas/audit-language.mjs"
+    "atlas:language": "node scripts/atlas/audit-language.mjs",
+    "atlas:live": "node scripts/atlas/verify-live.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

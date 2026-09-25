@@ -28,7 +28,16 @@ export default async function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/static/chunks/'],
+        // The API only. The JavaScript chunks used to be closed here and that was
+        // harmless while every page was server rendered prose: a crawler that
+        // cannot fetch the bundle still sees the whole page. It stopped being
+        // harmless when the tool pages started carrying a real calculator, which
+        // is the one thing on this site that exists only after the bundle loads.
+        // A crawler blocked from the chunk renders a tool page without its tool
+        // and reports the resource as blocked, and Google has asked for a decade
+        // not to close JavaScript and CSS. Sixty two pages of interactive tool
+        // are worth the crawl of a bundle.
+        disallow: ['/api/'],
       },
     ],
     sitemap: sitemaps,
