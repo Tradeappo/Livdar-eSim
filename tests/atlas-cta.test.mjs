@@ -204,16 +204,20 @@ test('a tool page either carries its tool or says why it does not', () => {
 test('a tool ships one price scale and a payload that stays small', () => {
   // Mixing the European index at 100 with the ratio against the United States at
   // 1 in one picker lets a reader get an answer three orders of magnitude out, so
-  // the scale comes from the market and every row is on it.
-  assert.equal(unitForMarket('pl-PL'), 'index-eu27-100');
-  assert.equal(unitForMarket('en-US'), 'ratio-us-1');
-  assert.equal(unitForMarket('ja-JP'), 'ratio-us-1');
+  // a spec carries one scale and says which.
   for (const unit of ['index-eu27-100', 'ratio-us-1']) {
     const spec = toolSpec('cost-of-living-calculator', { language: 'en', unit });
     assert.equal(spec.unit, unit);
     assert.ok(spec.scale && spec.scale.at, 'the scale is not stated, so the numbers mean nothing');
-    const units = new Set(spec.rows.map(() => unit));
-    assert.equal(units.size, 1);
+  }
+  // And the scale a market gets is the one its own country is on, because a
+  // comparison tool on an American page that does not offer the United States is
+  // a tool nobody can use. The first version offered the broader 160 country
+  // ratio to English and Japanese readers, and it contains neither country.
+  for (const [market, iso] of [['en-US', 'US'], ['ja-JP', 'JP'], ['pl-PL', 'PL'], ['de-DE', 'DE'], ['pt-BR', 'BR'], ['fr-FR', 'FR'], ['it-IT', 'IT'], ['es-ES', 'ES'], ['nl-NL', 'NL']]) {
+    const spec = toolSpec('cost-of-living-calculator', { language: 'en', unit: unitForMarket(market), market });
+    assert.equal(spec.home, iso);
+    assert.ok(spec.rows.some((r) => r.iso2 === iso), market + ' cannot compare against ' + iso + ', which is the country the reader lives in');
   }
   // The district table for the whole neighbourhood source is 76 kilobytes and
   // nobody scrolls a hundred districts, so it is capped. The cap is asserted here

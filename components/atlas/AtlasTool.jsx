@@ -37,6 +37,12 @@ export function bandOf(value) {
 
 const nf = (language, digits = 0) => new Intl.NumberFormat(language, { maximumFractionDigits: digits });
 
+// Where a picker opens: the reader's own country, or the middle of the table.
+export function startAt(rows, home) {
+  const at = rows.findIndex((r) => r.iso2 === home);
+  return at >= 0 ? at : Math.floor(rows.length / 2);
+}
+
 export default function AtlasTool({ spec, labels, dims }) {
   const language = spec.language || 'en';
   const fmt = useMemo(() => nf(language), [language]);
@@ -72,7 +78,12 @@ export default function AtlasTool({ spec, labels, dims }) {
     send(EVENTS.toolStart, { tool_field: field });
   };
 
+  // A completion the reader did not cause is not a completion. Every mode has a
+  // valid default state, so without this gate tool_complete fired on mount,
+  // before tool_start, on every tool page load: the completion rate would have
+  // read as one and measured nothing.
   const complete = (signature, extra) => {
+    if (!started.current) return;
     if (completed.current === signature) return;
     completed.current = signature;
     send(EVENTS.toolComplete, extra);
@@ -177,8 +188,15 @@ function Move({ spec, t, fmt, box, touch, complete }) {
 // Two places on one scale, and an amount. The arithmetic is a ratio of two
 // published price levels and nothing else, which is why it can be done here.
 function Ratio({ spec, t, fmt, fmt1, box, touch, complete }) {
-  const [a, setA] = useState(spec.rows[0].iso2);
-  const [b, setB] = useState(spec.rows[Math.min(1, spec.rows.length - 1)].iso2);
+  // Open on the country the page was written for, and on its nearest neighbour
+  // in the ordering, so the first thing the reader sees is a comparison they can
+  // judge rather than Afghanistan against Algeria. Where the reader's own country
+  // is not in the table - the earnings series is European and the market may not
+  // be - the middle of the distribution stands in, because the alphabetically
+  // first row is a country nobody chose and a number nobody recognises.
+  const homeAt = startAt(spec.rows, spec.home);
+  const [a, setA] = useState(spec.rows[homeAt].iso2);
+  const [b, setB] = useState(spec.rows[(homeAt + 1) % spec.rows.length].iso2);
   const [amount, setAmount] = useState('2000');
   const rowA = spec.rows.find((r) => r.iso2 === a);
   const rowB = spec.rows.find((r) => r.iso2 === b);
@@ -226,7 +244,7 @@ function Ratio({ spec, t, fmt, fmt1, box, touch, complete }) {
 }
 
 function Earn({ spec, t, fmt, box, touch, complete }) {
-  const [iso, setIso] = useState(spec.rows[0].iso2);
+  const [iso, setIso] = useState(spec.rows[startAt(spec.rows, spec.home)].iso2);
   const row = spec.rows.find((r) => r.iso2 === iso);
   useEffect(() => {
     if (row) complete('earn|' + iso, { country: iso });
