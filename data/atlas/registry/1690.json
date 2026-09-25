@@ -82,10 +82,34 @@
      "qa": "reports/atlas/cohort-002-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-09-25",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "productionDeployment": "dpl_GNfhcMQvJs53wrNP2w8RqXxbqZeg",
+     "commit": "bc4515a64514e304cb75f922e53bcb74b0448bb5",
+     "at": "2026-09-25T01:13:00Z",
+     "response": {
+      "path": "/es/zonas/madrid/",
+      "surface": "areas",
+      "status": 200,
+      "h1": "Barrios de Madrid",
+      "canonical": "https://livdar.com/es/zonas/madrid/",
+      "robots": "index, follow",
+      "hreflang": 2,
+      "internalLinks": 14,
+      "note": "51 table rows, the districts of Madrid"
+     },
+     "file": "data/atlas/launches/evidence-2026-09-25.json"
+    }
    }
   ],
   "lot": "lot-004",
-  "state": "published",
+  "state": "live",
   "family": "neighbourhoods.city-where-to-stay",
   "surface": "areas",
   "locale": "es",
@@ -99,6 +123,7 @@
    "on": "2026-09-24",
    "checks": 22
   },
-  "publishedOn": "2026-09-25"
+  "publishedOn": "2026-09-25",
+  "liveOn": "2026-09-25"
  }
 }

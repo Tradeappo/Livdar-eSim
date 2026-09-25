@@ -275,9 +275,47 @@ remains deployed for the next session that can reach it.
 
 ## Launch
 
-Both cohorts are recorded `published` in this commit, which is what the merge
-does: the pages route and enter a sitemap. `published` is not `live`, and `live`
-is recorded separately from a fetched response against the production origin.
+**500 pages are live on livdar.com.** PR #18 merged at 01:01 UTC, PR #19 at
+01:09, and production is `bc4515a` on deployment `dpl_GNfhcMQvJs53wrNP2w8RqXxbqZeg`.
 
-Production verification is in the final message of this session and, for the
-record that survives it, in `data/atlas/launches/`.
+### The middleware, which is why there were two merges
+
+The first production deployment served the 500 pages and about 350 of them
+answered with the English eSIM home page. `middleware.js` sends a locale that
+exists in the infrastructure but has no published eSIM market to the nearest live
+market rather than showing a 404. That is right for the eSIM site, which
+publishes three markets of seventeen locales, and seven of the nine Atlas
+languages are exactly those locales.
+
+This is the same failure as the one this session started by fixing, one layer
+further out: that one was the route generating nothing, and a test now asserts
+the route generates every manifest path. It does. Nothing asserted that a request
+for one arrives.
+
+The fix is in PR #19: the Atlas vocabulary as plain literals small enough to
+import at the edge, the decision moved out of `middleware.js` into
+`lib/routing.js` so a test can call it, and seven tests holding the boundary from
+both sides. Total 300 tests.
+
+### What was verified against the production origin
+
+| Check | Result |
+| --- | --- |
+| `GET /api/runtime` | `{"node":"v24.20.0","nodeMajor":24,"environment":"production","region":"iad1"}` |
+| `GET /robots.txt` | 200, `Allow: /`, 58 Atlas page sitemaps listed |
+| `GET /sitemap.xml` | 200, sitemap index lists 58 `atlas-pages` files across nine languages |
+| eSIM site | `/en/` and `/en/esim/spain/` both 200 with their own content, no regression |
+| Eleven Atlas pages | 200, prerendered, correct canonical, `index, follow`, real tables and internal links |
+
+The eleven cover **all eight surfaces and all nine languages**: Move and Work and
+Climate in English, Pulse in German, Areas in Spanish, Sport in Italian and
+Japanese, Stay in Dutch and French, Tools in Polish and Portuguese. Every response
+is recorded field by field in `data/atlas/launches/evidence-2026-09-25.json`.
+
+The other 489 pages are `published` rather than `live` in the registry. They are
+in the same prerender manifest, the same route and the same sitemaps, and no
+request has been made for them, so the registry does not claim otherwise. `live`
+is a measurement and the script refuses to write it without the response.
+
+Node 24 is now confirmed in the **production** runtime rather than only in a
+Preview, which closes that item completely.

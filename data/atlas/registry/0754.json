@@ -31,10 +31,33 @@
      "qa": "reports/atlas/cohort-002-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-09-25",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "productionDeployment": "dpl_GNfhcMQvJs53wrNP2w8RqXxbqZeg",
+     "commit": "bc4515a64514e304cb75f922e53bcb74b0448bb5",
+     "at": "2026-09-25T01:13:00Z",
+     "response": {
+      "path": "/en/best-time-to-visit/japan/",
+      "surface": "climate",
+      "status": 200,
+      "h1": "Best time to visit Japan",
+      "canonical": "https://livdar.com/en/best-time-to-visit/japan/",
+      "robots": "index, follow",
+      "hreflang": 3,
+      "internalLinks": 16
+     },
+     "file": "data/atlas/launches/evidence-2026-09-25.json"
+    }
    }
   ],
   "lot": "lot-004",
-  "state": "published",
+  "state": "live",
   "family": "weather.country-best-time",
   "surface": "climate",
   "locale": "en",
@@ -48,6 +71,7 @@
    "on": "2026-09-24",
    "checks": 22
   },
-  "publishedOn": "2026-09-25"
+  "publishedOn": "2026-09-25",
+  "liveOn": "2026-09-25"
  }
 }

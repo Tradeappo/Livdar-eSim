@@ -45,8 +45,16 @@ export function run({ now = new Date(), cohort = '002', to = 'published', eviden
   const updates = {};
   const refused = [];
   const already = [];
+  // `live` is claimed per page, from the response that was read for that page.
+  // A launch fetches a sample rather than five hundred URLs, so the sample is
+  // what goes live and the rest stay published: the registry counting 500 live
+  // off 11 responses is exactly the optimism the state machine exists to stop.
+  const evidenced = to === 'live' && evidence?.pages
+    ? new Set(evidence.pages.map((r) => r.path))
+    : null;
   for (const m of report.models) {
     const key = m.path;
+    if (evidenced && !evidenced.has(key)) continue;
     const entry = getEntry(key);
     if (!entry) { refused.push({ key, why: 'the registry does not hold this page at all' }); continue; }
     if (entry.state === to) { already.push(key); continue; }
@@ -59,7 +67,15 @@ export function run({ now = new Date(), cohort = '002', to = 'published', eviden
       rule: to === 'published'
         ? 'scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass'
         : 'scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence',
-      evidence: to === 'live' ? evidence : { qa: 'reports/atlas/cohort-' + cohort + '-qa.json', checks: report.checks.length },
+      evidence: to === 'live'
+        ? {
+          productionDeployment: evidence.productionDeployment,
+          commit: evidence.commit,
+          at: evidence.at,
+          response: (evidence.pages || []).find((r) => r.path === key) || null,
+          file: 'data/atlas/launches/evidence-' + on + '.json',
+        }
+        : { qa: 'reports/atlas/cohort-' + cohort + '-qa.json', checks: report.checks.length },
     });
     if (to === 'published') updates[key].publishedOn = on;
     if (to === 'live') updates[key].liveOn = on;
