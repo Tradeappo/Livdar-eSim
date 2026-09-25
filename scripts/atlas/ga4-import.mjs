@@ -31,7 +31,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { build as launchPackage } from './launch-package.mjs';
-import { getAccessToken, serviceAccountFromEnv } from '../lib/google-search-console.mjs';
+import { getAccessToken, googleCredentialsFromEnv } from '../lib/google-search-console.mjs';
 
 const ROOT = new URL('../../', import.meta.url);
 const API = 'https://analyticsdata.googleapis.com/v1beta';
@@ -91,7 +91,7 @@ export async function run({ days = 28, env = process.env, fetchImpl = fetch, now
   const byPath = new Map(rows.map((r) => [r.path, r]));
 
   const property = env.GA4_PROPERTY_ID || null;
-  const account = serviceAccountFromEnv(env);
+  const account = googleCredentialsFromEnv(env);
   if (!property || !account.credentials) {
     const missing = [property ? null : 'GA4_PROPERTY_ID', ...(account.missing || [])].filter(Boolean);
     return {
