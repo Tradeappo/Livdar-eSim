@@ -3,24 +3,25 @@ name: atlas-search-console
 # confused: discovered, indexed, impressions and clicks. Requesting indexing is
 # recorded elsewhere and is never counted as indexing.
 #
-# The step used to read `node scripts/gsc-report.mjs || echo "...skipping"`, and
-# the one scheduled run it has had reported success after failing in 0.03
-# seconds on a missing GSC_PROPERTY. A step that cannot fail cannot tell you
-# whether the import works, so the swallow is gone and the preflight runs first
-# and says which credential is absent.
+# Authentication is Workload Identity Federation. The job's GitHub OIDC token is
+# exchanged for a short lived token of the Search Console service account, and
+# no key exists anywhere: not in the repository, not in a secret. The pool only
+# trusts this repository, on main, running this workflow file.
 #
-# Not configured is a real state and not a failure: the preflight reports it,
-# the import is skipped, and the job is marked skipped rather than green. What
-# fails the job is credentials that exist and do not work.
+# Fail closed. The step used to read `node scripts/gsc-report.mjs || echo
+# "...skipping"`, and its one scheduled run reported success after failing in
+# 0.03 seconds. Now every one of these fails the job: federation not configured,
+# federation refused, the property refusing the service account, an API call
+# failing. There is no skipped-but-green path left.
 on:
   schedule: [{ cron: '30 5 * * *' }]
   workflow_dispatch:
-permissions: { contents: write, pull-requests: write }
+permissions:
+  contents: write        # the import commits the measured file to a branch
+  pull-requests: write   # and opens the pull request for it
+  id-token: write        # the OIDC token that Workload Identity Federation exchanges
 env:
-  GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
-  GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
   GSC_PROPERTY: ${{ secrets.GSC_PROPERTY }}
-  GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
 jobs:
   import:
     runs-on: ubuntu-latest
@@ -30,37 +31,43 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 24 }
 
-      # Configured, authorised and granted are three different questions with
-      # three different remedies, so they are answered separately and the answer
-      # is written into the job summary whether or not the import runs.
-      - id: preflight
+      # Named rather than discovered, so a missing variable fails here with its
+      # name instead of as an opaque auth error further down.
+      - name: Federation is configured
+        env:
+          WIF_PROVIDER: ${{ vars.GCP_WIF_PROVIDER }}
+          WIF_SERVICE_ACCOUNT: ${{ vars.GSC_SERVICE_ACCOUNT }}
         run: |
-          node scripts/gsc-check.mjs > gsc-check.json
-          cat gsc-check.json
-          echo "granted=$(node -e 'console.log(JSON.parse(require("fs").readFileSync("gsc-check.json","utf8")).granted)')" >> "$GITHUB_OUTPUT"
-          echo "configured=$(node -e 'console.log(JSON.parse(require("fs").readFileSync("gsc-check.json","utf8")).configured)')" >> "$GITHUB_OUTPUT"
+          missing=""
+          [ -n "$WIF_PROVIDER" ] || missing="$missing GCP_WIF_PROVIDER(variable)"
+          [ -n "$WIF_SERVICE_ACCOUNT" ] || missing="$missing GSC_SERVICE_ACCOUNT(variable)"
+          [ -n "$GSC_PROPERTY" ] || missing="$missing GSC_PROPERTY(secret)"
+          if [ -n "$missing" ]; then echo "::error::Search Console is not configured:$missing"; exit 1; fi
+
+      # Writes an external_account credentials file and points
+      # GOOGLE_APPLICATION_CREDENTIALS at it. No key is created.
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GSC_SERVICE_ACCOUNT }}
+
+      # Configured, authorised and granted are three different questions with
+      # three different remedies, so they are answered separately and written
+      # into the job summary. --ci exits 1 unless the property answered.
+      - name: Preflight
+        run: |
+          set -o pipefail
+          node scripts/gsc-check.mjs --ci | tee gsc-check.json
           { echo '### Search Console'; echo '```json'; cat gsc-check.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
-      # Credentials that exist and do not work is the case that used to be
-      # invisible, so it is the case that fails the job.
-      - if: steps.preflight.outputs.configured == 'true' && steps.preflight.outputs.granted != 'true'
-        run: |
-          echo "::error::Search Console credentials are configured but the property refused them. See the preflight output above."
-          exit 1
+      - run: node scripts/gsc-report.mjs
 
-      - if: steps.preflight.outputs.granted == 'true'
-        run: node scripts/gsc-report.mjs
+      - run: node scripts/atlas/gsc-import.mjs --write --ci
 
-      - if: steps.preflight.outputs.granted == 'true'
-        run: node scripts/atlas/gsc-import.mjs --write
-
-      - if: steps.preflight.outputs.granted == 'true'
-        uses: peter-evans/create-pull-request@v6
+      - uses: peter-evans/create-pull-request@v6
         with:
           branch: atlas/search-console
           title: 'Atlas Search Console import'
           commit-message: 'Atlas Search Console import'
           body: 'Discovered, indexed, impressions and clicks, counted separately.'
-
-      - if: steps.preflight.outputs.configured != 'true'
-        run: echo "::notice::Search Console is not configured; see the preflight output for the exact secret that is missing. Nothing was imported and nothing was claimed."
