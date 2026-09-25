@@ -1,0 +1,41 @@
+{
+ "country": "de",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 945,
+ "family": "neighbourhoods.city-where-to-stay",
+ "market": "de-DE",
+ "note": "Discovered from the market head term for city districts and resolved to a city by subtraction against the names that market actually used. A remainder that is not one of those names is refused, which is what keeps a map request, a best and worst question and a city with no district data out.",
+ "keywords": [
+  {
+   "keyword": "berlin stadtteile",
+   "volume": 6300,
+   "difficulty": 6
+  },
+  {
+   "keyword": "hamburg stadtteile",
+   "volume": 5300,
+   "difficulty": 3
+  },
+  {
+   "keyword": "new york stadtteile",
+   "volume": 2300,
+   "difficulty": 58
+  },
+  {
+   "keyword": "köln stadtteile",
+   "volume": 1500,
+   "difficulty": 38
+  },
+  {
+   "keyword": "london stadtteile",
+   "volume": 1000,
+   "difficulty": 0
+  },
+  {
+   "keyword": "paris stadtteile",
+   "volume": 350,
+   "difficulty": 0
+  }
+ ]
+}

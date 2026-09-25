@@ -1,0 +1,157 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "us",
+ "market": "en-US",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 322,
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison"
+ ],
+ "note": "The second pass over the Tools surface. Constructed keywords in the idiom of each market, for every tool in the queue rather than the ones that already had a page. The parent topic was selected as well as the volume, and it changed four decisions: the phrase for a country comparison returns a map question in every market except German, and the phrase for a rent calculator returns the annual increase in Spanish, Italian and Brazilian Portuguese.",
+ "caution": "A null volume means the provider returned no row. Volume alone did not decide a page here: a keyword whose parent topic is a different question was not planned however large it was.",
+ "keywords": [
+  {
+   "keyword": "how much rent can i afford",
+   "volume": 18000,
+   "difficulty": 38,
+   "cpc": 2,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "en-US"
+  },
+  {
+   "keyword": "rent calculator",
+   "volume": 14000,
+   "difficulty": 38,
+   "cpc": 45,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "en-US",
+   "notPlanned": "the same parent topic as the planned keyword, which carries more volume"
+  },
+  {
+   "keyword": "rent affordability calculator",
+   "volume": 3600,
+   "difficulty": 31,
+   "cpc": 30,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "en-US",
+   "notPlanned": "the same parent topic as the planned keyword"
+  },
+  {
+   "keyword": "which country should i move to",
+   "volume": 100,
+   "difficulty": 5,
+   "cpc": 6,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "en-US"
+  },
+  {
+   "keyword": "best country for me",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "en-US",
+   "notPlanned": "the same question in fewer searches"
+  },
+  {
+   "keyword": "where should i stay",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "en-US"
+  },
+  {
+   "keyword": "best area to stay",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "en-US",
+   "notPlanned": "the same question as the planned keyword"
+  },
+  {
+   "keyword": "country comparison",
+   "volume": 250,
+   "difficulty": 49,
+   "cpc": 15,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "en-US",
+   "notPlanned": "the parent topic is the true size of countries on a map"
+  },
+  {
+   "keyword": "compare countries",
+   "volume": 80,
+   "difficulty": 34,
+   "cpc": 20,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "en-US",
+   "notPlanned": "the parent topic is the true size of countries on a map"
+  },
+  {
+   "keyword": "take home pay calculator",
+   "volume": 56000,
+   "difficulty": 50,
+   "cpc": 110,
+   "family": "tools.calculator",
+   "entity": "net-salary",
+   "market": "en-US",
+   "notPlanned": "blocked: tax rules are not built"
+  },
+  {
+   "keyword": "gross to net salary",
+   "volume": 50,
+   "difficulty": 18,
+   "cpc": 4,
+   "family": "tools.calculator",
+   "entity": "net-salary",
+   "market": "en-US",
+   "notPlanned": "blocked: tax rules are not built"
+  },
+  {
+   "keyword": "trip cost calculator",
+   "volume": 1700,
+   "difficulty": 49,
+   "cpc": 45,
+   "family": "tools.calculator",
+   "entity": "travel-budget",
+   "market": "en-US",
+   "notPlanned": "the pair already has a keyword"
+  },
+  {
+   "keyword": "relocation calculator",
+   "volume": 300,
+   "difficulty": 77,
+   "cpc": 150,
+   "family": "tools.calculator",
+   "entity": "relocation-budget",
+   "market": "en-US",
+   "notPlanned": "the pair already has a keyword, and difficulty 77 is not a launch target"
+  },
+  {
+   "keyword": "cost of moving calculator",
+   "volume": 250,
+   "difficulty": 40,
+   "cpc": 450,
+   "family": "tools.calculator",
+   "entity": "moving-cost",
+   "market": "en-US",
+   "notPlanned": "the pair already has a keyword"
+  }
+ ],
+ "notReturned": []
+}

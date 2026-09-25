@@ -156,5 +156,7 @@ test('the committed dataset: every registry entry still passes its gates, Dubai 
   // The sitemaps carry exactly the published pages plus the section hub.
   const published = Object.entries(ds.registry.entries).filter(([, e]) => e.state === 'published').map(([k]) => k);
   const urls = new Set(atlasSitemapIds(ds).flatMap((x) => atlasSitemapEntries(ds, x.id).map((e) => e.url)));
-  assert.equal(urls.size, published.length + (published.length ? 1 : 0));
+  // One section hub per locale that has at least one published page.
+  const hubLocales = new Set(published.map((k) => k.split(':')[1]));
+  assert.equal(urls.size, published.length + hubLocales.size);
 });

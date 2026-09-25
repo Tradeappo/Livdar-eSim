@@ -1,0 +1,128 @@
+{
+ "note": "Discovery research for the Livdar product surfaces that had no research at all: Areas and places, Pulse, Stay, Sport, Community, Work and Tools. The competitor set is deliberately platforms rather than SEO blogs, because the question is what page shape earns in each surface, not who writes the best article.",
+ "provider": "ahrefs",
+ "exportedOn": "2026-09-24",
+ "unitsSpent": 6272,
+ "topPages": {
+  "tool": "site-explorer-top-pages",
+  "date": "2026-09-01",
+  "select": "url,sum_traffic,top_keyword,top_keyword_volume,keywords",
+  "targets": {
+   "timeout.com/gb": {
+    "surface": "areas, pulse", "market": "en-GB",
+    "shape": "A city hub, then recurring temporal hubs under it, then category pages at city and neighbourhood level, then named annual event guides. Not one page per date anywhere in the top twenty five.",
+    "rows": [
+     { "url": "/london", "traffic": 49280, "topKeyword": "time out london", "topKeywordVolume": 7400, "keywords": 1482, "kind": "city hub" },
+     { "url": "/london/things-to-do-in-london-this-weekend", "traffic": 23945, "topKeyword": "things to do in london this weekend", "topKeywordVolume": 15000, "keywords": 351, "kind": "temporal hub, weekend" },
+     { "url": "/london/things-to-do/notting-hill-carnival-guide", "traffic": 6943, "topKeyword": "notting hill carnival", "topKeywordVolume": 2630000, "keywords": 135, "kind": "named recurring event hub" },
+     { "url": "/london/things-to-do/things-to-do-in-london-today", "traffic": 6394, "topKeyword": "things to do in london today", "topKeywordVolume": 8800, "keywords": 103, "kind": "temporal hub, today" },
+     { "url": "/london/things-to-do", "traffic": 6067, "topKeyword": "things to do in london tomorrow", "topKeywordVolume": 2900, "keywords": 840, "kind": "category hub" },
+     { "url": "/london/restaurants/restaurants-in-soho-london", "traffic": 5905, "topKeyword": "soho restaurants", "topKeywordVolume": 6100, "keywords": 170, "kind": "poi category by neighbourhood" },
+     { "url": "/london/health-and-beauty/best-spas-in-london", "traffic": 4128, "topKeyword": "best spa london", "topKeywordVolume": 1000, "keywords": 242, "kind": "poi category by city" },
+     { "url": "/uk/news/boardmasters-festival-2026-guide-set-times-lineup-tickets-080526", "traffic": 4045, "topKeyword": "boardmasters 2026 lineup", "topKeywordVolume": 22000, "keywords": 25, "kind": "dated event guide" },
+     { "url": "/london/art", "traffic": 3430, "topKeyword": "galleries london", "topKeywordVolume": 1500, "keywords": 201, "kind": "category hub" },
+     { "url": "/uk/news/calvin-harris-glasgow-hampden-park-2026-timings-tickets-guide-073126", "traffic": 3307, "topKeyword": "calvin harris hampden", "topKeywordVolume": 19000, "keywords": 6, "kind": "single dated event" },
+     { "url": "/london/theatre", "traffic": 2692, "topKeyword": "london shows 2025", "topKeywordVolume": 8100, "keywords": 303, "kind": "category hub" },
+     { "url": "/london/attractions/top-london-museums", "traffic": 2171, "topKeyword": "top museums in london", "topKeywordVolume": 14000, "keywords": 118, "kind": "poi category by city" },
+     { "url": "/london/health-and-beauty", "traffic": 1911, "topKeyword": "best spa in london", "topKeywordVolume": 1100, "keywords": 32, "kind": "category hub" }
+    ]
+   },
+   "timeout.com/us": {
+    "surface": "areas, pulse", "market": "en-US",
+    "shape": "The same shape in a second market. Temporal hubs for this weekend, this week and today appear for each city separately, each one URL refreshed rather than one page per date.",
+    "rows": [
+     { "url": "/newyork", "traffic": 15512, "topKeyword": "timeout new york", "topKeywordVolume": 5900, "keywords": 618, "kind": "city hub" },
+     { "url": "/los-angeles/things-to-do/things-to-do-in-la-this-weekend", "traffic": 10955, "topKeyword": "things to do in la this weekend", "topKeywordVolume": 7800, "keywords": 444, "kind": "temporal hub, weekend" },
+     { "url": "/chicago", "traffic": 8274, "topKeyword": "timeout chicago", "topKeywordVolume": 2100, "keywords": 500, "kind": "city hub" },
+     { "url": "/los-angeles", "traffic": 5023, "topKeyword": "things to do in los angeles this weekend", "topKeywordVolume": 3400, "keywords": 328, "kind": "city hub" },
+     { "url": "/newyork/things-to-do", "traffic": 4516, "topKeyword": "what to do in nyc this week", "topKeywordVolume": 350, "keywords": 738, "kind": "category hub" },
+     { "url": "/newyork/things-to-do/things-to-do-in-new-york-this-week", "traffic": 3647, "topKeyword": "things to do in nyc this week", "topKeywordVolume": 1800, "keywords": 252, "kind": "temporal hub, week" },
+     { "url": "/los-angeles/things-to-do/things-to-do-in-los-angeles-today", "traffic": 3356, "topKeyword": "things to do in la today", "topKeywordVolume": 3700, "keywords": 253, "kind": "temporal hub, today" },
+     { "url": "/chicago/music/lollapalooza-lineup", "traffic": 2755, "topKeyword": "lollapalooza 2026", "topKeywordVolume": 78000, "keywords": 181, "kind": "named recurring event hub" },
+     { "url": "/newyork/things-to-do/things-to-do-in-nyc-this-weekend", "traffic": 2746, "topKeyword": "things to do in nyc this weekend", "topKeywordVolume": 14000, "keywords": 221, "kind": "temporal hub, weekend" },
+     { "url": "/miami", "traffic": 2109, "topKeyword": "things to do in miami this weekend", "topKeywordVolume": 2000, "keywords": 470, "kind": "city hub" },
+     { "url": "/travel/best-cities-2026", "traffic": 1762, "topKeyword": "best places to live in the world", "topKeywordVolume": 3900, "keywords": 227, "kind": "ranking" }
+    ]
+   },
+   "feverup.com": {
+    "surface": "pulse", "market": "en-US",
+    "shape": "Event series by city is the largest page by a wide margin. Individual event pages earn only when the experience has a name people search for. A generic dated event page does not appear anywhere in the top twenty five.",
+    "rows": [
+     { "url": "/{city}/candlelight", "traffic": 35240, "topKeyword": "candlelight concert", "topKeywordVolume": 100000, "keywords": 14, "kind": "event series by city" },
+     { "url": "/united-states/movie-theaters", "traffic": 12566, "topKeyword": "regal tangram", "topKeywordVolume": 20000, "keywords": 1876, "kind": "venue category hub" },
+     { "url": "/en/new-york", "traffic": 2086, "topKeyword": "fun activities in nyc for adults", "topKeywordVolume": 10000, "keywords": 675, "kind": "city hub" },
+     { "url": "/m/323754", "traffic": 1424, "topKeyword": "arte museum las vegas", "topKeywordVolume": 34000, "keywords": 43, "kind": "named experience page" },
+     { "url": "/m/653863", "traffic": 793, "topKeyword": "bubble planet", "topKeywordVolume": 94000, "keywords": 3, "kind": "named experience page" },
+     { "url": "/seattle/candlelight", "traffic": 918, "topKeyword": "candlelight concert seattle", "topKeywordVolume": 2700, "keywords": 1, "kind": "event series by city" },
+     { "url": "/en/atlanta", "traffic": 719, "topKeyword": "things to do in atlanta", "topKeywordVolume": 38000, "keywords": 240, "kind": "city hub" }
+    ]
+   },
+   "housinganywhere.com": {
+    "surface": "stay", "market": "en-US",
+    "shape": "City by stay type, /s/{City}--{Country}/{stay-type}, with three measured stay types: apartment-for-rent, private-rooms, long-term-rentals. A marketplace that also ranks for cost of living and average salary editorial, which is the cross sell Livdar is built for.",
+    "rows": [
+     { "url": "/s/Paris--France/apartment-for-rent", "traffic": 1653, "topKeyword": "paris apartments for rent", "topKeywordVolume": 1600, "keywords": 181, "kind": "city by stay type" },
+     { "url": "/s/New-York--United-States/private-rooms", "traffic": 1107, "topKeyword": "room for rent nyc", "topKeywordVolume": 1300, "keywords": 289, "kind": "city by stay type, rooms" },
+     { "url": "/s/Los-Angeles--United-States/private-rooms", "traffic": 862, "topKeyword": "private room for rent", "topKeywordVolume": 500, "keywords": 295, "kind": "city by stay type, rooms" },
+     { "url": "/s/Barcelona--Spain/apartment-for-rent", "traffic": 768, "topKeyword": "barcelona apartments", "topKeywordVolume": 1700, "keywords": 95, "kind": "city by stay type" },
+     { "url": "/Spain/cost-of-living-in-spain-compared-to-the-world", "traffic": 449, "topKeyword": "average rent in spain", "topKeywordVolume": 150, "keywords": 44, "kind": "editorial cross sell" },
+     { "url": "/s/Porto--Portugal/long-term-rentals", "traffic": 319, "topKeyword": "porto portugal rentals", "topKeywordVolume": 90, "keywords": 54, "kind": "city by stay type" },
+     { "url": "/Spain/average-salary-spain", "traffic": 282, "topKeyword": "average salary spain", "topKeywordVolume": 250, "keywords": 59, "kind": "editorial cross sell" },
+     { "url": "/New-York--United-States/living-in-new-york", "traffic": 156, "topKeyword": "is new york a good place to live", "topKeywordVolume": 400, "keywords": 84, "kind": "city living guide" }
+    ]
+   },
+   "alltrails.com": {
+    "surface": "sport", "market": "en-US",
+    "shape": "Place by activity hubs, then named route pages. A route earns a page when the route itself is searched by name; the generic ones live on the hub.",
+    "caveat": "The very large figures on the /us/kansas/wichita paths are an artifact of how near me queries are sampled to a location, not a claim about that city. The shape is what matters here, not the number.",
+    "rows": [
+     { "url": "/{country}/{state}/{city}", "traffic": 41184, "topKeyword": "hiking trails", "topKeywordVolume": 75000, "keywords": 484, "kind": "place by activity hub" },
+     { "url": "/{country}/{state}/{city}/road-biking", "traffic": 11727, "topKeyword": "biking trails", "topKeywordVolume": 46000, "keywords": 123, "kind": "place by activity hub" },
+     { "url": "/trail/us/utah/angels-landing-trail", "traffic": 3968, "topKeyword": "angels landing", "topKeywordVolume": 82000, "keywords": 237, "kind": "named route" },
+     { "url": "/trail/us/new-hampshire/mount-lafayette-and-franconia-ridge-trail-loop", "traffic": 3384, "topKeyword": "franconia ridge trail", "topKeywordVolume": 6600, "keywords": 67, "kind": "named route" },
+     { "url": "/{country}/{state}/{city}/trail-running", "traffic": 2448, "topKeyword": "running trails near me", "topKeywordVolume": 13000, "keywords": 107, "kind": "place by activity hub" },
+     { "url": "/{country}/{state}/{city}/dogs-leash", "traffic": 2178, "topKeyword": "dog friendly trails near me", "topKeywordVolume": 2100, "keywords": 146, "kind": "place by activity by facet" }
+    ]
+   },
+   "meetup.com": {
+    "surface": "community", "market": "en-US",
+    "shape": "City by topic hubs, /find/{country}--{state}--{city}/{topic}/. Individual group pages are absent from the top twenty five except one outlier. This is the clearest evidence for indexing the hub and not the user generated group.",
+    "rows": [
+     { "url": "/find/{country}--{state}--{city}/", "traffic": 3892, "topKeyword": "meetups near me", "topKeywordVolume": 1400, "keywords": 148, "kind": "city hub" },
+     { "url": "/find/{city}/networking/", "traffic": 750, "topKeyword": "business networking events near me", "topKeywordVolume": 600, "keywords": 86, "kind": "city by topic" },
+     { "url": "/find/{city}/meet-new-friends/", "traffic": 781, "topKeyword": "meet up", "topKeywordVolume": 22000, "keywords": 67, "kind": "city by topic" },
+     { "url": "/find/{city}/social/", "traffic": 561, "topKeyword": "social clubs near me", "topKeywordVolume": 2000, "keywords": 41, "kind": "city by topic" },
+     { "url": "/topics/dnd/", "traffic": 692, "topKeyword": "dnd near me", "topKeywordVolume": 1200, "keywords": 86, "kind": "topic hub" }
+    ]
+   },
+   "coworker.com": {
+    "surface": "areas, work", "market": "en-US",
+    "shape": "City hubs for coworking earn in the low hundreds and individual space pages in the tens. The ceiling on this vertical is low in English, which is why it is a hub only family and not a page per venue.",
+    "rows": [
+     { "url": "/{country}/{state}/{city}", "traffic": 170, "topKeyword": "best coworking spaces", "topKeywordVolume": 2400, "keywords": 12, "kind": "city hub" },
+     { "url": "/virtual-offices/{country}/{state}/{city}", "traffic": 165, "topKeyword": "virtual office dallas", "topKeywordVolume": 600, "keywords": 18, "kind": "city by subtype" },
+     { "url": "/{country}/{state}/{city}/{venue}", "traffic": 100, "topKeyword": "368 9th ave", "topKeywordVolume": 400, "keywords": 16, "kind": "individual venue" }
+    ]
+   },
+   "nomads.com": {
+    "surface": "areas", "market": "en-US",
+    "shape": "Negative evidence, recorded because it is worth as much as the positive kind. A well known digital nomad product: the home page takes 3,067 and every city cost of living profile takes between 10 and 47. The nomad city profile is not a page shape that earns, and Livdar should not build a thousand of them.",
+    "rows": [
+     { "url": "/", "traffic": 3067, "topKeyword": "nomad list", "topKeywordVolume": 900, "keywords": 237, "kind": "home" },
+     { "url": "/cost-of-living/in/mexico-city", "traffic": 47, "topKeyword": "cost of living mexico city", "topKeywordVolume": 200, "keywords": 19, "kind": "city profile" },
+     { "url": "/cost-of-living/in/buenos-aires", "traffic": 27, "topKeyword": "buenos aires cost of living", "topKeywordVolume": 150, "keywords": 8, "kind": "city profile" },
+     { "url": "/similar/new-york-city", "traffic": 17, "topKeyword": "cities like new york", "topKeywordVolume": 150, "keywords": 9, "kind": "similarity page" },
+     { "url": "/near/cancun", "traffic": 26, "topKeyword": "cities near cancun", "topKeywordVolume": 100, "keywords": 17, "kind": "proximity page" }
+    ]
+   }
+  }
+ },
+ "conclusions": [
+  "Pulse is recurring hubs, not dated pages. The two biggest Pulse pages found anywhere are this weekend hubs, one URL per city refreshed continuously. Fever's largest page is an event series by city. Dated pages earn while the date is near and then earn nothing, which is an argument for a lifecycle rather than for a page per date.",
+  "Places earn at two levels and the narrower one can win. Restaurants in Soho takes more traffic than best spas in London, so the neighbourhood level page is not a weaker version of the city level page. Both are worth having where the neighbourhood is itself searched.",
+  "Individual POI and event pages earn only when the thing has a name people search. Angels Landing at 82,000 a month earns a page; a nameless trail does not. Fever's Arte Museum Las Vegas at 34,000 earns a page; a dated concert does not. This is one rule with two applications, and it is the gate.",
+  "Community indexes the hub, not the group. Meetup's top pages are city by topic hubs, and individual groups are absent. That settles how Livdar should treat user generated meetups.",
+  "Coworking has a low ceiling in English and a high one in local languages. Coworker.com's best city hub takes 170, while coworking barcelona alone is 2,100 searches a month at a three dollar cost per click.",
+  "A famous product can have no search surface. Nomads.com city profiles take between 10 and 47 visits each. Livdar should not build that shape at scale."
+ ]
+}

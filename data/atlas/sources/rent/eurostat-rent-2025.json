@@ -1,0 +1,48 @@
+{
+ "capturedOn": "2026-09-24",
+ "provider": "Eurostat",
+ "licence": "Eurostat reuse policy, commercial reuse permitted with attribution",
+ "attribution": "Source: Eurostat, prc_hicp_midx, prc_hicp_aind and ilc_lvho07a",
+ "captureMethod": "Browser fetch against the live API, reduced in the page before transfer. The sandbox has no direct network route to ec.europa.eu.",
+ "warning": "These are three different metrics and they are stored apart on purpose. None of them is a rent level in euros. Eurostat does not publish a comparable rent level, and deriving one from an index would be inventing a number.",
+ "series": {
+  "rentIndex": {
+   "dataset": "prc_hicp_midx",
+   "coicop": "CP041",
+   "coicopLabel": "Actual rentals for housing",
+   "unit": "I15",
+   "unitMeaning": "Harmonised index of consumer prices for actual rentals, 2015 = 100",
+   "metricKind": "index",
+   "period": "2025-12",
+   "providerUpdated": "2026-02-06T23:00:00+0100",
+   "methodology": "HICP subindex. It measures how rents paid have moved since 2015 in that country, and says nothing about what rent costs relative to another country.",
+   "values": {"AL":125.34,"AT":149.84,"BE":132.91,"BG":153.92,"CH":114.31,"CY":130.6,"CZ":152.2,"DE":119.1,"DK":118.2,"EE":166.1,"EL":117.46,"ES":114.78,"FI":118.1,"FR":110.69,"HR":172.81,"HU":208.33,"IE":176.5,"IS":181.84,"IT":114.6,"LT":189.72,"LU":115.09,"LV":131.11,"ME":183.02,"MK":115.38,"MT":154.4,"NL":132.35,"NO":129.1,"PL":176.3,"PT":138.93,"RO":162.6,"RS":184.2,"SE":126.01,"SI":173.75,"SK":131.41,"TR":1863.94,"XK":101.69}
+  },
+  "rentInflation": {
+   "dataset": "prc_hicp_aind",
+   "coicop": "CP041",
+   "unit": "RCH_A_AVG",
+   "unitMeaning": "Annual average rate of change in actual rentals, percent",
+   "metricKind": "rate-of-change",
+   "period": "2025",
+   "providerUpdated": "2026-02-06T23:00:00+0100",
+   "methodology": "Year on year change in the same subindex.",
+   "values": {"AL":4.5,"AT":4.3,"BE":3.7,"BG":9.6,"CH":2.5,"CY":3.4,"CZ":6.1,"DE":2.1,"DK":2.2,"EE":4.9,"EL":10,"ES":2.4,"FI":1,"FR":2.3,"HR":17.6,"HU":9.8,"IE":4.5,"IS":9.9,"IT":3.8,"LT":5.6,"LU":1.6,"LV":5.7,"ME":18.5,"MK":3.3,"MT":1.7,"NL":5.1,"NO":3.6,"PL":4.3,"PT":5.3,"RO":8.2,"RS":6.4,"SE":5.3,"SI":1.9,"SK":5.1,"TR":77.6,"XK":1}
+  },
+  "housingCostOverburden": {
+   "dataset": "ilc_lvho07a",
+   "unit": "PC",
+   "unitMeaning": "Share of the population living in households where total housing costs exceed 40 percent of disposable income, percent",
+   "metricKind": "share",
+   "period": "2025",
+   "providerUpdated": "2026-09-17T23:00:00+0200",
+   "methodology": "EU statistics on income and living conditions. It is an affordability measure rather than a price, and it counts owners as well as renters.",
+   "values": {"AT":6.1,"BE":6.7,"BG":6.9,"CY":2.4,"CZ":8.2,"DE":11.2,"DK":23.4,"EE":8.8,"EL":26.4,"ES":7.2,"FI":4.7,"FR":6.4,"HR":3.2,"HU":5.3,"IE":5.3,"IT":5,"LT":5.7,"LU":8.1,"LV":5.7,"MT":6,"NL":6.5,"NO":13.5,"PL":4.1,"PT":6.3,"RO":5,"RS":7.9,"SE":10.8,"SI":3.5,"SK":3.5,"TR":10}
+  }
+ },
+ "notCovered": {
+  "rentLevel": "No comparable rent level in euros exists in Eurostat. The housing price level index in prc_ppp_ind covers housing, water and energy together and cannot be split into rent.",
+  "cityLevel": "None of these three is published below the country.",
+  "askingRent": "Asking rents exist only on marketplaces, whose terms forbid scraping and whose sample is advertised prices rather than rents paid."
+ }
+}

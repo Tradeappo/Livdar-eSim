@@ -1,0 +1,84 @@
+{
+ "source": "venue-data-verified",
+ "provider": "Wikidata",
+ "dataset": "SPARQL, five venue classes, sixteen countries",
+ "licence": "CC0 1.0, Wikidata, public domain dedication",
+ "attribution": "Venue records from Wikidata (CC0)",
+ "capturedOn": "2026-09-24",
+ "ingestedAt": "2026-09-24",
+ "freshnessClass": "reference",
+ "confidence": "declared",
+ "meaning": "Venues placed against the Livdar city entities. Every value is community edited and labelled as such, which is why the confidence is the lowest rank that publishes and why no page built on this may present a capacity as an official figure.",
+ "seen": 9960,
+ "kept": 9438,
+ "withCapacity": 4145,
+ "dashNormalised": 63,
+ "rejected": {
+  "noName": 0,
+  "noCoordinates": 0,
+  "impossibleCapacity": 5,
+  "noCity": 517,
+  "unknownClass": 0
+ },
+ "rejectedSamples": [
+  {
+   "id": "Q139556430",
+   "name": "Es Molí Nou",
+   "capacity": 1,
+   "why": "capacity outside 50 to 250000"
+  },
+  {
+   "id": "Q3423208",
+   "name": "Refuge de la Pointe Percée",
+   "capacity": 45,
+   "why": "capacity outside 50 to 250000"
+  },
+  {
+   "id": "Q113552602",
+   "name": "Refuge de la Balme",
+   "capacity": 40,
+   "why": "capacity outside 50 to 250000"
+  },
+  {
+   "id": "Q473806",
+   "name": "Deutsches Stadion",
+   "capacity": 400000,
+   "why": "capacity outside 50 to 250000"
+  },
+  {
+   "id": "Q126915689",
+   "name": "Cavatina Hall",
+   "capacity": 1,
+   "why": "capacity outside 50 to 250000"
+  }
+ ],
+ "countries": {
+  "ES": 421,
+  "JP": 446,
+  "AE": 31,
+  "NZ": 82,
+  "GB": 1333,
+  "FR": 763,
+  "US": 3635,
+  "DE": 766,
+  "NL": 197,
+  "PL": 224,
+  "PT": 125,
+  "IT": 307,
+  "TH": 169,
+  "CA": 644,
+  "CR": 5,
+  "BR": 290
+ },
+ "cities": 3766,
+ "unlocks": [
+  "venues.city",
+  "stay.near-venue",
+  "events.venue"
+ ],
+ "notCovered": {
+  "ticketing": "No event inventory. Wikidata records the building, not what is on at it.",
+  "officialCapacity": "Capacities are community edited. An operator figure needs the operator.",
+  "accessibility": "Not recorded for most venues and not inferred here."
+ }
+}

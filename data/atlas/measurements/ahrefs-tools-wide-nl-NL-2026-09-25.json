@@ -1,0 +1,67 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "nl",
+ "market": "nl-NL",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 115,
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison"
+ ],
+ "note": "The second pass over the Tools surface. Constructed keywords in the idiom of each market, for every tool in the queue rather than the ones that already had a page. The parent topic was selected as well as the volume, and it changed four decisions: the phrase for a country comparison returns a map question in every market except German, and the phrase for a rent calculator returns the annual increase in Spanish, Italian and Brazilian Portuguese.",
+ "caution": "A null volume means the provider returned no row. Volume alone did not decide a page here: a keyword whose parent topic is a different question was not planned however large it was.",
+ "keywords": [
+  {
+   "keyword": "hoeveel huur kan ik betalen",
+   "volume": 150,
+   "difficulty": 18,
+   "cpc": 30,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "nl-NL"
+  },
+  {
+   "keyword": "huur berekenen",
+   "volume": 350,
+   "difficulty": 35,
+   "cpc": 60,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "nl-NL",
+   "notPlanned": "the Dutch points system for a regulated rent, which is a different calculation"
+  },
+  {
+   "keyword": "naar welk land emigreren",
+   "volume": 30,
+   "difficulty": 19,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "nl-NL"
+  },
+  {
+   "keyword": "waar overnachten",
+   "volume": 20,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "nl-NL"
+  },
+  {
+   "keyword": "landen vergelijken",
+   "volume": 40,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "nl-NL",
+   "notPlanned": "the parent topic is a world map at true scale"
+  }
+ ],
+ "notReturned": []
+}

@@ -1,0 +1,94 @@
+{
+ "country": "pl",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 198,
+ "measuredOn": "2026-09-24",
+ "market": "pl-PL",
+ "families": [
+  "tools.calculator",
+  "tools.cost-comparison",
+  "tools.cost-calculator",
+  "tools.matcher",
+  "rankings.index"
+ ],
+ "note": "Tool and ranking demand, measured in the language of each market rather than translated from English. The phrasings are the ones a resident of that market would type, so the German row for the moving calculator is umzugskosten rechner and the British one is removal costs calculator, and neither is a translation of the other. Zero volume rows are kept because a measured zero is a finding: it says this shape of page should not be built in this market.",
+ "notReturned": [
+  "kalkulator budżetu podróży",
+  "kalkulator kosztów przeprowadzki"
+ ],
+ "keywords": [
+  {
+   "keyword": "kalkulator wynagrodzeń",
+   "volume": 254000,
+   "difficulty": 44,
+   "cpc": 1,
+   "family": "tools.calculator",
+   "entity": "salary-calculator"
+  },
+  {
+   "keyword": "porównanie kosztów życia",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "cost-of-living-comparison"
+  },
+  {
+   "keyword": "kalkulator kosztów życia",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-calculator",
+   "entity": "cost-of-living-calculator"
+  },
+  {
+   "keyword": "gdzie mieszkać",
+   "volume": 10,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-live"
+  },
+  {
+   "keyword": "koszty emigracji",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.calculator",
+   "entity": "relocation-budget"
+  },
+  {
+   "keyword": "porównanie miast",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "city-comparison"
+  },
+  {
+   "keyword": "najtańsze kraje do życia",
+   "volume": 80,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "cheapest-countries"
+  },
+  {
+   "keyword": "najdroższe kraje świata",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "most-expensive-countries"
+  },
+  {
+   "keyword": "najtańsze kraje w europie",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc": 9,
+   "family": "rankings.index",
+   "entity": "cheapest-countries-europe"
+  }
+ ]
+}

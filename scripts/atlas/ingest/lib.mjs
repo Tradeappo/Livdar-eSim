@@ -83,10 +83,19 @@ export function readJson(rel, fallback) {
   return existsSync(url) ? JSON.parse(readFileSync(url, 'utf8')) : fallback;
 }
 
+// Provenance for one dataset. Every field the publication gates read lives
+// here: where it came from, when, under what licence, the checksum of the
+// bytes that were parsed, the fields used, and the date after which a page
+// built on it stops being publishable until the data is refreshed.
 export function recordSource(id, info) {
   const manifest = readJson('manifest.json', { sources: {} });
-  manifest.sources[id] = { ...info, retrievedAt: new Date().toISOString() };
+  const retrievedAt = info.retrievedAt || new Date().toISOString();
+  const expiresOn = info.maxAgeDays
+    ? new Date(Date.parse(retrievedAt) + info.maxAgeDays * 86400000).toISOString().slice(0, 10)
+    : null;
+  manifest.sources[id] = { ...info, retrievedAt, expiresOn };
   writeJson('manifest.json', manifest);
+  return manifest.sources[id];
 }
 
 export async function sparql(query) {

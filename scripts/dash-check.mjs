@@ -28,6 +28,18 @@ const FORBIDDEN = [
 const FORBIDDEN_MAP = new Map(FORBIDDEN.map(([cp, name]) => [String.fromCodePoint(cp), name]));
 
 const SKIP_DIRS = new Set(['node_modules', '.git', '.next', 'out', 'dist', '.vercel', 'coverage']);
+
+// Raw captures of what a provider returned. The rule this file enforces is
+// about text Livdar publishes, and a capture is a record of somebody else's
+// data: sixty three Wikidata venue names contain an en dash, and rewriting
+// them here would make the capture a false record of the fetch. The dash is
+// normalised at ingest instead, and every normalised name carries a
+// `dashNormalised` flag, so nothing with a long dash in it reaches a page.
+// Only the capture directories are exempt; the normalised stores that pages
+// actually read are checked like everything else.
+const RAW_CAPTURE = [
+  'data/atlas/sources/venues/wikidata-venues-2026-09-24.json',
+];
 const TEXT_EXT = new Set([
   '.js', '.jsx', '.mjs', '.cjs', '.ts', '.tsx', '.css', '.scss',
   '.json', '.md', '.mdx', '.html', '.txt', '.svg', '.xml', '.yml', '.yaml',
@@ -44,7 +56,9 @@ async function walk(dir, out = []) {
       if (SKIP_DIRS.has(entry.name)) continue;
       await walk(full, out);
     } else if (entry.isFile()) {
-      if (TEXT_EXT.has(extname(entry.name))) out.push(full);
+      if (!TEXT_EXT.has(extname(entry.name))) continue;
+      if (RAW_CAPTURE.some((r) => relative(ROOT, full) === r)) continue;
+      out.push(full);
     }
   }
   return out;

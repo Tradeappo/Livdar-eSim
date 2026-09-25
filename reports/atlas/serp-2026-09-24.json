@@ -1,0 +1,238 @@
+{
+ "generatedAt": "2026-09-24T10:13:44.740Z",
+ "meaning": "A reachable competitor is an organic result that is not a platform and whose domain rating is at or below 45. The entry position is the first position on the page held by one. Neither is a prediction; both are counts of what the result page contains.",
+ "caution": "Nineteen keywords across nine markets. Enough to see a pattern that holds in every market measured, not enough to put a number on any single family.",
+ "keywords": 19,
+ "reachableThreshold": 45,
+ "platformHosts": [
+  "en.wikipedia.org",
+  "facebook.com",
+  "instagram.com",
+  "lemon8-app.com",
+  "linkedin.com",
+  "medium.com",
+  "pinterest.com",
+  "quora.com",
+  "reddit.com",
+  "tiktok.com",
+  "twitter.com",
+  "wikipedia.org",
+  "x.com",
+  "youtube.com"
+ ],
+ "features": {
+  "aiOverview": "15 of 19",
+  "questionBlock": "16 of 19",
+  "note": "An AI overview sits above the first organic result on most of these queries, which is what the answer engine work in lib/atlas/aeo.js exists for. A question block is the reader asking a follow up the page should already answer."
+ },
+ "byMarket": [
+  {
+   "market": "nl-NL",
+   "keywords": 1,
+   "withReachable": 1,
+   "reachableCount": 6,
+   "aiOverview": 1,
+   "reachablePerPage": 6,
+   "medianEntryPosition": 3,
+   "medianWeakestDomainRating": 11
+  },
+  {
+   "market": "pl-PL",
+   "keywords": 2,
+   "withReachable": 2,
+   "reachableCount": 8,
+   "aiOverview": 1,
+   "reachablePerPage": 4,
+   "medianEntryPosition": 4,
+   "medianWeakestDomainRating": 7
+  },
+  {
+   "market": "pt-BR",
+   "keywords": 2,
+   "withReachable": 2,
+   "reachableCount": 5,
+   "aiOverview": 2,
+   "reachablePerPage": 2.5,
+   "medianEntryPosition": 7,
+   "medianWeakestDomainRating": 1
+  },
+  {
+   "market": "fr-FR",
+   "keywords": 1,
+   "withReachable": 1,
+   "reachableCount": 2,
+   "aiOverview": 1,
+   "reachablePerPage": 2,
+   "medianEntryPosition": 3,
+   "medianWeakestDomainRating": 44
+  },
+  {
+   "market": "ja-JP",
+   "keywords": 1,
+   "withReachable": 1,
+   "reachableCount": 2,
+   "aiOverview": 1,
+   "reachablePerPage": 2,
+   "medianEntryPosition": 6,
+   "medianWeakestDomainRating": 0
+  },
+  {
+   "market": "de-DE",
+   "keywords": 3,
+   "withReachable": 2,
+   "reachableCount": 4,
+   "aiOverview": 3,
+   "reachablePerPage": 1.3,
+   "medianEntryPosition": 9,
+   "medianWeakestDomainRating": 36
+  },
+  {
+   "market": "en-US",
+   "keywords": 7,
+   "withReachable": 4,
+   "reachableCount": 8,
+   "aiOverview": 4,
+   "reachablePerPage": 1.1,
+   "medianEntryPosition": 8,
+   "medianWeakestDomainRating": 34
+  },
+  {
+   "market": "it-IT",
+   "keywords": 1,
+   "withReachable": 1,
+   "reachableCount": 1,
+   "aiOverview": 1,
+   "reachablePerPage": 1,
+   "medianEntryPosition": 9,
+   "medianWeakestDomainRating": 15
+  },
+  {
+   "market": "es-ES",
+   "keywords": 1,
+   "withReachable": 1,
+   "reachableCount": 1,
+   "aiOverview": 1,
+   "reachablePerPage": 1,
+   "medianEntryPosition": 9,
+   "medianWeakestDomainRating": 37
+  }
+ ],
+ "byFamily": [
+  {
+   "family": "work.country-salaries",
+   "keywords": 1,
+   "reachable": 3,
+   "reachablePerPage": 3,
+   "medianEntryPosition": 8
+  },
+  {
+   "family": "tools.matcher",
+   "keywords": 1,
+   "reachable": 3,
+   "reachablePerPage": 3,
+   "medianEntryPosition": 2
+  },
+  {
+   "family": "cost-of-living.country",
+   "keywords": 9,
+   "reachable": 21,
+   "reachablePerPage": 2.3,
+   "medianEntryPosition": 7
+  },
+  {
+   "family": "tools.calculator",
+   "keywords": 4,
+   "reachable": 7,
+   "reachablePerPage": 1.8,
+   "medianEntryPosition": 4
+  },
+  {
+   "family": "rankings.index",
+   "keywords": 3,
+   "reachable": 3,
+   "reachablePerPage": 1,
+   "medianEntryPosition": 8
+  },
+  {
+   "family": "tools.cost-comparison",
+   "keywords": 1,
+   "reachable": 0,
+   "reachablePerPage": 0,
+   "medianEntryPosition": null
+  }
+ ],
+ "competitors": [
+  {
+   "host": "wise.com",
+   "appearances": 6,
+   "markets": [
+    "en-US",
+    "es-ES",
+    "it-IT",
+    "nl-NL",
+    "pl-PL"
+   ],
+   "bestPosition": 1,
+   "domainRating": 89
+  },
+  {
+   "host": "numbeo.com",
+   "appearances": 4,
+   "markets": [
+    "en-US"
+   ],
+   "bestPosition": 2,
+   "domainRating": 84
+  },
+  {
+   "host": "expatistan.com",
+   "appearances": 3,
+   "markets": [
+    "en-US",
+    "es-ES",
+    "pt-BR"
+   ],
+   "bestPosition": 2,
+   "domainRating": 74
+  },
+  {
+   "host": "nerdwallet.com",
+   "appearances": 2,
+   "markets": [
+    "en-US"
+   ],
+   "bestPosition": 1,
+   "domainRating": 90
+  },
+  {
+   "host": "de.numbeo.com",
+   "appearances": 2,
+   "markets": [
+    "de-DE"
+   ],
+   "bestPosition": 5,
+   "domainRating": 84
+  },
+  {
+   "host": "forbes.com",
+   "appearances": 2,
+   "markets": [
+    "en-US"
+   ],
+   "bestPosition": 5,
+   "domainRating": 94
+  },
+  {
+   "host": "studyinjapan.go.jp",
+   "appearances": 2,
+   "markets": [
+    "en-US",
+    "fr-FR"
+   ],
+   "bestPosition": 7,
+   "domainRating": 73
+  }
+ ],
+ "finding": "The English result pages are the hardest the programme measured and the Dutch and Polish ones the easiest, by a factor of four or more in reachable competitors per page. The cohort gives English the largest share of its pages, which was the right call on measured volume and is the wrong one on measured competition.",
+ "raw": 19
+}

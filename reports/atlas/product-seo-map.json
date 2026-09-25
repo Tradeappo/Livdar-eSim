@@ -1,0 +1,2335 @@
+{
+ "generatedAt": "2026-09-24T06:29:09.042Z",
+ "meaning": "One row per family. Status is computed from the source states and the measurement store, never declared. Candidates are combinations, not pages: a candidate becomes a page only after the source gate, the measurement gate and the quality gate.",
+ "inventory": {
+  "candidate": 2937117,
+  "byPriority": {
+   "high": 1800423,
+   "medium": 1033920,
+   "low": 102774
+  },
+  "sourceReady": 147020,
+  "keywordMeasured": 1904874,
+  "serpMeasured": 0,
+  "blocked": 2790097,
+  "eligible": 2600,
+  "approved": 0,
+  "publishReady": 147020,
+  "published": 60888,
+  "notes": {
+   "serpMeasured": "No SERP measurement has been run. It is zero rather than absent, which is a different claim from unknown.",
+   "approved": "Approval is a per page state in the registry and not a family property, so it cannot be summed here. The registry funnel below carries it.",
+   "publishReady": "Families whose sources exist and which are not waiting on research. It is an upper bound on what could be generated, not a plan.",
+   "published": "Candidates belonging to families that have at least one published page, which is why it is larger than the 123 pages that exist."
+  }
+ },
+ "totals": {
+  "surfaces": 12,
+  "verticals": 27,
+  "families": 64,
+  "candidates": 2937117,
+  "transactions": 17
+ },
+ "byStatus": {
+  "blocked": 48,
+  "eligible": 3,
+  "source-ready": 10,
+  "research-needed": 2,
+  "published": 1
+ },
+ "candidatesByStatus": {
+  "blocked": 2596603,
+  "eligible": 2600,
+  "source-ready": 83532,
+  "research-needed": 193494,
+  "published": 60888
+ },
+ "byStage": {
+  "transaction": 615237,
+  "intent": 871245,
+  "discovery": 1450635
+ },
+ "bySurface": [
+  {
+   "surface": "areas",
+   "stage": "discovery",
+   "families": 9,
+   "candidates": 674084,
+   "blocked": 7,
+   "researchNeeded": 0,
+   "verticals": [
+    "activities",
+    "destinations",
+    "neighbourhoods",
+    "places"
+   ]
+  },
+  {
+   "surface": "move",
+   "stage": "transaction",
+   "families": 20,
+   "candidates": 582988,
+   "blocked": 16,
+   "researchNeeded": 2,
+   "verticals": [
+    "banking",
+    "cost-of-living",
+    "education",
+    "health",
+    "relocation",
+    "services",
+    "taxes",
+    "visas"
+   ]
+  },
+  {
+   "surface": "pulse",
+   "stage": "discovery",
+   "families": 5,
+   "candidates": 376520,
+   "blocked": 5,
+   "researchNeeded": 0,
+   "verticals": [
+    "events"
+   ]
+  },
+  {
+   "surface": "stay",
+   "stage": "intent",
+   "families": 5,
+   "candidates": 375470,
+   "blocked": 5,
+   "researchNeeded": 0,
+   "verticals": [
+    "property",
+    "rents",
+    "stay"
+   ]
+  },
+  {
+   "surface": "work",
+   "stage": "intent",
+   "families": 4,
+   "candidates": 324839,
+   "blocked": 4,
+   "researchNeeded": 0,
+   "verticals": [
+    "work"
+   ]
+  },
+  {
+   "surface": "sport",
+   "stage": "discovery",
+   "families": 2,
+   "candidates": 295100,
+   "blocked": 2,
+   "researchNeeded": 0,
+   "verticals": [
+    "sport"
+   ]
+  },
+  {
+   "surface": "transport",
+   "stage": "intent",
+   "families": 4,
+   "candidates": 93915,
+   "blocked": 2,
+   "researchNeeded": 0,
+   "verticals": [
+    "airports",
+    "transport"
+   ]
+  },
+  {
+   "surface": "tools",
+   "stage": "intent",
+   "families": 8,
+   "candidates": 77021,
+   "blocked": 2,
+   "researchNeeded": 0,
+   "verticals": [
+    "comparisons",
+    "rankings",
+    "tools"
+   ]
+  },
+  {
+   "surface": "climate",
+   "stage": "discovery",
+   "families": 2,
+   "candidates": 65962,
+   "blocked": 0,
+   "researchNeeded": 0,
+   "verticals": [
+    "weather"
+   ]
+  },
+  {
+   "surface": "connectivity",
+   "stage": "transaction",
+   "families": 2,
+   "candidates": 32249,
+   "blocked": 2,
+   "researchNeeded": 0,
+   "verticals": [
+    "connectivity"
+   ]
+  },
+  {
+   "surface": "safety",
+   "stage": "discovery",
+   "families": 2,
+   "candidates": 32249,
+   "blocked": 2,
+   "researchNeeded": 0,
+   "verticals": [
+    "safety"
+   ]
+  },
+  {
+   "surface": "community",
+   "stage": "discovery",
+   "families": 1,
+   "candidates": 6720,
+   "blocked": 1,
+   "researchNeeded": 0,
+   "verticals": [
+    "community"
+   ]
+  }
+ ],
+ "families": [
+  {
+   "surface": "move",
+   "vertical": "taxes",
+   "family": "taxes.country-remote-work",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "What the reader owes when working remotely from this country",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "tax-rules-verified",
+    "visa-rules-verified"
+   ],
+   "missingSources": [
+    "tax-rules-verified",
+    "visa-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.917,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "health",
+   "family": "health.country",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "What healthcare the reader can use in this country and what cover is needed",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "health-rules-verified"
+   ],
+   "missingSources": [
+    "health-rules-verified"
+   ],
+   "leadsTo": [
+    "insurance"
+   ],
+   "monetisationScore": 0.14,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.916,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "tools",
+   "vertical": "tools",
+   "family": "tools.calculator",
+   "entity": "tool:global",
+   "axis": "language",
+   "variants": 8,
+   "intent": "Answer one money question with the reader own numbers",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [
+    "moving-service",
+    "premium-tool",
+    "rental-lead"
+   ],
+   "monetisationScore": 0.8,
+   "aeo": [
+    "direct-answer",
+    "fact-table"
+   ],
+   "quotability": 0.6,
+   "graphNodes": [],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.915,
+   "candidates": 80,
+   "status": "eligible"
+  },
+  {
+   "surface": "move",
+   "vertical": "banking",
+   "family": "banking.country",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "How the reader opens an account and moves money in this country",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "banking-rules-verified"
+   ],
+   "missingSources": [
+    "banking-rules-verified"
+   ],
+   "leadsTo": [
+    "banking-referral"
+   ],
+   "monetisationScore": 0.14,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.913,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "connectivity",
+   "vertical": "connectivity",
+   "family": "connectivity.country-sim-gap",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "How the reader gets online in this country, when no Livdar eSIM page covers it yet",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "connectivity-data-verified"
+   ],
+   "missingSources": [
+    "connectivity-data-verified"
+   ],
+   "leadsTo": [
+    "esim-sale"
+   ],
+   "monetisationScore": 0.3,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.913,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "tools",
+   "vertical": "tools",
+   "family": "tools.cost-calculator",
+   "entity": "tool:global",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What a given salary or budget is worth in another place",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.912,
+   "candidates": 10,
+   "status": "source-ready"
+  },
+  {
+   "surface": "move",
+   "vertical": "relocation",
+   "family": "relocation.country",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "What moving to this country from the reader country involves",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "visa-rules-verified",
+    "cost-of-living-verified"
+   ],
+   "missingSources": [
+    "visa-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.91,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "taxes",
+   "family": "taxes.country",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "What the reader would pay in tax in this country and how it interacts with home",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "tax-rules-verified"
+   ],
+   "missingSources": [
+    "tax-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.907,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "relocation",
+   "family": "relocation.city",
+   "entity": "city:t3",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "What moving to this city from the reader country involves",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "cost-of-living-city-verified",
+    "visa-rules-verified"
+   ],
+   "missingSources": [
+    "cost-of-living-city-verified",
+    "visa-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.905,
+   "candidates": 127083,
+   "status": "blocked"
+  },
+  {
+   "surface": "stay",
+   "vertical": "stay",
+   "family": "stay.near-venue",
+   "entity": "venue:major",
+   "axis": "language",
+   "variants": 1,
+   "intent": "Where to stay near one venue, for people going to something there",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "venue-data-verified",
+    "stay-inventory-verified"
+   ],
+   "missingSources": [
+    "venue-data-verified",
+    "stay-inventory-verified"
+   ],
+   "leadsTo": [
+    "stay-booking"
+   ],
+   "monetisationScore": 0.22,
+   "aeo": [
+    "fact-table",
+    "direct-answer"
+   ],
+   "quotability": 0.6,
+   "graphNodes": [
+    "venue"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.905,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "surface": "tools",
+   "vertical": "tools",
+   "family": "tools.cost-comparison",
+   "entity": "tool:global",
+   "axis": "language",
+   "variants": 1,
+   "intent": "Compare what two places cost, side by side, with the reader own numbers",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.903,
+   "candidates": 10,
+   "status": "source-ready"
+  },
+  {
+   "surface": "move",
+   "vertical": "visas",
+   "family": "visas.country-digital-nomad",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "Whether this country has a remote work visa and whether the reader qualifies",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "visa-rules-verified"
+   ],
+   "missingSources": [
+    "visa-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.902,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "family": "cost-of-living.country-vs-market",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "What this country costs compared with the reader own country",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.898,
+   "candidates": 2739,
+   "status": "source-ready"
+  },
+  {
+   "surface": "tools",
+   "vertical": "comparisons",
+   "family": "comparisons.city-vs-home",
+   "entity": "city:t2",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "How this city compares with where the reader lives now",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "cost-of-living-city-verified"
+   ],
+   "missingSources": [
+    "cost-of-living-city-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.895,
+   "candidates": 32461,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "family": "cost-of-living.city-vs-market",
+   "entity": "city:t2",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "How this city costs compare with what the reader pays at home",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "cost-of-living-city-verified"
+   ],
+   "missingSources": [
+    "cost-of-living-city-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.892,
+   "candidates": 32461,
+   "status": "blocked"
+  },
+  {
+   "surface": "stay",
+   "vertical": "property",
+   "family": "property.city-buy",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What buying property in this city involves and what it costs",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "property-price-verified"
+   ],
+   "missingSources": [
+    "property-price-verified"
+   ],
+   "leadsTo": [
+    "property-lead",
+    "relocation-service"
+   ],
+   "monetisationScore": 0.08,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.892,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "visas",
+   "family": "visas.country-work-permit",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "How the reader gets the right to work in this country and who sponsors it",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "visa-rules-verified",
+    "work-rules-verified"
+   ],
+   "missingSources": [
+    "visa-rules-verified",
+    "work-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.891,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "stay",
+   "vertical": "stay",
+   "family": "stay.city-type",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 7,
+   "intent": "Where to stay in this city for one length of stay, and what it costs",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "stay-inventory-verified"
+   ],
+   "missingSources": [
+    "stay-inventory-verified"
+   ],
+   "leadsTo": [
+    "stay-booking",
+    "rental-lead",
+    "coliving",
+    "student-housing"
+   ],
+   "monetisationScore": 0.26,
+   "aeo": [
+    "fact-table",
+    "direct-answer"
+   ],
+   "quotability": 0.6,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.887,
+   "candidates": 206570,
+   "status": "blocked"
+  },
+  {
+   "surface": "work",
+   "vertical": "work",
+   "family": "work.country-working",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "Whether the reader can work in this country and what it takes",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "work-rules-verified"
+   ],
+   "missingSources": [
+    "work-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.885,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "stay",
+   "vertical": "rents",
+   "family": "rents.city",
+   "entity": "city:t3",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What renting costs in this city and what the market is like",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "rent-index-verified"
+   ],
+   "missingSources": [
+    "rent-index-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.885,
+   "candidates": 115530,
+   "status": "blocked"
+  },
+  {
+   "surface": "work",
+   "vertical": "work",
+   "family": "work.city-jobs",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What the job market in this city looks like and who is hiring",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "salary-data-verified",
+    "work-rules-verified"
+   ],
+   "missingSources": [
+    "salary-data-verified",
+    "work-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.882,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "family": "cost-of-living.country",
+   "entity": "country",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What daily life costs in this country, and how that compares with its neighbours",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.878,
+   "candidates": 2490,
+   "status": "eligible"
+  },
+  {
+   "surface": "move",
+   "vertical": "visas",
+   "family": "visas.country-residency",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "How the reader can get residency in this country",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "visa-rules-verified"
+   ],
+   "missingSources": [
+    "visa-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.875,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "family": "cost-of-living.city",
+   "entity": "city:t3",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What a month of daily life costs in this city",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "cost-of-living-city-verified"
+   ],
+   "missingSources": [
+    "cost-of-living-city-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.868,
+   "candidates": 115530,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "education",
+   "family": "education.city-schools",
+   "entity": "city:t1",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What school options a family has in this city",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "school-data-verified"
+   ],
+   "missingSources": [
+    "school-data-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.868,
+   "candidates": 5600,
+   "status": "blocked"
+  },
+  {
+   "surface": "tools",
+   "vertical": "comparisons",
+   "family": "comparisons.city-vs-city",
+   "entity": "city:pair",
+   "axis": "language",
+   "variants": 1,
+   "intent": "How these two cities compare for living or visiting",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.866,
+   "candidates": 17620,
+   "status": "source-ready"
+  },
+  {
+   "surface": "tools",
+   "vertical": "tools",
+   "family": "tools.matcher",
+   "entity": "tool:global",
+   "axis": "language",
+   "variants": 3,
+   "intent": "Turn what the reader wants into a shortlist of places",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [
+    "premium-tool",
+    "stay-booking",
+    "relocation-service"
+   ],
+   "monetisationScore": 0.22,
+   "aeo": [
+    "direct-answer"
+   ],
+   "quotability": 0.3,
+   "graphNodes": [],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.865,
+   "candidates": 30,
+   "status": "eligible"
+  },
+  {
+   "surface": "move",
+   "vertical": "health",
+   "family": "health.city",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What healthcare looks like on the ground in this city",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "health-rules-verified"
+   ],
+   "missingSources": [
+    "health-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.844,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "education",
+   "family": "education.city-universities",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What studying in this city involves, from admission to what it costs",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "school-data-verified"
+   ],
+   "missingSources": [
+    "school-data-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.844,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "neighbourhoods",
+   "family": "neighbourhoods.city-best-for",
+   "entity": "city:t2",
+   "axis": "persona",
+   "variants": 6,
+   "intent": "Which areas of this city suit one kind of person, and why",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "neighbourhood-facts-verified",
+    "rent-index-verified"
+   ],
+   "missingSources": [
+    "neighbourhood-facts-verified",
+    "rent-index-verified"
+   ],
+   "leadsTo": [
+    "stay-booking",
+    "rental-lead"
+   ],
+   "monetisationScore": 0.22,
+   "aeo": [
+    "direct-answer",
+    "comparison"
+   ],
+   "quotability": 0.6,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.831,
+   "candidates": 177060,
+   "status": "blocked"
+  },
+  {
+   "surface": "connectivity",
+   "vertical": "connectivity",
+   "family": "connectivity.city-online",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "How to work online from this city: speeds, cafes and coworking",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "connectivity-data-verified"
+   ],
+   "missingSources": [
+    "connectivity-data-verified"
+   ],
+   "leadsTo": [
+    "esim-sale"
+   ],
+   "monetisationScore": 0.3,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.83,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "tools",
+   "vertical": "comparisons",
+   "family": "comparisons.country-vs-country",
+   "entity": "country:pair",
+   "axis": "language",
+   "variants": 1,
+   "intent": "How these two countries compare for living, working and paying tax",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified",
+    "tax-rules-verified"
+   ],
+   "missingSources": [
+    "tax-rules-verified"
+   ],
+   "leadsTo": [
+    "relocation-service",
+    "stay-booking"
+   ],
+   "monetisationScore": 0.22,
+   "aeo": [
+    "comparison",
+    "fact-table"
+   ],
+   "quotability": 0.3,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "competitor-observed",
+   "priority": "high",
+   "prior": 0.827,
+   "candidates": 26730,
+   "status": "blocked"
+  },
+  {
+   "surface": "work",
+   "vertical": "work",
+   "family": "work.city-salaries",
+   "entity": "city:t3",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What people earn in this city and what that buys",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "salary-data-verified"
+   ],
+   "missingSources": [
+    "salary-data-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.821,
+   "candidates": 115530,
+   "status": "blocked"
+  },
+  {
+   "surface": "stay",
+   "vertical": "rents",
+   "family": "rents.neighbourhood",
+   "entity": "neighbourhood",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What renting costs in this district",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "rent-index-verified"
+   ],
+   "missingSources": [
+    "rent-index-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "neighbourhood"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.815,
+   "candidates": 23860,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "neighbourhoods",
+   "family": "neighbourhoods.city-where-to-stay",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "Which district of this city to stay in, and what each one is like",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "neighbourhood-facts-verified"
+   ],
+   "missingSources": [
+    "neighbourhood-facts-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.813,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "visas",
+   "family": "visas.country-visit",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "Whether the reader needs a visa to visit this country and for how long",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "visa-rules-verified"
+   ],
+   "missingSources": [
+    "visa-rules-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.808,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "pulse",
+   "vertical": "events",
+   "family": "events.recurring",
+   "entity": "event-series",
+   "axis": "language",
+   "variants": 1,
+   "intent": "One named event that comes back every year, with this year dates and what to know",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "events-verified"
+   ],
+   "missingSources": [
+    "events-verified"
+   ],
+   "leadsTo": [
+    "ticket",
+    "stay-booking"
+   ],
+   "monetisationScore": 0.22,
+   "aeo": [
+    "direct-answer",
+    "dated-list",
+    "definition"
+   ],
+   "quotability": 0.5,
+   "graphNodes": [
+    "event",
+    "event-series"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": "recurring-event",
+   "evidenceState": "competitor-observed",
+   "priority": "high",
+   "prior": 0.779,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "cost-of-living",
+   "family": "cost-of-living.item-country",
+   "entity": "country",
+   "axis": "language",
+   "variants": 8,
+   "intent": "What one everyday item costs in this country, with the date and the source of the price",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "item-price-verified"
+   ],
+   "missingSources": [
+    "item-price-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.771,
+   "candidates": 19920,
+   "status": "blocked"
+  },
+  {
+   "surface": "pulse",
+   "vertical": "events",
+   "family": "events.series-city",
+   "entity": "city:t1",
+   "axis": "language",
+   "variants": 3,
+   "intent": "One recurring event series as it runs in this city",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "events-verified"
+   ],
+   "missingSources": [
+    "events-verified"
+   ],
+   "leadsTo": [
+    "ticket"
+   ],
+   "monetisationScore": 0.02,
+   "aeo": [
+    "dated-list",
+    "direct-answer"
+   ],
+   "quotability": 0.4,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": "event-series",
+   "evidenceState": "competitor-observed",
+   "priority": "high",
+   "prior": 0.755,
+   "candidates": 16800,
+   "status": "blocked"
+  },
+  {
+   "surface": "tools",
+   "vertical": "rankings",
+   "family": "rankings.index",
+   "entity": "ranking:list",
+   "axis": "language",
+   "variants": 1,
+   "intent": "Which places rank highest or lowest on one measure, ordered and dated",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "cost-of-living-verified"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.742,
+   "candidates": 80,
+   "status": "source-ready"
+  },
+  {
+   "surface": "pulse",
+   "vertical": "events",
+   "family": "events.city-window",
+   "entity": "city:t2",
+   "axis": "time",
+   "variants": 4,
+   "intent": "What is on in this city today, tonight, this weekend or this month",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "events-verified"
+   ],
+   "missingSources": [
+    "events-verified"
+   ],
+   "leadsTo": [
+    "ticket",
+    "stay-booking",
+    "promoted-listing"
+   ],
+   "monetisationScore": 0.22,
+   "aeo": [
+    "dated-list",
+    "direct-answer"
+   ],
+   "quotability": 0.4,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": "temporal-hub",
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.709,
+   "candidates": 118040,
+   "status": "blocked"
+  },
+  {
+   "surface": "pulse",
+   "vertical": "events",
+   "family": "events.city-type",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 8,
+   "intent": "Everything of one kind that is on in this city",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "events-verified"
+   ],
+   "missingSources": [
+    "events-verified"
+   ],
+   "leadsTo": [
+    "ticket",
+    "stay-booking"
+   ],
+   "monetisationScore": 0.22,
+   "aeo": [
+    "dated-list"
+   ],
+   "quotability": 0.1,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": "temporal-hub",
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.684,
+   "candidates": 236080,
+   "status": "blocked"
+  },
+  {
+   "surface": "safety",
+   "vertical": "safety",
+   "family": "safety.city",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "How safe this city is and what to watch for",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "safety-data-verified"
+   ],
+   "missingSources": [
+    "safety-data-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "medium",
+   "prior": 0.677,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "places",
+   "family": "places.city-category",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 10,
+   "intent": "The places of one kind that are worth knowing about in this city",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "places-data-verified"
+   ],
+   "missingSources": [
+    "places-data-verified"
+   ],
+   "leadsTo": [
+    "promoted-listing",
+    "experience-booking",
+    "coworking-booking"
+   ],
+   "monetisationScore": 0.56,
+   "aeo": [
+    "definition",
+    "fact-table"
+   ],
+   "quotability": 0.4,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "competitor-observed",
+   "priority": "medium",
+   "prior": 0.676,
+   "candidates": 295100,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "neighbourhoods",
+   "family": "neighbourhoods.guide",
+   "entity": "neighbourhood",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What is this district like and who is it right for",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "neighbourhood-facts-verified"
+   ],
+   "missingSources": [
+    "neighbourhood-facts-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "neighbourhood"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "high",
+   "prior": 0.674,
+   "candidates": 23860,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "places",
+   "family": "places.neighbourhood-category",
+   "entity": "neighbourhood",
+   "axis": "language",
+   "variants": 4,
+   "intent": "The places of one kind inside one neighbourhood",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "neighbourhood-facts-verified",
+    "places-data-verified"
+   ],
+   "missingSources": [
+    "neighbourhood-facts-verified",
+    "places-data-verified"
+   ],
+   "leadsTo": [
+    "promoted-listing"
+   ],
+   "monetisationScore": 0.04,
+   "aeo": [
+    "definition",
+    "fact-table"
+   ],
+   "quotability": 0.4,
+   "graphNodes": [
+    "neighbourhood"
+   ],
+   "indexPolicy": "gated by neighbourhood demand",
+   "lifecycleShape": null,
+   "evidenceState": "competitor-observed",
+   "priority": "medium",
+   "prior": 0.673,
+   "candidates": 95440,
+   "status": "blocked"
+  },
+  {
+   "surface": "move",
+   "vertical": "services",
+   "family": "services.country-admin",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 6,
+   "intent": "One piece of the admin of moving here, for somebody arriving from the reader country",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "country-facts-verified"
+   ],
+   "missingSources": [
+    "country-facts-verified"
+   ],
+   "leadsTo": [
+    "relocation-service",
+    "moving-service"
+   ],
+   "monetisationScore": 0.8,
+   "aeo": [
+    "steps",
+    "eligibility"
+   ],
+   "quotability": 0.2,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "declared-pending-measurement",
+   "priority": "medium",
+   "prior": 0.653,
+   "candidates": 16434,
+   "status": "research-needed"
+  },
+  {
+   "surface": "transport",
+   "vertical": "transport",
+   "family": "transport.route-from-market",
+   "entity": "city:t2+air",
+   "axis": "origin",
+   "variants": 1,
+   "intent": "How to reach this city from the reader home country, and how long it takes",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "ourairports",
+    "geonames-cities",
+    "computed-distance"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "medium",
+   "prior": 0.653,
+   "candidates": 27907,
+   "status": "source-ready"
+  },
+  {
+   "surface": "safety",
+   "vertical": "safety",
+   "family": "safety.country-advice",
+   "entity": "country",
+   "axis": "audience",
+   "variants": 1,
+   "intent": "What the reader own government advises about this country",
+   "markets": 11,
+   "marketGate": "research",
+   "sources": [
+    "travel-advice-verified"
+   ],
+   "missingSources": [
+    "travel-advice-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "medium",
+   "prior": 0.635,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "surface": "transport",
+   "vertical": "transport",
+   "family": "transport.airport-to-city",
+   "entity": "airport:linked",
+   "axis": "language",
+   "variants": 1,
+   "intent": "How to get from this airport into the city it serves",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "ourairports",
+    "geonames-cities",
+    "ground-transport-verified"
+   ],
+   "missingSources": [
+    "ground-transport-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "airport"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "medium",
+   "prior": 0.63,
+   "candidates": 30010,
+   "status": "blocked"
+  },
+  {
+   "surface": "sport",
+   "vertical": "sport",
+   "family": "sport.city-activity",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 10,
+   "intent": "Doing one activity in or around this city: where, when and what conditions to expect",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "sport-routes-verified"
+   ],
+   "missingSources": [
+    "sport-routes-verified"
+   ],
+   "leadsTo": [
+    "sport-rental",
+    "experience-booking"
+   ],
+   "monetisationScore": 0.05,
+   "aeo": [
+    "definition",
+    "fact-table"
+   ],
+   "quotability": 0.4,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "medium",
+   "prior": 0.629,
+   "candidates": 295100,
+   "status": "blocked"
+  },
+  {
+   "surface": "transport",
+   "vertical": "transport",
+   "family": "transport.city-getting-around",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "How public transport works in this city and what it costs",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "transit-fares-verified"
+   ],
+   "missingSources": [
+    "transit-fares-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "medium",
+   "prior": 0.611,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "work",
+   "vertical": "work",
+   "family": "work.city-jobs-category",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 6,
+   "intent": "Work of one kind in this city: who hires, what it pays, whether a foreigner can take it",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "salary-data-verified",
+    "work-rules-verified"
+   ],
+   "missingSources": [
+    "salary-data-verified",
+    "work-rules-verified"
+   ],
+   "leadsTo": [
+    "job-listing",
+    "relocation-service"
+   ],
+   "monetisationScore": 0.08,
+   "aeo": [
+    "fact-table",
+    "eligibility"
+   ],
+   "quotability": 0.5,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "measured",
+   "priority": "high",
+   "prior": 0.604,
+   "candidates": 177060,
+   "status": "blocked"
+  },
+  {
+   "surface": "sport",
+   "vertical": "sport",
+   "family": "sport.route",
+   "entity": "route:named",
+   "axis": "language",
+   "variants": 1,
+   "intent": "One named route or spot, for people who already know its name",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "sport-routes-verified"
+   ],
+   "missingSources": [
+    "sport-routes-verified"
+   ],
+   "leadsTo": [
+    "sport-rental",
+    "experience-booking"
+   ],
+   "monetisationScore": 0.05,
+   "aeo": [
+    "definition",
+    "fact-table",
+    "direct-answer"
+   ],
+   "quotability": 0.7,
+   "graphNodes": [
+    "route"
+   ],
+   "indexPolicy": "gated by named demand",
+   "lifecycleShape": null,
+   "evidenceState": "competitor-observed",
+   "priority": "medium",
+   "prior": 0.586,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "places",
+   "family": "places.poi",
+   "entity": "poi:gated",
+   "axis": "language",
+   "variants": 1,
+   "intent": "One place, when that place is searched for by name",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "places-data-verified"
+   ],
+   "missingSources": [
+    "places-data-verified"
+   ],
+   "leadsTo": [
+    "promoted-listing",
+    "experience-booking"
+   ],
+   "monetisationScore": 0.05,
+   "aeo": [
+    "definition",
+    "direct-answer"
+   ],
+   "quotability": 0.4,
+   "graphNodes": [
+    "poi"
+   ],
+   "indexPolicy": "gated by poi-gate, hub otherwise",
+   "lifecycleShape": null,
+   "evidenceState": "competitor-observed",
+   "priority": "medium",
+   "prior": 0.56,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "surface": "pulse",
+   "vertical": "events",
+   "family": "events.city-calendar",
+   "entity": "city:t1",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What happens in this city through the year",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "events-verified"
+   ],
+   "missingSources": [
+    "events-verified"
+   ],
+   "leadsTo": [
+    "ticket"
+   ],
+   "monetisationScore": 0.02,
+   "aeo": [
+    "dated-list"
+   ],
+   "quotability": 0.1,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": "temporal-hub",
+   "evidenceState": "predates the evidence field",
+   "priority": "medium",
+   "prior": 0.535,
+   "candidates": 5600,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "activities",
+   "family": "activities.city-things-to-do",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What there is to do in this city",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "attractions-verified"
+   ],
+   "missingSources": [
+    "attractions-verified"
+   ],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "medium",
+   "prior": 0.529,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "destinations",
+   "family": "destinations.country-hub",
+   "entity": "country",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What is this country and which of its cities and airports matter",
+   "markets": 2,
+   "marketGate": "active",
+   "sources": [
+    "geonames-cities",
+    "ourairports"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "country"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "low",
+   "prior": 0.513,
+   "candidates": 498,
+   "status": "source-ready"
+  },
+  {
+   "surface": "climate",
+   "vertical": "weather",
+   "family": "weather.city-best-time",
+   "entity": "city:t2+air",
+   "axis": "language",
+   "variants": 1,
+   "intent": "Which months are the best time to visit this city and why",
+   "markets": 2,
+   "marketGate": "active",
+   "sources": [
+    "geonames-cities",
+    "nasa-power-daily"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "low",
+   "prior": 0.501,
+   "candidates": 5074,
+   "status": "source-ready"
+  },
+  {
+   "surface": "community",
+   "vertical": "community",
+   "family": "community.city-topic",
+   "entity": "city:t1",
+   "axis": "language",
+   "variants": 6,
+   "intent": "How to meet people in this city around one interest",
+   "markets": 2,
+   "marketGate": "active",
+   "sources": [
+    "geonames-cities",
+    "community-listings-verified"
+   ],
+   "missingSources": [
+    "community-listings-verified"
+   ],
+   "leadsTo": [
+    "promoted-listing"
+   ],
+   "monetisationScore": 0.04,
+   "aeo": [
+    "dated-list",
+    "definition"
+   ],
+   "quotability": 0.2,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "hub only, never the individual group or meetup",
+   "lifecycleShape": null,
+   "evidenceState": "competitor-observed",
+   "priority": "low",
+   "prior": 0.482,
+   "candidates": 6720,
+   "status": "blocked"
+  },
+  {
+   "surface": "areas",
+   "vertical": "destinations",
+   "family": "destinations.city-hub",
+   "entity": "city:t3",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What is this city, where is it, and what else is worth knowing before going",
+   "markets": 2,
+   "marketGate": "active",
+   "sources": [
+    "geonames-cities"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "low",
+   "prior": 0.469,
+   "candidates": 23106,
+   "status": "source-ready"
+  },
+  {
+   "surface": "transport",
+   "vertical": "airports",
+   "family": "airports.guide",
+   "entity": "airport",
+   "axis": "language",
+   "variants": 1,
+   "intent": "What is this airport, where is it and what does a traveller need to know",
+   "markets": 2,
+   "marketGate": "active",
+   "sources": [
+    "ourairports",
+    "geonames-cities"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "airport"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "low",
+   "prior": 0.431,
+   "candidates": 6488,
+   "status": "source-ready"
+  },
+  {
+   "surface": "move",
+   "vertical": "services",
+   "family": "services.city-practical",
+   "entity": "city:t2",
+   "axis": "language",
+   "variants": 6,
+   "intent": "Where the practical things are in this city and how they work",
+   "markets": 10,
+   "marketGate": "research",
+   "sources": [
+    "geonames-cities",
+    "places-data-verified"
+   ],
+   "missingSources": [
+    "places-data-verified"
+   ],
+   "leadsTo": [
+    "none"
+   ],
+   "monetisationScore": 0,
+   "aeo": [
+    "definition",
+    "steps"
+   ],
+   "quotability": 0.3,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "declared-pending-measurement",
+   "priority": "medium",
+   "prior": 0.412,
+   "candidates": 177060,
+   "status": "research-needed"
+  },
+  {
+   "surface": "climate",
+   "vertical": "weather",
+   "family": "weather.city-month",
+   "entity": "city:t2+air",
+   "axis": "language",
+   "variants": 12,
+   "intent": "What is the weather like in this city in this month, and what does that mean for a trip",
+   "markets": 2,
+   "marketGate": "active",
+   "sources": [
+    "geonames-cities",
+    "nasa-power-daily"
+   ],
+   "missingSources": [],
+   "leadsTo": [],
+   "monetisationScore": 0,
+   "aeo": [],
+   "quotability": 0,
+   "graphNodes": [
+    "city"
+   ],
+   "indexPolicy": "always",
+   "lifecycleShape": null,
+   "evidenceState": "predates the evidence field",
+   "priority": "low",
+   "prior": 0.412,
+   "candidates": 60888,
+   "status": "published"
+  }
+ ]
+}

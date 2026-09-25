@@ -1,196 +1,674 @@
 {
-  "note": "Every number on an Atlas page comes from one of these sources or is computed from them by a function in lib/. A source without a licence that allows commercial reuse is not listed. maxAgeDays is the freshness gate: a page whose data snapshot is older is held back from publication and flagged for refresh.",
-  "sources": [
-    {
-      "id": "geonames-cities",
-      "name": "GeoNames cities15000",
-      "url": "https://download.geonames.org/export/dump/cities15000.zip",
-      "licence": "CC BY 4.0",
-      "attribution": "GeoNames (geonames.org), CC BY 4.0",
-      "fields": [
-        "geonameId",
-        "name",
-        "asciiName",
-        "lat",
-        "lon",
-        "countryCode",
-        "admin1",
-        "population",
-        "timezone",
-        "elevation"
-      ],
-      "refresh": "monthly",
-      "maxAgeDays": 120
-    },
-    {
-      "id": "wikidata-cities",
-      "name": "Wikidata city items joined on the GeoNames id (P1566)",
-      "url": "https://query.wikidata.org/sparql",
-      "licence": "CC0 1.0",
-      "attribution": "Wikidata, CC0",
-      "fields": [
-        "qid",
-        "geonameId",
-        "coordinates (P625)",
-        "population (P1082, latest non deprecated)",
-        "elevation (P2044)",
-        "country (P17 or P131 chain, P297)",
-        "label.en",
-        "label.de",
-        "label.ro"
-      ],
-      "note": "Used when the GeoNames dump is not yet ingested. The time zone is then set only for countries with a single IANA zone in the runtime CLDR data; cities in multi zone countries get none and are held back.",
-      "refresh": "monthly",
-      "maxAgeDays": 120
-    },
-    {
-      "id": "wikidata-labels",
-      "name": "Wikidata city labels and identifiers",
-      "url": "https://query.wikidata.org/sparql",
-      "licence": "CC0 1.0",
-      "attribution": "Wikidata, CC0",
-      "fields": [
-        "qid",
-        "geonameId",
-        "label.en",
-        "label.de",
-        "label.ro"
-      ],
-      "refresh": "monthly",
-      "maxAgeDays": 120
-    },
-    {
-      "id": "wikidata-countries",
-      "name": "Wikidata country facts",
-      "url": "https://query.wikidata.org/sparql",
-      "licence": "CC0 1.0",
-      "attribution": "Wikidata, CC0",
-      "fields": [
-        "iso2",
-        "currency",
-        "officialLanguages",
-        "callingCode",
-        "drivingSide",
-        "plugTypes",
-        "voltage",
-        "frequency",
-        "emergencyNumber"
-      ],
-      "refresh": "monthly",
-      "maxAgeDays": 120,
-      "status": "rejected for publication",
-      "spotCheck": "2026-09-22: 255 countries pulled. Plug types missing for GB, DE, US, JP, GR, NL, RO and wrong for IT (only L listed; Italy uses C, F and L); currency empty for FR, NL, CZ (several values, not resolved); JP emergency number empty; US official languages listed as ch, es, sm. Not fit to print. City guide pages stay blocked until a verified country facts source replaces it."
-    },
-    {
-      "id": "ourairports",
-      "name": "OurAirports airports.csv",
-      "url": "https://davidmegginson.github.io/ourairports-data/airports.csv",
-      "licence": "Public Domain",
-      "attribution": "OurAirports (ourairports.com), public domain",
-      "fields": [
-        "ident",
-        "type",
-        "name",
-        "lat",
-        "lon",
-        "elevationFt",
-        "isoCountry",
-        "municipality",
-        "scheduledService",
-        "iata"
-      ],
-      "refresh": "weekly",
-      "maxAgeDays": 60
-    },
-    {
-      "id": "nasa-power-daily",
-      "name": "NASA POWER daily point data 2011-2020, reduced to monthly normals",
-      "url": "https://power.larc.nasa.gov/api/temporal/daily/point",
-      "licence": "CC BY 4.0; 'There are no restrictions on the use, access, and/or download of data from the NASA POWER Project' (AWS Open Data Registry entry)",
-      "attribution": "NASA Langley Research Center POWER Project, funded through the NASA Earth Science Directorate Applied Science Program",
-      "fields": [
-        "T2M",
-        "T2M_MAX",
-        "T2M_MIN",
-        "PRECTOTCORR",
-        "RH2M",
-        "WS2M"
-      ],
-      "caveat": "Modelled values for a 0.5 by 0.625 degree grid cell (MERRA-2 based). They describe the area around the city, not a weather station, and are stated as such on the page.",
-      "refresh": "yearly",
-      "maxAgeDays": 400,
-      "derivation": "scripts/ingest/nasa-power.mjs: for each calendar month, the mean of the daily maxima and minima over 2011 to 2020, the mean monthly precipitation total, and the mean number of days with at least 1 mm of precipitation."
-    },
-    {
-      "id": "computed-solar",
-      "name": "Sunrise, sunset and day length",
-      "url": "lib/solar.mjs",
-      "licence": "computed",
-      "attribution": "Computed from the city coordinates with the NOAA solar position equations",
-      "fields": [
-        "sunrise",
-        "sunset",
-        "dayLengthMinutes"
-      ],
-      "refresh": "on build",
-      "maxAgeDays": 100000
-    },
-    {
-      "id": "computed-distance",
-      "name": "Great circle distance",
-      "url": "lib/geo.mjs",
-      "licence": "computed",
-      "attribution": "Computed from coordinates (haversine, mean Earth radius 6371.0088 km); straight line, not road distance",
-      "fields": [
-        "distanceKm"
-      ],
-      "refresh": "on build",
-      "maxAgeDays": 100000
-    },
-    {
-      "id": "iana-tz",
-      "name": "IANA time zone database via the runtime ICU data",
-      "url": "https://www.iana.org/time-zones",
-      "licence": "Public Domain",
-      "attribution": "IANA tz database",
-      "fields": [
-        "utcOffset",
-        "dst"
-      ],
-      "refresh": "on build",
-      "maxAgeDays": 100000
-    },
-    {
-      "id": "ahrefs-keywords",
-      "name": "Ahrefs Keywords Explorer, measured monthly volume",
-      "url": "https://ahrefs.com/keywords-explorer",
-      "licence": "Ahrefs subscription; volumes used internally for eligibility, never shown on pages",
-      "attribution": "internal",
-      "fields": [
-        "keyword",
-        "country",
-        "volume"
-      ],
-      "refresh": "quarterly",
-      "maxAgeDays": 120
-    },
-    {
-      "id": "country-facts-verified",
-      "name": "Country facts reviewed against primary sources",
-      "url": "data/entities/countries.json",
-      "licence": "compiled; each value cites its primary source",
-      "attribution": "Livdar, compiled from primary sources cited per value",
-      "fields": [
-        "currency",
-        "callingCode",
-        "plugTypes",
-        "voltage",
-        "drivingSide",
-        "emergencyNumber"
-      ],
-      "status": "not built yet",
-      "refresh": "quarterly",
-      "maxAgeDays": 120
-    }
-  ]
+ "note": "Every number on an Atlas page comes from one of these sources or is computed from them by a function in lib/. A source without a licence that allows commercial reuse is not listed. maxAgeDays is the freshness gate: a page whose data snapshot is older is held back from publication and flagged for refresh.",
+ "sources": [
+  {
+   "id": "geonames-cities",
+   "name": "GeoNames cities15000",
+   "url": "https://download.geonames.org/export/dump/cities15000.zip",
+   "licence": "CC BY 4.0",
+   "attribution": "GeoNames (geonames.org), CC BY 4.0",
+   "fields": [
+    "geonameId",
+    "name",
+    "asciiName",
+    "lat",
+    "lon",
+    "countryCode",
+    "admin1",
+    "population",
+    "timezone",
+    "elevation"
+   ],
+   "refresh": "monthly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "wikidata-cities",
+   "name": "Wikidata city items joined on the GeoNames id (P1566)",
+   "url": "https://query.wikidata.org/sparql",
+   "licence": "CC0 1.0",
+   "attribution": "Wikidata, CC0",
+   "fields": [
+    "qid",
+    "geonameId",
+    "coordinates (P625)",
+    "population (P1082, latest non deprecated)",
+    "elevation (P2044)",
+    "country (P17 or P131 chain, P297)",
+    "label.en",
+    "label.de",
+    "label.ro"
+   ],
+   "note": "Used when the GeoNames dump is not yet ingested. The time zone is then set only for countries with a single IANA zone in the runtime CLDR data; cities in multi zone countries get none and are held back.",
+   "refresh": "monthly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "wikidata-labels",
+   "name": "Wikidata city labels and identifiers",
+   "url": "https://query.wikidata.org/sparql",
+   "licence": "CC0 1.0",
+   "attribution": "Wikidata, CC0",
+   "fields": [
+    "qid",
+    "geonameId",
+    "label.en",
+    "label.de",
+    "label.ro"
+   ],
+   "refresh": "monthly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "wikidata-countries",
+   "name": "Wikidata country facts",
+   "url": "https://query.wikidata.org/sparql",
+   "licence": "CC0 1.0",
+   "attribution": "Wikidata, CC0",
+   "fields": [
+    "iso2",
+    "currency",
+    "officialLanguages",
+    "callingCode",
+    "drivingSide",
+    "plugTypes",
+    "voltage",
+    "frequency",
+    "emergencyNumber"
+   ],
+   "refresh": "monthly",
+   "maxAgeDays": 120,
+   "status": "rejected for publication",
+   "spotCheck": "2026-09-22: 255 countries pulled. Plug types missing for GB, DE, US, JP, GR, NL, RO and wrong for IT (only L listed; Italy uses C, F and L); currency empty for FR, NL, CZ (several values, not resolved); JP emergency number empty; US official languages listed as ch, es, sm. Not fit to print. City guide pages stay blocked until a verified country facts source replaces it."
+  },
+  {
+   "id": "ourairports",
+   "name": "OurAirports airports.csv",
+   "url": "https://davidmegginson.github.io/ourairports-data/airports.csv",
+   "licence": "Public Domain",
+   "attribution": "OurAirports (ourairports.com), public domain",
+   "fields": [
+    "ident",
+    "type",
+    "name",
+    "lat",
+    "lon",
+    "elevationFt",
+    "isoCountry",
+    "municipality",
+    "scheduledService",
+    "iata"
+   ],
+   "refresh": "weekly",
+   "maxAgeDays": 60
+  },
+  {
+   "id": "nasa-power-daily",
+   "name": "NASA POWER daily point data 2011-2020, reduced to monthly normals",
+   "url": "https://power.larc.nasa.gov/api/temporal/daily/point",
+   "licence": "CC BY 4.0; 'There are no restrictions on the use, access, and/or download of data from the NASA POWER Project' (AWS Open Data Registry entry)",
+   "attribution": "NASA Langley Research Center POWER Project, funded through the NASA Earth Science Directorate Applied Science Program",
+   "fields": [
+    "T2M",
+    "T2M_MAX",
+    "T2M_MIN",
+    "PRECTOTCORR",
+    "RH2M",
+    "WS2M"
+   ],
+   "caveat": "Modelled values for a 0.5 by 0.625 degree grid cell (MERRA-2 based). They describe the area around the city, not a weather station, and are stated as such on the page.",
+   "refresh": "yearly",
+   "maxAgeDays": 400,
+   "derivation": "scripts/ingest/nasa-power.mjs: for each calendar month, the mean of the daily maxima and minima over 2011 to 2020, the mean monthly precipitation total, and the mean number of days with at least 1 mm of precipitation."
+  },
+  {
+   "id": "computed-solar",
+   "name": "Sunrise, sunset and day length",
+   "url": "lib/solar.mjs",
+   "licence": "computed",
+   "attribution": "Computed from the city coordinates with the NOAA solar position equations",
+   "fields": [
+    "sunrise",
+    "sunset",
+    "dayLengthMinutes"
+   ],
+   "refresh": "on build",
+   "maxAgeDays": 100000
+  },
+  {
+   "id": "computed-distance",
+   "name": "Great circle distance",
+   "url": "lib/geo.mjs",
+   "licence": "computed",
+   "attribution": "Computed from coordinates (haversine, mean Earth radius 6371.0088 km); straight line, not road distance",
+   "fields": [
+    "distanceKm"
+   ],
+   "refresh": "on build",
+   "maxAgeDays": 100000
+  },
+  {
+   "id": "iana-tz",
+   "name": "IANA time zone database via the runtime ICU data",
+   "url": "https://www.iana.org/time-zones",
+   "licence": "Public Domain",
+   "attribution": "IANA tz database",
+   "fields": [
+    "utcOffset",
+    "dst"
+   ],
+   "refresh": "on build",
+   "maxAgeDays": 100000
+  },
+  {
+   "id": "ahrefs-keywords",
+   "name": "Ahrefs Keywords Explorer, measured monthly volume",
+   "url": "https://ahrefs.com/keywords-explorer",
+   "licence": "Ahrefs subscription; volumes used internally for eligibility, never shown on pages",
+   "attribution": "internal",
+   "fields": [
+    "keyword",
+    "country",
+    "volume"
+   ],
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "country-facts-verified",
+   "name": "Country facts reviewed against primary sources",
+   "url": "data/entities/countries.json",
+   "licence": "compiled; each value cites its primary source",
+   "attribution": "Livdar, compiled from primary sources cited per value",
+   "fields": [
+    "currency",
+    "callingCode",
+    "plugTypes",
+    "voltage",
+    "drivingSide",
+    "emergencyNumber"
+   ],
+   "status": "not built yet",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "neighbourhood-facts-verified",
+   "name": "District and neighbourhood facts for large cities, derived from GeoNames",
+   "url": "https://www.geonames.org/",
+   "licence": "CC BY 4.0",
+   "attribution": "Place names, coordinates and populations from GeoNames, CC BY 4.0",
+   "status": "built",
+   "note": "Names, coordinates and populations are the provider's. The link from a district to its city is not: GeoNames records no parent, so it is derived by proximity and the record is marked official-derived for that reason. Qualifying cities within 25 km of a larger one are folded into it, which is what stops New York having five competing hubs.",
+   "refresh": "yearly",
+   "maxAgeDays": 400,
+   "builtOn": "2026-09-24",
+   "coverage": "CITY_READY. 95 cities in 50 countries, 2,119 districts and neighbouring places. Coverage below city level is uneven between countries and the page says how many places it is naming rather than claiming to name them all.",
+   "ingest": "scripts/atlas/ingest/neighbourhood-facts.mjs",
+   "store": "data/atlas/sources/neighbourhoods/facts.json",
+   "freshnessClass": "reference"
+  },
+  {
+   "id": "ground-transport-verified",
+   "name": "Airport ground transport options, operators and fares from the airport or operator own publications",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "transit-fares-verified",
+   "name": "City public transport fares and passes from the operator own tariff pages",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "cost-of-living-verified",
+   "name": "Country level consumer price levels from Eurostat and the World Bank",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_ppp_ind",
+   "licence": "Eurostat reuse policy plus CC BY 4.0",
+   "attribution": "Source: Eurostat, prc_ppp_ind. World Bank, International Comparison Program, CC BY 4.0.",
+   "status": "built",
+   "note": "City level is not in this source and is not estimated from it. The city families point at cost-of-living-city-verified, which does not exist.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY. 199 countries: 36 with the full twelve category Eurostat basket, 3 with the Eurostat headline only, 160 with the World Bank ratio only. All eleven priority destinations covered.",
+   "ingest": "scripts/atlas/ingest/cost-of-living.mjs",
+   "store": "data/atlas/sources/cost-of-living/normalized.json",
+   "freshnessClass": "prices"
+  },
+  {
+   "id": "cost-of-living-city-verified",
+   "name": "City level consumer price levels",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "prices",
+   "candidates": "No openly licensed city level consumer price index exists across the priority destinations. Eurostat is national. Some national offices publish regional indices, a few cities publish their own, and none of it is comparable across countries.",
+   "note": "Split out of cost-of-living-verified on 2026-09-24 when that source was built at country level. The split is the point: four city scoped families stay blocked on a named source instead of silently inheriting a country figure and presenting it as a city one.",
+   "blocks": [
+    "relocation.city",
+    "cost-of-living.city",
+    "cost-of-living.city-vs-market",
+    "comparisons.city-vs-home"
+   ]
+  },
+  {
+   "id": "item-price-verified",
+   "name": "Single item consumer prices from official or openly licensed sources",
+   "url": "",
+   "licence": "to be established per item and country",
+   "attribution": "to be established per item and country",
+   "fields": [
+    "country",
+    "item",
+    "price",
+    "currency",
+    "asOf",
+    "source"
+   ],
+   "refresh": "monthly",
+   "maxAgeDays": 60,
+   "state": "not built yet",
+   "note": "Fuel prices are published weekly by the European Commission Weekly Oil Bulletin and by national regulators elsewhere. Food, restaurant and transport prices come from national statistical offices. Each item needs its own licensed source before cost-of-living.item-country can leave the gate, and the family is enumerated and blocked until then."
+  },
+  {
+   "id": "rent-index-verified",
+   "name": "Country level rent indices, rent inflation and housing cost overburden from Eurostat",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_midx",
+   "licence": "Eurostat reuse policy, commercial reuse permitted with attribution",
+   "attribution": "Source: Eurostat, prc_hicp_midx, prc_hicp_aind and ilc_lvho07a",
+   "status": "built",
+   "note": "Three different metrics, stored apart. An index is not a level, an annual change is not a price, and an overburden rate counts owners as well as renters. The city families point at rent-city-verified, which does not exist.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY. 36 countries for the rent index and rent inflation, 30 for housing cost overburden. No rent level in euros exists in any Eurostat series and none is derived.",
+   "ingest": "scripts/atlas/ingest/rent-and-salary.mjs",
+   "store": "data/atlas/sources/rent/normalized.json",
+   "freshnessClass": "rent"
+  },
+  {
+   "id": "property-price-verified",
+   "name": "Residential purchase prices and transaction costs from official registries",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "salary-data-verified",
+   "name": "Country level gross and net earnings and minimum wages from Eurostat",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/earn_nt_net",
+   "licence": "Eurostat reuse policy, commercial reuse permitted with attribution",
+   "attribution": "Source: Eurostat, earn_nt_net and earn_mw_cur",
+   "status": "built",
+   "note": "Gross and net are separate series and are never mixed. Occupation level earnings are a different dataset on a four year cycle and are not in this source.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY. 27 countries for gross and net annual earnings, 30 for statutory minimum wages. One household case only: a single person without children on the average wage.",
+   "ingest": "scripts/atlas/ingest/rent-and-salary.mjs",
+   "store": "data/atlas/sources/salary/normalized.json",
+   "freshnessClass": "salary"
+  },
+  {
+   "id": "work-rules-verified",
+   "name": "Right to work rules from the destination government own publications",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "visa-rules-verified",
+   "name": "Entry, residence and remote work visa rules from the destination government own publications",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "tax-rules-verified",
+   "name": "Income tax rates and double taxation treaties from official sources",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "banking-rules-verified",
+   "name": "Account opening requirements from regulators and banks own published terms",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "health-rules-verified",
+   "name": "Healthcare entitlement and insurance requirements from official sources",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "travel-advice-verified",
+   "name": "Travel advisories published by each market own foreign ministry",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "safety-data-verified",
+   "name": "Recorded crime statistics from national statistical offices",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "school-data-verified",
+   "name": "School registers and curricula from ministries and accreditation bodies",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "connectivity-data-verified",
+   "name": "Measured fixed and mobile speeds from an openly licensed measurement source",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "attractions-verified",
+   "name": "Attractions and opening information from official tourism bodies",
+   "url": null,
+   "licence": "to be established per source",
+   "attribution": "per value",
+   "status": "not built yet",
+   "note": "Every family that requires this source is enumerated as a candidate and held at the data gate until the source exists with a licence that allows commercial reuse. No page in this vertical is published before then.",
+   "refresh": "quarterly",
+   "maxAgeDays": 120
+  },
+  {
+   "id": "events-verified",
+   "name": "Public holiday dates from the OpenHolidays data set",
+   "url": "https://github.com/openpotato/openholidaysapi.data",
+   "licence": "ODbL 1.0",
+   "attribution": "Public holiday dates from the OpenHolidays data set, ODbL 1.0, compiled from official national sources",
+   "status": "built",
+   "note": "Public holidays only, which is one slice of Pulse and not the whole of it. What is on in a city this weekend still has no source: every event feed worth having is licensed, behind a portal this container cannot reach, or a scrape the brief forbids. A day typed Optional is not counted, and whether a day applies everywhere is read from the subdivision list rather than from which parliament passed it, because in Germany and Switzerland those two answers differ for most days.",
+   "refresh": "yearly",
+   "maxAgeDays": 200,
+   "builtOn": "2026-09-24",
+   "coverage": "COUNTRY_READY for 36 countries in the 2026 and 2027 window. Brazil is in the data set and stops at 2025, so it is excluded: feriados 2026 is 705,000 searches a month and cannot be answered from this source.",
+   "ingest": "scripts/atlas/ingest/public-holidays.mjs",
+   "store": "data/atlas/sources/events/public-holidays.json",
+   "freshnessClass": "reference"
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "places-data-verified",
+   "name": "Places and local business data",
+   "state": "not built yet",
+   "fields": [
+    "poiId",
+    "name",
+    "category",
+    "lat",
+    "lon",
+    "neighbourhoodId",
+    "openingHours",
+    "priceBand",
+    "rating",
+    "reviewCount"
+   ],
+   "refresh": "weekly",
+   "maxAgeDays": 30,
+   "candidates": "OpenStreetMap via Overpass or a bulk extract is openly licensed under ODbL and is the only candidate with unrestricted commercial reuse. Foursquare Places has an open data release. Google Places forbids storing and displaying most fields, so it cannot back a published page.",
+   "licenceRisk": "ODbL requires attribution and share alike on derived databases, which has to be read properly before a page is generated from it.",
+   "coverage": "OSM POI density varies by city by an order of magnitude; the gate in lib/atlas/poi-gate.js is what stops that becoming thin pages.",
+   "rateLimits": "Overpass is rate limited and unsuitable for bulk; a planet or regional extract is the realistic path.",
+   "blocks": [
+    "places.city-category",
+    "places.neighbourhood-category",
+    "places.poi",
+    "services.city-practical"
+   ]
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "stay-inventory-verified",
+   "name": "Stay inventory and prices",
+   "state": "not built yet",
+   "fields": [
+    "city",
+    "stayType",
+    "medianPrice",
+    "currency",
+    "availability",
+    "asOf"
+   ],
+   "refresh": "daily",
+   "maxAgeDays": 7,
+   "candidates": "Affiliate feeds from a booking partner for hotels; a rental marketplace partnership or the operator own published listings for rooms, coliving and monthly.",
+   "licenceRisk": "Affiliate terms usually permit price display only alongside a booking link, which shapes the page rather than blocking it.",
+   "coverage": "Hotels are global. Rooms, coliving and student housing are concentrated in the cities where those markets exist, which is where the measured demand is anyway.",
+   "rateLimits": "Partner dependent, unknown until a partner exists.",
+   "blocks": [
+    "stay.city-type",
+    "stay.near-venue"
+   ]
+  },
+  {
+   "url": "https://query.wikidata.org/sparql",
+   "licence": "CC0 1.0, Wikidata, public domain dedication",
+   "attribution": "Venue records from Wikidata (CC0)",
+   "id": "venue-data-verified",
+   "name": "Venues that host events",
+   "state": "built",
+   "fields": [
+    "venueId",
+    "name",
+    "city",
+    "lat",
+    "lon",
+    "capacity"
+   ],
+   "refresh": "yearly",
+   "maxAgeDays": 1825,
+   "candidates": "Wikidata, five venue classes: stadium, sports venue, concert hall, event venue, arena.",
+   "licenceRisk": "None. CC0 permits commercial reuse without attribution, and attribution is given anyway.",
+   "coverage": "9,438 venues across 3,766 cities in 16 countries. 4,145 carry a capacity.",
+   "rateLimits": "SPARQL endpoint limits apply, and the volume here is small.",
+   "blocks": [],
+   "status": "built",
+   "confidence": "declared",
+   "commercialReuse": true,
+   "storageRights": "unrestricted, CC0",
+   "freshnessClass": "reference",
+   "ingestScript": "scripts/atlas/ingest/venues.mjs",
+   "store": "data/atlas/sources/venues/by-country/*.json",
+   "access": "public SPARQL endpoint, fetched through a browser because the sandbox has no network route to it",
+   "cost": "none",
+   "lastSuccessfulIngest": "2026-09-24",
+   "caution": "Wikidata is community edited, so every value carries confidence , the lowest rank that publishes. A page that needs an official capacity must get it from the operator.",
+   "unlocks": [
+    "venues.city",
+    "stay.near-venue",
+    "events.venue"
+   ]
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "sport-routes-verified",
+   "name": "Routes, spots and outdoor conditions",
+   "state": "not built yet",
+   "fields": [
+    "routeId",
+    "activity",
+    "city",
+    "distanceKm",
+    "ascentM",
+    "difficulty",
+    "startLat",
+    "startLon",
+    "conditionsFeed"
+   ],
+   "refresh": "monthly for routes, hourly for conditions",
+   "maxAgeDays": 365,
+   "candidates": "OpenStreetMap for routes and paths. Marine and wind conditions from an openly licensed forecast source. Tides from a national hydrographic office.",
+   "licenceRisk": "ODbL again for OSM. Forecast providers vary from open to strictly non commercial and each has to be checked per feed.",
+   "coverage": "Good in Europe and North America, thin elsewhere.",
+   "rateLimits": "Forecast APIs are typically limited by calls per day, which suits a page that caches a daily conditions block.",
+   "note": "Live conditions are a block on a page, never a page of their own. A wind reading does not deserve a URL.",
+   "blocks": [
+    "sport.city-activity",
+    "sport.route"
+   ]
+  },
+  {
+   "url": "",
+   "licence": "to be established per candidate source",
+   "attribution": "to be established per candidate source",
+   "id": "community-listings-verified",
+   "name": "Community groups and recurring meetups",
+   "state": "not built yet",
+   "fields": [
+    "groupId",
+    "city",
+    "topic",
+    "cadence",
+    "nextMeeting",
+    "organiserType"
+   ],
+   "refresh": "daily",
+   "maxAgeDays": 14,
+   "candidates": "Livdar own community data once the product has it. Third party meetup platforms generally forbid redistribution of their listings, so this is a first party source or nothing.",
+   "licenceRisk": "High for third party listings, which is part of why the family indexes the hub and never the group.",
+   "coverage": "Starts at zero and grows with the product.",
+   "rateLimits": "n/a for first party data.",
+   "blocks": [
+    "community.city-topic"
+   ]
+  },
+  {
+   "id": "rent-city-verified",
+   "name": "City level rent levels and indices",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "rent",
+   "candidates": "Split out of rent-index-verified on 2026-09-24 when that source was built at country level. Eurostat publishes nothing below the country. Some national offices publish city rent levels and none are comparable across borders. Deriving a city rent from a national index would be inventing a number.",
+   "blocks": [
+    "rents.city",
+    "rents.neighbourhood"
+   ]
+  },
+  {
+   "id": "salary-city-verified",
+   "name": "City level earnings",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "salary",
+   "candidates": "Split out of salary-data-verified for the same reason. Earnings by city are published by a handful of offices, on incompatible definitions, and never for the occupations people search for.",
+   "blocks": [
+    "work.city-salaries",
+    "work.city-jobs-category"
+   ]
+  },
+  {
+   "id": "rent-level-verified",
+   "name": "Rent levels in currency",
+   "url": "",
+   "licence": "to be established",
+   "attribution": "to be established",
+   "status": "not built yet",
+   "freshnessClass": "rent",
+   "candidates": "A handful of national offices publish average rents paid in currency. Eurostat publishes none. Marketplace asking prices are forbidden and are a different measure.",
+   "note": "Separated from the rent index on 2026-09-24. An affordability calculator needs a level, not an index, and marking it buildable off an index would have produced a tool that cannot answer its own question.",
+   "blocks": [
+    "tools.calculator rent affordability variant"
+   ]
+  },
+  {
+   "id": "climate-normals-verified",
+   "name": "NASA POWER climatology, twenty year monthly normals 2001-2020",
+   "url": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+   "licence": "CC BY 4.0; 'There are no restrictions on the use, access, and/or download of data from the NASA POWER Project' (AWS Open Data Registry entry)",
+   "attribution": "NASA Langley Research Center POWER Project, funded through the NASA Earth Science Directorate Applied Science Program",
+   "fields": [
+    "T2M",
+    "T2M_MAX",
+    "T2M_MIN",
+    "PRECTOTCORR",
+    "RH2M",
+    "WS2M"
+   ],
+   "caveat": "Modelled values for a 0.5 by 0.625 degree grid cell (MERRA-2 based), stated as such on the page. Only T2M is a monthly normal: T2M_MAX and T2M_MIN on this endpoint are the extremes over the whole period, are stored as tmaxExtreme and tminExtreme, and are never scored or presented as a typical day.",
+   "refresh": "when the provider publishes a new normals period",
+   "maxAgeDays": 3650,
+   "derivation": "scripts/atlas/ingest/climate-normals.mjs: the provider's own monthly climatology, gated on period, grid cell distance, physical range and the agreement between each monthly precipitation total and its own daily rate.",
+   "status": "built",
+   "builtOn": "2026-09-25",
+   "coverage": "CITY_READY. 55 cities in 23 countries, monthly normals over 2001 to 2020. A country best time page is only honest for a country with measured cities in it, and there are 23 of those rather than 249.",
+   "ingest": "scripts/atlas/ingest/climate-normals.mjs",
+   "store": "data/atlas/sources/climate/normals.json",
+   "freshnessClass": "reference"
+  }
+ ]
 }

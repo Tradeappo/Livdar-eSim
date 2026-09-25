@@ -1,0 +1,1337 @@
+{
+ "generatedAt": "2026-09-24T06:29:09.042Z",
+ "meaning": "Families ranked by prior, what they lead to and whether an answer engine can quote them. Blocked families are ranked too, because the blocker is the finding.",
+ "groups": {
+  "evergreen": [
+   {
+    "family": "stay.city-type",
+    "surface": "stay",
+    "opportunity": 0.625,
+    "candidates": 206570,
+    "status": "blocked",
+    "leadsTo": [
+     "stay-booking",
+     "rental-lead",
+     "coliving",
+     "student-housing"
+    ]
+   },
+   {
+    "family": "stay.near-venue",
+    "surface": "stay",
+    "opportunity": 0.619,
+    "candidates": 0,
+    "status": "blocked",
+    "leadsTo": [
+     "stay-booking"
+    ]
+   },
+   {
+    "family": "neighbourhoods.city-best-for",
+    "surface": "areas",
+    "opportunity": 0.583,
+    "candidates": 177060,
+    "status": "blocked",
+    "leadsTo": [
+     "stay-booking",
+     "rental-lead"
+    ]
+   },
+   {
+    "family": "connectivity.country-sim-gap",
+    "surface": "connectivity",
+    "opportunity": 0.505,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": [
+     "esim-sale"
+    ]
+   },
+   {
+    "family": "places.city-category",
+    "surface": "areas",
+    "opportunity": 0.505,
+    "candidates": 295100,
+    "status": "blocked",
+    "leadsTo": [
+     "promoted-listing",
+     "experience-booking",
+     "coworking-booking"
+    ]
+   },
+   {
+    "family": "connectivity.city-online",
+    "surface": "connectivity",
+    "opportunity": 0.468,
+    "candidates": 29510,
+    "status": "blocked",
+    "leadsTo": [
+     "esim-sale"
+    ]
+   },
+   {
+    "family": "health.country",
+    "surface": "move",
+    "opportunity": 0.456,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": [
+     "insurance"
+    ]
+   },
+   {
+    "family": "banking.country",
+    "surface": "move",
+    "opportunity": 0.455,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": [
+     "banking-referral"
+    ]
+   },
+   {
+    "family": "comparisons.country-vs-country",
+    "surface": "tools",
+    "opportunity": 0.455,
+    "candidates": 26730,
+    "status": "blocked",
+    "leadsTo": [
+     "relocation-service",
+     "stay-booking"
+    ]
+   },
+   {
+    "family": "property.city-buy",
+    "surface": "stay",
+    "opportunity": 0.427,
+    "candidates": 29510,
+    "status": "blocked",
+    "leadsTo": [
+     "property-lead",
+     "relocation-service"
+    ]
+   },
+   {
+    "family": "taxes.country-remote-work",
+    "surface": "move",
+    "opportunity": 0.413,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "relocation.country",
+    "surface": "move",
+    "opportunity": 0.41,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "taxes.country",
+    "surface": "move",
+    "opportunity": 0.408,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "relocation.city",
+    "surface": "move",
+    "opportunity": 0.407,
+    "candidates": 127083,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "visas.country-digital-nomad",
+    "surface": "move",
+    "opportunity": 0.406,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "work.city-jobs-category",
+    "surface": "work",
+    "opportunity": 0.405,
+    "candidates": 177060,
+    "status": "blocked",
+    "leadsTo": [
+     "job-listing",
+     "relocation-service"
+    ]
+   },
+   {
+    "family": "cost-of-living.country-vs-market",
+    "surface": "move",
+    "opportunity": 0.404,
+    "candidates": 2739,
+    "status": "source-ready",
+    "leadsTo": []
+   },
+   {
+    "family": "comparisons.city-vs-home",
+    "surface": "tools",
+    "opportunity": 0.403,
+    "candidates": 32461,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "visas.country-work-permit",
+    "surface": "move",
+    "opportunity": 0.401,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "cost-of-living.city-vs-market",
+    "surface": "move",
+    "opportunity": 0.401,
+    "candidates": 32461,
+    "status": "blocked",
+    "leadsTo": []
+   }
+  ],
+  "dynamic": [
+   {
+    "family": "events.city-window",
+    "surface": "pulse",
+    "opportunity": 0.492,
+    "candidates": 118040,
+    "status": "blocked",
+    "leadsTo": [
+     "ticket",
+     "stay-booking",
+     "promoted-listing"
+    ]
+   },
+   {
+    "family": "events.recurring",
+    "surface": "pulse",
+    "opportunity": 0.46,
+    "candidates": 0,
+    "status": "blocked",
+    "leadsTo": [
+     "ticket",
+     "stay-booking"
+    ]
+   },
+   {
+    "family": "events.city-type",
+    "surface": "pulse",
+    "opportunity": 0.434,
+    "candidates": 236080,
+    "status": "blocked",
+    "leadsTo": [
+     "ticket",
+     "stay-booking"
+    ]
+   },
+   {
+    "family": "events.series-city",
+    "surface": "pulse",
+    "opportunity": 0.378,
+    "candidates": 16800,
+    "status": "blocked",
+    "leadsTo": [
+     "ticket"
+    ]
+   },
+   {
+    "family": "events.city-calendar",
+    "surface": "pulse",
+    "opportunity": 0.261,
+    "candidates": 5600,
+    "status": "blocked",
+    "leadsTo": [
+     "ticket"
+    ]
+   }
+  ],
+  "tools": [
+   {
+    "family": "tools.calculator",
+    "surface": "tools",
+    "opportunity": 0.828,
+    "candidates": 80,
+    "status": "eligible",
+    "leadsTo": [
+     "moving-service",
+     "premium-tool",
+     "rental-lead"
+    ]
+   },
+   {
+    "family": "tools.matcher",
+    "surface": "tools",
+    "opportunity": 0.555,
+    "candidates": 30,
+    "status": "eligible",
+    "leadsTo": [
+     "premium-tool",
+     "stay-booking",
+     "relocation-service"
+    ]
+   },
+   {
+    "family": "tools.cost-calculator",
+    "surface": "tools",
+    "opportunity": 0.41,
+    "candidates": 10,
+    "status": "source-ready",
+    "leadsTo": []
+   },
+   {
+    "family": "tools.cost-comparison",
+    "surface": "tools",
+    "opportunity": 0.406,
+    "candidates": 10,
+    "status": "source-ready",
+    "leadsTo": []
+   },
+   {
+    "family": "rankings.index",
+    "surface": "tools",
+    "opportunity": 0.334,
+    "candidates": 80,
+    "status": "source-ready",
+    "leadsTo": []
+   }
+  ],
+  "transactional": [
+   {
+    "family": "tools.calculator",
+    "surface": "tools",
+    "opportunity": 0.828,
+    "candidates": 80,
+    "status": "eligible",
+    "leadsTo": [
+     "moving-service",
+     "premium-tool",
+     "rental-lead"
+    ]
+   },
+   {
+    "family": "places.city-category",
+    "surface": "areas",
+    "opportunity": 0.505,
+    "candidates": 295100,
+    "status": "blocked",
+    "leadsTo": [
+     "promoted-listing",
+     "experience-booking",
+     "coworking-booking"
+    ]
+   },
+   {
+    "family": "services.country-admin",
+    "surface": "move",
+    "opportunity": 0.318,
+    "candidates": 16434,
+    "status": "research-needed",
+    "leadsTo": [
+     "relocation-service",
+     "moving-service"
+    ]
+   }
+  ],
+  "community": [
+   {
+    "family": "community.city-topic",
+    "surface": "community",
+    "opportunity": 0.242,
+    "candidates": 6720,
+    "status": "blocked",
+    "leadsTo": [
+     "promoted-listing"
+    ]
+   }
+  ],
+  "localPoi": [
+   {
+    "family": "sport.route",
+    "surface": "sport",
+    "opportunity": 0.353,
+    "candidates": 0,
+    "status": "blocked",
+    "leadsTo": [
+     "sport-rental",
+     "experience-booking"
+    ]
+   },
+   {
+    "family": "places.neighbourhood-category",
+    "surface": "areas",
+    "opportunity": 0.349,
+    "candidates": 95440,
+    "status": "blocked",
+    "leadsTo": [
+     "promoted-listing"
+    ]
+   },
+   {
+    "family": "places.poi",
+    "surface": "areas",
+    "opportunity": 0.304,
+    "candidates": 0,
+    "status": "blocked",
+    "leadsTo": [
+     "promoted-listing",
+     "experience-booking"
+    ]
+   }
+  ],
+  "relocationWorkStay": [
+   {
+    "family": "stay.city-type",
+    "surface": "stay",
+    "opportunity": 0.625,
+    "candidates": 206570,
+    "status": "blocked",
+    "leadsTo": [
+     "stay-booking",
+     "rental-lead",
+     "coliving",
+     "student-housing"
+    ]
+   },
+   {
+    "family": "stay.near-venue",
+    "surface": "stay",
+    "opportunity": 0.619,
+    "candidates": 0,
+    "status": "blocked",
+    "leadsTo": [
+     "stay-booking"
+    ]
+   },
+   {
+    "family": "health.country",
+    "surface": "move",
+    "opportunity": 0.456,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": [
+     "insurance"
+    ]
+   },
+   {
+    "family": "banking.country",
+    "surface": "move",
+    "opportunity": 0.455,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": [
+     "banking-referral"
+    ]
+   },
+   {
+    "family": "property.city-buy",
+    "surface": "stay",
+    "opportunity": 0.427,
+    "candidates": 29510,
+    "status": "blocked",
+    "leadsTo": [
+     "property-lead",
+     "relocation-service"
+    ]
+   },
+   {
+    "family": "taxes.country-remote-work",
+    "surface": "move",
+    "opportunity": 0.413,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "relocation.country",
+    "surface": "move",
+    "opportunity": 0.41,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "taxes.country",
+    "surface": "move",
+    "opportunity": 0.408,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "relocation.city",
+    "surface": "move",
+    "opportunity": 0.407,
+    "candidates": 127083,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "visas.country-digital-nomad",
+    "surface": "move",
+    "opportunity": 0.406,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "work.city-jobs-category",
+    "surface": "work",
+    "opportunity": 0.405,
+    "candidates": 177060,
+    "status": "blocked",
+    "leadsTo": [
+     "job-listing",
+     "relocation-service"
+    ]
+   },
+   {
+    "family": "cost-of-living.country-vs-market",
+    "surface": "move",
+    "opportunity": 0.404,
+    "candidates": 2739,
+    "status": "source-ready",
+    "leadsTo": []
+   },
+   {
+    "family": "visas.country-work-permit",
+    "surface": "move",
+    "opportunity": 0.401,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "cost-of-living.city-vs-market",
+    "surface": "move",
+    "opportunity": 0.401,
+    "candidates": 32461,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "work.country-working",
+    "surface": "work",
+    "opportunity": 0.398,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "rents.city",
+    "surface": "stay",
+    "opportunity": 0.398,
+    "candidates": 115530,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "work.city-jobs",
+    "surface": "work",
+    "opportunity": 0.397,
+    "candidates": 29510,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "cost-of-living.country",
+    "surface": "move",
+    "opportunity": 0.395,
+    "candidates": 2490,
+    "status": "eligible",
+    "leadsTo": []
+   },
+   {
+    "family": "visas.country-residency",
+    "surface": "move",
+    "opportunity": 0.394,
+    "candidates": 2739,
+    "status": "blocked",
+    "leadsTo": []
+   },
+   {
+    "family": "cost-of-living.city",
+    "surface": "move",
+    "opportunity": 0.391,
+    "candidates": 115530,
+    "status": "blocked",
+    "leadsTo": []
+   }
+  ]
+ },
+ "ranked": [
+  {
+   "family": "tools.calculator",
+   "surface": "tools",
+   "opportunity": 0.828,
+   "prior": 0.915,
+   "monetisationScore": 0.8,
+   "quotability": 0.6,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 80,
+   "status": "eligible"
+  },
+  {
+   "family": "stay.city-type",
+   "surface": "stay",
+   "opportunity": 0.625,
+   "prior": 0.887,
+   "monetisationScore": 0.26,
+   "quotability": 0.6,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 206570,
+   "status": "blocked"
+  },
+  {
+   "family": "stay.near-venue",
+   "surface": "stay",
+   "opportunity": 0.619,
+   "prior": 0.905,
+   "monetisationScore": 0.22,
+   "quotability": 0.6,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "family": "neighbourhoods.city-best-for",
+   "surface": "areas",
+   "opportunity": 0.583,
+   "prior": 0.831,
+   "monetisationScore": 0.22,
+   "quotability": 0.6,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 177060,
+   "status": "blocked"
+  },
+  {
+   "family": "tools.matcher",
+   "surface": "tools",
+   "opportunity": 0.555,
+   "prior": 0.865,
+   "monetisationScore": 0.22,
+   "quotability": 0.3,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 30,
+   "status": "eligible"
+  },
+  {
+   "family": "connectivity.country-sim-gap",
+   "surface": "connectivity",
+   "opportunity": 0.505,
+   "prior": 0.913,
+   "monetisationScore": 0.3,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "places.city-category",
+   "surface": "areas",
+   "opportunity": 0.505,
+   "prior": 0.676,
+   "monetisationScore": 0.56,
+   "quotability": 0.4,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 295100,
+   "status": "blocked"
+  },
+  {
+   "family": "events.city-window",
+   "surface": "pulse",
+   "opportunity": 0.492,
+   "prior": 0.709,
+   "monetisationScore": 0.22,
+   "quotability": 0.4,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 118040,
+   "status": "blocked"
+  },
+  {
+   "family": "connectivity.city-online",
+   "surface": "connectivity",
+   "opportunity": 0.468,
+   "prior": 0.83,
+   "monetisationScore": 0.3,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "events.recurring",
+   "surface": "pulse",
+   "opportunity": 0.46,
+   "prior": 0.779,
+   "monetisationScore": 0.22,
+   "quotability": 0.5,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "family": "health.country",
+   "surface": "move",
+   "opportunity": 0.456,
+   "prior": 0.916,
+   "monetisationScore": 0.14,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "banking.country",
+   "surface": "move",
+   "opportunity": 0.455,
+   "prior": 0.913,
+   "monetisationScore": 0.14,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "comparisons.country-vs-country",
+   "surface": "tools",
+   "opportunity": 0.455,
+   "prior": 0.827,
+   "monetisationScore": 0.22,
+   "quotability": 0.3,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 26730,
+   "status": "blocked"
+  },
+  {
+   "family": "events.city-type",
+   "surface": "pulse",
+   "opportunity": 0.434,
+   "prior": 0.684,
+   "monetisationScore": 0.22,
+   "quotability": 0.1,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 236080,
+   "status": "blocked"
+  },
+  {
+   "family": "property.city-buy",
+   "surface": "stay",
+   "opportunity": 0.427,
+   "prior": 0.892,
+   "monetisationScore": 0.08,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "taxes.country-remote-work",
+   "surface": "move",
+   "opportunity": 0.413,
+   "prior": 0.917,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "relocation.country",
+   "surface": "move",
+   "opportunity": 0.41,
+   "prior": 0.91,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "tools.cost-calculator",
+   "surface": "tools",
+   "opportunity": 0.41,
+   "prior": 0.912,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 10,
+   "status": "source-ready"
+  },
+  {
+   "family": "taxes.country",
+   "surface": "move",
+   "opportunity": 0.408,
+   "prior": 0.907,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "relocation.city",
+   "surface": "move",
+   "opportunity": 0.407,
+   "prior": 0.905,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 127083,
+   "status": "blocked"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "surface": "move",
+   "opportunity": 0.406,
+   "prior": 0.902,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "tools.cost-comparison",
+   "surface": "tools",
+   "opportunity": 0.406,
+   "prior": 0.903,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 10,
+   "status": "source-ready"
+  },
+  {
+   "family": "work.city-jobs-category",
+   "surface": "work",
+   "opportunity": 0.405,
+   "prior": 0.604,
+   "monetisationScore": 0.08,
+   "quotability": 0.5,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 177060,
+   "status": "blocked"
+  },
+  {
+   "family": "cost-of-living.country-vs-market",
+   "surface": "move",
+   "opportunity": 0.404,
+   "prior": 0.898,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "source-ready"
+  },
+  {
+   "family": "comparisons.city-vs-home",
+   "surface": "tools",
+   "opportunity": 0.403,
+   "prior": 0.895,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 32461,
+   "status": "blocked"
+  },
+  {
+   "family": "visas.country-work-permit",
+   "surface": "move",
+   "opportunity": 0.401,
+   "prior": 0.891,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "cost-of-living.city-vs-market",
+   "surface": "move",
+   "opportunity": 0.401,
+   "prior": 0.892,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 32461,
+   "status": "blocked"
+  },
+  {
+   "family": "work.country-working",
+   "surface": "work",
+   "opportunity": 0.398,
+   "prior": 0.885,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "rents.city",
+   "surface": "stay",
+   "opportunity": 0.398,
+   "prior": 0.885,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 115530,
+   "status": "blocked"
+  },
+  {
+   "family": "work.city-jobs",
+   "surface": "work",
+   "opportunity": 0.397,
+   "prior": 0.882,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "opportunity": 0.395,
+   "prior": 0.878,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2490,
+   "status": "eligible"
+  },
+  {
+   "family": "visas.country-residency",
+   "surface": "move",
+   "opportunity": 0.394,
+   "prior": 0.875,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "sport.city-activity",
+   "surface": "sport",
+   "opportunity": 0.392,
+   "prior": 0.629,
+   "monetisationScore": 0.05,
+   "quotability": 0.4,
+   "evidenceState": "measured",
+   "evidenceWeight": 1,
+   "candidates": 295100,
+   "status": "blocked"
+  },
+  {
+   "family": "cost-of-living.city",
+   "surface": "move",
+   "opportunity": 0.391,
+   "prior": 0.868,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 115530,
+   "status": "blocked"
+  },
+  {
+   "family": "education.city-schools",
+   "surface": "move",
+   "opportunity": 0.391,
+   "prior": 0.868,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 5600,
+   "status": "blocked"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "surface": "tools",
+   "opportunity": 0.39,
+   "prior": 0.866,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 17620,
+   "status": "source-ready"
+  },
+  {
+   "family": "health.city",
+   "surface": "move",
+   "opportunity": 0.38,
+   "prior": 0.844,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "education.city-universities",
+   "surface": "move",
+   "opportunity": 0.38,
+   "prior": 0.844,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "events.series-city",
+   "surface": "pulse",
+   "opportunity": 0.378,
+   "prior": 0.755,
+   "monetisationScore": 0.02,
+   "quotability": 0.4,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 16800,
+   "status": "blocked"
+  },
+  {
+   "family": "work.city-salaries",
+   "surface": "work",
+   "opportunity": 0.369,
+   "prior": 0.821,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 115530,
+   "status": "blocked"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "surface": "stay",
+   "opportunity": 0.367,
+   "prior": 0.815,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 23860,
+   "status": "blocked"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "surface": "areas",
+   "opportunity": 0.366,
+   "prior": 0.813,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "visas.country-visit",
+   "surface": "move",
+   "opportunity": 0.364,
+   "prior": 0.808,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "sport.route",
+   "surface": "sport",
+   "opportunity": 0.353,
+   "prior": 0.586,
+   "monetisationScore": 0.05,
+   "quotability": 0.7,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "family": "places.neighbourhood-category",
+   "surface": "areas",
+   "opportunity": 0.349,
+   "prior": 0.673,
+   "monetisationScore": 0.04,
+   "quotability": 0.4,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 95440,
+   "status": "blocked"
+  },
+  {
+   "family": "cost-of-living.item-country",
+   "surface": "move",
+   "opportunity": 0.347,
+   "prior": 0.771,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 19920,
+   "status": "blocked"
+  },
+  {
+   "family": "rankings.index",
+   "surface": "tools",
+   "opportunity": 0.334,
+   "prior": 0.742,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 80,
+   "status": "source-ready"
+  },
+  {
+   "family": "services.country-admin",
+   "surface": "move",
+   "opportunity": 0.318,
+   "prior": 0.653,
+   "monetisationScore": 0.8,
+   "quotability": 0.2,
+   "evidenceState": "declared-pending-measurement",
+   "evidenceWeight": 0.5,
+   "candidates": 16434,
+   "status": "research-needed"
+  },
+  {
+   "family": "safety.city",
+   "surface": "safety",
+   "opportunity": 0.305,
+   "prior": 0.677,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "places.poi",
+   "surface": "areas",
+   "opportunity": 0.304,
+   "prior": 0.56,
+   "monetisationScore": 0.05,
+   "quotability": 0.4,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 0,
+   "status": "blocked"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "surface": "areas",
+   "opportunity": 0.303,
+   "prior": 0.674,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 23860,
+   "status": "blocked"
+  },
+  {
+   "family": "transport.route-from-market",
+   "surface": "transport",
+   "opportunity": 0.294,
+   "prior": 0.653,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 27907,
+   "status": "source-ready"
+  },
+  {
+   "family": "safety.country-advice",
+   "surface": "safety",
+   "opportunity": 0.286,
+   "prior": 0.635,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 2739,
+   "status": "blocked"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "surface": "transport",
+   "opportunity": 0.284,
+   "prior": 0.63,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 30010,
+   "status": "blocked"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "surface": "transport",
+   "opportunity": 0.275,
+   "prior": 0.611,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "events.city-calendar",
+   "surface": "pulse",
+   "opportunity": 0.261,
+   "prior": 0.535,
+   "monetisationScore": 0.02,
+   "quotability": 0.1,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 5600,
+   "status": "blocked"
+  },
+  {
+   "family": "community.city-topic",
+   "surface": "community",
+   "opportunity": 0.242,
+   "prior": 0.482,
+   "monetisationScore": 0.04,
+   "quotability": 0.2,
+   "evidenceState": "competitor-observed",
+   "evidenceWeight": 0.85,
+   "candidates": 6720,
+   "status": "blocked"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "surface": "areas",
+   "opportunity": 0.238,
+   "prior": 0.529,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 29510,
+   "status": "blocked"
+  },
+  {
+   "family": "destinations.country-hub",
+   "surface": "areas",
+   "opportunity": 0.231,
+   "prior": 0.513,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 498,
+   "status": "source-ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "surface": "climate",
+   "opportunity": 0.225,
+   "prior": 0.501,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 5074,
+   "status": "source-ready"
+  },
+  {
+   "family": "destinations.city-hub",
+   "surface": "areas",
+   "opportunity": 0.211,
+   "prior": 0.469,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 23106,
+   "status": "source-ready"
+  },
+  {
+   "family": "airports.guide",
+   "surface": "transport",
+   "opportunity": 0.194,
+   "prior": 0.431,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 6488,
+   "status": "source-ready"
+  },
+  {
+   "family": "weather.city-month",
+   "surface": "climate",
+   "opportunity": 0.185,
+   "prior": 0.412,
+   "monetisationScore": 0,
+   "quotability": 0,
+   "evidenceState": "predates the evidence field",
+   "evidenceWeight": 0.9,
+   "candidates": 60888,
+   "status": "published"
+  },
+  {
+   "family": "services.city-practical",
+   "surface": "move",
+   "opportunity": 0.126,
+   "prior": 0.412,
+   "monetisationScore": 0,
+   "quotability": 0.3,
+   "evidenceState": "declared-pending-measurement",
+   "evidenceWeight": 0.5,
+   "candidates": 177060,
+   "status": "research-needed"
+  }
+ ]
+}

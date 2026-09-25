@@ -1,0 +1,53 @@
+{
+ "/nl/sport/hardlopen-in-amsterdam/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-09-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-09-25",
+    "reason": "cohort 002 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-002-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-004",
+  "state": "published",
+  "family": "sport.city-season",
+  "surface": "sport",
+  "locale": "nl",
+  "market": "nl-NL",
+  "entity": "2759794:running",
+  "volume": 10,
+  "band": "winnable",
+  "approvedOn": "2026-09-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-09-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-09-25"
+ }
+}

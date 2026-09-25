@@ -1,0 +1,2255 @@
+{
+ "builtAt": "2026-09-22T22:35:17.290Z",
+ "dryRun": true,
+ "limitPerFamilyMarket": null,
+ "deduplicatedKeywords": 1894992,
+ "duplicatesRemoved": 21866,
+ "byMarket": {
+  "en-US": 236371,
+  "de-DE": 220483,
+  "ja-JP": 175482,
+  "zh-Hant-TW": 175482,
+  "it-IT": 178394,
+  "es-ES": 178394,
+  "fr-FR": 178291,
+  "nl-NL": 178291,
+  "pl-PL": 178394,
+  "pt-BR": 178394,
+  "en-GB": 17016
+ },
+ "perFamily": [
+  {
+   "family": "weather.city-month",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 150660,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 150660,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-month",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 120528,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 9616,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8991,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 8897,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "en-GB",
+   "language": "en",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8736,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 8491,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 7533,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 7533,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "en-GB",
+   "language": "en",
+   "keywords": 7533,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "airports.guide",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 6381,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5999,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5999,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5999,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5999,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5999,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5999,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5896,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.airport-to-city",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5896,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "neighbourhoods.city-where-to-stay",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "cost-of-living.city",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "rents.city",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "work.city-salaries",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "relocation.city",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5824,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "weather.city-best-time",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "transport.route-from-market",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 5022,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 2912,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "safety.city",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 2912,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "en-US",
+   "language": "en",
+   "keywords": 747,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "en-GB",
+   "language": "en",
+   "keywords": 747,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "de-DE",
+   "language": "de",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "ja-JP",
+   "language": "ja",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "zh-Hant-TW",
+   "language": "zh-Hant",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "it-IT",
+   "language": "it",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "es-ES",
+   "language": "es",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "fr-FR",
+   "language": "fr",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "nl-NL",
+   "language": "nl",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "pl-PL",
+   "language": "pl",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "visas.country-visit",
+   "market": "pt-BR",
+   "language": "pt",
+   "keywords": 498,
+   "unlabelledEntities": 0,
+   "status": "ready"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "destinations.city-hub",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "destinations.country-hub",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "neighbourhoods.guide",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "rents.neighbourhood",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "property.city-buy",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "work.country-working",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "work.country-working",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "work.country-working",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "work.country-working",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "work.country-working",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "work.country-working",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "work.country-working",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "work.country-working",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "work.country-working",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "work.country-working",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "work.country-working",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "visas.country-residency",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "taxes.country",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "taxes.country",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "taxes.country",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "taxes.country",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "taxes.country",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "taxes.country",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "taxes.country",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "taxes.country",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "taxes.country",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "taxes.country",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "taxes.country",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "banking.country",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "banking.country",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "banking.country",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "banking.country",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "banking.country",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "banking.country",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "banking.country",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "banking.country",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "banking.country",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "banking.country",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "banking.country",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "health.country",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "health.country",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "health.country",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "health.country",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "health.country",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "health.country",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "health.country",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "health.country",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "health.country",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "health.country",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "health.country",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "relocation.country",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "relocation.country",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "relocation.country",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "relocation.country",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "relocation.country",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "relocation.country",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "relocation.country",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "relocation.country",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "relocation.country",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "relocation.country",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "relocation.country",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "en-GB",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "safety.country-advice",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "education.city-schools",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "connectivity.city-online",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "events.city-calendar",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "en-US",
+   "keywords": 0,
+   "status": "no phrasings written for en"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "de-DE",
+   "keywords": 0,
+   "status": "no phrasings written for de"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "ja-JP",
+   "keywords": 0,
+   "status": "no phrasings written for ja"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "zh-Hant-TW",
+   "keywords": 0,
+   "status": "no phrasings written for zh-Hant"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "it-IT",
+   "keywords": 0,
+   "status": "no phrasings written for it"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "es-ES",
+   "keywords": 0,
+   "status": "no phrasings written for es"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "fr-FR",
+   "keywords": 0,
+   "status": "no phrasings written for fr"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "nl-NL",
+   "keywords": 0,
+   "status": "no phrasings written for nl"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "pl-PL",
+   "keywords": 0,
+   "status": "no phrasings written for pl"
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "market": "pt-BR",
+   "keywords": 0,
+   "status": "no phrasings written for pt"
+  }
+ ],
+ "phrasingCoverage": {
+  "written": 120,
+  "missing": 345,
+  "missingPairs": [
+   "weather.city-month/ko",
+   "weather.city-month/tr",
+   "weather.city-month/id",
+   "weather.city-month/ru",
+   "weather.city-month/ar",
+   "weather.city-best-time/ko",
+   "weather.city-best-time/tr",
+   "weather.city-best-time/id",
+   "weather.city-best-time/ru",
+   "weather.city-best-time/ar",
+   "destinations.city-hub/en",
+   "destinations.city-hub/de",
+   "destinations.city-hub/ja",
+   "destinations.city-hub/zh-Hant",
+   "destinations.city-hub/it",
+   "destinations.city-hub/es",
+   "destinations.city-hub/fr",
+   "destinations.city-hub/nl",
+   "destinations.city-hub/pl",
+   "destinations.city-hub/pt",
+   "destinations.city-hub/ko",
+   "destinations.city-hub/tr",
+   "destinations.city-hub/id",
+   "destinations.city-hub/ru",
+   "destinations.city-hub/ar",
+   "destinations.country-hub/en",
+   "destinations.country-hub/de",
+   "destinations.country-hub/ja",
+   "destinations.country-hub/zh-Hant",
+   "destinations.country-hub/it",
+   "destinations.country-hub/es",
+   "destinations.country-hub/fr",
+   "destinations.country-hub/nl",
+   "destinations.country-hub/pl",
+   "destinations.country-hub/pt",
+   "destinations.country-hub/ko",
+   "destinations.country-hub/tr",
+   "destinations.country-hub/id",
+   "destinations.country-hub/ru",
+   "destinations.country-hub/ar"
+  ]
+ },
+ "cost": {
+  "dataforseo": {
+   "tasks": 1895,
+   "keywordsPerTask": 1000,
+   "usd": 94.75,
+   "queue": "standard",
+   "endpoint": "google_ads/search_volume"
+  },
+  "ahrefsIfUsedForBulk": {
+   "units": 20844912,
+   "note": "Not the plan. Ahrefs is kept for phrasing discovery, SERP checks and validating the highest value lots."
+  }
+ },
+ "capUsd": null,
+ "credentialsPresent": false
+}

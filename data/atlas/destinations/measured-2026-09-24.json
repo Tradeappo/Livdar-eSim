@@ -1,0 +1,1567 @@
+{
+ "note": "Destination demand measured on 2026-09-24 in en-US, one probe keyword per destination per surface. This is the destination dimension: where people want to go, which is a different question from which origin markets Livdar serves. Country probes are moving to X, jobs in X and the residence or nomad visa X actually offers. City probes are things to do in X, living in X and hotels in X.",
+ "caution": "One phrasing per cell, measured in one origin market. It ranks destinations against each other on a consistent basis. It does not size a destination absolutely, and the origin matrix in the probes directory shows how differently each origin market ranks the same destinations.",
+ "provider": "ahrefs",
+ "measuredOn": "2026-09-24",
+ "origin": "en-US",
+ "unitsSpent": 5896,
+ "countries": {
+  "spain": {
+   "move": {
+    "volume": 1700,
+    "difficulty": 3,
+    "cpcUsd": 0.45
+   },
+   "work": {
+    "volume": 1500,
+    "difficulty": 0,
+    "cpcUsd": 0.04
+   },
+   "visa": {
+    "volume": 2900,
+    "difficulty": 24,
+    "cpcUsd": 1.4
+   }
+  },
+  "portugal": {
+   "move": {
+    "volume": 1300,
+    "difficulty": 1,
+    "cpcUsd": 0.7
+   },
+   "work": {
+    "volume": 800,
+    "difficulty": 10,
+    "cpcUsd": 0.1
+   },
+   "visa": {
+    "volume": 1300,
+    "difficulty": 24,
+    "cpcUsd": 0.8
+   }
+  },
+  "italy": {
+   "move": {
+    "volume": 900,
+    "difficulty": 1,
+    "cpcUsd": 0.25
+   },
+   "work": {
+    "volume": 1400,
+    "difficulty": 15,
+    "cpcUsd": 0.04
+   },
+   "visa": {
+    "volume": 700,
+    "difficulty": 3,
+    "cpcUsd": 0.7
+   }
+  },
+  "france": {
+   "move": {
+    "volume": 800,
+    "difficulty": 0,
+    "cpcUsd": 0.45
+   },
+   "work": {
+    "volume": 600,
+    "difficulty": 1,
+    "cpcUsd": 0.01
+   },
+   "visa": {
+    "volume": 300,
+    "difficulty": 0,
+    "cpcUsd": 1.4
+   }
+  },
+  "switzerland": {
+   "move": {
+    "volume": 1700,
+    "difficulty": 6,
+    "cpcUsd": 0.7
+   },
+   "work": {
+    "volume": 1100,
+    "difficulty": 47,
+    "cpcUsd": 0.04
+   },
+   "visa": {
+    "volume": 80,
+    "difficulty": 8,
+    "cpcUsd": 0.04
+   }
+  },
+  "united-kingdom": {
+   "move": {
+    "volume": 400,
+    "difficulty": 1,
+    "cpcUsd": 0.6
+   },
+   "work": null,
+   "visa": {
+    "volume": 900,
+    "difficulty": 17,
+    "cpcUsd": 1.2
+   }
+  },
+  "germany": {
+   "move": {
+    "volume": 700,
+    "difficulty": 0,
+    "cpcUsd": 0.4
+   },
+   "work": {
+    "volume": 1100,
+    "difficulty": 47,
+    "cpcUsd": 0.08
+   },
+   "visa": {
+    "volume": 100,
+    "difficulty": 3,
+    "cpcUsd": 1.5
+   }
+  },
+  "netherlands": {
+   "move": {
+    "volume": 800,
+    "difficulty": 1,
+    "cpcUsd": 0.3
+   },
+   "work": {
+    "volume": 350,
+    "difficulty": 29,
+    "cpcUsd": 0.09
+   },
+   "visa": null
+  },
+  "greece": {
+   "move": {
+    "volume": 900,
+    "difficulty": 1,
+    "cpcUsd": 0.7
+   },
+   "work": {
+    "volume": 500,
+    "difficulty": 18,
+    "cpcUsd": 0.1
+   },
+   "visa": {
+    "volume": 400,
+    "difficulty": 2,
+    "cpcUsd": 0.8
+   }
+  },
+  "croatia": {
+   "move": {
+    "volume": 100,
+    "difficulty": 1,
+    "cpcUsd": 0.01
+   },
+   "work": {
+    "volume": 60,
+    "difficulty": 0,
+    "cpcUsd": 0.6
+   },
+   "visa": {
+    "volume": 400,
+    "difficulty": 18,
+    "cpcUsd": 0.01
+   }
+  },
+  "austria": {
+   "move": {
+    "volume": 300,
+    "difficulty": 0,
+    "cpcUsd": 0.6
+   },
+   "work": {
+    "volume": 150,
+    "difficulty": 22,
+    "cpcUsd": 0.3
+   },
+   "visa": {
+    "volume": 150,
+    "difficulty": 14,
+    "cpcUsd": 3
+   }
+  },
+  "czechia": {
+   "move": {
+    "volume": 10,
+    "difficulty": null,
+    "cpcUsd": 0.3
+   },
+   "work": {
+    "volume": 10,
+    "difficulty": null,
+    "cpcUsd": null
+   },
+   "visa": {
+    "volume": 90,
+    "difficulty": 5,
+    "cpcUsd": null
+   }
+  },
+  "poland": {
+   "move": {
+    "volume": 250,
+    "difficulty": 0,
+    "cpcUsd": 0.5
+   },
+   "work": {
+    "volume": 200,
+    "difficulty": 7,
+    "cpcUsd": 0.2
+   },
+   "visa": {
+    "volume": 150,
+    "difficulty": 10,
+    "cpcUsd": 2
+   }
+  },
+  "ireland": {
+   "move": {
+    "volume": 1500,
+    "difficulty": 5,
+    "cpcUsd": 0.5
+   },
+   "work": {
+    "volume": 1100,
+    "difficulty": 77,
+    "cpcUsd": 0.02
+   },
+   "visa": {
+    "volume": 500,
+    "difficulty": 21,
+    "cpcUsd": 0.35
+   }
+  },
+  "norway": {
+   "move": {
+    "volume": 450,
+    "difficulty": 2,
+    "cpcUsd": 0.03
+   },
+   "work": {
+    "volume": 600,
+    "difficulty": 9,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 250,
+    "difficulty": 0,
+    "cpcUsd": 0.03
+   }
+  },
+  "sweden": {
+   "move": {
+    "volume": 400,
+    "difficulty": 1,
+    "cpcUsd": 0.4
+   },
+   "work": {
+    "volume": 450,
+    "difficulty": 9,
+    "cpcUsd": 0.2
+   },
+   "visa": {
+    "volume": 70,
+    "difficulty": 15,
+    "cpcUsd": null
+   }
+  },
+  "denmark": {
+   "move": {
+    "volume": 400,
+    "difficulty": 5,
+    "cpcUsd": 0.05
+   },
+   "work": {
+    "volume": 500,
+    "difficulty": 24,
+    "cpcUsd": 0.2
+   },
+   "visa": {
+    "volume": 50,
+    "difficulty": 6,
+    "cpcUsd": null
+   }
+  },
+  "iceland": {
+   "move": {
+    "volume": 600,
+    "difficulty": 1,
+    "cpcUsd": 0.01
+   },
+   "work": {
+    "volume": 800,
+    "difficulty": 12,
+    "cpcUsd": 0.01
+   },
+   "visa": {
+    "volume": 40,
+    "difficulty": null,
+    "cpcUsd": null
+   }
+  },
+  "malta": {
+   "move": {
+    "volume": 350,
+    "difficulty": 0,
+    "cpcUsd": 0.8
+   },
+   "work": {
+    "volume": 400,
+    "difficulty": 58,
+    "cpcUsd": 0.01
+   },
+   "visa": {
+    "volume": 80,
+    "difficulty": null,
+    "cpcUsd": null
+   }
+  },
+  "cyprus": {
+   "move": {
+    "volume": 150,
+    "difficulty": 0,
+    "cpcUsd": 0.25
+   },
+   "work": {
+    "volume": 500,
+    "difficulty": 19,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 100,
+    "difficulty": 0,
+    "cpcUsd": null
+   }
+  },
+  "turkey": {
+   "move": {
+    "volume": 150,
+    "difficulty": 0,
+    "cpcUsd": 0.35
+   },
+   "work": {
+    "volume": 150,
+    "difficulty": 3,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 100,
+    "difficulty": 33,
+    "cpcUsd": 0.2
+   }
+  },
+  "uae": {
+   "move": {
+    "volume": 350,
+    "difficulty": 1,
+    "cpcUsd": 0.6
+   },
+   "work": {
+    "volume": 2500,
+    "difficulty": 39,
+    "cpcUsd": 0.03
+   },
+   "visa": {
+    "volume": 3300,
+    "difficulty": 36,
+    "cpcUsd": 1
+   }
+  },
+  "saudi-arabia": {
+   "move": {
+    "volume": 150,
+    "difficulty": 0,
+    "cpcUsd": 0.45
+   },
+   "work": {
+    "volume": 700,
+    "difficulty": 15,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 100,
+    "difficulty": 2,
+    "cpcUsd": null
+   }
+  },
+  "qatar": {
+   "move": {
+    "volume": 100,
+    "difficulty": 1,
+    "cpcUsd": 0.7
+   },
+   "work": {
+    "volume": 700,
+    "difficulty": 13,
+    "cpcUsd": 0.03
+   },
+   "visa": {
+    "volume": 90,
+    "difficulty": 0,
+    "cpcUsd": 0.6
+   }
+  },
+  "canada": {
+   "move": {
+    "volume": 2500,
+    "difficulty": 12,
+    "cpcUsd": 0.3
+   },
+   "work": {
+    "volume": 2600,
+    "difficulty": 61,
+    "cpcUsd": 0.06
+   },
+   "visa": {
+    "volume": 2900,
+    "difficulty": 88,
+    "cpcUsd": 0.8
+   }
+  },
+  "mexico": {
+   "move": {
+    "volume": 600,
+    "difficulty": 0,
+    "cpcUsd": 0.2
+   },
+   "work": {
+    "volume": 1000,
+    "difficulty": 1,
+    "cpcUsd": 0.04
+   },
+   "visa": {
+    "volume": 300,
+    "difficulty": 16,
+    "cpcUsd": 0.6
+   }
+  },
+  "japan": {
+   "move": {
+    "volume": 2100,
+    "difficulty": 0,
+    "cpcUsd": 0.4
+   },
+   "work": {
+    "volume": 2600,
+    "difficulty": 25,
+    "cpcUsd": 0.3
+   },
+   "visa": {
+    "volume": 500,
+    "difficulty": 19,
+    "cpcUsd": 0.45
+   }
+  },
+  "thailand": {
+   "move": {
+    "volume": 1500,
+    "difficulty": 1,
+    "cpcUsd": 0.25
+   },
+   "work": {
+    "volume": 900,
+    "difficulty": 29,
+    "cpcUsd": 0.08
+   },
+   "visa": {
+    "volume": 800,
+    "difficulty": 0,
+    "cpcUsd": 0.35
+   }
+  },
+  "singapore": {
+   "move": {
+    "volume": 400,
+    "difficulty": 0,
+    "cpcUsd": 0.04
+   },
+   "work": {
+    "volume": 1400,
+    "difficulty": 69,
+    "cpcUsd": 0.05
+   },
+   "visa": {
+    "volume": 250,
+    "difficulty": 33,
+    "cpcUsd": 0.07
+   }
+  },
+  "indonesia": {
+   "move": {
+    "volume": 250,
+    "difficulty": 1,
+    "cpcUsd": 0.04
+   },
+   "work": {
+    "volume": 200,
+    "difficulty": 0,
+    "cpcUsd": 0.25
+   },
+   "visa": {
+    "volume": 80,
+    "difficulty": 3,
+    "cpcUsd": null
+   }
+  },
+  "malaysia": {
+   "move": {
+    "volume": 200,
+    "difficulty": 5,
+    "cpcUsd": 0.25
+   },
+   "work": {
+    "volume": 250,
+    "difficulty": 8,
+    "cpcUsd": 0.1
+   },
+   "visa": {
+    "volume": 10,
+    "difficulty": null,
+    "cpcUsd": null
+   }
+  },
+  "south-korea": {
+   "move": {
+    "volume": 200,
+    "difficulty": 0,
+    "cpcUsd": 0.2
+   },
+   "work": {
+    "volume": 400,
+    "difficulty": 1,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 10,
+    "difficulty": 4,
+    "cpcUsd": null
+   }
+  },
+  "vietnam": {
+   "move": {
+    "volume": 350,
+    "difficulty": 0,
+    "cpcUsd": 0.4
+   },
+   "work": {
+    "volume": 300,
+    "difficulty": 6,
+    "cpcUsd": 0.05
+   },
+   "visa": {
+    "volume": 200,
+    "difficulty": 1,
+    "cpcUsd": 0.3
+   }
+  },
+  "philippines": {
+   "move": {
+    "volume": 350,
+    "difficulty": 0,
+    "cpcUsd": 0.15
+   },
+   "work": {
+    "volume": 350,
+    "difficulty": 16,
+    "cpcUsd": 0.35
+   },
+   "visa": {
+    "volume": 150,
+    "difficulty": 2,
+    "cpcUsd": 6
+   }
+  },
+  "taiwan": {
+   "move": {
+    "volume": 150,
+    "difficulty": 0,
+    "cpcUsd": 0.1
+   },
+   "work": {
+    "volume": 150,
+    "difficulty": 1,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 200,
+    "difficulty": 0,
+    "cpcUsd": null
+   }
+  },
+  "australia": {
+   "move": {
+    "volume": 1200,
+    "difficulty": 8,
+    "cpcUsd": 0.2
+   },
+   "work": {
+    "volume": 1000,
+    "difficulty": 35,
+    "cpcUsd": 0.1
+   },
+   "visa": {
+    "volume": 40,
+    "difficulty": 12,
+    "cpcUsd": 0.5
+   }
+  },
+  "new-zealand": {
+   "move": {
+    "volume": 1500,
+    "difficulty": 3,
+    "cpcUsd": 0.6
+   },
+   "work": {
+    "volume": 900,
+    "difficulty": 56,
+    "cpcUsd": 0.06
+   },
+   "visa": {
+    "volume": 1000,
+    "difficulty": 19,
+    "cpcUsd": 0.7
+   }
+  },
+  "brazil": {
+   "move": {
+    "volume": 400,
+    "difficulty": 0,
+    "cpcUsd": 0.35
+   },
+   "work": {
+    "volume": 350,
+    "difficulty": 5,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 200,
+    "difficulty": 2,
+    "cpcUsd": 0.2
+   }
+  },
+  "argentina": {
+   "move": {
+    "volume": 200,
+    "difficulty": 0,
+    "cpcUsd": 0.05
+   },
+   "work": {
+    "volume": 250,
+    "difficulty": 0,
+    "cpcUsd": 0.03
+   },
+   "visa": {
+    "volume": 200,
+    "difficulty": 2,
+    "cpcUsd": 0.35
+   }
+  },
+  "colombia": {
+   "move": {
+    "volume": 200,
+    "difficulty": 0,
+    "cpcUsd": 0.07
+   },
+   "work": {
+    "volume": 350,
+    "difficulty": 1,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 250,
+    "difficulty": 5,
+    "cpcUsd": 0.04
+   }
+  },
+  "costa-rica": {
+   "move": {
+    "volume": 1000,
+    "difficulty": 1,
+    "cpcUsd": 0.04
+   },
+   "work": {
+    "volume": 900,
+    "difficulty": 3,
+    "cpcUsd": 0.1
+   },
+   "visa": {
+    "volume": 400,
+    "difficulty": 3,
+    "cpcUsd": 0.02
+   }
+  },
+  "panama": {
+   "move": {
+    "volume": 500,
+    "difficulty": 3,
+    "cpcUsd": 0.2
+   },
+   "work": {
+    "volume": 450,
+    "difficulty": 1,
+    "cpcUsd": 0.1
+   },
+   "visa": {
+    "volume": 500,
+    "difficulty": 18,
+    "cpcUsd": 0.45
+   }
+  },
+  "georgia": {
+   "move": {
+    "volume": 50,
+    "difficulty": 0,
+    "cpcUsd": null
+   },
+   "work": {
+    "volume": 10,
+    "difficulty": 1,
+    "cpcUsd": null
+   },
+   "visa": {
+    "volume": 0,
+    "difficulty": null,
+    "cpcUsd": null
+   }
+  },
+  "bulgaria": {
+   "move": {
+    "volume": 100,
+    "difficulty": 0,
+    "cpcUsd": null
+   },
+   "work": {
+    "volume": 70,
+    "difficulty": 0,
+    "cpcUsd": 0.7
+   },
+   "visa": {
+    "volume": 200,
+    "difficulty": 3,
+    "cpcUsd": null
+   }
+  },
+  "romania": {
+   "move": {
+    "volume": 80,
+    "difficulty": 0,
+    "cpcUsd": 0.25
+   },
+   "work": {
+    "volume": 100,
+    "difficulty": 3,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 150,
+    "difficulty": 0,
+    "cpcUsd": 2.5
+   }
+  },
+  "hungary": {
+   "move": {
+    "volume": 80,
+    "difficulty": 0,
+    "cpcUsd": 0.07
+   },
+   "work": {
+    "volume": 50,
+    "difficulty": 0,
+    "cpcUsd": 0.25
+   },
+   "visa": {
+    "volume": 100,
+    "difficulty": 1,
+    "cpcUsd": null
+   }
+  },
+  "estonia": {
+   "move": {
+    "volume": 80,
+    "difficulty": 2,
+    "cpcUsd": 0.2
+   },
+   "work": {
+    "volume": 70,
+    "difficulty": 7,
+    "cpcUsd": 0.25
+   },
+   "visa": {
+    "volume": 300,
+    "difficulty": 0,
+    "cpcUsd": 0.3
+   }
+  },
+  "morocco": {
+   "move": {
+    "volume": 90,
+    "difficulty": 0,
+    "cpcUsd": 0.35
+   },
+   "work": {
+    "volume": 150,
+    "difficulty": 1,
+    "cpcUsd": 0.15
+   },
+   "visa": {
+    "volume": 10,
+    "difficulty": 22,
+    "cpcUsd": null
+   }
+  },
+  "south-africa": {
+   "move": {
+    "volume": 250,
+    "difficulty": 0,
+    "cpcUsd": 0.7
+   },
+   "work": {
+    "volume": 700,
+    "difficulty": 55,
+    "cpcUsd": 0.35
+   },
+   "visa": {
+    "volume": 100,
+    "difficulty": 1,
+    "cpcUsd": null
+   }
+  },
+  "india": {
+   "move": {
+    "volume": 350,
+    "difficulty": 0,
+    "cpcUsd": 0.8
+   },
+   "work": {
+    "volume": 900,
+    "difficulty": 0,
+    "cpcUsd": 0.09
+   },
+   "visa": {
+    "volume": 20,
+    "difficulty": null,
+    "cpcUsd": 1.7
+   }
+  }
+ },
+ "cities": {
+  "madrid": {
+   "discovery": {
+    "volume": 9400
+   },
+   "relocation": {
+    "volume": 200
+   },
+   "stay": {
+    "volume": 3300
+   }
+  },
+  "barcelona": {
+   "discovery": {
+    "volume": 12000
+   },
+   "relocation": {
+    "volume": 250
+   },
+   "stay": {
+    "volume": 9200
+   }
+  },
+  "valencia": {
+   "discovery": {
+    "volume": 1800
+   },
+   "relocation": {
+    "volume": 100
+   },
+   "stay": {
+    "volume": 600
+   }
+  },
+  "malaga": {
+   "discovery": {
+    "volume": 1700
+   },
+   "relocation": {
+    "volume": 200
+   },
+   "stay": null
+  },
+  "alicante": {
+   "discovery": {
+    "volume": 400
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "palma": {
+   "discovery": {
+    "volume": 300
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "ibiza": {
+   "discovery": {
+    "volume": 1800
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "seville": {
+   "discovery": {
+    "volume": 3000
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "tenerife": {
+   "discovery": {
+    "volume": 1400
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "las-palmas": {
+   "discovery": {
+    "volume": 100
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "lisbon": {
+   "discovery": {
+    "volume": 9800
+   },
+   "relocation": {
+    "volume": 500
+   },
+   "stay": {
+    "volume": 3200
+   }
+  },
+  "porto": {
+   "discovery": {
+    "volume": 4500
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": {
+    "volume": 900
+   }
+  },
+  "faro": {
+   "discovery": {
+    "volume": 350
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "madeira": {
+   "discovery": {
+    "volume": 700
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "zurich": {
+   "discovery": {
+    "volume": 5600
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": {
+    "volume": 2100
+   }
+  },
+  "geneva": {
+   "discovery": {
+    "volume": 3300
+   },
+   "relocation": {
+    "volume": 70
+   },
+   "stay": null
+  },
+  "basel": {
+   "discovery": {
+    "volume": 600
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "lucerne": {
+   "discovery": {
+    "volume": 2300
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "interlaken": {
+   "discovery": {
+    "volume": 1600
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "lausanne": {
+   "discovery": {
+    "volume": 600
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "rome": {
+   "discovery": {
+    "volume": 14000
+   },
+   "relocation": {
+    "volume": 250
+   },
+   "stay": {
+    "volume": 21000
+   }
+  },
+  "milan": {
+   "discovery": {
+    "volume": 6400
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": {
+    "volume": 2000
+   }
+  },
+  "florence": {
+   "discovery": {
+    "volume": 5000
+   },
+   "relocation": {
+    "volume": 40
+   },
+   "stay": null
+  },
+  "venice": {
+   "discovery": {
+    "volume": 5900
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "naples": {
+   "discovery": {
+    "volume": 4500
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "bologna": {
+   "discovery": {
+    "volume": 2000
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "paris": {
+   "discovery": {
+    "volume": 21000
+   },
+   "relocation": {
+    "volume": 350
+   },
+   "stay": {
+    "volume": 15000
+   }
+  },
+  "nice": {
+   "discovery": {
+    "volume": 2100
+   },
+   "relocation": {
+    "volume": 60
+   },
+   "stay": null
+  },
+  "lyon": {
+   "discovery": {
+    "volume": 1400
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "bordeaux": {
+   "discovery": {
+    "volume": 1600
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "marseille": {
+   "discovery": {
+    "volume": 1900
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "dubai": {
+   "discovery": {
+    "volume": 12000
+   },
+   "relocation": {
+    "volume": 900
+   },
+   "stay": {
+    "volume": 8700
+   }
+  },
+  "abu-dhabi": {
+   "discovery": {
+    "volume": 3500
+   },
+   "relocation": {
+    "volume": 200
+   },
+   "stay": null
+  },
+  "london": {
+   "discovery": {
+    "volume": 24000
+   },
+   "relocation": {
+    "volume": 600
+   },
+   "stay": {
+    "volume": 14000
+   }
+  },
+  "berlin": {
+   "discovery": {
+    "volume": 4100
+   },
+   "relocation": {
+    "volume": 200
+   },
+   "stay": {
+    "volume": 1600
+   }
+  },
+  "munich": {
+   "discovery": {
+    "volume": 6000
+   },
+   "relocation": {
+    "volume": 100
+   },
+   "stay": null
+  },
+  "amsterdam": {
+   "discovery": {
+    "volume": 14000
+   },
+   "relocation": {
+    "volume": 300
+   },
+   "stay": {
+    "volume": 6100
+   }
+  },
+  "vienna": {
+   "discovery": {
+    "volume": 4700
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": {
+    "volume": 1600
+   }
+  },
+  "prague": {
+   "discovery": {
+    "volume": 6200
+   },
+   "relocation": {
+    "volume": 100
+   },
+   "stay": {
+    "volume": 1600
+   }
+  },
+  "athens": {
+   "discovery": {
+    "volume": 4800
+   },
+   "relocation": {
+    "volume": 90
+   },
+   "stay": {
+    "volume": 2300
+   }
+  },
+  "dublin": {
+   "discovery": {
+    "volume": 6700
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": null
+  },
+  "copenhagen": {
+   "discovery": {
+    "volume": 4900
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": null
+  },
+  "stockholm": {
+   "discovery": {
+    "volume": 2400
+   },
+   "relocation": {
+    "volume": 90
+   },
+   "stay": null
+  },
+  "oslo": {
+   "discovery": {
+    "volume": 2800
+   },
+   "relocation": {
+    "volume": 70
+   },
+   "stay": null
+  },
+  "reykjavik": {
+   "discovery": {
+    "volume": 3200
+   },
+   "relocation": {
+    "volume": 20
+   },
+   "stay": null
+  },
+  "warsaw": {
+   "discovery": {
+    "volume": 1800
+   },
+   "relocation": {
+    "volume": 30
+   },
+   "stay": null
+  },
+  "budapest": {
+   "discovery": {
+    "volume": 4600
+   },
+   "relocation": {
+    "volume": 100
+   },
+   "stay": null
+  },
+  "split": {
+   "discovery": {
+    "volume": 1300
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "valletta": {
+   "discovery": {
+    "volume": 150
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "istanbul": {
+   "discovery": {
+    "volume": 4700
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": {
+    "volume": 2000
+   }
+  },
+  "miami": {
+   "discovery": {
+    "volume": 39000
+   },
+   "relocation": {
+    "volume": 900
+   },
+   "stay": {
+    "volume": 30000
+   }
+  },
+  "new-york": {
+   "discovery": {
+    "volume": 31000
+   },
+   "relocation": {
+    "volume": 600
+   },
+   "stay": {
+    "volume": 19000
+   }
+  },
+  "los-angeles": {
+   "discovery": {
+    "volume": 21000
+   },
+   "relocation": {
+    "volume": 700
+   },
+   "stay": null
+  },
+  "san-francisco": {
+   "discovery": {
+    "volume": 29000
+   },
+   "relocation": {
+    "volume": 700
+   },
+   "stay": null
+  },
+  "austin": {
+   "discovery": {
+    "volume": 33000
+   },
+   "relocation": {
+    "volume": 250
+   },
+   "stay": null
+  },
+  "toronto": {
+   "discovery": {
+    "volume": 16000
+   },
+   "relocation": {
+    "volume": 400
+   },
+   "stay": null
+  },
+  "vancouver": {
+   "discovery": {
+    "volume": 10000
+   },
+   "relocation": {
+    "volume": 400
+   },
+   "stay": null
+  },
+  "mexico-city": {
+   "discovery": {
+    "volume": 12000
+   },
+   "relocation": {
+    "volume": 350
+   },
+   "stay": {
+    "volume": 6400
+   }
+  },
+  "cancun": {
+   "discovery": {
+    "volume": 9700
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "tokyo": {
+   "discovery": {
+    "volume": 17000
+   },
+   "relocation": {
+    "volume": 200
+   },
+   "stay": {
+    "volume": 16000
+   }
+  },
+  "osaka": {
+   "discovery": {
+    "volume": 13000
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "bangkok": {
+   "discovery": {
+    "volume": 4700
+   },
+   "relocation": {
+    "volume": 150
+   },
+   "stay": {
+    "volume": 1500
+   }
+  },
+  "chiang-mai": {
+   "discovery": {
+    "volume": 2200
+   },
+   "relocation": {
+    "volume": 500
+   },
+   "stay": null
+  },
+  "singapore": {
+   "discovery": {
+    "volume": 7700
+   },
+   "relocation": {
+    "volume": 800
+   },
+   "stay": {
+    "volume": 3500
+   }
+  },
+  "bali": {
+   "discovery": {
+    "volume": 5400
+   },
+   "relocation": {
+    "volume": 600
+   },
+   "stay": {
+    "volume": 3400
+   }
+  },
+  "kuala-lumpur": {
+   "discovery": {
+    "volume": 1500
+   },
+   "relocation": {
+    "volume": 50
+   },
+   "stay": null
+  },
+  "seoul": {
+   "discovery": {
+    "volume": 6300
+   },
+   "relocation": {
+    "volume": 70
+   },
+   "stay": {
+    "volume": 3800
+   }
+  },
+  "ho-chi-minh-city": {
+   "discovery": {
+    "volume": 1700
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "manila": {
+   "discovery": {
+    "volume": 2400
+   },
+   "relocation": null,
+   "stay": null
+  },
+  "taipei": {
+   "discovery": {
+    "volume": 2800
+   },
+   "relocation": {
+    "volume": 70
+   },
+   "stay": null
+  },
+  "hong-kong": {
+   "discovery": {
+    "volume": 2600
+   },
+   "relocation": {
+    "volume": 300
+   },
+   "stay": null
+  },
+  "sydney": {
+   "discovery": {
+    "volume": 3100
+   },
+   "relocation": {
+    "volume": 100
+   },
+   "stay": null
+  },
+  "melbourne": {
+   "discovery": {
+    "volume": 2500
+   },
+   "relocation": {
+    "volume": 90
+   },
+   "stay": null
+  },
+  "auckland": {
+   "discovery": {
+    "volume": 1900
+   },
+   "relocation": {
+    "volume": 50
+   },
+   "stay": null
+  },
+  "sao-paulo": {
+   "discovery": {
+    "volume": 1900
+   },
+   "relocation": {
+    "volume": 40
+   },
+   "stay": null
+  },
+  "rio-de-janeiro": {
+   "discovery": {
+    "volume": 2600
+   },
+   "relocation": {
+    "volume": 90
+   },
+   "stay": null
+  },
+  "buenos-aires": {
+   "discovery": {
+    "volume": 3600
+   },
+   "relocation": {
+    "volume": 100
+   },
+   "stay": null
+  },
+  "medellin": {
+   "discovery": {
+    "volume": 3000
+   },
+   "relocation": {
+    "volume": 80
+   },
+   "stay": null
+  },
+  "bogota": {
+   "discovery": {
+    "volume": 2200
+   },
+   "relocation": {
+    "volume": 50
+   },
+   "stay": null
+  }
+ }
+}

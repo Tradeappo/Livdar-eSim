@@ -1,0 +1,301 @@
+{
+ "provider": "ahrefs",
+ "tool": "serp-overview",
+ "measuredOn": "2026-09-24",
+ "topPositions": 10,
+ "unitsSpent": 3641,
+ "meaning": "The first SERP measurement of the programme. Nineteen keywords chosen to span every cohort family and every cohort market rather than the top of one list, because the question was whether the result differs by market and a sample from one market cannot answer it.",
+ "caution": "Nineteen keywords is a probe, not a census. It is enough to see a pattern that holds across nine markets and four families; it is not enough to put a number on any single family's chance of ranking. Domain rating and URL rating are Ahrefs estimates of authority, not of quality.",
+ "fields": {
+  "features": "SERP features present other than plain organic results",
+  "organic": "position, host, domainRating, urlRating for the organic results only",
+  "weakestOrganic": "the lowest domain rating among the organic top ten, which is the entry point a new site is competing against"
+ },
+ "keywords": [
+  {
+   "keyword": "cost of living in japan",
+   "market": "en-US", "country": "us", "family": "cost-of-living.country", "entity": "JP", "volume": 3100, "difficulty": 8,
+   "features": ["ai_overview", "question", "discussion", "news", "video_th", "sitelink"],
+   "organic": [
+    { "position": 2, "host": "numbeo.com", "domainRating": 84, "urlRating": 8, "backlinks": 523, "traffic": 1987 },
+    { "position": 4, "host": "reddit.com", "domainRating": 95, "urlRating": 0, "backlinks": 1, "traffic": 1364 },
+    { "position": 5, "host": "westernunion.com", "domainRating": 85, "urlRating": 4, "backlinks": 12, "traffic": 2084 },
+    { "position": 7, "host": "studyinjapan.go.jp", "domainRating": 73, "urlRating": 12, "backlinks": 383, "traffic": 556 },
+    { "position": 9, "host": "aetnainternational.com", "domainRating": 65, "urlRating": 4, "backlinks": 3, "traffic": 290 },
+    { "position": 10, "host": "youtube.com", "domainRating": 99, "urlRating": 4, "backlinks": 8, "traffic": 386 }
+   ]
+  },
+  {
+   "keyword": "cost of living in switzerland",
+   "market": "en-US", "country": "us", "family": "cost-of-living.country", "entity": "CH", "volume": 2300, "difficulty": 10,
+   "features": ["ai_overview", "question", "discussion", "news", "sitelink", "video_th"],
+   "organic": [
+    { "position": 2, "host": "reddit.com", "domainRating": 95, "urlRating": 0, "traffic": 1463 },
+    { "position": 5, "host": "numbeo.com", "domainRating": 84, "urlRating": 0, "traffic": 5 },
+    { "position": 6, "host": "myscience.ch", "domainRating": 54, "urlRating": 4, "traffic": 1 },
+    { "position": 7, "host": "wise.com", "domainRating": 89, "urlRating": 0, "traffic": 0 },
+    { "position": 9, "host": "vanonsite.com", "domainRating": 18, "urlRating": 4, "traffic": 0 },
+    { "position": 10, "host": "erieri.com", "domainRating": 71, "urlRating": 0, "traffic": 0 }
+   ]
+  },
+  {
+   "keyword": "lebenshaltungskosten schweiz",
+   "market": "de-DE", "country": "de", "family": "cost-of-living.country", "entity": "CH", "volume": 500, "difficulty": 8,
+   "features": ["ai_overview", "question", "sitelink"],
+   "organic": [
+    { "position": 2, "host": "einwandern-schweiz.ch", "domainRating": 36, "urlRating": 8, "backlinks": 23, "traffic": 620 },
+    { "position": 4, "host": "connexion-emploi.com", "domainRating": 49, "urlRating": 5, "backlinks": 38, "traffic": 278 },
+    { "position": 5, "host": "de.numbeo.com", "domainRating": 84, "urlRating": 5, "backlinks": 17, "traffic": 132 },
+    { "position": 6, "host": "ethz.ch", "domainRating": 90, "urlRating": 5, "backlinks": 79, "traffic": 210 },
+    { "position": 7, "host": "grenzgaengerzentrum.de", "domainRating": 8, "urlRating": 4, "backlinks": 5, "traffic": 104 },
+    { "position": 8, "host": "news.kununu.com", "domainRating": 89, "urlRating": 4, "backlinks": 0, "traffic": 72 },
+    { "position": 9, "host": "lohncomputer.ch", "domainRating": 37, "urlRating": 4, "backlinks": 2, "traffic": 110 },
+    { "position": 10, "host": "destatis.de", "domainRating": 90, "urlRating": 4, "backlinks": 37, "traffic": 41 }
+   ]
+  },
+  {
+   "keyword": "koszty życia w szwajcarii",
+   "market": "pl-PL", "country": "pl", "family": "cost-of-living.country", "entity": "CH", "volume": 300, "difficulty": 0,
+   "features": ["ai_overview", "question"],
+   "organic": [
+    { "position": 3, "host": "polacyszwajcaria.com", "domainRating": 27, "urlRating": 4, "backlinks": 0, "traffic": 166 },
+    { "position": 4, "host": "easysend.pl", "domainRating": 33, "urlRating": 4, "backlinks": 0, "traffic": 88 },
+    { "position": 5, "host": "e-gotowka.pl", "domainRating": 16, "urlRating": 4, "backlinks": 0, "traffic": 33 },
+    { "position": 6, "host": "wise.com", "domainRating": 89, "urlRating": 4, "backlinks": 1, "traffic": 176 },
+    { "position": 7, "host": "facebook.com", "domainRating": 100, "urlRating": 0, "traffic": 19 },
+    { "position": 8, "host": "swissrecruiter.com", "domainRating": 0, "urlRating": 4, "backlinks": 0, "traffic": 11 },
+    { "position": 9, "host": "blabliblu.pl", "domainRating": 15, "urlRating": 4, "backlinks": 0, "traffic": 10 },
+    { "position": 10, "host": "praca-szwajcaria.com", "domainRating": 1, "urlRating": 5, "backlinks": 1, "traffic": 10 }
+   ]
+  },
+  {
+   "keyword": "custo de vida em portugal",
+   "market": "pt-BR", "country": "br", "family": "cost-of-living.country", "entity": "PT", "volume": 2500, "difficulty": 4,
+   "features": ["ai_overview", "question", "sitelink", "video_th"],
+   "organic": [
+    { "position": 2, "host": "eurodicas.com.br", "domainRating": 53, "urlRating": 7, "backlinks": 107, "traffic": 1601 },
+    { "position": 4, "host": "pt.numbeo.com", "domainRating": 84, "urlRating": 6, "backlinks": 20, "traffic": 463 },
+    { "position": 5, "host": "youtube.com", "domainRating": 99, "urlRating": 4, "backlinks": 0, "traffic": 366 },
+    { "position": 6, "host": "c6bank.com.br", "domainRating": 71, "urlRating": 4, "backlinks": 2, "traffic": 429 },
+    { "position": 7, "host": "custodevidaportugal.com.br", "domainRating": 0, "urlRating": 0, "backlinks": 3, "traffic": 116 },
+    { "position": 8, "host": "reddit.com", "domainRating": 95, "urlRating": 0, "traffic": 74 },
+    { "position": 9, "host": "expatistan.com", "domainRating": 74, "urlRating": 4, "backlinks": 8, "traffic": 47 },
+    { "position": 10, "host": "dnbrasil.dn.pt", "domainRating": 79, "urlRating": 6, "backlinks": 1, "traffic": 44 }
+   ]
+  },
+  {
+   "keyword": "coût de la vie au japon",
+   "market": "fr-FR", "country": "fr", "family": "cost-of-living.country", "entity": "JP", "volume": 400, "difficulty": 1,
+   "features": ["ai_overview", "question", "sitelink"],
+   "organic": [
+    { "position": 3, "host": "voyages-exception.fr", "domainRating": 45, "urlRating": 16 },
+    { "position": 4, "host": "partir.ouest-france.fr", "domainRating": 90, "urlRating": 0 },
+    { "position": 5, "host": "combien-coute.net", "domainRating": 44, "urlRating": 0 },
+    { "position": 6, "host": "fr.numbeo.com", "domainRating": 84, "urlRating": 5 },
+    { "position": 7, "host": "studyinjapan.go.jp", "domainRating": 73, "urlRating": 19 },
+    { "position": 8, "host": "fr.luko.eu", "domainRating": 71, "urlRating": 0 },
+    { "position": 9, "host": "globalhealth.insurance", "domainRating": 55, "urlRating": 0 }
+   ]
+  },
+  {
+   "keyword": "costo della vita in italia",
+   "market": "it-IT", "country": "it", "family": "cost-of-living.country", "entity": "IT", "volume": 1500, "difficulty": 4,
+   "features": ["ai_overview", "question", "image_th"],
+   "organic": [
+    { "position": 2, "host": "it.numbeo.com", "domainRating": 84, "urlRating": 5 },
+    { "position": 4, "host": "wise.com", "domainRating": 89, "urlRating": 0 },
+    { "position": 5, "host": "europassitalian.com", "domainRating": 47, "urlRating": 0 },
+    { "position": 6, "host": "reddit.com", "domainRating": 95, "urlRating": 0 },
+    { "position": 7, "host": "businesspeople.it", "domainRating": 58, "urlRating": 0 },
+    { "position": 8, "host": "facebook.com", "domainRating": 100, "urlRating": 0 },
+    { "position": 9, "host": "analisiaziendale.it", "domainRating": 15, "urlRating": 0 },
+    { "position": 10, "host": "instagram.com", "domainRating": 100, "urlRating": 0 }
+   ]
+  },
+  {
+   "keyword": "coste de vida en suiza",
+   "market": "es-ES", "country": "es", "family": "cost-of-living.country", "entity": "CH", "volume": 300, "difficulty": 3,
+   "features": ["ai_overview", "question", "sitelink"],
+   "organic": [
+    { "position": 2, "host": "expatistan.com", "domainRating": 74, "urlRating": 4 },
+    { "position": 4, "host": "worldpackers.com", "domainRating": 74, "urlRating": 4 },
+    { "position": 5, "host": "infobae.com", "domainRating": 88, "urlRating": 6 },
+    { "position": 6, "host": "reddit.com", "domainRating": 95, "urlRating": 0 },
+    { "position": 7, "host": "esim.holafly.com", "domainRating": 78, "urlRating": 4 },
+    { "position": 8, "host": "wise.com", "domainRating": 89, "urlRating": 0 },
+    { "position": 9, "host": "properstar.es", "domainRating": 37, "urlRating": 0 },
+    { "position": 10, "host": "es.numbeo.com", "domainRating": 84, "urlRating": 4 }
+   ]
+  },
+  {
+   "keyword": "levensonderhoud portugal",
+   "market": "nl-NL", "country": "nl", "family": "cost-of-living.country", "entity": "PT", "volume": 150, "difficulty": 0,
+   "features": ["ai_overview", "question"],
+   "organic": [
+    { "position": 3, "host": "properstar.nl", "domainRating": 11, "urlRating": 0 },
+    { "position": 4, "host": "green-acres.pt", "domainRating": 33, "urlRating": 5 },
+    { "position": 5, "host": "wise.com", "domainRating": 89, "urlRating": 0 },
+    { "position": 6, "host": "anyworkanywhere.com", "domainRating": 48, "urlRating": 4 },
+    { "position": 7, "host": "grenzenloos.nl", "domainRating": 35, "urlRating": 0 },
+    { "position": 8, "host": "connecthouses.com", "domainRating": 18, "urlRating": 4 },
+    { "position": 9, "host": "algarveoverwinteren.nl", "domainRating": 13, "urlRating": 5 },
+    { "position": 10, "host": "workingadventures.com", "domainRating": 36, "urlRating": 4 }
+   ]
+  },
+  {
+   "keyword": "物価の安い国",
+   "market": "ja-JP", "country": "jp", "family": "rankings.index", "entity": "cheapest-countries", "volume": 1100, "difficulty": 0,
+   "features": ["ai_overview", "question", "image_th"],
+   "organic": [
+    { "position": 2, "host": "toyokeizai.net", "domainRating": 86, "urlRating": 0, "backlinks": 0, "traffic": 286 },
+    { "position": 4, "host": "lemon8-app.com", "domainRating": 81, "urlRating": 4, "backlinks": 0, "traffic": 195 },
+    { "position": 5, "host": "reddit.com", "domainRating": 95, "urlRating": 0, "traffic": 146 },
+    { "position": 6, "host": "tabi-toku-lab.com", "domainRating": 0, "urlRating": 0, "backlinks": 0, "traffic": 117 },
+    { "position": 7, "host": "reddit.com", "domainRating": 95, "urlRating": 0, "traffic": 100 },
+    { "position": 8, "host": "gb-trip.com", "domainRating": 2, "urlRating": 4, "backlinks": 0, "traffic": 79 },
+    { "position": 9, "host": "komachi.yomiuri.co.jp", "domainRating": 89, "urlRating": 0, "backlinks": 0, "traffic": 60 },
+    { "position": 10, "host": "lemon8-app.com", "domainRating": 81, "urlRating": 4, "backlinks": 0, "traffic": 94 }
+   ]
+  },
+  {
+   "keyword": "teuerste länder der welt",
+   "market": "de-DE", "country": "de", "family": "rankings.index", "entity": "most-expensive-countries", "volume": 150, "difficulty": 0,
+   "features": ["ai_overview", "question", "image_th", "video_th"],
+   "organic": [
+    { "position": 3, "host": "cntraveller.de", "domainRating": 57, "urlRating": 4 },
+    { "position": 4, "host": "esquire.de", "domainRating": 64, "urlRating": 4 },
+    { "position": 5, "host": "fundresearch.de", "domainRating": 55, "urlRating": 5 },
+    { "position": 6, "host": "rp-online.de", "domainRating": 86, "urlRating": 6 },
+    { "position": 7, "host": "reddit.com", "domainRating": 95, "urlRating": 0 },
+    { "position": 8, "host": "youtube.com", "domainRating": 99, "urlRating": 4 },
+    { "position": 9, "host": "de.numbeo.com", "domainRating": 84, "urlRating": 18 },
+    { "position": 10, "host": "20min.ch", "domainRating": 83, "urlRating": 0 }
+   ]
+  },
+  {
+   "keyword": "most expensive countries to live in",
+   "market": "en-US", "country": "us", "family": "rankings.index", "entity": "most-expensive-countries", "volume": 1300, "difficulty": 4,
+   "features": ["question", "news", "video_th"],
+   "organic": [
+    { "position": 1, "host": "wise.com", "domainRating": 89, "urlRating": 0 },
+    { "position": 3, "host": "internationalinsurance.com", "domainRating": 66, "urlRating": 6 },
+    { "position": 4, "host": "worldpopulationreview.com", "domainRating": 86, "urlRating": 7 },
+    { "position": 5, "host": "en.wikipedia.org", "domainRating": 97, "urlRating": 5 },
+    { "position": 6, "host": "numbeo.com", "domainRating": 84, "urlRating": 30 },
+    { "position": 7, "host": "youtube.com", "domainRating": 99, "urlRating": 4 },
+    { "position": 8, "host": "fabionodariphoto.com", "domainRating": 34, "urlRating": 6 },
+    { "position": 9, "host": "loveproperty.com", "domainRating": 58, "urlRating": 6 }
+   ]
+  },
+  {
+   "keyword": "average salary in italy",
+   "market": "en-US", "country": "us", "family": "work.country-salaries", "entity": "IT", "volume": 900, "difficulty": 12,
+   "features": ["ai_overview", "question", "news", "sitelink", "image_th", "video_th"],
+   "organic": [
+    { "position": 2, "host": "reddit.com", "domainRating": 95, "urlRating": 0, "traffic": 557 },
+    { "position": 4, "host": "en.wikipedia.org", "domainRating": 97, "urlRating": 13, "backlinks": 4531, "traffic": 2162 },
+    { "position": 5, "host": "forbes.com", "domainRating": 94, "urlRating": 4, "backlinks": 12, "traffic": 253 },
+    { "position": 7, "host": "tradingeconomics.com", "domainRating": 87, "urlRating": 4, "backlinks": 84, "traffic": 102 },
+    { "position": 8, "host": "mobiletator.com", "domainRating": 10, "urlRating": 0, "backlinks": 1, "traffic": 120 },
+    { "position": 9, "host": "salaryaftertax.com", "domainRating": 38, "urlRating": 8, "backlinks": 471, "traffic": 52 },
+    { "position": 10, "host": "anthonyinitaly.com", "domainRating": 10, "urlRating": 4, "backlinks": 2, "traffic": 80 }
+   ]
+  },
+  {
+   "keyword": "cost of living comparison",
+   "market": "en-US", "country": "us", "family": "tools.cost-comparison", "entity": "cost-of-living-comparison", "volume": 49000, "difficulty": 81,
+   "features": ["question"],
+   "organic": [
+    { "position": 1, "host": "nerdwallet.com", "domainRating": 90, "urlRating": 27, "backlinks": 5709, "traffic": 65805 },
+    { "position": 2, "host": "bankrate.com", "domainRating": 90, "urlRating": 25, "backlinks": 7403, "traffic": 45323 },
+    { "position": 3, "host": "numbeo.com", "domainRating": 84, "urlRating": 30, "backlinks": 3453, "traffic": 14446 },
+    { "position": 5, "host": "careeronestop.org", "domainRating": 84, "urlRating": 6, "backlinks": 27, "traffic": 7331 },
+    { "position": 6, "host": "rentcafe.com", "domainRating": 90, "urlRating": 44, "backlinks": 3662, "traffic": 10610 },
+    { "position": 7, "host": "bestplaces.net", "domainRating": 79, "urlRating": 13, "backlinks": 975, "traffic": 3787 },
+    { "position": 8, "host": "forbes.com", "domainRating": 94, "urlRating": 10, "backlinks": 717, "traffic": 8347 },
+    { "position": 9, "host": "expatistan.com", "domainRating": 74, "urlRating": 20, "backlinks": 11706, "traffic": 1069 },
+    { "position": 10, "host": "aier.org", "domainRating": 73, "urlRating": 12, "backlinks": 705, "traffic": 6551 }
+   ]
+  },
+  {
+   "keyword": "where should i live",
+   "market": "en-US", "country": "us", "family": "tools.matcher", "entity": "where-should-i-live", "volume": 6200, "difficulty": 9,
+   "features": ["ai_overview", "question", "image_th"],
+   "organic": [
+    { "position": 1, "host": "reddit.com", "domainRating": 95, "urlRating": 4, "backlinks": 6850, "traffic": 4289 },
+    { "position": 2, "host": "whereshouldilive.co", "domainRating": 4, "urlRating": 6, "backlinks": 7301, "traffic": 3969 },
+    { "position": 4, "host": "movemap.io", "domainRating": 12, "urlRating": 19, "backlinks": 2, "traffic": 1647 },
+    { "position": 6, "host": "wikihow.com", "domainRating": 91, "urlRating": 8, "backlinks": 4, "traffic": 2213 },
+    { "position": 7, "host": "cnn.com", "domainRating": 93, "urlRating": 5, "backlinks": 39, "traffic": 887 },
+    { "position": 8, "host": "proprofs.com", "domainRating": 79, "urlRating": 22, "backlinks": 16, "traffic": 635 },
+    { "position": 9, "host": "buzzfeed.com", "domainRating": 91, "urlRating": 4, "backlinks": 50, "traffic": 1430 },
+    { "position": 10, "host": "lookyloomove.com", "domainRating": 7, "urlRating": 4, "backlinks": 0, "traffic": 441 }
+   ]
+  },
+  {
+   "keyword": "gehaltsrechner",
+   "market": "de-DE", "country": "de", "family": "tools.calculator", "entity": "salary-calculator", "volume": 88000, "difficulty": 49,
+   "features": ["ai_overview", "image_th"],
+   "organic": [
+    { "position": 1, "host": "nettolohn.de", "domainRating": 69, "urlRating": 14, "backlinks": 5118, "traffic": 289239 },
+    { "position": 3, "host": "gehalt.de", "domainRating": 70, "urlRating": 43, "backlinks": 552981, "traffic": 330168 },
+    { "position": 4, "host": "service.destatis.de", "domainRating": 90, "urlRating": 7, "backlinks": 171, "traffic": 16849 },
+    { "position": 5, "host": "tk-lex.tk.de", "domainRating": 83, "urlRating": 5, "backlinks": 113, "traffic": 51879 },
+    { "position": 6, "host": "sparkasse.de", "domainRating": 80, "urlRating": 16, "backlinks": 453, "traffic": 1353046 },
+    { "position": 7, "host": "lohnspiegel.de", "domainRating": 57, "urlRating": 18, "backlinks": 139, "traffic": 129719 },
+    { "position": 8, "host": "jobware.de", "domainRating": 68, "urlRating": 20, "backlinks": 2937, "traffic": 12179 },
+    { "position": 9, "host": "relog.de", "domainRating": 36, "urlRating": 6, "backlinks": 0, "traffic": 1853 },
+    { "position": 10, "host": "finanzfluss.de", "domainRating": 72, "urlRating": 22, "backlinks": 44, "traffic": 14084 }
+   ]
+  },
+  {
+   "keyword": "kalkulator wynagrodzeń",
+   "market": "pl-PL", "country": "pl", "family": "tools.calculator", "entity": "salary-calculator", "volume": 254000, "difficulty": 44,
+   "features": [],
+   "organic": [
+    { "position": 1, "host": "zarobki.pracuj.pl", "domainRating": 81, "urlRating": 39 },
+    { "position": 2, "host": "kalkulatory.gofin.pl", "domainRating": 75, "urlRating": 4 },
+    { "position": 3, "host": "wynagrodzenia.pl", "domainRating": 66, "urlRating": 13 },
+    { "position": 4, "host": "obliczumowe.pl", "domainRating": 7, "urlRating": 9 },
+    { "position": 5, "host": "e-pity.pl", "domainRating": 74, "urlRating": 16 },
+    { "position": 6, "host": "bankier.pl", "domainRating": 80, "urlRating": 35 },
+    { "position": 7, "host": "sedlak.pl", "domainRating": 32, "urlRating": 5 },
+    { "position": 8, "host": "hrappka.pl", "domainRating": 56, "urlRating": 13 },
+    { "position": 9, "host": "poradnikprzedsiebiorcy.pl", "domainRating": 75, "urlRating": 26 },
+    { "position": 10, "host": "firmove.pl", "domainRating": 52, "urlRating": 20 }
+   ]
+  },
+  {
+   "keyword": "calculadora de salario",
+   "market": "pt-BR", "country": "br", "family": "tools.calculator", "entity": "salary-calculator", "volume": 9900, "difficulty": 8,
+   "features": ["ai_overview", "sitelink", "image_th"],
+   "organic": [
+    { "position": 1, "host": "idinheiro.com.br", "domainRating": 66, "urlRating": 20 },
+    { "position": 2, "host": "valorinveste.globo.com", "domainRating": 91, "urlRating": 23 },
+    { "position": 3, "host": "buk.com.br", "domainRating": 31, "urlRating": 5 },
+    { "position": 4, "host": "carmelitas.com.br", "domainRating": 15, "urlRating": 9 },
+    { "position": 5, "host": "meuimposto2026.com.br", "domainRating": 1, "urlRating": 6 },
+    { "position": 7, "host": "nexojornal.com.br", "domainRating": 73, "urlRating": 6 },
+    { "position": 8, "host": "serasaexperian.com.br", "domainRating": 77, "urlRating": 9 },
+    { "position": 9, "host": "pagoufacil.com.br", "domainRating": 44, "urlRating": 4 },
+    { "position": 10, "host": "investnews.com.br", "domainRating": 68, "urlRating": 9 }
+   ]
+  },
+  {
+   "keyword": "moving cost calculator",
+   "market": "en-US", "country": "us", "family": "tools.calculator", "entity": "moving-cost", "volume": 2500, "difficulty": 41,
+   "features": ["question", "sitelink"],
+   "organic": [
+    { "position": 1, "host": "moving.com", "domainRating": 78, "urlRating": 18 },
+    { "position": 2, "host": "extraspace.com", "domainRating": 76, "urlRating": 17 },
+    { "position": 3, "host": "movebuddha.com", "domainRating": 71, "urlRating": 25 },
+    { "position": 5, "host": "move.org", "domainRating": 72, "urlRating": 15 },
+    { "position": 6, "host": "realtor.moving.com", "domainRating": 78, "urlRating": 4 },
+    { "position": 7, "host": "allied.com", "domainRating": 72, "urlRating": 6 },
+    { "position": 8, "host": "freightwaves.com", "domainRating": 83, "urlRating": 11 },
+    { "position": 9, "host": "northamerican.com", "domainRating": 71, "urlRating": 24 },
+    { "position": 10, "host": "nerdwallet.com", "domainRating": 90, "urlRating": 5 }
+   ]
+  }
+ ]
+}

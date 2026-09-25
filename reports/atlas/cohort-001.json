@@ -1,0 +1,203 @@
+{
+ "generatedAt": "2026-09-24T06:29:09.529Z",
+ "target": 250,
+ "total": 250,
+ "allocations": [
+  {
+   "family": "cost-of-living.country",
+   "surface": "move",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 2490,
+   "status": "eligible",
+   "pages": 51
+  },
+  {
+   "family": "tools.calculator",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 80,
+   "status": "eligible",
+   "pages": 41
+  },
+  {
+   "family": "tools.matcher",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 30,
+   "status": "eligible",
+   "pages": 30
+  },
+  {
+   "family": "cost-of-living.country-vs-market",
+   "surface": "move",
+   "priority": "high",
+   "axis": "audience",
+   "markets": 11,
+   "candidates": 2739,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "comparisons.city-vs-city",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 17620,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "rankings.index",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 80,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "transport.route-from-market",
+   "surface": "transport",
+   "priority": "medium",
+   "axis": "origin",
+   "markets": 11,
+   "candidates": 27907,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "weather.city-month",
+   "surface": "climate",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 60888,
+   "status": "published",
+   "pages": 12
+  },
+  {
+   "family": "weather.city-best-time",
+   "surface": "climate",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 5074,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "airports.guide",
+   "surface": "transport",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 6488,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "destinations.city-hub",
+   "surface": "areas",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 23106,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "destinations.country-hub",
+   "surface": "areas",
+   "priority": "low",
+   "axis": "language",
+   "markets": 2,
+   "candidates": 498,
+   "status": "source-ready",
+   "pages": 12
+  },
+  {
+   "family": "tools.cost-comparison",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 10,
+   "status": "source-ready",
+   "pages": 10
+  },
+  {
+   "family": "tools.cost-calculator",
+   "surface": "tools",
+   "priority": "high",
+   "axis": "language",
+   "markets": 10,
+   "candidates": 10,
+   "status": "source-ready",
+   "pages": 10
+  }
+ ],
+ "bySurface": {
+  "move": 63,
+  "tools": 115,
+  "transport": 24,
+  "climate": 24,
+  "areas": 24
+ },
+ "byPriority": {
+  "high": 178,
+  "medium": 12,
+  "low": 60
+ },
+ "byStatus": {
+  "eligible": 122,
+  "source-ready": 116,
+  "published": 12
+ },
+ "answers": [
+  {
+   "question": "discovery",
+   "what": "How long does a new page take to be crawled, and does an incremental sitemap change that"
+  },
+  {
+   "question": "indexation",
+   "what": "What share of published pages are indexed after two weeks, which is the baseline every later cohort is compared against"
+  },
+  {
+   "question": "family-variance",
+   "what": "Do families differ in indexation rate, or is the rate a property of the site"
+  },
+  {
+   "question": "lifecycle",
+   "what": "Does the sitemap chunk assignment hold across lots without rewriting settled files"
+  },
+  {
+   "question": "market-variance",
+   "what": "Do the non English markets index at the same rate as English"
+  },
+  {
+   "question": "demand"
+  }
+ ],
+ "cannotAnswer": {
+  "surfaces": [
+   "pulse",
+   "stay",
+   "work",
+   "connectivity",
+   "sport",
+   "community",
+   "safety"
+  ],
+  "why": "Every family on these surfaces is blocked on a source that does not exist, so none of them can produce a page to publish.",
+  "consequence": "Nine of the twelve surfaces are still absent. The cohort now tests one high value surface properly and says nothing about the other nine."
+ },
+ "honestSummary": "122 of 250 pages are from families where the source exists and the demand was measured. Those pages test whether the programme is right. The rest test whether the machine works, which is also worth knowing and is what the whole cohort could do before the cost of living source was built."
+}

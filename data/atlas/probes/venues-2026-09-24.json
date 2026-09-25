@@ -1,0 +1,122 @@
+{
+ "note": "Demand probe for the venue surface, run immediately after venue-data-verified was built, so that whether a venue family is worth adding is decided by measurement rather than by the data happening to exist.",
+ "provider": "ahrefs",
+ "tool": "keywords-explorer-overview",
+ "measuredOn": "2026-09-24",
+ "unitsTotal": 330,
+ "markets": {
+  "en-US": {
+   "country": "us",
+   "keywords": [
+    {
+     "keyword": "madison square garden capacity",
+     "volume": 5100,
+     "difficulty": 21,
+     "cpc": 45
+    },
+    {
+     "keyword": "wembley stadium capacity",
+     "volume": 4600,
+     "difficulty": 65,
+     "cpc": 20
+    },
+    {
+     "keyword": "santiago bernabeu capacity",
+     "volume": 900,
+     "difficulty": 60,
+     "cpc": 6
+    },
+    {
+     "keyword": "hotels near wembley stadium",
+     "volume": 700,
+     "difficulty": 3,
+     "cpc": 130
+    },
+    {
+     "keyword": "stadiums in london",
+     "volume": 250,
+     "difficulty": 24,
+     "cpc": 30
+    },
+    {
+     "keyword": "venues in barcelona",
+     "volume": 100,
+     "difficulty": 0,
+     "cpc": 100
+    },
+    {
+     "keyword": "arena capacity",
+     "volume": 50,
+     "difficulty": 20,
+     "cpc": null
+    },
+    {
+     "keyword": "concert halls in vienna",
+     "volume": 20,
+     "difficulty": null,
+     "cpc": null
+    }
+   ],
+   "asked": 8,
+   "returned": 8,
+   "finding": "Venue capacity is the largest shape and the one this source cannot honestly answer, because the only capacity it has is community edited. List shapes are smaller and buildable."
+  },
+  "en-GB": {
+   "country": "gb",
+   "keywords": [
+    {
+     "keyword": "wembley stadium capacity",
+     "volume": 9700,
+     "difficulty": 39,
+     "cpc": 35
+    },
+    {
+     "keyword": "hotels near wembley stadium",
+     "volume": 5800,
+     "difficulty": 18,
+     "cpc": 90
+    },
+    {
+     "keyword": "o2 arena capacity",
+     "volume": 4300,
+     "difficulty": 24,
+     "cpc": 3
+    },
+    {
+     "keyword": "stadiums in london",
+     "volume": 700,
+     "difficulty": 2,
+     "cpc": 40
+    },
+    {
+     "keyword": "hotels near o2 arena",
+     "volume": 450,
+     "difficulty": 94,
+     "cpc": 130
+    },
+    {
+     "keyword": "biggest stadiums in europe",
+     "volume": 300,
+     "difficulty": 4,
+     "cpc": null
+    },
+    {
+     "keyword": "concert venues london",
+     "volume": 200,
+     "difficulty": 68,
+     "cpc": 30
+    }
+   ],
+   "asked": 7,
+   "returned": 7,
+   "finding": "The United Kingdom carries the demand: Wembley capacity at 9,700 and hotels near Wembley at 5,800 with the highest cost per click in the venue set. The list shape, stadiums in London, is difficulty 2."
+  }
+ },
+ "conclusions": {
+  "demandIsReal": "Venue queries are large. Wembley capacity alone is 9,700 a month in the United Kingdom and the O2 is 4,300, and hotels near a venue carries a dollar thirty cost per click, which is the highest measured anywhere in the programme outside the moving calculator.",
+  "perVenueCapacityIsRefused": "The biggest venue queries ask for one number, the capacity, and the only capacity this source has is community edited and carries confidence `declared`. Publishing a page whose entire purpose is a figure the source cannot stand behind is the one thing the provenance framework exists to prevent, so the per venue capacity page is refused on confidence rather than on demand.",
+  "listPagesAreBuildable": "A list is a different claim. `stadiums in london` at difficulty 2 and `biggest stadiums in europe` at difficulty 4 ask for an ordering, not for an authoritative number, and an ordering from a labelled source is honest. This is the shape worth building.",
+  "nearVenueStaysStillBlocked": "`hotels near wembley stadium` at 5,800 a month and a dollar thirty a click is the best measured opportunity the venue source touches, and it needs stay inventory, which needs a commercial agreement. The venue half of that family now exists; the other half does not."
+ },
+ "caution": "Fifteen phrasings across two English markets. It is enough to show that venue demand is real and where it sits, and it is not evidence about any non English market, about any city other than London, or about how these queries behave outside the stadium and arena shapes that were asked."
+}

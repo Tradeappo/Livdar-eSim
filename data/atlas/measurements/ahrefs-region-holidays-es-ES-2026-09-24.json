@@ -1,0 +1,36 @@
+{
+ "country": "es",
+ "market": "es-ES",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 630,
+ "family": "events.subdivision-holidays",
+ "note": "Discovered from the same probe as the country family and resolved to a region by subtraction, against the region names the source itself carries plus the abbreviations each market uses. A city is refused: the holidays that apply in Munich are Bavaria’s and the source records them at that level.",
+ "keywords": [
+  {
+   "keyword": "festivos madrid 2026",
+   "volume": 48000,
+   "difficulty": 1
+  },
+  {
+   "keyword": "festivos galicia 2026",
+   "volume": 8700,
+   "difficulty": 0
+  },
+  {
+   "keyword": "festivos cataluña 2026",
+   "volume": 7200,
+   "difficulty": null
+  },
+  {
+   "keyword": "festivos comunidad valenciana 2026",
+   "volume": 4800,
+   "difficulty": 0
+  },
+  {
+   "keyword": "festivos baleares 2026",
+   "volume": 3100,
+   "difficulty": 0
+  }
+ ]
+}

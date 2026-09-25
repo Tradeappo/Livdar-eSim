@@ -1,0 +1,53 @@
+{
+ "/fr/cout-de-la-vie/roumanie/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-09-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-09-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-09-25",
+    "reason": "cohort 001 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-001-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-003",
+  "state": "published",
+  "family": "cost-of-living.country",
+  "surface": "move",
+  "locale": "fr",
+  "market": "fr-FR",
+  "entity": "RO",
+  "volume": 50,
+  "band": "winnable",
+  "approvedOn": "2026-09-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-09-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-09-25"
+ }
+}

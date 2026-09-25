@@ -1,0 +1,6953 @@
+{
+ "source": "climate-normals-verified",
+ "provider": "NASA POWER",
+ "dataset": "Climatology endpoint, twenty year monthly normals",
+ "capture": "nasa-power-climatology-2026-09-25.json",
+ "endpoint": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+ "licence": "CC BY 4.0; 'There are no restrictions on the use, access, and/or download of data from the NASA POWER Project' (AWS Open Data Registry entry)",
+ "attribution": "NASA Langley Research Center POWER Project, funded through the NASA Earth Science Directorate Applied Science Program",
+ "period": "2001-2020",
+ "observedAt": "2020",
+ "capturedOn": "2026-09-25",
+ "ingestedAt": "2026-09-24",
+ "freshnessClass": "reference",
+ "freshness": {
+  "class": "reference",
+  "ageDays": 2093,
+  "ttlDays": 1825,
+  "stale": true,
+  "needsRecheck": false,
+  "publishable": true,
+  "mustLabelAsOf": true,
+  "mayClaimCurrent": false,
+  "reason": "older than 1825 days but still the best that exists, so it publishes with its date"
+ },
+ "confidence": "official-proxy",
+ "provenanceErrors": [],
+ "units": {
+  "tmean": "C, monthly mean",
+  "tmaxExtreme": "C, highest value in the twenty year period, not a mean daily maximum",
+  "tminExtreme": "C, lowest value in the twenty year period, not a mean daily minimum",
+  "precipMm": "mm/month",
+  "precipMmPerDay": "mm/day",
+  "rh": "%",
+  "wind": "m/s"
+ },
+ "meaning": "Monthly climate normals for one model grid cell per city, on a single twenty year period so that cities inside a country can be compared with each other. Only tmean is a normal; the two extreme fields describe the worst the period produced and are never scored as though they were a typical day.",
+ "extremeRangeMedian": 23.4,
+ "seen": 55,
+ "kept": 55,
+ "countries": 23,
+ "byCountry": {
+  "GR": 2,
+  "AE": 1,
+  "TR": 2,
+  "TH": 3,
+  "VN": 3,
+  "ID": 2,
+  "JP": 4,
+  "PT": 3,
+  "ES": 4,
+  "IT": 3,
+  "MA": 2,
+  "GB": 2,
+  "CH": 3,
+  "NL": 1,
+  "FR": 3,
+  "CZ": 1,
+  "NO": 3,
+  "HR": 3,
+  "IS": 1,
+  "MX": 2,
+  "CR": 2,
+  "PE": 2,
+  "US": 3
+ },
+ "unlocks": [
+  "weather.country-best-time"
+ ],
+ "notCovered": {
+  "station": "Not a weather station record. A reader wanting the official station series wants the national meteorological service.",
+  "meanDailyRange": "The provider publishes extremes rather than mean daily maxima and minima on this endpoint, so no page here may state a typical daytime high or overnight low. That needs the daily endpoint reduced per city.",
+  "extremes": "The extreme fields are the whole period, undated. Nothing here says which year produced them or how often they recur.",
+  "seaTemperature": "Not in this capture, and a beach page that needs it needs another source."
+ },
+ "rejectedCount": 0,
+ "cities": {
+  "264371": {
+   "cityId": "264371",
+   "name": "Athens",
+   "iso2": "GR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 37.984,
+    "lon": 23.728
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 9.2,
+     "tmaxExtreme": 19.7,
+     "tminExtreme": -2.2,
+     "precipMm": 66,
+     "precipMmPerDay": 2.1,
+     "rh": 81.3,
+     "wind": 3.6
+    },
+    {
+     "tmean": 9.7,
+     "tmaxExtreme": 20.6,
+     "tminExtreme": -2.2,
+     "precipMm": 58.2,
+     "precipMmPerDay": 2.1,
+     "rh": 80.8,
+     "wind": 3.6
+    },
+    {
+     "tmean": 11.8,
+     "tmaxExtreme": 26.3,
+     "tminExtreme": 0.6,
+     "precipMm": 52.7,
+     "precipMmPerDay": 1.7,
+     "rh": 77.3,
+     "wind": 3.3
+    },
+    {
+     "tmean": 14.8,
+     "tmaxExtreme": 29,
+     "tminExtreme": 3.7,
+     "precipMm": 30.3,
+     "precipMmPerDay": 1,
+     "rh": 71.4,
+     "wind": 3
+    },
+    {
+     "tmean": 19.9,
+     "tmaxExtreme": 35.4,
+     "tminExtreme": 9.1,
+     "precipMm": 20.8,
+     "precipMmPerDay": 0.7,
+     "rh": 62.3,
+     "wind": 2.7
+    },
+    {
+     "tmean": 24.9,
+     "tmaxExtreme": 42.6,
+     "tminExtreme": 14.4,
+     "precipMm": 19.5,
+     "precipMmPerDay": 0.7,
+     "rh": 54.9,
+     "wind": 2.8
+    },
+    {
+     "tmean": 27.5,
+     "tmaxExtreme": 42.1,
+     "tminExtreme": 19,
+     "precipMm": 11.5,
+     "precipMmPerDay": 0.4,
+     "rh": 51.5,
+     "wind": 3.4
+    },
+    {
+     "tmean": 27.4,
+     "tmaxExtreme": 40.7,
+     "tminExtreme": 19.1,
+     "precipMm": 8.1,
+     "precipMmPerDay": 0.3,
+     "rh": 53.5,
+     "wind": 3.7
+    },
+    {
+     "tmean": 23.7,
+     "tmaxExtreme": 38.6,
+     "tminExtreme": 14.5,
+     "precipMm": 29.1,
+     "precipMmPerDay": 1,
+     "rh": 60.9,
+     "wind": 3.2
+    },
+    {
+     "tmean": 19.1,
+     "tmaxExtreme": 31,
+     "tminExtreme": 8.5,
+     "precipMm": 49,
+     "precipMmPerDay": 1.6,
+     "rh": 70.7,
+     "wind": 3.3
+    },
+    {
+     "tmean": 14.8,
+     "tmaxExtreme": 27.4,
+     "tminExtreme": 3.6,
+     "precipMm": 69.3,
+     "precipMmPerDay": 2.3,
+     "rh": 77.8,
+     "wind": 3.4
+    },
+    {
+     "tmean": 10.9,
+     "tmaxExtreme": 21.2,
+     "tminExtreme": 0.6,
+     "precipMm": 86.2,
+     "precipMmPerDay": 2.8,
+     "rh": 80.7,
+     "wind": 3.6
+    }
+   ]
+  },
+  "292223": {
+   "cityId": "292223",
+   "name": "Dubai",
+   "iso2": "AE",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 25.077,
+    "lon": 55.309
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 20.1,
+     "tmaxExtreme": 27.9,
+     "tminExtreme": 13,
+     "precipMm": 17.1,
+     "precipMmPerDay": 0.6,
+     "rh": 63,
+     "wind": 3.3
+    },
+    {
+     "tmean": 20.8,
+     "tmaxExtreme": 32.6,
+     "tminExtreme": 11.7,
+     "precipMm": 7.6,
+     "precipMmPerDay": 0.3,
+     "rh": 61.6,
+     "wind": 3.3
+    },
+    {
+     "tmean": 23.3,
+     "tmaxExtreme": 35.4,
+     "tminExtreme": 15.4,
+     "precipMm": 15.8,
+     "precipMmPerDay": 0.5,
+     "rh": 60.5,
+     "wind": 3.4
+    },
+    {
+     "tmean": 26.9,
+     "tmaxExtreme": 38.6,
+     "tminExtreme": 18,
+     "precipMm": 9,
+     "precipMmPerDay": 0.3,
+     "rh": 57.6,
+     "wind": 3.2
+    },
+    {
+     "tmean": 30.7,
+     "tmaxExtreme": 40.6,
+     "tminExtreme": 22.2,
+     "precipMm": 4.3,
+     "precipMmPerDay": 0.1,
+     "rh": 57.7,
+     "wind": 3.2
+    },
+    {
+     "tmean": 33.1,
+     "tmaxExtreme": 43.7,
+     "tminExtreme": 25.1,
+     "precipMm": 3.6,
+     "precipMmPerDay": 0.1,
+     "rh": 59.7,
+     "wind": 3.1
+    },
+    {
+     "tmean": 35,
+     "tmaxExtreme": 44.6,
+     "tminExtreme": 27.6,
+     "precipMm": 0.9,
+     "precipMmPerDay": 0,
+     "rh": 56.4,
+     "wind": 3.1
+    },
+    {
+     "tmean": 35.4,
+     "tmaxExtreme": 44.3,
+     "tminExtreme": 29.5,
+     "precipMm": 0.9,
+     "precipMmPerDay": 0,
+     "rh": 52.2,
+     "wind": 3
+    },
+    {
+     "tmean": 33.5,
+     "tmaxExtreme": 42.4,
+     "tminExtreme": 27.4,
+     "precipMm": 2.4,
+     "precipMmPerDay": 0.1,
+     "rh": 55.3,
+     "wind": 2.7
+    },
+    {
+     "tmean": 30.7,
+     "tmaxExtreme": 38.3,
+     "tminExtreme": 23.1,
+     "precipMm": 0.9,
+     "precipMmPerDay": 0,
+     "rh": 55.9,
+     "wind": 2.7
+    },
+    {
+     "tmean": 26.5,
+     "tmaxExtreme": 34.7,
+     "tminExtreme": 19.4,
+     "precipMm": 8.1,
+     "precipMmPerDay": 0.3,
+     "rh": 56.8,
+     "wind": 2.9
+    },
+    {
+     "tmean": 22.5,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 15.3,
+     "precipMm": 13.6,
+     "precipMmPerDay": 0.4,
+     "rh": 61.8,
+     "wind": 3
+    }
+   ]
+  },
+  "323777": {
+   "cityId": "323777",
+   "name": "Antalya",
+   "iso2": "TR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 36.908,
+    "lon": 30.696
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 7.1,
+     "tmaxExtreme": 18.8,
+     "tminExtreme": -6.1,
+     "precipMm": 182.3,
+     "precipMmPerDay": 5.9,
+     "rh": 77.1,
+     "wind": 2.6
+    },
+    {
+     "tmean": 8.2,
+     "tmaxExtreme": 23.3,
+     "tminExtreme": -5.7,
+     "precipMm": 96.6,
+     "precipMmPerDay": 3.4,
+     "rh": 75.8,
+     "wind": 2.4
+    },
+    {
+     "tmean": 11.1,
+     "tmaxExtreme": 24.7,
+     "tminExtreme": -2.6,
+     "precipMm": 68.5,
+     "precipMmPerDay": 2.2,
+     "rh": 71.8,
+     "wind": 2.3
+    },
+    {
+     "tmean": 14.7,
+     "tmaxExtreme": 29.5,
+     "tminExtreme": 0.9,
+     "precipMm": 54.9,
+     "precipMmPerDay": 1.8,
+     "rh": 68.3,
+     "wind": 2
+    },
+    {
+     "tmean": 19.5,
+     "tmaxExtreme": 37.3,
+     "tminExtreme": 7.7,
+     "precipMm": 42.2,
+     "precipMmPerDay": 1.4,
+     "rh": 64,
+     "wind": 1.8
+    },
+    {
+     "tmean": 24.4,
+     "tmaxExtreme": 40.7,
+     "tminExtreme": 12,
+     "precipMm": 17.7,
+     "precipMmPerDay": 0.6,
+     "rh": 54.4,
+     "wind": 1.9
+    },
+    {
+     "tmean": 28.6,
+     "tmaxExtreme": 42.6,
+     "tminExtreme": 17.2,
+     "precipMm": 5.9,
+     "precipMmPerDay": 0.2,
+     "rh": 44.4,
+     "wind": 2
+    },
+    {
+     "tmean": 29,
+     "tmaxExtreme": 42.7,
+     "tminExtreme": 17,
+     "precipMm": 5,
+     "precipMmPerDay": 0.2,
+     "rh": 43.5,
+     "wind": 2
+    },
+    {
+     "tmean": 25,
+     "tmaxExtreme": 40.6,
+     "tminExtreme": 11.6,
+     "precipMm": 24.6,
+     "precipMmPerDay": 0.8,
+     "rh": 48.6,
+     "wind": 2
+    },
+    {
+     "tmean": 19.4,
+     "tmaxExtreme": 36.5,
+     "tminExtreme": 3.9,
+     "precipMm": 64.5,
+     "precipMmPerDay": 2.1,
+     "rh": 56.6,
+     "wind": 2
+    },
+    {
+     "tmean": 13.5,
+     "tmaxExtreme": 27.9,
+     "tminExtreme": -1.6,
+     "precipMm": 90.6,
+     "precipMmPerDay": 3,
+     "rh": 64.9,
+     "wind": 2.1
+    },
+    {
+     "tmean": 9,
+     "tmaxExtreme": 22.1,
+     "tminExtreme": -4.3,
+     "precipMm": 174.5,
+     "precipMmPerDay": 5.6,
+     "rh": 74.1,
+     "wind": 2.4
+    }
+   ]
+  },
+  "734077": {
+   "cityId": "734077",
+   "name": "Thessaloníki",
+   "iso2": "GR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 40.641,
+    "lon": 22.935
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 4.5,
+     "tmaxExtreme": 18,
+     "tminExtreme": -10.7,
+     "precipMm": 47.4,
+     "precipMmPerDay": 1.5,
+     "rh": 82.5,
+     "wind": 2.3
+    },
+    {
+     "tmean": 6.1,
+     "tmaxExtreme": 20.3,
+     "tminExtreme": -7.5,
+     "precipMm": 37.9,
+     "precipMmPerDay": 1.3,
+     "rh": 79.9,
+     "wind": 2.4
+    },
+    {
+     "tmean": 9.2,
+     "tmaxExtreme": 28.1,
+     "tminExtreme": -5.5,
+     "precipMm": 47.7,
+     "precipMmPerDay": 1.5,
+     "rh": 76.3,
+     "wind": 2.2
+    },
+    {
+     "tmean": 13,
+     "tmaxExtreme": 29.2,
+     "tminExtreme": -3.5,
+     "precipMm": 40.2,
+     "precipMmPerDay": 1.3,
+     "rh": 71.3,
+     "wind": 2
+    },
+    {
+     "tmean": 18.7,
+     "tmaxExtreme": 34.9,
+     "tminExtreme": 6,
+     "precipMm": 45.9,
+     "precipMmPerDay": 1.5,
+     "rh": 64.8,
+     "wind": 1.9
+    },
+    {
+     "tmean": 23.9,
+     "tmaxExtreme": 41.4,
+     "tminExtreme": 11,
+     "precipMm": 37.5,
+     "precipMmPerDay": 1.3,
+     "rh": 56.9,
+     "wind": 1.8
+    },
+    {
+     "tmean": 27,
+     "tmaxExtreme": 43.2,
+     "tminExtreme": 14.5,
+     "precipMm": 28.5,
+     "precipMmPerDay": 0.9,
+     "rh": 49.7,
+     "wind": 1.8
+    },
+    {
+     "tmean": 27,
+     "tmaxExtreme": 40.7,
+     "tminExtreme": 15,
+     "precipMm": 24.2,
+     "precipMmPerDay": 0.8,
+     "rh": 50.2,
+     "wind": 1.8
+    },
+    {
+     "tmean": 21.8,
+     "tmaxExtreme": 36.8,
+     "tminExtreme": 8.2,
+     "precipMm": 47.1,
+     "precipMmPerDay": 1.6,
+     "rh": 59.9,
+     "wind": 1.9
+    },
+    {
+     "tmean": 16,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": 1.7,
+     "precipMm": 50.5,
+     "precipMmPerDay": 1.6,
+     "rh": 72,
+     "wind": 2
+    },
+    {
+     "tmean": 10.9,
+     "tmaxExtreme": 25.3,
+     "tminExtreme": -3,
+     "precipMm": 43.8,
+     "precipMmPerDay": 1.5,
+     "rh": 79.4,
+     "wind": 2.1
+    },
+    {
+     "tmean": 5.9,
+     "tmaxExtreme": 19.9,
+     "tminExtreme": -16.9,
+     "precipMm": 64.2,
+     "precipMmPerDay": 2.1,
+     "rh": 82.9,
+     "wind": 2.3
+    }
+   ]
+  },
+  "745044": {
+   "cityId": "745044",
+   "name": "Istanbul",
+   "iso2": "TR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 41.014,
+    "lon": 28.95
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 5.8,
+     "tmaxExtreme": 17.5,
+     "tminExtreme": -5.9,
+     "precipMm": 79.1,
+     "precipMmPerDay": 2.6,
+     "rh": 83.5,
+     "wind": 4.3
+    },
+    {
+     "tmean": 6.5,
+     "tmaxExtreme": 18.1,
+     "tminExtreme": -5.7,
+     "precipMm": 68.1,
+     "precipMmPerDay": 2.4,
+     "rh": 82.5,
+     "wind": 4.4
+    },
+    {
+     "tmean": 8.6,
+     "tmaxExtreme": 22.5,
+     "tminExtreme": -2.7,
+     "precipMm": 53.3,
+     "precipMmPerDay": 1.7,
+     "rh": 79.4,
+     "wind": 4.1
+    },
+    {
+     "tmean": 12.1,
+     "tmaxExtreme": 25.4,
+     "tminExtreme": 0.5,
+     "precipMm": 41.7,
+     "precipMmPerDay": 1.4,
+     "rh": 76.3,
+     "wind": 3.7
+    },
+    {
+     "tmean": 17.4,
+     "tmaxExtreme": 30.2,
+     "tminExtreme": 7.3,
+     "precipMm": 35.3,
+     "precipMmPerDay": 1.1,
+     "rh": 74.2,
+     "wind": 3.3
+    },
+    {
+     "tmean": 22.3,
+     "tmaxExtreme": 38,
+     "tminExtreme": 13.3,
+     "precipMm": 36,
+     "precipMmPerDay": 1.2,
+     "rh": 69.4,
+     "wind": 3.5
+    },
+    {
+     "tmean": 25.1,
+     "tmaxExtreme": 38.1,
+     "tminExtreme": 17.2,
+     "precipMm": 19.8,
+     "precipMmPerDay": 0.6,
+     "rh": 65.7,
+     "wind": 4.2
+    },
+    {
+     "tmean": 25.5,
+     "tmaxExtreme": 36.5,
+     "tminExtreme": 18.1,
+     "precipMm": 22,
+     "precipMmPerDay": 0.7,
+     "rh": 66.4,
+     "wind": 4.7
+    },
+    {
+     "tmean": 21.9,
+     "tmaxExtreme": 34.9,
+     "tminExtreme": 12.4,
+     "precipMm": 54.3,
+     "precipMmPerDay": 1.8,
+     "rh": 68.1,
+     "wind": 4.2
+    },
+    {
+     "tmean": 17,
+     "tmaxExtreme": 30.7,
+     "tminExtreme": 5.7,
+     "precipMm": 69.8,
+     "precipMmPerDay": 2.3,
+     "rh": 75.9,
+     "wind": 4.1
+    },
+    {
+     "tmean": 12.3,
+     "tmaxExtreme": 23.2,
+     "tminExtreme": 0.3,
+     "precipMm": 62.7,
+     "precipMmPerDay": 2.1,
+     "rh": 80.1,
+     "wind": 3.9
+    },
+    {
+     "tmean": 7.8,
+     "tmaxExtreme": 20.2,
+     "tminExtreme": -3.3,
+     "precipMm": 82.1,
+     "precipMmPerDay": 2.7,
+     "rh": 82.5,
+     "wind": 4.2
+    }
+   ]
+  },
+  "1151254": {
+   "cityId": "1151254",
+   "name": "Phuket",
+   "iso2": "TH",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 7.891,
+    "lon": 98.398
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 26.9,
+     "tmaxExtreme": 30,
+     "tminExtreme": 23.2,
+     "precipMm": 80.3,
+     "precipMmPerDay": 2.6,
+     "rh": 81.7,
+     "wind": 3
+    },
+    {
+     "tmean": 27.6,
+     "tmaxExtreme": 31.4,
+     "tminExtreme": 24,
+     "precipMm": 26.8,
+     "precipMmPerDay": 1,
+     "rh": 77.6,
+     "wind": 2.7
+    },
+    {
+     "tmean": 28.4,
+     "tmaxExtreme": 32.5,
+     "tminExtreme": 24.7,
+     "precipMm": 111.9,
+     "precipMmPerDay": 3.6,
+     "rh": 77.3,
+     "wind": 2.5
+    },
+    {
+     "tmean": 28.8,
+     "tmaxExtreme": 33.2,
+     "tminExtreme": 25.7,
+     "precipMm": 144.9,
+     "precipMmPerDay": 4.8,
+     "rh": 79.2,
+     "wind": 2.2
+    },
+    {
+     "tmean": 28.5,
+     "tmaxExtreme": 32.3,
+     "tminExtreme": 26.1,
+     "precipMm": 265.1,
+     "precipMmPerDay": 8.6,
+     "rh": 82.1,
+     "wind": 2.8
+    },
+    {
+     "tmean": 28.1,
+     "tmaxExtreme": 31.1,
+     "tminExtreme": 25.6,
+     "precipMm": 281.1,
+     "precipMmPerDay": 9.4,
+     "rh": 83,
+     "wind": 3.3
+    },
+    {
+     "tmean": 27.9,
+     "tmaxExtreme": 29.8,
+     "tminExtreme": 25.6,
+     "precipMm": 263.5,
+     "precipMmPerDay": 8.5,
+     "rh": 82.9,
+     "wind": 3.5
+    },
+    {
+     "tmean": 27.7,
+     "tmaxExtreme": 29.8,
+     "tminExtreme": 24.8,
+     "precipMm": 309.7,
+     "precipMmPerDay": 10,
+     "rh": 83.3,
+     "wind": 3.6
+    },
+    {
+     "tmean": 27.4,
+     "tmaxExtreme": 29.8,
+     "tminExtreme": 25.4,
+     "precipMm": 351.6,
+     "precipMmPerDay": 11.7,
+     "rh": 84.2,
+     "wind": 3.3
+    },
+    {
+     "tmean": 27.2,
+     "tmaxExtreme": 29.7,
+     "tminExtreme": 24.9,
+     "precipMm": 336,
+     "precipMmPerDay": 10.8,
+     "rh": 84.6,
+     "wind": 2.7
+    },
+    {
+     "tmean": 27.4,
+     "tmaxExtreme": 29.9,
+     "tminExtreme": 24.6,
+     "precipMm": 218.7,
+     "precipMmPerDay": 7.3,
+     "rh": 83.9,
+     "wind": 2.5
+    },
+    {
+     "tmean": 27.1,
+     "tmaxExtreme": 29.8,
+     "tminExtreme": 23.5,
+     "precipMm": 136.7,
+     "precipMmPerDay": 4.4,
+     "rh": 83,
+     "wind": 3
+    }
+   ]
+  },
+  "1153671": {
+   "cityId": "1153671",
+   "name": "Chiang Mai",
+   "iso2": "TH",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 18.79,
+    "lon": 98.985
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 19.3,
+     "tmaxExtreme": 33.1,
+     "tminExtreme": 6.1,
+     "precipMm": 15.2,
+     "precipMmPerDay": 0.5,
+     "rh": 67.2,
+     "wind": 0.3
+    },
+    {
+     "tmean": 21.7,
+     "tmaxExtreme": 35,
+     "tminExtreme": 8.8,
+     "precipMm": 4.5,
+     "precipMmPerDay": 0.2,
+     "rh": 56,
+     "wind": 0.3
+    },
+    {
+     "tmean": 24.6,
+     "tmaxExtreme": 37.3,
+     "tminExtreme": 9.7,
+     "precipMm": 22.9,
+     "precipMmPerDay": 0.7,
+     "rh": 51.7,
+     "wind": 0.2
+    },
+    {
+     "tmean": 27.1,
+     "tmaxExtreme": 40.5,
+     "tminExtreme": 13.7,
+     "precipMm": 63.3,
+     "precipMmPerDay": 2.1,
+     "rh": 55.8,
+     "wind": 0.1
+    },
+    {
+     "tmean": 25.8,
+     "tmaxExtreme": 39.9,
+     "tminExtreme": 16.3,
+     "precipMm": 188.8,
+     "precipMmPerDay": 6.1,
+     "rh": 74.8,
+     "wind": 0
+    },
+    {
+     "tmean": 25,
+     "tmaxExtreme": 36.7,
+     "tminExtreme": 18.5,
+     "precipMm": 141.3,
+     "precipMmPerDay": 4.7,
+     "rh": 80.8,
+     "wind": 0
+    },
+    {
+     "tmean": 24.3,
+     "tmaxExtreme": 34.4,
+     "tminExtreme": 18.6,
+     "precipMm": 177.9,
+     "precipMmPerDay": 5.7,
+     "rh": 83.4,
+     "wind": 0
+    },
+    {
+     "tmean": 23.8,
+     "tmaxExtreme": 33.4,
+     "tminExtreme": 18.1,
+     "precipMm": 237.2,
+     "precipMmPerDay": 7.7,
+     "rh": 87.4,
+     "wind": 0
+    },
+    {
+     "tmean": 23.6,
+     "tmaxExtreme": 32.3,
+     "tminExtreme": 17.5,
+     "precipMm": 221.7,
+     "precipMmPerDay": 7.4,
+     "rh": 88.9,
+     "wind": 0.1
+    },
+    {
+     "tmean": 22.7,
+     "tmaxExtreme": 30.4,
+     "tminExtreme": 12.5,
+     "precipMm": 123.4,
+     "precipMmPerDay": 4,
+     "rh": 87,
+     "wind": 0.2
+    },
+    {
+     "tmean": 20.8,
+     "tmaxExtreme": 31.9,
+     "tminExtreme": 7.7,
+     "precipMm": 36.6,
+     "precipMmPerDay": 1.2,
+     "rh": 81.7,
+     "wind": 0.2
+    },
+    {
+     "tmean": 18.9,
+     "tmaxExtreme": 30.3,
+     "tminExtreme": 5,
+     "precipMm": 13,
+     "precipMmPerDay": 0.4,
+     "rh": 75.6,
+     "wind": 0.3
+    }
+   ]
+  },
+  "1566083": {
+   "cityId": "1566083",
+   "name": "Ho Chi Minh City",
+   "iso2": "VN",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 10.823,
+    "lon": 106.63
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 26.2,
+     "tmaxExtreme": 38.6,
+     "tminExtreme": 14.9,
+     "precipMm": 10.5,
+     "precipMmPerDay": 0.3,
+     "rh": 70.6,
+     "wind": 1.6
+    },
+    {
+     "tmean": 28,
+     "tmaxExtreme": 39.6,
+     "tminExtreme": 17,
+     "precipMm": 6.5,
+     "precipMmPerDay": 0.2,
+     "rh": 61.7,
+     "wind": 2.2
+    },
+    {
+     "tmean": 29.8,
+     "tmaxExtreme": 41.1,
+     "tminExtreme": 18.6,
+     "precipMm": 12.7,
+     "precipMmPerDay": 0.4,
+     "rh": 59.2,
+     "wind": 2.8
+    },
+    {
+     "tmean": 30.7,
+     "tmaxExtreme": 42.1,
+     "tminExtreme": 21.9,
+     "precipMm": 41.4,
+     "precipMmPerDay": 1.4,
+     "rh": 61.1,
+     "wind": 2.8
+    },
+    {
+     "tmean": 29.4,
+     "tmaxExtreme": 42.1,
+     "tminExtreme": 23.4,
+     "precipMm": 155,
+     "precipMmPerDay": 5,
+     "rh": 74.1,
+     "wind": 2.1
+    },
+    {
+     "tmean": 27.4,
+     "tmaxExtreme": 39.8,
+     "tminExtreme": 21.9,
+     "precipMm": 212.1,
+     "precipMmPerDay": 7.1,
+     "rh": 84.4,
+     "wind": 2.1
+    },
+    {
+     "tmean": 26.7,
+     "tmaxExtreme": 35,
+     "tminExtreme": 22.3,
+     "precipMm": 207.1,
+     "precipMmPerDay": 6.7,
+     "rh": 87.1,
+     "wind": 2.3
+    },
+    {
+     "tmean": 26.6,
+     "tmaxExtreme": 34,
+     "tminExtreme": 21.6,
+     "precipMm": 191,
+     "precipMmPerDay": 6.2,
+     "rh": 87.8,
+     "wind": 2.4
+    },
+    {
+     "tmean": 26.5,
+     "tmaxExtreme": 33.7,
+     "tminExtreme": 22.2,
+     "precipMm": 189.9,
+     "precipMmPerDay": 6.3,
+     "rh": 88.1,
+     "wind": 2
+    },
+    {
+     "tmean": 26.5,
+     "tmaxExtreme": 33.3,
+     "tminExtreme": 18.8,
+     "precipMm": 214.8,
+     "precipMmPerDay": 6.9,
+     "rh": 87.2,
+     "wind": 1.5
+    },
+    {
+     "tmean": 26.3,
+     "tmaxExtreme": 36,
+     "tminExtreme": 15.5,
+     "precipMm": 99.9,
+     "precipMmPerDay": 3.3,
+     "rh": 84.4,
+     "wind": 1.5
+    },
+    {
+     "tmean": 25.7,
+     "tmaxExtreme": 37.8,
+     "tminExtreme": 15.5,
+     "precipMm": 32.2,
+     "precipMmPerDay": 1,
+     "rh": 78.6,
+     "wind": 1.4
+    }
+   ]
+  },
+  "1581130": {
+   "cityId": "1581130",
+   "name": "Hanoi",
+   "iso2": "VN",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 21.024,
+    "lon": 105.841
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 15.4,
+     "tmaxExtreme": 32.5,
+     "tminExtreme": 1.5,
+     "precipMm": 31.9,
+     "precipMmPerDay": 1,
+     "rh": 81,
+     "wind": 1.8
+    },
+    {
+     "tmean": 18.2,
+     "tmaxExtreme": 34.8,
+     "tminExtreme": 2.6,
+     "precipMm": 21.8,
+     "precipMmPerDay": 0.8,
+     "rh": 80.4,
+     "wind": 2.1
+    },
+    {
+     "tmean": 21.4,
+     "tmaxExtreme": 38.4,
+     "tminExtreme": 6.9,
+     "precipMm": 49,
+     "precipMmPerDay": 1.6,
+     "rh": 80.3,
+     "wind": 2.2
+    },
+    {
+     "tmean": 25.2,
+     "tmaxExtreme": 41.9,
+     "tminExtreme": 11.3,
+     "precipMm": 77.7,
+     "precipMmPerDay": 2.6,
+     "rh": 78.3,
+     "wind": 2.1
+    },
+    {
+     "tmean": 27.5,
+     "tmaxExtreme": 41.7,
+     "tminExtreme": 17.3,
+     "precipMm": 178.9,
+     "precipMmPerDay": 5.8,
+     "rh": 80.4,
+     "wind": 1.9
+    },
+    {
+     "tmean": 28.5,
+     "tmaxExtreme": 39.1,
+     "tminExtreme": 18.9,
+     "precipMm": 201.3,
+     "precipMmPerDay": 6.7,
+     "rh": 83.5,
+     "wind": 1.5
+    },
+    {
+     "tmean": 28.4,
+     "tmaxExtreme": 38.3,
+     "tminExtreme": 22.5,
+     "precipMm": 299.8,
+     "precipMmPerDay": 9.7,
+     "rh": 84.6,
+     "wind": 1.5
+    },
+    {
+     "tmean": 27.9,
+     "tmaxExtreme": 35.6,
+     "tminExtreme": 21.5,
+     "precipMm": 321.8,
+     "precipMmPerDay": 10.4,
+     "rh": 85.9,
+     "wind": 1.4
+    },
+    {
+     "tmean": 26.7,
+     "tmaxExtreme": 34.7,
+     "tminExtreme": 16.4,
+     "precipMm": 222.9,
+     "precipMmPerDay": 7.4,
+     "rh": 84.9,
+     "wind": 1.5
+    },
+    {
+     "tmean": 23.8,
+     "tmaxExtreme": 32.9,
+     "tminExtreme": 9.4,
+     "precipMm": 124,
+     "precipMmPerDay": 4,
+     "rh": 83.9,
+     "wind": 1.6
+    },
+    {
+     "tmean": 20.3,
+     "tmaxExtreme": 32.2,
+     "tminExtreme": 5.7,
+     "precipMm": 52.2,
+     "precipMmPerDay": 1.7,
+     "rh": 82.2,
+     "wind": 1.6
+    },
+    {
+     "tmean": 16,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": 1.6,
+     "precipMm": 25.1,
+     "precipMmPerDay": 0.8,
+     "rh": 79.5,
+     "wind": 1.7
+    }
+   ]
+  },
+  "1583992": {
+   "cityId": "1583992",
+   "name": "Da Nang",
+   "iso2": "VN",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 16.068,
+    "lon": 108.221
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 21,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": 14.2,
+     "precipMm": 79.4,
+     "precipMmPerDay": 2.6,
+     "rh": 86.7,
+     "wind": 2.3
+    },
+    {
+     "tmean": 21.7,
+     "tmaxExtreme": 33.5,
+     "tminExtreme": 14,
+     "precipMm": 26.8,
+     "precipMmPerDay": 1,
+     "rh": 86.3,
+     "wind": 2.1
+    },
+    {
+     "tmean": 23.7,
+     "tmaxExtreme": 33.7,
+     "tminExtreme": 15.5,
+     "precipMm": 39.4,
+     "precipMmPerDay": 1.3,
+     "rh": 86,
+     "wind": 2
+    },
+    {
+     "tmean": 26,
+     "tmaxExtreme": 38.4,
+     "tminExtreme": 18.1,
+     "precipMm": 48.9,
+     "precipMmPerDay": 1.6,
+     "rh": 83.6,
+     "wind": 1.8
+    },
+    {
+     "tmean": 27.8,
+     "tmaxExtreme": 37.3,
+     "tminExtreme": 20.2,
+     "precipMm": 80.6,
+     "precipMmPerDay": 2.6,
+     "rh": 81.8,
+     "wind": 1.6
+    },
+    {
+     "tmean": 28.5,
+     "tmaxExtreme": 36.6,
+     "tminExtreme": 23.2,
+     "precipMm": 71.4,
+     "precipMmPerDay": 2.4,
+     "rh": 79.3,
+     "wind": 1.4
+    },
+    {
+     "tmean": 28.4,
+     "tmaxExtreme": 37.6,
+     "tminExtreme": 23.7,
+     "precipMm": 102,
+     "precipMmPerDay": 3.3,
+     "rh": 78.5,
+     "wind": 1.5
+    },
+    {
+     "tmean": 28.2,
+     "tmaxExtreme": 36.9,
+     "tminExtreme": 24.1,
+     "precipMm": 167.1,
+     "precipMmPerDay": 5.4,
+     "rh": 79.1,
+     "wind": 1.5
+    },
+    {
+     "tmean": 27.3,
+     "tmaxExtreme": 34.8,
+     "tminExtreme": 22.9,
+     "precipMm": 371.4,
+     "precipMmPerDay": 12.4,
+     "rh": 82.6,
+     "wind": 1.8
+    },
+    {
+     "tmean": 25.7,
+     "tmaxExtreme": 32.7,
+     "tminExtreme": 20,
+     "precipMm": 562,
+     "precipMmPerDay": 18.1,
+     "rh": 85,
+     "wind": 2.3
+    },
+    {
+     "tmean": 24.2,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 17.1,
+     "precipMm": 411.6,
+     "precipMmPerDay": 13.7,
+     "rh": 86.7,
+     "wind": 2.6
+    },
+    {
+     "tmean": 21.9,
+     "tmaxExtreme": 29.1,
+     "tminExtreme": 14.8,
+     "precipMm": 249.2,
+     "precipMmPerDay": 8,
+     "rh": 86.8,
+     "wind": 2.6
+    }
+   ]
+  },
+  "1609350": {
+   "cityId": "1609350",
+   "name": "Bangkok",
+   "iso2": "TH",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 13.754,
+    "lon": 100.501
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 26.2,
+     "tmaxExtreme": 38.7,
+     "tminExtreme": 11.1,
+     "precipMm": 16.4,
+     "precipMmPerDay": 0.5,
+     "rh": 64,
+     "wind": 1.7
+    },
+    {
+     "tmean": 28.8,
+     "tmaxExtreme": 39.9,
+     "tminExtreme": 12.5,
+     "precipMm": 13.6,
+     "precipMmPerDay": 0.5,
+     "rh": 60.5,
+     "wind": 2
+    },
+    {
+     "tmean": 30.2,
+     "tmaxExtreme": 42.1,
+     "tminExtreme": 15.2,
+     "precipMm": 47.4,
+     "precipMmPerDay": 1.5,
+     "rh": 62.2,
+     "wind": 2.3
+    },
+    {
+     "tmean": 30.7,
+     "tmaxExtreme": 43,
+     "tminExtreme": 18.5,
+     "precipMm": 75.3,
+     "precipMmPerDay": 2.5,
+     "rh": 66.4,
+     "wind": 2.1
+    },
+    {
+     "tmean": 29.5,
+     "tmaxExtreme": 42.1,
+     "tminExtreme": 23.3,
+     "precipMm": 163.7,
+     "precipMmPerDay": 5.3,
+     "rh": 75.5,
+     "wind": 1.9
+    },
+    {
+     "tmean": 28.4,
+     "tmaxExtreme": 40.5,
+     "tminExtreme": 22.2,
+     "precipMm": 165,
+     "precipMmPerDay": 5.5,
+     "rh": 80.2,
+     "wind": 2
+    },
+    {
+     "tmean": 27.8,
+     "tmaxExtreme": 38.6,
+     "tminExtreme": 22.6,
+     "precipMm": 168.6,
+     "precipMmPerDay": 5.4,
+     "rh": 81,
+     "wind": 2.1
+    },
+    {
+     "tmean": 27.6,
+     "tmaxExtreme": 35.7,
+     "tminExtreme": 22.1,
+     "precipMm": 181.4,
+     "precipMmPerDay": 5.9,
+     "rh": 81.8,
+     "wind": 2
+    },
+    {
+     "tmean": 27.2,
+     "tmaxExtreme": 34.9,
+     "tminExtreme": 21.7,
+     "precipMm": 278.1,
+     "precipMmPerDay": 9.3,
+     "rh": 85.2,
+     "wind": 1.6
+    },
+    {
+     "tmean": 26.9,
+     "tmaxExtreme": 34.1,
+     "tminExtreme": 17,
+     "precipMm": 203,
+     "precipMmPerDay": 6.6,
+     "rh": 84.7,
+     "wind": 1.4
+    },
+    {
+     "tmean": 25.9,
+     "tmaxExtreme": 36.6,
+     "tminExtreme": 13.2,
+     "precipMm": 38.7,
+     "precipMmPerDay": 1.3,
+     "rh": 80.2,
+     "wind": 1.6
+    },
+    {
+     "tmean": 25,
+     "tmaxExtreme": 36.5,
+     "tminExtreme": 10.2,
+     "precipMm": 9.6,
+     "precipMmPerDay": 0.3,
+     "rh": 70.9,
+     "wind": 1.8
+    }
+   ]
+  },
+  "1642911": {
+   "cityId": "1642911",
+   "name": "Jakarta",
+   "iso2": "ID",
+   "period": "2001-2020",
+   "cell": {
+    "lat": -6.215,
+    "lon": 106.845
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 26.9,
+     "tmaxExtreme": 33.8,
+     "tminExtreme": 23.6,
+     "precipMm": 352.8,
+     "precipMmPerDay": 11.4,
+     "rh": 84.5,
+     "wind": 3.1
+    },
+    {
+     "tmean": 26.8,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 23.5,
+     "precipMm": 386.5,
+     "precipMmPerDay": 13.7,
+     "rh": 85.9,
+     "wind": 2.8
+    },
+    {
+     "tmean": 27.2,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 24.1,
+     "precipMm": 247.7,
+     "precipMmPerDay": 8,
+     "rh": 84.5,
+     "wind": 2.5
+    },
+    {
+     "tmean": 27.6,
+     "tmaxExtreme": 31.5,
+     "tminExtreme": 24.4,
+     "precipMm": 197.4,
+     "precipMmPerDay": 6.6,
+     "rh": 83.4,
+     "wind": 2.2
+    },
+    {
+     "tmean": 27.8,
+     "tmaxExtreme": 31.7,
+     "tminExtreme": 23.4,
+     "precipMm": 141.4,
+     "precipMmPerDay": 4.6,
+     "rh": 82.6,
+     "wind": 2.2
+    },
+    {
+     "tmean": 27.3,
+     "tmaxExtreme": 31.4,
+     "tminExtreme": 23,
+     "precipMm": 95.4,
+     "precipMmPerDay": 3.2,
+     "rh": 81.6,
+     "wind": 2.3
+    },
+    {
+     "tmean": 26.8,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 21.8,
+     "precipMm": 89.3,
+     "precipMmPerDay": 2.9,
+     "rh": 80.1,
+     "wind": 2.5
+    },
+    {
+     "tmean": 26.8,
+     "tmaxExtreme": 32,
+     "tminExtreme": 21.9,
+     "precipMm": 49,
+     "precipMmPerDay": 1.6,
+     "rh": 78.1,
+     "wind": 2.6
+    },
+    {
+     "tmean": 27.5,
+     "tmaxExtreme": 33.1,
+     "tminExtreme": 22.2,
+     "precipMm": 66.3,
+     "precipMmPerDay": 2.2,
+     "rh": 75.9,
+     "wind": 2.4
+    },
+    {
+     "tmean": 28,
+     "tmaxExtreme": 34.2,
+     "tminExtreme": 23.3,
+     "precipMm": 133.9,
+     "precipMmPerDay": 4.3,
+     "rh": 76.3,
+     "wind": 2.2
+    },
+    {
+     "tmean": 27.9,
+     "tmaxExtreme": 33.6,
+     "tminExtreme": 24.2,
+     "precipMm": 198.3,
+     "precipMmPerDay": 6.6,
+     "rh": 79.1,
+     "wind": 2.1
+    },
+    {
+     "tmean": 27.3,
+     "tmaxExtreme": 32.3,
+     "tminExtreme": 22.6,
+     "precipMm": 244.3,
+     "precipMmPerDay": 7.9,
+     "rh": 82.5,
+     "wind": 2.8
+    }
+   ]
+  },
+  "1645528": {
+   "cityId": "1645528",
+   "name": "Denpasar",
+   "iso2": "ID",
+   "period": "2001-2020",
+   "cell": {
+    "lat": -8.65,
+    "lon": 115.217
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 25.5,
+     "tmaxExtreme": 32.6,
+     "tminExtreme": 22.3,
+     "precipMm": 316.5,
+     "precipMmPerDay": 10.2,
+     "rh": 85.8,
+     "wind": 1.3
+    },
+    {
+     "tmean": 25.5,
+     "tmaxExtreme": 32.1,
+     "tminExtreme": 22.2,
+     "precipMm": 251.7,
+     "precipMmPerDay": 8.9,
+     "rh": 85.9,
+     "wind": 1.2
+    },
+    {
+     "tmean": 25.7,
+     "tmaxExtreme": 31.4,
+     "tminExtreme": 21.9,
+     "precipMm": 201.2,
+     "precipMmPerDay": 6.5,
+     "rh": 85.4,
+     "wind": 1.1
+    },
+    {
+     "tmean": 25.7,
+     "tmaxExtreme": 30.4,
+     "tminExtreme": 21.5,
+     "precipMm": 123,
+     "precipMmPerDay": 4.1,
+     "rh": 85.2,
+     "wind": 1.3
+    },
+    {
+     "tmean": 25.1,
+     "tmaxExtreme": 30.4,
+     "tminExtreme": 20.1,
+     "precipMm": 81.8,
+     "precipMmPerDay": 2.6,
+     "rh": 85.1,
+     "wind": 1.5
+    },
+    {
+     "tmean": 24.3,
+     "tmaxExtreme": 29.6,
+     "tminExtreme": 19.9,
+     "precipMm": 53.4,
+     "precipMmPerDay": 1.8,
+     "rh": 84.6,
+     "wind": 1.7
+    },
+    {
+     "tmean": 23.5,
+     "tmaxExtreme": 29.4,
+     "tminExtreme": 19.1,
+     "precipMm": 39.7,
+     "precipMmPerDay": 1.3,
+     "rh": 83.5,
+     "wind": 1.7
+    },
+    {
+     "tmean": 23.5,
+     "tmaxExtreme": 29.9,
+     "tminExtreme": 18.7,
+     "precipMm": 23.9,
+     "precipMmPerDay": 0.8,
+     "rh": 81.5,
+     "wind": 1.7
+    },
+    {
+     "tmean": 24.4,
+     "tmaxExtreme": 31.2,
+     "tminExtreme": 19,
+     "precipMm": 37.8,
+     "precipMmPerDay": 1.3,
+     "rh": 80,
+     "wind": 1.6
+    },
+    {
+     "tmean": 25.7,
+     "tmaxExtreme": 33.2,
+     "tminExtreme": 20.7,
+     "precipMm": 57,
+     "precipMmPerDay": 1.8,
+     "rh": 78.8,
+     "wind": 1.4
+    },
+    {
+     "tmean": 26.3,
+     "tmaxExtreme": 33.7,
+     "tminExtreme": 22,
+     "precipMm": 134.1,
+     "precipMmPerDay": 4.5,
+     "rh": 80.6,
+     "wind": 1.2
+    },
+    {
+     "tmean": 25.9,
+     "tmaxExtreme": 34.5,
+     "tminExtreme": 22.2,
+     "precipMm": 271.6,
+     "precipMmPerDay": 8.8,
+     "rh": 84.1,
+     "wind": 1.2
+    }
+   ]
+  },
+  "1850147": {
+   "cityId": "1850147",
+   "name": "Tokyo",
+   "iso2": "JP",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 35.69,
+    "lon": 139.692
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 4.7,
+     "tmaxExtreme": 17.9,
+     "tminExtreme": -3.1,
+     "precipMm": 80.3,
+     "precipMmPerDay": 2.6,
+     "rh": 75.3,
+     "wind": 2.7
+    },
+    {
+     "tmean": 5.6,
+     "tmaxExtreme": 20.5,
+     "tminExtreme": -2.7,
+     "precipMm": 74.6,
+     "precipMmPerDay": 2.6,
+     "rh": 75.6,
+     "wind": 2.9
+    },
+    {
+     "tmean": 8.8,
+     "tmaxExtreme": 23.5,
+     "tminExtreme": -1.7,
+     "precipMm": 124,
+     "precipMmPerDay": 4,
+     "rh": 75.7,
+     "wind": 3
+    },
+    {
+     "tmean": 13.5,
+     "tmaxExtreme": 26.7,
+     "tminExtreme": -0.5,
+     "precipMm": 135.3,
+     "precipMmPerDay": 4.5,
+     "rh": 76.8,
+     "wind": 3
+    },
+    {
+     "tmean": 18.2,
+     "tmaxExtreme": 31.1,
+     "tminExtreme": 6,
+     "precipMm": 147.6,
+     "precipMmPerDay": 4.8,
+     "rh": 78.8,
+     "wind": 2.7
+    },
+    {
+     "tmean": 21.8,
+     "tmaxExtreme": 34.1,
+     "tminExtreme": 11,
+     "precipMm": 185.1,
+     "precipMmPerDay": 6.2,
+     "rh": 82.2,
+     "wind": 2.3
+    },
+    {
+     "tmean": 25.5,
+     "tmaxExtreme": 36.4,
+     "tminExtreme": 16.1,
+     "precipMm": 152.5,
+     "precipMmPerDay": 4.9,
+     "rh": 83.2,
+     "wind": 2.5
+    },
+    {
+     "tmean": 26.9,
+     "tmaxExtreme": 36.7,
+     "tminExtreme": 17.9,
+     "precipMm": 134.2,
+     "precipMmPerDay": 4.3,
+     "rh": 81.3,
+     "wind": 2.3
+    },
+    {
+     "tmean": 23.6,
+     "tmaxExtreme": 35.4,
+     "tminExtreme": 12,
+     "precipMm": 210.6,
+     "precipMmPerDay": 7,
+     "rh": 82,
+     "wind": 2.5
+    },
+    {
+     "tmean": 18.1,
+     "tmaxExtreme": 30.2,
+     "tminExtreme": 7,
+     "precipMm": 246.1,
+     "precipMmPerDay": 7.9,
+     "rh": 82,
+     "wind": 2.5
+    },
+    {
+     "tmean": 12.7,
+     "tmaxExtreme": 23.9,
+     "tminExtreme": 1.1,
+     "precipMm": 119.7,
+     "precipMmPerDay": 4,
+     "rh": 80.3,
+     "wind": 2.3
+    },
+    {
+     "tmean": 7.3,
+     "tmaxExtreme": 23.3,
+     "tminExtreme": -2.1,
+     "precipMm": 83.4,
+     "precipMmPerDay": 2.7,
+     "rh": 77.7,
+     "wind": 2.5
+    }
+   ]
+  },
+  "1853909": {
+   "cityId": "1853909",
+   "name": "Osaka",
+   "iso2": "JP",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 34.694,
+    "lon": 135.501
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 2.6,
+     "tmaxExtreme": 19.1,
+     "tminExtreme": -5.5,
+     "precipMm": 66.3,
+     "precipMmPerDay": 2.1,
+     "rh": 83.5,
+     "wind": 2.1
+    },
+    {
+     "tmean": 3.7,
+     "tmaxExtreme": 19.6,
+     "tminExtreme": -5.5,
+     "precipMm": 79.9,
+     "precipMmPerDay": 2.8,
+     "rh": 81.7,
+     "wind": 2.1
+    },
+    {
+     "tmean": 6.8,
+     "tmaxExtreme": 20.4,
+     "tminExtreme": -4,
+     "precipMm": 115.9,
+     "precipMmPerDay": 3.7,
+     "rh": 79.7,
+     "wind": 2.3
+    },
+    {
+     "tmean": 12.1,
+     "tmaxExtreme": 26.5,
+     "tminExtreme": -2.1,
+     "precipMm": 135,
+     "precipMmPerDay": 4.5,
+     "rh": 78.3,
+     "wind": 2.1
+    },
+    {
+     "tmean": 17.1,
+     "tmaxExtreme": 28.8,
+     "tminExtreme": 3.9,
+     "precipMm": 159.3,
+     "precipMmPerDay": 5.1,
+     "rh": 79.4,
+     "wind": 1.8
+    },
+    {
+     "tmean": 21.1,
+     "tmaxExtreme": 31.9,
+     "tminExtreme": 8.7,
+     "precipMm": 212.7,
+     "precipMmPerDay": 7.1,
+     "rh": 83.1,
+     "wind": 1.6
+    },
+    {
+     "tmean": 25.1,
+     "tmaxExtreme": 34.1,
+     "tminExtreme": 15.3,
+     "precipMm": 220.4,
+     "precipMmPerDay": 7.1,
+     "rh": 85,
+     "wind": 1.5
+    },
+    {
+     "tmean": 25.9,
+     "tmaxExtreme": 34,
+     "tminExtreme": 14.9,
+     "precipMm": 177.9,
+     "precipMmPerDay": 5.7,
+     "rh": 83.5,
+     "wind": 1.5
+    },
+    {
+     "tmean": 22.3,
+     "tmaxExtreme": 32.7,
+     "tminExtreme": 10.2,
+     "precipMm": 224.7,
+     "precipMmPerDay": 7.5,
+     "rh": 84.2,
+     "wind": 1.6
+    },
+    {
+     "tmean": 16.3,
+     "tmaxExtreme": 29.2,
+     "tminExtreme": 3.3,
+     "precipMm": 191.6,
+     "precipMmPerDay": 6.2,
+     "rh": 84.1,
+     "wind": 1.7
+    },
+    {
+     "tmean": 10.6,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": -0.7,
+     "precipMm": 93,
+     "precipMmPerDay": 3.1,
+     "rh": 83.5,
+     "wind": 1.7
+    },
+    {
+     "tmean": 5,
+     "tmaxExtreme": 22.3,
+     "tminExtreme": -3.7,
+     "precipMm": 76.3,
+     "precipMmPerDay": 2.5,
+     "rh": 84,
+     "wind": 2
+    }
+   ]
+  },
+  "1856035": {
+   "cityId": "1856035",
+   "name": "Naha",
+   "iso2": "JP",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 26.213,
+    "lon": 127.679
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 18.9,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": 9.2,
+     "precipMm": 61.1,
+     "precipMmPerDay": 2,
+     "rh": 75,
+     "wind": 6.3
+    },
+    {
+     "tmean": 19,
+     "tmaxExtreme": 24.4,
+     "tminExtreme": 13.4,
+     "precipMm": 50.3,
+     "precipMmPerDay": 1.8,
+     "rh": 77,
+     "wind": 6
+    },
+    {
+     "tmean": 19.8,
+     "tmaxExtreme": 24.4,
+     "tminExtreme": 11.1,
+     "precipMm": 80.9,
+     "precipMmPerDay": 2.6,
+     "rh": 77.2,
+     "wind": 5.8
+    },
+    {
+     "tmean": 21.8,
+     "tmaxExtreme": 25.8,
+     "tminExtreme": 16,
+     "precipMm": 124.2,
+     "precipMmPerDay": 4.1,
+     "rh": 80.4,
+     "wind": 5.3
+    },
+    {
+     "tmean": 24.5,
+     "tmaxExtreme": 28.2,
+     "tminExtreme": 18.9,
+     "precipMm": 208.9,
+     "precipMmPerDay": 6.7,
+     "rh": 84.4,
+     "wind": 4.7
+    },
+    {
+     "tmean": 27,
+     "tmaxExtreme": 29.9,
+     "tminExtreme": 22.8,
+     "precipMm": 293.4,
+     "precipMmPerDay": 9.8,
+     "rh": 88.3,
+     "wind": 5.1
+    },
+    {
+     "tmean": 28.8,
+     "tmaxExtreme": 31.2,
+     "tminExtreme": 26.5,
+     "precipMm": 125.2,
+     "precipMmPerDay": 4,
+     "rh": 83.4,
+     "wind": 5.1
+    },
+    {
+     "tmean": 29,
+     "tmaxExtreme": 31.6,
+     "tminExtreme": 25.6,
+     "precipMm": 174.5,
+     "precipMmPerDay": 5.6,
+     "rh": 82.1,
+     "wind": 5.2
+    },
+    {
+     "tmean": 28.2,
+     "tmaxExtreme": 31.4,
+     "tminExtreme": 24.6,
+     "precipMm": 185.7,
+     "precipMmPerDay": 6.2,
+     "rh": 80.5,
+     "wind": 5.4
+    },
+    {
+     "tmean": 26.2,
+     "tmaxExtreme": 29.8,
+     "tminExtreme": 21.7,
+     "precipMm": 126.2,
+     "precipMmPerDay": 4.1,
+     "rh": 77.3,
+     "wind": 6.3
+    },
+    {
+     "tmean": 23.6,
+     "tmaxExtreme": 27.7,
+     "tminExtreme": 16.5,
+     "precipMm": 83.1,
+     "precipMmPerDay": 2.8,
+     "rh": 76.2,
+     "wind": 6.3
+    },
+    {
+     "tmean": 20.6,
+     "tmaxExtreme": 26.5,
+     "tminExtreme": 11.9,
+     "precipMm": 66.6,
+     "precipMmPerDay": 2.2,
+     "rh": 74.8,
+     "wind": 6.6
+    }
+   ]
+  },
+  "2128295": {
+   "cityId": "2128295",
+   "name": "Sapporo",
+   "iso2": "JP",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 43.067,
+    "lon": 141.35
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -6.9,
+     "tmaxExtreme": 1.8,
+     "tminExtreme": -19.3,
+     "precipMm": 103.2,
+     "precipMmPerDay": 3.3,
+     "rh": 94.4,
+     "wind": 2.4
+    },
+    {
+     "tmean": -6.6,
+     "tmaxExtreme": 2,
+     "tminExtreme": -20.7,
+     "precipMm": 83.3,
+     "precipMmPerDay": 3,
+     "rh": 92.4,
+     "wind": 2.8
+    },
+    {
+     "tmean": -2.9,
+     "tmaxExtreme": 9,
+     "tminExtreme": -19,
+     "precipMm": 72.2,
+     "precipMmPerDay": 2.3,
+     "rh": 90.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 3.5,
+     "tmaxExtreme": 21.4,
+     "tminExtreme": -8.5,
+     "precipMm": 62.4,
+     "precipMmPerDay": 2.1,
+     "rh": 84,
+     "wind": 2
+    },
+    {
+     "tmean": 10,
+     "tmaxExtreme": 28,
+     "tminExtreme": -2.8,
+     "precipMm": 74.4,
+     "precipMmPerDay": 2.4,
+     "rh": 81.6,
+     "wind": 1.5
+    },
+    {
+     "tmean": 14.9,
+     "tmaxExtreme": 30.2,
+     "tminExtreme": 3,
+     "precipMm": 82.5,
+     "precipMmPerDay": 2.8,
+     "rh": 83.8,
+     "wind": 1.1
+    },
+    {
+     "tmean": 18.8,
+     "tmaxExtreme": 30.8,
+     "tminExtreme": 7.6,
+     "precipMm": 121.2,
+     "precipMmPerDay": 3.9,
+     "rh": 86.3,
+     "wind": 1
+    },
+    {
+     "tmean": 20,
+     "tmaxExtreme": 32.8,
+     "tminExtreme": 9.3,
+     "precipMm": 159.7,
+     "precipMmPerDay": 5.2,
+     "rh": 86.3,
+     "wind": 1.1
+    },
+    {
+     "tmean": 16,
+     "tmaxExtreme": 29.8,
+     "tminExtreme": 4.1,
+     "precipMm": 136.8,
+     "precipMmPerDay": 4.6,
+     "rh": 85,
+     "wind": 1.2
+    },
+    {
+     "tmean": 9.2,
+     "tmaxExtreme": 23.4,
+     "tminExtreme": -3.1,
+     "precipMm": 118.4,
+     "precipMmPerDay": 3.8,
+     "rh": 84.2,
+     "wind": 1.4
+    },
+    {
+     "tmean": 2.1,
+     "tmaxExtreme": 17.7,
+     "tminExtreme": -10.5,
+     "precipMm": 129.3,
+     "precipMmPerDay": 4.3,
+     "rh": 87.9,
+     "wind": 1.6
+    },
+    {
+     "tmean": -4.6,
+     "tmaxExtreme": 9.7,
+     "tminExtreme": -16.1,
+     "precipMm": 129.9,
+     "precipMmPerDay": 4.2,
+     "rh": 93.3,
+     "wind": 1.9
+    }
+   ]
+  },
+  "2267057": {
+   "cityId": "2267057",
+   "name": "Lisbon",
+   "iso2": "PT",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 38.725,
+    "lon": -9.15
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 12.9,
+     "tmaxExtreme": 18.1,
+     "tminExtreme": 4.7,
+     "precipMm": 64.8,
+     "precipMmPerDay": 2.1,
+     "rh": 81.2,
+     "wind": 4.8
+    },
+    {
+     "tmean": 12.8,
+     "tmaxExtreme": 19,
+     "tminExtreme": 3.7,
+     "precipMm": 50.6,
+     "precipMmPerDay": 1.8,
+     "rh": 80.2,
+     "wind": 4.9
+    },
+    {
+     "tmean": 13.8,
+     "tmaxExtreme": 22.1,
+     "tminExtreme": 2.8,
+     "precipMm": 60.1,
+     "precipMmPerDay": 1.9,
+     "rh": 80,
+     "wind": 4.8
+    },
+    {
+     "tmean": 15,
+     "tmaxExtreme": 24.9,
+     "tminExtreme": 9.8,
+     "precipMm": 54,
+     "precipMmPerDay": 1.8,
+     "rh": 79.6,
+     "wind": 4.6
+    },
+    {
+     "tmean": 16.9,
+     "tmaxExtreme": 28.1,
+     "tminExtreme": 10.9,
+     "precipMm": 30.7,
+     "precipMmPerDay": 1,
+     "rh": 78.8,
+     "wind": 4.6
+    },
+    {
+     "tmean": 18.9,
+     "tmaxExtreme": 30.1,
+     "tminExtreme": 13.6,
+     "precipMm": 10.8,
+     "precipMmPerDay": 0.4,
+     "rh": 80,
+     "wind": 4.6
+    },
+    {
+     "tmean": 19.9,
+     "tmaxExtreme": 32.4,
+     "tminExtreme": 15,
+     "precipMm": 3.4,
+     "precipMmPerDay": 0.1,
+     "rh": 80.6,
+     "wind": 4.9
+    },
+    {
+     "tmean": 20.5,
+     "tmaxExtreme": 33.1,
+     "tminExtreme": 15.1,
+     "precipMm": 5.9,
+     "precipMmPerDay": 0.2,
+     "rh": 80.5,
+     "wind": 4.5
+    },
+    {
+     "tmean": 20,
+     "tmaxExtreme": 31.2,
+     "tminExtreme": 14.8,
+     "precipMm": 25.2,
+     "precipMmPerDay": 0.8,
+     "rh": 80.9,
+     "wind": 3.9
+    },
+    {
+     "tmean": 18.6,
+     "tmaxExtreme": 26.4,
+     "tminExtreme": 11.4,
+     "precipMm": 79.4,
+     "precipMmPerDay": 2.6,
+     "rh": 80.8,
+     "wind": 4.2
+    },
+    {
+     "tmean": 15.5,
+     "tmaxExtreme": 22.1,
+     "tminExtreme": 7.3,
+     "precipMm": 92.1,
+     "precipMmPerDay": 3.1,
+     "rh": 80.1,
+     "wind": 4.8
+    },
+    {
+     "tmean": 13.5,
+     "tmaxExtreme": 18.6,
+     "tminExtreme": 5.3,
+     "precipMm": 64.5,
+     "precipMmPerDay": 2.1,
+     "rh": 81.9,
+     "wind": 5
+    }
+   ]
+  },
+  "2268339": {
+   "cityId": "2268339",
+   "name": "Faro",
+   "iso2": "PT",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 37.019,
+    "lon": -7.927
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 12.9,
+     "tmaxExtreme": 18.8,
+     "tminExtreme": 3.9,
+     "precipMm": 50.2,
+     "precipMmPerDay": 1.6,
+     "rh": 80.9,
+     "wind": 4.4
+    },
+    {
+     "tmean": 12.9,
+     "tmaxExtreme": 20.2,
+     "tminExtreme": 3.4,
+     "precipMm": 52.5,
+     "precipMmPerDay": 1.9,
+     "rh": 80.2,
+     "wind": 4.6
+    },
+    {
+     "tmean": 14.2,
+     "tmaxExtreme": 25.2,
+     "tminExtreme": 5.7,
+     "precipMm": 67,
+     "precipMmPerDay": 2.2,
+     "rh": 79.1,
+     "wind": 4.5
+    },
+    {
+     "tmean": 15.8,
+     "tmaxExtreme": 27.5,
+     "tminExtreme": 8.1,
+     "precipMm": 62.4,
+     "precipMmPerDay": 2.1,
+     "rh": 76.7,
+     "wind": 4.2
+    },
+    {
+     "tmean": 18.4,
+     "tmaxExtreme": 32.7,
+     "tminExtreme": 9.9,
+     "precipMm": 34.7,
+     "precipMmPerDay": 1.1,
+     "rh": 71.4,
+     "wind": 4
+    },
+    {
+     "tmean": 21.5,
+     "tmaxExtreme": 35.7,
+     "tminExtreme": 13.2,
+     "precipMm": 7.5,
+     "precipMmPerDay": 0.3,
+     "rh": 66.5,
+     "wind": 3.8
+    },
+    {
+     "tmean": 23.4,
+     "tmaxExtreme": 38.9,
+     "tminExtreme": 15.3,
+     "precipMm": 0.9,
+     "precipMmPerDay": 0,
+     "rh": 62.2,
+     "wind": 4
+    },
+    {
+     "tmean": 23.8,
+     "tmaxExtreme": 36.6,
+     "tminExtreme": 15.9,
+     "precipMm": 3.7,
+     "precipMmPerDay": 0.1,
+     "rh": 64.2,
+     "wind": 3.7
+    },
+    {
+     "tmean": 22,
+     "tmaxExtreme": 33.3,
+     "tminExtreme": 14.3,
+     "precipMm": 22.5,
+     "precipMmPerDay": 0.8,
+     "rh": 71.3,
+     "wind": 3.4
+    },
+    {
+     "tmean": 19.7,
+     "tmaxExtreme": 31.2,
+     "tminExtreme": 10.7,
+     "precipMm": 75.3,
+     "precipMmPerDay": 2.4,
+     "rh": 76.8,
+     "wind": 3.9
+    },
+    {
+     "tmean": 16,
+     "tmaxExtreme": 24.7,
+     "tminExtreme": 6.6,
+     "precipMm": 94.5,
+     "precipMmPerDay": 3.2,
+     "rh": 78.7,
+     "wind": 4.4
+    },
+    {
+     "tmean": 13.9,
+     "tmaxExtreme": 19.8,
+     "tminExtreme": 5.9,
+     "precipMm": 72.2,
+     "precipMmPerDay": 2.3,
+     "rh": 81.6,
+     "wind": 4.6
+    }
+   ]
+  },
+  "2510911": {
+   "cityId": "2510911",
+   "name": "Sevilla",
+   "iso2": "ES",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 37.383,
+    "lon": -5.973
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 9,
+     "tmaxExtreme": 21.8,
+     "tminExtreme": -4.6,
+     "precipMm": 48.4,
+     "precipMmPerDay": 1.6,
+     "rh": 81.6,
+     "wind": 2.4
+    },
+    {
+     "tmean": 10,
+     "tmaxExtreme": 23.9,
+     "tminExtreme": -3.5,
+     "precipMm": 48.6,
+     "precipMmPerDay": 1.7,
+     "rh": 77.7,
+     "wind": 2.5
+    },
+    {
+     "tmean": 12.7,
+     "tmaxExtreme": 31,
+     "tminExtreme": -2,
+     "precipMm": 57.7,
+     "precipMmPerDay": 1.9,
+     "rh": 73.6,
+     "wind": 2.6
+    },
+    {
+     "tmean": 15.6,
+     "tmaxExtreme": 32.8,
+     "tminExtreme": 2.1,
+     "precipMm": 52.8,
+     "precipMmPerDay": 1.8,
+     "rh": 68.5,
+     "wind": 2.5
+    },
+    {
+     "tmean": 19.9,
+     "tmaxExtreme": 38.6,
+     "tminExtreme": 4.3,
+     "precipMm": 28.2,
+     "precipMmPerDay": 0.9,
+     "rh": 57.8,
+     "wind": 2.4
+    },
+    {
+     "tmean": 25.3,
+     "tmaxExtreme": 43.6,
+     "tminExtreme": 10.2,
+     "precipMm": 5.4,
+     "precipMmPerDay": 0.2,
+     "rh": 44.9,
+     "wind": 2.4
+    },
+    {
+     "tmean": 28.6,
+     "tmaxExtreme": 45.4,
+     "tminExtreme": 13.4,
+     "precipMm": 0.6,
+     "precipMmPerDay": 0,
+     "rh": 35.8,
+     "wind": 2.5
+    },
+    {
+     "tmean": 28.6,
+     "tmaxExtreme": 46.3,
+     "tminExtreme": 14.3,
+     "precipMm": 3.4,
+     "precipMmPerDay": 0.1,
+     "rh": 37.4,
+     "wind": 2.3
+    },
+    {
+     "tmean": 24.3,
+     "tmaxExtreme": 44.8,
+     "tminExtreme": 11.8,
+     "precipMm": 24,
+     "precipMmPerDay": 0.8,
+     "rh": 50.9,
+     "wind": 2.1
+    },
+    {
+     "tmean": 19.1,
+     "tmaxExtreme": 36.7,
+     "tminExtreme": 3,
+     "precipMm": 70.7,
+     "precipMmPerDay": 2.3,
+     "rh": 65.7,
+     "wind": 2.3
+    },
+    {
+     "tmean": 12.9,
+     "tmaxExtreme": 29,
+     "tminExtreme": -1.5,
+     "precipMm": 71.4,
+     "precipMmPerDay": 2.4,
+     "rh": 76.2,
+     "wind": 2.4
+    },
+    {
+     "tmean": 9.8,
+     "tmaxExtreme": 22.2,
+     "tminExtreme": -3.3,
+     "precipMm": 57,
+     "precipMmPerDay": 1.8,
+     "rh": 81.4,
+     "wind": 2.4
+    }
+   ]
+  },
+  "2515270": {
+   "cityId": "2515270",
+   "name": "Las Palmas de Gran Canaria",
+   "iso2": "ES",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 28.102,
+    "lon": -15.416
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 17.8,
+     "tmaxExtreme": 23.8,
+     "tminExtreme": 13.6,
+     "precipMm": 18.3,
+     "precipMmPerDay": 0.6,
+     "rh": 74.5,
+     "wind": 5.2
+    },
+    {
+     "tmean": 17.5,
+     "tmaxExtreme": 23,
+     "tminExtreme": 13.4,
+     "precipMm": 22,
+     "precipMmPerDay": 0.8,
+     "rh": 76,
+     "wind": 5.6
+    },
+    {
+     "tmean": 17.9,
+     "tmaxExtreme": 25,
+     "tminExtreme": 14.1,
+     "precipMm": 14.9,
+     "precipMmPerDay": 0.5,
+     "rh": 77.3,
+     "wind": 5.5
+    },
+    {
+     "tmean": 18.6,
+     "tmaxExtreme": 28.7,
+     "tminExtreme": 15.3,
+     "precipMm": 10.2,
+     "precipMmPerDay": 0.3,
+     "rh": 76.3,
+     "wind": 5.4
+    },
+    {
+     "tmean": 19.5,
+     "tmaxExtreme": 27.3,
+     "tminExtreme": 16,
+     "precipMm": 5.6,
+     "precipMmPerDay": 0.2,
+     "rh": 77.4,
+     "wind": 5.7
+    },
+    {
+     "tmean": 20.9,
+     "tmaxExtreme": 26.4,
+     "tminExtreme": 17.5,
+     "precipMm": 2.4,
+     "precipMmPerDay": 0.1,
+     "rh": 80.3,
+     "wind": 6
+    },
+    {
+     "tmean": 21.8,
+     "tmaxExtreme": 27.3,
+     "tminExtreme": 18.6,
+     "precipMm": 2.2,
+     "precipMmPerDay": 0.1,
+     "rh": 84,
+     "wind": 7.4
+    },
+    {
+     "tmean": 22.7,
+     "tmaxExtreme": 27.2,
+     "tminExtreme": 19.8,
+     "precipMm": 4.6,
+     "precipMmPerDay": 0.2,
+     "rh": 83.8,
+     "wind": 6.8
+    },
+    {
+     "tmean": 23,
+     "tmaxExtreme": 27.8,
+     "tminExtreme": 20.1,
+     "precipMm": 7.8,
+     "precipMmPerDay": 0.3,
+     "rh": 80.1,
+     "wind": 5.2
+    },
+    {
+     "tmean": 22.7,
+     "tmaxExtreme": 29.5,
+     "tminExtreme": 18.8,
+     "precipMm": 17.1,
+     "precipMmPerDay": 0.6,
+     "rh": 77.6,
+     "wind": 4.5
+    },
+    {
+     "tmean": 20.8,
+     "tmaxExtreme": 26.4,
+     "tminExtreme": 17,
+     "precipMm": 24,
+     "precipMmPerDay": 0.8,
+     "rh": 75.8,
+     "wind": 5.1
+    },
+    {
+     "tmean": 19.1,
+     "tmaxExtreme": 23.8,
+     "tminExtreme": 15.7,
+     "precipMm": 28.2,
+     "precipMmPerDay": 0.9,
+     "rh": 75,
+     "wind": 5.2
+    }
+   ]
+  },
+  "2523920": {
+   "cityId": "2523920",
+   "name": "Palermo",
+   "iso2": "IT",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 38.117,
+    "lon": 13.364
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 10.3,
+     "tmaxExtreme": 18.6,
+     "tminExtreme": 2.1,
+     "precipMm": 97,
+     "precipMmPerDay": 3.1,
+     "rh": 81.7,
+     "wind": 3.7
+    },
+    {
+     "tmean": 10.1,
+     "tmaxExtreme": 20.5,
+     "tminExtreme": 2.2,
+     "precipMm": 86.4,
+     "precipMmPerDay": 3.1,
+     "rh": 80.3,
+     "wind": 3.8
+    },
+    {
+     "tmean": 11.9,
+     "tmaxExtreme": 25,
+     "tminExtreme": 3.4,
+     "precipMm": 74.4,
+     "precipMmPerDay": 2.4,
+     "rh": 79,
+     "wind": 3.6
+    },
+    {
+     "tmean": 14.5,
+     "tmaxExtreme": 27.4,
+     "tminExtreme": 5.2,
+     "precipMm": 56.4,
+     "precipMmPerDay": 1.9,
+     "rh": 75.7,
+     "wind": 3.1
+    },
+    {
+     "tmean": 18.2,
+     "tmaxExtreme": 34.3,
+     "tminExtreme": 9.7,
+     "precipMm": 27,
+     "precipMmPerDay": 0.9,
+     "rh": 70.8,
+     "wind": 2.8
+    },
+    {
+     "tmean": 22.7,
+     "tmaxExtreme": 38.8,
+     "tminExtreme": 12.6,
+     "precipMm": 18.3,
+     "precipMmPerDay": 0.6,
+     "rh": 64.9,
+     "wind": 2.5
+    },
+    {
+     "tmean": 26,
+     "tmaxExtreme": 38.2,
+     "tminExtreme": 16.3,
+     "precipMm": 7.1,
+     "precipMmPerDay": 0.2,
+     "rh": 60.3,
+     "wind": 2.5
+    },
+    {
+     "tmean": 26.4,
+     "tmaxExtreme": 38.1,
+     "tminExtreme": 18.2,
+     "precipMm": 13.3,
+     "precipMmPerDay": 0.4,
+     "rh": 60.4,
+     "wind": 2.6
+    },
+    {
+     "tmean": 23,
+     "tmaxExtreme": 35.2,
+     "tminExtreme": 14.6,
+     "precipMm": 60.9,
+     "precipMmPerDay": 2,
+     "rh": 68.8,
+     "wind": 2.9
+    },
+    {
+     "tmean": 19.6,
+     "tmaxExtreme": 30.6,
+     "tminExtreme": 10.6,
+     "precipMm": 90.8,
+     "precipMmPerDay": 2.9,
+     "rh": 75.3,
+     "wind": 3
+    },
+    {
+     "tmean": 15.4,
+     "tmaxExtreme": 24.4,
+     "tminExtreme": 6.7,
+     "precipMm": 87.3,
+     "precipMmPerDay": 2.9,
+     "rh": 79.1,
+     "wind": 3.6
+    },
+    {
+     "tmean": 11.8,
+     "tmaxExtreme": 20.6,
+     "tminExtreme": 1.9,
+     "precipMm": 95.2,
+     "precipMmPerDay": 3.1,
+     "rh": 80.8,
+     "wind": 3.8
+    }
+   ]
+  },
+  "2542997": {
+   "cityId": "2542997",
+   "name": "Marrakesh",
+   "iso2": "MA",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 31.634,
+    "lon": -8
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 10.2,
+     "tmaxExtreme": 26.4,
+     "tminExtreme": -4.2,
+     "precipMm": 36,
+     "precipMmPerDay": 1.2,
+     "rh": 58.5,
+     "wind": 1.9
+    },
+    {
+     "tmean": 11.4,
+     "tmaxExtreme": 29,
+     "tminExtreme": -3.1,
+     "precipMm": 31.1,
+     "precipMmPerDay": 1.1,
+     "rh": 57.7,
+     "wind": 2.1
+    },
+    {
+     "tmean": 14.3,
+     "tmaxExtreme": 33.9,
+     "tminExtreme": -0.2,
+     "precipMm": 39.7,
+     "precipMmPerDay": 1.3,
+     "rh": 55.6,
+     "wind": 2.2
+    },
+    {
+     "tmean": 16.6,
+     "tmaxExtreme": 34.5,
+     "tminExtreme": 2.1,
+     "precipMm": 27,
+     "precipMmPerDay": 0.9,
+     "rh": 55.7,
+     "wind": 2.4
+    },
+    {
+     "tmean": 20.3,
+     "tmaxExtreme": 40.9,
+     "tminExtreme": 4.1,
+     "precipMm": 15.5,
+     "precipMmPerDay": 0.5,
+     "rh": 49.7,
+     "wind": 2.6
+    },
+    {
+     "tmean": 24.5,
+     "tmaxExtreme": 43.8,
+     "tminExtreme": 8.7,
+     "precipMm": 3.9,
+     "precipMmPerDay": 0.1,
+     "rh": 42.4,
+     "wind": 2.8
+    },
+    {
+     "tmean": 28.8,
+     "tmaxExtreme": 44.6,
+     "tminExtreme": 12.1,
+     "precipMm": 7.1,
+     "precipMmPerDay": 0.2,
+     "rh": 32.3,
+     "wind": 2.6
+    },
+    {
+     "tmean": 28.9,
+     "tmaxExtreme": 44.3,
+     "tminExtreme": 13.4,
+     "precipMm": 6.8,
+     "precipMmPerDay": 0.2,
+     "rh": 33.5,
+     "wind": 2.5
+    },
+    {
+     "tmean": 24.3,
+     "tmaxExtreme": 41.3,
+     "tminExtreme": 11.2,
+     "precipMm": 14.1,
+     "precipMmPerDay": 0.5,
+     "rh": 44.1,
+     "wind": 2.3
+    },
+    {
+     "tmean": 20.5,
+     "tmaxExtreme": 37.8,
+     "tminExtreme": 4.7,
+     "precipMm": 22.9,
+     "precipMmPerDay": 0.7,
+     "rh": 48.3,
+     "wind": 2.2
+    },
+    {
+     "tmean": 14.6,
+     "tmaxExtreme": 31.1,
+     "tminExtreme": 0.4,
+     "precipMm": 54.3,
+     "precipMmPerDay": 1.8,
+     "rh": 55.1,
+     "wind": 2.1
+    },
+    {
+     "tmean": 11.4,
+     "tmaxExtreme": 27.4,
+     "tminExtreme": -0.9,
+     "precipMm": 32.2,
+     "precipMmPerDay": 1,
+     "rh": 58.8,
+     "wind": 2
+    }
+   ]
+  },
+  "2553604": {
+   "cityId": "2553604",
+   "name": "Casablanca",
+   "iso2": "MA",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 33.588,
+    "lon": -7.611
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 12.9,
+     "tmaxExtreme": 25.6,
+     "tminExtreme": 1.4,
+     "precipMm": 56.4,
+     "precipMmPerDay": 1.8,
+     "rh": 78,
+     "wind": 2.7
+    },
+    {
+     "tmean": 13.4,
+     "tmaxExtreme": 27.3,
+     "tminExtreme": 2.7,
+     "precipMm": 48,
+     "precipMmPerDay": 1.7,
+     "rh": 76.6,
+     "wind": 2.9
+    },
+    {
+     "tmean": 15.2,
+     "tmaxExtreme": 35,
+     "tminExtreme": 5.9,
+     "precipMm": 53.6,
+     "precipMmPerDay": 1.7,
+     "rh": 75.3,
+     "wind": 3
+    },
+    {
+     "tmean": 16.8,
+     "tmaxExtreme": 34.1,
+     "tminExtreme": 7.8,
+     "precipMm": 36,
+     "precipMmPerDay": 1.2,
+     "rh": 74.6,
+     "wind": 3.1
+    },
+    {
+     "tmean": 19.3,
+     "tmaxExtreme": 40,
+     "tminExtreme": 9.7,
+     "precipMm": 20.8,
+     "precipMmPerDay": 0.7,
+     "rh": 72.2,
+     "wind": 3.1
+    },
+    {
+     "tmean": 22.1,
+     "tmaxExtreme": 41,
+     "tminExtreme": 12.9,
+     "precipMm": 3.3,
+     "precipMmPerDay": 0.1,
+     "rh": 69.9,
+     "wind": 3.1
+    },
+    {
+     "tmean": 23.8,
+     "tmaxExtreme": 44.4,
+     "tminExtreme": 15.8,
+     "precipMm": 3.1,
+     "precipMmPerDay": 0.1,
+     "rh": 69.1,
+     "wind": 3.1
+    },
+    {
+     "tmean": 24.6,
+     "tmaxExtreme": 43.5,
+     "tminExtreme": 17.1,
+     "precipMm": 3.4,
+     "precipMmPerDay": 0.1,
+     "rh": 69.1,
+     "wind": 2.9
+    },
+    {
+     "tmean": 23,
+     "tmaxExtreme": 40.2,
+     "tminExtreme": 15.5,
+     "precipMm": 39.6,
+     "precipMmPerDay": 1.3,
+     "rh": 71.8,
+     "wind": 2.8
+    },
+    {
+     "tmean": 21,
+     "tmaxExtreme": 37.3,
+     "tminExtreme": 10.7,
+     "precipMm": 49,
+     "precipMmPerDay": 1.6,
+     "rh": 71.9,
+     "wind": 2.8
+    },
+    {
+     "tmean": 16.8,
+     "tmaxExtreme": 29.7,
+     "tminExtreme": 8.4,
+     "precipMm": 97.8,
+     "precipMmPerDay": 3.3,
+     "rh": 74.2,
+     "wind": 3
+    },
+    {
+     "tmean": 14.2,
+     "tmaxExtreme": 26.9,
+     "tminExtreme": 5.8,
+     "precipMm": 62,
+     "precipMmPerDay": 2,
+     "rh": 77.2,
+     "wind": 2.8
+    }
+   ]
+  },
+  "2643743": {
+   "cityId": "2643743",
+   "name": "London",
+   "iso2": "GB",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 51.509,
+    "lon": -0.126
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 4.1,
+     "tmaxExtreme": 13,
+     "tminExtreme": -8.2,
+     "precipMm": 65.1,
+     "precipMmPerDay": 2.1,
+     "rh": 93.3,
+     "wind": 3.9
+    },
+    {
+     "tmean": 4.3,
+     "tmaxExtreme": 16.9,
+     "tminExtreme": -7.7,
+     "precipMm": 54.2,
+     "precipMmPerDay": 1.9,
+     "rh": 90,
+     "wind": 3.9
+    },
+    {
+     "tmean": 6.1,
+     "tmaxExtreme": 19.4,
+     "tminExtreme": -4.7,
+     "precipMm": 49.9,
+     "precipMmPerDay": 1.6,
+     "rh": 85.9,
+     "wind": 3.7
+    },
+    {
+     "tmean": 9,
+     "tmaxExtreme": 25.2,
+     "tminExtreme": -2.9,
+     "precipMm": 41.7,
+     "precipMmPerDay": 1.4,
+     "rh": 81.3,
+     "wind": 3.1
+    },
+    {
+     "tmean": 12.3,
+     "tmaxExtreme": 26.5,
+     "tminExtreme": -0.4,
+     "precipMm": 54.6,
+     "precipMmPerDay": 1.8,
+     "rh": 79.3,
+     "wind": 3.2
+    },
+    {
+     "tmean": 15.5,
+     "tmaxExtreme": 29,
+     "tminExtreme": 3.7,
+     "precipMm": 55.8,
+     "precipMmPerDay": 1.9,
+     "rh": 77.8,
+     "wind": 3
+    },
+    {
+     "tmean": 17.6,
+     "tmaxExtreme": 34,
+     "tminExtreme": 7.4,
+     "precipMm": 59.5,
+     "precipMmPerDay": 1.9,
+     "rh": 75.8,
+     "wind": 3
+    },
+    {
+     "tmean": 17.3,
+     "tmaxExtreme": 32.8,
+     "tminExtreme": 5.5,
+     "precipMm": 65.7,
+     "precipMmPerDay": 2.1,
+     "rh": 77.6,
+     "wind": 3
+    },
+    {
+     "tmean": 14.7,
+     "tmaxExtreme": 27.9,
+     "tminExtreme": 2.5,
+     "precipMm": 44.4,
+     "precipMmPerDay": 1.5,
+     "rh": 80.8,
+     "wind": 3.1
+    },
+    {
+     "tmean": 11.3,
+     "tmaxExtreme": 27.1,
+     "tminExtreme": -2.4,
+     "precipMm": 73.5,
+     "precipMmPerDay": 2.4,
+     "rh": 87.1,
+     "wind": 3.5
+    },
+    {
+     "tmean": 7.3,
+     "tmaxExtreme": 17.7,
+     "tminExtreme": -4.8,
+     "precipMm": 73.5,
+     "precipMmPerDay": 2.5,
+     "rh": 92.2,
+     "wind": 3.4
+    },
+    {
+     "tmean": 4.8,
+     "tmaxExtreme": 13.9,
+     "tminExtreme": -5.9,
+     "precipMm": 71.3,
+     "precipMmPerDay": 2.3,
+     "rh": 94.4,
+     "wind": 3.6
+    }
+   ]
+  },
+  "2650225": {
+   "cityId": "2650225",
+   "name": "Edinburgh",
+   "iso2": "GB",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 55.952,
+    "lon": -3.196
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 3.4,
+     "tmaxExtreme": 11.4,
+     "tminExtreme": -4.9,
+     "precipMm": 74.4,
+     "precipMmPerDay": 2.4,
+     "rh": 93.6,
+     "wind": 4.9
+    },
+    {
+     "tmean": 3.4,
+     "tmaxExtreme": 12.6,
+     "tminExtreme": -4.8,
+     "precipMm": 60.2,
+     "precipMmPerDay": 2.1,
+     "rh": 91.9,
+     "wind": 4.6
+    },
+    {
+     "tmean": 4.6,
+     "tmaxExtreme": 17.3,
+     "tminExtreme": -5.1,
+     "precipMm": 59.8,
+     "precipMmPerDay": 1.9,
+     "rh": 88.9,
+     "wind": 4.4
+    },
+    {
+     "tmean": 6.9,
+     "tmaxExtreme": 19,
+     "tminExtreme": -4.1,
+     "precipMm": 53.1,
+     "precipMmPerDay": 1.8,
+     "rh": 85.9,
+     "wind": 3.8
+    },
+    {
+     "tmean": 9.8,
+     "tmaxExtreme": 23,
+     "tminExtreme": -0.5,
+     "precipMm": 59.5,
+     "precipMmPerDay": 1.9,
+     "rh": 83.2,
+     "wind": 3.6
+    },
+    {
+     "tmean": 12.7,
+     "tmaxExtreme": 25,
+     "tminExtreme": 3.1,
+     "precipMm": 82.2,
+     "precipMmPerDay": 2.7,
+     "rh": 83.6,
+     "wind": 3.3
+    },
+    {
+     "tmean": 14.5,
+     "tmaxExtreme": 25.4,
+     "tminExtreme": 6.1,
+     "precipMm": 91.5,
+     "precipMmPerDay": 3,
+     "rh": 84,
+     "wind": 3.1
+    },
+    {
+     "tmean": 14.1,
+     "tmaxExtreme": 25.5,
+     "tminExtreme": 6,
+     "precipMm": 99.8,
+     "precipMmPerDay": 3.2,
+     "rh": 85.4,
+     "wind": 3.3
+    },
+    {
+     "tmean": 12.2,
+     "tmaxExtreme": 22.2,
+     "tminExtreme": 2.5,
+     "precipMm": 63.9,
+     "precipMmPerDay": 2.1,
+     "rh": 86.9,
+     "wind": 3.8
+    },
+    {
+     "tmean": 9.2,
+     "tmaxExtreme": 18.4,
+     "tminExtreme": -0.2,
+     "precipMm": 93,
+     "precipMmPerDay": 3,
+     "rh": 90.3,
+     "wind": 4.1
+    },
+    {
+     "tmean": 6.1,
+     "tmaxExtreme": 14.5,
+     "tminExtreme": -2.2,
+     "precipMm": 78.9,
+     "precipMmPerDay": 2.6,
+     "rh": 93.1,
+     "wind": 4.3
+    },
+    {
+     "tmean": 3.9,
+     "tmaxExtreme": 12.8,
+     "tminExtreme": -5.7,
+     "precipMm": 72.5,
+     "precipMmPerDay": 2.3,
+     "rh": 94.1,
+     "wind": 4.5
+    }
+   ]
+  },
+  "2657896": {
+   "cityId": "2657896",
+   "name": "Zürich",
+   "iso2": "CH",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 47.367,
+    "lon": 8.55
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -0.7,
+     "tmaxExtreme": 12.9,
+     "tminExtreme": -15,
+     "precipMm": 93.6,
+     "precipMmPerDay": 3,
+     "rh": 88.2,
+     "wind": 2.1
+    },
+    {
+     "tmean": 0.1,
+     "tmaxExtreme": 15.7,
+     "tminExtreme": -18.2,
+     "precipMm": 73.5,
+     "precipMmPerDay": 2.6,
+     "rh": 86.1,
+     "wind": 2.2
+    },
+    {
+     "tmean": 4.4,
+     "tmaxExtreme": 19.9,
+     "tminExtreme": -20.8,
+     "precipMm": 91.5,
+     "precipMmPerDay": 3,
+     "rh": 82.3,
+     "wind": 2.3
+    },
+    {
+     "tmean": 8.9,
+     "tmaxExtreme": 26,
+     "tminExtreme": -5.3,
+     "precipMm": 91.2,
+     "precipMmPerDay": 3,
+     "rh": 78.6,
+     "wind": 1.9
+    },
+    {
+     "tmean": 13.1,
+     "tmaxExtreme": 28.2,
+     "tminExtreme": -1.4,
+     "precipMm": 141,
+     "precipMmPerDay": 4.6,
+     "rh": 79,
+     "wind": 2
+    },
+    {
+     "tmean": 17.1,
+     "tmaxExtreme": 32.9,
+     "tminExtreme": 2.7,
+     "precipMm": 138.9,
+     "precipMmPerDay": 4.6,
+     "rh": 78.2,
+     "wind": 1.8
+    },
+    {
+     "tmean": 18.7,
+     "tmaxExtreme": 33.1,
+     "tminExtreme": 6.9,
+     "precipMm": 143.8,
+     "precipMmPerDay": 4.6,
+     "rh": 77.4,
+     "wind": 1.7
+    },
+    {
+     "tmean": 18.2,
+     "tmaxExtreme": 33.5,
+     "tminExtreme": 6.2,
+     "precipMm": 146.3,
+     "precipMmPerDay": 4.7,
+     "rh": 79,
+     "wind": 1.6
+    },
+    {
+     "tmean": 14.1,
+     "tmaxExtreme": 27.3,
+     "tminExtreme": 1.1,
+     "precipMm": 103.2,
+     "precipMmPerDay": 3.4,
+     "rh": 81.7,
+     "wind": 1.7
+    },
+    {
+     "tmean": 9.8,
+     "tmaxExtreme": 24.1,
+     "tminExtreme": -6.5,
+     "precipMm": 100.4,
+     "precipMmPerDay": 3.2,
+     "rh": 84.9,
+     "wind": 1.7
+    },
+    {
+     "tmean": 4.3,
+     "tmaxExtreme": 20.5,
+     "tminExtreme": -11.6,
+     "precipMm": 86.7,
+     "precipMmPerDay": 2.9,
+     "rh": 88.4,
+     "wind": 1.7
+    },
+    {
+     "tmean": 0.2,
+     "tmaxExtreme": 14.4,
+     "tminExtreme": -16.1,
+     "precipMm": 102,
+     "precipMmPerDay": 3.3,
+     "rh": 88.2,
+     "wind": 1.9
+    }
+   ]
+  },
+  "2659836": {
+   "cityId": "2659836",
+   "name": "Lugano",
+   "iso2": "CH",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 46.01,
+    "lon": 8.96
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -0.9,
+     "tmaxExtreme": 13,
+     "tminExtreme": -14.2,
+     "precipMm": 50.5,
+     "precipMmPerDay": 1.6,
+     "rh": 75.1,
+     "wind": 1.2
+    },
+    {
+     "tmean": 0.5,
+     "tmaxExtreme": 19.2,
+     "tminExtreme": -20.1,
+     "precipMm": 59,
+     "precipMmPerDay": 2.1,
+     "rh": 74,
+     "wind": 1.3
+    },
+    {
+     "tmean": 4.9,
+     "tmaxExtreme": 19.7,
+     "tminExtreme": -11.6,
+     "precipMm": 70.4,
+     "precipMmPerDay": 2.3,
+     "rh": 71.5,
+     "wind": 1.4
+    },
+    {
+     "tmean": 9.3,
+     "tmaxExtreme": 23.7,
+     "tminExtreme": -4.2,
+     "precipMm": 102,
+     "precipMmPerDay": 3.4,
+     "rh": 71.7,
+     "wind": 1.4
+    },
+    {
+     "tmean": 13.6,
+     "tmaxExtreme": 27.8,
+     "tminExtreme": 0.5,
+     "precipMm": 138.6,
+     "precipMmPerDay": 4.5,
+     "rh": 72.4,
+     "wind": 1.5
+    },
+    {
+     "tmean": 18.1,
+     "tmaxExtreme": 36.5,
+     "tminExtreme": 2.2,
+     "precipMm": 119.7,
+     "precipMmPerDay": 4,
+     "rh": 71.4,
+     "wind": 1.4
+    },
+    {
+     "tmean": 20.2,
+     "tmaxExtreme": 31.2,
+     "tminExtreme": 6.7,
+     "precipMm": 107.3,
+     "precipMmPerDay": 3.5,
+     "rh": 68.7,
+     "wind": 1.3
+    },
+    {
+     "tmean": 19.6,
+     "tmaxExtreme": 33.9,
+     "tminExtreme": 6.3,
+     "precipMm": 129,
+     "precipMmPerDay": 4.2,
+     "rh": 70,
+     "wind": 1.3
+    },
+    {
+     "tmean": 15.4,
+     "tmaxExtreme": 29.9,
+     "tminExtreme": 1.5,
+     "precipMm": 99.3,
+     "precipMmPerDay": 3.3,
+     "rh": 72.1,
+     "wind": 1.3
+    },
+    {
+     "tmean": 10.6,
+     "tmaxExtreme": 24.1,
+     "tminExtreme": -4.9,
+     "precipMm": 111.6,
+     "precipMmPerDay": 3.6,
+     "rh": 77.5,
+     "wind": 1.2
+    },
+    {
+     "tmean": 5.1,
+     "tmaxExtreme": 20.4,
+     "tminExtreme": -10.3,
+     "precipMm": 146.7,
+     "precipMmPerDay": 4.9,
+     "rh": 78.8,
+     "wind": 1.2
+    },
+    {
+     "tmean": 0.2,
+     "tmaxExtreme": 12.7,
+     "tminExtreme": -18.3,
+     "precipMm": 73.2,
+     "precipMmPerDay": 2.4,
+     "rh": 75.3,
+     "wind": 1.2
+    }
+   ]
+  },
+  "2660646": {
+   "cityId": "2660646",
+   "name": "Geneva",
+   "iso2": "CH",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 46.202,
+    "lon": 6.146
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -0.8,
+     "tmaxExtreme": 12.3,
+     "tminExtreme": -20.1,
+     "precipMm": 98,
+     "precipMmPerDay": 3.2,
+     "rh": 83.6,
+     "wind": 1.4
+    },
+    {
+     "tmean": -0.1,
+     "tmaxExtreme": 14,
+     "tminExtreme": -21.5,
+     "precipMm": 72.6,
+     "precipMmPerDay": 2.6,
+     "rh": 82.4,
+     "wind": 1.5
+    },
+    {
+     "tmean": 3.9,
+     "tmaxExtreme": 18.3,
+     "tminExtreme": -16.1,
+     "precipMm": 89.6,
+     "precipMmPerDay": 2.9,
+     "rh": 79.5,
+     "wind": 1.6
+    },
+    {
+     "tmean": 8.4,
+     "tmaxExtreme": 22.9,
+     "tminExtreme": -5.7,
+     "precipMm": 75.3,
+     "precipMmPerDay": 2.5,
+     "rh": 76.2,
+     "wind": 1.6
+    },
+    {
+     "tmean": 12.1,
+     "tmaxExtreme": 28.7,
+     "tminExtreme": -2.4,
+     "precipMm": 111.3,
+     "precipMmPerDay": 3.6,
+     "rh": 76.9,
+     "wind": 1.6
+    },
+    {
+     "tmean": 16.7,
+     "tmaxExtreme": 35.6,
+     "tminExtreme": 0.6,
+     "precipMm": 99.6,
+     "precipMmPerDay": 3.3,
+     "rh": 73.6,
+     "wind": 1.6
+    },
+    {
+     "tmean": 18.8,
+     "tmaxExtreme": 34.1,
+     "tminExtreme": 5.7,
+     "precipMm": 92.7,
+     "precipMmPerDay": 3,
+     "rh": 68.2,
+     "wind": 1.5
+    },
+    {
+     "tmean": 18.4,
+     "tmaxExtreme": 35.8,
+     "tminExtreme": 5.9,
+     "precipMm": 98.6,
+     "precipMmPerDay": 3.2,
+     "rh": 67.7,
+     "wind": 1.5
+    },
+    {
+     "tmean": 14.3,
+     "tmaxExtreme": 29.4,
+     "tminExtreme": 0.8,
+     "precipMm": 75.9,
+     "precipMmPerDay": 2.5,
+     "rh": 72.5,
+     "wind": 1.4
+    },
+    {
+     "tmean": 10.1,
+     "tmaxExtreme": 27.2,
+     "tminExtreme": -5.9,
+     "precipMm": 91.5,
+     "precipMmPerDay": 3,
+     "rh": 76.7,
+     "wind": 1.4
+    },
+    {
+     "tmean": 4.3,
+     "tmaxExtreme": 19.7,
+     "tminExtreme": -9.9,
+     "precipMm": 96,
+     "precipMmPerDay": 3.2,
+     "rh": 82.6,
+     "wind": 1.3
+    },
+    {
+     "tmean": 0.3,
+     "tmaxExtreme": 14.4,
+     "tminExtreme": -17.4,
+     "precipMm": 105.7,
+     "precipMmPerDay": 3.4,
+     "rh": 82.4,
+     "wind": 1.4
+    }
+   ]
+  },
+  "2735943": {
+   "cityId": "2735943",
+   "name": "Porto",
+   "iso2": "PT",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 41.148,
+    "lon": -8.611
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 10.5,
+     "tmaxExtreme": 18,
+     "tminExtreme": 0.6,
+     "precipMm": 137.6,
+     "precipMmPerDay": 4.4,
+     "rh": 85.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 10.6,
+     "tmaxExtreme": 19.5,
+     "tminExtreme": 0.7,
+     "precipMm": 96.6,
+     "precipMmPerDay": 3.4,
+     "rh": 82.9,
+     "wind": 2.5
+    },
+    {
+     "tmean": 12.1,
+     "tmaxExtreme": 26.2,
+     "tminExtreme": 0.8,
+     "precipMm": 111.6,
+     "precipMmPerDay": 3.6,
+     "rh": 81.4,
+     "wind": 2.4
+    },
+    {
+     "tmean": 13.7,
+     "tmaxExtreme": 27.4,
+     "tminExtreme": 5.3,
+     "precipMm": 90.6,
+     "precipMmPerDay": 3,
+     "rh": 80.5,
+     "wind": 2.2
+    },
+    {
+     "tmean": 15.9,
+     "tmaxExtreme": 30.3,
+     "tminExtreme": 6.7,
+     "precipMm": 60.5,
+     "precipMmPerDay": 2,
+     "rh": 78.5,
+     "wind": 2
+    },
+    {
+     "tmean": 18.4,
+     "tmaxExtreme": 33.6,
+     "tminExtreme": 10.3,
+     "precipMm": 32.4,
+     "precipMmPerDay": 1.1,
+     "rh": 75.8,
+     "wind": 1.9
+    },
+    {
+     "tmean": 19.9,
+     "tmaxExtreme": 34.8,
+     "tminExtreme": 11.7,
+     "precipMm": 12.7,
+     "precipMmPerDay": 0.4,
+     "rh": 73.8,
+     "wind": 1.8
+    },
+    {
+     "tmean": 20.3,
+     "tmaxExtreme": 35.2,
+     "tminExtreme": 12.6,
+     "precipMm": 22,
+     "precipMmPerDay": 0.7,
+     "rh": 72.3,
+     "wind": 1.8
+    },
+    {
+     "tmean": 19.4,
+     "tmaxExtreme": 33,
+     "tminExtreme": 11.2,
+     "precipMm": 49.2,
+     "precipMmPerDay": 1.6,
+     "rh": 72.8,
+     "wind": 1.7
+    },
+    {
+     "tmean": 16.9,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": 8.1,
+     "precipMm": 136.7,
+     "precipMmPerDay": 4.4,
+     "rh": 78.4,
+     "wind": 2.1
+    },
+    {
+     "tmean": 13.2,
+     "tmaxExtreme": 23.3,
+     "tminExtreme": 4,
+     "precipMm": 137.4,
+     "precipMmPerDay": 4.6,
+     "rh": 82.9,
+     "wind": 2.5
+    },
+    {
+     "tmean": 11.1,
+     "tmaxExtreme": 18.5,
+     "tminExtreme": 1.2,
+     "precipMm": 121.8,
+     "precipMmPerDay": 3.9,
+     "rh": 84.7,
+     "wind": 2.5
+    }
+   ]
+  },
+  "2759794": {
+   "cityId": "2759794",
+   "name": "Amsterdam",
+   "iso2": "NL",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 52.374,
+    "lon": 4.89
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 3.5,
+     "tmaxExtreme": 12.3,
+     "tminExtreme": -9.4,
+     "precipMm": 75,
+     "precipMmPerDay": 2.4,
+     "rh": 91.3,
+     "wind": 4.9
+    },
+    {
+     "tmean": 3.5,
+     "tmaxExtreme": 15.8,
+     "tminExtreme": -11.4,
+     "precipMm": 64.1,
+     "precipMmPerDay": 2.3,
+     "rh": 89.6,
+     "wind": 4.7
+    },
+    {
+     "tmean": 5.6,
+     "tmaxExtreme": 18.4,
+     "tminExtreme": -8.3,
+     "precipMm": 52.7,
+     "precipMmPerDay": 1.7,
+     "rh": 86.1,
+     "wind": 4.3
+    },
+    {
+     "tmean": 9.2,
+     "tmaxExtreme": 24.5,
+     "tminExtreme": -1.7,
+     "precipMm": 39.6,
+     "precipMmPerDay": 1.3,
+     "rh": 81.4,
+     "wind": 3.7
+    },
+    {
+     "tmean": 12.7,
+     "tmaxExtreme": 26.2,
+     "tminExtreme": 2.6,
+     "precipMm": 57.4,
+     "precipMmPerDay": 1.9,
+     "rh": 79.8,
+     "wind": 3.8
+    },
+    {
+     "tmean": 15.8,
+     "tmaxExtreme": 30.2,
+     "tminExtreme": 6.9,
+     "precipMm": 63.3,
+     "precipMmPerDay": 2.1,
+     "rh": 79.3,
+     "wind": 3.6
+    },
+    {
+     "tmean": 17.9,
+     "tmaxExtreme": 32.1,
+     "tminExtreme": 10.3,
+     "precipMm": 80.9,
+     "precipMmPerDay": 2.6,
+     "rh": 79.3,
+     "wind": 3.5
+    },
+    {
+     "tmean": 18,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 10,
+     "precipMm": 89.6,
+     "precipMmPerDay": 2.9,
+     "rh": 80.2,
+     "wind": 3.5
+    },
+    {
+     "tmean": 15.4,
+     "tmaxExtreme": 28.2,
+     "tminExtreme": 6.4,
+     "precipMm": 69.6,
+     "precipMmPerDay": 2.3,
+     "rh": 82,
+     "wind": 3.7
+    },
+    {
+     "tmean": 11.6,
+     "tmaxExtreme": 23.2,
+     "tminExtreme": 0.2,
+     "precipMm": 78.4,
+     "precipMmPerDay": 2.5,
+     "rh": 86.1,
+     "wind": 4.3
+    },
+    {
+     "tmean": 7.7,
+     "tmaxExtreme": 17.5,
+     "tminExtreme": -3,
+     "precipMm": 75.9,
+     "precipMmPerDay": 2.5,
+     "rh": 90.1,
+     "wind": 4.4
+    },
+    {
+     "tmean": 4.6,
+     "tmaxExtreme": 13.3,
+     "tminExtreme": -8.2,
+     "precipMm": 80.6,
+     "precipMmPerDay": 2.6,
+     "rh": 91.7,
+     "wind": 4.7
+    }
+   ]
+  },
+  "2988507": {
+   "cityId": "2988507",
+   "name": "Paris",
+   "iso2": "FR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 48.853,
+    "lon": 2.349
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 3,
+     "tmaxExtreme": 14.2,
+     "tminExtreme": -12.3,
+     "precipMm": 53.9,
+     "precipMmPerDay": 1.7,
+     "rh": 92.3,
+     "wind": 3.5
+    },
+    {
+     "tmean": 3.6,
+     "tmaxExtreme": 17.8,
+     "tminExtreme": -12.2,
+     "precipMm": 50,
+     "precipMmPerDay": 1.8,
+     "rh": 87.4,
+     "wind": 3.6
+    },
+    {
+     "tmean": 6.7,
+     "tmaxExtreme": 21.9,
+     "tminExtreme": -12.5,
+     "precipMm": 52.1,
+     "precipMmPerDay": 1.7,
+     "rh": 82.2,
+     "wind": 3.3
+    },
+    {
+     "tmean": 10.3,
+     "tmaxExtreme": 26.8,
+     "tminExtreme": -4.6,
+     "precipMm": 39.3,
+     "precipMmPerDay": 1.3,
+     "rh": 76.8,
+     "wind": 2.8
+    },
+    {
+     "tmean": 13.8,
+     "tmaxExtreme": 30.1,
+     "tminExtreme": 0.2,
+     "precipMm": 63.6,
+     "precipMmPerDay": 2.1,
+     "rh": 76.4,
+     "wind": 2.7
+    },
+    {
+     "tmean": 17.4,
+     "tmaxExtreme": 33.4,
+     "tminExtreme": 2.7,
+     "precipMm": 60,
+     "precipMmPerDay": 2,
+     "rh": 74.7,
+     "wind": 2.5
+    },
+    {
+     "tmean": 19.3,
+     "tmaxExtreme": 39.6,
+     "tminExtreme": 7.7,
+     "precipMm": 54.9,
+     "precipMmPerDay": 1.8,
+     "rh": 71.7,
+     "wind": 2.5
+    },
+    {
+     "tmean": 18.9,
+     "tmaxExtreme": 37.9,
+     "tminExtreme": 6.8,
+     "precipMm": 58.6,
+     "precipMmPerDay": 1.9,
+     "rh": 72.5,
+     "wind": 2.4
+    },
+    {
+     "tmean": 15.6,
+     "tmaxExtreme": 32.9,
+     "tminExtreme": 2.8,
+     "precipMm": 42,
+     "precipMmPerDay": 1.4,
+     "rh": 75.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 11.6,
+     "tmaxExtreme": 27.6,
+     "tminExtreme": -3.8,
+     "precipMm": 57,
+     "precipMmPerDay": 1.8,
+     "rh": 84,
+     "wind": 2.9
+    },
+    {
+     "tmean": 6.9,
+     "tmaxExtreme": 20.2,
+     "tminExtreme": -4.9,
+     "precipMm": 60.9,
+     "precipMmPerDay": 2,
+     "rh": 90.7,
+     "wind": 3
+    },
+    {
+     "tmean": 3.6,
+     "tmaxExtreme": 15,
+     "tminExtreme": -7.3,
+     "precipMm": 69.4,
+     "precipMmPerDay": 2.2,
+     "rh": 93.2,
+     "wind": 3.4
+    }
+   ]
+  },
+  "2990440": {
+   "cityId": "2990440",
+   "name": "Nice",
+   "iso2": "FR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 43.703,
+    "lon": 7.266
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 10.7,
+     "tmaxExtreme": 20.3,
+     "tminExtreme": 2.5,
+     "precipMm": 55.2,
+     "precipMmPerDay": 1.8,
+     "rh": 72,
+     "wind": 4.4
+    },
+    {
+     "tmean": 10.5,
+     "tmaxExtreme": 17.2,
+     "tminExtreme": 2.2,
+     "precipMm": 53.1,
+     "precipMmPerDay": 1.9,
+     "rh": 71.8,
+     "wind": 4.4
+    },
+    {
+     "tmean": 12.1,
+     "tmaxExtreme": 21.2,
+     "tminExtreme": 3.3,
+     "precipMm": 62,
+     "precipMmPerDay": 2,
+     "rh": 74.4,
+     "wind": 4.2
+    },
+    {
+     "tmean": 14.2,
+     "tmaxExtreme": 20.1,
+     "tminExtreme": 7.7,
+     "precipMm": 55.5,
+     "precipMmPerDay": 1.9,
+     "rh": 77,
+     "wind": 3.4
+    },
+    {
+     "tmean": 17.4,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": 10.1,
+     "precipMm": 48.4,
+     "precipMmPerDay": 1.6,
+     "rh": 77.5,
+     "wind": 2.9
+    },
+    {
+     "tmean": 21.3,
+     "tmaxExtreme": 28.5,
+     "tminExtreme": 13.5,
+     "precipMm": 29.4,
+     "precipMmPerDay": 1,
+     "rh": 76.7,
+     "wind": 2.7
+    },
+    {
+     "tmean": 23.9,
+     "tmaxExtreme": 30.6,
+     "tminExtreme": 18.1,
+     "precipMm": 16.7,
+     "precipMmPerDay": 0.5,
+     "rh": 73.6,
+     "wind": 2.7
+    },
+    {
+     "tmean": 24.3,
+     "tmaxExtreme": 31.7,
+     "tminExtreme": 18.6,
+     "precipMm": 23.3,
+     "precipMmPerDay": 0.8,
+     "rh": 72.7,
+     "wind": 2.6
+    },
+    {
+     "tmean": 21.5,
+     "tmaxExtreme": 27.9,
+     "tminExtreme": 14.2,
+     "precipMm": 46.5,
+     "precipMmPerDay": 1.6,
+     "rh": 72.2,
+     "wind": 3
+    },
+    {
+     "tmean": 18.2,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": 8.6,
+     "precipMm": 88,
+     "precipMmPerDay": 2.8,
+     "rh": 75.4,
+     "wind": 3.7
+    },
+    {
+     "tmean": 14.6,
+     "tmaxExtreme": 21.6,
+     "tminExtreme": 5.9,
+     "precipMm": 123.3,
+     "precipMmPerDay": 4.1,
+     "rh": 73.4,
+     "wind": 4.3
+    },
+    {
+     "tmean": 11.9,
+     "tmaxExtreme": 17.4,
+     "tminExtreme": 2.7,
+     "precipMm": 80.6,
+     "precipMmPerDay": 2.6,
+     "rh": 71.5,
+     "wind": 4.5
+    }
+   ]
+  },
+  "2996944": {
+   "cityId": "2996944",
+   "name": "Lyon",
+   "iso2": "FR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 45.749,
+    "lon": 4.848
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 1.5,
+     "tmaxExtreme": 15.2,
+     "tminExtreme": -11.3,
+     "precipMm": 53.6,
+     "precipMmPerDay": 1.7,
+     "rh": 90.2,
+     "wind": 2.4
+    },
+    {
+     "tmean": 2.3,
+     "tmaxExtreme": 17.4,
+     "tminExtreme": -14.5,
+     "precipMm": 45.8,
+     "precipMmPerDay": 1.6,
+     "rh": 85.6,
+     "wind": 2.6
+    },
+    {
+     "tmean": 6.1,
+     "tmaxExtreme": 21.4,
+     "tminExtreme": -12.1,
+     "precipMm": 53.6,
+     "precipMmPerDay": 1.7,
+     "rh": 81.2,
+     "wind": 2.6
+    },
+    {
+     "tmean": 10,
+     "tmaxExtreme": 25.3,
+     "tminExtreme": -6.2,
+     "precipMm": 61.5,
+     "precipMmPerDay": 2.1,
+     "rh": 76.7,
+     "wind": 2.5
+    },
+    {
+     "tmean": 13.9,
+     "tmaxExtreme": 29.4,
+     "tminExtreme": -0.4,
+     "precipMm": 81.8,
+     "precipMmPerDay": 2.6,
+     "rh": 75.7,
+     "wind": 2.4
+    },
+    {
+     "tmean": 18.4,
+     "tmaxExtreme": 36.6,
+     "tminExtreme": 3.3,
+     "precipMm": 66.6,
+     "precipMmPerDay": 2.2,
+     "rh": 71.3,
+     "wind": 2.2
+    },
+    {
+     "tmean": 20.6,
+     "tmaxExtreme": 36.1,
+     "tminExtreme": 7.6,
+     "precipMm": 65.1,
+     "precipMmPerDay": 2.1,
+     "rh": 65.8,
+     "wind": 2.1
+    },
+    {
+     "tmean": 20.1,
+     "tmaxExtreme": 39.3,
+     "tminExtreme": 6.9,
+     "precipMm": 66,
+     "precipMmPerDay": 2.1,
+     "rh": 65.7,
+     "wind": 2
+    },
+    {
+     "tmean": 15.9,
+     "tmaxExtreme": 31.6,
+     "tminExtreme": 2.1,
+     "precipMm": 62.1,
+     "precipMmPerDay": 2.1,
+     "rh": 71.8,
+     "wind": 2.1
+    },
+    {
+     "tmean": 11.6,
+     "tmaxExtreme": 26.4,
+     "tminExtreme": -5.7,
+     "precipMm": 81.5,
+     "precipMmPerDay": 2.6,
+     "rh": 80.5,
+     "wind": 2.4
+    },
+    {
+     "tmean": 6,
+     "tmaxExtreme": 20,
+     "tminExtreme": -7.4,
+     "precipMm": 85.2,
+     "precipMmPerDay": 2.8,
+     "rh": 88.1,
+     "wind": 2.4
+    },
+    {
+     "tmean": 2.3,
+     "tmaxExtreme": 16.1,
+     "tminExtreme": -11.9,
+     "precipMm": 63.2,
+     "precipMmPerDay": 2,
+     "rh": 90.5,
+     "wind": 2.4
+    }
+   ]
+  },
+  "3067696": {
+   "cityId": "3067696",
+   "name": "Prague",
+   "iso2": "CZ",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 50.088,
+    "lon": 14.421
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -2.2,
+     "tmaxExtreme": 11.9,
+     "tminExtreme": -25.7,
+     "precipMm": 41.9,
+     "precipMmPerDay": 1.4,
+     "rh": 92.5,
+     "wind": 3.4
+    },
+    {
+     "tmean": -0.7,
+     "tmaxExtreme": 15.9,
+     "tminExtreme": -19.3,
+     "precipMm": 32.2,
+     "precipMmPerDay": 1.1,
+     "rh": 88.6,
+     "wind": 3.2
+    },
+    {
+     "tmean": 3.3,
+     "tmaxExtreme": 21.3,
+     "tminExtreme": -17.2,
+     "precipMm": 39.1,
+     "precipMmPerDay": 1.3,
+     "rh": 82.6,
+     "wind": 3.1
+    },
+    {
+     "tmean": 8.8,
+     "tmaxExtreme": 26.7,
+     "tminExtreme": -6,
+     "precipMm": 35.7,
+     "precipMmPerDay": 1.2,
+     "rh": 75.8,
+     "wind": 2.6
+    },
+    {
+     "tmean": 13.6,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": -2.8,
+     "precipMm": 69.1,
+     "precipMmPerDay": 2.2,
+     "rh": 72.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 17.9,
+     "tmaxExtreme": 36,
+     "tminExtreme": 2.6,
+     "precipMm": 78.3,
+     "precipMmPerDay": 2.6,
+     "rh": 67.9,
+     "wind": 2.3
+    },
+    {
+     "tmean": 20.1,
+     "tmaxExtreme": 37,
+     "tminExtreme": 7.7,
+     "precipMm": 79.4,
+     "precipMmPerDay": 2.6,
+     "rh": 63.8,
+     "wind": 2.3
+    },
+    {
+     "tmean": 19.5,
+     "tmaxExtreme": 38,
+     "tminExtreme": 5.4,
+     "precipMm": 80.6,
+     "precipMmPerDay": 2.6,
+     "rh": 65.1,
+     "wind": 2.2
+    },
+    {
+     "tmean": 14.4,
+     "tmaxExtreme": 34,
+     "tminExtreme": 0.9,
+     "precipMm": 52.5,
+     "precipMmPerDay": 1.8,
+     "rh": 71.5,
+     "wind": 2.4
+    },
+    {
+     "tmean": 8.8,
+     "tmaxExtreme": 25.9,
+     "tminExtreme": -8,
+     "precipMm": 46.2,
+     "precipMmPerDay": 1.5,
+     "rh": 82,
+     "wind": 2.6
+    },
+    {
+     "tmean": 3.6,
+     "tmaxExtreme": 19.3,
+     "tminExtreme": -8.4,
+     "precipMm": 42.6,
+     "precipMmPerDay": 1.4,
+     "rh": 90.4,
+     "wind": 2.8
+    },
+    {
+     "tmean": -0.6,
+     "tmaxExtreme": 11.7,
+     "tminExtreme": -21.3,
+     "precipMm": 41.2,
+     "precipMmPerDay": 1.3,
+     "rh": 92.6,
+     "wind": 3.2
+    }
+   ]
+  },
+  "3117735": {
+   "cityId": "3117735",
+   "name": "Madrid",
+   "iso2": "ES",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 40.416,
+    "lon": -3.703
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 3.8,
+     "tmaxExtreme": 18,
+     "tminExtreme": -7.4,
+     "precipMm": 37.5,
+     "precipMmPerDay": 1.2,
+     "rh": 83.9,
+     "wind": 2.3
+    },
+    {
+     "tmean": 4.7,
+     "tmaxExtreme": 20.2,
+     "tminExtreme": -7.2,
+     "precipMm": 38.7,
+     "precipMmPerDay": 1.4,
+     "rh": 78.4,
+     "wind": 2.5
+    },
+    {
+     "tmean": 7.9,
+     "tmaxExtreme": 25,
+     "tminExtreme": -8.9,
+     "precipMm": 48.1,
+     "precipMmPerDay": 1.6,
+     "rh": 72.9,
+     "wind": 2.6
+    },
+    {
+     "tmean": 11.2,
+     "tmaxExtreme": 28.8,
+     "tminExtreme": -3.3,
+     "precipMm": 52.2,
+     "precipMmPerDay": 1.7,
+     "rh": 68.7,
+     "wind": 2.4
+    },
+    {
+     "tmean": 15.7,
+     "tmaxExtreme": 34.1,
+     "tminExtreme": -1.3,
+     "precipMm": 42.5,
+     "precipMmPerDay": 1.4,
+     "rh": 59.4,
+     "wind": 2.3
+    },
+    {
+     "tmean": 21.8,
+     "tmaxExtreme": 40.2,
+     "tminExtreme": 4.8,
+     "precipMm": 21.6,
+     "precipMmPerDay": 0.7,
+     "rh": 46.4,
+     "wind": 2.3
+    },
+    {
+     "tmean": 25.3,
+     "tmaxExtreme": 39.9,
+     "tminExtreme": 9.1,
+     "precipMm": 8.7,
+     "precipMmPerDay": 0.3,
+     "rh": 35,
+     "wind": 2.4
+    },
+    {
+     "tmean": 24.8,
+     "tmaxExtreme": 40.9,
+     "tminExtreme": 8.5,
+     "precipMm": 13.6,
+     "precipMmPerDay": 0.4,
+     "rh": 36.1,
+     "wind": 2.3
+    },
+    {
+     "tmean": 20,
+     "tmaxExtreme": 39.7,
+     "tminExtreme": 4.2,
+     "precipMm": 24.3,
+     "precipMmPerDay": 0.8,
+     "rh": 48.2,
+     "wind": 2.1
+    },
+    {
+     "tmean": 14.1,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": -1.3,
+     "precipMm": 65.7,
+     "precipMmPerDay": 2.1,
+     "rh": 65.6,
+     "wind": 2.2
+    },
+    {
+     "tmean": 7.6,
+     "tmaxExtreme": 24.4,
+     "tminExtreme": -5.1,
+     "precipMm": 53.7,
+     "precipMmPerDay": 1.8,
+     "rh": 79.4,
+     "wind": 2.4
+    },
+    {
+     "tmean": 4.4,
+     "tmaxExtreme": 17.3,
+     "tminExtreme": -8.7,
+     "precipMm": 40.3,
+     "precipMmPerDay": 1.3,
+     "rh": 83.4,
+     "wind": 2.1
+    }
+   ]
+  },
+  "3128760": {
+   "cityId": "3128760",
+   "name": "Barcelona",
+   "iso2": "ES",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 41.389,
+    "lon": 2.159
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 7.4,
+     "tmaxExtreme": 21.5,
+     "tminExtreme": -3.9,
+     "precipMm": 34.1,
+     "precipMmPerDay": 1.1,
+     "rh": 75.2,
+     "wind": 2.4
+    },
+    {
+     "tmean": 8.1,
+     "tmaxExtreme": 22.2,
+     "tminExtreme": -4.4,
+     "precipMm": 32.2,
+     "precipMmPerDay": 1.1,
+     "rh": 72.5,
+     "wind": 2.4
+    },
+    {
+     "tmean": 10.8,
+     "tmaxExtreme": 26.4,
+     "tminExtreme": -3.7,
+     "precipMm": 43.4,
+     "precipMmPerDay": 1.4,
+     "rh": 70,
+     "wind": 2.6
+    },
+    {
+     "tmean": 13.7,
+     "tmaxExtreme": 27.7,
+     "tminExtreme": 1.5,
+     "precipMm": 49.8,
+     "precipMmPerDay": 1.7,
+     "rh": 69,
+     "wind": 2.5
+    },
+    {
+     "tmean": 17.4,
+     "tmaxExtreme": 32.4,
+     "tminExtreme": 3.2,
+     "precipMm": 49.3,
+     "precipMmPerDay": 1.6,
+     "rh": 65.9,
+     "wind": 2.3
+    },
+    {
+     "tmean": 22.1,
+     "tmaxExtreme": 38.2,
+     "tminExtreme": 9.2,
+     "precipMm": 27.3,
+     "precipMmPerDay": 0.9,
+     "rh": 61.9,
+     "wind": 2.2
+    },
+    {
+     "tmean": 24.7,
+     "tmaxExtreme": 36.6,
+     "tminExtreme": 12.1,
+     "precipMm": 27.9,
+     "precipMmPerDay": 0.9,
+     "rh": 62.3,
+     "wind": 2.3
+    },
+    {
+     "tmean": 24.6,
+     "tmaxExtreme": 36.8,
+     "tminExtreme": 12.1,
+     "precipMm": 40.6,
+     "precipMmPerDay": 1.3,
+     "rh": 64.2,
+     "wind": 2.3
+    },
+    {
+     "tmean": 21,
+     "tmaxExtreme": 35,
+     "tminExtreme": 7.7,
+     "precipMm": 59.1,
+     "precipMmPerDay": 2,
+     "rh": 69.5,
+     "wind": 2.2
+    },
+    {
+     "tmean": 17.1,
+     "tmaxExtreme": 31,
+     "tminExtreme": 2.5,
+     "precipMm": 70.4,
+     "precipMmPerDay": 2.3,
+     "rh": 74.1,
+     "wind": 2.3
+    },
+    {
+     "tmean": 11.6,
+     "tmaxExtreme": 25.3,
+     "tminExtreme": -0.5,
+     "precipMm": 54,
+     "precipMmPerDay": 1.8,
+     "rh": 74.5,
+     "wind": 2.4
+    },
+    {
+     "tmean": 8.1,
+     "tmaxExtreme": 19.7,
+     "tminExtreme": -2.9,
+     "precipMm": 30.7,
+     "precipMmPerDay": 1,
+     "rh": 76.3,
+     "wind": 2.3
+    }
+   ]
+  },
+  "3133895": {
+   "cityId": "3133895",
+   "name": "Tromsø",
+   "iso2": "NO",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 69.649,
+    "lon": 18.955
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -8,
+     "tmaxExtreme": 3.6,
+     "tminExtreme": -27.1,
+     "precipMm": 106.3,
+     "precipMmPerDay": 3.4,
+     "rh": 95.6,
+     "wind": 2.4
+    },
+    {
+     "tmean": -7.8,
+     "tmaxExtreme": 2.8,
+     "tminExtreme": -26.6,
+     "precipMm": 108.8,
+     "precipMmPerDay": 3.9,
+     "rh": 95.2,
+     "wind": 2.4
+    },
+    {
+     "tmean": -5.3,
+     "tmaxExtreme": 2.9,
+     "tminExtreme": -21.7,
+     "precipMm": 120,
+     "precipMmPerDay": 3.9,
+     "rh": 93.5,
+     "wind": 2.3
+    },
+    {
+     "tmean": -1.4,
+     "tmaxExtreme": 12.8,
+     "tminExtreme": -15.6,
+     "precipMm": 88.8,
+     "precipMmPerDay": 3,
+     "rh": 91.7,
+     "wind": 1.9
+    },
+    {
+     "tmean": 4.2,
+     "tmaxExtreme": 25.3,
+     "tminExtreme": -9.1,
+     "precipMm": 94.6,
+     "precipMmPerDay": 3.1,
+     "rh": 85,
+     "wind": 1.4
+    },
+    {
+     "tmean": 8.7,
+     "tmaxExtreme": 27,
+     "tminExtreme": -1.9,
+     "precipMm": 105.9,
+     "precipMmPerDay": 3.5,
+     "rh": 80.8,
+     "wind": 0.8
+    },
+    {
+     "tmean": 12.5,
+     "tmaxExtreme": 28.3,
+     "tminExtreme": 2.7,
+     "precipMm": 111.9,
+     "precipMmPerDay": 3.6,
+     "rh": 81.4,
+     "wind": 0.5
+    },
+    {
+     "tmean": 11,
+     "tmaxExtreme": 26.9,
+     "tminExtreme": -0.1,
+     "precipMm": 112.8,
+     "precipMmPerDay": 3.6,
+     "rh": 85.3,
+     "wind": 0.6
+    },
+    {
+     "tmean": 6.9,
+     "tmaxExtreme": 19.3,
+     "tminExtreme": -4.3,
+     "precipMm": 136.5,
+     "precipMmPerDay": 4.6,
+     "rh": 90.1,
+     "wind": 0.8
+    },
+    {
+     "tmean": 0.9,
+     "tmaxExtreme": 12.2,
+     "tminExtreme": -14.9,
+     "precipMm": 121.8,
+     "precipMmPerDay": 3.9,
+     "rh": 94.8,
+     "wind": 1
+    },
+    {
+     "tmean": -3.4,
+     "tmaxExtreme": 8.1,
+     "tminExtreme": -20.5,
+     "precipMm": 114,
+     "precipMmPerDay": 3.8,
+     "rh": 96.2,
+     "wind": 1.6
+    },
+    {
+     "tmean": -5.8,
+     "tmaxExtreme": 5.2,
+     "tminExtreme": -22.6,
+     "precipMm": 124.3,
+     "precipMmPerDay": 4,
+     "rh": 95.8,
+     "wind": 2.3
+    }
+   ]
+  },
+  "3143244": {
+   "cityId": "3143244",
+   "name": "Oslo",
+   "iso2": "NO",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 59.913,
+    "lon": 10.746
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -5.9,
+     "tmaxExtreme": 6.4,
+     "tminExtreme": -26.2,
+     "precipMm": 77.5,
+     "precipMmPerDay": 2.5,
+     "rh": 98,
+     "wind": 0.3
+    },
+    {
+     "tmean": -5.4,
+     "tmaxExtreme": 5.5,
+     "tminExtreme": -31.4,
+     "precipMm": 59.9,
+     "precipMmPerDay": 2.1,
+     "rh": 97.9,
+     "wind": 0.3
+    },
+    {
+     "tmean": -1.8,
+     "tmaxExtreme": 16,
+     "tminExtreme": -20.9,
+     "precipMm": 56.4,
+     "precipMmPerDay": 1.8,
+     "rh": 93.3,
+     "wind": 0.3
+    },
+    {
+     "tmean": 4.1,
+     "tmaxExtreme": 20.8,
+     "tminExtreme": -10.7,
+     "precipMm": 60.9,
+     "precipMmPerDay": 2,
+     "rh": 83.3,
+     "wind": 0.3
+    },
+    {
+     "tmean": 9.6,
+     "tmaxExtreme": 27.8,
+     "tminExtreme": -3.8,
+     "precipMm": 92.1,
+     "precipMmPerDay": 3,
+     "rh": 78.7,
+     "wind": 0.3
+    },
+    {
+     "tmean": 13.9,
+     "tmaxExtreme": 29.7,
+     "tminExtreme": 2.3,
+     "precipMm": 96,
+     "precipMmPerDay": 3.2,
+     "rh": 77.6,
+     "wind": 0.3
+    },
+    {
+     "tmean": 16.2,
+     "tmaxExtreme": 31.2,
+     "tminExtreme": 5.7,
+     "precipMm": 111.6,
+     "precipMmPerDay": 3.6,
+     "rh": 80.7,
+     "wind": 0.3
+    },
+    {
+     "tmean": 14.8,
+     "tmaxExtreme": 29.6,
+     "tminExtreme": 2.4,
+     "precipMm": 122.1,
+     "precipMmPerDay": 3.9,
+     "rh": 84.3,
+     "wind": 0.3
+    },
+    {
+     "tmean": 10.5,
+     "tmaxExtreme": 22.9,
+     "tminExtreme": -1.8,
+     "precipMm": 95.7,
+     "precipMmPerDay": 3.2,
+     "rh": 87.2,
+     "wind": 0.4
+    },
+    {
+     "tmean": 4.5,
+     "tmaxExtreme": 18.8,
+     "tminExtreme": -10.2,
+     "precipMm": 103.9,
+     "precipMmPerDay": 3.4,
+     "rh": 93,
+     "wind": 0.3
+    },
+    {
+     "tmean": -0.5,
+     "tmaxExtreme": 12.4,
+     "tminExtreme": -22,
+     "precipMm": 93.6,
+     "precipMmPerDay": 3.1,
+     "rh": 96.3,
+     "wind": 0.3
+    },
+    {
+     "tmean": -4.9,
+     "tmaxExtreme": 7.7,
+     "tminExtreme": -26,
+     "precipMm": 78.1,
+     "precipMmPerDay": 2.5,
+     "rh": 97.4,
+     "wind": 0.3
+    }
+   ]
+  },
+  "3161732": {
+   "cityId": "3161732",
+   "name": "Bergen",
+   "iso2": "NO",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 60.393,
+    "lon": 5.324
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -2,
+     "tmaxExtreme": 7.3,
+     "tminExtreme": -20.6,
+     "precipMm": 298.8,
+     "precipMmPerDay": 9.6,
+     "rh": 94.2,
+     "wind": 1.9
+    },
+    {
+     "tmean": -2.1,
+     "tmaxExtreme": 7.2,
+     "tminExtreme": -22.4,
+     "precipMm": 218.1,
+     "precipMmPerDay": 7.7,
+     "rh": 93.6,
+     "wind": 1.7
+    },
+    {
+     "tmean": -0.3,
+     "tmaxExtreme": 12.6,
+     "tminExtreme": -23.1,
+     "precipMm": 214.8,
+     "precipMmPerDay": 6.9,
+     "rh": 91.1,
+     "wind": 1.6
+    },
+    {
+     "tmean": 3.8,
+     "tmaxExtreme": 18.7,
+     "tminExtreme": -9.6,
+     "precipMm": 154.8,
+     "precipMmPerDay": 5.2,
+     "rh": 84.1,
+     "wind": 1.3
+    },
+    {
+     "tmean": 8,
+     "tmaxExtreme": 26.2,
+     "tminExtreme": -2.9,
+     "precipMm": 140.7,
+     "precipMmPerDay": 4.5,
+     "rh": 80.6,
+     "wind": 1.2
+    },
+    {
+     "tmean": 11.7,
+     "tmaxExtreme": 26.1,
+     "tminExtreme": 0.9,
+     "precipMm": 153.9,
+     "precipMmPerDay": 5.1,
+     "rh": 79.9,
+     "wind": 1.1
+    },
+    {
+     "tmean": 14.1,
+     "tmaxExtreme": 29.3,
+     "tminExtreme": 4.8,
+     "precipMm": 174.8,
+     "precipMmPerDay": 5.6,
+     "rh": 82.1,
+     "wind": 1.1
+    },
+    {
+     "tmean": 13.5,
+     "tmaxExtreme": 27.4,
+     "tminExtreme": 3.9,
+     "precipMm": 204.6,
+     "precipMmPerDay": 6.6,
+     "rh": 84.2,
+     "wind": 1.2
+    },
+    {
+     "tmean": 10.2,
+     "tmaxExtreme": 24.9,
+     "tminExtreme": 0.9,
+     "precipMm": 268.5,
+     "precipMmPerDay": 9,
+     "rh": 88,
+     "wind": 1.4
+    },
+    {
+     "tmean": 5.8,
+     "tmaxExtreme": 17.4,
+     "tminExtreme": -8.1,
+     "precipMm": 275.6,
+     "precipMmPerDay": 8.9,
+     "rh": 89.4,
+     "wind": 1.4
+    },
+    {
+     "tmean": 1.8,
+     "tmaxExtreme": 11.4,
+     "tminExtreme": -16.8,
+     "precipMm": 293.4,
+     "precipMmPerDay": 9.8,
+     "rh": 93.1,
+     "wind": 1.6
+    },
+    {
+     "tmean": -0.8,
+     "tmaxExtreme": 7.9,
+     "tminExtreme": -19.2,
+     "precipMm": 319.3,
+     "precipMmPerDay": 10.3,
+     "rh": 94.6,
+     "wind": 1.7
+    }
+   ]
+  },
+  "3169070": {
+   "cityId": "3169070",
+   "name": "Rome",
+   "iso2": "IT",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 41.892,
+    "lon": 12.511
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 7,
+     "tmaxExtreme": 18,
+     "tminExtreme": -4.1,
+     "precipMm": 72.5,
+     "precipMmPerDay": 2.3,
+     "rh": 81.2,
+     "wind": 2.2
+    },
+    {
+     "tmean": 7.6,
+     "tmaxExtreme": 19.4,
+     "tminExtreme": -5.1,
+     "precipMm": 77.1,
+     "precipMmPerDay": 2.7,
+     "rh": 78.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 10.3,
+     "tmaxExtreme": 24.1,
+     "tminExtreme": -4.2,
+     "precipMm": 68.5,
+     "precipMmPerDay": 2.2,
+     "rh": 76.5,
+     "wind": 2.5
+    },
+    {
+     "tmean": 13.9,
+     "tmaxExtreme": 27.2,
+     "tminExtreme": -2,
+     "precipMm": 56.4,
+     "precipMmPerDay": 1.9,
+     "rh": 72.2,
+     "wind": 2.4
+    },
+    {
+     "tmean": 18,
+     "tmaxExtreme": 31.6,
+     "tminExtreme": 4.5,
+     "precipMm": 57,
+     "precipMmPerDay": 1.8,
+     "rh": 68.2,
+     "wind": 2.3
+    },
+    {
+     "tmean": 22.8,
+     "tmaxExtreme": 37.3,
+     "tminExtreme": 8.5,
+     "precipMm": 34.2,
+     "precipMmPerDay": 1.1,
+     "rh": 62.1,
+     "wind": 2.2
+    },
+    {
+     "tmean": 26,
+     "tmaxExtreme": 39,
+     "tminExtreme": 13.5,
+     "precipMm": 25.7,
+     "precipMmPerDay": 0.8,
+     "rh": 54.6,
+     "wind": 2.3
+    },
+    {
+     "tmean": 26.2,
+     "tmaxExtreme": 40.9,
+     "tminExtreme": 12.6,
+     "precipMm": 26.4,
+     "precipMmPerDay": 0.9,
+     "rh": 54.5,
+     "wind": 2.2
+    },
+    {
+     "tmean": 21.4,
+     "tmaxExtreme": 36.5,
+     "tminExtreme": 7.8,
+     "precipMm": 69.6,
+     "precipMmPerDay": 2.3,
+     "rh": 63.8,
+     "wind": 2.2
+    },
+    {
+     "tmean": 17.2,
+     "tmaxExtreme": 29.6,
+     "tminExtreme": 3.7,
+     "precipMm": 81.8,
+     "precipMmPerDay": 2.6,
+     "rh": 72.7,
+     "wind": 2.2
+    },
+    {
+     "tmean": 12.5,
+     "tmaxExtreme": 25.8,
+     "tminExtreme": -1.4,
+     "precipMm": 114.3,
+     "precipMmPerDay": 3.8,
+     "rh": 79.6,
+     "wind": 2.4
+    },
+    {
+     "tmean": 8.1,
+     "tmaxExtreme": 18.9,
+     "tminExtreme": -4.3,
+     "precipMm": 91.5,
+     "precipMmPerDay": 3,
+     "rh": 80.8,
+     "wind": 2.3
+    }
+   ]
+  },
+  "3173435": {
+   "cityId": "3173435",
+   "name": "Milan",
+   "iso2": "IT",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 45.464,
+    "lon": 9.19
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 2.7,
+     "tmaxExtreme": 20.4,
+     "tminExtreme": -6.6,
+     "precipMm": 47.1,
+     "precipMmPerDay": 1.5,
+     "rh": 76.6,
+     "wind": 1.2
+    },
+    {
+     "tmean": 4.4,
+     "tmaxExtreme": 21.2,
+     "tminExtreme": -12.1,
+     "precipMm": 61.9,
+     "precipMmPerDay": 2.2,
+     "rh": 74.8,
+     "wind": 1.3
+    },
+    {
+     "tmean": 8.6,
+     "tmaxExtreme": 24.7,
+     "tminExtreme": -6.4,
+     "precipMm": 64.2,
+     "precipMmPerDay": 2.1,
+     "rh": 71.6,
+     "wind": 1.5
+    },
+    {
+     "tmean": 12.9,
+     "tmaxExtreme": 29.5,
+     "tminExtreme": -1.7,
+     "precipMm": 86.7,
+     "precipMmPerDay": 2.9,
+     "rh": 71.8,
+     "wind": 1.5
+    },
+    {
+     "tmean": 17.2,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": 4,
+     "precipMm": 106.3,
+     "precipMmPerDay": 3.4,
+     "rh": 71.5,
+     "wind": 1.5
+    },
+    {
+     "tmean": 21.7,
+     "tmaxExtreme": 38.2,
+     "tminExtreme": 7,
+     "precipMm": 81,
+     "precipMmPerDay": 2.7,
+     "rh": 69.7,
+     "wind": 1.2
+    },
+    {
+     "tmean": 24.1,
+     "tmaxExtreme": 36.6,
+     "tminExtreme": 11.5,
+     "precipMm": 68.2,
+     "precipMmPerDay": 2.2,
+     "rh": 65.4,
+     "wind": 1.1
+    },
+    {
+     "tmean": 23.7,
+     "tmaxExtreme": 38.5,
+     "tminExtreme": 10.6,
+     "precipMm": 88.7,
+     "precipMmPerDay": 2.9,
+     "rh": 65.7,
+     "wind": 1.1
+    },
+    {
+     "tmean": 19.1,
+     "tmaxExtreme": 32.4,
+     "tminExtreme": 6,
+     "precipMm": 80.4,
+     "precipMmPerDay": 2.7,
+     "rh": 69.3,
+     "wind": 1.2
+    },
+    {
+     "tmean": 13.9,
+     "tmaxExtreme": 27.9,
+     "tminExtreme": 0.4,
+     "precipMm": 95.2,
+     "precipMmPerDay": 3.1,
+     "rh": 75.9,
+     "wind": 1.2
+    },
+    {
+     "tmean": 8.3,
+     "tmaxExtreme": 21.9,
+     "tminExtreme": -3.6,
+     "precipMm": 136.8,
+     "precipMmPerDay": 4.6,
+     "rh": 79.6,
+     "wind": 1.3
+    },
+    {
+     "tmean": 3.6,
+     "tmaxExtreme": 15.2,
+     "tminExtreme": -10.8,
+     "precipMm": 68.5,
+     "precipMmPerDay": 2.2,
+     "rh": 77,
+     "wind": 1.2
+    }
+   ]
+  },
+  "3186886": {
+   "cityId": "3186886",
+   "name": "Zagreb",
+   "iso2": "HR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 45.814,
+    "lon": 15.978
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": -0.8,
+     "tmaxExtreme": 15.1,
+     "tminExtreme": -21.6,
+     "precipMm": 52.1,
+     "precipMmPerDay": 1.7,
+     "rh": 92.2,
+     "wind": 2
+    },
+    {
+     "tmean": 1,
+     "tmaxExtreme": 18.6,
+     "tminExtreme": -17.2,
+     "precipMm": 60.2,
+     "precipMmPerDay": 2.1,
+     "rh": 88.7,
+     "wind": 2.3
+    },
+    {
+     "tmean": 5.6,
+     "tmaxExtreme": 22.2,
+     "tminExtreme": -16.8,
+     "precipMm": 58.9,
+     "precipMmPerDay": 1.9,
+     "rh": 82.7,
+     "wind": 2.3
+    },
+    {
+     "tmean": 11,
+     "tmaxExtreme": 28.4,
+     "tminExtreme": -4.1,
+     "precipMm": 62.1,
+     "precipMmPerDay": 2.1,
+     "rh": 76.6,
+     "wind": 2.1
+    },
+    {
+     "tmean": 15.7,
+     "tmaxExtreme": 30.4,
+     "tminExtreme": 0.7,
+     "precipMm": 91.8,
+     "precipMmPerDay": 3,
+     "rh": 74.2,
+     "wind": 2
+    },
+    {
+     "tmean": 20.3,
+     "tmaxExtreme": 35.9,
+     "tminExtreme": 5.6,
+     "precipMm": 85.5,
+     "precipMmPerDay": 2.9,
+     "rh": 69.4,
+     "wind": 1.7
+    },
+    {
+     "tmean": 22.8,
+     "tmaxExtreme": 38.6,
+     "tminExtreme": 10.1,
+     "precipMm": 81.5,
+     "precipMmPerDay": 2.6,
+     "rh": 62.7,
+     "wind": 1.7
+    },
+    {
+     "tmean": 22.4,
+     "tmaxExtreme": 40.5,
+     "tminExtreme": 6.9,
+     "precipMm": 82.8,
+     "precipMmPerDay": 2.7,
+     "rh": 62.1,
+     "wind": 1.6
+    },
+    {
+     "tmean": 16.6,
+     "tmaxExtreme": 33.8,
+     "tminExtreme": 2.5,
+     "precipMm": 106.5,
+     "precipMmPerDay": 3.6,
+     "rh": 71.4,
+     "wind": 1.8
+    },
+    {
+     "tmean": 11.1,
+     "tmaxExtreme": 27.4,
+     "tminExtreme": -5.1,
+     "precipMm": 82.8,
+     "precipMmPerDay": 2.7,
+     "rh": 82.1,
+     "wind": 1.7
+    },
+    {
+     "tmean": 5.6,
+     "tmaxExtreme": 20.9,
+     "tminExtreme": -8.6,
+     "precipMm": 79.5,
+     "precipMmPerDay": 2.7,
+     "rh": 90,
+     "wind": 1.8
+    },
+    {
+     "tmean": 0.5,
+     "tmaxExtreme": 16.7,
+     "tminExtreme": -16.4,
+     "precipMm": 63.2,
+     "precipMmPerDay": 2,
+     "rh": 92.5,
+     "wind": 1.9
+    }
+   ]
+  },
+  "3190261": {
+   "cityId": "3190261",
+   "name": "Split",
+   "iso2": "HR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 43.509,
+    "lon": 16.439
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 7,
+     "tmaxExtreme": 14.9,
+     "tminExtreme": -7.5,
+     "precipMm": 90.8,
+     "precipMmPerDay": 2.9,
+     "rh": 77.6,
+     "wind": 3.6
+    },
+    {
+     "tmean": 7.4,
+     "tmaxExtreme": 15.7,
+     "tminExtreme": -6.5,
+     "precipMm": 88.7,
+     "precipMmPerDay": 3.1,
+     "rh": 76.6,
+     "wind": 3.9
+    },
+    {
+     "tmean": 9.9,
+     "tmaxExtreme": 20.3,
+     "tminExtreme": -5.3,
+     "precipMm": 77.8,
+     "precipMmPerDay": 2.5,
+     "rh": 76,
+     "wind": 3.7
+    },
+    {
+     "tmean": 13.3,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": 0.9,
+     "precipMm": 65.4,
+     "precipMmPerDay": 2.2,
+     "rh": 74.1,
+     "wind": 3
+    },
+    {
+     "tmean": 17.5,
+     "tmaxExtreme": 29.3,
+     "tminExtreme": 7.7,
+     "precipMm": 57.4,
+     "precipMmPerDay": 1.9,
+     "rh": 71,
+     "wind": 2.7
+    },
+    {
+     "tmean": 22,
+     "tmaxExtreme": 33.7,
+     "tminExtreme": 9.4,
+     "precipMm": 50.7,
+     "precipMmPerDay": 1.7,
+     "rh": 65.7,
+     "wind": 2.4
+    },
+    {
+     "tmean": 25,
+     "tmaxExtreme": 35.6,
+     "tminExtreme": 14.8,
+     "precipMm": 29.5,
+     "precipMmPerDay": 1,
+     "rh": 58.3,
+     "wind": 2.5
+    },
+    {
+     "tmean": 25.2,
+     "tmaxExtreme": 35.5,
+     "tminExtreme": 13.3,
+     "precipMm": 40.6,
+     "precipMmPerDay": 1.3,
+     "rh": 58,
+     "wind": 2.4
+    },
+    {
+     "tmean": 20.6,
+     "tmaxExtreme": 31.6,
+     "tminExtreme": 9.8,
+     "precipMm": 90,
+     "precipMmPerDay": 3,
+     "rh": 65.3,
+     "wind": 2.9
+    },
+    {
+     "tmean": 16.5,
+     "tmaxExtreme": 26.2,
+     "tminExtreme": 5.6,
+     "precipMm": 87.7,
+     "precipMmPerDay": 2.8,
+     "rh": 72.1,
+     "wind": 3.1
+    },
+    {
+     "tmean": 12.6,
+     "tmaxExtreme": 23.4,
+     "tminExtreme": 1.4,
+     "precipMm": 126,
+     "precipMmPerDay": 4.2,
+     "rh": 77.3,
+     "wind": 3.7
+    },
+    {
+     "tmean": 8.4,
+     "tmaxExtreme": 16.6,
+     "tminExtreme": -4.9,
+     "precipMm": 115.9,
+     "precipMmPerDay": 3.7,
+     "rh": 76.7,
+     "wind": 3.8
+    }
+   ]
+  },
+  "3201047": {
+   "cityId": "3201047",
+   "name": "Dubrovnik",
+   "iso2": "HR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 42.641,
+    "lon": 18.109
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 9.2,
+     "tmaxExtreme": 16.3,
+     "tminExtreme": -4.9,
+     "precipMm": 142.9,
+     "precipMmPerDay": 4.6,
+     "rh": 73.6,
+     "wind": 4.2
+    },
+    {
+     "tmean": 9.6,
+     "tmaxExtreme": 17.1,
+     "tminExtreme": -2.8,
+     "precipMm": 142.4,
+     "precipMmPerDay": 5,
+     "rh": 73.4,
+     "wind": 4.4
+    },
+    {
+     "tmean": 11.5,
+     "tmaxExtreme": 20.2,
+     "tminExtreme": -0.4,
+     "precipMm": 122.8,
+     "precipMmPerDay": 4,
+     "rh": 74.6,
+     "wind": 4.2
+    },
+    {
+     "tmean": 14.4,
+     "tmaxExtreme": 23.6,
+     "tminExtreme": 3.2,
+     "precipMm": 90.9,
+     "precipMmPerDay": 3,
+     "rh": 74.7,
+     "wind": 3.4
+    },
+    {
+     "tmean": 18.2,
+     "tmaxExtreme": 26.7,
+     "tminExtreme": 10,
+     "precipMm": 75,
+     "precipMmPerDay": 2.4,
+     "rh": 73.2,
+     "wind": 2.9
+    },
+    {
+     "tmean": 22.5,
+     "tmaxExtreme": 32.1,
+     "tminExtreme": 13.3,
+     "precipMm": 57.6,
+     "precipMmPerDay": 1.9,
+     "rh": 69.6,
+     "wind": 2.7
+    },
+    {
+     "tmean": 25.4,
+     "tmaxExtreme": 32.9,
+     "tminExtreme": 17.8,
+     "precipMm": 34.7,
+     "precipMmPerDay": 1.1,
+     "rh": 62.7,
+     "wind": 2.8
+    },
+    {
+     "tmean": 25.9,
+     "tmaxExtreme": 33.9,
+     "tminExtreme": 16.2,
+     "precipMm": 37.8,
+     "precipMmPerDay": 1.2,
+     "rh": 61.9,
+     "wind": 2.8
+    },
+    {
+     "tmean": 22,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": 13.8,
+     "precipMm": 103.2,
+     "precipMmPerDay": 3.4,
+     "rh": 65.9,
+     "wind": 3.2
+    },
+    {
+     "tmean": 18.2,
+     "tmaxExtreme": 25.8,
+     "tminExtreme": 9.4,
+     "precipMm": 123.4,
+     "precipMmPerDay": 4,
+     "rh": 71.3,
+     "wind": 3.5
+    },
+    {
+     "tmean": 14.6,
+     "tmaxExtreme": 23.4,
+     "tminExtreme": 3.9,
+     "precipMm": 160.8,
+     "precipMmPerDay": 5.4,
+     "rh": 73.9,
+     "wind": 4.1
+    },
+    {
+     "tmean": 10.7,
+     "tmaxExtreme": 16.9,
+     "tminExtreme": -1,
+     "precipMm": 159,
+     "precipMmPerDay": 5.1,
+     "rh": 72.5,
+     "wind": 4.3
+    }
+   ]
+  },
+  "3413829": {
+   "cityId": "3413829",
+   "name": "Reykjavík",
+   "iso2": "IS",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 64.135,
+    "lon": -21.895
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 0,
+     "tmaxExtreme": 8,
+     "tminExtreme": -11.2,
+     "precipMm": 169,
+     "precipMmPerDay": 5.5,
+     "rh": 91.5,
+     "wind": 4.8
+    },
+    {
+     "tmean": 0,
+     "tmaxExtreme": 7.7,
+     "tminExtreme": -14.1,
+     "precipMm": 152.3,
+     "precipMmPerDay": 5.4,
+     "rh": 91.2,
+     "wind": 4.8
+    },
+    {
+     "tmean": 0.8,
+     "tmaxExtreme": 7.9,
+     "tminExtreme": -11,
+     "precipMm": 153.5,
+     "precipMmPerDay": 5,
+     "rh": 89.4,
+     "wind": 4.3
+    },
+    {
+     "tmean": 3.1,
+     "tmaxExtreme": 10.8,
+     "tminExtreme": -8.2,
+     "precipMm": 119.4,
+     "precipMmPerDay": 4,
+     "rh": 86.9,
+     "wind": 3.8
+    },
+    {
+     "tmean": 5.8,
+     "tmaxExtreme": 16.5,
+     "tminExtreme": -4,
+     "precipMm": 92.7,
+     "precipMmPerDay": 3,
+     "rh": 83,
+     "wind": 3
+    },
+    {
+     "tmean": 9.3,
+     "tmaxExtreme": 18.5,
+     "tminExtreme": 1,
+     "precipMm": 83.1,
+     "precipMmPerDay": 2.8,
+     "rh": 82.7,
+     "wind": 2.2
+    },
+    {
+     "tmean": 11.1,
+     "tmaxExtreme": 22.7,
+     "tminExtreme": 3.9,
+     "precipMm": 98.6,
+     "precipMmPerDay": 3.2,
+     "rh": 83.3,
+     "wind": 1.9
+    },
+    {
+     "tmean": 10.5,
+     "tmaxExtreme": 22.8,
+     "tminExtreme": 2.8,
+     "precipMm": 120.6,
+     "precipMmPerDay": 3.9,
+     "rh": 84.8,
+     "wind": 2.1
+    },
+    {
+     "tmean": 7.9,
+     "tmaxExtreme": 16.4,
+     "tminExtreme": -1.1,
+     "precipMm": 180.9,
+     "precipMmPerDay": 6,
+     "rh": 87.8,
+     "wind": 2.7
+    },
+    {
+     "tmean": 4.2,
+     "tmaxExtreme": 12.1,
+     "tminExtreme": -8,
+     "precipMm": 147.3,
+     "precipMmPerDay": 4.8,
+     "rh": 90.5,
+     "wind": 3.2
+    },
+    {
+     "tmean": 1.8,
+     "tmaxExtreme": 9.7,
+     "tminExtreme": -9.6,
+     "precipMm": 149.4,
+     "precipMmPerDay": 5,
+     "rh": 91.4,
+     "wind": 4
+    },
+    {
+     "tmean": 0.3,
+     "tmaxExtreme": 9.5,
+     "tminExtreme": -12,
+     "precipMm": 171.7,
+     "precipMmPerDay": 5.5,
+     "rh": 91.7,
+     "wind": 4.6
+    }
+   ]
+  },
+  "3530597": {
+   "cityId": "3530597",
+   "name": "Mexico City",
+   "iso2": "MX",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 19.428,
+    "lon": -99.128
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 10.5,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": -3.4,
+     "precipMm": 9,
+     "precipMmPerDay": 0.3,
+     "rh": 61.1,
+     "wind": 1.1
+    },
+    {
+     "tmean": 12.3,
+     "tmaxExtreme": 27.3,
+     "tminExtreme": -3.2,
+     "precipMm": 11.6,
+     "precipMmPerDay": 0.4,
+     "rh": 54.6,
+     "wind": 1.2
+    },
+    {
+     "tmean": 14.1,
+     "tmaxExtreme": 29.8,
+     "tminExtreme": -3.1,
+     "precipMm": 15.2,
+     "precipMmPerDay": 0.5,
+     "rh": 49.7,
+     "wind": 1.3
+    },
+    {
+     "tmean": 16.4,
+     "tmaxExtreme": 30.2,
+     "tminExtreme": 1.7,
+     "precipMm": 21.9,
+     "precipMmPerDay": 0.7,
+     "rh": 47.8,
+     "wind": 1.2
+    },
+    {
+     "tmean": 17.2,
+     "tmaxExtreme": 31.7,
+     "tminExtreme": 3.5,
+     "precipMm": 55.2,
+     "precipMmPerDay": 1.8,
+     "rh": 55.2,
+     "wind": 1.2
+    },
+    {
+     "tmean": 16.1,
+     "tmaxExtreme": 30.6,
+     "tminExtreme": 5,
+     "precipMm": 135.3,
+     "precipMmPerDay": 4.5,
+     "rh": 69,
+     "wind": 1.1
+    },
+    {
+     "tmean": 15,
+     "tmaxExtreme": 26.3,
+     "tminExtreme": 4.3,
+     "precipMm": 154.1,
+     "precipMmPerDay": 5,
+     "rh": 76.8,
+     "wind": 0.9
+    },
+    {
+     "tmean": 14.8,
+     "tmaxExtreme": 25.4,
+     "tminExtreme": 6.2,
+     "precipMm": 153.5,
+     "precipMmPerDay": 5,
+     "rh": 78.8,
+     "wind": 1
+    },
+    {
+     "tmean": 14.1,
+     "tmaxExtreme": 24.4,
+     "tminExtreme": 0.6,
+     "precipMm": 148.2,
+     "precipMmPerDay": 4.9,
+     "rh": 82.1,
+     "wind": 1.1
+    },
+    {
+     "tmean": 13.1,
+     "tmaxExtreme": 23.9,
+     "tminExtreme": -0.7,
+     "precipMm": 64.2,
+     "precipMmPerDay": 2.1,
+     "rh": 77.7,
+     "wind": 1.1
+    },
+    {
+     "tmean": 11.6,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": -3.4,
+     "precipMm": 19.2,
+     "precipMmPerDay": 0.6,
+     "rh": 71.2,
+     "wind": 1
+    },
+    {
+     "tmean": 10.9,
+     "tmaxExtreme": 23.8,
+     "tminExtreme": -2.9,
+     "precipMm": 5.6,
+     "precipMmPerDay": 0.2,
+     "rh": 64.3,
+     "wind": 1
+    }
+   ]
+  },
+  "3531673": {
+   "cityId": "3531673",
+   "name": "Cancún",
+   "iso2": "MX",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 21.174,
+    "lon": -86.847
+   },
+   "cellKm": 0.1,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 24,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 17.1,
+     "precipMm": 62.6,
+     "precipMmPerDay": 2,
+     "rh": 75.9,
+     "wind": 2.6
+    },
+    {
+     "tmean": 24.6,
+     "tmaxExtreme": 30.9,
+     "tminExtreme": 17.4,
+     "precipMm": 50.9,
+     "precipMmPerDay": 1.8,
+     "rh": 75.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 25.3,
+     "tmaxExtreme": 32.8,
+     "tminExtreme": 16.3,
+     "precipMm": 37.8,
+     "precipMmPerDay": 1.2,
+     "rh": 72.5,
+     "wind": 2.6
+    },
+    {
+     "tmean": 26.6,
+     "tmaxExtreme": 32.5,
+     "tminExtreme": 17.9,
+     "precipMm": 40.8,
+     "precipMmPerDay": 1.4,
+     "rh": 72.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 27.6,
+     "tmaxExtreme": 32.7,
+     "tminExtreme": 20.4,
+     "precipMm": 92.4,
+     "precipMmPerDay": 3,
+     "rh": 74.7,
+     "wind": 2.4
+    },
+    {
+     "tmean": 27.8,
+     "tmaxExtreme": 33.2,
+     "tminExtreme": 24.2,
+     "precipMm": 180.6,
+     "precipMmPerDay": 6,
+     "rh": 81.5,
+     "wind": 2.2
+    },
+    {
+     "tmean": 28.1,
+     "tmaxExtreme": 32.8,
+     "tminExtreme": 25,
+     "precipMm": 89,
+     "precipMmPerDay": 2.9,
+     "rh": 80.8,
+     "wind": 2
+    },
+    {
+     "tmean": 28.4,
+     "tmaxExtreme": 34,
+     "tminExtreme": 25.3,
+     "precipMm": 114.4,
+     "precipMmPerDay": 3.7,
+     "rh": 80.4,
+     "wind": 1.9
+    },
+    {
+     "tmean": 28,
+     "tmaxExtreme": 33.5,
+     "tminExtreme": 24,
+     "precipMm": 165.6,
+     "precipMmPerDay": 5.5,
+     "rh": 82.2,
+     "wind": 1.9
+    },
+    {
+     "tmean": 27,
+     "tmaxExtreme": 31.7,
+     "tminExtreme": 20.8,
+     "precipMm": 223.8,
+     "precipMmPerDay": 7.2,
+     "rh": 82.4,
+     "wind": 2.3
+    },
+    {
+     "tmean": 25.4,
+     "tmaxExtreme": 30.6,
+     "tminExtreme": 18.4,
+     "precipMm": 124.2,
+     "precipMmPerDay": 4.1,
+     "rh": 79.3,
+     "wind": 2.5
+    },
+    {
+     "tmean": 24.7,
+     "tmaxExtreme": 30.4,
+     "tminExtreme": 17.7,
+     "precipMm": 67.6,
+     "precipMmPerDay": 2.2,
+     "rh": 78.7,
+     "wind": 2.5
+    }
+   ]
+  },
+  "3621849": {
+   "cityId": "3621849",
+   "name": "San José",
+   "iso2": "CR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 9.934,
+    "lon": -84.085
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 22.7,
+     "tmaxExtreme": 31.3,
+     "tminExtreme": 16.1,
+     "precipMm": 37.8,
+     "precipMmPerDay": 1.2,
+     "rh": 78.6,
+     "wind": 0.7
+    },
+    {
+     "tmean": 23.5,
+     "tmaxExtreme": 33.4,
+     "tminExtreme": 15.8,
+     "precipMm": 22.3,
+     "precipMmPerDay": 0.8,
+     "rh": 70.7,
+     "wind": 0.8
+    },
+    {
+     "tmean": 24.8,
+     "tmaxExtreme": 34.2,
+     "tminExtreme": 17,
+     "precipMm": 29.1,
+     "precipMmPerDay": 0.9,
+     "rh": 64.3,
+     "wind": 0.8
+    },
+    {
+     "tmean": 25.2,
+     "tmaxExtreme": 34.7,
+     "tminExtreme": 17.5,
+     "precipMm": 76.5,
+     "precipMmPerDay": 2.6,
+     "rh": 68.2,
+     "wind": 0.7
+    },
+    {
+     "tmean": 24.3,
+     "tmaxExtreme": 33.9,
+     "tminExtreme": 16.3,
+     "precipMm": 220.4,
+     "precipMmPerDay": 7.1,
+     "rh": 81.3,
+     "wind": 0.6
+    },
+    {
+     "tmean": 23.5,
+     "tmaxExtreme": 31.5,
+     "tminExtreme": 18.7,
+     "precipMm": 209.4,
+     "precipMmPerDay": 7,
+     "rh": 88.3,
+     "wind": 0.5
+    },
+    {
+     "tmean": 23.4,
+     "tmaxExtreme": 30.6,
+     "tminExtreme": 17.2,
+     "precipMm": 184.5,
+     "precipMmPerDay": 6,
+     "rh": 87.4,
+     "wind": 0.5
+    },
+    {
+     "tmean": 23.4,
+     "tmaxExtreme": 31.1,
+     "tminExtreme": 17.8,
+     "precipMm": 198.4,
+     "precipMmPerDay": 6.4,
+     "rh": 87.7,
+     "wind": 0.5
+    },
+    {
+     "tmean": 23,
+     "tmaxExtreme": 30.4,
+     "tminExtreme": 17.5,
+     "precipMm": 255.9,
+     "precipMmPerDay": 8.5,
+     "rh": 89.7,
+     "wind": 0.5
+    },
+    {
+     "tmean": 22.6,
+     "tmaxExtreme": 29.7,
+     "tminExtreme": 18.2,
+     "precipMm": 301,
+     "precipMmPerDay": 9.7,
+     "rh": 91.5,
+     "wind": 0.6
+    },
+    {
+     "tmean": 22.5,
+     "tmaxExtreme": 29.6,
+     "tminExtreme": 16.2,
+     "precipMm": 187.5,
+     "precipMmPerDay": 6.3,
+     "rh": 89.6,
+     "wind": 0.5
+    },
+    {
+     "tmean": 22.5,
+     "tmaxExtreme": 30.6,
+     "tminExtreme": 16,
+     "precipMm": 70.4,
+     "precipMmPerDay": 2.3,
+     "rh": 85.1,
+     "wind": 0.5
+    }
+   ]
+  },
+  "3623076": {
+   "cityId": "3623076",
+   "name": "Liberia",
+   "iso2": "CR",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 10.635,
+    "lon": -85.438
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 27.1,
+     "tmaxExtreme": 36,
+     "tminExtreme": 20,
+     "precipMm": 4,
+     "precipMmPerDay": 0.1,
+     "rh": 68.9,
+     "wind": 4.4
+    },
+    {
+     "tmean": 28,
+     "tmaxExtreme": 37.7,
+     "tminExtreme": 20.5,
+     "precipMm": 2.8,
+     "precipMmPerDay": 0.1,
+     "rh": 62.8,
+     "wind": 4.4
+    },
+    {
+     "tmean": 29.1,
+     "tmaxExtreme": 38.4,
+     "tminExtreme": 20.7,
+     "precipMm": 3.7,
+     "precipMmPerDay": 0.1,
+     "rh": 58.9,
+     "wind": 4
+    },
+    {
+     "tmean": 29.9,
+     "tmaxExtreme": 39.2,
+     "tminExtreme": 21.9,
+     "precipMm": 29.1,
+     "precipMmPerDay": 1,
+     "rh": 60.3,
+     "wind": 3.1
+    },
+    {
+     "tmean": 28.7,
+     "tmaxExtreme": 38.2,
+     "tminExtreme": 22,
+     "precipMm": 222,
+     "precipMmPerDay": 7.2,
+     "rh": 72.9,
+     "wind": 2.3
+    },
+    {
+     "tmean": 27.2,
+     "tmaxExtreme": 35.5,
+     "tminExtreme": 22.6,
+     "precipMm": 226.2,
+     "precipMmPerDay": 7.5,
+     "rh": 83.3,
+     "wind": 2.1
+    },
+    {
+     "tmean": 27.2,
+     "tmaxExtreme": 35.1,
+     "tminExtreme": 22.7,
+     "precipMm": 164.6,
+     "precipMmPerDay": 5.3,
+     "rh": 81.5,
+     "wind": 2.3
+    },
+    {
+     "tmean": 27.4,
+     "tmaxExtreme": 37.3,
+     "tminExtreme": 23,
+     "precipMm": 222,
+     "precipMmPerDay": 7.2,
+     "rh": 80.8,
+     "wind": 2.1
+    },
+    {
+     "tmean": 26.9,
+     "tmaxExtreme": 35.4,
+     "tminExtreme": 22.7,
+     "precipMm": 317.1,
+     "precipMmPerDay": 10.6,
+     "rh": 84.1,
+     "wind": 1.8
+    },
+    {
+     "tmean": 26.2,
+     "tmaxExtreme": 33.7,
+     "tminExtreme": 22.1,
+     "precipMm": 359.3,
+     "precipMmPerDay": 11.6,
+     "rh": 86.7,
+     "wind": 2
+    },
+    {
+     "tmean": 26,
+     "tmaxExtreme": 33,
+     "tminExtreme": 19.5,
+     "precipMm": 162.6,
+     "precipMmPerDay": 5.4,
+     "rh": 84.9,
+     "wind": 2.6
+    },
+    {
+     "tmean": 26.3,
+     "tmaxExtreme": 35.4,
+     "tminExtreme": 19.6,
+     "precipMm": 17.1,
+     "precipMmPerDay": 0.6,
+     "rh": 78.6,
+     "wind": 3.5
+    }
+   ]
+  },
+  "3936456": {
+   "cityId": "3936456",
+   "name": "Lima",
+   "iso2": "PE",
+   "period": "2001-2020",
+   "cell": {
+    "lat": -12.043,
+    "lon": -77.028
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 19.4,
+     "tmaxExtreme": 26.5,
+     "tminExtreme": 14.5,
+     "precipMm": 2.8,
+     "precipMmPerDay": 0.1,
+     "rh": 75.2,
+     "wind": 2.5
+    },
+    {
+     "tmean": 20,
+     "tmaxExtreme": 26.8,
+     "tminExtreme": 15.5,
+     "precipMm": 4.8,
+     "precipMmPerDay": 0.2,
+     "rh": 75.8,
+     "wind": 2.3
+    },
+    {
+     "tmean": 20.1,
+     "tmaxExtreme": 27.3,
+     "tminExtreme": 15.3,
+     "precipMm": 4.3,
+     "precipMmPerDay": 0.1,
+     "rh": 74.2,
+     "wind": 2.2
+    },
+    {
+     "tmean": 19.3,
+     "tmaxExtreme": 26.5,
+     "tminExtreme": 13.4,
+     "precipMm": 0.9,
+     "precipMmPerDay": 0,
+     "rh": 70.8,
+     "wind": 2.3
+    },
+    {
+     "tmean": 18.1,
+     "tmaxExtreme": 25.3,
+     "tminExtreme": 11.4,
+     "precipMm": 0.9,
+     "precipMmPerDay": 0,
+     "rh": 66.9,
+     "wind": 2.4
+    },
+    {
+     "tmean": 17.2,
+     "tmaxExtreme": 25.4,
+     "tminExtreme": 11,
+     "precipMm": 0.6,
+     "precipMmPerDay": 0,
+     "rh": 65.8,
+     "wind": 2.5
+    },
+    {
+     "tmean": 16.7,
+     "tmaxExtreme": 24.3,
+     "tminExtreme": 10.7,
+     "precipMm": 0.9,
+     "precipMmPerDay": 0,
+     "rh": 63.7,
+     "wind": 2.6
+    },
+    {
+     "tmean": 16.9,
+     "tmaxExtreme": 24.6,
+     "tminExtreme": 10.3,
+     "precipMm": 1.2,
+     "precipMmPerDay": 0,
+     "rh": 61.2,
+     "wind": 2.7
+    },
+    {
+     "tmean": 17.3,
+     "tmaxExtreme": 24.5,
+     "tminExtreme": 11.2,
+     "precipMm": 0.6,
+     "precipMmPerDay": 0,
+     "rh": 61.3,
+     "wind": 2.8
+    },
+    {
+     "tmean": 17.5,
+     "tmaxExtreme": 24.7,
+     "tminExtreme": 11.1,
+     "precipMm": 1.2,
+     "precipMmPerDay": 0,
+     "rh": 63.4,
+     "wind": 2.7
+    },
+    {
+     "tmean": 17.8,
+     "tmaxExtreme": 24.8,
+     "tminExtreme": 11.9,
+     "precipMm": 1.8,
+     "precipMmPerDay": 0.1,
+     "rh": 66.9,
+     "wind": 2.7
+    },
+    {
+     "tmean": 18.5,
+     "tmaxExtreme": 25.8,
+     "tminExtreme": 12.7,
+     "precipMm": 3.1,
+     "precipMmPerDay": 0.1,
+     "rh": 72,
+     "wind": 2.6
+    }
+   ]
+  },
+  "3941584": {
+   "cityId": "3941584",
+   "name": "Cusco",
+   "iso2": "PE",
+   "period": "2001-2020",
+   "cell": {
+    "lat": -13.532,
+    "lon": -71.967
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 8.5,
+     "tmaxExtreme": 18.5,
+     "tminExtreme": 1.1,
+     "precipMm": 129.3,
+     "precipMmPerDay": 4.2,
+     "rh": 82.5,
+     "wind": 1.7
+    },
+    {
+     "tmean": 8.5,
+     "tmaxExtreme": 18.5,
+     "tminExtreme": 1.1,
+     "precipMm": 126.8,
+     "precipMmPerDay": 4.5,
+     "rh": 84.4,
+     "wind": 1.7
+    },
+    {
+     "tmean": 8.3,
+     "tmaxExtreme": 18.4,
+     "tminExtreme": 1,
+     "precipMm": 95.8,
+     "precipMmPerDay": 3.1,
+     "rh": 84.7,
+     "wind": 1.6
+    },
+    {
+     "tmean": 8.2,
+     "tmaxExtreme": 19.4,
+     "tminExtreme": 0.7,
+     "precipMm": 43.5,
+     "precipMmPerDay": 1.5,
+     "rh": 83.7,
+     "wind": 1.5
+    },
+    {
+     "tmean": 7.9,
+     "tmaxExtreme": 19.9,
+     "tminExtreme": -2.8,
+     "precipMm": 8.7,
+     "precipMmPerDay": 0.3,
+     "rh": 81,
+     "wind": 1.5
+    },
+    {
+     "tmean": 7.5,
+     "tmaxExtreme": 17.8,
+     "tminExtreme": -2.6,
+     "precipMm": 4.2,
+     "precipMmPerDay": 0.1,
+     "rh": 78.1,
+     "wind": 1.6
+    },
+    {
+     "tmean": 7.2,
+     "tmaxExtreme": 19.4,
+     "tminExtreme": -4.5,
+     "precipMm": 10.5,
+     "precipMmPerDay": 0.3,
+     "rh": 74.9,
+     "wind": 1.8
+    },
+    {
+     "tmean": 7.9,
+     "tmaxExtreme": 20.7,
+     "tminExtreme": -3.4,
+     "precipMm": 8.4,
+     "precipMmPerDay": 0.3,
+     "rh": 72,
+     "wind": 2
+    },
+    {
+     "tmean": 8.5,
+     "tmaxExtreme": 20.8,
+     "tminExtreme": -1,
+     "precipMm": 18,
+     "precipMmPerDay": 0.6,
+     "rh": 72.4,
+     "wind": 2.2
+    },
+    {
+     "tmean": 8.9,
+     "tmaxExtreme": 22.4,
+     "tminExtreme": -1.2,
+     "precipMm": 63.2,
+     "precipMmPerDay": 2,
+     "rh": 74.3,
+     "wind": 2
+    },
+    {
+     "tmean": 9.1,
+     "tmaxExtreme": 20.8,
+     "tminExtreme": 1.5,
+     "precipMm": 71.7,
+     "precipMmPerDay": 2.4,
+     "rh": 76.2,
+     "wind": 1.9
+    },
+    {
+     "tmean": 8.8,
+     "tmaxExtreme": 19.7,
+     "tminExtreme": 1.4,
+     "precipMm": 137,
+     "precipMmPerDay": 4.4,
+     "rh": 80.2,
+     "wind": 1.8
+    }
+   ]
+  },
+  "4164138": {
+   "cityId": "4164138",
+   "name": "Miami",
+   "iso2": "US",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 25.774,
+    "lon": -80.194
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 21.2,
+     "tmaxExtreme": 26.9,
+     "tminExtreme": 5.9,
+     "precipMm": 43.7,
+     "precipMmPerDay": 1.4,
+     "rh": 75.3,
+     "wind": 4.7
+    },
+    {
+     "tmean": 22.1,
+     "tmaxExtreme": 27.4,
+     "tminExtreme": 8.8,
+     "precipMm": 48.9,
+     "precipMmPerDay": 1.7,
+     "rh": 75.5,
+     "wind": 4.6
+    },
+    {
+     "tmean": 23,
+     "tmaxExtreme": 29.2,
+     "tminExtreme": 10.9,
+     "precipMm": 55.8,
+     "precipMmPerDay": 1.8,
+     "rh": 72.7,
+     "wind": 4.8
+    },
+    {
+     "tmean": 24.7,
+     "tmaxExtreme": 31.4,
+     "tminExtreme": 15.1,
+     "precipMm": 75.9,
+     "precipMmPerDay": 2.5,
+     "rh": 72.6,
+     "wind": 4.6
+    },
+    {
+     "tmean": 26.3,
+     "tmaxExtreme": 31.9,
+     "tminExtreme": 20,
+     "precipMm": 135.5,
+     "precipMmPerDay": 4.4,
+     "rh": 74.7,
+     "wind": 4.3
+    },
+    {
+     "tmean": 28,
+     "tmaxExtreme": 31.7,
+     "tminExtreme": 24.2,
+     "precipMm": 191.4,
+     "precipMmPerDay": 6.4,
+     "rh": 77.8,
+     "wind": 3.4
+    },
+    {
+     "tmean": 28.7,
+     "tmaxExtreme": 31.9,
+     "tminExtreme": 25.1,
+     "precipMm": 165.2,
+     "precipMmPerDay": 5.3,
+     "rh": 76.5,
+     "wind": 3.2
+    },
+    {
+     "tmean": 29,
+     "tmaxExtreme": 31.7,
+     "tminExtreme": 26,
+     "precipMm": 181.7,
+     "precipMmPerDay": 5.9,
+     "rh": 76.8,
+     "wind": 3.3
+    },
+    {
+     "tmean": 28.3,
+     "tmaxExtreme": 31.5,
+     "tminExtreme": 23.2,
+     "precipMm": 189.6,
+     "precipMmPerDay": 6.3,
+     "rh": 78.2,
+     "wind": 3.7
+    },
+    {
+     "tmean": 26.9,
+     "tmaxExtreme": 30.8,
+     "tminExtreme": 16.3,
+     "precipMm": 123.7,
+     "precipMmPerDay": 4,
+     "rh": 76.4,
+     "wind": 4.6
+    },
+    {
+     "tmean": 24.4,
+     "tmaxExtreme": 29.4,
+     "tminExtreme": 13.1,
+     "precipMm": 64.2,
+     "precipMmPerDay": 2.1,
+     "rh": 74.9,
+     "wind": 4.8
+    },
+    {
+     "tmean": 22.8,
+     "tmaxExtreme": 27.8,
+     "tminExtreme": 7,
+     "precipMm": 50.8,
+     "precipMmPerDay": 1.6,
+     "rh": 76.9,
+     "wind": 4.7
+    }
+   ]
+  },
+  "5128581": {
+   "cityId": "5128581",
+   "name": "New York City",
+   "iso2": "US",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 40.714,
+    "lon": -74.006
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 1.1,
+     "tmaxExtreme": 15.8,
+     "tminExtreme": -13.5,
+     "precipMm": 99.2,
+     "precipMmPerDay": 3.2,
+     "rh": 82.2,
+     "wind": 5.2
+    },
+    {
+     "tmean": 1.4,
+     "tmaxExtreme": 14.3,
+     "tminExtreme": -14.4,
+     "precipMm": 95.2,
+     "precipMmPerDay": 3.4,
+     "rh": 80.8,
+     "wind": 5
+    },
+    {
+     "tmean": 4.2,
+     "tmaxExtreme": 17,
+     "tminExtreme": -10.8,
+     "precipMm": 113.5,
+     "precipMmPerDay": 3.7,
+     "rh": 80.7,
+     "wind": 4.7
+    },
+    {
+     "tmean": 9.1,
+     "tmaxExtreme": 24.9,
+     "tminExtreme": -2.2,
+     "precipMm": 106.8,
+     "precipMmPerDay": 3.6,
+     "rh": 81.6,
+     "wind": 4.1
+    },
+    {
+     "tmean": 14.3,
+     "tmaxExtreme": 26.8,
+     "tminExtreme": 2.7,
+     "precipMm": 100.8,
+     "precipMmPerDay": 3.3,
+     "rh": 83.8,
+     "wind": 3.5
+    },
+    {
+     "tmean": 19.9,
+     "tmaxExtreme": 30.8,
+     "tminExtreme": 9.7,
+     "precipMm": 114.6,
+     "precipMmPerDay": 3.8,
+     "rh": 82.9,
+     "wind": 3.2
+    },
+    {
+     "tmean": 23.7,
+     "tmaxExtreme": 34.3,
+     "tminExtreme": 14.8,
+     "precipMm": 113.8,
+     "precipMmPerDay": 3.7,
+     "rh": 79.5,
+     "wind": 3.2
+    },
+    {
+     "tmean": 23.7,
+     "tmaxExtreme": 32.4,
+     "tminExtreme": 15.8,
+     "precipMm": 113.8,
+     "precipMmPerDay": 3.7,
+     "rh": 77.7,
+     "wind": 3.2
+    },
+    {
+     "tmean": 20.6,
+     "tmaxExtreme": 30.2,
+     "tminExtreme": 10.7,
+     "precipMm": 96.6,
+     "precipMmPerDay": 3.2,
+     "rh": 77.2,
+     "wind": 3.8
+    },
+    {
+     "tmean": 14.9,
+     "tmaxExtreme": 28.9,
+     "tminExtreme": 3.1,
+     "precipMm": 123.7,
+     "precipMmPerDay": 4,
+     "rh": 77.9,
+     "wind": 4.6
+    },
+    {
+     "tmean": 9.3,
+     "tmaxExtreme": 20.3,
+     "tminExtreme": -4.6,
+     "precipMm": 101.1,
+     "precipMmPerDay": 3.4,
+     "rh": 79.4,
+     "wind": 4.7
+    },
+    {
+     "tmean": 4.5,
+     "tmaxExtreme": 17.9,
+     "tminExtreme": -10.7,
+     "precipMm": 132.7,
+     "precipMmPerDay": 4.3,
+     "rh": 81.8,
+     "wind": 5
+    }
+   ]
+  },
+  "5391959": {
+   "cityId": "5391959",
+   "name": "San Francisco",
+   "iso2": "US",
+   "period": "2001-2020",
+   "cell": {
+    "lat": 37.775,
+    "lon": -122.419
+   },
+   "cellKm": 0,
+   "sources": [
+    "MERRA2",
+    "POWER"
+   ],
+   "months": [
+    {
+     "tmean": 9.4,
+     "tmaxExtreme": 21,
+     "tminExtreme": -0.7,
+     "precipMm": 100.1,
+     "precipMmPerDay": 3.2,
+     "rh": 84.1,
+     "wind": 2.1
+    },
+    {
+     "tmean": 10.3,
+     "tmaxExtreme": 22.2,
+     "tminExtreme": 1.1,
+     "precipMm": 102.3,
+     "precipMmPerDay": 3.6,
+     "rh": 82.1,
+     "wind": 2.3
+    },
+    {
+     "tmean": 11.4,
+     "tmaxExtreme": 24.7,
+     "tminExtreme": 1.3,
+     "precipMm": 82.5,
+     "precipMmPerDay": 2.7,
+     "rh": 81.8,
+     "wind": 2.3
+    },
+    {
+     "tmean": 12.2,
+     "tmaxExtreme": 29.6,
+     "tminExtreme": 3.1,
+     "precipMm": 41.7,
+     "precipMmPerDay": 1.4,
+     "rh": 79.7,
+     "wind": 2.4
+    },
+    {
+     "tmean": 14,
+     "tmaxExtreme": 33.7,
+     "tminExtreme": 5,
+     "precipMm": 18.3,
+     "precipMmPerDay": 0.6,
+     "rh": 77.7,
+     "wind": 2.5
+    },
+    {
+     "tmean": 16,
+     "tmaxExtreme": 34.3,
+     "tminExtreme": 7.6,
+     "precipMm": 6,
+     "precipMmPerDay": 0.2,
+     "rh": 73.6,
+     "wind": 2.5
+    },
+    {
+     "tmean": 16.8,
+     "tmaxExtreme": 33.4,
+     "tminExtreme": 9.5,
+     "precipMm": 1.2,
+     "precipMmPerDay": 0,
+     "rh": 74.3,
+     "wind": 2.4
+    },
+    {
+     "tmean": 17.3,
+     "tmaxExtreme": 35.5,
+     "tminExtreme": 9.9,
+     "precipMm": 1.2,
+     "precipMmPerDay": 0,
+     "rh": 74.1,
+     "wind": 2.3
+    },
+    {
+     "tmean": 17.6,
+     "tmaxExtreme": 39,
+     "tminExtreme": 9.3,
+     "precipMm": 3.6,
+     "precipMmPerDay": 0.1,
+     "rh": 69.7,
+     "wind": 2.1
+    },
+    {
+     "tmean": 15.9,
+     "tmaxExtreme": 34.3,
+     "tminExtreme": 5.8,
+     "precipMm": 29.5,
+     "precipMmPerDay": 1,
+     "rh": 69.1,
+     "wind": 1.9
+    },
+    {
+     "tmean": 12.4,
+     "tmaxExtreme": 27.7,
+     "tminExtreme": 0.7,
+     "precipMm": 61.8,
+     "precipMmPerDay": 2.1,
+     "rh": 76,
+     "wind": 1.9
+    },
+    {
+     "tmean": 9.6,
+     "tmaxExtreme": 20.2,
+     "tminExtreme": -0.8,
+     "precipMm": 138.3,
+     "precipMmPerDay": 4.5,
+     "rh": 81.9,
+     "wind": 2.2
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "country": "fr",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 945,
+ "family": "neighbourhoods.city-where-to-stay",
+ "market": "fr-FR",
+ "note": "Discovered from the market head term for city districts and resolved to a city by subtraction against the names that market actually used. A remainder that is not one of those names is refused, which is what keeps a map request, a best and worst question and a city with no district data out.",
+ "keywords": [
+  {
+   "keyword": "new york quartiers",
+   "volume": 800,
+   "difficulty": 1
+  },
+  {
+   "keyword": "quartiers de londres",
+   "volume": 500,
+   "difficulty": 0
+  },
+  {
+   "keyword": "les quartiers de barcelone",
+   "volume": 500,
+   "difficulty": 0
+  },
+  {
+   "keyword": "paris quartiers",
+   "volume": 450,
+   "difficulty": 0
+  },
+  {
+   "keyword": "quartiers lyon",
+   "volume": 350,
+   "difficulty": 1
+  },
+  {
+   "keyword": "marseille quartiers",
+   "volume": 350,
+   "difficulty": 1
+  },
+  {
+   "keyword": "quartiers tokyo",
+   "volume": 300,
+   "difficulty": 0
+  }
+ ]
+}

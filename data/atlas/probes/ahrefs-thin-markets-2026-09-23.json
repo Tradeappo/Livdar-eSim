@@ -1,0 +1,246 @@
+{
+ "note": "Native language demand probe for the four markets the shared seed research on 2026-09-23 found thin. Ten head phrasings per market, written in the market own language rather than translated from English, so the question asked is whether demand exists there at all rather than whether the English shape translates. A keyword absent from a result set is one Ahrefs returned no row for, which is a stronger negative than a zero.",
+ "caution": "Ten phrasings is a probe, not a survey. It can show that demand exists and where it sits. It cannot show that demand is absent, only that it was not found on these phrasings.",
+ "provider": "ahrefs",
+ "tool": "keywords-explorer-overview",
+ "select": "keyword,volume,difficulty,cpc",
+ "measuredOn": "2026-09-23",
+ "unitsPerRow": 22,
+ "unitsTotal": 682,
+ "markets": {
+  "ja-JP": {
+   "country": "jp",
+   "asked": 10,
+   "returned": 10,
+   "finding": "Demand exists but not on this cluster. The one head term is working holiday cost at 2,500 a month with difficulty 0, which is a work and visa intent, not a cost of living one. Cost of living and relocation phrasings sit at 10 to 100.",
+   "keywords": [
+    {
+     "keyword": "ワーキングホリデー 費用",
+     "volume": 2500,
+     "difficulty": 0,
+     "cpc": 30
+    },
+    {
+     "keyword": "海外移住 手続き",
+     "volume": 100,
+     "difficulty": 1,
+     "cpc": 1
+    },
+    {
+     "keyword": "物価 安い 国",
+     "volume": 60,
+     "difficulty": null,
+     "cpc": 2
+    },
+    {
+     "keyword": "物価 比較",
+     "volume": 60,
+     "difficulty": 4,
+     "cpc": null
+    },
+    {
+     "keyword": "海外移住 費用",
+     "volume": 50,
+     "difficulty": 0,
+     "cpc": 80
+    },
+    {
+     "keyword": "海外 生活費",
+     "volume": 10,
+     "difficulty": null,
+     "cpc": null
+    },
+    {
+     "keyword": "海外移住 おすすめ 国",
+     "volume": 10,
+     "difficulty": 0,
+     "cpc": 25
+    },
+    {
+     "keyword": "ビザ 取得 費用",
+     "volume": 10,
+     "difficulty": null,
+     "cpc": null
+    },
+    {
+     "keyword": "海外 家賃 相場",
+     "volume": 0,
+     "difficulty": null,
+     "cpc": null
+    },
+    {
+     "keyword": "海外 就職 給料",
+     "volume": 0,
+     "difficulty": null,
+     "cpc": null
+    }
+   ]
+  },
+  "zh-Hant-TW": {
+   "country": "tw",
+   "asked": 10,
+   "returned": 5,
+   "finding": "Nothing found. Five of the ten phrasings returned no row at all and the five that did total twenty searches a month between them. This is the weakest result of the four and it matches the shared seed research, where the largest common keyword set in Taiwan was ten.",
+   "keywords": [
+    {
+     "keyword": "移民 條件",
+     "volume": 10,
+     "difficulty": null,
+     "cpc": 30
+    },
+    {
+     "keyword": "簽證 費用",
+     "volume": 10,
+     "difficulty": null,
+     "cpc": null
+    },
+    {
+     "keyword": "移民 費用",
+     "volume": 0,
+     "difficulty": null,
+     "cpc": 35
+    },
+    {
+     "keyword": "打工度假 費用",
+     "volume": 0,
+     "difficulty": null,
+     "cpc": null
+    },
+    {
+     "keyword": "移民 推薦 國家",
+     "volume": 0,
+     "difficulty": null,
+     "cpc": null
+    }
+   ],
+   "notReturned": [
+    "國外 生活費",
+    "物價 比較",
+    "物價 最低 國家",
+    "海外 工作 薪水",
+    "國外 房租"
+   ]
+  },
+  "pl-PL": {
+   "country": "pl",
+   "asked": 10,
+   "returned": 9,
+   "finding": "Demand exists and it is entity bound. The generic phrase, koszty życia, takes 90 a month. One country variant, ceny w chorwacji, takes 600 at difficulty 1. That is a seven to one ratio in favour of the country page over the concept page, which is the cost-of-living.item-country and cost-of-living.country shape rather than the relocation one.",
+   "keywords": [
+    {
+     "keyword": "ceny w chorwacji",
+     "volume": 600,
+     "difficulty": 1,
+     "cpc": 2
+    },
+    {
+     "keyword": "koszty życia",
+     "volume": 90,
+     "difficulty": 0,
+     "cpc": null
+    },
+    {
+     "keyword": "średnie zarobki w holandii",
+     "volume": 80,
+     "difficulty": 0,
+     "cpc": null
+    },
+    {
+     "keyword": "najtańsze kraje do życia",
+     "volume": 80,
+     "difficulty": 0,
+     "cpc": null
+    },
+    {
+     "keyword": "ile kosztuje życie w norwegii",
+     "volume": 70,
+     "difficulty": 3,
+     "cpc": null
+    },
+    {
+     "keyword": "emigracja zarobkowa",
+     "volume": 70,
+     "difficulty": 0,
+     "cpc": null
+    },
+    {
+     "keyword": "koszty życia w niemczech",
+     "volume": 60,
+     "difficulty": 0,
+     "cpc": 1
+    },
+    {
+     "keyword": "praca za granicą zarobki",
+     "volume": 10,
+     "difficulty": null,
+     "cpc": 4
+    },
+    {
+     "keyword": "wynajem mieszkania ceny",
+     "volume": 10,
+     "difficulty": 1,
+     "cpc": 1
+    }
+   ],
+   "notReturned": [
+    "koszt życia za granicą"
+   ]
+  },
+  "nl-NL": {
+   "country": "nl",
+   "asked": 10,
+   "returned": 7,
+   "finding": "Demand exists and it is a relocation intent. Emigreren naar portugal takes 500 at difficulty 0 with a measurable cost per click, which is the relocation.country shape with a country in it. The concept phrase takes 60. Same entity bound pattern as Polish, different vertical.",
+   "keywords": [
+    {
+     "keyword": "emigreren naar portugal",
+     "volume": 500,
+     "difficulty": 0,
+     "cpc": 25
+    },
+    {
+     "keyword": "gemiddeld salaris duitsland",
+     "volume": 70,
+     "difficulty": 0,
+     "cpc": null
+    },
+    {
+     "keyword": "kosten van levensonderhoud",
+     "volume": 60,
+     "difficulty": 1,
+     "cpc": null
+    },
+    {
+     "keyword": "goedkoopste land om te wonen",
+     "volume": 50,
+     "difficulty": 0,
+     "cpc": 7
+    },
+    {
+     "keyword": "wat kost het leven in spanje",
+     "volume": 20,
+     "difficulty": 0,
+     "cpc": null
+    },
+    {
+     "keyword": "prijzen in turkije",
+     "volume": 20,
+     "difficulty": 43,
+     "cpc": 35
+    },
+    {
+     "keyword": "huurprijzen berlijn",
+     "volume": 0,
+     "difficulty": null,
+     "cpc": null
+    }
+   ],
+   "notReturned": [
+    "werken in het buitenland salaris",
+    "verhuizen naar het buitenland kosten",
+    "levensonderhoud buitenland"
+   ]
+  }
+ },
+ "conclusion": "Three of the four thin markets have demand; it simply does not sit where an English taxonomy would put it. Japanese concentrates on working holiday cost, Polish on prices in a named country, Dutch on emigrating to a named country. Taiwan is the one market where nothing was found on either method, and it is the one that should not carry these families until a probe designed by somebody who reads the market says otherwise. In all three markets that do have demand, the country bound phrasing outperforms the concept phrasing by between five and seven times, which is an argument for the country level families added on 2026-09-23 and against generic concept hubs."
+}

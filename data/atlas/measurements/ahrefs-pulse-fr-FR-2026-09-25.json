@@ -1,0 +1,127 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "fr",
+ "market": "fr-FR",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 264,
+ "families": [
+  "events.country-holidays",
+  "events.subdivision-holidays"
+ ],
+ "note": "Public holiday demand in this market, for the countries and regions the holiday source covers. Constructed keywords rather than discovered ones: a holiday page is about a named place in a named year and there is no head term to subtract a place out of. Every phrasing asked is here, including the ones with no demand.",
+ "caution": "A null volume means the provider returned no row for that phrase. That is weaker evidence than a measured zero, and neither is treated as demand.",
+ "keywords": [
+  {
+   "keyword": "jours feries geneve 2026",
+   "volume": 100,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.subdivision-holidays",
+   "entity": "CH-GE",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries luxembourg 2026",
+   "volume": 90,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "LU",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries belgique 2026",
+   "volume": 70,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "BE",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries espagne 2026",
+   "volume": 60,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "ES",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries allemagne 2026",
+   "volume": 30,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "DE",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries suisse 2026",
+   "volume": 20,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "CH",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries portugal 2026",
+   "volume": 20,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "PT",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries italie 2026",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.country-holidays",
+   "entity": "IT",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries guadeloupe 2026",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.subdivision-holidays",
+   "entity": "FR-GP",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries martinique 2026",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.subdivision-holidays",
+   "entity": "FR-MQ",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries guyane 2026",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "events.subdivision-holidays",
+   "entity": "FR-GY",
+   "market": "fr-FR"
+  },
+  {
+   "keyword": "jours feries 2027",
+   "volume": 3200,
+   "difficulty": 2,
+   "cpc": 6,
+   "family": "events.country-holidays",
+   "entity": "FR",
+   "market": "fr-FR"
+  }
+ ],
+ "notReturned": []
+}

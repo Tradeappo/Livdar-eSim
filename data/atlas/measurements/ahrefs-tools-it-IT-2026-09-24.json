@@ -1,0 +1,94 @@
+{
+ "country": "it",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 198,
+ "measuredOn": "2026-09-24",
+ "market": "it-IT",
+ "families": [
+  "tools.calculator",
+  "tools.cost-comparison",
+  "tools.cost-calculator",
+  "tools.matcher",
+  "rankings.index"
+ ],
+ "note": "Tool and ranking demand, measured in the language of each market rather than translated from English. The phrasings are the ones a resident of that market would type, so the German row for the moving calculator is umzugskosten rechner and the British one is removal costs calculator, and neither is a translation of the other. Zero volume rows are kept because a measured zero is a finding: it says this shape of page should not be built in this market.",
+ "notReturned": [
+  "costo trasferirsi all'estero",
+  "paesi piu economici in cui vivere"
+ ],
+ "keywords": [
+  {
+   "keyword": "calcolo stipendio",
+   "volume": 2200,
+   "difficulty": 6,
+   "cpc": 3,
+   "family": "tools.calculator",
+   "entity": "salary-calculator"
+  },
+  {
+   "keyword": "confronto costo della vita",
+   "volume": 10,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "cost-of-living-comparison"
+  },
+  {
+   "keyword": "calcolo costo della vita",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-calculator",
+   "entity": "cost-of-living-calculator"
+  },
+  {
+   "keyword": "preventivo trasloco",
+   "volume": 250,
+   "difficulty": 3,
+   "cpc": 300,
+   "family": "tools.calculator",
+   "entity": "moving-cost"
+  },
+  {
+   "keyword": "dove vivere",
+   "volume": 40,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-live"
+  },
+  {
+   "keyword": "calcolo budget viaggio",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.calculator",
+   "entity": "travel-budget"
+  },
+  {
+   "keyword": "confronto citta",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "city-comparison"
+  },
+  {
+   "keyword": "paesi piu cari del mondo",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "most-expensive-countries"
+  },
+  {
+   "keyword": "paesi piu economici d'europa",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "cheapest-countries-europe"
+  }
+ ]
+}

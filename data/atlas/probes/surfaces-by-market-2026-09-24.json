@@ -1,0 +1,141 @@
+{
+ "note": "The same three surfaces, Areas, Pulse and Stay, asked in the local language about the local capital, in nine markets. This is the follow up to the surfaces probe, and its purpose was to find out whether the pattern found in German and Spanish holds elsewhere. It does, and it overturns a conclusion reached the day before.",
+ "headline": "All eleven primary markets have real demand for Areas, Pulse and Stay, including the four that the cost of living research on 23 September called thin. Those four were thin for one vertical, not for the product. The market gate has to be per surface rather than per market, and that is an architectural correction rather than an adjustment.",
+ "caution": "Eight phrasings per market against one capital city. It sizes an intent and it does not enumerate a market. A phrasing in notReturned is one the provider had no row for at all.",
+ "provider": "ahrefs",
+ "tool": "keywords-explorer-overview",
+ "select": "keyword,volume,difficulty,cpc",
+ "measuredOn": "2026-09-24",
+ "cpcUnit": "USD cents, as the API returns them",
+ "unitsPerRow": 22,
+ "unitsTotal": 1364,
+ "markets": {
+  "fr-FR": {
+   "country": "fr", "city": "Paris", "asked": 8, "returned": 8,
+   "finding": "Shared flats are the story. Colocation paris is 5,000 a month at difficulty 5, the largest Stay term measured in any market. Coworking paris carries a three dollar cost per click.",
+   "keywords": [
+    { "keyword": "colocation paris", "volume": 5000, "difficulty": 5, "cpc": 40, "surface": "stay" },
+    { "keyword": "coworking paris", "volume": 2800, "difficulty": 75, "cpc": 300, "surface": "areas" },
+    { "keyword": "coliving paris", "volume": 2400, "difficulty": 0, "cpc": 40, "surface": "stay" },
+    { "keyword": "que faire à paris ce week-end", "volume": 800, "difficulty": 4, "cpc": 30, "surface": "pulse" },
+    { "keyword": "événements paris aujourd'hui", "volume": 800, "difficulty": 25, "cpc": 30, "surface": "pulse" },
+    { "keyword": "appartement meublé paris", "volume": 250, "difficulty": 0, "cpc": 30, "surface": "stay" },
+    { "keyword": "restaurants le marais", "volume": 100, "difficulty": 2, "cpc": 20, "surface": "areas" },
+    { "keyword": "meilleurs quartiers de paris", "volume": 90, "difficulty": 0, "cpc": null, "surface": "areas" }
+   ],
+   "notReturned": []
+  },
+  "it-IT": {
+   "country": "it", "city": "Milano", "asked": 8, "returned": 8,
+   "finding": "Pulse and Stay both strong and both easy. Events today is 2,700 at difficulty 8, the weekend hub 2,200 at difficulty 9, rooms to rent 1,400 at difficulty 0.",
+   "keywords": [
+    { "keyword": "eventi milano oggi", "volume": 2700, "difficulty": 8, "cpc": 40, "surface": "pulse" },
+    { "keyword": "cosa fare a milano questo weekend", "volume": 2200, "difficulty": 9, "cpc": 35, "surface": "pulse" },
+    { "keyword": "coworking milano", "volume": 1500, "difficulty": 23, "cpc": 250, "surface": "areas" },
+    { "keyword": "stanze in affitto milano", "volume": 1400, "difficulty": 0, "cpc": 10, "surface": "stay" },
+    { "keyword": "coliving milano", "volume": 250, "difficulty": 0, "cpc": 50, "surface": "stay" },
+    { "keyword": "ristoranti navigli", "volume": 100, "difficulty": null, "cpc": 20, "surface": "areas" },
+    { "keyword": "migliori quartieri di milano", "volume": 60, "difficulty": 0, "cpc": null, "surface": "areas" },
+    { "keyword": "appartamenti arredati milano", "volume": 10, "difficulty": 0, "cpc": 7, "surface": "stay" }
+   ],
+   "notReturned": []
+  },
+  "en-GB": {
+   "country": "gb", "city": "London", "asked": 8, "returned": 8,
+   "finding": "The highest cost per click measured anywhere in the whole Atlas research is here: coworking london at six dollars. Rooms to rent is 1,700 at difficulty 1 and restaurants in a named neighbourhood is 1,300 at difficulty 4.",
+   "keywords": [
+    { "keyword": "events in london today", "volume": 3100, "difficulty": 42, "cpc": 40, "surface": "pulse" },
+    { "keyword": "rooms to rent london", "volume": 1700, "difficulty": 1, "cpc": 15, "surface": "stay" },
+    { "keyword": "serviced apartments london", "volume": 1600, "difficulty": 27, "cpc": 120, "surface": "stay" },
+    { "keyword": "restaurants in shoreditch", "volume": 1300, "difficulty": 4, "cpc": 50, "surface": "areas" },
+    { "keyword": "best areas to live in london", "volume": 700, "difficulty": 0, "cpc": 60, "surface": "areas" },
+    { "keyword": "coworking london", "volume": 700, "difficulty": 38, "cpc": 600, "surface": "areas" },
+    { "keyword": "coliving london", "volume": 450, "difficulty": 35, "cpc": 80, "surface": "stay" },
+    { "keyword": "best neighbourhoods in london", "volume": 100, "difficulty": 0, "cpc": 6, "surface": "areas" }
+   ],
+   "notReturned": []
+  },
+  "pl-PL": {
+   "country": "pl", "city": "Warszawa", "asked": 8, "returned": 7,
+   "finding": "Called thin on 23 September, which was a conclusion about cost of living. Events today is 1,900, rooms to rent 1,700 at difficulty 0, coworking 1,200 at a one dollar twenty cost per click. This market is not thin for the product.",
+   "correctsEarlier": "lib/atlas/markets.js atlasCluster commonKeywordsTop 58",
+   "keywords": [
+    { "keyword": "wydarzenia warszawa dzisiaj", "volume": 1900, "difficulty": 11, "cpc": 7, "surface": "pulse" },
+    { "keyword": "pokoje do wynajęcia warszawa", "volume": 1700, "difficulty": 0, "cpc": 3, "surface": "stay" },
+    { "keyword": "coworking warszawa", "volume": 1200, "difficulty": 3, "cpc": 120, "surface": "areas" },
+    { "keyword": "restauracje mokotów", "volume": 400, "difficulty": 56, "cpc": 25, "surface": "areas" },
+    { "keyword": "co robić w warszawie w weekend", "volume": 200, "difficulty": 5, "cpc": 8, "surface": "pulse" },
+    { "keyword": "najlepsze dzielnice warszawy", "volume": 200, "difficulty": 0, "cpc": 15, "surface": "areas" },
+    { "keyword": "coliving warszawa", "volume": 50, "difficulty": 0, "cpc": 35, "surface": "stay" }
+   ],
+   "notReturned": ["mieszkanie umeblowane warszawa"]
+  },
+  "nl-NL": {
+   "country": "nl", "city": "Amsterdam", "asked": 8, "returned": 8,
+   "finding": "Also called thin on 23 September. The weekend hub is 1,100, events today 700, restaurants in a named neighbourhood 500, coworking 300 at a three dollar cost per click. Smaller than the big markets, which is what a seventeen million person country looks like, and not thin.",
+   "correctsEarlier": "lib/atlas/markets.js atlasCluster commonKeywordsTop 55",
+   "keywords": [
+    { "keyword": "wat te doen in amsterdam dit weekend", "volume": 1100, "difficulty": 12, "cpc": 10, "surface": "pulse" },
+    { "keyword": "evenementen amsterdam vandaag", "volume": 700, "difficulty": 33, "cpc": 15, "surface": "pulse" },
+    { "keyword": "restaurants de pijp", "volume": 500, "difficulty": 2, "cpc": 30, "surface": "areas" },
+    { "keyword": "kamer huren amsterdam", "volume": 400, "difficulty": 1, "cpc": 35, "surface": "stay" },
+    { "keyword": "coworking amsterdam", "volume": 300, "difficulty": 4, "cpc": 300, "surface": "areas" },
+    { "keyword": "coliving amsterdam", "volume": 80, "difficulty": 20, "cpc": 40, "surface": "stay" },
+    { "keyword": "beste wijken amsterdam", "volume": 40, "difficulty": null, "cpc": null, "surface": "areas" },
+    { "keyword": "gemeubileerd appartement amsterdam", "volume": 10, "difficulty": null, "cpc": 30, "surface": "stay" }
+   ],
+   "notReturned": []
+  },
+  "pt-BR": {
+   "country": "br", "city": "São Paulo", "asked": 8, "returned": 8,
+   "finding": "Coworking leads at 1,100 with a one dollar cost per click. Rooms and furnished flats at 600 each with difficulty 0. The weekend phrasing is weak here and events today is not, which is a wording finding rather than a demand one.",
+   "keywords": [
+    { "keyword": "coworking são paulo", "volume": 1100, "difficulty": 23, "cpc": 100, "surface": "areas" },
+    { "keyword": "quartos para alugar são paulo", "volume": 600, "difficulty": 0, "cpc": 10, "surface": "stay" },
+    { "keyword": "apartamento mobiliado são paulo", "volume": 600, "difficulty": 0, "cpc": 15, "surface": "stay" },
+    { "keyword": "eventos em são paulo hoje", "volume": 400, "difficulty": 3, "cpc": 10, "surface": "pulse" },
+    { "keyword": "coliving são paulo", "volume": 400, "difficulty": 17, "cpc": 30, "surface": "stay" },
+    { "keyword": "restaurantes na vila madalena", "volume": 250, "difficulty": 0, "cpc": 1, "surface": "areas" },
+    { "keyword": "melhores bairros de são paulo", "volume": 250, "difficulty": 0, "cpc": 1, "surface": "areas" },
+    { "keyword": "o que fazer em são paulo neste fim de semana", "volume": 70, "difficulty": null, "cpc": null, "surface": "pulse" }
+   ],
+   "notReturned": []
+  },
+  "ja-JP": {
+   "country": "jp", "city": "Tokyo", "asked": 8, "returned": 7,
+   "finding": "The largest correction of all. On 23 September the cost of living seed found sixteen common keywords in Japan and the native probe found one head term on working holiday cost. Asked about the product instead, share houses in Tokyo is 5,400 a month and events in Tokyo today is 2,700 at difficulty 1, which is close to the best ratio of demand to difficulty anywhere in the programme.",
+   "correctsEarlier": "lib/atlas/markets.js atlasCluster commonKeywordsTop 16 and the nativeProbe finding of demand on a different intent",
+   "keywords": [
+    { "keyword": "シェアハウス 東京", "volume": 5400, "difficulty": 51, "cpc": 25, "surface": "stay" },
+    { "keyword": "東京 イベント 今日", "volume": 2700, "difficulty": 1, "cpc": 25, "surface": "pulse" },
+    { "keyword": "コワーキングスペース 東京", "volume": 1200, "difficulty": 2, "cpc": 50, "surface": "areas" },
+    { "keyword": "中目黒 レストラン", "volume": 150, "difficulty": 0, "cpc": 2, "surface": "areas" },
+    { "keyword": "今週末 東京 イベント", "volume": 100, "difficulty": 2, "cpc": 30, "surface": "pulse" },
+    { "keyword": "家具付き アパート 東京", "volume": 30, "difficulty": null, "cpc": null, "surface": "stay" },
+    { "keyword": "東京 住みやすい 街", "volume": 10, "difficulty": null, "cpc": null, "surface": "areas" }
+   ],
+   "notReturned": ["東京 週末 遊び"]
+  },
+  "zh-Hant-TW": {
+   "country": "tw", "city": "Taipei", "asked": 8, "returned": 7,
+   "finding": "The market where nothing at all was found on 23 September, twice, by two methods. Restaurant recommendations in Taipei is 800 at difficulty 0, renting in Taipei 700, a day out in Taipei 300, and a shared office 200 at a one dollar ten cost per click. Small, and not empty. Taiwan is an Areas and Stay market and not a cost of living market.",
+   "correctsEarlier": "lib/atlas/markets.js atlasCluster commonKeywordsTop 10 and the nativeProbe finding of nothing",
+   "keywords": [
+    { "keyword": "台北 餐廳 推薦", "volume": 800, "difficulty": 0, "cpc": 5, "surface": "areas" },
+    { "keyword": "台北 租屋", "volume": 700, "difficulty": 9, "cpc": 2, "surface": "stay" },
+    { "keyword": "台北 一日遊", "volume": 300, "difficulty": 2, "cpc": 1, "surface": "pulse" },
+    { "keyword": "共享辦公室 台北", "volume": 200, "difficulty": 8, "cpc": 110, "surface": "areas" },
+    { "keyword": "台北 週末 活動", "volume": 60, "difficulty": 1, "cpc": null, "surface": "pulse" },
+    { "keyword": "台北 活動 今天", "volume": 30, "difficulty": 10, "cpc": null, "surface": "pulse" },
+    { "keyword": "台北 套房 出租", "volume": 30, "difficulty": null, "cpc": null, "surface": "stay" }
+   ],
+   "notReturned": ["台北 適合居住 區域"]
+  }
+ },
+ "conclusions": [
+  "The market gate was asking the wrong question. It asked whether a market has demand, and a market does not have demand: a market has demand for a surface. Japan and Taiwan were judged thin against a cost of living seed and both are real Areas and Stay markets. Poland and the Netherlands were judged thin the same way and both carry Pulse terms in the thousands. The gate belongs at the surface level.",
+  "Coworking is the highest value single category in the programme and it is a category inside a places family rather than a family of its own. Coworking London carries a six dollar cost per click, Berlin and Barcelona and Amsterdam three to four dollars, Warsaw one dollar twenty, Tokyo fifty cents. It is measured in eight of the nine markets probed.",
+  "Rooms and shared housing are the largest Stay intent everywhere and they are almost invisible in English. Colocation Paris 5,000, share houses Tokyo 5,400, rooms in Warsaw 1,700 at difficulty 0, rooms in London 1,700 at difficulty 1, rooms in Barcelona 1,600 at difficulty 2, rooms in Berlin 1,600, rooms in Milan 1,400 at difficulty 0. The equivalent English phrasing about a foreign city returned no row at all.",
+  "Events today is a better target than events this weekend in five of the nine markets, and the reverse in the others. Both windows are in the family and which one leads is a market by market fact rather than a global one. Tokyo events today at difficulty 1 with 2,700 searches is the single easiest large term found in the entire Atlas research."
+ ]
+}

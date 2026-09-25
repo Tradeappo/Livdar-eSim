@@ -1,0 +1,79 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "pl",
+ "market": "pl-PL",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 138,
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison"
+ ],
+ "note": "The second pass over the Tools surface. Constructed keywords in the idiom of each market, for every tool in the queue rather than the ones that already had a page. The parent topic was selected as well as the volume, and it changed four decisions: the phrase for a country comparison returns a map question in every market except German, and the phrase for a rent calculator returns the annual increase in Spanish, Italian and Brazilian Portuguese.",
+ "caution": "A null volume means the provider returned no row. Volume alone did not decide a page here: a keyword whose parent topic is a different question was not planned however large it was.",
+ "keywords": [
+  {
+   "keyword": "ile mogę wydać na wynajem",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "pl-PL",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "kalkulator wynajmu",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": 25,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "pl-PL",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "gdzie wyemigrować",
+   "volume": 0,
+   "difficulty": 0,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "pl-PL",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "do jakiego kraju wyemigrować",
+   "volume": 0,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "pl-PL",
+   "notPlanned": "no measured demand"
+  },
+  {
+   "keyword": "gdzie się zatrzymać",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "pl-PL"
+  },
+  {
+   "keyword": "porównanie krajów",
+   "volume": 0,
+   "difficulty": 26,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "pl-PL",
+   "notPlanned": "no measured demand"
+  }
+ ],
+ "notReturned": []
+}

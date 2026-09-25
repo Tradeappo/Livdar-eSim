@@ -1,0 +1,36 @@
+{
+ "country": "pl",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 840,
+ "family": "neighbourhoods.city-where-to-stay",
+ "market": "pl-PL",
+ "note": "Discovered from the market head term for city districts and resolved to a city by subtraction against the names that market actually used. A remainder that is not one of those names is refused, which is what keeps a map request, a best and worst question and a city with no district data out.",
+ "keywords": [
+  {
+   "keyword": "dzielnice wrocławia",
+   "volume": 2000,
+   "difficulty": 1
+  },
+  {
+   "keyword": "dzielnice gdańska",
+   "volume": 1600,
+   "difficulty": 13
+  },
+  {
+   "keyword": "dzielnice nowego jorku",
+   "volume": 1200,
+   "difficulty": 0
+  },
+  {
+   "keyword": "dzielnice paryża",
+   "volume": 1100,
+   "difficulty": 1
+  },
+  {
+   "keyword": "dzielnice londynu",
+   "volume": 600,
+   "difficulty": 0
+  }
+ ]
+}

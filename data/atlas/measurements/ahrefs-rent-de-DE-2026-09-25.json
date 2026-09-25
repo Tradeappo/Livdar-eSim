@@ -1,0 +1,57 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "de",
+ "market": "de-DE",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 92,
+ "families": [
+  "rents.country-inflation"
+ ],
+ "note": "Rent movement demand, asked in the words each market uses for its own regulated increase. The French keyword is the name of the reference index and the Dutch one is the name of the annual rise, which is why both are large and both are answered by the same published series.",
+ "caution": "Several phrasings with demand ask for a rent level rather than a rent movement. They are recorded and not planned, because no comparable level exists for these countries and answering a price question with an index would be answering a different question.",
+ "keywords": [
+  {
+   "keyword": "mietpreisentwicklung",
+   "volume": 150,
+   "difficulty": 5,
+   "cpc": 15,
+   "family": "rents.country-inflation",
+   "entity": "DE",
+   "market": "de-DE"
+  },
+  {
+   "keyword": "mieten steigen",
+   "volume": 100,
+   "difficulty": 25,
+   "cpc": 2,
+   "family": "rents.country-inflation",
+   "entity": "DE",
+   "market": "de-DE",
+   "notPlanned": "the same question in fewer searches"
+  },
+  {
+   "keyword": "mieterhöhung 2026",
+   "volume": 70,
+   "difficulty": null,
+   "cpc": null,
+   "family": "rents.country-inflation",
+   "entity": "DE",
+   "market": "de-DE",
+   "notPlanned": "the increase a landlord may ask for, which is tenancy law rather than the index"
+  },
+  {
+   "keyword": "mietpreise 2026",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "rents.country-inflation",
+   "entity": "DE",
+   "market": "de-DE",
+   "notPlanned": "asks for a price level, which this source does not publish"
+  }
+ ],
+ "notReturned": []
+}

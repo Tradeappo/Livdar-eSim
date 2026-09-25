@@ -1,8 +1,114 @@
 {
-  "description": "Search Console URL inspection results and indexing requests, as observed in the Search Console UI. A request puts a URL in a priority crawl queue; it is not indexing. Do not request the same URL again before minDaysBetweenRequests unless the page changed.",
-  "minDaysBetweenRequests": 14,
-  "dailyQuotaObserved": 10,
-  "priority": [
+ "description": "Search Console URL inspection results and indexing requests, as observed in the Search Console UI. A request puts a URL in a priority crawl queue; it is not indexing. Do not request the same URL again before minDaysBetweenRequests unless the page changed.",
+ "minDaysBetweenRequests": 14,
+ "dailyQuotaObserved": 10,
+ "priority": [
+  "/ro/esim/emiratele-arabe-unite/",
+  "/en/esim/morocco/",
+  "/en/esim/egypt/",
+  "/de/esim/marokko/",
+  "/en/esim/albania/",
+  "/de/esim/albanien/",
+  "/en/esim/switzerland/",
+  "/en/esim/bali/",
+  "/de/esim/usa/",
+  "/de/esim/thailand/",
+  "/ro/esim/statele-unite/",
+  "/ro/esim/thailanda/",
+  "/en/guides/",
+  "/de/ratgeber/",
+  "/ro/ghiduri/",
+  "/en/esim/canada/",
+  "/en/esim/mexico/",
+  "/en/esim/vietnam/",
+  "/en/esim/india/",
+  "/de/esim/kanada/",
+  "/de/esim/vietnam/",
+  "/en/esim/indonesia/",
+  "/de/esim/mexiko/",
+  "/de/esim/indien/",
+  "/de/esim/indonesien/",
+  "/en/guides/what-is-data-roaming/",
+  "/en/guides/pocket-wifi-vs-esim/",
+  "/en/guides/international-sim-card/",
+  "/en/esim/spain/",
+  "/en/esim/greece/",
+  "/en/esim/italy/"
+ ],
+ "observations": [
+  {
+   "path": "/en/esim/",
+   "date": "2026-09-21",
+   "inspection": "on Google, last crawled 2026-09-19",
+   "request": "sent",
+   "why": "the page changed in PR #7 after the last crawl"
+  },
+  {
+   "path": "/de/esim/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/ro/esim/",
+   "date": "2026-09-21",
+   "inspection": "not on Google, discovered not indexed",
+   "request": "sent"
+  },
+  {
+   "path": "/en/esim/turkey/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/en/esim/japan/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/en/esim/united-arab-emirates/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/en/esim/thailand/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/de/esim/tuerkei/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/de/esim/japan/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/ro/esim/grecia/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "sent"
+  },
+  {
+   "path": "/ro/esim/emiratele-arabe-unite/",
+   "date": "2026-09-21",
+   "inspection": "not on Google",
+   "request": "refused, quota exceeded"
+  },
+  {
+   "observedAt": "2026-09-22T19:45:00Z",
+   "run": "22 September queue run, second attempt on the correct Search Console profile",
+   "property": "sc-domain:livdar.com, account livdarlive@gmail.com (profile u/6)",
+   "inspectedBefore": "all ten were inspected first: none was indexed. Seven answered 'Google nu cunoaste adresa URL', three 'Descoperita - nu este indexata'.",
+   "requested": [
     "/ro/esim/emiratele-arabe-unite/",
     "/en/esim/morocco/",
     "/en/esim/egypt/",
@@ -12,199 +118,122 @@
     "/en/esim/switzerland/",
     "/en/esim/bali/",
     "/de/esim/usa/",
-    "/de/esim/thailand/",
-    "/ro/esim/statele-unite/",
-    "/ro/esim/thailanda/",
-    "/en/guides/",
-    "/de/ratgeber/",
-    "/ro/ghiduri/",
-    "/en/esim/canada/",
-    "/en/esim/mexico/",
-    "/en/esim/vietnam/",
-    "/en/esim/india/",
-    "/de/esim/kanada/",
-    "/de/esim/vietnam/",
-    "/en/esim/indonesia/",
-    "/de/esim/mexiko/",
-    "/de/esim/indien/",
-    "/de/esim/indonesien/",
-    "/en/guides/what-is-data-roaming/",
-    "/en/guides/pocket-wifi-vs-esim/",
-    "/en/guides/international-sim-card/",
-    "/en/esim/spain/",
-    "/en/esim/greece/",
-    "/en/esim/italy/"
-  ],
-  "observations": [
-    {
-      "path": "/en/esim/",
-      "date": "2026-09-21",
-      "inspection": "on Google, last crawled 2026-09-19",
-      "request": "sent",
-      "why": "the page changed in PR #7 after the last crawl"
-    },
-    {
-      "path": "/de/esim/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/ro/esim/",
-      "date": "2026-09-21",
-      "inspection": "not on Google, discovered not indexed",
-      "request": "sent"
-    },
-    {
-      "path": "/en/esim/turkey/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/en/esim/japan/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/en/esim/united-arab-emirates/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/en/esim/thailand/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/de/esim/tuerkei/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/de/esim/japan/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/ro/esim/grecia/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "sent"
-    },
-    {
-      "path": "/ro/esim/emiratele-arabe-unite/",
-      "date": "2026-09-21",
-      "inspection": "not on Google",
-      "request": "refused, quota exceeded"
-    },
-    {
-      "observedAt": "2026-09-22T19:45:00Z",
-      "run": "22 September queue run, second attempt on the correct Search Console profile",
-      "property": "sc-domain:livdar.com, account livdarlive@gmail.com (profile u/6)",
-      "inspectedBefore": "all ten were inspected first: none was indexed. Seven answered 'Google nu cunoaste adresa URL', three 'Descoperita - nu este indexata'.",
-      "requested": [
-        "/ro/esim/emiratele-arabe-unite/",
-        "/en/esim/morocco/",
-        "/en/esim/egypt/",
-        "/de/esim/marokko/",
-        "/en/esim/albania/",
-        "/de/esim/albanien/",
-        "/en/esim/switzerland/",
-        "/en/esim/bali/",
-        "/de/esim/usa/",
-        "/de/esim/thailand/"
-      ],
-      "accepted": [
-        "/ro/esim/emiratele-arabe-unite/",
-        "/en/esim/morocco/",
-        "/en/esim/egypt/",
-        "/de/esim/marokko/",
-        "/en/esim/albania/",
-        "/de/esim/albanien/",
-        "/en/esim/switzerland/",
-        "/en/esim/bali/",
-        "/de/esim/usa/",
-        "/de/esim/thailand/"
-      ],
-      "refused": [],
-      "deferred": [],
-      "note": "Each request was confirmed by the dialog 'Indexarea a fost solicitata'. No quota message appeared, so the daily limit was not reached. An accepted request is not an indexed page: the ten pages were still not indexed at the time of the request, and the earlier note of the same day (no access) was written before the correct profile was known."
-    },
-    {
-      "path": "/ro/esim/emiratele-arabe-unite/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, discovered, not indexed",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/en/esim/morocco/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/en/esim/egypt/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/de/esim/marokko/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/en/esim/albania/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/de/esim/albanien/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/en/esim/switzerland/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/en/esim/bali/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/de/esim/usa/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, discovered, not indexed",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    },
-    {
-      "path": "/de/esim/thailand/",
-      "date": "2026-09-22",
-      "inspection": "not on Google, URL unknown to Google",
-      "request": "sent",
-      "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
-    }
-  ]
+    "/de/esim/thailand/"
+   ],
+   "accepted": [
+    "/ro/esim/emiratele-arabe-unite/",
+    "/en/esim/morocco/",
+    "/en/esim/egypt/",
+    "/de/esim/marokko/",
+    "/en/esim/albania/",
+    "/de/esim/albanien/",
+    "/en/esim/switzerland/",
+    "/en/esim/bali/",
+    "/de/esim/usa/",
+    "/de/esim/thailand/"
+   ],
+   "refused": [],
+   "deferred": [],
+   "note": "Each request was confirmed by the dialog 'Indexarea a fost solicitata'. No quota message appeared, so the daily limit was not reached. An accepted request is not an indexed page: the ten pages were still not indexed at the time of the request, and the earlier note of the same day (no access) was written before the correct profile was known."
+  },
+  {
+   "path": "/ro/esim/emiratele-arabe-unite/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, discovered, not indexed",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/en/esim/morocco/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/en/esim/egypt/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/de/esim/marokko/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/en/esim/albania/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/de/esim/albanien/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/en/esim/switzerland/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/en/esim/bali/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/de/esim/usa/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, discovered, not indexed",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/de/esim/thailand/",
+   "date": "2026-09-22",
+   "inspection": "not on Google, URL unknown to Google",
+   "request": "sent",
+   "note": "accepted by Search Console (dialog 'Indexarea a fost solicitata'); an accepted request is not an indexed page"
+  },
+  {
+   "path": "/ro/esim/statele-unite/",
+   "date": "2026-09-23",
+   "inspection": "not on Google, URL unknown to Google; Search Console reports no referring sitemap and no referring page for it",
+   "request": "not sent",
+   "note": "The request control did not respond to automation in this session: neither coordinate clicks nor synthetic events triggered it, and no confirmation appeared. Nothing was sent, so the daily quota is untouched."
+  }
+ ],
+ "coverage": [
+  {
+   "date": "2026-09-23",
+   "source": "Search Console page indexing report, u/6, sc-domain:livdar.com",
+   "dataAsOf": "2026-09-21",
+   "indexed": 43,
+   "notIndexed": 51,
+   "reasons": {
+    "discovered, not indexed": 48,
+    "duplicate without user selected canonical": 1,
+    "page with redirect": 1,
+    "crawled, not indexed": 1
+   },
+   "sitemapIndex": {
+    "submitted": "2026-09-16",
+    "lastRead": "2026-09-20",
+    "status": "success",
+    "pagesDiscovered": 107
+   },
+   "note": "The sitemap index was last read on 20 September, before the Atlas pages were published, so none of the Atlas URLs are in the Google sitemap view yet. Indexed counts pages, and it is not the same number as requests accepted."
+  }
+ ]
 }

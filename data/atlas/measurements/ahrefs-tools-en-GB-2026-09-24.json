@@ -1,0 +1,106 @@
+{
+ "country": "gb",
+ "select": "keyword,volume,difficulty,cpc",
+ "unitsPerRow": 22,
+ "unitsTotal": 242,
+ "measuredOn": "2026-09-24",
+ "market": "en-GB",
+ "families": [
+  "tools.calculator",
+  "tools.cost-comparison",
+  "tools.cost-calculator",
+  "tools.matcher",
+  "rankings.index"
+ ],
+ "note": "Tool and ranking demand, measured in the language of each market rather than translated from English. The phrasings are the ones a resident of that market would type, so the German row for the moving calculator is umzugskosten rechner and the British one is removal costs calculator, and neither is a translation of the other. Zero volume rows are kept because a measured zero is a finding: it says this shape of page should not be built in this market.",
+ "keywords": [
+  {
+   "keyword": "salary calculator",
+   "volume": 277000,
+   "difficulty": 68,
+   "cpc": 15,
+   "family": "tools.calculator",
+   "entity": "salary-calculator"
+  },
+  {
+   "keyword": "cost of living comparison",
+   "volume": 1700,
+   "difficulty": 82,
+   "cpc": 40,
+   "family": "tools.cost-comparison",
+   "entity": "cost-of-living-comparison"
+  },
+  {
+   "keyword": "cost of living calculator",
+   "volume": 450,
+   "difficulty": 77,
+   "cpc": 60,
+   "family": "tools.cost-calculator",
+   "entity": "cost-of-living-calculator"
+  },
+  {
+   "keyword": "removal costs calculator",
+   "volume": 150,
+   "difficulty": 7,
+   "cpc": 190,
+   "family": "tools.calculator",
+   "entity": "moving-cost"
+  },
+  {
+   "keyword": "where should i live",
+   "volume": 200,
+   "difficulty": 10,
+   "cpc": 20,
+   "family": "tools.matcher",
+   "entity": "where-should-i-live"
+  },
+  {
+   "keyword": "travel budget calculator",
+   "volume": 150,
+   "difficulty": 9,
+   "cpc": 60,
+   "family": "tools.calculator",
+   "entity": "travel-budget"
+  },
+  {
+   "keyword": "cost of moving abroad",
+   "volume": 40,
+   "difficulty": null,
+   "cpc": 120,
+   "family": "tools.calculator",
+   "entity": "relocation-budget"
+  },
+  {
+   "keyword": "compare cities",
+   "volume": 50,
+   "difficulty": 39,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "city-comparison"
+  },
+  {
+   "keyword": "cheapest countries to live in",
+   "volume": 150,
+   "difficulty": 15,
+   "cpc": 5,
+   "family": "rankings.index",
+   "entity": "cheapest-countries"
+  },
+  {
+   "keyword": "most expensive countries to live in",
+   "volume": 250,
+   "difficulty": 7,
+   "cpc": null,
+   "family": "rankings.index",
+   "entity": "most-expensive-countries"
+  },
+  {
+   "keyword": "cheapest countries in europe",
+   "volume": 450,
+   "difficulty": 19,
+   "cpc": 25,
+   "family": "rankings.index",
+   "entity": "cheapest-countries-europe"
+  }
+ ]
+}

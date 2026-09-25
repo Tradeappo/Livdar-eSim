@@ -1,0 +1,106 @@
+{
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-25",
+ "country": "de",
+ "market": "de-DE",
+ "select": "keyword,volume,difficulty,cpc,parent_topic",
+ "unitsPerRow": 23,
+ "unitsTotal": 207,
+ "families": [
+  "tools.calculator",
+  "tools.matcher",
+  "tools.cost-comparison"
+ ],
+ "note": "The second pass over the Tools surface. Constructed keywords in the idiom of each market, for every tool in the queue rather than the ones that already had a page. The parent topic was selected as well as the volume, and it changed four decisions: the phrase for a country comparison returns a map question in every market except German, and the phrase for a rent calculator returns the annual increase in Spanish, Italian and Brazilian Portuguese.",
+ "caution": "A null volume means the provider returned no row. Volume alone did not decide a page here: a keyword whose parent topic is a different question was not planned however large it was.",
+ "keywords": [
+  {
+   "keyword": "wie viel miete kann ich mir leisten",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc": 45,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "de-DE"
+  },
+  {
+   "keyword": "mietrechner",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc": 80,
+   "family": "tools.calculator",
+   "entity": "rent-affordability",
+   "market": "de-DE",
+   "notPlanned": "in German a Mietrechner is usually the increase or the Mietspiegel, not affordability"
+  },
+  {
+   "keyword": "wohin auswandern",
+   "volume": 1000,
+   "difficulty": 0,
+   "cpc": 10,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "de-DE"
+  },
+  {
+   "keyword": "in welches land auswandern",
+   "volume": 250,
+   "difficulty": 3,
+   "cpc": 7,
+   "family": "tools.matcher",
+   "entity": "destination-matcher",
+   "market": "de-DE",
+   "notPlanned": "the same question in fewer searches"
+  },
+  {
+   "keyword": "wo übernachten",
+   "volume": 40,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "where-should-i-stay",
+   "market": "de-DE"
+  },
+  {
+   "keyword": "ländervergleich",
+   "volume": 70,
+   "difficulty": 2,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "de-DE"
+  },
+  {
+   "keyword": "länder vergleichen",
+   "volume": 20,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.cost-comparison",
+   "entity": "country-comparison",
+   "market": "de-DE",
+   "notPlanned": "the same question in fewer searches"
+  },
+  {
+   "keyword": "welcher stadtteil passt zu mir",
+   "volume": 10,
+   "difficulty": null,
+   "cpc": null,
+   "family": "tools.matcher",
+   "entity": "neighbourhood-matcher",
+   "market": "de-DE",
+   "notPlanned": "blocked: it needs a rent level per district, and the demand is ten a month in any case"
+  },
+  {
+   "keyword": "umzugsrechner",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc": 200,
+   "family": "tools.calculator",
+   "entity": "moving-cost",
+   "market": "de-DE",
+   "notPlanned": "stronger than the keyword in use, and changing it would move a URL an approved cohort already carries"
+  }
+ ],
+ "notReturned": []
+}

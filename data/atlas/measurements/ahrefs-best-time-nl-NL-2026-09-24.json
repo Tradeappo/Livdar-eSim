@@ -1,0 +1,56 @@
+{
+ "country": "nl",
+ "select": "keyword,volume,difficulty",
+ "unitsPerRow": 21,
+ "unitsTotal": 630,
+ "family": "weather.country-best-time",
+ "market": "nl-NL",
+ "note": "Phrase match on the head term this market actually uses, then the country resolved by removing that head term and the articles around it. A keyword whose remainder is not exactly a country name is refused, which is what keeps a city page out of a country family.",
+ "keywords": [
+  {
+   "keyword": "beste reistijd japan",
+   "volume": 1900,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd thailand",
+   "volume": 1800,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd vietnam",
+   "volume": 1700,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd costa rica",
+   "volume": 1700,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd indonesie",
+   "volume": 900,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd mexico",
+   "volume": 900,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd peru",
+   "volume": 900,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd ijsland",
+   "volume": 600,
+   "difficulty": 0
+  },
+  {
+   "keyword": "beste reistijd marokko",
+   "volume": 400,
+   "difficulty": 0
+  }
+ ]
+}

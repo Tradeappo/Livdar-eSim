@@ -1,0 +1,141 @@
+{
+ "note": "Whether the two transport families that need no new source are worth building. Both were listed as ready, and ready is not the same as worth doing. This probe asked what each one is actually worth, and the answer is that neither earns a cohort slot: one has volume it cannot rank for, the other has rankable difficulty and no volume.",
+ "provider": "Ahrefs Keywords Explorer, overview",
+ "endpoint": "keywords-explorer-overview",
+ "capturedOn": "2026-09-24",
+ "unitsPerRow": 22,
+ "unitsTotal": 477,
+ "caution": "Fifteen airports and eight route phrasings is a probe, not a survey. It cannot prove that no airport anywhere is winnable or that no route phrasing has demand. What it can show, and does, is that the median named airport query is defended by the airport's own site and that the route phrasings tested carry almost no volume. A zero is a measured zero; a null difficulty means the provider had no estimate, which for a near zero volume keyword is itself the finding.",
+ "markets": {
+  "en-US": {
+   "asked": 23,
+   "returned": 22,
+   "notReturned": [],
+   "finding": "Airport guide queries have real volume and prohibitive difficulty. The median of the fifteen airports tested is 43, against a median of about 2 for the best time family measured the same day. Split is 93, Dubrovnik 88, Narita 71, Changi 60. The two that are genuinely easy are Seville at difficulty 2 and Tromso at 0, and they carry 600 and 450 a month. The pattern is that the airport's own site holds the query, which is what a thin identifier page cannot displace. Route queries are the mirror image: difficulty 0 and 1, and 0 to 150 searches a month. Cheap to rank for and worth nothing.",
+   "surfaces": {
+    "airports.guide": {
+     "notReturned": [],
+     "rows": [
+      {
+       "keyword": "heathrow airport",
+       "volume": 29000,
+       "difficulty": 43
+      },
+      {
+       "keyword": "haneda airport",
+       "volume": 27000,
+       "difficulty": 39
+      },
+      {
+       "keyword": "cancun airport",
+       "volume": 19000,
+       "difficulty": 50
+      },
+      {
+       "keyword": "narita airport",
+       "volume": 13000,
+       "difficulty": 71
+      },
+      {
+       "keyword": "zurich airport",
+       "volume": 9700,
+       "difficulty": 36
+      },
+      {
+       "keyword": "changi airport",
+       "volume": 7300,
+       "difficulty": 60
+      },
+      {
+       "keyword": "schiphol airport",
+       "volume": 5400,
+       "difficulty": 47
+      },
+      {
+       "keyword": "lisbon airport",
+       "volume": 5000,
+       "difficulty": 46
+      },
+      {
+       "keyword": "athens airport",
+       "volume": 4200,
+       "difficulty": 36
+      },
+      {
+       "keyword": "dubrovnik airport",
+       "volume": 1400,
+       "difficulty": 88
+      },
+      {
+       "keyword": "split airport",
+       "volume": 1100,
+       "difficulty": 93
+      },
+      {
+       "keyword": "faro airport",
+       "volume": 700,
+       "difficulty": 44
+      },
+      {
+       "keyword": "chiang mai airport",
+       "volume": 700,
+       "difficulty": 36
+      },
+      {
+       "keyword": "seville airport",
+       "volume": 600,
+       "difficulty": 2
+      },
+      {
+       "keyword": "tromso airport",
+       "volume": 450,
+       "difficulty": 0
+      }
+     ]
+    },
+    "transport.route-from-market": {
+     "notReturned": [
+      "how to get to tokyo from london"
+     ],
+     "rows": [
+      {
+       "keyword": "flights from london to tokyo",
+       "volume": 150,
+       "difficulty": 1
+      },
+      {
+       "keyword": "how to get to chiang mai",
+       "volume": 60,
+       "difficulty": 0
+      },
+      {
+       "keyword": "how to get to tromso",
+       "volume": 60,
+       "difficulty": 0
+      },
+      {
+       "keyword": "how to get to dubrovnik",
+       "volume": 20,
+       "difficulty": 1
+      },
+      {
+       "keyword": "getting to cusco from lima",
+       "volume": 10,
+       "difficulty": null
+      },
+      {
+       "keyword": "how to get from athens airport to city centre",
+       "volume": 0,
+       "difficulty": null
+      },
+      {
+       "keyword": "how to get to split from london",
+       "volume": 0,
+       "difficulty": null
+      }
+     ]
+    }
+   }
+  }
+ }
+}

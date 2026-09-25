@@ -1,41 +1,140 @@
-// GeoNames cities15000: every populated place with at least 15,000 inhabitants
-// (about 33,000 rows). Columns per https://download.geonames.org/export/dump/readme.txt
+// GeoNames cities15000 to the Atlas entity store.
+//
+//   node scripts/atlas/ingest/geonames.mjs --from <path-to-cities15000.txt>
+//   node scripts/atlas/ingest/geonames.mjs                (downloads the zip)
+//
+// The dump is the only source of city identity, coordinates, population,
+// country, admin area and time zone. Nothing here is edited by hand: every
+// record carries the GeoNames id it came from, and the manifest records the
+// URL, the download date, the licence, the checksum and the expiry.
+//
+// Output:
+//   data/atlas/entities/cities/NN.json   64 shards, bucket = geonameId % 64
+//   data/atlas/entities/cities-index.json  counts, tiers and per country totals
+//
+// Sharding keeps any single request cheap: a page loads one shard of roughly
+// five hundred cities instead of a thirty megabyte table.
 
-import { fetchWithRetry, unzipEntry, writeJson, recordSource, sha256 } from './lib.mjs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { SHARDS, cityShard } from '../../../lib/atlas/store.js';
+import { recordSource, unzipEntry, fetchWithRetry } from './lib.mjs';
+import { normalizeDashes, hasForbiddenDash } from '../../../lib/atlas/text.js';
+import { tierOf } from '../../../lib/atlas/tiers.js';
 
-export const URL_ = 'https://download.geonames.org/export/dump/cities15000.zip';
+export const SOURCE_URL = 'https://download.geonames.org/export/dump/cities15000.zip';
 
-export function parseGeonames(text) {
-  return text.split('\n').filter(Boolean).map((line) => {
-    const c = line.split('\t');
-    return {
-      id: Number(c[0]),
-      name: c[1],
-      asciiName: c[2],
-      lat: Number(c[4]),
-      lon: Number(c[5]),
-      featureCode: c[7],
-      iso2: c[8],
-      admin1: c[10],
-      population: Number(c[14]),
-      elevation: c[15] !== '' ? Number(c[15]) : c[16] !== '' ? Number(c[16]) : null,
-      timezone: c[17],
-      modified: c[18],
+// Feature codes that are not a current, standalone settlement. PPLX is a
+// section of a populated place: a real entity, but a neighbourhood, so it
+// feeds the neighbourhood vertical instead of the city one.
+const NOT_A_CITY = new Set(['PPLW', 'PPLQ', 'PPLH', 'PPLF', 'PPLR', 'PPLS', 'STLMT']);
+const NEIGHBOURHOOD = 'PPLX';
+
+export function parseDump(text) {
+  const cities = [];
+  const neighbourhoods = [];
+  let dashNormalised = 0;
+  for (const line of text.split('\n')) {
+    if (!line) continue;
+    const f = line.split('\t');
+    const rec = {
+      id: Number(f[0]),
+      name: f[1],
+      ascii: f[2],
+      dashNormalised: false,
+      lat: Number(f[4]),
+      lon: Number(f[5]),
+      fc: f[7],
+      country: f[8],
+      admin1: f[10] || null,
+      admin2: f[11] || null,
+      population: Number(f[14]) || 0,
+      elevation: f[15] === '' ? null : Number(f[15]),
+      tz: f[17] || null,
+      modified: f[18] || null,
     };
-  }).filter((c) => c.population >= 15000 && c.iso2 && c.timezone && Number.isFinite(c.lat));
+    if (!rec.id || !rec.name || !Number.isFinite(rec.lat) || !Number.isFinite(rec.lon) || !rec.country || !rec.tz) continue;
+    if (NOT_A_CITY.has(rec.fc)) continue;
+    if (hasForbiddenDash(rec.name) || hasForbiddenDash(rec.ascii)) {
+      rec.name = normalizeDashes(rec.name);
+      rec.ascii = normalizeDashes(rec.ascii);
+      rec.dashNormalised = true;
+      dashNormalised++;
+    }
+    (rec.fc === NEIGHBOURHOOD ? neighbourhoods : cities).push(rec);
+  }
+  return { cities, neighbourhoods, dashNormalised };
 }
 
-export async function run() {
-  const buf = Buffer.from(await (await fetchWithRetry(URL_)).arrayBuffer());
-  const text = unzipEntry(buf, 'cities15000.txt').toString('utf8');
-  const cities = parseGeonames(text).sort((a, b) => b.population - a.population);
-  // Names in other languages come from Wikidata; keep the existing ones.
-  const { readJson } = await import('./lib.mjs');
-  const prev = new Map(readJson('entities/cities.json', []).map((c) => [c.id, c]));
-  cities.forEach((c) => { const p = prev.get(c.id); if (p && p.names) { c.names = p.names; c.qid = p.qid; } });
-  const hash = writeJson('entities/cities.json', cities);
-  recordSource('geonames-cities', { url: URL_, rows: cities.length, archiveSha256: sha256(buf), sha256: hash });
-  return cities.length;
+
+// Two cities in the same country whose names collide keep distinct slugs by
+// admin area; the slug table is written by scripts/atlas/assign-slugs.mjs and
+// never recomputed for an entity that already has one.
+export function buildIndex(cities, neighbourhoods) {
+  const byTier = {};
+  const byCountry = {};
+  for (const c of cities) {
+    byTier[tierOf(c.population)] = (byTier[tierOf(c.population)] || 0) + 1;
+    byCountry[c.country] = (byCountry[c.country] || 0) + 1;
+  }
+  return {
+    cities: cities.length,
+    neighbourhoods: neighbourhoods.length,
+    countries: Object.keys(byCountry).length,
+    byTier,
+    byCountry,
+    shards: SHARDS,
+  };
 }
 
-if (import.meta.url === 'file://' + process.argv[1]) run().then((n) => console.log('geonames cities:', n));
+function writeShards(dir, records, keyOf) {
+  if (existsSync(dir)) rmSync(dir, { recursive: true });
+  mkdirSync(dir, { recursive: true });
+  const buckets = Array.from({ length: SHARDS }, () => []);
+  for (const r of records) buckets[keyOf(r)].push(r);
+  buckets.forEach((list, i) => {
+    list.sort((a, b) => a.id - b.id);
+    writeFileSync(dir + '/' + String(i).padStart(2, '0') + '.json', JSON.stringify(list) + '\n');
+  });
+  return buckets.map((b) => b.length);
+}
+
+async function loadText(from) {
+  if (from) return readFileSync(from, 'utf8');
+  const buf = Buffer.from(await (await fetchWithRetry(SOURCE_URL)).arrayBuffer());
+  return unzipEntry(buf, 'cities15000.txt').toString('utf8');
+}
+
+if (import.meta.url === 'file://' + process.argv[1]) {
+  const i = process.argv.indexOf('--from');
+  const from = i > 0 ? process.argv[i + 1] : null;
+  const text = await loadText(from);
+  const sha = createHash('sha256').update(text).digest('hex');
+  const { cities, neighbourhoods, dashNormalised } = parseDump(text);
+  const root = new URL('../../../data/atlas/entities/', import.meta.url);
+  const citySizes = writeShards(new URL('cities/', root).pathname, cities, (c) => cityShard(c.id));
+  const hoodSizes = writeShards(new URL('neighbourhoods/', root).pathname, neighbourhoods, (c) => cityShard(c.id));
+  const index = buildIndex(cities, neighbourhoods);
+  writeFileSync(new URL('cities-index.json', root), JSON.stringify(index, null, 1) + '\n');
+  recordSource('geonames-cities', {
+    url: SOURCE_URL,
+    retrievedAt: new Date().toISOString(),
+    licence: 'CC BY 4.0',
+    rows: cities.length + neighbourhoods.length,
+    sha256: sha,
+    fields: ['geonameId', 'name', 'asciiName', 'lat', 'lon', 'featureCode', 'countryCode', 'admin1', 'admin2', 'population', 'elevation', 'timezone'],
+    maxAgeDays: 120,
+    refresh: 'monthly',
+  });
+  console.log(JSON.stringify({
+    sha256: sha.slice(0, 16),
+    cities: cities.length,
+    neighbourhoods: neighbourhoods.length,
+    countries: index.countries,
+    dashNormalised,
+    byTier: index.byTier,
+    shardMin: Math.min(...citySizes),
+    shardMax: Math.max(...citySizes),
+    hoodShardMax: Math.max(...hoodSizes),
+  }, null, 1));
+}

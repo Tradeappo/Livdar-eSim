@@ -1,0 +1,18 @@
+{
+ "version": 0.6,
+ "generator": "Overpass API 0.7.62.7 0d5a48a5",
+ "osm3s": {
+  "timestamp_osm_base": "2026-09-24T18:00:00Z",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+ },
+ "elements": [
+  { "type": "node", "id": 1, "lat": 35.6895, "lon": 139.6917, "tags": { "amenity": "cafe", "name": "Blue Bottle Shinjuku", "opening_hours": "Mo-Su 08:00-19:00" } },
+  { "type": "node", "id": 2, "lat": 35.6812, "lon": 139.7671, "tags": { "amenity": "cafe" } },
+  { "type": "way", "id": 3, "center": { "lat": 35.6852, "lon": 139.7528 }, "tags": { "leisure": "park", "name": "Hibiya Park" } },
+  { "type": "node", "id": 4, "lat": 35.6586, "lon": 139.7454, "tags": { "office": "coworking", "name": "Tokyo Desk", "website": "https://example.org" } },
+  { "type": "node", "id": 5, "lat": 35.6762, "lon": 139.6503, "tags": { "amenity": "coworking_space", "name": "Setagaya Works" } },
+  { "type": "node", "id": 6, "lat": 35.7, "lon": 139.7, "tags": { "amenity": "post_box", "name": "A post box" } },
+  { "type": "node", "id": 7, "tags": { "amenity": "restaurant", "name": "No Coordinate Diner" } },
+  { "type": "node", "id": 8, "lat": 35.71, "lon": 139.81, "tags": { "shop": "supermarket", "name": "Life Oshiage" } }
+ ]
+}

@@ -1,0 +1,43 @@
+name: atlas-keywords
+# Builds the keyword manifest, costs it, and only then measures. The manifest
+# step is free and runs on every dispatch; the measurement step refuses to
+# start without credentials and a cost cap, so a run can never spend money
+# that was not authorised in advance.
+on:
+  workflow_dispatch:
+    inputs:
+      provider:
+        description: 'keyword provider: dataforseo, ahrefs, csv or mock'
+        required: false
+        default: 'mock'
+      limit:
+        description: 'maximum keywords per family and market (optional)'
+        required: false
+permissions: { contents: write, pull-requests: write }
+concurrency: { group: atlas-keywords, cancel-in-progress: false }
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - name: Dry run cost manifest
+        run: node scripts/atlas/keywords.mjs manifest ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+      - name: Measure
+        if: ${{ inputs.provider != '' && inputs.provider != 'none' }}
+        env:
+          KEYWORD_PROVIDER: ${{ inputs.provider }}
+          KEYWORD_QUEUE_MODE: standard
+          DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+          DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
+          DATAFORSEO_COST_CAP_USD: ${{ secrets.DATAFORSEO_COST_CAP_USD }}
+        run: node scripts/atlas/keywords.mjs measure --provider ${{ inputs.provider }}
+      - name: Open a pull request with the measurements
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: atlas/keywords
+          title: 'Atlas keyword measurement'
+          commit-message: 'Atlas keyword manifest and measurements'
+          body: 'Manifest and normalised measurements. No page is published by this workflow.'
