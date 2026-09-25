@@ -37,7 +37,8 @@
     "atlas:reconcile": "node scripts/atlas/reconcile.mjs --check",
     "atlas:entities": "node scripts/atlas/audit-entities.mjs",
     "gsc:check": "node scripts/gsc-check.mjs",
-    "atlas:gsc": "node scripts/atlas/gsc-import.mjs"
+    "atlas:gsc": "node scripts/atlas/gsc-import.mjs",
+    "atlas:language": "node scripts/atlas/audit-language.mjs"
   },
   "dependencies": {
     "next": "15.5.25",

@@ -23,25 +23,12 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { pushEvent, EVENTS } from '../../lib/analytics.js';
+import { bandOf, startAt } from '../../lib/atlas/tool-inputs.js';
 import { rentBudget } from '../../lib/atlas/tools/rent-affordability.js';
-import { estimate as movingEstimate, MOVE_SIZES, TRANSPORT } from '../../lib/atlas/tools/moving-cost.js';
-
-// An income is the reader's business. A band is what a report can answer a
-// question with, and it cannot be turned back into a salary.
-export function bandOf(value) {
-  const n = Number(value);
-  if (!(n > 0)) return null;
-  for (const top of [500, 1000, 2000, 3000, 5000, 8000, 12000, 20000]) if (n < top) return 'under ' + top;
-  return '20000 or more';
-}
+import { estimate as movingEstimate } from '../../lib/atlas/tools/moving-cost.js';
 
 const nf = (language, digits = 0) => new Intl.NumberFormat(language, { maximumFractionDigits: digits });
 
-// Where a picker opens: the reader's own country, or the middle of the table.
-export function startAt(rows, home) {
-  const at = rows.findIndex((r) => r.iso2 === home);
-  return at >= 0 ? at : Math.floor(rows.length / 2);
-}
 
 export default function AtlasTool({ spec, labels, dims }) {
   const language = spec.language || 'en';
@@ -145,22 +132,28 @@ function Share({ spec, t, fmt, box, touch, complete }) {
 }
 
 function Move({ spec, t, fmt, box, touch, complete }) {
-  const [size, setSize] = useState(spec.sizes[1] || spec.sizes[0]);
+  const [size, setSize] = useState(spec.sizes[2] ? spec.sizes[2].id : spec.sizes[0].id);
   const [km, setKm] = useState('');
-  const [transport, setTransport] = useState(spec.transports[0]);
-  const r = Number(km) > 0 ? movingEstimate({ size, distanceKm: Number(km), transport }) : null;
-  const total = r && (r.total ?? r.estimate ?? (r.range && r.range.mid)) || null;
+  const [transport, setTransport] = useState(spec.transports[0].id);
+  // The implementation's own input names, which are `moveSize` and not `size`, and
+  // its own result shape, which is a range and three scenarios and never a single
+  // number. The first version of this component guessed both and the tool rendered
+  // three working inputs above an output that never appeared: it reported
+  // `unknown move size: undefined` internally and said nothing.
+  const r = Number(km) > 0 ? movingEstimate({ moveSize: size, distanceKm: Number(km), transport }) : null;
+  const likely = r && r.ok ? r.scenarios.likely.total : null;
   useEffect(() => {
-    if (total) complete('move|' + size + '|' + transport, { move_size: size, transport, distance_band: bandOf(km) });
+    if (likely) complete('move|' + size + '|' + transport, { move_size: size, transport, distance_band: bandOf(km) });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [total, size, transport, km]);
+  }, [likely, size, transport, km]);
+  const chosen = spec.transports.find((x) => x.id === transport);
   return (
     <Frame box={box} id={spec.id} title={t('calculate')}>
       <div className="atlas-tool-inputs">
         <label>
           <span>{t('home size')}</span>
           <select value={size} onChange={(e) => { touch('size'); setSize(e.target.value); }}>
-            {spec.sizes.map((s) => <option key={s} value={s}>{MOVE_SIZES[s]?.label || s}</option>)}
+            {spec.sizes.map((s) => <option key={s.id} value={s.id}>{s.label}</option>)}
           </select>
         </label>
         <label>
@@ -171,14 +164,21 @@ function Move({ spec, t, fmt, box, touch, complete }) {
         <label>
           <span>{t('style')}</span>
           <select value={transport} onChange={(e) => { touch('transport'); setTransport(e.target.value); }}>
-            {spec.transports.map((s) => <option key={s} value={s}>{TRANSPORT[s]?.label || s}</option>)}
+            {spec.transports.map((s) => <option key={s.id} value={s.id}>{s.label}</option>)}
           </select>
         </label>
       </div>
-      {r && r.ok !== false ? (
+      {r && r.ok ? (
         <div className="atlas-tool-out" role="status">
-          <p><strong>{fmt.format(Math.round(total))}</strong>{r.currency ? ' ' + r.currency : ''}</p>
-          {r.range ? <p className="muted">{fmt.format(Math.round(r.range.low))} to {fmt.format(Math.round(r.range.high))}</p> : null}
+          <p><strong>{fmt.format(likely)}</strong>{spec.currency ? ' ' + spec.currency : ''}</p>
+          <p className="muted">{fmt.format(r.range.low) + ' to ' + fmt.format(r.range.high)}</p>
+        </div>
+      ) : null}
+      {r && !r.ok ? (
+        // A refusal is part of the tool. A sea container is not offered under
+        // eight hundred kilometres, and saying so is more use than an empty box.
+        <div className="atlas-tool-out" role="status">
+          <p className="muted">{chosen ? chosen.label + ': ' + chosen.minKm + ' km to ' + chosen.maxKm + ' km' : t('nothingFits')}</p>
         </div>
       ) : null}
     </Frame>

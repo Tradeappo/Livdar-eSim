@@ -20,11 +20,41 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { run as audit, formsFor, names, distinctive } from '../scripts/atlas/audit-entities.mjs';
+import { run as audit, formsFor, names, distinctive, slugNames } from '../scripts/atlas/audit-entities.mjs';
 import { ledger } from '../scripts/atlas/apply-keyword-corrections.mjs';
 import { MANIFESTS } from '../lib/atlas/serve-pages.js';
 
 const ROOT = new URL('../', import.meta.url);
+
+test('every field on every published page is about the same entity', () => {
+  // Ten fields, not one. The keyword is the only one that does not come from the
+  // entity, so it is where a resolution error enters; the other nine come from
+  // the entity and are where a template error shows up. The Colombia page passed
+  // every check in the suite because all nine agreed with each other and with
+  // the wrong place.
+  const r = audit();
+  const fields = ['keyword does not name the entity', 'entityName is not a form of the entity', 'the H1 does not name the entity', 'the title does not name the entity', 'the description does not name the entity', 'the slug does not name the entity', 'the first three paragraphs do not name the entity', 'the structured data names'];
+  const seen = new Set(r.rows.flatMap((x) => x.problems));
+  assert.deepEqual([...seen], [], 'some field disagrees with its entity');
+  // And the audit really does look at each of them, rather than reporting zero
+  // because a rule was dropped. Every message above has to exist in the script.
+  const src = readFileSync(new URL('scripts/atlas/audit-entities.mjs', ROOT), 'utf8');
+  for (const f of fields) assert.ok(src.includes(f), 'the audit no longer checks: ' + f);
+  assert.ok(src.includes('the canonical is'), 'the audit no longer checks the canonical');
+});
+
+test('a slug is judged as a slug and not as a display name', () => {
+  // The German pages carry `daenemark` for Daenemark and the Japanese pages carry
+  // `thailand` for a katakana name, because a URL is ASCII by design and the URL
+  // builder falls back to the English name when a name has no Latin characters.
+  // The first version of this rule reported thirty one of those as mismatches.
+  const de = formsFor('DK', 'cost-of-living.country', 'de');
+  assert.equal(slugNames('daenemark', de.forms, { family: 'cost-of-living.country', entity: 'DK' }), true);
+  const ja = formsFor('TH', 'cost-of-living.country', 'ja');
+  assert.equal(slugNames('thailand', ja.forms, { family: 'cost-of-living.country', entity: 'TH' }), true);
+  // And it still refuses a slug that names something else.
+  assert.equal(slugNames('colorado', formsFor('CO', 'cost-of-living.country', 'en').forms, { family: 'cost-of-living.country', entity: 'CO' }), false);
+});
 
 test('every published page is about the entity its keyword names', () => {
   const r = audit();
