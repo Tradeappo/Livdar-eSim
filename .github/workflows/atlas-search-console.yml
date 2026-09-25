@@ -2,10 +2,25 @@ name: atlas-search-console
 # Imports Search Console data and separates the four things that are usually
 # confused: discovered, indexed, impressions and clicks. Requesting indexing is
 # recorded elsewhere and is never counted as indexing.
+#
+# The step used to read `node scripts/gsc-report.mjs || echo "...skipping"`, and
+# the one scheduled run it has had reported success after failing in 0.03
+# seconds on a missing GSC_PROPERTY. A step that cannot fail cannot tell you
+# whether the import works, so the swallow is gone and the preflight runs first
+# and says which credential is absent.
+#
+# Not configured is a real state and not a failure: the preflight reports it,
+# the import is skipped, and the job is marked skipped rather than green. What
+# fails the job is credentials that exist and do not work.
 on:
   schedule: [{ cron: '30 5 * * *' }]
   workflow_dispatch:
 permissions: { contents: write, pull-requests: write }
+env:
+  GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+  GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
+  GSC_PROPERTY: ${{ secrets.GSC_PROPERTY }}
+  GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
 jobs:
   import:
     runs-on: ubuntu-latest
@@ -14,14 +29,38 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 24 }
-      - env:
-          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
-          GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
-          GSC_PROPERTY: ${{ secrets.GSC_PROPERTY }}
-        run: node scripts/gsc-report.mjs || echo "Search Console credentials are not configured; skipping the import."
-      - uses: peter-evans/create-pull-request@v6
+
+      # Configured, authorised and granted are three different questions with
+      # three different remedies, so they are answered separately and the answer
+      # is written into the job summary whether or not the import runs.
+      - id: preflight
+        run: |
+          node scripts/gsc-check.mjs > gsc-check.json
+          cat gsc-check.json
+          echo "granted=$(node -e 'console.log(JSON.parse(require("fs").readFileSync("gsc-check.json","utf8")).granted)')" >> "$GITHUB_OUTPUT"
+          echo "configured=$(node -e 'console.log(JSON.parse(require("fs").readFileSync("gsc-check.json","utf8")).configured)')" >> "$GITHUB_OUTPUT"
+          { echo '### Search Console'; echo '```json'; cat gsc-check.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      # Credentials that exist and do not work is the case that used to be
+      # invisible, so it is the case that fails the job.
+      - if: steps.preflight.outputs.configured == 'true' && steps.preflight.outputs.granted != 'true'
+        run: |
+          echo "::error::Search Console credentials are configured but the property refused them. See the preflight output above."
+          exit 1
+
+      - if: steps.preflight.outputs.granted == 'true'
+        run: node scripts/gsc-report.mjs
+
+      - if: steps.preflight.outputs.granted == 'true'
+        run: node scripts/atlas/gsc-import.mjs --write
+
+      - if: steps.preflight.outputs.granted == 'true'
+        uses: peter-evans/create-pull-request@v6
         with:
           branch: atlas/search-console
           title: 'Atlas Search Console import'
           commit-message: 'Atlas Search Console import'
           body: 'Discovered, indexed, impressions and clicks, counted separately.'
+
+      - if: steps.preflight.outputs.configured != 'true'
+        run: echo "::notice::Search Console is not configured; see the preflight output for the exact secret that is missing. Nothing was imported and nothing was claimed."

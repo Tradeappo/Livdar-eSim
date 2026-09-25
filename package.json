@@ -35,7 +35,9 @@
     "atlas:climate": "node scripts/atlas/ingest/nasa-power.mjs",
     "atlas:monitor": "node scripts/atlas/monitor.mjs",
     "atlas:reconcile": "node scripts/atlas/reconcile.mjs --check",
-    "atlas:entities": "node scripts/atlas/audit-entities.mjs"
+    "atlas:entities": "node scripts/atlas/audit-entities.mjs",
+    "gsc:check": "node scripts/gsc-check.mjs",
+    "atlas:gsc": "node scripts/atlas/gsc-import.mjs"
   },
   "dependencies": {
     "next": "15.5.25",
