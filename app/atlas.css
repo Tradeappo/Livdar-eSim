@@ -76,3 +76,93 @@
 @media (min-width: 620px) {
   .atlas .atlas-tool-inputs { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
 }
+
+/* The verdict card, adapted from the affordability card in the V164 reference.
+ *
+ * Three departures from the reference, all deliberate. There is no white footer:
+ * the card is one coloured block, so the figure the reference put in a white strip
+ * lives inside it. The controls are not behind an `Adjust budget` button, so
+ * nothing here hides anything. And the background carries the state while every
+ * digit stays white, because the answer should arrive before the reader has read a
+ * number.
+ *
+ * The transition is on background only, over a third of a second on an ease that
+ * settles rather than snaps. Nothing about the layout moves between states: the
+ * card is the same size whatever it says, so a reader typing into the controls
+ * below never has the page shift under their thumb. */
+.atlas .atlas-score-shell {
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 24px 64px rgba(24, 38, 30, .16);
+  margin: 0 0 14px;
+}
+.atlas .atlas-score-card {
+  padding: 22px 20px 20px;
+  /* One height in every state. Without it the card grows by a line when the verdict
+   * appears and shrinks by one when the note goes, and the controls under it move
+   * while a thumb is on them. The reference set the same floor for the same reason. */
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background: linear-gradient(135deg, #1eab62, #4dcc70 58%, #8ce676);
+  transition: background .34s cubic-bezier(.2, .8, .2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas .atlas-score-card { transition: none; }
+}
+.atlas .atlas-score-card[data-state="resting"] { background: linear-gradient(135deg, #4b4f63, #7c8199); }
+
+.atlas .atlas-score-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.atlas .atlas-score-eyebrow { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; font-weight: 900; opacity: .78; }
+.atlas .atlas-score-card h3 { margin: 6px 0 0; font-size: clamp(20px, 5.4vw, 26px); line-height: 1.12; letter-spacing: -.035em; color: #fff; }
+
+.atlas .atlas-score-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.atlas .atlas-score-number { font-size: clamp(34px, 11vw, 46px); line-height: .92; font-weight: 900; letter-spacing: -.055em; }
+.atlas .atlas-score-verdict { font-size: 12px; font-weight: 800; opacity: .9; margin-top: 6px; }
+
+/* The orb. A circle that fills from the bottom, which is the reference's own
+ * device and the clearest possible picture of a proportion: a reader does not
+ * have to read the percentage to see that it is most of the circle. */
+.atlas .atlas-score-orb {
+  margin-left: auto;
+  width: 92px; height: 92px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .18);
+  display: grid;
+  place-items: center;
+}
+.atlas .atlas-score-orb::after { content: ""; position: absolute; inset: 8px; border-radius: 50%; border: 6px solid rgba(255, 255, 255, .17); }
+.atlas .atlas-score-orb-fill { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, .32); transition: height .34s cubic-bezier(.2, .8, .2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .atlas .atlas-score-orb-fill { transition: none; }
+}
+.atlas .atlas-score-orb b { position: relative; z-index: 2; font-size: 14px; font-weight: 800; }
+
+.atlas .atlas-score-headline { margin-top: 16px; }
+.atlas .atlas-score-headline small { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; opacity: .78; }
+.atlas .atlas-score-headline strong { display: block; margin-top: 3px; font-size: clamp(22px, 7vw, 28px); letter-spacing: -.045em; font-weight: 900; }
+
+ /* The tiles sit at the bottom of the block whatever is above them, which is what
+  * keeps the floor above from leaving a gap in the short states. */
+.atlas .atlas-score-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: auto; padding-top: 14px; }
+.atlas .atlas-score-kpi { padding: 9px 8px; border-radius: 13px; background: rgba(255, 255, 255, .14); text-align: center; }
+.atlas .atlas-score-kpi b { display: block; font-size: 14px; font-weight: 850; }
+.atlas .atlas-score-kpi span { font-size: 9px; opacity: .82; line-height: 1.25; display: block; margin-top: 2px; }
+
+.atlas .atlas-score-note { margin: 14px 0 0; font-size: 12.5px; line-height: 1.45; opacity: .85; color: #fff; }
+
+/* The controls, directly under the card and never behind a button. On a phone they
+ * stack; from the width where two fit side by side they sit side by side. */
+.atlas .atlas-tool-controls { margin: 0 0 20px; }
+.atlas .atlas-tool-controls .atlas-tool-inputs { gap: 12px; }
+
+@media (min-width: 620px) {
+  .atlas .atlas-score-card { padding: 26px 24px 24px; }
+  .atlas .atlas-score-orb { width: 106px; height: 106px; }
+  .atlas .atlas-score-kpi span { font-size: 10px; }
+}

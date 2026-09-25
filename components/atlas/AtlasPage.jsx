@@ -7,7 +7,8 @@ import JsonLd from '../JsonLd.jsx';
 import { atlasSchema } from '../../lib/atlas/schema.js';
 import { AtlasCtaPair } from './AtlasCta.jsx';
 import AtlasTool from './AtlasTool.jsx';
-import { toolUi, inputTerm } from '../../lib/atlas/content/terms.js';
+import { toolUi, inputTerm, cardUi, verdictLabel } from '../../lib/atlas/content/terms.js';
+import { STATES } from '../../lib/atlas/tool-verdict.js';
 import { atlasParams } from '../../lib/analytics.js';
 
 // The words the interactive tool needs, gathered once on the server so the
@@ -16,11 +17,16 @@ import { atlasParams } from '../../lib/analytics.js';
 // component would be a second chance for them to disagree.
 const TOOL_LABEL_KEYS = ['calculate', 'result', 'perMonth', 'perPerson', 'amount', 'equivalent', 'cheaper', 'dearer', 'same', 'gross', 'net', 'comfortableMonths', 'maxPriceLevel', 'matches', 'nothingFits', 'km', 'distance'];
 const TOOL_INPUT_KEYS = ['income', 'household size', 'country', 'country a', 'country b', 'city', 'home size', 'style', 'budget'];
+// The verdict card's own words. The card holds no vocabulary of its own, so every
+// string it shows arrives through this bag and the language audit sees all of them.
+const CARD_KEYS = ['eyebrow', 'eyebrowCompare', 'leftAfterRent', 'shareOfIncome', 'at30', 'at35', 'rentYouPay', 'priceLevelThere', 'priceLevelHere', 'buysThere', 'difference', 'underComfortable', 'overComfortable', 'enterIncome'];
 
 function toolLabels(locale) {
   const out = {};
   for (const k of TOOL_LABEL_KEYS) out[k] = toolUi(k, locale);
   for (const k of TOOL_INPUT_KEYS) out[k] = inputTerm(k, locale);
+  for (const k of CARD_KEYS) out[k] = cardUi(k, locale);
+  for (const s of STATES) out['verdict.' + s] = verdictLabel(s, locale);
   return out;
 }
 

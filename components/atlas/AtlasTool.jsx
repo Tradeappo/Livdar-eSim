@@ -24,6 +24,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { pushEvent, EVENTS } from '../../lib/analytics.js';
 import { bandOf, startAt } from '../../lib/atlas/tool-inputs.js';
+import { stateForShare, stateForRatio, fillForShare, gradientFor } from '../../lib/atlas/tool-verdict.js';
+import AtlasScoreCard from './AtlasScoreCard.jsx';
 import { rentBudget } from '../../lib/atlas/tools/rent-affordability.js';
 import { estimate as movingEstimate } from '../../lib/atlas/tools/moving-cost.js';
 
@@ -77,10 +79,13 @@ export default function AtlasTool({ spec, labels, dims }) {
   };
 
   const t = (k) => (labels && labels[k]) || k;
+  // The verdict word, from the same labels bag, so the card carries no vocabulary
+  // of its own and the language audit can see every string it shows.
+  const verdictOf = (state) => (state ? t('verdict.' + state) : null);
 
-  if (spec.mode === 'share') return <Share {...{ spec, t, fmt, box, touch, complete }} />;
+  if (spec.mode === 'share') return <Share {...{ spec, t, verdictOf, fmt, box, touch, complete }} />;
   if (spec.mode === 'move') return <Move {...{ spec, t, fmt, box, touch, complete }} />;
-  if (spec.mode === 'ratio') return <Ratio {...{ spec, t, fmt, fmt1, box, touch, complete }} />;
+  if (spec.mode === 'ratio') return <Ratio {...{ spec, t, verdictOf, fmt, fmt1, box, touch, complete }} />;
   if (spec.mode === 'earn') return <Earn {...{ spec, t, fmt, box, touch, complete }} />;
   if (spec.mode === 'filter') return <Filter {...{ spec, t, fmt, fmt1, box, touch, complete }} />;
   if (spec.mode === 'stay') return <Stay {...{ spec, t, fmt1, box, touch, complete }} />;
@@ -95,38 +100,93 @@ function Frame({ box, id, title, children }) {
   );
 }
 
-function Share({ spec, t, fmt, box, touch, complete }) {
+function Share({ spec, t, verdictOf, fmt, box, touch, complete }) {
   const [income, setIncome] = useState('');
   const [household, setHousehold] = useState('1');
+  // The rent the reader is looking at. rent-affordability.js refuses to say
+  // whether a budget is enough in a named city, because no comparable rent level
+  // is published, and that refusal does not apply to a number the reader supplies
+  // themselves: it is their figure, not a claim of ours. It is what makes the
+  // verdict real rather than decorative, because thirty per cent of any income is
+  // affordable by construction and a card that only ever says so says nothing.
+  const [rent, setRent] = useState('');
+
   const r = rentBudget({ income: Number(income), household: Number(household) || 1 });
+  const share = r.ok && Number(rent) > 0 ? Number(rent) / Number(income) : null;
+  const state = r.ok ? (share === null ? 'comfortable' : stateForShare(share)) : null;
+  const left = r.ok && Number(rent) > 0 ? Number(income) - Number(rent) : null;
+
   useEffect(() => {
-    if (r.ok) complete('share|' + bandOf(income) + '|' + household, { income_band: bandOf(income), household_size: Number(household) || 1 });
+    if (!r.ok) return;
+    complete('share|' + bandOf(income) + '|' + household + '|' + (state || ''), {
+      income_band: bandOf(income),
+      household_size: Number(household) || 1,
+      rent_band: bandOf(rent),
+      // The verdict, which is the answer the reader got. A band and a state, never
+      // the figures behind them.
+      verdict: state,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [r.ok, income, household]);
+  }, [r.ok, income, household, rent, state]);
+
+  const atThirty = r.ok ? r.rows[0] : null;
+  const atThirtyFive = r.ok ? r.rows[1] : null;
+  // How far the rent sits from the share most landlords test against. Negative is
+  // under it, which is the good side.
+  const gap = atThirty && Number(rent) > 0 ? Number(rent) - atThirty.monthly : null;
+
   return (
     <Frame box={box} id={spec.id} title={t('calculate')}>
-      <div className="atlas-tool-inputs">
-        <label>
-          <span>{t('income')}</span>
-          <input type="number" inputMode="numeric" min="0" step="50" value={income}
-            onChange={(e) => { touch('income'); setIncome(e.target.value); }} />
-        </label>
-        <label>
-          <span>{t('household size')}</span>
-          <input type="number" inputMode="numeric" min="1" max="12" step="1" value={household}
-            onChange={(e) => { touch('household'); setHousehold(e.target.value); }} />
-        </label>
-      </div>
-      {r.ok ? (
-        <div className="atlas-tool-out" role="status">
-          {r.rows.map((row) => (
-            <p key={row.share}>
-              <strong>{fmt.format(row.monthly)}</strong> {t('perMonth')} ({row.percent}%)
-              {Number(household) > 1 ? <span className="muted">{' · ' + fmt.format(row.perPerson) + ' ' + t('perPerson')}</span> : null}
-            </p>
-          ))}
+      <AtlasScoreCard
+        eyebrow={t('eyebrow')}
+        title={spec.title || t('calculate')}
+        state={r.ok ? state : 'resting'}
+        gradient={r.ok ? gradientFor(state) : undefined}
+        score={share !== null ? Math.round(share * 100) + '%' : (atThirty ? fmt.format(atThirty.monthly) : '--')}
+        verdict={r.ok ? verdictOf(state) : null}
+        orb={share !== null ? Math.round(share * 100) + '%' : '30%'}
+        orbFill={share !== null ? fillForShare(share) : 30}
+        // The card is the same height in every state, including before anything is
+        // entered, so the controls under it never move while a thumb is on them.
+        // That is why the resting state shows the same rows with a dash in them
+        // rather than showing nothing.
+        headline={r.ok && left !== null
+          ? { label: t('leftAfterRent'), value: (left < 0 ? '-' : '') + fmt.format(Math.abs(left)) }
+          : { label: r.ok ? t('at30') : t('leftAfterRent'), value: atThirty ? fmt.format(atThirty.monthly) : '--' }}
+        kpis={[
+          { value: atThirty ? fmt.format(atThirty.monthly) : '--', label: t('at30') },
+          { value: atThirtyFive ? fmt.format(atThirtyFive.monthly) : '--', label: t('at35') },
+          // The third tile used to repeat the thirty per cent budget the reader had
+          // just read one tile to the left. It now says something the card does not
+          // say anywhere else: the gap to the comfortable line, or the budget per
+          // person where the household is more than one.
+          Number(household) > 1
+            ? { value: atThirty ? fmt.format(atThirty.perPerson) : '--', label: t('perPerson') }
+            : (gap !== null
+              ? { value: (gap < 0 ? '-' : '+') + fmt.format(Math.abs(gap)), label: gap <= 0 ? t('underComfortable') : t('overComfortable') }
+              : { value: '30%', label: t('shareOfIncome') }),
+        ]}
+        note={r.ok ? null : t('enterIncome')}
+      />
+      <div className="atlas-tool-controls">
+        <div className="atlas-tool-inputs">
+          <label>
+            <span>{t('income')}</span>
+            <input type="number" inputMode="numeric" min="0" step="50" value={income}
+              onChange={(e) => { touch('income'); setIncome(e.target.value); }} />
+          </label>
+          <label>
+            <span>{t('rentYouPay')}</span>
+            <input type="number" inputMode="numeric" min="0" step="50" value={rent}
+              onChange={(e) => { touch('rent'); setRent(e.target.value); }} />
+          </label>
+          <label>
+            <span>{t('household size')}</span>
+            <input type="number" inputMode="numeric" min="1" max="12" step="1" value={household}
+              onChange={(e) => { touch('household'); setHousehold(e.target.value); }} />
+          </label>
         </div>
-      ) : null}
+      </div>
     </Frame>
   );
 }
@@ -187,7 +247,7 @@ function Move({ spec, t, fmt, box, touch, complete }) {
 
 // Two places on one scale, and an amount. The arithmetic is a ratio of two
 // published price levels and nothing else, which is why it can be done here.
-function Ratio({ spec, t, fmt, fmt1, box, touch, complete }) {
+function Ratio({ spec, t, verdictOf, fmt, fmt1, box, touch, complete }) {
   // Open on the country the page was written for, and on its nearest neighbour
   // in the ordering, so the first thing the reader sees is a comparison they can
   // judge rather than Afghanistan against Algeria. Where the reader's own country
@@ -201,44 +261,58 @@ function Ratio({ spec, t, fmt, fmt1, box, touch, complete }) {
   const rowA = spec.rows.find((r) => r.iso2 === a);
   const rowB = spec.rows.find((r) => r.iso2 === b);
   const ok = rowA && rowB && Number(amount) > 0 && rowA.value > 0;
+  // The same arithmetic as before, unchanged and still the server's: a ratio of two
+  // published price levels and nothing else.
   const equivalent = ok ? (Number(amount) * rowB.value) / rowA.value : null;
-  const pct = ok ? Math.round(((rowB.value / rowA.value) - 1) * 100) : null;
+  const ratio = ok ? rowB.value / rowA.value : null;
+  const pct = ok ? Math.round((ratio - 1) * 100) : null;
+  const state = ok ? stateForRatio(ratio) : null;
   useEffect(() => {
-    if (ok) complete('ratio|' + a + '|' + b, { from_country: a, to_country: b, amount_band: bandOf(amount) });
+    if (ok) complete('ratio|' + a + '|' + b, { from_country: a, to_country: b, amount_band: bandOf(amount), verdict: state });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ok, a, b, amount]);
+  }, [ok, a, b, amount, state]);
+
   return (
     <Frame box={box} id={spec.id} title={t('calculate')}>
-      <div className="atlas-tool-inputs">
-        <label>
-          <span>{t('country a')}</span>
-          <select value={a} onChange={(e) => { touch('country a'); setA(e.target.value); }}>
-            {spec.rows.map((r) => <option key={r.iso2} value={r.iso2}>{r.name}</option>)}
-          </select>
-        </label>
-        <label>
-          <span>{t('country b')}</span>
-          <select value={b} onChange={(e) => { touch('country b'); setB(e.target.value); }}>
-            {spec.rows.map((r) => <option key={r.iso2} value={r.iso2}>{r.name}</option>)}
-          </select>
-        </label>
-        <label>
-          <span>{t('amount')}</span>
-          <input type="number" inputMode="numeric" min="0" step="100" value={amount}
-            onChange={(e) => { touch('amount'); setAmount(e.target.value); }} />
-        </label>
-      </div>
-      {ok ? (
-        <div className="atlas-tool-out" role="status">
-          <p>
-            <strong>{fmt.format(Math.round(equivalent))}</strong>{' '}
-            <span className="muted">{t('equivalent') + ' ' + fmt.format(Math.round(Number(amount))) + ' · ' + rowA.name + ' → ' + rowB.name}</span>
-          </p>
-          <p className="muted">
-            {pct === 0 ? t('same') : fmt1.format(Math.abs(pct)) + '% ' + (pct > 0 ? t('dearer') : t('cheaper'))}
-          </p>
+      <AtlasScoreCard
+        eyebrow={t('eyebrowCompare')}
+        title={spec.title || t('calculate')}
+        state={ok ? state : 'resting'}
+        gradient={ok ? gradientFor(state) : undefined}
+        score={ok ? fmt.format(Math.round(equivalent)) : '--'}
+        verdict={ok ? (pct === 0 ? t('same') : fmt1.format(Math.abs(pct)) + '% ' + (pct > 0 ? t('dearer') : t('cheaper'))) : null}
+        orb={ok ? (pct > 0 ? '+' : '') + pct + '%' : null}
+        // A ratio of one is half the circle, so cheaper reads as less than half and
+        // dearer as more, which is the same direction the colour moves in.
+        orbFill={ok ? Math.max(4, Math.min(100, Math.round((ratio / 2) * 100))) : 0}
+        headline={ok ? { label: t('buysThere'), value: rowB.name } : null}
+        kpis={ok ? [
+          { value: fmt1.format(rowA.value), label: t('priceLevelHere') },
+          { value: fmt1.format(rowB.value), label: t('priceLevelThere') },
+          { value: (pct > 0 ? '+' : '') + fmt1.format(pct) + '%', label: t('difference') },
+        ] : []}
+      />
+      <div className="atlas-tool-controls">
+        <div className="atlas-tool-inputs">
+          <label>
+            <span>{t('country a')}</span>
+            <select value={a} onChange={(e) => { touch('country a'); setA(e.target.value); }}>
+              {spec.rows.map((r) => <option key={r.iso2} value={r.iso2}>{r.name}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>{t('country b')}</span>
+            <select value={b} onChange={(e) => { touch('country b'); setB(e.target.value); }}>
+              {spec.rows.map((r) => <option key={r.iso2} value={r.iso2}>{r.name}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>{t('amount')}</span>
+            <input type="number" inputMode="numeric" min="0" step="100" value={amount}
+              onChange={(e) => { touch('amount'); setAmount(e.target.value); }} />
+          </label>
         </div>
-      ) : null}
+      </div>
     </Frame>
   );
 }
