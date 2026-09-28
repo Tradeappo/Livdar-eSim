@@ -35,6 +35,13 @@ Date: 2026-09-28. Every item the brief listed under section 6, with its outcome.
 | Brand Radar, prepared prompts | `brand-radar/proposed-prompts-2026-09-28.tsv` | **44** |
 | Other five sites checkpoint | `other-sites/checkpoint-2026-09-28.json` | 6 projects |
 | Production verification | `production/` | 8 files |
+| **Content gap**, inverted method | `content-gap/pl-kalendarzswiat-2026-09-28.tsv` | **50** |
+| **Keywords Explorer** research, consolidated with verdicts | `keywords-explorer/research-2026-09-28.tsv` | **44** |
+| **Anchors**, resolved into clusters | `backlinks/anchor-clusters-2026-09-28.tsv` | 8 clusters |
+| **New and lost** refdomains and links | `backlinks/new-and-lost-2026-09-28.md` | derived |
+| **Market leaders** across 8 markets | `competitors/market-leaders-2026-09-28.tsv` | 23 |
+| **Content families** with feasibility | `competitors/families-observed-2026-09-28.tsv` | 15 |
+| Polish leader's ranking keywords | `content-gap/pl-kalendarzswiat-2026-09-28.tsv` | 100 pulled, top 50 kept |
 
 ## Empty, and the emptiness is the finding
 
@@ -46,7 +53,7 @@ Date: 2026-09-28. Every item the brief listed under section 6, with its outcome.
 | `site-explorer-domain-rating-history` | **0** | same |
 | `site-explorer-broken-backlinks` | **0** | No backlink points at a broken Livdar URL. Genuinely good news. |
 | `site-explorer-linked-domains` | **0** | Livdar links out to no external domain that Ahrefs records |
-| Organic keywords, top pages, top subfolders, top countries, organic competitors, competing domains | **0** | All downstream of having no organic rankings |
+| Organic keywords, top pages, top subfolders, top countries, organic competitors, competing domains | **0** | All downstream of having no organic rankings. **Captured for competitors instead**, which is the only form in which they carry information: see `competitors/` and `content-gap/`. |
 | New and lost keywords, position movements | **0** | same |
 
 The same four history endpoints return 25 monthly rows each for absentify.com over the same

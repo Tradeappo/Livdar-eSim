@@ -66,6 +66,8 @@ file holds, and critically **which files can never be regenerated** once access 
 | `backlinks/refdomains-all-time-2026-09-28.json` | FROZEN | Raw referring-domain rows, merged from two 500-row slices because the API caps a call at 500. |
 | `backlinks/all-backlinks-top500-by-dr-2026-09-28.json` | FROZEN | Link-level rows with anchor, target URL, first and last seen. Anchor text had 831 em dashes replaced with hyphens to satisfy the project's dash rule, so anchors are faithful in wording but not byte-identical. |
 | `backlinks/growth-timeline-2026-09-28.tsv` | FROZEN | New domains and dofollow links by month, 18 months. Shows the August dofollow switch and the September escalation. |
+| `backlinks/anchor-clusters-2026-09-28.tsv` | FROZEN | **The 8 anchor clusters** with referring domains, links, dofollow count, spam flag and first seen. Resolves the 630 dofollow links into three deliberate bursts, the largest 516 links across 258 domains on 2026-09-17, and shows a new 151-domain cluster first seen 2026-09-27. |
+| `backlinks/new-and-lost-2026-09-28.md` | FROZEN | New and lost, derived from the audit TSV rather than re-queried. **536 of 1,000 referring domains arrived in the last 30 days**, bringing 580 of the 630 dofollow links. 208 domains lost links, 317 links total, which is churn rather than recovery. |
 | `backlinks/dofollow-domains-2026-09-28.csv` | FROZEN | First-pass dofollow list. |
 | `backlinks/pbn-audit-2026-09-28.json` | FROZEN | First-pass network audit. |
 | `backlinks/link-intersect-2026-09-28.md` | FROZEN | Link intersect against competitors. |
@@ -100,6 +102,20 @@ file holds, and critically **which files can never be regenerated** once access 
 | `organic/cohort-candidates-2026-09-28.tsv` | FROZEN | Earlier candidate pass. |
 | `organic/new-families-2026-09-28.md` | FROZEN | Earlier family exploration. |
 | `organic/README.md` | | Folder note. |
+
+## Content gap
+
+| File | Status | What it holds |
+| --- | --- | --- |
+| [`content-gap/README.md`](content-gap/README.md) | FROZEN | **Why a normal content gap run is impossible here** (Livdar ranks for nothing, so the tool would return "every competitor keyword"), and the inverted method used instead. Carries the headline: of 1,481,400 monthly searches in the Polish leader's top 50, Livdar has a surface for **7.7%**. |
+| `content-gap/pl-kalendarzswiat-2026-09-28.tsv` | FROZEN | 50 keywords with volume, KD, CPC, the competitor's traffic and position, its URL path, the family, and whether Livdar has that family. Poland chosen because it is Livdar's third-largest demand market against one of the weakest SERPs measured. |
+
+## Keywords Explorer
+
+| File | Status | What it holds |
+| --- | --- | --- |
+| [`keywords-explorer/README.md`](keywords-explorer/README.md) | FROZEN | The verdict breakdown, the three rejections with reasons, and the calibration lesson that next-year keywords understate a family roughly fifteenfold. |
+| `keywords-explorer/research-2026-09-28.tsv` | FROZEN | **44 keywords** across DE, AU, CA, FR with volume, KD, CPC, global volume, whether the SERP carries an AI Overview, family, and a **verdict**: 25 BUILD, 7 CAUTION, 3 REJECT, 1 PROSPECT, 8 NOTE. The verdict column exists because volume and KD alone have misled this project twice, in both directions. |
 
 ## SERP snapshots
 
