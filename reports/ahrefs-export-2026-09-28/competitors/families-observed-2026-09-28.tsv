@@ -1,0 +1,16 @@
+family	data_requirement	best_evidence_url	evidence_traffic	sample_keyword	sample_volume	market	feasibility_for_livdar
+week-numbers	pure computation	kalender-365.nl/weeknummer.html	93469	kalenderwoche	44785	de	BUILDABLE no data needed
+year-calendar	pure computation	kalendarzswiat.pl/kalendarz/2026	55223	kalendarz 2026	195000	pl	BUILDABLE but head term link-gated in PL, winnable in DE
+year-calendar	pure computation	kalender-online.com/kalender-2027	5240	kalender 2027	70657	de	BUILDABLE validated, DR 10 page at position 3
+month-calendar	pure computation	kalendarzswiat.pl/kalendarz_wrzesien/2026	6447	calendrier septembre 2026	59000	fr	BUILDABLE no data needed
+moon-phases	pure computation astronomy	kalender-365.nl/maan/maanstanden.html	48497	vollmond	162071	de	BUILDABLE but off-brand for Livdar, no monetization path
+printable-pdf-jpg-variants	derivative of the above	vacances-scolaires-education.fr PDF	44088	vacances scolaires 2027	283339	fr	BUILDABLE a PDF ranks 1 with 0 refdomains
+today-pages	held data	kalendarzswiat.pl/dzisiaj	59419	jakie jest dzisiaj swieto	10000	pl	BUILDABLE from held holiday data
+public-holidays-by-region	held data	absentify de/feiertage/deutschland/nordrhein-westfalen	6077	feiertage nrw 2026	61000	de	ALREADY BUILT, 11 of 16 DE states
+named-holiday-which-regions	held data pivoted	feiertage-deutschland.de/fronleichnam/	18330	fronleichnam feiertag wo	43496	de	BUILDABLE pivot of held data
+school-holidays	16 state ministries	feiertage-deutschland.de/schulferien/nordrhein-westfalen/	9017	sommerferien nrw 2026	257000	de	BLOCKED licence unresolved
+school-holidays	one national source, 3 zones	vacances-scolaires-education.fr academie pages	35512	vacances scolaires 2027	283339	fr	BETTER PROSPECT than DE, still needs licence confirmation
+trading-sundays	one national law	kalendarzswiat.pl/niedziele_handlowe/2026	7746	niedziele handlowe 2026	112000	pl	PROSPECT single national rule
+working-time-per-year	computable from held holidays	kalendarzswiat.pl/wymiar_czasu_pracy/2026	9060	godziny pracy 2026	16000	pl	BUILDABLE from held data
+name-days	fixed list	kalendarzswiat.pl/imieniny	9187	kto ma dzisiaj imieniny	12000	pl	PROSPECT fixed reference list
+dst-clock-change	computable	schulferien.org/deutschland/zeit/zeitumstellung/2026/	9970	zeitumstellung 2026	56833	de	REJECTED on SERP, news publishers own it

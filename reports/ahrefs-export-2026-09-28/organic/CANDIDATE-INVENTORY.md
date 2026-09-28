@@ -170,3 +170,106 @@ data licence or a new country dataset.
 And per `../competitors/COMPETITOR-INTELLIGENCE.md`, publish nothing before the internal link
 imbalance is understood: Pulse carries 51.2% of Livdar's demand on 9.7% of its internal links.
 Adding pages to an under-linked surface compounds the problem rather than fixing it.
+
+---
+
+# Second pass, 2026-09-28: two corrections and six families that need no data
+
+Profiling only absentify was too narrow. The market leaders in Poland, the Netherlands and France
+run eleven families over the same kind of data, and six of them need **no external data at all**.
+Detail and evidence in [`../competitors/PER-MARKET.md`](../competitors/PER-MARKET.md) and
+[`../competitors/families-observed-2026-09-28.tsv`](../competitors/families-observed-2026-09-28.tsv).
+The TSV beside this file now carries 35 rows rather than 26.
+
+## Correction 1: the year-calendar rejection applied to Poland, not to the family
+
+The first pass rejected "year-calendar head terms" because `kalendarz 2026` (PL, 430,000, KD 2)
+has a SERP page carrying **55,463 backlinks**. **That generalised too far, and the German
+equivalent is winnable.**
+
+`kalender 2027`, DE, **70,657/month, KD 2**, SERP validated today:
+
+| Position | URL | DR | Page refdomains | UR |
+| --- | --- | --- | --- | --- |
+| **3** | **`kalender-online.com/kalender-2027`** | **10** | n/a | **0** |
+| 4 | `deutschland-rechner.de/kalender-2027` | 43 | **1** | 5 |
+| 6 | `thalia.de` product page | 87 | **0** | **0** |
+
+No link-gated incumbent anywhere on the page. The rejection **stands for PL** and is
+**withdrawn for DE**, now row `1b`.
+
+## Correction 2: a KD 8 term at 56,833 that is unwinnable
+
+`zeitumstellung 2026` (DST clock change), DE, **56,833/month at KD 8**, would pass any difficulty
+filter. Its SERP is `chip.de` (DR 86), `ardalpha.de` (76), `hamburg.de` (89), `brisant.de` (69) and
+the **European Commission** (97), plus four AI Overview and news blocks above them. It is a
+recurring news cycle, not a reference query. **Rejected.**
+
+KD 2 lied one way and KD 8 lied the other. Both corrections come from running the SERP, which is
+the only reason either was caught.
+
+## Six families that are not blocked on anything
+
+The first pass ended with 772,000 monthly searches blocked on a data licence. These need no licence,
+no new dataset and no scraping.
+
+| Family | Evidence it works | Volume | Data requirement |
+| --- | --- | --- | --- |
+| **Week numbers** | `kalender-365.nl/weeknummer.html` earns **93,469** from one page, 731 keywords, position 1 | `kalenderwoche` DE **44,785** (`welche kalenderwoche` 4,403 at **KD 0**) | arithmetic |
+| **Year calendar** | validated above | `kalender 2027` DE **70,657** at KD 2 | arithmetic |
+| **Month calendar** | competitor holds position 1 with **0** page refdomains | `calendrier septembre 2026` 59,000; `juillet 2026` 26,000 | arithmetic |
+| **"Today" page** | `kalendarzswiat.pl/dzisiaj` earns **59,419** from ONE URL with 716 keywords | `jakie jest dzisiaj święto` 10,000 plus the `is today a holiday in X` cluster | held holiday data |
+| **Working time per year** | `kalendarzswiat.pl/wymiar_czasu_pracy/2026` earns 9,060 | `godziny pracy 2026` 16,000 | derived from held holidays |
+| **Named holiday, which regions** | `/fronleichnam/` earns 18,330 | `fronleichnam feiertag wo` **43,496** at KD 4 | held data, pivoted |
+
+`/dzisiaj` is the highest traffic-per-page result found anywhere in this research: one URL,
+59,419 visits.
+
+## A format finding that is not a family
+
+**A PDF ranks position 1** for `vacances scolaires 2027` (283,339) with **zero referring domains**.
+**A JPG image file ranks position 1** for `kalender 2023` (57,000). And
+`kalender-365.nl/kalender-2089.html`, a calendar for the year **2089**, earns **22,780** and ranks
+1 for `kalender`.
+
+Format is not the constraint and neither is recency. Answering the query is.
+
+## France may unblock what Germany blocks
+
+German school holidays stay BLOCKED: 16 independent state ministries. **France sets its school
+calendar nationally** across three zones plus Corsica, which is one source rather than sixteen,
+and the demand is larger: `vacances scolaires` **318,000**, `vacances scolaires 2027` **283,339 at
+KD 0**, `ascension 2027` **43,874 at KD 0**.
+
+Its SERP is the weakest of any high-volume term measured in this engagement. Position 1 is a PDF at
+DR 32 with 0 referring domains. **Positions 5, 6 and 10 are per-commune pages**, one of them for a
+village of roughly a thousand people, with URL Ratings of 0 and 4.
+
+**This does not make it a plan.** National rather than regional makes the data problem smaller, not
+solved. Whether a specific published source may lawfully be used, and at what cadence, is still
+open, and still no scraping. **It is a better bet than Germany, not a confirmed one**, and it is
+recorded as row `3c` with that wording.
+
+## Two more prospects worth a look
+
+- **Trading Sundays, Poland.** `niedziele handlowe 2026` = **112,000**. Poland restricts Sunday
+  trading by law: one national rule, no regional matrix. Far simpler than the German problem.
+- **Name days.** `kto ma dzisiaj imieniny` = 12,000, a fixed reference list.
+
+## One big number deliberately not recommended
+
+**`vollmond` (full moon), DE, 162,071/month at KD 0** is the largest zero-difficulty term found in
+this entire engagement, and it is pure astronomical computation. It is recorded as **REJECTED**
+anyway: it is off-brand for a cost-of-living and salaries site, there is no monetization path, and
+no SERP validation was run on it. It is in the TSV so the number is not rediscovered in six months
+and mistaken for a missed opportunity.
+
+## What this changes about the monetization problem
+
+Every market has the same pattern: `absentify`, `factorial`, `payfit`, `coverflex`, `pluxee`,
+`timechimp`, `verlof.io`, `clevis.de` all use holiday content as top of funnel for a **leave or
+payroll product**. That is the business this content naturally feeds, and it is not a travel eSIM.
+
+The first pass said `monetization_fit` is medium at best across the whole inventory. The competitor
+evidence now says why: the content is worth most to whoever sells workforce or leave software. That
+is a strategic question, not an SEO one, and it sits above this inventory rather than inside it.
