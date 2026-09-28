@@ -1,5 +1,23 @@
+// Which URLs this may ever submit.
+//
+// Two sources, because the site has two. `enumeratePages` resolves the eSIM
+// era pages out of the entity dataset, and the Atlas cohort manifests carry
+// the 500 data pages. The Atlas was missing from this list entirely, so
+// nothing under a cohort segment could be submitted at all.
+//
+// The guard used to be `length !== 91`, a tripwire on a number that was true
+// the day it was written. The eSIM site grew to 115 pages and the tripwire
+// fired on its own growth, so IndexNow has been refusing every submission,
+// including the ones it was meant to allow. What is worth guarding is not the
+// count but the origin: a submission may only name a canonical URL this site
+// actually publishes, on this host, and IndexNow takes at most 10,000 in a
+// request. That holds whatever either surface grows to.
+
 import { enumeratePages } from './page-audit.mjs';
 import { absolute, SITE_URL } from '../lib/routes.js';
+import { pages as atlasPages } from '../lib/atlas/serve-pages.js';
+
+const INDEXNOW_BATCH_LIMIT = 10000;
 
 const key = process.env.INDEXNOW_KEY || '';
 if (!/^[A-Za-z0-9-]{8,128}$/.test(key)) {
@@ -8,12 +26,18 @@ if (!/^[A-Za-z0-9-]{8,128}$/.test(key)) {
 
 const origin = new URL(SITE_URL).origin;
 const host = new URL(origin).host;
-const published = enumeratePages()
+const esim = enumeratePages()
   .filter((page) => page.type !== 'unresolved')
   .map((page) => absolute(page.path));
+const atlas = atlasPages().map((page) => absolute(page.path));
+const published = [...new Set([...esim, ...atlas])];
 
-if (published.length !== 91 || published.some((url) => new URL(url).host !== host)) {
-  throw new Error(`Refusing IndexNow submission: expected 91 ${host} URLs, found ${published.length}.`);
+if (!published.length) {
+  throw new Error('Refusing IndexNow submission: no published URLs resolved from either surface.');
+}
+const offHost = published.filter((url) => new URL(url).host !== host);
+if (offHost.length) {
+  throw new Error(`Refusing IndexNow submission: ${offHost.length} URL(s) are not on ${host}, first ${offHost[0]}.`);
 }
 
 const pathIndex = process.argv.indexOf('--paths');
@@ -25,8 +49,12 @@ const allowed = new Set(published);
 const urlList = requestedPaths
   ? [...new Set(requestedPaths.map((path) => new URL(path, origin).href))]
   : published;
-if (urlList.some((url) => !allowed.has(url))) {
-  throw new Error('IndexNow only accepts canonical URLs from the published registry.');
+const unknown = urlList.filter((url) => !allowed.has(url));
+if (unknown.length) {
+  throw new Error(`IndexNow only accepts canonical URLs from the published registry. ${unknown.length} not published, first ${unknown[0]}.`);
+}
+if (urlList.length > INDEXNOW_BATCH_LIMIT) {
+  throw new Error(`IndexNow takes at most ${INDEXNOW_BATCH_LIMIT} URLs in a request, asked for ${urlList.length}.`);
 }
 
 const payload = {
