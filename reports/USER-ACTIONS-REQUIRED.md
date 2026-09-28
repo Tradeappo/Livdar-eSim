@@ -1,7 +1,18 @@
 # User actions required
 
-Updated 2026-09-28. Everything in this repository that could be done without you is
-done. Item 6 is finished. Eight items remain.
+Updated 2026-09-28, second pass. Everything in this repository that could be done
+without you is done. Item 6 is finished. **Eleven items remain, and three of them
+expire on 8 October.**
+
+> ## The Ahrefs subscription ends 8 October 2026
+>
+> Items **7**, **8** and **10** are worth far less, or nothing, after that date.
+> Item 7 above all: a Rank Tracker baseline started after expiry tracks nothing,
+> and one started before it keeps reporting. If you do a single thing from this
+> file, do item 7.
+>
+> 871,157 of 2,000,000 API units remain and the allowance resets on 8 October,
+> the day after access ends, so they cannot be carried forward.
 
 Five of them need a browser signed in as a human, which this session does not have:
 Google Search Console, Tag Manager, Analytics and Microsoft Clarity all answered
@@ -325,27 +336,139 @@ because that is the surface actually appearing on Livdar's SERPs.
 
 ---
 
-## 9. Search Console: disavow the PBN cluster, when convenient
+## 9. Search Console: disavow, 998 domains, and it got worse
 
 **Service** Google Search Console disavow tool
 
 **Screen** `https://search.google.com/search-console/disavow-links`
 
-**Why this is on the list now and was not this morning** The first reading of
-the backlink profile sampled the nofollow clusters and concluded the links were
-inert. Reading the anchors report and then filtering backlinks to
-`is_dofollow` showed **at least 636 dofollow links from roughly 300 domains**,
-with commercial anchors naming livdar.com, the largest cluster arriving inside
-about 24 hours on 2026-09-17 and 18. Every source serves the identical path
-`/dir/premium-backlink-services-123314`.
+**File to upload**
+`reports/ahrefs-export-2026-09-28/backlinks/disavow-candidates-2026-09-28.txt`
 
-**Why I could not do it** Search Console needs an authenticated account.
+**This section replaces what was here this morning, and both numbers changed.**
+The earlier entry said roughly 636 dofollow links from about 300 domains. A full
+pass over the all-time referring domains (1,000 of 1,021 captured) says:
 
-**Not urgent.** The sources have no traffic and no authority and Google's spam
-systems are built to discount this. But it is dofollow, it names the domain in
-commercial anchors, and it is cheap to remove as a variable before the Atlas
-starts ranking. The evidence and the exact pattern are in
-`reports/ahrefs-export-2026-09-28/backlinks/README.md`.
+| | This morning | Now |
+| --- | --- | --- |
+| Referring domains | ~316 | **1,021 all time, 740 live** |
+| Disavow candidates | 314 | **998** |
+| Dofollow links | ~636 from ~300 domains | **630 from 313 domains** |
+
+The dofollow count holds up. The domain count tripled, because **535 new referring
+domains appeared in September alone**, and **578 of the 630 dofollow links arrived
+in September**. Before August 2026 every single link was nofollow. The campaign
+changed character and is still accelerating.
+
+**One correction to the earlier evidence.** It cited shared IP subnets as a network
+fingerprint. 982 of the 1,000 domains sit behind Cloudflare, which hosts millions of
+unrelated sites, so that count was inflated. Excluding shared CDN ranges leaves three
+real clusters and 17 domains. The classification now rests on hostname pattern and
+TLD, which are much stronger here: 92.8% throwaway TLDs, and hostnames containing
+`seo` 294 times, `link` 242, `checker` 230, `rank` 218.
+
+**Still not urgent, and here is the honest case both ways.**
+
+For waiting: Google says disavow is for manual actions or when you believe one is
+imminent, and there is no manual action against livdar.com. All 1,784 links point at
+two URLs, both the homepage, and **none at any Atlas page**. Ahrefs already assigns
+both homepage variants a URL Rating of **0.0** despite 1,019 referring domains, which
+is the graph being discounted in front of us.
+
+For acting: 630 dofollow links inside two months from 313 zero-traffic domains whose
+hostnames advertise link selling is exactly the pattern a spam classifier is built to
+catch, and the rate is still climbing.
+
+**The file is ready either way.** Full reasoning in
+`reports/ahrefs-export-2026-09-28/backlinks/AUDIT-2026-09-28.md`.
+
+**After 8 October the check that matters is GSC > Manual actions, monthly.** Empty
+means the file stays unsubmitted.
+
+---
+
+## 10. Ahrefs: rerun the Site Audit crawl, before 8 October
+
+**Service** Ahrefs Site Audit
+
+**Screen** Ahrefs > Site Audit > the **Livdar** project > **Rerun crawl**, top right
+of the project overview
+
+**Why I could not do it** The Ahrefs API exposes Site Audit as read-only. There are
+endpoints for projects, issues, page explorer and page content, and none that starts
+a crawl. Checked against the tool surface rather than assumed.
+
+**Why it is worth doing** The most recent crawl began at 12:56 UTC on 2026-09-28,
+**24 minutes after** the fix for the 404 outage reached production, and two further
+fixes landed after it: hreflang across cohorts at 19:11 UTC and `og:image` at 21:04
+UTC. The crawl is three fixes stale, and its Health Score of 60 describes a site that
+no longer exists.
+
+Expect the score to move sharply: 907 warnings and 679 transitional errors should
+clear, leaving roughly 115 real findings and 135 informational ones.
+
+**You may not need to touch it.** Crawls have been landing daily around 12:56 UTC, so
+the **2026-09-29** scheduled crawl should be the first clean one on its own. A manual
+rerun only brings it forward by a few hours. Either way, capture the result before
+8 October, because it is the last Site Audit you will get.
+
+Takes roughly 20 to 40 minutes at this site's size.
+
+---
+
+## 11. A decision only you can make: is there a lawful source for German school holiday dates?
+
+**This is not a settings screen. It is the highest-value open question in the whole
+Ahrefs exercise, and I cannot answer it.**
+
+German school holidays are roughly four times the size of German public holidays, and
+the incumbents are not defending them:
+
+| Keyword | Monthly searches | Held at | By a page with |
+| --- | --- | --- | --- |
+| `sommerferien nrw 2026` | **257,000** | position 6 | **0 referring domains** |
+| `ferien niedersachsen 2026` | **205,000** | position 12 | **0 referring domains** |
+| `sommerferien bayern 2026` | **186,000** | position 15 | 1 referring domain |
+| `sommerferien hessen 2026` | **124,000** | position 8 | 1 referring domain |
+| | **772,000** | | |
+
+For comparison, the largest German public holiday term, `feiertage nrw 2026`, is
+61,000.
+
+**The blocker is not SEO.** The dates are set and published by each of the 16 state
+education ministries, and this project forbids scraping. Building the family needs a
+licensed or openly published dataset with adequate coverage and a reliable update
+cadence, for 16 states across several years.
+
+**What I need from you:** does such a source exist that Livdar may lawfully use? A
+licence, an official open data release, a paid feed. If yes, this is the largest
+opportunity found anywhere in this work. If no, it stays a measurement and the
+candidate inventory drops to 68,793 monthly searches of buildable work.
+
+Recorded in `reports/ahrefs-export-2026-09-28/organic/CANDIDATE-INVENTORY.md` as
+BLOCKED so it is neither lost nor mistaken for ready work.
+
+---
+
+## 12. Optional: 101 meta descriptions run past 160 characters
+
+**Not a settings screen, a one template code change, and it is your call rather than
+mine.**
+
+The Site Audit flagged 101 pages with a meta description that is too long. Verified
+independently by measuring 399 built pages: **96 exceed 160 characters**, median 156,
+longest **201**. Nine titles are also over, and five descriptions are under 70.
+
+Over 160 characters, the description is truncated in the results page and the last
+clause is discarded, so this is a real click-through cost rather than a cosmetic
+warning.
+
+**Why I did not just fix it.** The brief says not to modify production for Ahrefs
+warnings alone, and this sits close enough to that line that it should be your
+decision. It is bounded: the description is composed in one template, the overshoot
+is 1 to 41 characters, and 303 of 399 pages are already inside budget.
+
+Say the word and it is a single change with a test.
 
 ---
 
