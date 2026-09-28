@@ -39,6 +39,19 @@ import { report as internalLinks } from './internal-links.mjs';
 const ROOT = new URL('../../', import.meta.url);
 const DEMAND = 'reports/ahrefs-export-2026-09-28/organic/published-page-demand-2026-09-28.tsv';
 
+// The day 497 of the 500 stopped returning 404 and began serving.
+//
+// Being published is not the same as being reachable. The cohort manifests were
+// not traced into the serverless bundle, so from the launch on 2026-09-24 until
+// the fix reached production at 12:32 UTC on 2026-09-28, 497 of the 500 pages
+// answered 404. Google saw 404s, not pages.
+//
+// This date therefore gates the window alongside the publication date. Without
+// it a window ending 2026-09-27 looks like coverage, reports 500 real zeroes,
+// and the zeroes are an outage rather than a verdict on the pages.
+const SERVING_SINCE = '2026-09-28';
+
+
 const arg = (name, fallback = null) => {
   const i = process.argv.indexOf('--' + name);
   return i >= 0 ? process.argv[i + 1] : fallback;
@@ -121,15 +134,24 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
 
   // Does the Search Console window reach the pages at all?
   //
+  // Two dates have to be cleared, not one.
+  //
   // Strictly after the publication date, not on it. The Atlas went live at
   // 20:00 UTC on the day its manifests were generated, so a window ending that
   // same day covers about four hours of it, and Search Console's own reporting
   // lags two to three days on top. A window that ends on the publication date
-  // is not coverage, it is a rounding error, and treating it as coverage would
-  // turn an unmeasured page into a failed one.
+  // is not coverage, it is a rounding error.
+  //
+  // And strictly after SERVING_SINCE, because for most of the launch period the
+  // pages returned 404. A window that ends before the pages were reachable
+  // measures an outage, not the pages.
+  //
+  // Treating either as coverage would turn an unmeasured page into a failed
+  // one, which is the single most expensive mistake available here.
   const windowEnd = gscWindow && gscWindow.endDate ? gscWindow.endDate : null;
   const publishedDay = publishedAt ? publishedAt.slice(0, 10) : null;
-  const coversLaunch = !!(windowEnd && publishedDay && windowEnd > publishedDay);
+  const reachableFrom = publishedDay && publishedDay > SERVING_SINCE ? publishedDay : SERVING_SINCE;
+  const coversLaunch = !!(windowEnd && publishedDay && windowEnd > reachableFrom);
   const outOfWindow = gsc.size > 0 && !coversLaunch;
 
   const rows = pages.map((p) => {
@@ -204,10 +226,15 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
     gsc_imported_at: importedAt || null,
     atlas_published_at: publishedAt,
     gsc_window_covers_launch: coversLaunch,
+    atlas_serving_since: SERVING_SINCE,
+    atlas_404_outage: 'From the launch until 12:32 UTC on ' + SERVING_SINCE + ', 497 of the 500 pages returned 404 because the cohort manifests were not traced into the serverless bundle.',
+    gsc_window_reaches_serving_pages: !!(windowEnd && windowEnd > SERVING_SINCE),
     gsc_reading: outOfWindow
-      ? 'The Search Console window ends ' + windowEnd + ' and the Atlas was published ' + publishedDay
-        + ' at 20:00 UTC. The import reports zero impressions for every page and says each was shown to nobody, which is true of the window and false of the pages. Nothing about the 500 has been measured yet. Search Console lags two to three days, so the first window that says anything about these pages ends 2026-09-27 or later.'
-      : coversLaunch ? 'The window reaches the published pages, so a zero is a real zero.'
+      ? 'The Search Console window ends ' + windowEnd + '. The Atlas was published ' + publishedDay
+        + ' at 20:00 UTC, and 497 of the 500 pages returned 404 until the bundling fix reached production at 12:32 UTC on ' + SERVING_SINCE
+        + '. The import reports zero impressions for every page and says each was shown to nobody, which is true of the window and false of the pages: for almost all of it there was nothing at these URLs for Google to show. Nothing about the 500 has been measured yet. A window has to end after ' + SERVING_SINCE
+        + ' to contain a single day of the pages actually serving, and Search Console lags two to three days on top, so the first import that says anything about these pages covers ' + SERVING_SINCE + ' onward and lands no earlier than 2026-10-01.'
+      : coversLaunch ? 'The window reaches the pages while they were serving, so a zero is a real zero.'
       : 'No Search Console import available.',
     ahrefs_organic_keywords_for_livdar: 0,
     signal_counts: counts,

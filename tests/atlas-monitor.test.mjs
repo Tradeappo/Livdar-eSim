@@ -104,3 +104,27 @@ test('the priority list is the pages with demand and no impressions', () => {
   const vols = r.high_demand_without_impressions.map((x) => x.volume);
   assert.deepEqual(vols, [...vols].sort((a, b) => b - a), 'largest demand first');
 });
+
+test('a window ending before the pages served reads as out_of_window, even if it postdates publication', () => {
+  // The gap the publication date alone does not close. 497 of the 500 answered
+  // 404 from launch until 12:32 UTC on 2026-09-28, because the cohort manifests
+  // were missing from the serverless bundle. A window ending 2026-09-27 is
+  // therefore after publication and still measures an outage: Google was shown
+  // 404s, not pages. Gating on publication alone would report 500 real zeroes
+  // and read an infrastructure fault as a verdict on the content.
+  const r = build({});
+  assert.equal(r.atlas_serving_since, '2026-09-28');
+  assert.match(r.atlas_404_outage, /404/);
+
+  const end = r.gsc_window && r.gsc_window.endDate;
+  assert.ok(end, 'the import declares a window end');
+  if (end <= r.atlas_serving_since) {
+    assert.equal(r.gsc_window_covers_launch, false, 'a window ending before the pages served is not coverage');
+    assert.equal(r.gsc_window_reaches_serving_pages, false);
+    assert.equal(r.signal_counts.out_of_window, pages.length);
+    assert.equal(r.signal_counts.none, 0, 'no page may read as a measured zero');
+    assert.match(r.gsc_reading, /404/, 'the reading names the outage rather than hiding it');
+  } else {
+    assert.equal(r.gsc_window_reaches_serving_pages, true);
+  }
+});
