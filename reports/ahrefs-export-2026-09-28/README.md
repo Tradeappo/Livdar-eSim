@@ -12,8 +12,8 @@ and it is the first dated snapshot in the repository.
 | Usage resets | 2026-10-08T00:00:00Z |
 | Workspace limit | 2,000,000 units |
 | Used at the start of this session | 1,035,757 |
-| Spent | 31,225 |
-| Remaining | 933,018 |
+| Spent | 35,567 |
+| Remaining | 928,676 |
 | API key expires | 2036-09-05 |
 
 ## What is in here
@@ -31,6 +31,8 @@ and it is the first dated snapshot in the repository.
 | `other-sites/` | Checkpoint for foiauto, certificatconstatator, meniudigital, cartela, numaranglia. No changes made |
 | `serp/` | **Six SERPs read, one per surface. Which surfaces face thin programmatic pages and which face Reddit and publishers** |
 | `indexnow/` | The submission: 615 URLs accepted with HTTP 200, and the three reasons it had never worked before |
+| `production/monitoring-README.md` | **The joined dataset for all 500 pages, the internal link graph, and the finding that 3 per cent of the Atlas can reach the shop** |
+| `organic/new-families-2026-09-28.md` | Four candidate families found, and the two that did not survive a SERP check |
 | `production/` | **The 404 regression: how it was found, what caused it, and the verification after the fix.** The per market international check |
 
 ## The three things worth reading first
