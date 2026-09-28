@@ -1,3 +1,9 @@
+> **SUPERSEDED, 2026-09-28.** The counts below were taken earlier the same day and are now
+> wrong: the graph has grown from 316 to **1,021 all-time referring domains**, and from
+> August 2026 the links turned **dofollow** (630 of them, where every earlier link was
+> nofollow). Read `AUDIT-2026-09-28.md` instead. This file is kept only as the record of
+> what was believed at the time.
+
 # Backlinks, 2026-09-28
 
 The headline numbers look like an asset and are not one.
