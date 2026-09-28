@@ -1,0 +1,539 @@
+{
+  "base": "https://livdar.com",
+  "captured": "2026-09-28",
+  "total": {
+    "urls": 500,
+    "ok": 500,
+    "problems": 0,
+    "byProblem": {}
+  },
+  "site": {
+    "robots_txt": {
+      "status": 200,
+      "disallows": [
+        "/api/"
+      ],
+      "sitemap_declared": true
+    },
+    "sitemap_index": {
+      "status": 200,
+      "children": 74
+    }
+  },
+  "trailing_slash": [
+    {
+      "market": "US",
+      "path": "/en/tools/salary-calculator/",
+      "bare_status": 308,
+      "bare_location": "/en/tools/salary-calculator/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "GB",
+      "path": "/en/tools/salary-calculator/",
+      "bare_status": 308,
+      "bare_location": "/en/tools/salary-calculator/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "DE",
+      "path": "/de/rechner/gehaltsrechner/",
+      "bare_status": 308,
+      "bare_location": "/de/rechner/gehaltsrechner/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "FR",
+      "path": "/fr/outils/cout-demenagement/",
+      "bare_status": 308,
+      "bare_location": "/fr/outils/cout-demenagement/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "ES",
+      "path": "/es/herramientas/calculadora-de-salario/",
+      "bare_status": 308,
+      "bare_location": "/es/herramientas/calculadora-de-salario/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "IT",
+      "path": "/it/strumenti/calcolo-stipendio/",
+      "bare_status": 308,
+      "bare_location": "/it/strumenti/calcolo-stipendio/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "NL",
+      "path": "/nl/tools/salaris-calculator/",
+      "bare_status": 308,
+      "bare_location": "/nl/tools/salaris-calculator/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "PL",
+      "path": "/pl/kalkulatory/kalkulator-wynagrodzen/",
+      "bare_status": 308,
+      "bare_location": "/pl/kalkulatory/kalkulator-wynagrodzen/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "BR",
+      "path": "/pt/ferramentas/calculadora-de-salario/",
+      "bare_status": 308,
+      "bare_location": "/pt/ferramentas/calculadora-de-salario/",
+      "redirects_to_slash": true
+    },
+    {
+      "market": "JP",
+      "path": "/ja/tool/salary-calculator/",
+      "bare_status": 308,
+      "bare_location": "/ja/tool/salary-calculator/",
+      "redirects_to_slash": true
+    }
+  ],
+  "x_default": [
+    {
+      "market": "US",
+      "path": "/en/tools/salary-calculator/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "GB",
+      "path": "/en/tools/salary-calculator/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "DE",
+      "path": "/de/rechner/gehaltsrechner/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "FR",
+      "path": "/fr/outils/cout-demenagement/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 8
+    },
+    {
+      "market": "ES",
+      "path": "/es/herramientas/calculadora-de-salario/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "IT",
+      "path": "/it/strumenti/calcolo-stipendio/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "NL",
+      "path": "/nl/tools/salaris-calculator/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "PL",
+      "path": "/pl/kalkulatory/kalkulator-wynagrodzen/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "BR",
+      "path": "/pt/ferramentas/calculadora-de-salario/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    },
+    {
+      "market": "JP",
+      "path": "/ja/tool/salary-calculator/",
+      "model_declares": true,
+      "page_carries": true,
+      "hreflang_count": 10
+    }
+  ],
+  "markets": [
+    {
+      "country": "United States",
+      "iso": "US",
+      "locale": "en",
+      "pages": 100,
+      "ok": 100,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "climate",
+        "move",
+        "pulse",
+        "sport",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "sport.city-season",
+        "tools.calculator",
+        "tools.cost-calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "weather.country-best-time",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "United Kingdom",
+      "iso": "GB",
+      "locale": "en",
+      "pages": 100,
+      "ok": 100,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "climate",
+        "move",
+        "pulse",
+        "sport",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "sport.city-season",
+        "tools.calculator",
+        "tools.cost-calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "weather.country-best-time",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Germany",
+      "iso": "DE",
+      "locale": "de",
+      "pages": 72,
+      "ok": 72,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "climate",
+        "move",
+        "pulse",
+        "stay",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "events.subdivision-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "rents.country-inflation",
+        "tools.calculator",
+        "tools.cost-calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "weather.country-best-time",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "France",
+      "iso": "FR",
+      "locale": "fr",
+      "pages": 63,
+      "ok": 63,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "climate",
+        "move",
+        "pulse",
+        "sport",
+        "stay",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "events.subdivision-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "rents.country-inflation",
+        "sport.city-season",
+        "tools.calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "weather.country-best-time",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Spain",
+      "iso": "ES",
+      "locale": "es",
+      "pages": 64,
+      "ok": 64,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "move",
+        "pulse",
+        "sport",
+        "stay",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "events.subdivision-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "rents.country-inflation",
+        "sport.city-season",
+        "tools.calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Italy",
+      "iso": "IT",
+      "locale": "it",
+      "pages": 52,
+      "ok": 52,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "climate",
+        "move",
+        "pulse",
+        "sport",
+        "stay",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "events.subdivision-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "rents.country-inflation",
+        "sport.city-season",
+        "tools.calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "weather.country-best-time",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Netherlands",
+      "iso": "NL",
+      "locale": "nl",
+      "pages": 27,
+      "ok": 27,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "move",
+        "pulse",
+        "sport",
+        "stay",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "rents.country-inflation",
+        "sport.city-season",
+        "tools.calculator",
+        "tools.matcher",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Poland",
+      "iso": "PL",
+      "locale": "pl",
+      "pages": 42,
+      "ok": 42,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "move",
+        "pulse",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "tools.calculator",
+        "tools.cost-calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Brazil",
+      "iso": "BR",
+      "locale": "pt",
+      "pages": 40,
+      "ok": 40,
+      "problems": 0,
+      "surfaces": [
+        "areas",
+        "move",
+        "pulse",
+        "tools",
+        "work"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "neighbourhoods.city-where-to-stay",
+        "rankings.index",
+        "tools.calculator",
+        "tools.cost-calculator",
+        "tools.cost-comparison",
+        "tools.matcher",
+        "work.country-salaries"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Japan",
+      "iso": "JP",
+      "locale": "ja",
+      "pages": 40,
+      "ok": 40,
+      "problems": 0,
+      "surfaces": [
+        "move",
+        "pulse",
+        "sport",
+        "tools"
+      ],
+      "families": [
+        "cost-of-living.country",
+        "events.country-holidays",
+        "rankings.index",
+        "sport.city-season",
+        "tools.calculator",
+        "tools.cost-calculator",
+        "tools.matcher"
+      ],
+      "lang_mismatch": 0,
+      "canonical_wrong": 0,
+      "hreflang_wrong": 0,
+      "noindex": 0,
+      "not_in_sitemap": 0,
+      "non_200": 0,
+      "failures": []
+    },
+    {
+      "country": "Taiwan",
+      "iso": "TW",
+      "locale": null,
+      "pages": 0,
+      "ok": 0,
+      "problems": 0,
+      "surfaces": [],
+      "families": [],
+      "note": "No locale is published for this market. Taiwan is tracked in the Rank Tracker in zh and the Atlas publishes no zh pages, so there is nothing to serve a Taiwanese reader."
+    }
+  ],
+  "unpublished_paths": 0
+}

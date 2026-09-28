@@ -1,0 +1,27 @@
+{
+  "captured": "2026-09-28",
+  "target": "livdar.com",
+  "mode": "subdomains",
+  "call": "site-explorer-crawled-pages, select url,http_code,last_crawled,languages,page_type, order_by last_crawled:desc, limit 100",
+  "units": 500,
+  "scope": "The 100 most recently crawled pages. Not the whole crawl. This was pulled to answer one question and it answers it.",
+  "question": "Does org_keywords 0 mean Ahrefs has not crawled the Atlas, or that the Atlas has crawled fine and simply ranks for nothing?",
+  "answer": "Crawled fine. Every one of the 100 rows returned http_code 200. The Atlas surfaces are all present.",
+  "atlas_surfaces_seen": {
+    "cost-of-living (en)": { "count": 31, "sample": "https://livdar.com/en/cost-of-living/germany/", "last_crawled": "2026-09-25T21:36:09Z", "page_type": "/Article/Study_or_Research_Findings" },
+    "best-time-to-visit (en)": { "count": 13, "sample": "https://livdar.com/en/best-time-to-visit/japan/", "last_crawled": "2026-09-25T21:40:11Z", "page_type": "/Article/Listicle" },
+    "where-to-stay (en)": { "count": 10, "sample": "https://livdar.com/en/where-to-stay/tokyo/", "last_crawled": "2026-09-25T21:25:01Z", "page_type": "/Article/Listicle" },
+    "tools (en)": { "count": 11, "sample": "https://livdar.com/en/tools/salary-calculator/", "last_crawled": "2026-09-25T21:28:11Z", "page_type": "/Interactive_Tools/Calculator" },
+    "sport (en)": { "count": 7, "sample": "https://livdar.com/en/sport/running-in-new-york/", "last_crawled": "2026-09-25T21:30:09Z", "page_type": "/Article/Wiki" },
+    "rankings (en)": { "count": 3, "sample": "https://livdar.com/en/rankings/cheapest-countries-to-live-in/", "last_crawled": "2026-09-25T21:31:28Z", "page_type": "/Article/Listicle" },
+    "gehaelter (de)": { "count": 3, "sample": "https://livdar.com/de/gehaelter/polen/", "last_crawled": "2026-09-25T21:42:08Z", "page_type": "/Article/Study_or_Research_Findings" },
+    "staedte (de)": { "count": 1, "sample": "https://livdar.com/de/staedte/", "last_crawled": "2026-09-25T21:41:29Z", "page_type": "/Listing/Location" }
+  },
+  "esim_surfaces_seen": {
+    "esim (en, de)": { "count": 17, "sample": "https://livdar.com/en/esim/egypt/", "last_crawled": "2026-09-26T11:55:19Z" },
+    "guides (en)": { "count": 3, "sample": "https://livdar.com/en/guides/international-sim-card/", "last_crawled": "2026-09-26T11:40:19Z" }
+  },
+  "crawl_window": "2026-09-25T21:25:01Z to 2026-09-26T11:55:19Z",
+  "http_codes": { "200": 100 },
+  "what_this_rules_out": "It rules out a crawl block, a robots.txt problem and a noindex problem as the reason for zero rankings. It also dates the damage: Ahrefs saw these pages alive at 21:25 on the 25th and the revalidation that turned them into 404s had not reached them yet. The Site Audit crawl of the 27th found 473 of them 404, and a direct check on the 28th found 497. See ../production/README.md."
+}

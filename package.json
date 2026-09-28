@@ -40,6 +40,7 @@
     "atlas:gsc": "node scripts/atlas/gsc-import.mjs",
     "atlas:language": "node scripts/atlas/audit-language.mjs",
     "atlas:live": "NODE_USE_ENV_PROXY=1 node scripts/atlas/verify-live.mjs",
+    "atlas:international": "NODE_USE_ENV_PROXY=1 node scripts/atlas/international-check.mjs",
     "atlas:ga4": "node scripts/atlas/ga4-import.mjs"
   },
   "dependencies": {

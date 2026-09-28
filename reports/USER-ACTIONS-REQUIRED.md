@@ -1,14 +1,23 @@
 # User actions required
 
-2026-09-25. Everything in this repository that could be done without you is done.
-Four items remain and all four need a browser signed in as a human, which this
-session does not have: Google Search Console, Tag Manager, Analytics and Microsoft
-Clarity all answered with a sign-in form when opened from the container. That is
-recorded rather than assumed - the test opened a URL that only renders for a
-signed in account, not a marketing page.
+Updated 2026-09-28. Everything in this repository that could be done without you is
+done. Seven items remain.
 
-Nothing below needs a code change. Every one is a value typed into a settings
-screen.
+Five of them need a browser signed in as a human, which this session does not have:
+Google Search Console, Tag Manager, Analytics and Microsoft Clarity all answered
+with a sign-in form when opened from the container, and Ahrefs Rank Tracker keywords
+cannot be added through the API at all. That is recorded rather than assumed: the
+test opened a URL that only renders for a signed in account, not a marketing page.
+
+The other two are a Vercel environment variable, which this session is not permitted
+to write, and the Rank Tracker additions.
+
+Nothing below needs a code change. Every one is a value typed into a settings screen
+or a file pasted into one.
+
+**Item 6 is the time sensitive one.** 497 Atlas URLs were answering 404 to Google
+for three days and were fixed on 2026-09-28. IndexNow is how Bing and Yandex get
+told, and it has never been configured.
 
 ---
 
@@ -239,6 +248,74 @@ shows sessions within a few minutes.
 
 No code change is needed. `app/[lang]/layout.jsx` already carries the loader and
 already gates it on the value.
+
+---
+
+## 6. IndexNow: one environment variable
+
+**Service** Vercel, project `livdar-esim`
+
+**Screen** `https://vercel.com/tradeappos-projects/livdar-esim/settings/environment-variables`
+
+**What to click** Add Another, once.
+
+| Name | Value type | Targets |
+| --- | --- | --- |
+| `INDEXNOW_KEY` | 8 to 128 letters, numbers or dashes. Any random string. 32 hex characters is a good choice | Production and Preview |
+
+**Why I could not do it** Writing an environment variable is a secret store write
+and this session is not permitted to make one. I generated a key and the write was
+refused, so nothing was set and nothing was left half done. The value itself is not
+a secret: the site publishes it at `/indexnow-key.txt`, which is how IndexNow
+verifies ownership. Any random string works, so use your own rather than asking me
+for one.
+
+**Why it matters now more than usual** 497 Atlas URLs answered 404 to Google for
+three days and now answer 200. IndexNow is the mechanism for telling Bing and
+Yandex that a URL changed, and telling them is exactly what this situation calls
+for. It has never worked: `https://livdar.com/indexnow-key.txt` returns 404 today
+because the variable does not exist, so no submission could ever be verified.
+
+**How to verify it worked** After the next deployment:
+```
+curl -sI https://livdar.com/indexnow-key.txt     # expect HTTP 200
+npm run indexnow:dry-run                          # expect 615 URLs
+```
+Then, to actually submit:
+```
+INDEXNOW_CONFIRM_LIVE=true node scripts/indexnow-submit.mjs --submit --paths <changed paths>
+```
+The script refuses without `--paths` and without the confirmation variable, so a
+live submission is always deliberate.
+
+---
+
+## 7. Rank Tracker: 125 keyword additions
+
+**Service** Ahrefs, project `Livdar` (project id 10422446)
+
+**Screen** Rank Tracker, Livdar, Add keywords
+
+**What to click** Add keywords, paste, set location and language per block, add tags.
+
+**The file** `reports/ahrefs-export-2026-09-28/rank-tracker/proposed-additions-2026-09-28.tsv`
+
+125 rows: keyword, country, language, volume, KD, tags, and the live page each one
+belongs to. Sorted by volume descending, so if the plan allows fewer than 250
+tracked keywords, cut from the bottom.
+
+**Why I could not do it** The Ahrefs API is read-only for Rank Tracker keywords.
+`management-project-keywords` lists them; there is no endpoint that adds one.
+
+**Why it matters** All 125 keywords currently tracked are eSIM keywords. Coverage
+of Pulse, Areas, Work, Move, Sport, Stay, Tools and Climate is zero, so the Rank
+Tracker cannot detect an Atlas signal at all, in any market. The proposed 125 cover
+58 surface and market pairs and 80 per cent of the demand the 500 live pages target.
+
+**Do not delete anything.** These are additions.
+
+**How to verify it worked** The project keyword count goes from 125 to 250, and
+filtering by the tag `atlas` returns 125 rows.
 
 ---
 
