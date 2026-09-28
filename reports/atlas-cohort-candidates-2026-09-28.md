@@ -174,3 +174,47 @@ What the data does support, when a decision is taken, is a shape:
 And the thing worth saying plainly: the next cohort's value depends far more
 on which entities are chosen than on how many. Cohort 002 beat cohort 001 by
 two and a half times on identical page counts.
+
+---
+
+## Addendum, later the same day: what the SERPs and the new families changed
+
+Three things were added after the SERPs were read. All of it is in
+`reports/ahrefs-export-2026-09-28/serp/README.md` and
+`reports/ahrefs-export-2026-09-28/organic/new-families-2026-09-28.md`.
+
+**Climate drops.** It ranked third here on 190,600 searches at mean KD 1.5. The
+SERP for its largest keyword, `best time to visit japan`, has Reddit at position
+2 and Conde Nast Traveler, japantravel.com and audleytravel behind it. The
+difficulty score is right and the ranking is still hard, because what wins
+there is first person travel writing. Do not treat KD 1.5 as an invitation.
+
+**Long weekends and bridge days is the best new family**, and it is a derivative
+of the holiday data already in the repository: `bruckentage 2026` 18,000 at KD
+1, `feiertage nrw` without a year 12,000 at KD 2, `ponts 2026` in France at KD 0
+with a traffic potential of 290,000, `dlugie weekendy 2026` 3,800 at KD 0, and
+in Canada `august long weekend 2026` at 23,000. It passed its SERP check:
+positions 2 to 8 on `bruckentage 2026` are DR 80 brands with URL Rating 0 to 4
+and 0 to 26 backlinks.
+
+**Taiwan is a Pulse gap, not a Move gap.** `2026 xing shi li` (calendar) 29,000
+at KD 0 and `2026 lian jia` (consecutive holidays) 22,000 at KD 0 with a traffic
+potential of 218,000. Cost of living in Taiwanese Chinese is effectively zero:
+the UK variant returns volume 0. So porting the 193 Move pages to a tenth locale
+would have been the obvious move and the wrong one.
+
+**Australia and Canada public holidays** are 18,274 monthly visits for the
+incumbent on a family Livdar already has, in languages Livdar already publishes.
+`stat holidays bc 2026` is 24,000 searches at KD 2 with that incumbent at
+position 16.
+
+**Year calendar head terms do not survive.** `kalendarz 2026` at 430,000 and KD
+2 looked like the find of the day. Its SERP is dedicated calendar businesses
+with real page authority, one of them carrying 55,463 backlinks. Not a Livdar
+opportunity.
+
+And the constraint that should shape the decision more than any keyword:
+**328 of the 500 pages, in seven languages, have no commercial destination at
+all**, because the eSIM site publishes only en, de and ro. That is 40 per cent
+of the measured demand with nowhere to convert. See
+`reports/ahrefs-export-2026-09-28/production/monitoring-README.md`.

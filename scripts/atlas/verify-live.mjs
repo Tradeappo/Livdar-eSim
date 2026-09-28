@@ -19,7 +19,7 @@
 // right entity.
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { MANIFESTS } from '../../lib/atlas/serve-pages.js';
+import { MANIFESTS, alternatesFor } from '../../lib/atlas/serve-pages.js';
 
 const ROOT = new URL('../../', import.meta.url);
 
@@ -104,7 +104,15 @@ export async function run({ base = 'https://livdar.com', concurrency = 4, only =
       if (got.robots !== 'index, follow') bad('robots is ' + JSON.stringify(got.robots));
       if (got.lang !== model.locale) bad('html lang is ' + JSON.stringify(got.lang) + ' and the page is ' + model.locale);
       if (!got.hreflang.includes(model.locale)) bad('hreflang does not include its own language');
-      if (got.hreflang.length !== (model.alternates || []).length) bad('hreflang has ' + got.hreflang.length + ' entries and the model has ' + (model.alternates || []).length);
+      // Against `alternatesFor`, not `model.alternates`. The manifest's own list
+      // is computed per cohort and is short by every sibling in the other one,
+      // which is exactly the bug this check failed to see: it compared what was
+      // served to what the model claimed, and both were wrong in the same way.
+      const wantHreflang = alternatesFor(model);
+      if (got.hreflang.length !== wantHreflang.length) bad('hreflang has ' + got.hreflang.length + ' entries and the cluster has ' + wantHreflang.length);
+      for (const a of wantHreflang) {
+        if (!got.hreflang.includes(a.hreflang)) bad('hreflang is missing ' + a.hreflang);
+      }
       if (got.ctaPairs !== 2) bad('call to action blocks: ' + got.ctaPairs);
       if (got.ctaLinks.length !== 4) bad('call to action links: ' + got.ctaLinks.length);
       if (new Set(got.ctaPositions).size !== 2) bad('call to action positions: ' + [...new Set(got.ctaPositions)].join(','));

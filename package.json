@@ -41,6 +41,8 @@
     "atlas:language": "node scripts/atlas/audit-language.mjs",
     "atlas:live": "NODE_USE_ENV_PROXY=1 node scripts/atlas/verify-live.mjs",
     "atlas:international": "NODE_USE_ENV_PROXY=1 node scripts/atlas/international-check.mjs",
+    "atlas:links": "node scripts/atlas/internal-links.mjs",
+    "atlas:monitor-join": "node scripts/atlas/atlas-monitor.mjs",
     "atlas:ga4": "node scripts/atlas/ga4-import.mjs"
   },
   "dependencies": {
