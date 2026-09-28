@@ -23,8 +23,6 @@ interest.
 Reading the top 40 by Domain Rating and the top 25 by traffic, ordered two
 different ways to avoid reading one cluster twice:
 
-- **0 dofollow links** in 64 of the 65 domains read. The one exception is
-  `m98ufa.com`, a gambling domain with 2 dofollow links, flagged as spam.
 - **0 traffic** on every single domain. Not low traffic. Zero.
 - The names are what they are: `buybacklinks.agency`, `pbnseolinks.shop`,
   `ranklinkpro.shop`, `seoexpress-dr-90-group.store`,
@@ -34,18 +32,64 @@ different ways to avoid reading one cluster twice:
   returns the same network under different hostnames, so the flag
   undercounts it rather than separating anything real.
 
-So the profile is unsolicited backlink spam pointed at the domain, nofollow
-and traffic-free. Domain Rating 0.0 alongside 740 referring domains is
+So the profile is unsolicited backlink spam pointed at the domain, from
+traffic-free sources. Domain Rating 0.0 alongside 740 referring domains is
 consistent with that, not in tension with it.
+
+## Correction, later the same day: a large part of it is dofollow
+
+The first version of this file said the links were nofollow and that
+disavowing was not indicated. **The first half of that was wrong**, and it was
+wrong because reading referring domains ordered by Domain Rating and by
+traffic happened to sample the nofollow clusters. Reading the anchors report
+and then the backlinks filtered to `is_dofollow` shows something different.
+
+`site-explorer-anchors`, ordered by referring domains:
+
+| Anchor | Refdomains | Links | Dofollow | First seen |
+| --- | --- | --- | --- | --- |
+| Honestly, before finding SEOExpress.org, I felt lost with livdar.com's SEO strategy ... | 308 | 362 | 0 | 2026-04-17 |
+| **Premium Backlink Services livdar.com for Stronger Google Rankings** | **258** | **516** | **516** | **2026-09-17** |
+| **High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Network Service livdar.com ...** | **46** | **96** | **96** | **2026-08-04** |
+| Rank livdar.com higher with premium guest posts, contextual backlinks ... | 44 | 92 | 0 | 2026-06-18 |
+| **Trusted Tiered Link Building for livdar.com to Increase Trust Flow ...** | **12** | **24** | **24** | **2026-09-12** |
+
+So at least **636 dofollow links from roughly 300 domains**, with commercial
+money anchors naming livdar.com, and the largest cluster arrived on a single
+day.
+
+Reading those dofollow sources directly, ordered by source traffic, the top 40
+are all one operation: `freedrchecker.site`, `backlinkscheckers.website`,
+`drurchecker.site`, `freedadrchecker.space`, `dacheckerforfree.online`,
+`dapacheckerpro.store` and thirty more like them, **every one of them serving
+the identical path** `/dir/premium-backlink-services-123314`, every one
+`is_spam: true`, every one Domain Rating 0.0 to 3.1, every one traffic 0 to
+46, and every first_seen between 2026-09-17T18:56 and 2026-09-18T18:42.
+
+That is a single PBN blast of throwaway domains inside about 24 hours.
 
 ## What follows from it
 
-Nothing to do. The links are nofollow, the sources have no traffic, and
-Google discounts this pattern without being asked. Disavowing is not
-indicated and would be work spent on something that is already inert.
+Two things change and one does not.
 
-What it does mean is that **740 referring domains must not be reported as
-progress**, here or anywhere else, and that link acquisition is untouched as
-a problem: Livdar has no earned links at all. The same signature is on three
-of the other five sites, and the one site in the portfolio with real
-rankings has two referring domains. See ../other-sites/README.md.
+**Still true:** the sources have no traffic and no authority, and Google's spam
+systems are built to discount exactly this pattern. It is very unlikely to be
+hurting anything, and Livdar ranks for nothing today for reasons that have
+nothing to do with links.
+
+**Changed:** there is now a clear enough reason to disavow, which there was not
+when the links looked nofollow. Dofollow, commercial anchors that name the
+domain, roughly 300 throwaway hosts, deployed in a day: that is the shape of
+either a link seller building a footprint or somebody pointing it at Livdar
+deliberately. Disavowing the cluster is cheap, reversible and removes a
+variable before the Atlas starts ranking. The pattern is trivial to express,
+because the whole largest cluster shares one URL path.
+
+It is still not urgent, and it is not a code change. It needs Search Console,
+which this session cannot reach.
+
+**Unchanged and worth repeating:** **740 referring domains must not be reported
+as progress**, and link acquisition is untouched as a problem, because Livdar
+has no earned links at all. The same signature is on three of the other five
+sites, and the one site in the portfolio with real rankings has two referring
+domains. See ../other-sites/README.md.

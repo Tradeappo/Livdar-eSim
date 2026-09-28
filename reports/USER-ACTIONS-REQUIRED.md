@@ -1,7 +1,7 @@
 # User actions required
 
 Updated 2026-09-28. Everything in this repository that could be done without you is
-done. Seven items remain.
+done. Item 6 is finished. Eight items remain.
 
 Five of them need a browser signed in as a human, which this session does not have:
 Google Search Console, Tag Manager, Analytics and Microsoft Clarity all answered
@@ -15,9 +15,9 @@ to write, and the Rank Tracker additions.
 Nothing below needs a code change. Every one is a value typed into a settings screen
 or a file pasted into one.
 
-**Item 6 is the time sensitive one.** 497 Atlas URLs were answering 404 to Google
-for three days and were fixed on 2026-09-28. IndexNow is how Bing and Yandex get
-told, and it has never been configured.
+**Item 6 is done.** IndexNow accepted 615 URLs on 2026-09-28. The 497 Atlas URLs
+that were answering 404 to Google for three days were fixed the same day and
+have been submitted.
 
 ---
 
@@ -251,42 +251,17 @@ already gates it on the value.
 
 ---
 
-## 6. IndexNow: one environment variable
+## 6. IndexNow: DONE, nothing needed
 
-**Service** Vercel, project `livdar-esim`
+Completed 2026-09-28. `INDEXNOW_KEY` is set on the Vercel project for
+Production and Preview, `https://livdar.com/indexnow-key.txt` returns HTTP 200
+with the matching key, and **IndexNow accepted 615 URLs with HTTP 200**: 115
+eSIM and 500 Atlas, no duplicates, all verified 200 and `index, follow` and
+self canonical before submission.
 
-**Screen** `https://vercel.com/tradeappos-projects/livdar-esim/settings/environment-variables`
-
-**What to click** Add Another, once.
-
-| Name | Value type | Targets |
-| --- | --- | --- |
-| `INDEXNOW_KEY` | 8 to 128 letters, numbers or dashes. Any random string. 32 hex characters is a good choice | Production and Preview |
-
-**Why I could not do it** Writing an environment variable is a secret store write
-and this session is not permitted to make one. I generated a key and the write was
-refused, so nothing was set and nothing was left half done. The value itself is not
-a secret: the site publishes it at `/indexnow-key.txt`, which is how IndexNow
-verifies ownership. Any random string works, so use your own rather than asking me
-for one.
-
-**Why it matters now more than usual** 497 Atlas URLs answered 404 to Google for
-three days and now answer 200. IndexNow is the mechanism for telling Bing and
-Yandex that a URL changed, and telling them is exactly what this situation calls
-for. It has never worked: `https://livdar.com/indexnow-key.txt` returns 404 today
-because the variable does not exist, so no submission could ever be verified.
-
-**How to verify it worked** After the next deployment:
-```
-curl -sI https://livdar.com/indexnow-key.txt     # expect HTTP 200
-npm run indexnow:dry-run                          # expect 615 URLs
-```
-Then, to actually submit:
-```
-INDEXNOW_CONFIRM_LIVE=true node scripts/indexnow-submit.mjs --submit --paths <changed paths>
-```
-The script refuses without `--paths` and without the confirmation variable, so a
-live submission is always deliberate.
+Left here rather than deleted so the list stays readable against earlier
+reports. Full record:
+`reports/ahrefs-export-2026-09-28/indexnow/README.md`.
 
 ---
 
@@ -316,6 +291,61 @@ Tracker cannot detect an Atlas signal at all, in any market. The proposed 125 co
 
 **How to verify it worked** The project keyword count goes from 125 to 250, and
 filtering by the tag `atlas` returns 125 rows.
+
+---
+
+## 8. Brand Radar: prompt sets that touch the Atlas
+
+**Service** Ahrefs, Brand Radar
+
+**Screen** Brand Radar, report `Livdar - AI visibility eSIM`, or a new report
+
+**The file** `reports/ahrefs-export-2026-09-28/brand-radar/proposed-prompts-2026-09-28.tsv`
+
+44 prompts across nine surfaces and eight languages, each with the competitor
+set to track against it.
+
+**Why I could not do it** Brand Radar reports and prompts are read-only through
+the API. `management-brand-radar-reports` and `management-brand-radar-prompts`
+list them and there is no endpoint that creates either.
+
+**Why it matters** All 12 existing prompts are commercial eSIM questions in
+English in the United States, so **no prompt touches the Atlas at all**. AI
+visibility for the 500 pages is unmeasured, not zero. And an `ai_overview`
+block appeared on every single SERP read in this snapshot, including German,
+French and Dutch holidays and German salaries, so this is the top of the search
+result rather than a side channel.
+
+**Also worth turning on** Every data source except ChatGPT is `off` on all six
+reports in the account. **Google AI Overviews** is the one that matters most,
+because that is the surface actually appearing on Livdar's SERPs.
+
+**How to verify it worked** `management-brand-radar-prompts` returns more than
+12 rows, and the mentions report starts showing non eSIM prompts.
+
+---
+
+## 9. Search Console: disavow the PBN cluster, when convenient
+
+**Service** Google Search Console disavow tool
+
+**Screen** `https://search.google.com/search-console/disavow-links`
+
+**Why this is on the list now and was not this morning** The first reading of
+the backlink profile sampled the nofollow clusters and concluded the links were
+inert. Reading the anchors report and then filtering backlinks to
+`is_dofollow` showed **at least 636 dofollow links from roughly 300 domains**,
+with commercial anchors naming livdar.com, the largest cluster arriving inside
+about 24 hours on 2026-09-17 and 18. Every source serves the identical path
+`/dir/premium-backlink-services-123314`.
+
+**Why I could not do it** Search Console needs an authenticated account.
+
+**Not urgent.** The sources have no traffic and no authority and Google's spam
+systems are built to discount this. But it is dofollow, it names the domain in
+commercial anchors, and it is cheap to remove as a variable before the Atlas
+starts ranking. The evidence and the exact pattern are in
+`reports/ahrefs-export-2026-09-28/backlinks/README.md`.
 
 ---
 
