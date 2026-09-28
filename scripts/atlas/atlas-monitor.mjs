@@ -5,12 +5,23 @@
 // what it targets, what it is worth, how well linked it is, and what Google is
 // doing with it.
 //
-// Google's side is the part that matters and the part we do not have. Search
-// Console is not readable from this container: no service account, and the
-// Ahrefs project has no Search Console connection either, so the Ahrefs gsc-*
-// endpoints answer "No GSC data available" for every date range. So the GSC
-// columns are present and null, and `gsc_source` says why for each row. They
-// populate the moment a credential exists, without this file changing.
+// Google's side comes from Search Console, and it is already being imported.
+// The atlas-search-console workflow authenticates through Workload Identity
+// Federation, needs no key anywhere, and commits its result to
+// data/atlas/gsc/. This reads the newest file in that directory by default, so
+// the join is complete without anyone passing a flag.
+//
+// Two things are worth not confusing, because this file exists to keep them
+// apart. A page Search Console returned no row for was shown to nobody, and
+// that is a real zero. A window that does not cover a page's lifetime tells
+// you nothing about it, and that is not a zero at all. `gsc_window` carries
+// the dates and `covers_launch` says whether the window reaches the pages, so
+// a reader cannot mistake the second case for the first.
+//
+// This session's own credentials are absent, and the Ahrefs project has no
+// Search Console connection, so neither `npm run gsc:check` nor the Ahrefs
+// gsc-* endpoints can see anything from here. That is a fact about this
+// container, not about the property, and it is why the import runs in CI.
 //
 // The point of writing it null rather than omitting it: a page with 202,000
 // searches of demand and no impressions is the single most important thing to
@@ -21,7 +32,7 @@
 // With a GSC export present it fills the Google columns from it:
 //   node scripts/atlas/atlas-monitor.mjs --gsc data/atlas/gsc/pages-latest.json
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { MANIFESTS } from '../../lib/atlas/serve-pages.js';
 import { report as internalLinks } from './internal-links.mjs';
 
@@ -51,13 +62,27 @@ function demandTable(path) {
 // A Search Console pages export, if one exists. Accepts either the shape
 // `{ rows: [{ page, impressions, clicks, ctr, position }] }` that
 // scripts/atlas/gsc-import.mjs writes, or the raw API `rows` with `keys`.
+const GSC_DIR = 'data/atlas/gsc/';
+
+// The newest import in data/atlas/gsc, by filename, which the workflow dates.
+export function newestImport() {
+  const dir = new URL(GSC_DIR, ROOT);
+  if (!existsSync(dir)) return null;
+  const files = readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
+  return files.length ? GSC_DIR + files[files.length - 1] : null;
+}
+
 function gscTable(path) {
   const out = new Map();
-  if (!path) return { table: out, source: 'not configured: no Search Console credential in this environment' };
-  if (!existsSync(new URL(path, ROOT))) return { table: out, source: 'not found: ' + path };
-  const j = JSON.parse(readFileSync(new URL(path, ROOT), 'utf8'));
-  for (const r of j.rows || []) {
-    const page = r.page || (r.keys && r.keys[0]);
+  const chosen = path || newestImport();
+  if (!chosen) return { table: out, source: 'no import in ' + GSC_DIR, window: null };
+  if (!existsSync(new URL(chosen, ROOT))) return { table: out, source: 'not found: ' + chosen, window: null };
+  const j = JSON.parse(readFileSync(new URL(chosen, ROOT), 'utf8'));
+  // Accepts the workflow's own shape (`pages`, keyed by `key`), the importer's
+  // `rows`, or the raw Search Analytics `rows` with `keys`.
+  const rows = j.pages || j.rows || [];
+  for (const r of rows) {
+    const page = r.key || r.page || (r.keys && r.keys[0]);
     if (!page) continue;
     const pathOnly = page.startsWith('http') ? new URL(page).pathname : page;
     out.set(pathOnly, {
@@ -65,17 +90,47 @@ function gscTable(path) {
       clicks: r.clicks ?? null,
       ctr: r.ctr ?? null,
       position: r.position ?? null,
+      discovered: r.discovered ?? null,
+      indexed: r.indexed ?? null,
+      note: r.source ?? null,
     });
   }
-  return { table: out, source: path + ', ' + out.size + ' rows' };
+  return {
+    table: out,
+    source: chosen + ', ' + out.size + ' rows, property ' + (j.property || 'unstated'),
+    window: j.window || null,
+    importedAt: j.importedAt || null,
+  };
 }
 
 export function build({ gscPath = null, demandPath = DEMAND } = {}) {
-  const pages = MANIFESTS.flatMap((m) => JSON.parse(readFileSync(new URL(m, ROOT), 'utf8')).pages || []);
+  // When each cohort was generated, which is when its pages first existed. A
+  // Search Console window that ends before this date says nothing about the
+  // page, and must not be read as a page nobody visited.
+  const published = [];
+  const pages = MANIFESTS.flatMap((m) => {
+    const j = JSON.parse(readFileSync(new URL(m, ROOT), 'utf8'));
+    if (j.generatedAt) published.push(j.generatedAt);
+    return j.pages || [];
+  });
+  const publishedAt = published.sort()[0] || null;
   const demand = demandTable(demandPath);
-  const { table: gsc, source: gscSource } = gscTable(gscPath);
+  const { table: gsc, source: gscSource, window: gscWindow, importedAt } = gscTable(gscPath);
   const links = internalLinks({});
   const linkByPath = new Map(links.rows.map((r) => [r.path, r]));
+
+  // Does the Search Console window reach the pages at all?
+  //
+  // Strictly after the publication date, not on it. The Atlas went live at
+  // 20:00 UTC on the day its manifests were generated, so a window ending that
+  // same day covers about four hours of it, and Search Console's own reporting
+  // lags two to three days on top. A window that ends on the publication date
+  // is not coverage, it is a rounding error, and treating it as coverage would
+  // turn an unmeasured page into a failed one.
+  const windowEnd = gscWindow && gscWindow.endDate ? gscWindow.endDate : null;
+  const publishedDay = publishedAt ? publishedAt.slice(0, 10) : null;
+  const coversLaunch = !!(windowEnd && publishedDay && windowEnd > publishedDay);
+  const outOfWindow = gsc.size > 0 && !coversLaunch;
 
   const rows = pages.map((p) => {
     const d = demand.get(p.path) || {};
@@ -108,15 +163,23 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
       gsc_ctr: g.ctr ?? null,
       gsc_position: g.position ?? null,
       gsc_indexed: null,
-      // The three states worth counting once Google data arrives.
-      signal: g.impressions == null ? 'unknown'
+      // Four states, and the fourth is the one that matters most.
+      //
+      // `out_of_window` is a Search Console window that ends before the page
+      // was published. The import will happily report 0 impressions for such a
+      // page and attach the note "shown to nobody", which is true of the window
+      // and false of the page. Reading that as a real zero would turn "we have
+      // not measured this yet" into "this failed", which is the single most
+      // expensive mistake available here.
+      signal: outOfWindow ? 'out_of_window'
+        : g.impressions == null ? 'unknown'
         : g.clicks > 0 ? 'clicks'
         : g.impressions > 0 ? 'impressions'
         : 'none',
     };
   });
 
-  const counts = { unknown: 0, none: 0, impressions: 0, clicks: 0 };
+  const counts = { out_of_window: 0, unknown: 0, none: 0, impressions: 0, clicks: 0 };
   for (const r of rows) counts[r.signal]++;
 
   const bySurface = {};
@@ -137,9 +200,19 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
     captured: new Date().toISOString().slice(0, 10),
     pages: rows.length,
     gsc_source: gscSource,
+    gsc_window: gscWindow,
+    gsc_imported_at: importedAt || null,
+    atlas_published_at: publishedAt,
+    gsc_window_covers_launch: coversLaunch,
+    gsc_reading: outOfWindow
+      ? 'The Search Console window ends ' + windowEnd + ' and the Atlas was published ' + publishedDay
+        + ' at 20:00 UTC. The import reports zero impressions for every page and says each was shown to nobody, which is true of the window and false of the pages. Nothing about the 500 has been measured yet. Search Console lags two to three days, so the first window that says anything about these pages ends 2026-09-27 or later.'
+      : coversLaunch ? 'The window reaches the published pages, so a zero is a real zero.'
+      : 'No Search Console import available.',
     ahrefs_organic_keywords_for_livdar: 0,
     signal_counts: counts,
     by_surface: bySurface,
+    high_demand_without_impressions_label: outOfWindow ? 'not yet measured, the window predates these pages' : 'measured, no impressions recorded',
     high_demand_without_impressions: demandNoImpressions.slice(0, 40).map((r) => ({
       volume: r.ahrefs_volume, kd: r.ahrefs_kd, surface: r.surface, market: r.market,
       internal_links_in: r.internal_links_in, path: r.path,
@@ -157,6 +230,10 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   }
   console.log('pages: ' + r.pages);
   console.log('Google data: ' + r.gsc_source);
+  if (r.gsc_window) console.log('window: ' + r.gsc_window.startDate + ' to ' + r.gsc_window.endDate
+    + ', Atlas published ' + String(r.atlas_published_at).slice(0, 10)
+    + ', covers launch: ' + r.gsc_window_covers_launch);
+  console.log('reading: ' + r.gsc_reading);
   console.log('');
   console.log('signal      pages');
   for (const [k, v] of Object.entries(r.signal_counts)) console.log('  ' + k.padEnd(12) + String(v).padStart(4));

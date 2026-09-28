@@ -54,3 +54,85 @@ test('markets may share a locale, and two do', () => {
   const en = MARKETS.filter((m) => m.locale === 'en').map((m) => m.iso);
   assert.deepEqual(en, ['US', 'GB']);
 });
+
+// The cross cohort hreflang set.
+//
+// `scripts/atlas/cohort-pages.mjs` computes alternates over the rows of the
+// cohort it is building. That is correct for one cohort and wrong for two:
+// cohort 001 and 002 were built in separate runs, so a cluster split across
+// them had each half declare only its own half. 120 of the 500 pages shipped an
+// incomplete hreflang set, and every one of the 120 was missing only siblings
+// from the other cohort.
+//
+// serve-pages.js recomputes it across every manifest. These tests hold that,
+// and they are written against the cluster definition rather than against a
+// count, so cohort 003 cannot reintroduce the fault.
+
+test('every page declares every locale that publishes its family and entity', async () => {
+  const { pages: served, hreflangMapFor } = await import('../lib/atlas/serve-pages.js');
+  const all = served();
+  const clusters = new Map();
+  for (const p of all) {
+    const k = p.family + '::' + p.entity;
+    if (!clusters.has(k)) clusters.set(k, []);
+    clusters.get(k).push(p);
+  }
+  const wrong = [];
+  for (const [, group] of clusters) {
+    const locales = new Set(group.map((p) => p.locale));
+    for (const p of group) {
+      const declared = new Set(Object.keys(hreflangMapFor(p)).filter((h) => h !== 'x-default'));
+      const missing = [...locales].filter((l) => !declared.has(l));
+      const extra = [...declared].filter((l) => !locales.has(l));
+      if (missing.length || extra.length) wrong.push(p.path + ' missing[' + missing + '] extra[' + extra + ']');
+    }
+  }
+  assert.deepEqual(wrong.slice(0, 5), [], wrong.length + ' pages with a wrong hreflang set');
+});
+
+test('x-default is declared exactly where the cluster has an English page', async () => {
+  const { pages: served, hreflangMapFor } = await import('../lib/atlas/serve-pages.js');
+  const all = served();
+  const clusters = new Map();
+  for (const p of all) {
+    const k = p.family + '::' + p.entity;
+    if (!clusters.has(k)) clusters.set(k, []);
+    clusters.get(k).push(p);
+  }
+  for (const [, group] of clusters) {
+    const hasEnglish = group.some((p) => p.locale === 'en');
+    for (const p of group) {
+      const declared = Object.keys(hreflangMapFor(p));
+      assert.equal(declared.includes('x-default'), hasEnglish,
+        p.path + ': cluster has English ' + hasEnglish + ' but x-default ' + declared.includes('x-default'));
+    }
+  }
+});
+
+test('the sitemap agrees with the page about its alternates', async () => {
+  // A sitemap that disagrees with the page's own hreflang is worse than one
+  // that omits it, and these were computed from two different places.
+  const { pages: served, alternatesFor } = await import('../lib/atlas/serve-pages.js');
+  const { sitemapEntries, idFor } = await import('../lib/atlas/sitemap-pages.js');
+  const all = served();
+  const sample = all.filter((p) => p.family === 'cost-of-living.country').slice(0, 6);
+  for (const p of sample) {
+    const entries = sitemapEntries(idFor(p.locale, p.surface), {
+      absolute: (x) => 'https://livdar.com' + x, lastModified: new Date(),
+    });
+    const entry = entries.find((e) => e.url === 'https://livdar.com' + p.path);
+    assert.ok(entry, 'no sitemap entry for ' + p.path);
+    const fromPage = alternatesFor(p).filter((a) => a.hreflang !== 'x-default').map((a) => a.hreflang).sort();
+    const fromSitemap = Object.keys(entry.alternates?.languages || {}).sort();
+    assert.deepEqual(fromSitemap, fromPage, p.path + ': sitemap and page disagree');
+  }
+});
+
+test('a single language page declares only itself and no x-default', async () => {
+  // German subdivision holidays exist in German only. Inventing alternates for
+  // them would be worse than having none.
+  const { pages: served, hreflangMapFor } = await import('../lib/atlas/serve-pages.js');
+  const nrw = served().find((p) => p.path === '/de/feiertage/nordrhein-westfalen/');
+  assert.ok(nrw, 'the NRW page is published');
+  assert.deepEqual(Object.keys(hreflangMapFor(nrw)), ['de']);
+});

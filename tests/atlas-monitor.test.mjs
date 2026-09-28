@@ -46,20 +46,39 @@ test('the join produces one row per published page', () => {
   assert.equal(new Set(r.rows.map((x) => x.path)).size, pages.length);
 });
 
-test('a missing Google number reads as unknown, never as zero', () => {
-  // The distinction the whole file exists for. With no Search Console
-  // credential every page is `unknown`, and none is `none`, because "no
-  // impressions recorded" and "we cannot see impressions" are different
+test('no import at all reads as unknown, never as zero', () => {
+  // "No impressions recorded" and "we cannot see impressions" are different
   // findings and only one of them is bad news.
-  const r = build({ gscPath: null });
+  const r = build({ gscPath: 'data/atlas/gsc/does-not-exist.json' });
   assert.equal(r.signal_counts.unknown, pages.length);
   assert.equal(r.signal_counts.none, 0);
-  for (const row of r.rows) {
-    assert.equal(row.gsc_impressions, null);
-    assert.equal(row.gsc_clicks, null);
-    assert.equal(row.signal, 'unknown');
+  for (const row of r.rows) assert.equal(row.signal, 'unknown');
+  assert.match(r.gsc_source, /not found/);
+});
+
+test('a window that predates the pages reads as out_of_window, never as zero', () => {
+  // The most expensive mistake available here. The import reports 0 impressions
+  // for every page and attaches the note "shown to nobody", which is true of
+  // the window and false of the pages. Reading it as a real zero would turn
+  // "not measured yet" into "this failed".
+  const r = build({});
+  assert.ok(r.gsc_window, 'an import was found');
+  if (!r.gsc_window_covers_launch) {
+    assert.equal(r.signal_counts.out_of_window, pages.length);
+    assert.equal(r.signal_counts.none, 0);
+    assert.match(r.gsc_reading, /window ends/);
+    assert.match(r.high_demand_without_impressions_label, /not yet measured/);
+  } else {
+    // Once a window reaches the pages, a zero is a real zero and must read so.
+    assert.equal(r.signal_counts.out_of_window, 0);
+    assert.match(r.gsc_reading, /real zero/);
   }
-  assert.match(r.gsc_source, /not configured/);
+});
+
+test('the import that is read is the newest one', () => {
+  const r = build({});
+  assert.match(r.gsc_source, /data\/atlas\/gsc\//);
+  assert.match(r.gsc_source, /sc-domain:livdar\.com/);
 });
 
 test('every row carries the dimensions a decision needs', () => {
