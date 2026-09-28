@@ -177,8 +177,8 @@ Everything captured, everything empty, and why:
 
 | | |
 | --- | --- |
-| Units used | **1,128,843** of 2,000,000 |
-| Remaining | **871,157** |
+| Units used | **1,157,984** of 2,000,000 |
+| Remaining | **842,016** |
 | Resets | **2026-10-08**, the day after access ends |
 
 **The most important empty result: Ahrefs holds no organic history for livdar.com at all.** Four
@@ -344,3 +344,127 @@ Full steps in [`../USER-ACTIONS-REQUIRED.md`](../USER-ACTIONS-REQUIRED.md).
 5. **Answer the school holidays data question.** Is there a lawful, licensable, adequately updated
    source for 16 German states? That answer is worth 772,000 monthly searches and nothing else in
    this report comes close.
+
+---
+
+# Second pass: the execution round
+
+Everything above stands. This section is what the consolidation round added, and it changes two
+conclusions.
+
+## Browser access: tested, not assumed
+
+The brief asked for Rank Tracker and Brand Radar to be set up **through a browser** where the API
+cannot. That was tested rather than reported as impossible:
+
+- No browser MCP tool exists in this session.
+- Chromium is present on disk but the Playwright package is not installed.
+- **`app.ahrefs.com` returns HTTP 403 with a Cloudflare challenge** ("Just a moment...") on
+  `/rank-tracker`, `/brand-radar` and `/site-audit` alike.
+
+That 403 is the important detail. It is **not** a sign-in form: the container's datacenter IP is
+blocked before authentication, so driving a browser from here would fail even with credentials,
+which I have not asked for and will not.
+
+So both were made as fast as possible to do by hand instead:
+
+- [`rank-tracker/PASTE-READY.md`](rank-tracker/PASTE-READY.md) in **two phases**. The first cut
+  produced 82 paste batches, because every keyword carries a unique tag combination, and that is
+  not a reasonable thing to ask of anyone. Restructured: **nine country pastes** get all 125
+  keywords collecting position history, then 42 tag lists handle grouping at leisure. **Phase 1 is
+  the part with the deadline**, since position history starts the day the keywords exist and cannot
+  be backfilled.
+- [`brand-radar/PASTE-READY.md`](brand-radar/PASTE-READY.md): 44 prompts in nine reports, the
+  engine list to enable, and the six tabs to export afterwards.
+
+## Correction 1: the year-calendar rejection was market-specific
+
+The first pass rejected "year-calendar head terms" on the strength of `kalendarz 2026` (PL,
+430,000, KD 2) where a SERP page carries **55,463 backlinks**. **That generalised too far.**
+
+`kalender 2027` (DE, **70,657**, KD 2) has `kalender-online.com` at **position 3 with DR 10 and
+URL Rating 0**, `deutschland-rechner.de` at 4 with one referring domain, and a Thalia product page
+at 6 with none. No link-gated incumbent anywhere on the page.
+
+**Rejection stands for Poland, withdrawn for Germany.**
+
+## Correction 2: a KD 8 term at 56,833 that is unwinnable
+
+`zeitumstellung 2026` (DST clock change, DE) is **56,833/month at KD 8** and would pass any
+difficulty filter. The SERP is `chip.de` (DR 86), `ardalpha.de` (76), `brisant.de` (69),
+`hamburg.de` (89) and the **European Commission** (97), with four news blocks above them. A
+recurring news cycle, not a reference query. **Rejected.**
+
+KD 2 lied one way and KD 8 lied the other. Both were caught only by running the SERP, which is the
+whole argument for the rule the brief set.
+
+## Six families that are not blocked on anything
+
+The first pass ended with 772,000 monthly searches blocked on a data licence. Profiling only
+absentify was too narrow: the leaders in Poland, the Netherlands and France run **eleven** families,
+and six need **no external data at all**.
+
+| Family | Evidence | Volume |
+| --- | --- | --- |
+| **Week numbers** | `kalender-365.nl/weeknummer.html` earns **93,469** from one page, 731 keywords, position 1 | `kalenderwoche` DE **44,785** |
+| **Year calendar** | validated above | `kalender 2027` DE **70,657** at KD 2 |
+| **Month calendar** | competitor holds position 1 with **0** page refdomains | `calendrier septembre 2026` 59,000 |
+| **"Today" page** | `kalendarzswiat.pl/dzisiaj` earns **59,419** from ONE URL, 716 keywords | `jakie jest dzisiaj święto` 10,000 |
+| **Working time per year** | earns 9,060 | `godziny pracy 2026` 16,000 |
+| **Named holiday, which regions** | `/fronleichnam/` earns 18,330 | `fronleichnam feiertag wo` **43,496** at KD 4 |
+
+`/dzisiaj` is the highest traffic-per-page figure found anywhere in this work: one URL, 59,419
+visits a month.
+
+**A format finding, not a family:** a **PDF** ranks position 1 for `vacances scolaires 2027`
+(283,339) with **zero referring domains**, a **JPG** ranks 1 for `kalender 2023` (57,000), and
+`kalender-365.nl/kalender-2089.html`, a calendar for the year **2089**, earns **22,780**. Format is
+not the constraint and neither is recency.
+
+## France may unblock what Germany blocks
+
+German school holidays stay BLOCKED: 16 independent state ministries. **France sets its calendar
+nationally** across three zones plus Corsica, and the demand is larger: `vacances scolaires`
+**318,000**, `vacances scolaires 2027` **283,339 at KD 0**, `ascension 2027` **43,874 at KD 0**.
+
+Its SERP is the weakest high-volume result measured in this entire engagement. Position 1 is a PDF
+at DR 32 with 0 referring domains. **Positions 5, 6 and 10 are per-commune pages**, one of them for
+a village of roughly a thousand people, at URL Ratings of 0 and 4. France has about 35,000 communes.
+
+**This is a better bet than Germany, not a confirmed one.** National rather than regional makes the
+data problem smaller, not solved. The licence question is open and there is still no scraping.
+
+## Content gap: 7.7%
+
+A normal Content Gap run is impossible here, since Livdar ranks for nothing. Inverted: of
+**1,481,400** monthly searches in the Polish leader's top 50 keywords, Livdar has a surface for
+**113,400**, which is **7.7%**. See [`content-gap/README.md`](content-gap/README.md), including the
+two caveats about the rough family classifier and about volume not being opportunity.
+
+## The dofollow links are three bursts, and a fourth arrived yesterday
+
+The anchor report resolves the 630 dofollow links into deliberate clusters rather than a spread:
+**516 links across 258 domains on 2026-09-17**, 96 across 46 on 2026-08-04, 24 across 12 on
+2026-09-12. All three flagged spam by Ahrefs.
+
+The largest cluster **by domain count** (309 domains) is **entirely nofollow**, which is precisely
+why an audit that samples by domain count concluded the graph was harmless. That was the earlier
+mistake, now explained rather than just corrected.
+
+**A new 151-domain cluster was first seen 2026-09-27**, the day before this audit, its anchor text
+advertising "a profile with no obvious footprint". Every count here is a floor.
+
+**536 of the 1,000 all-time referring domains arrived in the last 30 days**, bringing 580 of the
+630 dofollow links.
+
+## One thing the competitor work says about monetization
+
+Every market shows the same pattern: `absentify`, `factorial`, `payfit`, `coverflex`, `pluxee`,
+`timechimp`, `verlof.io`, `clevis.de` all run holiday content as top of funnel for a **leave or
+payroll product**.
+
+That is the business this content naturally feeds, and it is not a travel eSIM. The first pass noted
+that only 16 of 500 Atlas pages reach the shop and zero do in seven of nine languages. The
+competitor evidence now says why the monetization column reads "medium at best" throughout: the
+content is worth most to whoever sells workforce software. **That is a strategic question sitting
+above this inventory, not inside it.**
