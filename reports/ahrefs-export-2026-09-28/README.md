@@ -1,5 +1,16 @@
 # Ahrefs export, 2026-09-28
 
+> ## Start with [`FINAL-REPORT.md`](FINAL-REPORT.md)
+>
+> It is the entry point for this whole folder: 66 files across site audit, rank
+> tracker, brand radar, backlinks, competitors, Ahrefs coverage, GSC and the
+> candidate inventory, with the five things only a signed-in human can do.
+>
+> Two companion indexes: [`EXPORT-STATUS.md`](EXPORT-STATUS.md) says what was
+> captured, what came back empty and why the emptiness is itself a finding; and
+> [`../USER-ACTIONS-REQUIRED.md`](../USER-ACTIONS-REQUIRED.md) has the eleven
+> open items, three of which expire with the subscription.
+
 A snapshot taken because the Ahrefs Advanced cycle resets on **2026-10-08**.
 No older export was overwritten; this directory did not exist before today,
 and it is the first dated snapshot in the repository.
