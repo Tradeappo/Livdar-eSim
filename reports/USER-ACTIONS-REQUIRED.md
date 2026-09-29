@@ -1,8 +1,13 @@
 # User actions required
 
-Updated 2026-09-28, second pass. Everything in this repository that could be done
-without you is done. Item 6 is finished. **Eleven items remain, and three of them
+Updated 2026-09-29, third pass. Everything in this repository that could be done
+without you is done. Item 6 is finished. **Thirteen items remain, and three of them
 expire on 8 October.**
+
+Two new items were added on 2026-09-29 by the 1,000,000 candidate research pass:
+**item 13**, the best opportunity in the programme and the only one blocked on
+manual labour rather than on a licence, and **item 14**, a one word scope decision
+worth roughly 700 pages.
 
 > ## The Ahrefs subscription ends 8 October 2026
 >
@@ -476,6 +481,77 @@ decision. It is bounded: the description is composed in one template, the oversh
 is 1 to 41 characters, and 303 of 399 pages are already inside budget.
 
 Say the word and it is a single change with a test.
+
+---
+
+## 13. A decision only you can make: pay for airport transfer data with labour?
+
+**Not a settings screen. It is the best opportunity found anywhere in this
+programme and it is blocked on data that has to be gathered by hand.**
+
+Airport transfer pages measure like this, and the SERPs are wide open:
+
+| Keyword | Monthly searches (gb) | KD | Clicks | CPC |
+| --- | --- | --- | --- | --- |
+| `dublin airport to city centre` | **4,400** | **0** | 3,599 | 15c |
+| `krakow airport to city centre` | **2,700** | **0** | 2,525 | 30c |
+| `prague airport to city centre` | 2,200 | 1 | 1,711 | 10c |
+| `budapest airport to city centre` | 2,000 | 2 | 1,883 | 30c |
+| `amsterdam airport to city centre` | 1,300 | 2 | 931 | 5c |
+| `malaga airport to city centre` | 1,000 | 0 | 948 | 7c |
+
+Sixteen of twenty airports measured have real volume and none exceeds KD 12. On
+the Krakow SERP, **hellocracow.com holds position 7 on DR 10 with 2 referring
+domains** and **travellingwithnikki.com holds position 8 on DR 17 with 1**, both
+out-trafficking DR 58 Opodo below them. On Dublin, a **DR 0 site with zero
+referring domains** holds position 6. Authority is not the barrier anywhere here.
+
+**The blocker is the data.** A useful airport transfer page needs the modes, the
+journey times and the fares. There is no lawful aggregate: GTFS covers schedules
+for some operators, usually without fares, and this project forbids scraping. The
+numbers are published on operator sites and in printed timetables, so they are
+gatherable, they are facts rather than copyrightable expression, and they are
+citable with attribution. What they are not is free of labour: roughly 20 to 30
+minutes per airport, so **40 to 60 hours for the 120 airports that carry most of
+the measured demand**.
+
+There is a second, much cheaper half to this. The repo's `cityKm` field is not the
+distance to the city centre at all: it is the distance to the nearest populated
+place, so Heathrow reads 4.2 km where central London is about 23, and JFK 5.7
+where Manhattan is about 24. That is a day of engineering, not field work, and
+until it is fixed the family cannot be published at all because the headline
+number on every page would be false.
+
+**What I need from you:** is 40 to 60 hours of manual data capture something you
+want to spend, on your side or paid out? If yes, this becomes 1,089 publishable
+pages against the weakest SERPs in the programme. If no, it stays blocked and
+recorded, and the publishable set stays at 1,791 pages.
+
+Full analysis in
+`reports/scale-universe-2026-09-29/DATA-SOURCE-GAPS.md` (gaps 1 and 2) and
+`reports/scale-universe-2026-09-29/SERP-WEAKNESS-MAP.md`.
+
+---
+
+## 14. A smaller decision: public holidays for US, GB, CA, AU and JP
+
+OpenHolidays carries 36 countries, including Brazil, but **not** the United
+States, United Kingdom, Canada, Australia or Japan. Those five are missing from
+the only page families whose SERPs are validated in five markets.
+
+The German state layer shows the shape of what is missing: Bayern 24,385,
+Niedersachsen 11,934, Sachsen 11,065, Berlin 10,012, Hessen 8,626, all at KD 0 to
+2. A US state layer and a Canadian provincial layer are the same structure.
+
+Unlike items 11 and 13, **the licences here are already clear**: gov.uk publishes
+UK bank holidays under the Open Government Licence, US federal and state holiday
+publications are freely reusable, and Canada and Australia publish under their own
+open licences. This is five ingest scripts, roughly 700 candidates, and no
+permission to obtain.
+
+**What I need from you:** nothing, except a yes. This one I can do; it is listed
+here only because it is a scope decision rather than a repair, and the brief says
+not to widen scope without asking.
 
 ---
 
