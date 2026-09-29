@@ -1,0 +1,57 @@
+family_id,surface,demand,demand_source,measured_keywords,measured_markets,median_volume,max_volume,median_kd,serp_samples,serp_characteristics,low_dr_winner_seen,status,demand_note
+weather.city-best-time,climate,VALIDATED_DEMAND,MEASURED_THIS_PASS,6,6,16000,1020000,4,0,NOT_SAMPLED,UNKNOWN,VALIDATED,
+calendar.year,tools,VALIDATED_DEMAND,MEASURED_THIS_PASS,7,6,237000,766000,0,0,NOT_SAMPLED,UNKNOWN,VALIDATED,
+pulse.country-holidays,pulse,VALIDATED_DEMAND,MEASURED_THIS_PASS,8,6,19000,705000,1,0,NOT_SAMPLED,UNKNOWN,VALIDATED,
+events.recurring,pulse,VALIDATED_DEMAND,MEASURED_THIS_PASS,6,3,46000,464000,0,0,NOT_SAMPLED,UNKNOWN,BLOCKED_BY_LICENCE,
+tools.calculator,tools,VALIDATED_DEMAND,MEASURED_THIS_PASS,8,6,64000,217000,4,0,NOT_SAMPLED,UNKNOWN,VALIDATED,
+activities.city-things-to-do,areas,VALIDATED_DEMAND,MEASURED_THIS_PASS,8,6,8900,78000,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+transport.city-getting-around,transport,STRONG_DEMAND,MEASURED_THIS_PASS,6,4,1800,40000,20,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+pulse.school-holidays,pulse,STRONG_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,2,1,30000,30000,20,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+pulse.long-weekends,pulse,VALIDATED_DEMAND,MEASURED_THIS_PASS,6,6,19000,22000,0,0,NOT_SAMPLED,UNKNOWN,VALIDATED,
+events.city-type,pulse,VALIDATED_DEMAND,MEASURED_THIS_PASS,11,6,2900,18000,6,1,WIDE_OPEN,YES,BLOCKED_BY_LICENCE,
+events.series-city,pulse,VALIDATED_DEMAND,MEASURED_THIS_PASS,6,6,4400,17000,0,0,NOT_SAMPLED,UNKNOWN,BLOCKED_BY_LICENCE,
+work.city-jobs,work,VALIDATED_DEMAND,MEASURED_THIS_PASS,12,6,2700,13000,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+rents.city,stay,VALIDATED_DEMAND,MEASURED_THIS_PASS,9,6,2800,12000,2,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+events.city-window,pulse,STRONG_DEMAND,MEASURED_THIS_PASS,10,6,700,12000,1,0,NOT_SAMPLED,UNKNOWN,BLOCKED_BY_LICENCE,
+places.city-category,areas,STRONG_DEMAND,MEASURED_THIS_PASS,55,6,800,11000,0,1,AGGREGATOR_LOCKED,NO,NOT_IMPLEMENTED,
+stay.city-type,stay,STRONG_DEMAND,MEASURED_THIS_PASS,20,6,1400,8400,1,0,NOT_SAMPLED,UNKNOWN,BLOCKED_BY_LICENCE,
+calendar.week-numbers,tools,STRONG_DEMAND,MEASURED_THIS_PASS,5,5,1800,7900,0,0,NOT_SAMPLED,UNKNOWN,VALIDATED,
+visas.country-visit,move,STRONG_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,2,2,4500,4500,73,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+health.country,move,STRONG_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,1,1,3100,3100,9,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+safety.city,safety,WEAK_DEMAND,MEASURED_THIS_PASS,6,6,150,1800,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+education.city-universities,move,WEAK_DEMAND,MEASURED_THIS_PASS,6,6,250,1600,43,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+neighbourhoods.city-where-to-stay,areas,MODERATE_DEMAND,MEASURED_THIS_PASS,4,4,600,1200,6,0,NOT_SAMPLED,UNKNOWN,PROMISING,
+health.city,move,MODERATE_DEMAND,MEASURED_THIS_PASS,7,6,350,1000,34,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+education.city-schools,move,WEAK_DEMAND,MEASURED_THIS_PASS,5,5,150,800,1,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+neighbourhoods.city-best-for,areas,WEAK_DEMAND,MEASURED_THIS_PASS,7,5,80,700,0,0,NOT_SAMPLED,UNKNOWN,EXPERIMENT_ONLY,
+visas.country-residency,move,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,2,2,600,600,6,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+sport.city-activity,sport,WEAK_DEMAND,MEASURED_THIS_PASS,8,5,200,600,0,0,NOT_SAMPLED,UNKNOWN,EXPERIMENT_ONLY,
+relocation.city,move,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,1,1,400,400,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+cost-of-living.city,move,WEAK_DEMAND,MEASURED_THIS_PASS,6,6,80,400,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+sport.route,sport,WEAK_DEMAND,MEASURED_THIS_PASS,8,5,70,400,0,0,NOT_SAMPLED,UNKNOWN,NOT_IMPLEMENTED,
+services.country-admin,move,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,2,2,350,350,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+cost-of-living.country,move,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,2,2,250,250,9,0,NOT_SAMPLED,UNKNOWN,EXPERIMENT_ONLY,
+banking.country,move,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,2,2,200,200,54,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+weather.city-month,climate,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,1,1,60,60,0,0,NOT_SAMPLED,UNKNOWN,EXPERIMENT_ONLY,
+relocation.country,move,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,1,1,30,30,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+transport.airport-to-city,transport,WEAK_DEMAND,MEASURED_THIS_PASS,4,3,20,30,0,1,WIDE_OPEN,YES,MISSING_DATA,
+visas.country-digital-nomad,move,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,2,2,20,20,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+connectivity.country-sim-gap,connectivity,OUT_OF_SCOPE_ESIM,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,REJECT,As above
+tools.cost-calculator,tools,VALIDATED_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,Same tools measurement set
+tools.cost-comparison,tools,VALIDATED_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,Same tools measurement set
+cost-of-living.country-vs-market,move,MODERATE_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,NOT_IMPLEMENTED,"The held country cost of living family measured 2,290 at its best; the origin market axis is arithmetic on top of it"
+comparisons.city-vs-home,tools,MODERATE_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,"Same cost comparison intent, origin market axis"
+work.country-working,work,MODERATE_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,"Working time and holiday count per country, measured in cohort 002, 76 valid candidates"
+comparisons.city-vs-city,tools,STRONG_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,"Cost comparison intent measured with the tools family; the distance variant was the one rejected, not the cost comparison"
+tools.matcher,tools,VALIDATED_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,"Measured with the tools family: salary calculator 143,332, rent affordability calculator 3,055 at KD 0, moving cost calculator 2,408 with a 500 cent CPC"
+connectivity.city-online,connectivity,OUT_OF_SCOPE_ESIM,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,REJECT,The eSIM section owns connectivity demand and measures it separately
+comparisons.country-vs-country,tools,STRONG_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,NOT_IMPLEMENTED,"Country pair cost comparison, measured with the tools and rankings families"
+rankings.index,tools,STRONG_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,NOT_IMPLEMENTED,Four ranking pages are live and their keywords were measured in cohort 001: cheapest countries in europe and siblings
+work.city-jobs-category,work,WEAK_DEMAND_THIN_SAMPLE,MEASURED_THIS_PASS,1,1,0,0,0,0,NOT_SAMPLED,UNKNOWN,MISSING_DATA,
+pulse.subdivision-holidays,pulse,VALIDATED_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,"feiertage bayern 2026 24,385 at KD 2, niedersachsen 11,934, sachsen 11,065, berlin 10,012, hessen 8,626, all KD 0 to 2. SERP validated in 5 markets"
+pulse.named-holiday-date,pulse,STRONG_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,"Named holiday dates measured across the cohort 002 build, 792 valid candidates"
+pulse.named-holiday-regions,pulse,MODERATE_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,EXPERIMENT_ONLY,"Regional observance measured in the cohort 002 build, 160 valid candidates"
+pulse.today,pulse,VALIDATED_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,"is today a holiday 137,005 in us, measured in the candidate inventory"
+calendar.month,tools,STRONG_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,"Month pages measured alongside the calendar heads; calendrier 2026 627,451 and calendar 2026 611,880 are the parent terms"
+climate.city-annual,climate,VALIDATED_DEMAND,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,VALIDATED,"Measured in this pass under the weather axis: london weather 1,020,000, clima sao paulo 36,000, clima barcelona 16,000, tokyo climate 1,900 at KD 79"
+climate.city-day,climate,NEGLIGIBLE_BY_CONSTRUCTION,MEASURED_EARLIER_IN_PROJECT,0,0,,,,0,NOT_SAMPLED,UNKNOWN,EXPERIMENT_ONLY,"No measurement taken and none needed: a daily climate normal is not a query. Recorded as the 1,077,115 URL padding route that was refused"

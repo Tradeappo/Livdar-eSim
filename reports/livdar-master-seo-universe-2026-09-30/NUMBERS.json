@@ -1,0 +1,567 @@
+{
+ "generated": "2026-09-30",
+ "families_total": 76,
+ "families_old": 64,
+ "families_new_only": 12,
+ "surfaces": 12,
+ "verticals": 27,
+ "markets": 11,
+ "by_status": {
+  "MISSING_DATA": 31,
+  "VALIDATED": 15,
+  "REJECT": 2,
+  "BLOCKED_BY_LICENCE": 8,
+  "NOT_IMPLEMENTED": 12,
+  "EXPERIMENT_ONLY": 7,
+  "PROMISING": 1
+ },
+ "by_demand": {
+  "INHERITED_WEAK_DEMAND": 6,
+  "STRONG_DEMAND_THIN_SAMPLE": 3,
+  "VALIDATED_DEMAND": 17,
+  "WEAK_DEMAND_THIN_SAMPLE": 9,
+  "OUT_OF_SCOPE_ESIM": 2,
+  "INHERITED_VALIDATED_DEMAND": 8,
+  "MODERATE_DEMAND": 6,
+  "INHERITED_MODERATE_DEMAND": 4,
+  "STRONG_DEMAND": 10,
+  "WEAK_DEMAND": 8,
+  "INHERITED_STRONG_DEMAND": 2,
+  "NEGLIGIBLE_BY_CONSTRUCTION": 1
+ },
+ "funnel": {
+  "A_raw_architectural_all_markets": 4053197,
+  "A_raw_architectural_single_market": 368474,
+  "B_distinct_after_structural_dedupe_all_markets": 4020948,
+  "B_distinct_after_structural_dedupe_single_market": 365542,
+  "C_source_obtainable_all_markets": 3431138,
+  "C_source_obtainable_single_market": 311923,
+  "D_source_backed_today_all_markets": 1644451,
+  "D_source_backed_today_single_market": 149496,
+  "E_seo_measured_families": 38,
+  "E_seo_measured_keywords": 263,
+  "F_validated_or_promising_families": 16,
+  "F_validated_or_promising_potential_single_market": 8217,
+  "G_experiment_only_families": 7,
+  "G_experiment_only_potential_single_market": 148788,
+  "H_blocked_families": 51,
+  "H_blocked_potential_single_market": 208537,
+  "I_publishable_now_families": 16,
+  "I_publishable_now_pages_today": 1791,
+  "I_publishable_now_potential_single_market": 8217
+ },
+ "measured_this_pass": 269,
+ "serp_this_pass": 7,
+ "market_measured": {
+  "en-US": 0,
+  "en-GB": 48,
+  "de-DE": 0,
+  "fr-FR": 0,
+  "es-ES": 44,
+  "it-IT": 56,
+  "nl-NL": 0,
+  "pl-PL": 0,
+  "ja-JP": 45,
+  "zh-Hant-TW": 33,
+  "pt-BR": 37
+ },
+ "market_families_with_demand": {
+  "en-US": 0,
+  "en-GB": 30,
+  "de-DE": 0,
+  "fr-FR": 0,
+  "es-ES": 23,
+  "it-IT": 26,
+  "nl-NL": 0,
+  "pl-PL": 0,
+  "ja-JP": 22,
+  "zh-Hant-TW": 15,
+  "pt-BR": 22
+ },
+ "top20_families": [
+  {
+   "family": "climate.city-day",
+   "raw": 1077115,
+   "single": 97920,
+   "status": "EXPERIMENT_ONLY",
+   "demand": "NEGLIGIBLE_BY_CONSTRUCTION",
+   "max_volume": ""
+  },
+  {
+   "family": "places.city-category",
+   "raw": 295100,
+   "single": 26827,
+   "status": "NOT_IMPLEMENTED",
+   "demand": "STRONG_DEMAND",
+   "max_volume": 11000
+  },
+  {
+   "family": "sport.city-activity",
+   "raw": 295100,
+   "single": 26827,
+   "status": "EXPERIMENT_ONLY",
+   "demand": "WEAK_DEMAND",
+   "max_volume": 600
+  },
+  {
+   "family": "events.city-type",
+   "raw": 236080,
+   "single": 21462,
+   "status": "BLOCKED_BY_LICENCE",
+   "demand": "VALIDATED_DEMAND",
+   "max_volume": 18000
+  },
+  {
+   "family": "stay.city-type",
+   "raw": 206570,
+   "single": 18779,
+   "status": "BLOCKED_BY_LICENCE",
+   "demand": "STRONG_DEMAND",
+   "max_volume": 8400
+  },
+  {
+   "family": "neighbourhoods.city-best-for",
+   "raw": 177060,
+   "single": 16096,
+   "status": "EXPERIMENT_ONLY",
+   "demand": "WEAK_DEMAND",
+   "max_volume": 700
+  },
+  {
+   "family": "work.city-jobs-category",
+   "raw": 177060,
+   "single": 16096,
+   "status": "MISSING_DATA",
+   "demand": "WEAK_DEMAND_THIN_SAMPLE",
+   "max_volume": 0
+  },
+  {
+   "family": "services.city-practical",
+   "raw": 177060,
+   "single": 16096,
+   "status": "NOT_IMPLEMENTED",
+   "demand": "INHERITED_WEAK_DEMAND",
+   "max_volume": ""
+  },
+  {
+   "family": "relocation.city",
+   "raw": 127083,
+   "single": 11553,
+   "status": "MISSING_DATA",
+   "demand": "WEAK_DEMAND_THIN_SAMPLE",
+   "max_volume": 400
+  },
+  {
+   "family": "events.city-window",
+   "raw": 118040,
+   "single": 10731,
+   "status": "BLOCKED_BY_LICENCE",
+   "demand": "STRONG_DEMAND",
+   "max_volume": 12000
+  },
+  {
+   "family": "rents.city",
+   "raw": 115530,
+   "single": 10503,
+   "status": "MISSING_DATA",
+   "demand": "VALIDATED_DEMAND",
+   "max_volume": 12000
+  },
+  {
+   "family": "cost-of-living.city",
+   "raw": 115530,
+   "single": 10503,
+   "status": "MISSING_DATA",
+   "demand": "WEAK_DEMAND",
+   "max_volume": 400
+  },
+  {
+   "family": "work.city-salaries",
+   "raw": 115530,
+   "single": 10503,
+   "status": "MISSING_DATA",
+   "demand": "INHERITED_VALIDATED_DEMAND",
+   "max_volume": ""
+  },
+  {
+   "family": "places.neighbourhood-category",
+   "raw": 95440,
+   "single": 8676,
+   "status": "NOT_IMPLEMENTED",
+   "demand": "INHERITED_VALIDATED_DEMAND",
+   "max_volume": ""
+  },
+  {
+   "family": "weather.city-month",
+   "raw": 60888,
+   "single": 5535,
+   "status": "EXPERIMENT_ONLY",
+   "demand": "WEAK_DEMAND_THIN_SAMPLE",
+   "max_volume": 60
+  },
+  {
+   "family": "comparisons.city-vs-home",
+   "raw": 32461,
+   "single": 2951,
+   "status": "MISSING_DATA",
+   "demand": "MODERATE_DEMAND",
+   "max_volume": ""
+  },
+  {
+   "family": "cost-of-living.city-vs-market",
+   "raw": 32461,
+   "single": 2951,
+   "status": "MISSING_DATA",
+   "demand": "INHERITED_WEAK_DEMAND",
+   "max_volume": ""
+  },
+  {
+   "family": "climate.city-annual",
+   "raw": 32461,
+   "single": 2951,
+   "status": "VALIDATED",
+   "demand": "VALIDATED_DEMAND",
+   "max_volume": ""
+  },
+  {
+   "family": "transport.airport-to-city",
+   "raw": 30010,
+   "single": 2728,
+   "status": "MISSING_DATA",
+   "demand": "WEAK_DEMAND",
+   "max_volume": 30
+  },
+  {
+   "family": "property.city-buy",
+   "raw": 29510,
+   "single": 2683,
+   "status": "MISSING_DATA",
+   "demand": "INHERITED_MODERATE_DEMAND",
+   "max_volume": ""
+  }
+ ],
+ "top20_gaps": [
+  {
+   "source": "places-data-verified",
+   "families": 3,
+   "raw": 472160,
+   "single": 42923,
+   "type": "OPEN_DATA_ODBL",
+   "cost": "LOW_COST_HIGH_EFFORT",
+   "best_volume": 11000
+  },
+  {
+   "source": "cost-of-living-city-verified",
+   "families": 4,
+   "raw": 307535,
+   "single": 27958,
+   "type": "GOVERNMENT",
+   "cost": "FREE_UNEVEN_COVERAGE",
+   "best_volume": 400
+  },
+  {
+   "source": "sport-routes-verified",
+   "families": 2,
+   "raw": 295100,
+   "single": 26827,
+   "type": "OPEN_DATA_ODBL",
+   "cost": "LOW_COST_MEDIUM_EFFORT",
+   "best_volume": 600
+  },
+  {
+   "source": "salary-data-verified",
+   "families": 2,
+   "raw": 292590,
+   "single": 26599,
+   "type": "GOVERNMENT",
+   "cost": "FREE_UNEVEN_COVERAGE",
+   "best_volume": 0
+  },
+  {
+   "source": "stay-inventory-verified",
+   "families": 1,
+   "raw": 206570,
+   "single": 18779,
+   "type": "AFFILIATE_FEED",
+   "cost": "REVENUE_SHARE",
+   "best_volume": 8400
+  },
+  {
+   "source": "rent-index-verified",
+   "families": 2,
+   "raw": 139390,
+   "single": 12672,
+   "type": "GOVERNMENT_PLUS_COMMERCIAL",
+   "cost": "FREE_TO_MEDIUM",
+   "best_volume": 12000
+  },
+  {
+   "source": "school-data-verified",
+   "families": 3,
+   "raw": 35869,
+   "single": 3261,
+   "type": "GOVERNMENT_PLUS_OPEN",
+   "cost": "FREE_MEDIUM_EFFORT",
+   "best_volume": 30000
+  },
+  {
+   "source": "health-rules-verified",
+   "families": 2,
+   "raw": 32249,
+   "single": 2932,
+   "type": "GOVERNMENT",
+   "cost": "FREE_MEDIUM_EFFORT",
+   "best_volume": 3100
+  },
+  {
+   "source": "ground-transport-verified",
+   "families": 1,
+   "raw": 30010,
+   "single": 2728,
+   "type": "MANUAL_PLUS_GTFS",
+   "cost": "FREE_HIGH_EFFORT",
+   "best_volume": 30
+  },
+  {
+   "source": "property-price-verified",
+   "families": 1,
+   "raw": 29510,
+   "single": 2683,
+   "type": "GOVERNMENT",
+   "cost": "FREE_UNEVEN_COVERAGE",
+   "best_volume": 0
+  },
+  {
+   "source": "safety-data-verified",
+   "families": 1,
+   "raw": 29510,
+   "single": 2683,
+   "type": "GOVERNMENT",
+   "cost": "FREE_UNEVEN_COVERAGE",
+   "best_volume": 1800
+  },
+  {
+   "source": "transit-fares-verified",
+   "families": 1,
+   "raw": 29510,
+   "single": 2683,
+   "type": "OPEN_DATA_PLUS_MANUAL",
+   "cost": "FREE_MEDIUM_EFFORT",
+   "best_volume": 40000
+  },
+  {
+   "source": "attractions-verified",
+   "families": 1,
+   "raw": 29510,
+   "single": 2683,
+   "type": "OPEN_DATA_ODBL",
+   "cost": "LOW_COST_MEDIUM_EFFORT",
+   "best_volume": 78000
+  },
+  {
+   "source": "item-price-verified",
+   "families": 1,
+   "raw": 19920,
+   "single": 1811,
+   "type": "UNAVAILABLE_OPEN",
+   "cost": "FREE_PARTIAL_ONLY",
+   "best_volume": 0
+  },
+  {
+   "source": "country-facts-verified",
+   "families": 1,
+   "raw": 16434,
+   "single": 1494,
+   "type": "GOVERNMENT_PLUS_OPEN",
+   "cost": "FREE_LOW_EFFORT",
+   "best_volume": 350
+  },
+  {
+   "source": "visa-rules-verified",
+   "families": 5,
+   "raw": 13695,
+   "single": 1245,
+   "type": "GOVERNMENT",
+   "cost": "FREE_HIGH_EFFORT_OR_PAID",
+   "best_volume": 4500
+  },
+  {
+   "source": "community-listings-verified",
+   "families": 1,
+   "raw": 6720,
+   "single": 611,
+   "type": "UNAVAILABLE",
+   "cost": "N_A",
+   "best_volume": 0
+  },
+  {
+   "source": "tax-rules-verified",
+   "families": 2,
+   "raw": 5478,
+   "single": 498,
+   "type": "GOVERNMENT_PLUS_OECD",
+   "cost": "FREE_HIGH_EFFORT",
+   "best_volume": 0
+  },
+  {
+   "source": "banking-rules-verified",
+   "families": 1,
+   "raw": 2739,
+   "single": 249,
+   "type": "GOVERNMENT_PLUS_COMMERCIAL",
+   "cost": "FREE_MEDIUM_EFFORT",
+   "best_volume": 200
+  },
+  {
+   "source": "work-rules-verified",
+   "families": 1,
+   "raw": 2739,
+   "single": 249,
+   "type": "GOVERNMENT",
+   "cost": "FREE_HIGH_EFFORT",
+   "best_volume": 0
+  }
+ ],
+ "top20_opportunities": [
+  {
+   "family": "weather.city-best-time",
+   "max_volume": 1020000,
+   "median_kd": 4,
+   "status": "VALIDATED",
+   "surface": "climate"
+  },
+  {
+   "family": "calendar.year",
+   "max_volume": 766000,
+   "median_kd": 0,
+   "status": "VALIDATED",
+   "surface": "tools"
+  },
+  {
+   "family": "pulse.country-holidays",
+   "max_volume": 705000,
+   "median_kd": 1,
+   "status": "VALIDATED",
+   "surface": "pulse"
+  },
+  {
+   "family": "events.recurring",
+   "max_volume": 464000,
+   "median_kd": 0,
+   "status": "BLOCKED_BY_LICENCE",
+   "surface": "pulse"
+  },
+  {
+   "family": "tools.calculator",
+   "max_volume": 217000,
+   "median_kd": 4,
+   "status": "VALIDATED",
+   "surface": "tools"
+  },
+  {
+   "family": "activities.city-things-to-do",
+   "max_volume": 78000,
+   "median_kd": 0,
+   "status": "MISSING_DATA",
+   "surface": "areas"
+  },
+  {
+   "family": "transport.city-getting-around",
+   "max_volume": 40000,
+   "median_kd": 20,
+   "status": "MISSING_DATA",
+   "surface": "transport"
+  },
+  {
+   "family": "pulse.school-holidays",
+   "max_volume": 30000,
+   "median_kd": 20,
+   "status": "MISSING_DATA",
+   "surface": "pulse"
+  },
+  {
+   "family": "pulse.long-weekends",
+   "max_volume": 22000,
+   "median_kd": 0,
+   "status": "VALIDATED",
+   "surface": "pulse"
+  },
+  {
+   "family": "events.city-type",
+   "max_volume": 18000,
+   "median_kd": 6,
+   "status": "BLOCKED_BY_LICENCE",
+   "surface": "pulse"
+  },
+  {
+   "family": "events.series-city",
+   "max_volume": 17000,
+   "median_kd": 0,
+   "status": "BLOCKED_BY_LICENCE",
+   "surface": "pulse"
+  },
+  {
+   "family": "work.city-jobs",
+   "max_volume": 13000,
+   "median_kd": 0,
+   "status": "MISSING_DATA",
+   "surface": "work"
+  },
+  {
+   "family": "rents.city",
+   "max_volume": 12000,
+   "median_kd": 2,
+   "status": "MISSING_DATA",
+   "surface": "stay"
+  },
+  {
+   "family": "events.city-window",
+   "max_volume": 12000,
+   "median_kd": 1,
+   "status": "BLOCKED_BY_LICENCE",
+   "surface": "pulse"
+  },
+  {
+   "family": "places.city-category",
+   "max_volume": 11000,
+   "median_kd": 0,
+   "status": "NOT_IMPLEMENTED",
+   "surface": "areas"
+  },
+  {
+   "family": "stay.city-type",
+   "max_volume": 8400,
+   "median_kd": 1,
+   "status": "BLOCKED_BY_LICENCE",
+   "surface": "stay"
+  },
+  {
+   "family": "calendar.week-numbers",
+   "max_volume": 7900,
+   "median_kd": 0,
+   "status": "VALIDATED",
+   "surface": "tools"
+  },
+  {
+   "family": "visas.country-visit",
+   "max_volume": 4500,
+   "median_kd": 73,
+   "status": "MISSING_DATA",
+   "surface": "move"
+  },
+  {
+   "family": "health.country",
+   "max_volume": 3100,
+   "median_kd": 9,
+   "status": "MISSING_DATA",
+   "surface": "move"
+  },
+  {
+   "family": "safety.city",
+   "max_volume": 1800,
+   "median_kd": 0,
+   "status": "MISSING_DATA",
+   "surface": "safety"
+  }
+ ]
+}
