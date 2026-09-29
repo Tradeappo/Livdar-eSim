@@ -11,6 +11,13 @@ expire on 8 October.**
 > and one started before it keeps reporting. If you do a single thing from this
 > file, do item 7.
 >
+> **Updated 2026-09-29: item 7 is now 571 keywords, not 125.** The expanded set is
+> at `reports/candidate-universe-2026-09-29/rank-tracker/PASTE-READY.md`, built from
+> the 500 live Atlas page keywords plus 373 measured candidate heads, in 9 country
+> pastes sorted by measured volume. Check your plan's tracked-keyword allowance
+> first; if 571 exceeds it, the sort order means the first N rows of each block are
+> the most valuable N.
+>
 > 871,157 of 2,000,000 API units remain and the allowance resets on 8 October,
 > the day after access ends, so they cannot be carried forward.
 
