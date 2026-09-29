@@ -54,6 +54,14 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   const airports = rows.map((r) => {
     const lat = Number(r.latitude_deg);
     const lon = Number(r.longitude_deg);
+    // NOTE ON WHAT cityKm MEANS. `near` is the nearest city in the dataset,
+    // which for a big airport is usually a suburb or the airport's own
+    // locality, not the city it serves: LHR resolves 4.2 km, JFK 5.7, IST
+    // 10.2, against real city centre distances of roughly 23, 24 and 40.
+    // cityKm is therefore a distance to the nearest populated place and must
+    // never be published as an airport to city centre distance. Left as is
+    // because other callers already depend on the value; the correct field is
+    // recorded as a data gap in reports/scale-universe-2026-09-29.
     const near = nearestCity(cities, lat, lon);
     return {
       iata: r.iata_code,

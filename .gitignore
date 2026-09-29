@@ -26,3 +26,9 @@ gha-creds-*.json
 
 # Preflight output of scripts/gsc-check.mjs. A log, never an input, never committed.
 gsc-check.json
+
+# Intermediate output of scripts/atlas/scale/generate.mjs. Twelve megabytes of
+# pre-dedupe rows that dedupe-and-audit.mjs consumes and that generate.mjs
+# reproduces in seconds. The deliverable is the deduplicated inventory beside it.
+reports/scale-universe-*/_rows.jsonl.gz
+reports/scale-universe-*/_raw-count.json

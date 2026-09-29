@@ -1,0 +1,43 @@
+{
+ "generated": "2026-09-29",
+ "rows_total": 235502,
+ "by_status": {
+  "VALID": 13975,
+  "SOURCE_ACQUISITION_CANDIDATE": 3934,
+  "REJECTED_FAMILY": 190677,
+  "MERGED_DUPLICATE": 26916
+ },
+ "surfaces": 9,
+ "families": 24,
+ "countries": 228,
+ "languages": 9,
+ "markets": 10,
+ "sources": 9,
+ "licences": 12,
+ "templates": 23,
+ "measured_direct_rows": 74,
+ "families_by_gate": {
+  "SAFE_TO_SCALE": 8,
+  "SCALE_WITH_GATES": 6,
+  "EXPERIMENT_ONLY": 2,
+  "HIGH_RISK": 2,
+  "REJECT": 9
+ },
+ "cuts": [
+  "by-surface",
+  "by-family",
+  "by-country",
+  "by-city-tier",
+  "by-language",
+  "by-market",
+  "by-data-source",
+  "by-licence",
+  "by-quality-gate",
+  "by-risk-level",
+  "by-measured-status",
+  "by-monetization-fit",
+  "by-template-signature",
+  "by-intent-modifier",
+  "demand-sample-measured-direct"
+ ]
+}

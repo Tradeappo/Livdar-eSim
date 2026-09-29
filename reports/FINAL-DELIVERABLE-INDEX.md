@@ -2,8 +2,19 @@
 
 Updated 2026-09-29. **Ahrefs Advanced ends 8 October 2026.**
 
-The work lives in two folders because it was built in two passes. This index maps the 17 sections
+The work lives in three folders because it was built in three passes. This index maps the 17 sections
 you asked for onto the actual files, so nothing has to be hunted for.
+
+**The third pass supersedes the first on candidate counting.**
+`scale-universe-2026-09-29/` answers the 1,000,000 candidate brief and has its own
+17 deliverables plus its own README and FINAL-REPORT. Its headline: 1,000,000 is
+not honestly reachable from the sources this project can lawfully hold, the
+validated universe is **13,975** candidates and **1,791** are publishable now. The
+10,152 figure in section 1 below is the earlier pass and remains valid on its own
+terms, but where the two disagree the scale universe is the later and stricter
+count, because it applies the anti-padding, language, year and persona rules and
+runs an eight stage dedupe funnel. Start at
+[scale-universe-2026-09-29/FINAL-REPORT.md](scale-universe-2026-09-29/FINAL-REPORT.md).
 
 | Marker | Meaning |
 | --- | --- |

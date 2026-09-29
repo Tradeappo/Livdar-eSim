@@ -1,0 +1,25 @@
+key	total	VALID	SOURCE_ACQUISITION_CANDIDATE	REJECTED_FAMILY	MERGED_DUPLICATE	gate	source	availability
+climate.city-month	7380	6780	0	0	600	EXPERIMENT_ONLY	nasa-power-daily	acquirable
+climate.city-annual	3460	3006	0	0	454	EXPERIMENT_ONLY	nasa-power-daily	acquirable
+areas.neighbourhood-profile	1403	1403	0	0	0	HIGH_RISK	neighbourhood-facts-verified	held
+move.country-cost-of-living	995	995	0	0	0	HIGH_RISK	cost-of-living-verified	held
+pulse.named-holiday-date	1206	792	0	0	414	SCALE_WITH_GATES	events-verified	held
+calendar.month	180	180	0	0	0	SCALE_WITH_GATES	computed	held
+pulse.named-holiday-regions	161	160	0	0	1	SCALE_WITH_GATES	events-verified	held
+pulse.subdivision-holidays	190	144	0	0	46	SAFE_TO_SCALE	events-verified	held
+pulse.country-holidays	116	111	0	0	5	SAFE_TO_SCALE	events-verified	held
+work.country-salaries	145	108	0	0	37	SAFE_TO_SCALE	salary-data-verified	held
+pulse.long-weekends	78	76	0	0	2	SAFE_TO_SCALE	events-verified	held
+work.working-time-per-year	78	76	0	0	2	SAFE_TO_SCALE	events-verified	held
+tools.calculator	70	70	0	0	0	SAFE_TO_SCALE	computed	held
+areas.city-where-to-stay	39	39	0	0	0	SCALE_WITH_GATES	neighbourhood-facts-verified	held
+calendar.year	25	25	0	0	0	SCALE_WITH_GATES	computed	held
+pulse.today	5	5	0	0	0	SAFE_TO_SCALE	events-verified	held
+calendar.week-numbers	5	5	0	0	0	SAFE_TO_SCALE	computed	held
+climate.city-month-tail	159552	0	0	135012	24540	REJECT	nasa-power-daily	acquirable
+sport.city-activity-season	46212	0	0	46212	0	REJECT	nasa-power-daily	acquirable
+sport.venue-profile	9438	0	0	9234	204	REJECT	wikidata-venues	held
+work.city-salary-by-role	3075	0	2845	0	230	REJECT		missing
+transport.airport-to-city	1236	0	1089	0	147	SCALE_WITH_GATES	ourairports	missing
+areas.persona-variants	273	0	0	39	234	REJECT	neighbourhood-facts-verified	held
+stay.country-rent-trend	180	0	0	180	0	REJECT	rent-index-verified	held

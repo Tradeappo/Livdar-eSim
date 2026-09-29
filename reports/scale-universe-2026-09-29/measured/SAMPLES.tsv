@@ -1,0 +1,38 @@
+keyword	country	volume	global_volume	kd	cpc_cents	clicks	traffic_potential	family	note
+dublin airport to city centre	gb	4400	6600	0	15	3599	2000	transport.airport-to-city	
+krakow airport to city centre	gb	2700	4000	0	30	2525	700	transport.airport-to-city	
+prague airport to city centre	gb	2200	3200	1	10	1711	1900	transport.airport-to-city	
+budapest airport to city centre	gb	2000	2900	2	30	1883	900	transport.airport-to-city	
+amsterdam airport to city centre	gb	1300	1900	2	5	931	450	transport.airport-to-city	50 in us, the same keyword
+malaga airport to city centre	gb	1000	1300	0	7	948	700	transport.airport-to-city	
+barcelona airport to city centre	gb	900	1600	0	7	846	700	transport.airport-to-city	20 in us, the same keyword
+lisbon airport to city centre	gb	700	900	0	15	685	1100	transport.airport-to-city	10 in us, the same keyword
+alicante airport to city centre	gb	600	900	7	10	551	200	transport.airport-to-city	
+athens airport to city centre	gb	300	600	6	15		600	transport.airport-to-city	
+faro airport to city centre	gb	250	300	1	4		500	transport.airport-to-city	
+rome airport to city centre	gb	250	800	12	15	176	700	transport.airport-to-city	20 in us, the same keyword
+munich airport to city centre	gb	150	350	1	10	144	600	transport.airport-to-city	
+palma airport to city centre	gb	150	250	4	50		200	transport.airport-to-city	
+istanbul airport to city centre	gb	100	350	1	25	122	250	transport.airport-to-city	
+bangkok airport to city centre	gb	100	350	0	50	108	20	transport.airport-to-city	
+tenerife airport to city centre	gb	0	0				0	transport.airport-to-city	Tenerife is an island, not a city. Template failure, not a demand failure.
+warsaw airport to city centre	us	0	150					transport.airport-to-city	not re-measured in gb
+gatwick to london	gb	2900	10000	10	15	2284	33000	transport.airport-to-city	named pair phrasing, not the template
+stansted to london	gb	2800	9200	7	20	2515	84000	transport.airport-to-city	named pair phrasing, not the template
+heathrow to london	gb	1300	5100	0	35	941	1900	transport.airport-to-city	named pair phrasing, not the template
+jfk to manhattan	us	2400	4700	3	40	1623	5300	transport.airport-to-city	named pair phrasing, not the template
+narita to tokyo	us	1600	5300	14	6	1006	400	transport.airport-to-city	named pair phrasing, not the template
+cdg to paris	us	500	1900	6	9	403	1600	transport.airport-to-city	named pair phrasing, not the template
+how to get from cdg to paris	us	250	700	0	8	254	1400	transport.airport-to-city	
+schiphol to amsterdam centraal	us	30	150	2	8		150	transport.airport-to-city	
+how to get from heathrow to central london	us	20	50	0	15		2100	transport.airport-to-city	
+fiumicino to rome city centre	us	0	10					transport.airport-to-city	
+tokyo climate	us	1900	3300	79	3	1499	57000	climate.city-annual	
+paris climate	us	600	1100	43	10	384	800	climate.city-annual	
+weather in paris in october	us	1400	2600	0	2	772	700	climate.city-month	tier 1
+weather in rome in may	us	1000	2500	0	2	732	500	climate.city-month	tier 1
+weather in reykjavik in june	us	40	80	0	3	11	350	climate.city-month-tail	tier 2
+weather in salzburg in july	us	20	50				0	climate.city-month-tail	tier 2
+running in tokyo	us	80	400	0	10		40	sport.city-activity-season	
+cycling in amsterdam	us	70	600	0	60		350	sport.city-activity-season	
+hiking in salzburg	us	20	100	0	60		100	sport.city-activity-season	

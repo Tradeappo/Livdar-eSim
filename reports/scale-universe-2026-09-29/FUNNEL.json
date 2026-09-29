@@ -1,0 +1,87 @@
+{
+ "funnel": {
+  "raw_combinations": 235502,
+  "after_exact_keyword_dedupe": 230832,
+  "after_normalised_keyword_dedupe": 230456,
+  "after_semantic_intent_dedupe": 230456,
+  "after_entity_plus_intent_dedupe": 230456,
+  "after_data_signature_dedupe": 230018,
+  "after_cross_language_dedupe": 208586,
+  "source_backed": 204652,
+  "quality_gated": 13975,
+  "VALID_RESEARCH_CANDIDATES": 13975
+ },
+ "split": {
+  "publishable_now": 1791,
+  "publishable_after_source_acquisition": 0,
+  "experimental": 9786,
+  "high_risk": 2398
+ },
+ "buckets": {
+  "valid_total": 13975,
+  "blocked_pending_source": 3934,
+  "rejected_family": 190677,
+  "merged_duplicate": 26916
+ },
+ "audit": {
+  "exact_duplicate_rate_pct": 1.98,
+  "normalised_duplicate_rate_pct": 0.16,
+  "semantic_duplicate_rate_pct": 0,
+  "entity_plus_intent_duplicate_rate_pct": 0,
+  "data_signature_duplicate_rate_pct": 0.19,
+  "cross_language_duplicate_rate_pct": 9.1,
+  "total_merged_duplicate_rate_pct": 11.43,
+  "cannibalization_live_equivalent": 56,
+  "thin_content_risk_under_4_unique_fields": 1304,
+  "thin_content_risk_pct": 9.33,
+  "template_concentration_top": "city-weather-in-month",
+  "template_concentration_pct": 48.52,
+  "source_concentration_top": "nasa-power-daily",
+  "source_concentration_pct": 70.03,
+  "measured_direct": 36,
+  "inherited_from_family_sample": 0,
+  "unmeasured_pct": 99.74
+ },
+ "family_samples": {
+  "transport.airport-to-city": {
+   "sample_size": 28,
+   "median_volume": 600,
+   "p75_volume": 2000,
+   "p90_volume": 2800,
+   "median_kd": 1,
+   "confidence": "medium"
+  },
+  "climate.city-annual": {
+   "sample_size": 2,
+   "median_volume": 1900,
+   "p75_volume": 1900,
+   "p90_volume": 1900,
+   "median_kd": 79,
+   "confidence": "none"
+  },
+  "climate.city-month": {
+   "sample_size": 2,
+   "median_volume": 1400,
+   "p75_volume": 1400,
+   "p90_volume": 1400,
+   "median_kd": 0,
+   "confidence": "none"
+  },
+  "climate.city-month-tail": {
+   "sample_size": 2,
+   "median_volume": 40,
+   "p75_volume": 40,
+   "p90_volume": 40,
+   "median_kd": 0,
+   "confidence": "none"
+  },
+  "sport.city-activity-season": {
+   "sample_size": 3,
+   "median_volume": 70,
+   "p75_volume": 80,
+   "p90_volume": 80,
+   "median_kd": 0,
+   "confidence": "low"
+  }
+ }
+}
