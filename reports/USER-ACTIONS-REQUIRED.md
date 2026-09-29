@@ -19,12 +19,18 @@ worth roughly 700 pages.
 > and one started before it keeps reporting. If you do a single thing from this
 > file, do item 7.
 >
-> **Updated 2026-09-29: item 7 is now 571 keywords, not 125.** The expanded set is
-> at `reports/candidate-universe-2026-09-29/rank-tracker/PASTE-READY.md`, built from
-> the 500 live Atlas page keywords plus 373 measured candidate heads, in 9 country
-> pastes sorted by measured volume. Check your plan's tracked-keyword allowance
-> first; if 571 exceeds it, the sort order means the first N rows of each block are
-> the most valuable N.
+> **Updated 2026-09-29, second revision: item 7 is now 580 keywords to paste, in
+> four priority tiers.** Use
+> `reports/rank-tracker-2026-09-29/PASTE-READY.md`. It replaces the 571 keyword
+> volume sorted set, which told you to take the first N rows at a plan limit; that
+> instruction would have dropped a live page's own keyword in favour of a keyword
+> for a page that does not exist yet, and position history cannot be backfilled.
+>
+> The order is now **LIVE_PRIMARY (500, one per live page, 250 per cohort), then
+> LIVE_SECONDARY (38), then ESIM (125, already tracked), then CANDIDATE_HEAD (42)**.
+> If your allowance is smaller than the set, cut from the bottom of the lowest tier
+> you reach and never from tier 1. Zero pages needed a keyword invented and zero
+> cannibalisation was found.
 >
 > 871,157 of 2,000,000 API units remain and the allowance resets on 8 October,
 > the day after access ends, so they cannot be carried forward.
@@ -291,7 +297,7 @@ reports. Full record:
 
 ---
 
-## 7. Rank Tracker: 125 keyword additions
+## 7. Rank Tracker: 580 keyword additions, in four priority tiers
 
 **Service** Ahrefs, project `Livdar` (project id 10422446)
 

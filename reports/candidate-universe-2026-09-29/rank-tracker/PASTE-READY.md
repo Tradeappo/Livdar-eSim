@@ -1,5 +1,23 @@
 # Rank Tracker: the expanded set, paste-ready
 
+> ## SUPERSEDED on 2026-09-29 by the priority ordered set
+>
+> Use **[`../../rank-tracker-2026-09-29/PASTE-READY.md`](../../rank-tracker-2026-09-29/PASTE-READY.md)**.
+>
+> This file sorts all 571 keywords by measured volume across the whole set, and
+> says to take the first N rows at a plan limit. That instruction is wrong: it
+> would drop a live page's own keyword in favour of a keyword for a page that does
+> not exist yet, and position history cannot be backfilled once the slot is lost.
+>
+> The replacement orders by tier first, LIVE_PRIMARY then LIVE_SECONDARY then ESIM
+> then CANDIDATE_HEAD, and sorts by volume only inside a tier. It covers all 500
+> live pages with exactly one primary keyword each, 250 per cohort, with zero
+> cannibalisation and zero pages needing a keyword invented.
+>
+> This file is kept because the 571 keywords in it are real and the earlier
+> reasoning is part of the record.
+
+
 Generated 2026-09-29. **571 keywords** across 9 countries.
 
 Built from three sources and deduplicated on keyword plus country:
