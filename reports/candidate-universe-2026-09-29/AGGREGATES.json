@@ -1,0 +1,125 @@
+{
+ "total": 10152,
+ "generated": "2026-09-29",
+ "surface": {
+  "pulse": 3760,
+  "sport": 1980,
+  "move": 1791,
+  "work": 945,
+  "tools": 504,
+  "climate": 495,
+  "areas": 351,
+  "stay": 325,
+  "safety": 1
+ },
+ "family": {
+  "sport.city-season": 1980,
+  "events.named-holiday-date": 1889,
+  "cost-of-living.country": 1791,
+  "events.long-weekends": 648,
+  "work.working-time-per-year": 630,
+  "events.subdivision-holidays": 621,
+  "weather.country-best-time": 495,
+  "neighbourhoods.city-where-to-stay": 351,
+  "events.country-holidays": 330,
+  "calendar.month": 324,
+  "rents.country-inflation": 324,
+  "work.country-salaries": 315,
+  "events.named-holiday-regions": 261,
+  "tools.calculator": 126,
+  "calendar.year": 45,
+  "calendar.week-numbers": 9,
+  "events.today": 9,
+  "events.school-holidays": 2,
+  "safety.city": 1,
+  "stay.city-rooms": 1
+ },
+ "language": {
+  "en": 2037,
+  "de": 1241,
+  "it": 1133,
+  "fr": 1091,
+  "es": 996,
+  "nl": 934,
+  "pl": 916,
+  "pt": 915,
+  "ja": 889
+ },
+ "status": {
+  "PROMISING": 8152,
+  "NEEDS_DATA": 1124,
+  "REJECTED": 495,
+  "VALIDATED": 379,
+  "BLOCKED": 2
+ },
+ "quality_risk": {
+  "SCALE_WITH_GATES": 5776,
+  "SAFE_TO_SCALE": 2943,
+  "HIGH_THIN_CONTENT_RISK": 936,
+  "REJECT": 497
+ },
+ "source_data_available": {
+  "yes": 9026,
+  "partial": 1116,
+  "no": 10
+ },
+ "programmatic_feasibility": {
+  "high": 5391,
+  "high, held data": 1889,
+  "partial, seasonality only and nowhere named": 936,
+  "high, computed from held holiday dates": 648,
+  "high, computed from held holidays": 468,
+  "high where facts exist": 351,
+  "high, a pivot of data already held": 261,
+  "blocked without holiday data": 162,
+  "medium": 18,
+  "blocked on data": 10,
+  "high, ISO 8601 week arithmetic": 9,
+  "high, held holiday data plus a date": 9
+ },
+ "monetization_fit": {
+  "low": 4769,
+  "medium": 2179,
+  "low, informational intent": 1206,
+  "medium, leave planning has commercial adjacency": 648,
+  "medium, payroll and HR adjacency": 630,
+  "medium, accommodation adjacency": 351,
+  "medium, salary intent has commercial adjacency": 315,
+  "high": 54
+ },
+ "livdar_coverage_now": {
+  "none": 9773,
+  "LIVE": 379
+ },
+ "measured": {
+  "no": 10148,
+  "yes": 4
+ },
+ "confidence": {
+  "medium": 8075,
+  "high": 1698,
+  "measured-live": 379
+ },
+ "page_type": {
+  "city-activity-seasonality": 1980,
+  "when-is-this-holiday": 1889,
+  "country-cost-of-living": 1791,
+  "long-weekend-and-bridge-day-planner": 648,
+  "statutory-working-time": 630,
+  "subdivision-holiday-calendar": 621,
+  "best-time-to-visit": 495,
+  "city-where-to-stay": 351,
+  "country-holiday-calendar": 330,
+  "month-calendar": 324,
+  "country-rent-trend": 324,
+  "country-salary-report": 315,
+  "named-holiday-which-regions": 261,
+  "interactive-calculator": 126,
+  "year-calendar": 45,
+  "week-number-lookup": 9,
+  "what-is-today": 9,
+  "school-holidays": 2,
+  "city-safety": 1,
+  "city-monthly-stay": 1
+ }
+}
