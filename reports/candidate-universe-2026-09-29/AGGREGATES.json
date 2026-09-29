@@ -45,17 +45,28 @@
   "pt": 915,
   "ja": 889
  },
+ "search_market": {
+  "en-US": 2037,
+  "de-DE": 1241,
+  "it-IT": 1133,
+  "fr-FR": 1091,
+  "es-ES": 996,
+  "nl-NL": 934,
+  "pl-PL": 916,
+  "pt-BR": 915,
+  "ja-JP": 889
+ },
  "status": {
-  "PROMISING": 8152,
+  "PROMISING": 7774,
   "NEEDS_DATA": 1124,
+  "VALIDATED": 757,
   "REJECTED": 495,
-  "VALIDATED": 379,
   "BLOCKED": 2
  },
  "quality_risk": {
-  "SCALE_WITH_GATES": 5776,
+  "SCALE_WITH_GATES": 5457,
   "SAFE_TO_SCALE": 2943,
-  "HIGH_THIN_CONTENT_RISK": 936,
+  "HIGH_THIN_CONTENT_RISK": 1255,
   "REJECT": 497
  },
  "source_data_available": {
@@ -88,17 +99,17 @@
   "high": 54
  },
  "livdar_coverage_now": {
-  "none": 9773,
-  "LIVE": 379
+  "none": 9813,
+  "LIVE": 339
  },
  "measured": {
-  "no": 10148,
-  "yes": 4
+  "no": 9176,
+  "yes": 976
  },
  "confidence": {
-  "medium": 8075,
-  "high": 1698,
-  "measured-live": 379
+  "medium": 5371,
+  "high": 4442,
+  "measured-live": 339
  },
  "page_type": {
   "city-activity-seasonality": 1980,
@@ -121,5 +132,41 @@
   "school-holidays": 2,
   "city-safety": 1,
   "city-monthly-stay": 1
+ },
+ "family_demand_tier": {
+  "DEMAND_HIGH": 3725,
+  "DEMAND_MODERATE": 3444,
+  "DEMAND_UNMEASURED": 2477,
+  "DEMAND_LOW": 324,
+  "DEMAND_VERY_HIGH": 182
+ },
+ "source_licensing_status": {
+  "ODbL 1.0, share-alike on the database, attribution required": 3752,
+  "Eurostat reuse policy plus CC BY 4.0, commercial reuse permitted": 1791,
+  "CC BY 4.0 for climate, CC0 1.0 for venues": 1044,
+  "CC BY 4.0 for climate; no venue data for this country": 936,
+  "Eurostat reuse policy, commercial reuse permitted with attribution": 639,
+  "ODbL 1.0 for the holiday input; working-time rules need a second source": 630,
+  "CC BY 4.0, no restrictions on reuse": 495,
+  "no licence needed": 378,
+  "CC BY 4.0, commercial reuse permitted with attribution": 351,
+  "no additional licence needed": 117,
+  "tax-rules-verified licence to be established": 9,
+  "unverified": 8,
+  "blocked": 2
+ },
+ "volume_buckets_measured_only": {
+  "<1000": 482,
+  "<100": 219,
+  "<10000": 206,
+  "<100000": 59,
+  ">=100000": 10
+ },
+ "kd_buckets_measured_only": {
+  "<50": 4,
+  "<5": 448,
+  "<15": 19,
+  "<30": 42,
+  ">=50": 2
  }
 }

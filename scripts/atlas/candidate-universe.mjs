@@ -21,6 +21,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { ATLAS_SEGMENTS, countrySlug, countryName as cldrCountryName, slugify } from '../../lib/atlas/atlas-urls.js';
 import { forSubdivision } from '../../lib/atlas/holidays.js';
+import { cityById } from '../../lib/atlas/cities.js';
 import { pages as livePages } from '../../lib/atlas/serve-pages.js';
 
 const ROOT = new URL('../../', import.meta.url);
@@ -770,18 +771,28 @@ for (const iso of salaryCountries) {
 // AREAS and CLIMATE. Both hard-bounded by verified data, and climate is
 // already rejected on SERP evidence.
 // ---------------------------------------------------------------------------
-const nbCities = Object.keys(nb.store || {});
-for (const cityKey of nbCities) {
+// The neighbourhood store is keyed by city id, so the name has to be read out
+// of the record rather than taken from the key. Without this the keyword became
+// "wo wohnen in 290030", which measures nothing and would have wasted the units
+// spent asking about it.
+const nbCities = Object.entries(nb.store || {});
+for (const [cityId, rec] of nbCities) {
+  const cityNameEn = (rec && rec.cityName) || '';
+  if (!cityNameEn) continue;
+  const cityIso = (rec && rec.iso2) || '';
+  const nbCount = (rec && Array.isArray(rec.neighbourhoods)) ? rec.neighbourhoods.length : 0;
   for (const lang of LANGS) {
     const seg = ATLAS_SEGMENTS['where-to-stay'][lang];
-    const slug = slugify(cityKey);
+    const localCity = (cityById(cityId) && cityById(cityId).names && cityById(cityId).names[lang]) || cityNameEn;
+    const cityKey = localCity;
+    const slug = slugify(localCity);
     const key = lang + '|neighbourhoods.city-where-to-stay|' + cityKey;
     const isLive = live.has(key);
     add({
       url: `/${lang}/${seg}/${slug}/`,
       surface: 'areas', family: 'neighbourhoods.city-where-to-stay', pageType: 'city-where-to-stay',
-      entity: cityKey, entityLabel: cityKey, city: cityKey, lang,
-      keyword: kwFor('neighbourhoods.city-where-to-stay', lang, cityKey),
+      entity: String(cityId), entityLabel: localCity, city: localCity, country: cityIso, lang,
+      keyword: kwFor('neighbourhoods.city-where-to-stay', lang, localCity),
       coverage: isLive ? 'LIVE' : 'none', liveEquivalent: isLive ? `/${lang}/${seg}/${slug}/` : '',
       sourceId: 'neighbourhood-facts-verified', dataAvailable: 'yes', licence: licenceOf('neighbourhood-facts-verified'),
       licensingStatus: 'CC BY 4.0, commercial reuse permitted with attribution',
@@ -791,7 +802,7 @@ for (const cityKey of nbCities) {
       internalLink: 'high',
       confidence: isLive ? 'measured-live' : 'medium',
       status: isLive ? 'VALIDATED' : 'PROMISING',
-      notes: `verified neighbourhood facts exist for ${nbCities.length} cities only; beyond those this family is NEEDS_DATA`,
+      notes: `${nbCount} verified neighbourhoods for this city. Facts exist for ${nbCities.length} cities only; beyond those this family is NEEDS_DATA.`,
     });
   }
 }
@@ -816,6 +827,28 @@ for (const c of climCities) {
 // TOOLS. Calculators, which are the one family where the page is a function
 // rather than a table, and therefore the hardest to call thin.
 // ---------------------------------------------------------------------------
+// Tool keywords per language. The English forms are the ones measured on
+// 2026-09-29 (`salary calculator` 143,332, `rent affordability calculator`
+// 3,055, `moving cost calculator` 2,408). The other languages use the word that
+// market types for a calculator, taken from the live Atlas tool slugs rather
+// than translated.
+const TOOL_KW = {
+  'salary-calculator': { en: 'salary calculator', de: 'gehaltsrechner', fr: 'calcul salaire net', es: 'calculadora de salario', it: 'calcolo stipendio netto', nl: 'brutonetto calculator', pl: 'kalkulator wynagrodzeń', pt: 'calculadora de salário', ja: '年収 計算' },
+  'rent-affordability': { en: 'rent affordability calculator', de: 'mietrechner', fr: 'calcul loyer maximum', es: 'calculadora de alquiler', it: 'calcolo affitto', nl: 'huur berekenen', pl: 'kalkulator czynszu', pt: 'calculadora de renda', ja: null },
+  'cost-of-living-comparison': { en: 'cost of living comparison', de: 'lebenshaltungskosten vergleich', fr: 'comparateur cout de la vie', es: 'comparar coste de vida', it: 'confronto costo della vita', nl: 'kosten van levensonderhoud vergelijken', pl: 'porównanie kosztów życia', pt: 'comparar custo de vida', ja: null },
+  'moving-cost': { en: 'moving cost calculator', de: 'umzugskosten rechner', fr: 'calcul cout demenagement', es: 'calculadora de mudanza', it: 'calcolo costi trasloco', nl: 'verhuiskosten berekenen', pl: 'kalkulator przeprowadzki', pt: 'calculadora de mudança', ja: null },
+  'travel-budget': { en: 'travel budget calculator', de: 'reisekosten rechner', fr: 'budget voyage', es: 'presupuesto de viaje', it: 'budget viaggio', nl: 'reisbudget berekenen', pl: 'budżet podróży', pt: 'orçamento de viagem', ja: null },
+  'city-comparison': { en: 'city comparison', de: 'städtevergleich', fr: 'comparateur de villes', es: 'comparar ciudades', it: 'confronto città', nl: 'steden vergelijken', pl: 'porównanie miast', pt: 'comparar cidades', ja: null },
+  'relocation-calculator': { en: 'relocation cost calculator', de: 'umzug kosten berechnen', fr: 'cout expatriation', es: 'coste de mudarse', it: 'costo trasferimento', nl: 'kosten verhuizen buitenland', pl: 'koszt przeprowadzki', pt: 'custo de mudança', ja: null },
+  'tax-calculator': { en: 'income tax calculator', de: 'steuerrechner', fr: 'calcul impot revenu', es: 'calculadora de impuestos', it: 'calcolo tasse', nl: 'belasting berekenen', pl: 'kalkulator podatkowy', pt: 'calculadora de impostos', ja: '所得税 計算' },
+  'working-time-calculator': { en: 'working days calculator', de: 'arbeitstage berechnen', fr: 'calcul jours ouvres', es: 'calcular dias laborables', it: 'calcolo giorni lavorativi', nl: 'werkdagen berekenen', pl: 'kalkulator dni roboczych', pt: 'calcular dias uteis', ja: null },
+  'bridge-day-planner': { en: 'long weekend planner', de: 'brückentage planen', fr: 'calendrier des ponts', es: 'planificar puentes', it: 'pianificare ponti', nl: 'brugdagen plannen', pl: 'planer długich weekendów', pt: 'planear feriados', ja: null },
+  'date-calculator': { en: 'days between dates', de: 'tage berechnen', fr: 'calcul jours entre deux dates', es: 'calcular dias entre fechas', it: 'calcolo giorni tra date', nl: 'dagen tussen datums', pl: 'kalkulator dat', pt: 'calcular dias entre datas', ja: null },
+  'week-number-calculator': { en: 'what week is it', de: 'welche kalenderwoche', fr: 'quelle semaine sommes nous', es: 'que semana es', it: 'che settimana siamo', nl: 'welke week is het', pl: 'który tydzień', pt: 'que semana e', ja: null },
+  'currency-cost-converter': { en: 'currency converter', de: 'währungsrechner', fr: 'convertisseur devises', es: 'conversor de moneda', it: 'convertitore valuta', nl: 'valuta omrekenen', pl: 'przelicznik walut', pt: 'conversor de moeda', ja: null },
+  'esim-data-estimator': { en: 'esim data calculator', de: 'esim datenverbrauch', fr: 'esim combien de data', es: 'esim cuantos datos', it: 'esim quanti giga', nl: 'esim hoeveel data', pl: 'esim ile danych', pt: 'esim quantos dados', ja: null },
+};
+
 const TOOLS = [
   ['salary-calculator', 'salary after tax and gross to net', 'high', 'high'],
   ['rent-affordability', 'how much rent you can afford', 'high', 'high'],
@@ -838,7 +871,9 @@ for (const [slug, what, feas, mon] of TOOLS) {
     add({
       url: `/${lang}/${seg}/${slug}/`,
       surface: 'tools', family: 'tools.calculator', pageType: 'interactive-calculator',
-      entity: slug, entityLabel: what, lang, coverage: 'none',
+      entity: slug, entityLabel: what, lang,
+      keyword: (TOOL_KW[slug] && TOOL_KW[slug][lang]) || '',
+      coverage: 'none',
       sourceId: 'computed', dataAvailable: feas === 'high' ? 'yes' : 'partial',
       licence: 'computed from held sources',
       licensingStatus: slug === 'tax-calculator' ? 'tax-rules-verified licence to be established' : 'no additional licence needed',

@@ -1,0 +1,13 @@
+programmatic_feasibility	candidates	measured	measured_volume_sum	best_measured_volume	avg_kd_measured	already_live	validated	rejected	needs_data
+high	5391	124	2526912	627451	5.6	339	373	495	0
+blocked on data	10	4	550067	283339	0.0	0	0	0	8
+high, held holiday data plus a date	9	4	149730	137005	8.0	0	4	0	0
+high, ISO 8601 week arithmetic	9	5	98887	44785	13.2	0	5	0	0
+high, held data	1889	104	371135	43874	0.4	0	104	0	0
+high, a pivot of data already held	261	11	89529	43496	4.0	0	11	0	0
+high, computed from held holidays	468	260	615030	17291	0.5	0	260	0	0
+blocked without holiday data	162	90	212895	17291	0.5	0	0	0	162
+high where facts exist	351	14	13575	5410	2.2	0	0	0	0
+high, computed from held holiday dates	648	360	392508	3963	3.3	0	0	0	0
+partial, seasonality only and nowhere named	936	0	0			0	0	0	936
+medium	18	0	0			0	0	0	18
