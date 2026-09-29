@@ -112,12 +112,27 @@ into three deliberate bursts and shows a fourth cluster first seen 2026-09-27.
 
 ## 9. LINK-OPPORTUNITIES
 
-**`ahrefs-export-2026-09-28/backlinks/link-intersect-2026-09-28.md`**, FROZEN.
+**`ahrefs-export-2026-09-28/link-opportunities/`**, FROZEN. Built 2026-09-29, after this index
+first flagged the section as thin.
 
-**Honest status: this is the thinnest section in the package.** Link intersect ran, but the
-legitimate-prospect list (tourism boards, universities, government, local portals, tool
-directories, niche communities) was not built out. It needs Ahrefs to do properly and Ahrefs
-expires in nine days, so it is named here as an open gap rather than presented as complete.
+Rather than inventing a wishlist, this reads the referring domains of
+`feiertage-deutschland.de`, the most link-efficient competitor found anywhere in this research
+(DR 36, 167,105 visits from 116 pages, 1,441 per page against absentify's 128). 40 rows, each a
+domain that actually links to it, with DR, traffic, dofollow count and first seen.
+
+**The standout finding: `hamburg.de` (DR 89) sends 2,917 dofollow links.** A city portal that
+decides your calendar is the reference it wants to cite links at scale. `berlin.de` (91),
+`sachsen.de` (90) and `poznan.pl` (86) follow the same pattern. Universities are the second
+pattern: `uni-bremen.de` (83, 12 dofollow), `uni-bonn.de`, `uni-freiburg.de`, `uni-marburg.de`.
+
+11 of the 40 are marked EXCLUDE and listed rather than silently dropped: UGC platforms, metrics
+scrapers (`sitelike.org` alone generates 465 worthless links), and four Ahrefs-flagged spam
+domains. One of those, `za.com`, is the same domain in Livdar's own class B review list, which
+confirms it is a general spammer rather than anything aimed at Livdar.
+
+**Limits stated in the file:** one competitor, one market, no outreach list, nothing acted on. The
+equivalent pull for the Polish, Dutch and French leaders costs about 960 units each and was not
+run. `backlinks/link-intersect-2026-09-28.md` holds the earlier intersect run.
 
 ## 10. SITE-AUDIT-CLEAN
 
