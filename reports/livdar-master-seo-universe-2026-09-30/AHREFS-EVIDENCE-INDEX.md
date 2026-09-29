@@ -3,8 +3,23 @@
 The subscription ends **8 October 2026**. Everything listed here is
 **FROZEN_AFTER_AHREFS_EXPIRY**: these files are the only copy after that date.
 
-Units: 1,200,404 of 2,000,000 used at the start of this pass, **13,550 spent**,
-**786,046 remaining**. Reset date 2026-10-08, which is the expiry.
+Units: 1,200,404 of 2,000,000 used at the start of the first pass. **13,550 spent
+on pass one, 19,608 spent on pass two (the three gating measurements), 33,158 in
+total. 1,233,562 used, 766,438 remaining.** Reset date 2026-10-08, which is the
+expiry.
+
+## Pass two, 2026-09-30: the three gating measurements
+
+| File | Rows | What it holds |
+| --- | --- | --- |
+| `FAMILY-MARKET-MEASUREMENTS.csv` | **254** | Local discovery across de-DE, fr-FR, nl-NL, pl-PL and en-US, the five markets that had only ever been measured on holidays, calendar, tools, cost of living and salary. 32 families, 140 family x market cells |
+| `TIER3-DEMAND-EXPERIMENT.csv` | **284** | The tier-3 experiment: 51 cities of roughly 50,000 to 150,000 people, 6 markets, 14 families, local language throughout |
+| `PLACES-EVENTS-SERP-40.csv` | **16** | Full SERP characteristics with the weakest ranking domain, its DR and referring domains, per family and market and city tier |
+| `FAMILY-MARKET-CLASSIFICATION.csv` | 140 | One verdict per family x market cell, computed |
+| `MEASUREMENT-SUMMARY.json` | | Every statistic and the recomputed ladder |
+
+Cost breakdown for pass two: 11 keyword batches at 1,440 to 1,696 units each
+(17,024 total), 9 SERP overviews at 171 to 361 units each (2,584 total).
 
 ## This pass, 2026-09-30
 
@@ -40,15 +55,20 @@ rows in the candidate inventory. **54 SERPs** sampled in total.
 
 ## What is still unmeasured, and what it would cost
 
-| Gap | Rows needed | Units | Gates which step |
-| --- | --- | --- | --- |
-| 677 UNKNOWN family x market cells | ~2,030 | ~89,000 | Step 5, 100k to 250k |
-| Tier 3 city demand | ~600 | ~26,000 | Step 6, 250k to 500k |
-| 20 SERPs on re-cut places, 20 on events | 40 SERPs | ~8,000 | Step 3, 5k to 25k |
-| **Total** | | **~124,000 of 786,046** | |
+| Gap | Rows needed | Units | Gates which step | Status |
+| --- | --- | --- | --- | --- |
+| Local discovery in de, fr, nl, pl, us | 254 | 7,936 | Step 5 | **DONE 2026-09-30** |
+| Tier 3 city demand | 284 | 9,088 | Step 6 | **DONE 2026-09-30** |
+| Places and events SERPs | 11 | 2,584 | Step 3 | **PARTIAL: 11 of the 40 planned** |
+| **One more market of tier 3** | 48 | ~1,600 | **Moves 500k from PROBABLE to DEFENSIBLE** | Open, and the cheapest decision left |
+| Tier 3 in ja-JP and zh-Hant-TW | ~96 | ~3,200 | Confirms tier 3 outside Europe | Open |
+| The remaining 29 SERPs | 29 | ~7,000 | Refines the family x market winnability map | Open |
+| Remaining family x market cells | ~1,200 | ~40,000 | Would take 1M from UNPROVEN toward PROBABLE | Open |
+| **Total remaining** | | **~52,000 of 766,438** | | |
 
-Spend these three before 8 October. Everything else in the programme can be decided
-without Ahrefs; these three cannot.
+The three gating measurements are done. What is left is cheap and the priority order
+is above: one market of tier 3 first, because it is 1,600 units and it changes a
+ladder verdict.
 
 ## Methodology notes that must survive the subscription
 

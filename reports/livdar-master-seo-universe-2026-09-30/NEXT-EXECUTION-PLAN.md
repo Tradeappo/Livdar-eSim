@@ -123,30 +123,53 @@ at health score 100, zero errors. No clean GSC window yet.
 - **What changes.** Not new families: the same families across the 11 markets, but
   only where the four-way test in `MARKET-COVERAGE.csv` passes: distinct local demand
   YES, local keyword measured YES, unique data need YES, separate SERP intent YES.
-- **Research requirement first.** **677 of the 836** family x market cells are still
-  UNKNOWN on local demand (138 YES, 21 NO). Fill them with 3 or more keywords each,
-  roughly 2,030 rows. **Do this before step 5 and while Ahrefs is still live.**
+- **Research requirement, partly done 2026-09-30.** 254 rows measured across the
+  five markets that had local discovery unmeasured, producing 140 classified cells:
+  27 VALIDATED, 17 STRONG, 25 PROMISING, 37 WEAK, 34 still UNKNOWN. The remaining
+  cells are roughly 1,200 rows and about 40,000 units, and they are what would move
+  1M from UNPROVEN toward PROBABLE.
 - **Gates:** a market is added to a family only on all four YES. A mechanical
   translation is a stop condition, not a shortcut.
 - **Stop conditions:** as above, plus cross language duplicate rate above 5% in the
   batch, plus any market where indexed share is more than 20 points below the
   programme median.
 
-## Step 6. 250,000 to 500,000. Tier 3 entities, only if measured
+## Step 6. 250,000 to 500,000. Tier 3 entities: MEASURED 2026-09-30, and they hold
 
-- **Blocking research.** Measure 20 keywords per family across 10 tier 3 cities in 3
-  markets before building anything. Every tier 2 and 3 measurement so far collapsed:
-  20 to 40 searches. **If tier 3 measures the same way, stop at 250,000 and say so.**
-- **Families:** the city families extended from 2,951 to 11,553 cities.
-- **Stop conditions:** median tier 3 volume below 50, or indexed share below 60% on
-  the first 5,000 tier 3 pages.
+- **The blocking research is done and the answer is yes.** 284 tier-3 rows, 51 cities,
+  6 markets, 14 families: **96.5% above zero, 78.5% above 100, 48.9% above 500, 34.2%
+  above 1,000, median 450.** The earlier expectation of a collapse was drawn from
+  climate and sport, the two families where tier 3 genuinely is empty.
+- **Families, in tier-3 median order:** `activities.city-things-to-do` 1,100,
+  `weather.city-best-time` 700, `health.city` 450, `rents.city` 350,
+  `events.city-window` 350, `places.city-category` 300, `stay.city-type` 300. Seven
+  families clear a 300 median over 8,602 tier-3 cities.
+- **`work.city-jobs` is excluded despite having the highest tier-3 demand** (median
+  1,700, 95.8% above 300, `praca krosno` 12,000). Its SERP is 100% job boards:
+  SimplyHired, Reed, Restless, Indeed, Jooble, Jobsite, Glassdoor, LinkedIn, with no
+  other winner. Livdar cannot win it without live inventory, so it is a feed project
+  rather than a content project.
+- **`events.city-type` is tier-1 only.** Tier-3 median 90 against 11,000 for
+  `veranstaltungen berlin`. Do not extend events into tier 3.
+- **Market order for the rollout**, by tier-3 median: en-GB 1,000, es-ES 900, de-DE
+  800, it-IT 300, pt-BR 250, pl-PL 90. **Poland is the exception and it is
+  instructive:** its tier-3 attractions, events, rent and hotels are near zero while
+  `praca krosno` is 12,000. Do not assume a market from its neighbours.
+- **Stop conditions:** unchanged, plus per market abort if the first 500 tier-3 pages
+  in that market come in more than 20 points below the programme median indexed share.
+- **500,000 is 6,557 pages short of defensible.** One more market of tier-3
+  measurement, 48 rows and about 1,600 units, closes it.
 
-## Step 7. 500,000 to 1,000,000. Only after steps 5 and 6 both pass
+## Step 7. 500,000 to 1,000,000. Tier 3 now passes; the language axis is what is left
 
-- **Prerequisite.** The language axis legitimate in 8 or more markets and tier 3
-  demand proven. Neither is established today.
-- **If either fails**, the programme's honest ceiling is between 250,000 and 500,000
-  and that is the answer, not a failure.
+- **Prerequisite, revised.** Tier-3 demand **is** established as of 2026-09-30. What
+  remains is the language axis in the 5 unmeasured markets, plus either the jobs SERP
+  solved with a feed or one new validated family class.
+- **Arithmetic.** Measured demand-supported is 493,443 across 6 markets; extrapolating
+  the same behaviour to all 11 gives 897,798. 1M is therefore **UNPROVEN and about 90%
+  of the way there on extrapolated demand**, not refuted.
+- **If the remaining markets measure like Poland rather than like Britain**, the
+  honest ceiling is nearer 500,000 and that is the answer, not a failure.
 - **Gates:** every gate above, plus an explicit per family re-read of the six
   distinct-value proofs at the new scale.
 - **Stop conditions:** every stop condition above, plus a manual action or a scaled

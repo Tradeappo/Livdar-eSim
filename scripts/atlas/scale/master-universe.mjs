@@ -46,8 +46,8 @@ const map = J('reports/atlas/product-seo-map.json');
 const inv = J('reports/atlas/inventory.json');
 const recon = CSV('reports/scale-universe-2026-09-29/FAMILY-RECONCILIATION.csv');
 const reconBy = Object.fromEntries(recon.map((r) => [r.family_id, r]));
-const measuredNew = TSV('reports/livdar-master-seo-universe-2026-09-30/ahrefs/MEASURED-2026-09-30.tsv');
-const serpNew = TSV('reports/livdar-master-seo-universe-2026-09-30/ahrefs/SERP-2026-09-30.tsv');
+const measuredNew = [...TSV('reports/livdar-master-seo-universe-2026-09-30/ahrefs/MEASURED-2026-09-30.tsv')];
+const serpNew = [...TSV('reports/livdar-master-seo-universe-2026-09-30/ahrefs/SERP-2026-09-30.tsv')];
 const num = (v) => { const n = Number(String(v).replace(/[^0-9.-]/g, '')); return Number.isFinite(n) ? n : null; };
 
 // Older measurement, so a family already measured in de/fr/nl/pl/en is not called
@@ -80,6 +80,40 @@ const AXIS_ALIAS = {
   'pulse.long-weekends': 'pulse.long-weekends',
   'rents.city': 'rents.city',
 };
+// Pass two, 2026-09-30: the three gating measurements. Read here so FAMILY-MASTER,
+// MARKET-COVERAGE and SEO-VALIDATION all recompute from the fuller evidence base
+// rather than being hand-edited out of step with it.
+const CSVP = (name) => {
+  let t; try { t = readFileSync(new URL(name, OUT), 'utf8').trim().split('\n'); } catch { return []; }
+  const cols = t[0].split(',');
+  return t.slice(1).map((line) => {
+    const cells = []; let cur = ''; let q = false;
+    for (let i = 0; i < line.length; i += 1) {
+      const ch = line[i];
+      if (q) { if (ch === '"' && line[i + 1] === '"') { cur += '"'; i += 1; } else if (ch === '"') q = false; else cur += ch; }
+      else if (ch === '"') q = true; else if (ch === ',') { cells.push(cur); cur = ''; } else cur += ch;
+    }
+    cells.push(cur);
+    return Object.fromEntries(cols.map((k, i) => [k, (cells[i] ?? '').trim()]));
+  });
+};
+const M2C2 = { 'en-US': 'us', 'en-GB': 'gb', 'de-DE': 'de', 'fr-FR': 'fr', 'es-ES': 'es', 'it-IT': 'it', 'nl-NL': 'nl', 'pl-PL': 'pl', 'ja-JP': 'jp', 'zh-Hant-TW': 'tw', 'pt-BR': 'br' };
+for (const r of CSVP('FAMILY-MARKET-MEASUREMENTS.csv')) {
+  measuredNew.push({ keyword: r.keyword, country: M2C2[r.market] || '', family_axis: r.family_id,
+    volume: r.volume, kd: r.kd, cpc_cents: r.cpc_cents, traffic_potential: r.traffic_potential });
+}
+for (const r of CSVP('TIER3-DEMAND-EXPERIMENT.csv')) {
+  measuredNew.push({ keyword: r.keyword, country: M2C2[r.market] || '', family_axis: r.family,
+    volume: r.volume, kd: r.kd, cpc_cents: r.cpc_cents, traffic_potential: r.traffic_potential });
+}
+for (const r of CSVP('PLACES-EVENTS-SERP-40.csv')) {
+  serpNew.push({ keyword: r.keyword, country: M2C2[r.market] || '', family_axis: r.family,
+    volume: r.volume, kd: r.kd, weakest_top10_domain: r.weakest_top10_domain,
+    weakest_dr: r.weakest_dr, weakest_refdomains: r.weakest_refdomains,
+    weakest_position: r.weakest_position, weakest_traffic: r.weakest_traffic,
+    verdict: r.winnability + '. ' + (r.aggregator_dominance || '') });
+}
+
 const ev = new Map();
 for (const r of measuredNew) {
   const fam = AXIS_ALIAS[r.family_axis] || r.family_axis;

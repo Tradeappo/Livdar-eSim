@@ -1,0 +1,317 @@
+{
+ "generated": "2026-09-30",
+ "task1": {
+  "rows_measured": 254,
+  "cells_measured": 140,
+  "markets": 5,
+  "families": 32,
+  "by_classification": {
+   "VALIDATED": 27,
+   "STRONG": 17,
+   "UNKNOWN": 34,
+   "WEAK": 37,
+   "PROMISING": 25
+  }
+ },
+ "task2": {
+  "rows_total": 285,
+  "rows_with_a_number": 284,
+  "cities": 51,
+  "markets": 6,
+  "families": 14,
+  "share_above": {
+   "gt_0": 96.5,
+   "gte_10": 96.5,
+   "gte_50": 85.2,
+   "gte_100": 78.5,
+   "gte_500": 48.9,
+   "gte_1000": 34.2
+  },
+  "median_volume": 450,
+  "by_family": [
+   {
+    "key": "work.city-jobs",
+    "n": 48,
+    "median": 1700,
+    "max": 12000,
+    "pct_gte_300": 95.8,
+    "pct_gte_1000": 72.9
+   },
+   {
+    "key": "activities.city-things-to-do",
+    "n": 43,
+    "median": 1100,
+    "max": 7600,
+    "pct_gte_300": 62.8,
+    "pct_gte_1000": 53.5
+   },
+   {
+    "key": "weather.city-best-time",
+    "n": 7,
+    "median": 700,
+    "max": 21000,
+    "pct_gte_300": 71.4,
+    "pct_gte_1000": 42.9
+   },
+   {
+    "key": "health.city",
+    "n": 6,
+    "median": 450,
+    "max": 600,
+    "pct_gte_300": 50,
+    "pct_gte_1000": 0
+   },
+   {
+    "key": "rents.city",
+    "n": 32,
+    "median": 350,
+    "max": 4300,
+    "pct_gte_300": 62.5,
+    "pct_gte_1000": 21.9
+   },
+   {
+    "key": "events.city-window",
+    "n": 5,
+    "median": 350,
+    "max": 800,
+    "pct_gte_300": 60,
+    "pct_gte_1000": 0
+   },
+   {
+    "key": "places.city-category",
+    "n": 81,
+    "median": 300,
+    "max": 3200,
+    "pct_gte_300": 51.9,
+    "pct_gte_1000": 28.4
+   },
+   {
+    "key": "stay.city-type",
+    "n": 26,
+    "median": 300,
+    "max": 1500,
+    "pct_gte_300": 50,
+    "pct_gte_1000": 11.5
+   },
+   {
+    "key": "sport.route",
+    "n": 1,
+    "median": 100,
+    "max": 100,
+    "pct_gte_300": 0,
+    "pct_gte_1000": 0
+   },
+   {
+    "key": "events.city-type",
+    "n": 27,
+    "median": 90,
+    "max": 1300,
+    "pct_gte_300": 25.9,
+    "pct_gte_1000": 7.4
+   },
+   {
+    "key": "education.city-universities",
+    "n": 5,
+    "median": 40,
+    "max": 10000,
+    "pct_gte_300": 40,
+    "pct_gte_1000": 20
+   },
+   {
+    "key": "safety.city",
+    "n": 1,
+    "median": 40,
+    "max": 40,
+    "pct_gte_300": 0,
+    "pct_gte_1000": 0
+   },
+   {
+    "key": "events.recurring",
+    "n": 1,
+    "median": 30,
+    "max": 30,
+    "pct_gte_300": 0,
+    "pct_gte_1000": 0
+   },
+   {
+    "key": "cost-of-living.city",
+    "n": 1,
+    "median": 0,
+    "max": 0,
+    "pct_gte_300": 0,
+    "pct_gte_1000": 0
+   }
+  ],
+  "by_market": [
+   {
+    "key": "en-GB",
+    "n": 48,
+    "median": 1000,
+    "max": 21000,
+    "pct_gte_300": 68.8,
+    "pct_gte_1000": 52.1
+   },
+   {
+    "key": "es-ES",
+    "n": 48,
+    "median": 900,
+    "max": 7600,
+    "pct_gte_300": 77.1,
+    "pct_gte_1000": 43.8
+   },
+   {
+    "key": "de-DE",
+    "n": 48,
+    "median": 800,
+    "max": 4300,
+    "pct_gte_300": 75,
+    "pct_gte_1000": 45.8
+   },
+   {
+    "key": "it-IT",
+    "n": 48,
+    "median": 300,
+    "max": 4700,
+    "pct_gte_300": 50,
+    "pct_gte_1000": 22.9
+   },
+   {
+    "key": "pt-BR",
+    "n": 47,
+    "median": 250,
+    "max": 2400,
+    "pct_gte_300": 48.9,
+    "pct_gte_1000": 17
+   },
+   {
+    "key": "pl-PL",
+    "n": 45,
+    "median": 90,
+    "max": 12000,
+    "pct_gte_300": 33.3,
+    "pct_gte_1000": 22.2
+   }
+  ],
+  "defensible": {
+   "families_clearing_300_median": [
+    "activities.city-things-to-do",
+    "weather.city-best-time",
+    "health.city",
+    "rents.city",
+    "events.city-window",
+    "places.city-category",
+    "stay.city-type"
+   ],
+   "families_excluded_serp_locked": [
+    "work.city-jobs"
+   ],
+   "cities": 8602,
+   "markets_sampled": 6,
+   "pages_single_market": 60214,
+   "pages_across_sampled_markets": 361284,
+   "note": "One page per family per tier 3 city. Multiplying by markets is only legitimate where the family measured in that market, which is why the figure uses markets actually sampled (6) and not all 11."
+  }
+ },
+ "task3": {
+  "serps": 16,
+  "by_winnability": {
+   "AGGREGATOR_LOCKED": 2,
+   "OPEN": 8,
+   "COMPETITIVE": 1,
+   "OPEN_OFFICIAL_FAVOURED": 1,
+   "COMPETITIVE_PARTIAL_OPENING": 1,
+   "SERP_FEATURE_SUPPRESSED": 3
+  },
+  "low_dr_winners": [
+   {
+    "keyword": "restaurants berlin",
+    "market": "de-DE",
+    "dr": 10,
+    "position": "7",
+    "traffic": 33
+   },
+   {
+    "keyword": "que ver en segovia",
+    "market": "es-ES",
+    "dr": 3,
+    "position": "4",
+    "traffic": 1410
+   },
+   {
+    "keyword": "things to do in lincoln",
+    "market": "en-GB",
+    "dr": 4,
+    "position": "5",
+    "traffic": 311
+   },
+   {
+    "keyword": "eventi milano",
+    "market": "it-IT",
+    "dr": 3,
+    "position": "6",
+    "traffic": 2
+   },
+   {
+    "keyword": "イベント 東京",
+    "market": "ja-JP",
+    "dr": 2,
+    "position": "4",
+    "traffic": 6269
+   },
+   {
+    "keyword": "veranstaltungen bayreuth",
+    "market": "de-DE",
+    "dr": 5,
+    "position": "5",
+    "traffic": 84
+   },
+   {
+    "keyword": "wohnung mieten konstanz",
+    "market": "de-DE",
+    "dr": 0,
+    "position": "8",
+    "traffic": 304
+   },
+   {
+    "keyword": "bank holidays 2026",
+    "market": "en-GB",
+    "dr": 15,
+    "position": "8",
+    "traffic": 19925
+   },
+   {
+    "keyword": "dublin airport to city centre",
+    "market": "en-GB",
+    "dr": 0,
+    "position": "6",
+    "traffic": 99
+   },
+   {
+    "keyword": "krakow airport to city centre",
+    "market": "en-GB",
+    "dr": 10,
+    "position": "7",
+    "traffic": 239
+   }
+  ]
+ },
+ "ladder": {
+  "city_families_with_measured_demand": 8,
+  "city_families_serp_locked": 1,
+  "cities_counted": 11553,
+  "demand_supported_single_market_all": 100641,
+  "demand_supported_single_market_serp_clear": 89088,
+  "demand_supported_across_measured_markets": 493443,
+  "demand_supported_across_all_markets_if_the_rest_measure_the_same": 897798,
+  "source_obtainable_all_markets": 3431138,
+  "source_backed_today_all_markets": 1644451,
+  "publishable_now_pages": 1791,
+  "verdicts": {
+   "100000": "DEFENSIBLE",
+   "250000": "DEFENSIBLE",
+   "500000": "PROBABLE_BUT_UNPROVEN",
+   "1000000": "UNPROVEN",
+   "3000000": "NOT_DEFENSIBLE"
+  }
+ }
+}

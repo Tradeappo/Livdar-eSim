@@ -16,16 +16,16 @@
   "PROMISING": 1
  },
  "by_demand": {
-  "INHERITED_WEAK_DEMAND": 6,
-  "STRONG_DEMAND_THIN_SAMPLE": 3,
-  "VALIDATED_DEMAND": 17,
-  "WEAK_DEMAND_THIN_SAMPLE": 9,
+  "WEAK_DEMAND_THIN_SAMPLE": 6,
+  "STRONG_DEMAND_THIN_SAMPLE": 2,
+  "VALIDATED_DEMAND": 11,
+  "WEAK_DEMAND": 14,
   "OUT_OF_SCOPE_ESIM": 2,
-  "INHERITED_VALIDATED_DEMAND": 8,
-  "MODERATE_DEMAND": 6,
-  "INHERITED_MODERATE_DEMAND": 4,
-  "STRONG_DEMAND": 10,
-  "WEAK_DEMAND": 8,
+  "INHERITED_WEAK_DEMAND": 4,
+  "INHERITED_VALIDATED_DEMAND": 7,
+  "MODERATE_DEMAND": 8,
+  "STRONG_DEMAND": 16,
+  "INHERITED_MODERATE_DEMAND": 3,
   "INHERITED_STRONG_DEMAND": 2,
   "NEGLIGIBLE_BY_CONSTRUCTION": 1
  },
@@ -38,8 +38,8 @@
   "C_source_obtainable_single_market": 311923,
   "D_source_backed_today_all_markets": 1644451,
   "D_source_backed_today_single_market": 149496,
-  "E_seo_measured_families": 38,
-  "E_seo_measured_keywords": 263,
+  "E_seo_measured_families": 42,
+  "E_seo_measured_keywords": 797,
   "F_validated_or_promising_families": 16,
   "F_validated_or_promising_potential_single_market": 8217,
   "G_experiment_only_families": 7,
@@ -50,33 +50,33 @@
   "I_publishable_now_pages_today": 1791,
   "I_publishable_now_potential_single_market": 8217
  },
- "measured_this_pass": 269,
- "serp_this_pass": 7,
+ "measured_this_pass": 808,
+ "serp_this_pass": 23,
  "market_measured": {
-  "en-US": 0,
-  "en-GB": 48,
-  "de-DE": 0,
-  "fr-FR": 0,
-  "es-ES": 44,
-  "it-IT": 56,
-  "nl-NL": 0,
-  "pl-PL": 0,
+  "en-US": 48,
+  "en-GB": 96,
+  "de-DE": 101,
+  "fr-FR": 51,
+  "es-ES": 92,
+  "it-IT": 104,
+  "nl-NL": 48,
+  "pl-PL": 95,
   "ja-JP": 45,
   "zh-Hant-TW": 33,
-  "pt-BR": 37
+  "pt-BR": 84
  },
  "market_families_with_demand": {
-  "en-US": 0,
+  "en-US": 20,
   "en-GB": 30,
-  "de-DE": 0,
-  "fr-FR": 0,
+  "de-DE": 21,
+  "fr-FR": 21,
   "es-ES": 23,
-  "it-IT": 26,
-  "nl-NL": 0,
-  "pl-PL": 0,
+  "it-IT": 25,
+  "nl-NL": 20,
+  "pl-PL": 18,
   "ja-JP": 22,
   "zh-Hant-TW": 15,
-  "pt-BR": 22
+  "pt-BR": 23
  },
  "top20_families": [
   {
@@ -93,7 +93,7 @@
    "single": 26827,
    "status": "NOT_IMPLEMENTED",
    "demand": "STRONG_DEMAND",
-   "max_volume": 11000
+   "max_volume": 23000
   },
   {
    "family": "sport.city-activity",
@@ -108,7 +108,7 @@
    "raw": 236080,
    "single": 21462,
    "status": "BLOCKED_BY_LICENCE",
-   "demand": "VALIDATED_DEMAND",
+   "demand": "STRONG_DEMAND",
    "max_volume": 18000
   },
   {
@@ -116,7 +116,7 @@
    "raw": 206570,
    "single": 18779,
    "status": "BLOCKED_BY_LICENCE",
-   "demand": "STRONG_DEMAND",
+   "demand": "MODERATE_DEMAND",
    "max_volume": 8400
   },
   {
@@ -132,16 +132,16 @@
    "raw": 177060,
    "single": 16096,
    "status": "MISSING_DATA",
-   "demand": "WEAK_DEMAND_THIN_SAMPLE",
-   "max_volume": 0
+   "demand": "WEAK_DEMAND",
+   "max_volume": 40
   },
   {
    "family": "services.city-practical",
    "raw": 177060,
    "single": 16096,
    "status": "NOT_IMPLEMENTED",
-   "demand": "INHERITED_WEAK_DEMAND",
-   "max_volume": ""
+   "demand": "STRONG_DEMAND",
+   "max_volume": 14000
   },
   {
    "family": "relocation.city",
@@ -149,7 +149,7 @@
    "single": 11553,
    "status": "MISSING_DATA",
    "demand": "WEAK_DEMAND_THIN_SAMPLE",
-   "max_volume": 400
+   "max_volume": 900
   },
   {
    "family": "events.city-window",
@@ -164,8 +164,8 @@
    "raw": 115530,
    "single": 10503,
    "status": "MISSING_DATA",
-   "demand": "VALIDATED_DEMAND",
-   "max_volume": 12000
+   "demand": "STRONG_DEMAND",
+   "max_volume": 14000
   },
   {
    "family": "cost-of-living.city",
@@ -173,15 +173,15 @@
    "single": 10503,
    "status": "MISSING_DATA",
    "demand": "WEAK_DEMAND",
-   "max_volume": 400
+   "max_volume": 450
   },
   {
    "family": "work.city-salaries",
    "raw": 115530,
    "single": 10503,
    "status": "MISSING_DATA",
-   "demand": "INHERITED_VALIDATED_DEMAND",
-   "max_volume": ""
+   "demand": "WEAK_DEMAND",
+   "max_volume": 150
   },
   {
    "family": "places.neighbourhood-category",
@@ -236,8 +236,8 @@
    "raw": 29510,
    "single": 2683,
    "status": "MISSING_DATA",
-   "demand": "INHERITED_MODERATE_DEMAND",
-   "max_volume": ""
+   "demand": "STRONG_DEMAND",
+   "max_volume": 6800
   }
  ],
  "top20_gaps": [
@@ -248,7 +248,7 @@
    "single": 42923,
    "type": "OPEN_DATA_ODBL",
    "cost": "LOW_COST_HIGH_EFFORT",
-   "best_volume": 11000
+   "best_volume": 23000
   },
   {
    "source": "cost-of-living-city-verified",
@@ -257,7 +257,7 @@
    "single": 27958,
    "type": "GOVERNMENT",
    "cost": "FREE_UNEVEN_COVERAGE",
-   "best_volume": 400
+   "best_volume": 900
   },
   {
    "source": "sport-routes-verified",
@@ -275,7 +275,7 @@
    "single": 26599,
    "type": "GOVERNMENT",
    "cost": "FREE_UNEVEN_COVERAGE",
-   "best_volume": 0
+   "best_volume": 150
   },
   {
    "source": "stay-inventory-verified",
@@ -293,7 +293,7 @@
    "single": 12672,
    "type": "GOVERNMENT_PLUS_COMMERCIAL",
    "cost": "FREE_TO_MEDIUM",
-   "best_volume": 12000
+   "best_volume": 14000
   },
   {
    "source": "school-data-verified",
@@ -329,7 +329,7 @@
    "single": 2683,
    "type": "GOVERNMENT",
    "cost": "FREE_UNEVEN_COVERAGE",
-   "best_volume": 0
+   "best_volume": 6800
   },
   {
    "source": "safety-data-verified",
@@ -383,7 +383,7 @@
    "single": 1245,
    "type": "GOVERNMENT",
    "cost": "FREE_HIGH_EFFORT_OR_PAID",
-   "best_volume": 4500
+   "best_volume": 7600
   },
   {
    "source": "community-listings-verified",
@@ -426,7 +426,7 @@
   {
    "family": "weather.city-best-time",
    "max_volume": 1020000,
-   "median_kd": 4,
+   "median_kd": 0,
    "status": "VALIDATED",
    "surface": "climate"
   },
@@ -468,9 +468,16 @@
   {
    "family": "transport.city-getting-around",
    "max_volume": 40000,
-   "median_kd": 20,
+   "median_kd": 24,
    "status": "MISSING_DATA",
    "surface": "transport"
+  },
+  {
+   "family": "work.city-jobs",
+   "max_volume": 31000,
+   "median_kd": 0,
+   "status": "MISSING_DATA",
+   "surface": "work"
   },
   {
    "family": "pulse.school-holidays",
@@ -478,6 +485,13 @@
    "median_kd": 20,
    "status": "MISSING_DATA",
    "surface": "pulse"
+  },
+  {
+   "family": "places.city-category",
+   "max_volume": 23000,
+   "median_kd": 1,
+   "status": "NOT_IMPLEMENTED",
+   "surface": "areas"
   },
   {
    "family": "pulse.long-weekends",
@@ -489,7 +503,7 @@
   {
    "family": "events.city-type",
    "max_volume": 18000,
-   "median_kd": 6,
+   "median_kd": 1,
    "status": "BLOCKED_BY_LICENCE",
    "surface": "pulse"
   },
@@ -501,32 +515,32 @@
    "surface": "pulse"
   },
   {
-   "family": "work.city-jobs",
-   "max_volume": 13000,
-   "median_kd": 0,
-   "status": "MISSING_DATA",
-   "surface": "work"
-  },
-  {
    "family": "rents.city",
-   "max_volume": 12000,
-   "median_kd": 2,
+   "max_volume": 14000,
+   "median_kd": 0,
    "status": "MISSING_DATA",
    "surface": "stay"
   },
   {
+   "family": "services.city-practical",
+   "max_volume": 14000,
+   "median_kd": 25,
+   "status": "NOT_IMPLEMENTED",
+   "surface": "move"
+  },
+  {
    "family": "events.city-window",
    "max_volume": 12000,
-   "median_kd": 1,
+   "median_kd": 3,
    "status": "BLOCKED_BY_LICENCE",
    "surface": "pulse"
   },
   {
-   "family": "places.city-category",
-   "max_volume": 11000,
-   "median_kd": 0,
-   "status": "NOT_IMPLEMENTED",
-   "surface": "areas"
+   "family": "education.city-universities",
+   "max_volume": 10000,
+   "median_kd": 24,
+   "status": "MISSING_DATA",
+   "surface": "move"
   },
   {
    "family": "stay.city-type",
@@ -544,24 +558,10 @@
   },
   {
    "family": "visas.country-visit",
-   "max_volume": 4500,
+   "max_volume": 7600,
    "median_kd": 73,
    "status": "MISSING_DATA",
    "surface": "move"
-  },
-  {
-   "family": "health.country",
-   "max_volume": 3100,
-   "median_kd": 9,
-   "status": "MISSING_DATA",
-   "surface": "move"
-  },
-  {
-   "family": "safety.city",
-   "max_volume": 1800,
-   "median_kd": 0,
-   "status": "MISSING_DATA",
-   "surface": "safety"
   }
  ]
 }

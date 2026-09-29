@@ -1,123 +1,126 @@
-# Scale ladder: 100k, 250k, 500k, 1M, 3M, and the 100M question
+# Scale ladder, version 2, recomputed on 2026-09-30 from three new measurements
 
-Every threshold is answered with current evidence, missing evidence, the data
-requirement and the research requirement. Page counts are **distinct useful pages**,
-not combinations.
+**Version 1 of this file is superseded.** It rated 500k "probable, unproven" and
+1M "reachable on arithmetic, unproven on value", both on an evidence base of 287
+keywords. This version rests on **807 measured keywords and 16 sampled SERPs**, and
+the tier-3 assumption behind version 1 was wrong.
 
-Anchors from `NUMBERS.json`: raw architectural 368,474 single market and 4,053,197
-across 11 markets; source obtainable 311,923 single market; **source backed today
-149,496 single market and 1,644,451 across markets**; publishable now 1,791 pages.
-
----
-
-## Is 100,000 distinct useful pages defensible? **YES**
-
-- **Current evidence.** Source backed today is 149,496 single market. Within that,
-  27 families carry directly measured VALIDATED or STRONG demand. Two families alone
-  reach it: `places.city-category` at 26,827 single market with `ristoranti milano`
-  10,000 and `restaurants london` 11,000 measured, and the events cluster at 34,229
-  single market with `大阪 イベント` 18,000 and `conciertos madrid` 17,000 measured.
-  Add `rents.city` 10,503, `work.city-jobs` 16,096 plus 2,683, `stay.city-type`
-  18,779 and the single market count passes 100,000 before any market multiplication.
-- **Missing evidence.** SERP samples per family. Two exist. `places.city-category`
-  is aggregator locked at head level in Milan, which means the 26,827 must be
-  re-cut toward the openings (category x neighbourhood, or the long tail cities) and
-  not published at head level.
-- **Data requirement.** OSM places (free, ODbL, self hosted Overpass), one affiliate
-  feed for stay, one jobs feed (EURES free plus one affiliate), city open data for
-  events. **No purchase required except revenue share.**
-- **Research requirement.** 20 SERPs per large family across entity tiers, and 30 to
-  50 more keywords per family per market. Roughly 3,000 to 5,000 keyword rows.
-- **Verdict.** Defensible, and the constraint is engineering plus feed integration
-  rather than demand.
-
-## Is 250,000 defensible? **YES, with the language axis honestly applied**
-
-- **Current evidence.** 149,496 single market backed today plus the three largest
-  obtainable gaps (places 42,923, sport routes 26,827, city cost of living 27,958)
-  reaches 247,204 single market on data that is free or government published. Across
-  just the five markets with the strongest measurement (en-GB, de-DE, it-IT, es-ES,
-  pt-BR) the same set exceeds 250,000 several times over.
-- **Missing evidence.** Whether each local market genuinely wants each family. This
-  pass answers it for 6 markets and 38 families; it does not answer it for all 836
-  family x market cells. **677 of the 836 cells are still UNKNOWN** on local demand,
-  138 read YES and 21 read NO.
-- **Data requirement.** The five sources above, all free.
-- **Research requirement.** Fill the 677 unknown cells with at least 3 keywords each:
-  roughly 2,030 keyword rows, about 89,000 Ahrefs units, affordable today.
-- **Verdict.** Defensible. This is the honest working target.
-
-## Is 500,000 defensible? **PROBABLY, and not yet proven**
-
-- **Current evidence.** Source obtainable is 311,923 single market. Reaching 500,000
-  needs either a second market counted fully (two markets at 250,000 each) or the
-  city tier extended from tier 2 (2,951 cities) to tier 3 (11,553).
-- **Missing evidence.** The tier 3 question. Every measurement in this project that
-  looked at tier 2 and 3 entities found volumes collapsing: `weather in salzburg in
-  july` 20, `correre a roma` 30, `台北 跑步` 20. Tier 3 has never been measured for
-  places, events, stay or jobs, which are the families that would supply the volume.
-- **Data requirement.** The same free sources; OSM and GTFS cover tier 3 as well as
-  tier 1.
-- **Research requirement.** A dedicated tier 3 measurement: 20 keywords per family
-  across 10 tier 3 cities in 3 markets. Roughly 600 rows. **This is the single
-  cheapest experiment that would move the ceiling.**
-- **Verdict.** Probably defensible, unproven. Do the tier 3 measurement before
-  committing.
-
-## Is 1,000,000 defensible? **NOT YET DEMONSTRATED, NOT REFUTED**
-
-- **Current evidence.** 1,644,451 combinations sit on data held today **when all 11
-  markets are counted**. So 1M is arithmetically inside the source backed universe
-  already. What is not established is that a million of them are distinct and wanted.
-- **Missing evidence.** Three things, none of them measured:
-  1. **The language axis.** 1M requires most families to be legitimate in 8 or more
-     markets. This pass proves 6 new markets have real demand on the head terms; it
-     does not prove the local tail is real in each, and 677 of 836 family x market
-     cells are still unknown.
-  2. **Tier 3 entities**, as above.
-  3. **Per family SERP openness at scale.** 7 SERPs exist for 76 families.
-- **Data requirement.** Places, events, stay, jobs, transit, schools, safety,
-  attractions. Eight sources, seven of them free or revenue share.
-- **Research requirement.** Roughly 8,000 to 12,000 keyword rows and 150 SERP samples
-  across families, tiers and markets. About 500,000 Ahrefs units, which the current
-  balance of 786,046 covers, and which must be spent before 8 October.
-- **Verdict.** **Reachable on the arithmetic, unproven on the value.** The previous
-  report's claim that it is not honestly reachable is withdrawn and this is the
-  replacement: it is an open question with a known, affordable path to an answer.
-
-## Is 3,000,000 defensible? **NO on current evidence**
-
-- **Current evidence.** Raw architectural across markets is 4,053,197, of which
-  1,077,115 is the refused daily climate route. Removing it leaves 2,976,082, so 3M
-  is at the very edge of the architecture even counting everything.
-- **Missing evidence.** Everything above, plus entity classes the architecture does
-  not contain.
-- **Verdict.** Not defensible from the current 76 families. It would need new entity
-  classes, not more combinations of the existing ones.
+New evidence: `FAMILY-MARKET-MEASUREMENTS.csv` (254 rows, 5 markets),
+`TIER3-DEMAND-EXPERIMENT.csv` (284 rows, 51 cities, 6 markets, 14 families),
+`PLACES-EVENTS-SERP-40.csv` (16 SERPs), computed in `MEASUREMENT-SUMMARY.json`.
 
 ---
 
-## What could move 1M to 3M to 10M to 100M without thin content
+## The one finding that moved the ladder
 
-The rule for each: a new **real-world entity class** with its own data, its own
-query, and an answer that differs per entity. Not a new adjective, not a new
-language, not a new year.
+**Tier-3 cities have real demand.** Version 1 assumed they did not, on four climate
+and three sport keywords measuring 9 to 40. Measuring 284 tier-3 keywords across 6
+markets, 51 cities and 14 families:
 
-| Step | Entity class that would supply it | Real count | Why each page differs | Source reality |
-| --- | --- | --- | --- | --- |
-| 1M to 3M | **POI level pages**, not category level: the individual restaurant, gym, park, coworking space | OSM holds tens of millions of tagged POIs globally; roughly 3 to 5M in the 11 markets | Each has its own name, address, hours, category, neighbourhood and accessibility | OSM ODbL, free. **The honest caveat is that OSM POI records often hold only a name and a point, which is thin, so this only works where the tags are rich** |
-| 3M to 10M | **Transport stop and route pages** | Roughly 1 to 2M stops in aggregated GTFS across these markets, plus route and stop pairs | A stop has its own lines, times, fares, accessibility and neighbourhood | GTFS via Mobility Database, mostly open |
-| 3M to 10M | **Individual job postings** with role x city landing parents | Millions live at any time, but they expire | Each posting is genuinely unique while it exists | Affiliate and EURES feeds. **Expiring content is a lifecycle problem, not a scale win: the durable pages are the parents** |
-| 10M to 20M | **Property listings** and **accommodation properties** | Several million | Each property is unique | Affiliate and portal feeds, with no-store terms. **Cannot be published as stored pages under most feed licences** |
-| 20M to 50M | **Company pages** and **company x city** | Millions of registered companies with open registers (UK Companies House, EU business registers) | Registered facts differ per company | Open government registers, free |
-| 50M to 100M | **Person or profile level entities** | n/a | | **Refused. This is where programmatic SEO becomes a directory of people, and it is neither defensible nor something this project should build** |
+| Threshold | Share of tier-3 samples |
+| --- | --- |
+| volume > 0 | **96.5%** |
+| >= 10 | 96.5% |
+| >= 50 | 85.2% |
+| >= 100 | 78.5% |
+| >= 500 | **48.9%** |
+| >= 1,000 | **34.2%** |
+| median | **450** |
 
-**What 100M would actually require**, stated plainly: individual POIs, individual
-transport stops, individual properties and individual companies, all with rich
-per-entity data and all lawfully storable. Three of those four have licence terms
-that forbid storing the content, and the fourth (companies) has no demand evidence at
-all in this project.
+Version 1's conclusion came from measuring the two families where tier-3 genuinely
+collapses, and generalising. The families that carry tier-3 are different ones.
 
-So: **100M remains an infrastructure ceiling, exactly as `scale-simulation.json`
-framed it, and is not claimed as an SEO opportunity.** The defensible ladder stops at
-1M pending the research named above, and the honest working target is 250,000.
+### By family, which is where the answer actually lives
+
+| Family | n | Median | Max | >= 300 | >= 1,000 | Verdict |
+| --- | --- | --- | --- | --- | --- | --- |
+| `work.city-jobs` | 48 | **1,700** | 12,000 | 95.8% | 72.9% | Highest demand, **SERP locked** |
+| `activities.city-things-to-do` | 43 | **1,100** | 7,600 | 62.8% | 53.5% | **Best combination in the programme** |
+| `weather.city-best-time` | 7 | 700 | 21,000 | 71.4% | 42.9% | Strong |
+| `health.city` | 6 | 450 | 600 | 50% | 0% | Moderate |
+| `rents.city` | 32 | 350 | 4,300 | 62.5% | 21.9% | Strong, partial SERP opening |
+| `events.city-window` | 5 | 350 | 800 | 60% | 0% | Moderate |
+| `places.city-category` | 81 | 300 | 3,200 | 51.9% | 28.4% | Market dependent |
+| `stay.city-type` | 26 | 300 | 1,500 | 50% | 11.5% | Moderate |
+| `events.city-type` | 27 | 90 | 1,300 | 25.9% | 7.4% | **Weak in tier 3**, strong in tier 1 |
+| `education.city-universities` | 5 | 40 | 10,000 | 40% | 20% | One entity carries it |
+| `sport.route`, `safety.city`, `events.recurring`, `cost-of-living.city` | 1 each | 0 to 100 | | 0% | 0% | Negligible |
+
+### By market
+
+| Market | n | Median | Max | >= 300 | >= 1,000 |
+| --- | --- | --- | --- | --- | --- |
+| en-GB | 48 | **1,000** | 21,000 | 68.8% | 52.1% |
+| es-ES | 48 | 900 | 7,600 | 77.1% | 43.8% |
+| de-DE | 48 | 800 | 4,300 | 75% | 45.8% |
+| it-IT | 48 | 300 | 4,700 | 50% | 22.9% |
+| pt-BR | 47 | 250 | 2,400 | 48.9% | 17% |
+| pl-PL | 45 | 90 | 12,000 | 33.3% | 22.2% |
+
+Poland is the outlier and it is instructive: its tier-3 median is 90 because
+attractions, events, rent and hotels are near zero there, while `praca krosno` is
+12,000. **The family and the market interact; neither alone predicts.**
+
+## The SERP finding that constrains it
+
+16 SERPs. **10 of the 16 have a winner at DR 20 or below**, including DR 0, DR 2,
+DR 3, DR 4, DR 5 and DR 15. Authority is not the barrier anywhere sampled.
+
+| Winnability | SERPs | Examples |
+| --- | --- | --- |
+| **OPEN** | 8 | `イベント 東京` 12,000 with **DR 2 earning 6,269**, the highest traffic on the page; `bank holidays 2026` 415,000 with **DR 15 earning 19,925**; `que ver en segovia` 7,600 with **DR 3 earning 1,410**; `things to do in lincoln` 3,700 with **DR 4 earning 311** |
+| SERP_FEATURE_SUPPRESSED | 3 | The three climate month SERPs: rankable, but AI Overview and a knowledge card sit above the first organic result |
+| **AGGREGATOR_LOCKED** | 2 | `ristoranti milano` (TripAdvisor, Michelin, TheFork, OpenTable, weakest DR 61); `jobs lincoln` (**100% job boards**, no other winner) |
+| COMPETITIVE | 1 | `京都 観光` 78,000, every winner DR 70 to 83, official tourism and portals |
+| OPEN_OFFICIAL_FAVOURED | 1 | `veranstaltungen bayreuth`, DR 5 at position 5, but the district and university calendars dominate |
+| COMPETITIVE_PARTIAL_OPENING | 1 | `wohnung mieten konstanz`, portals own 1 and 2, but **DR 20 takes 1,884 at position 3** |
+
+Two structural rules fall out, and both are the opposite of the naive assumption:
+
+1. **The tail is more open than the head.** `京都 観光` at 78,000 is DR 70+ only;
+   `que ver en segovia` at 7,600 has a DR 3 winner. Tier-3 attractions is the
+   opening, tier-1 attractions is not.
+2. **Jobs has the most tier-3 demand and the least winnable SERP.** Median 1,700,
+   95.8% above 300, and a page one that is 100% Indeed, Reed, SimplyHired, Jooble,
+   Glassdoor and LinkedIn. Livdar cannot win jobs without being a job board with live
+   inventory. It is excluded from the defensible count for that reason, not for lack
+   of demand.
+
+## The four totals, kept separate
+
+| | Value | What it is |
+| --- | --- | --- |
+| **A. Source-obtainable** | **3,431,138** across markets | Data we could lawfully get |
+| **B. Source-backed today** | **1,644,451** across markets | Data already in the repository |
+| **C. Demand-supported (measured)** | **493,443** | Families with directly measured demand, over their real entities, in the **6 markets actually sampled** |
+| **C2. Demand-supported (extrapolated)** | **897,798** | The same if the remaining 5 markets behave like the 6 sampled |
+| **D. Publishable now** | **1,791** | Today, held data, nothing invented |
+
+Single-market demand-supported is **100,641**, or **89,088** excluding the SERP
+locked jobs family. 8 city families clear the tier-3 median gate, over 11,553 cities
+(2,951 tier 1 and 2 plus 8,602 tier 3), plus 8,217 non-city validated candidates.
+
+## The ladder
+
+| Target | Verdict | Pages supported | Families | Markets | Evidence coverage | Missing |
+| --- | --- | --- | --- | --- | --- | --- |
+| **100,000** | **DEFENSIBLE** | 493,443 measured | 7 city families plus 16 non-city | 6 measured | 807 keywords, 16 SERPs | Nothing for the demand case. Sources for places, stay and events |
+| **250,000** | **DEFENSIBLE** | 493,443 measured | as above | 6 measured | as above | Same sources. This is now the conservative target, not the ceiling |
+| **500,000** | **PROBABLE_BUT_UNPROVEN** | 493,443 measured, 6,557 short | as above | needs 7 of 11 | 807 keywords | **One more market measured closes it.** fr-FR or nl-NL, 48 tier-3 rows, about 1,600 units |
+| **1,000,000** | **UNPROVEN** | 897,798 extrapolated | as above | needs all 11 plus a new family class | Source-obtainable is 3.4M so the data exists | Demand in the 5 unmeasured markets, and either the jobs SERP solved or one new validated family class |
+| **3,000,000** | **NOT_DEFENSIBLE** | 897,798 is 3.3x short | | | | No extrapolation from what is measured reaches it. Would need POI level entities, which is a different architecture |
+
+## What changed from version 1
+
+| | Version 1 | Version 2 |
+| --- | --- | --- |
+| 100k | DEFENSIBLE | DEFENSIBLE, now with 493k measured behind it |
+| 250k | DEFENSIBLE, "the honest working target" | **DEFENSIBLE and no longer the ceiling** |
+| 500k | PROBABLE, blocked on the tier-3 question | **PROBABLE and 6,557 pages short**, one market from defensible |
+| 1M | Reachable on arithmetic, unproven on value | **UNPROVEN, and 90% of the way on extrapolated demand** |
+| 3M | NOT_DEFENSIBLE | NOT_DEFENSIBLE, unchanged |
+| Tier 3 | Assumed to collapse | **96.5% have demand, median 450, 34.2% above 1,000** |
+
+The single cheapest action that would change a verdict: **48 tier-3 keyword rows in
+one more market, about 1,600 units**, which would move 500,000 from PROBABLE to
+DEFENSIBLE.

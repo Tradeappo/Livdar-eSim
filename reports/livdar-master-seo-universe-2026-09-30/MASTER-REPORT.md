@@ -8,6 +8,25 @@ New measurement this pass: **269 keywords in the 6 markets that had none**, plus
 new SERP samples. 13,550 Ahrefs units spent, **786,046 remaining**.
 Machine readable: `master-universe.jsonl.gz` (912 records), `NUMBERS.json`.
 
+> ## UPDATED 2026-09-30 by the three gating measurements
+>
+> Three further measurements ran after this report was first written: 254
+> family x market rows in the five markets that had local discovery unmeasured,
+> **284 tier-3 rows across 51 cities, 6 markets and 14 families**, and 11 more
+> SERPs. Total evidence base is now **807 keywords and 16 SERPs**, up from 287 and 5.
+>
+> **One verdict in this report was wrong and is corrected.** Tier-3 cities do have
+> demand: **96.5% of 284 tier-3 samples are above zero, 78.5% above 100, 48.9%
+> above 500, 34.2% above 1,000, median 450.** The earlier assumption rested on
+> climate and sport, the two families where tier 3 genuinely collapses.
+>
+> Demand-supported pages, a quantity this report could not compute, is now
+> **493,443 across the 6 markets sampled** and 897,798 if the remaining 5 behave the
+> same. **100k and 250k are DEFENSIBLE. 500k is 6,557 pages short of defensible.**
+>
+> Read **[SCALE-LADDER.md](SCALE-LADDER.md)** for the recomputed ladder and
+> `MEASUREMENT-SUMMARY.json` for the arithmetic. Everything else below stands.
+
 ---
 
 ## 1. The finding that matters
