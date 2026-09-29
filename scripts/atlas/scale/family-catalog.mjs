@@ -77,6 +77,14 @@ export const FAMILIES = [
       demand: 'MEASURED AND NEGLIGIBLE. weather in salzburg in july 20 us and 50 global, weather in reykjavik in june 40 and 80, both tier 2 cities better known than most of tier 3.',
     },
     gate: 'REJECT',
+    // WITHDRAWN 2026-09-29 by RECONCILIATION-OLD-VS-NEW.md. The gate value is left
+    // as REJECT so the published inventory is not silently regenerated, but the
+    // decision behind it does not hold: 2 keyword samples and 3 SERPs, all measured
+    // in `us`, cannot carry a 135,012 row rejection across 11,000 cities, and the
+    // same session proved a `us` read understates a British phrasing by up to 70
+    // times. Treat this family as UNPROVEN, not rejected, until it has 20 or more
+    // keywords across tiers and markets plus 20 SERPs.
+    rejectionWithdrawn: 'UNDER_SAMPLED: 2 keyword samples, 3 SERPs, us only',
     gateReason: '2,391 tier 2 plus 8,602 tier 3 cities x 12 months x own plus English is 180,288 candidates, which was 90.7% of the first 1M funnel run. Removed on 2026-09-29 because the two measurable questions were measured: the tail volume is 13 to 17 and the SERP is owned by AccuWeather, WeatherSpark, Reddit and Facebook. Keeping it would have been the exact pattern the brief forbids, one dataset multiplied by every entity and every month.',
     monetization: 'none', internalLink: 'none',
   },
@@ -481,6 +489,12 @@ export const FAMILIES = [
       demand: 'MEASURED AND NEGLIGIBLE. running in tokyo 80, cycling in amsterdam 70, hiking in salzburg 20, all at KD 0 because nobody is competing for them. These are the three best cases in the family: the largest city in the world for running, the city most identified with cycling anywhere, and an alpine city for hiking. If the best cases measure 20 to 80 the tail is zero.',
     },
     gate: 'REJECT',
+    // WITHDRAWN 2026-09-29 by RECONCILIATION-OLD-VS-NEW.md, for the same reason as
+    // climate.city-month-tail: 3 keyword samples, 0 SERP samples, `us` only, against
+    // 46,212 rows. The old architecture rated this family high priority and blocked
+    // it on sport-routes-verified, which is a more real constraint than the demand
+    // argument made here. Treat as UNPROVEN, not rejected.
+    rejectionWithdrawn: 'UNDER_SAMPLED: 3 keyword samples, 0 SERPs, us only',
     gateReason: 'Demoted from EXPERIMENT_ONLY on 2026-09-29. The demand was the one thing unmeasured and measuring it ended the family: 80, 70 and 20 searches a month on the three strongest city-activity pairs that exist. The data story remains the best in the catalog, which is precisely the trap the brief describes, a real dataset with no audience.',
     monetization: 'low', internalLink: 'medium',
   },

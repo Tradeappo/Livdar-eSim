@@ -4,9 +4,15 @@ The 1,000,000 candidate research universe, honestly counted. **Nothing here is
 published.** No live page, template, URL or sitemap changed. Cohort 003 is not
 published.
 
-**Read `FINAL-REPORT.md` first.** Its headline: 1,000,000 is not honestly reachable
-from the sources this project can lawfully hold. The validated universe is 13,975
-research candidates, 1,791 publishable now.
+**Read `RECONCILIATION-OLD-VS-NEW.md` first.** It supersedes `FINAL-REPORT.md` on the
+one question that matters: 13,975 is **not** a ceiling on Livdar. This pass modelled
+16 of the 64 families the project already had, in 9 of its 11 markets, and rejected
+its two largest blocks on 5 keyword samples. Whether 1,000,000 is reachable is
+neither demonstrated nor refuted.
+
+`FINAL-REPORT.md` is still the record of what this pass did, with a withdrawal banner
+at its head. Its numbers (235,502 raw, 13,975 valid, 1,791 publishable now) are
+correct for the subset it modelled and wrong as a bound on the programme.
 
 ## Files
 
@@ -14,7 +20,10 @@ research candidates, 1,791 publishable now.
 
 | File | What it is |
 | --- | --- |
-| `FINAL-REPORT.md` | The result, the counting rule, the requested report fields, and what would be required to reach 1M |
+| `RECONCILIATION-OLD-VS-NEW.md` | **Start here.** The 64 family architecture against this pass, family by family, with the funnel deltas, the over-filtering audit and the withdrawn conclusions |
+| `FAMILY-RECONCILIATION.csv` | All 64 previously known families, one row each: old potential, new rows, class, source state, evidence strength, confidence, action needed |
+| `RECONCILIATION-SUMMARY.json` | Every reconciliation aggregate as data |
+| `FINAL-REPORT.md` | What this pass did. Carries a withdrawal banner: its ceiling claim does not hold |
 | `FUNNEL.json` | Every funnel stage, the split, the buckets, the duplication audit and the per-family sample statistics, as data |
 | `AGGREGATES.json` | Totals and the index of the 15 aggregate cuts |
 

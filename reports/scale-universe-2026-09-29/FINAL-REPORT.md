@@ -3,7 +3,31 @@
 Date: 2026-09-29. Branch: `claude/seo-handoff-partial-data-7rs7zi`.
 Nothing in this folder is published. No live page, template or URL changed.
 
-## The headline, stated plainly
+> # WITHDRAWN IN PART on 2026-09-29
+>
+> **The headline below is withdrawn.** Read
+> **[RECONCILIATION-OLD-VS-NEW.md](RECONCILIATION-OLD-VS-NEW.md)** instead.
+>
+> This pass modelled **16 of the 64 families** the project already had in
+> `reports/atlas/product-seo-map.json`, in **9 of the 11 known markets**, and never
+> reconciled against that file. Of the 48 families it left out, **not one was
+> excluded for lack of SEO opportunity**: 25 are missing data, 11 are simply not
+> implemented although their source is held or obtainable, 8 are licence blocked, 2
+> are unresearched and 2 belong to the eSIM section. It also dropped **en-GB**, an
+> active market, and **zh-Hant-TW**, and rejected its two largest blocks (181,224
+> rows) on **5 keyword samples and 3 SERPs, all measured in `us`**.
+>
+> **13,975 is not a ceiling.** It is the quality-gated count inside that subset, on
+> an evidence base of 287 measured keywords and 5 sampled SERPs, 99.74% unmeasured.
+> Whether 1,000,000 is reachable is **neither demonstrated nor refuted**. The
+> defensible interval is 1,791 publishable now, roughly 3,600 after three costed
+> acquisitions, 180,000 to 200,000 unresolved and no longer rejected, and 330,000
+> single market to 2.9M across markets as the architectural universe.
+>
+> Everything else in this file (the funnel, the split, the audit, the per-family
+> reasoning) still describes what the pass actually did, and is kept for that.
+
+## The headline, as written on 2026-09-29 before the reconciliation, and now withdrawn
 
 **1,000,000 is not honestly reachable from the sources this project can lawfully
 hold today. The honest validated universe is 13,975 research candidates, of which

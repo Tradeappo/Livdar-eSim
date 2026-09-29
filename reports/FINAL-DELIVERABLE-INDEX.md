@@ -5,16 +5,25 @@ Updated 2026-09-29. **Ahrefs Advanced ends 8 October 2026.**
 The work lives in three folders because it was built in three passes. This index maps the 17 sections
 you asked for onto the actual files, so nothing has to be hunted for.
 
-**The third pass supersedes the first on candidate counting.**
+**Start at
+[scale-universe-2026-09-29/RECONCILIATION-OLD-VS-NEW.md](scale-universe-2026-09-29/RECONCILIATION-OLD-VS-NEW.md).**
+
 `scale-universe-2026-09-29/` answers the 1,000,000 candidate brief and has its own
-17 deliverables plus its own README and FINAL-REPORT. Its headline: 1,000,000 is
-not honestly reachable from the sources this project can lawfully hold, the
-validated universe is **13,975** candidates and **1,791** are publishable now. The
-10,152 figure in section 1 below is the earlier pass and remains valid on its own
-terms, but where the two disagree the scale universe is the later and stricter
-count, because it applies the anti-padding, language, year and persona rules and
-runs an eight stage dedupe funnel. Start at
-[scale-universe-2026-09-29/FINAL-REPORT.md](scale-universe-2026-09-29/FINAL-REPORT.md).
+17 deliverables. Its first conclusion, that 1,000,000 is not honestly reachable and
+the validated universe is 13,975, is **withdrawn**: that pass modelled 16 of the 64
+families in `atlas/product-seo-map.json`, in 9 of the 11 known markets, and rejected
+its two largest blocks on 5 keyword samples measured in the wrong country. **13,975
+is not a ceiling on Livdar.** It is the quality-gated count inside that subset.
+
+The reconciliation sets out four separate totals instead of one: 1,791 publishable
+now, roughly 3,600 after three costed acquisitions, 180,000 to 200,000 unresolved and
+no longer rejected, and 330,000 single market to 2.9M across markets as the
+architectural universe. Whether 1,000,000 of those are genuinely distinct is unknown,
+because 48 families and 5 markets have never been measured.
+
+The 10,152 figure in section 1 below is the earlier pass and remains valid on its own
+terms. Where the counts disagree, read the reconciliation for why rather than
+treating either number as the answer.
 
 | Marker | Meaning |
 | --- | --- |

@@ -1,0 +1,125 @@
+{
+ "summary": {
+  "generated": "2026-09-29",
+  "old": {
+   "surfaces": 12,
+   "verticals": 27,
+   "families": 64,
+   "candidate_combinations": 2937117,
+   "families_in_inventory_json": 65,
+   "blocked_candidates": 2790097,
+   "source_ready_candidates": 147020,
+   "eligible_candidates": 2600,
+   "serp_measured": 0,
+   "families_by_status": {
+    "blocked": 48,
+    "eligible": 3,
+    "source-ready": 10,
+    "research-needed": 2,
+    "published": 1
+   },
+   "markets_enumerable": 11,
+   "candidates_by_axis": {
+    "audience": 244046,
+    "language": 2372554,
+    "persona": 177060,
+    "time": 118040,
+    "origin": 27907
+   },
+   "candidates_by_market": {
+    "en-US": 332598,
+    "en-GB": 24723,
+    "de-DE": 332598,
+    "ja-JP": 281211,
+    "zh-Hant-TW": 281211,
+    "it-IT": 281211,
+    "es-ES": 281211,
+    "fr-FR": 281211,
+    "nl-NL": 281211,
+    "pl-PL": 281211,
+    "pt-BR": 281211
+   },
+   "single_market_en_us": 332598
+  },
+  "new": {
+   "families_in_catalog": 27,
+   "families_emitted": 24,
+   "raw_rows": 235502,
+   "valid": 13975,
+   "publishable_now": 1791,
+   "blocked": 3934,
+   "rejected": 190677,
+   "merged": 26916,
+   "markets": 9,
+   "markets_dropped": [
+    "en-GB",
+    "zh-Hant-TW"
+   ]
+  },
+  "reconciliation": {
+   "old_families_covered": 16,
+   "old_families_absent": 48,
+   "by_class": {
+    "MISSING_DATA": 25,
+    "COVERED": 11,
+    "OUT_OF_SCOPE": 2,
+    "PARTIAL": 5,
+    "BLOCKED_BY_LICENCE": 8,
+    "NOT_IMPLEMENTED": 11,
+    "NOT_RESEARCHED": 2
+   },
+   "old_candidates_by_class": {
+    "MISSING_DATA": 767935,
+    "COVERED": 742341,
+    "OUT_OF_SCOPE": 32249,
+    "PARTIAL": 133200,
+    "BLOCKED_BY_LICENCE": 589810,
+    "NOT_IMPLEMENTED": 478088,
+    "NOT_RESEARCHED": 193494
+   },
+   "by_source_state": {
+    "MISSING_ACQUIRABLE": 28,
+    "HELD": 16,
+    "OUT_OF_SCOPE": 2,
+    "BLOCKED_COMMERCIAL": 2,
+    "HELD_PARTIAL": 8,
+    "ACQUIRABLE_WITH_EFFORT": 6,
+    "UNKNOWN": 1,
+    "BLOCKED_LICENCE": 1
+   },
+   "old_candidates_by_source_state": {
+    "MISSING_ACQUIRABLE": 814338,
+    "HELD": 378080,
+    "OUT_OF_SCOPE": 32249,
+    "BLOCKED_COMMERCIAL": 206570,
+    "HELD_PARTIAL": 606950,
+    "ACQUIRABLE_WITH_EFFORT": 862700,
+    "UNKNOWN": 29510,
+    "BLOCKED_LICENCE": 6720
+   },
+   "under_sampled_families": [
+    "rents.city",
+    "comparisons.city-vs-city",
+    "neighbourhoods.city-best-for",
+    "work.city-salaries",
+    "sport.city-activity",
+    "weather.city-month"
+   ],
+   "new_only_families": 12
+  }
+ },
+ "new_only": {
+  "pulse.country-holidays": "Public holidays. The old pulse surface was events only and had no holiday family",
+  "pulse.subdivision-holidays": "German states and Swiss cantons. The highest measured demand in the programme and absent from the old architecture",
+  "pulse.named-holiday-date": "A named holiday and its date per country",
+  "pulse.named-holiday-regions": "Which regions observe a named holiday",
+  "pulse.long-weekends": "Bridge days computed from the holiday calendar",
+  "pulse.today": "Is today a holiday",
+  "calendar.year": "Calendar year pages. 627,451 searches on calendrier 2026 alone",
+  "calendar.month": "Calendar month pages",
+  "calendar.week-numbers": "Week number pages",
+  "climate.city-annual": "Annual city climate profile, the parent of the month pages",
+  "climate.city-day": "Recorded as REJECT: the 1,077,115 URL padding route",
+  "pulse.city-holidays": "Recorded as REJECT: holidays do not resolve to city level"
+ }
+}
