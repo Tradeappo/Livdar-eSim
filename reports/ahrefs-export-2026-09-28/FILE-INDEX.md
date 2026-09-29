@@ -28,7 +28,9 @@ file holds, and critically **which files can never be regenerated** once access 
 
 | File | Status | What it holds |
 | --- | --- | --- |
-| [`site-audit/CLASSIFIED-FINDINGS.md`](site-audit/CLASSIFIED-FINDINGS.md) | FROZEN | **The one to read.** All 179 checks classified REAL BUG / STALE-TRANSITIONAL / FIXED SINCE CRAWL / INFORMATIONAL / WARNING. 16 non-zero. Explains why Health Score 60 is not the current state. |
+| [`site-audit/CLEAN-BASELINE-2026-09-29.md`](site-audit/CLEAN-BASELINE-2026-09-29.md) | FROZEN | **The one to read.** The clean crawl, 2026-09-29 12:52 UTC, 916 URLs: health score **100**, **zero errors**, 11 of 179 checks non-zero. Resolves the open redirect warning (328 Atlas pages in the seven locales with no live eSIM market) and shows that 40 of the 45 short meta descriptions are a Japanese character-count artefact. |
+| `site-audit/all-179-checks-2026-09-29.json` | FROZEN | Raw data behind the clean baseline, with the health score block. |
+| [`site-audit/CLASSIFIED-FINDINGS.md`](site-audit/CLASSIFIED-FINDINGS.md) | FROZEN | Superseded by the clean baseline, kept as the record of what was predicted before the crawl confirmed it. All 179 checks classified REAL BUG / STALE-TRANSITIONAL / FIXED SINCE CRAWL / INFORMATIONAL / WARNING, 16 non-zero, and why Health Score 60 was not the current state. Two of its conclusions were wrong and are corrected in the banner at its head. |
 | `site-audit/all-179-checks-2026-09-28.json` | FROZEN | Raw: every check with its count, severity, category and change. The evidence behind the classification, including the 163 zeros. |
 | `site-audit/livdar-site-audit-issues-2026-09-28-crawl.json` | FROZEN | The 2026-09-28 12:56 UTC crawl. |
 | `site-audit/livdar-site-audit-issues-2026-09-27-crawl.json` | FROZEN | The day before, kept for the delta that proves which errors are transitional. |

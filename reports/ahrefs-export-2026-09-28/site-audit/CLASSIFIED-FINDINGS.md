@@ -4,6 +4,27 @@ Date: 2026-09-28. Crawl: **2026-09-28T12:56:03Z**, 880 URLs, project `10422446`.
 **179 issue types checked, 16 non-zero.** Raw data in
 `livdar-site-audit-issues-2026-09-28-crawl.json`.
 
+> ## SUPERSEDED on 2026-09-29 by the clean crawl
+>
+> The clean crawl ran at **2026-09-29T12:52:33Z**: 916 URLs, status Completed,
+> **health score 100, zero errors**, 11 of 179 checks non-zero. Every prediction in
+> this file held. Read **[CLEAN-BASELINE-2026-09-29.md](CLEAN-BASELINE-2026-09-29.md)**
+> for the current state; raw data in `all-179-checks-2026-09-29.json`.
+>
+> This file is kept as it was written because it is the record of what was predicted
+> before the crawl confirmed it. Two of its conclusions were wrong and are corrected
+> in the clean baseline:
+>
+> - **"Page has links to redirect" is not transitional and does not come from the
+>   eSIM section.** All 328 flagged URLs are Atlas pages, and they are exactly the
+>   328 Atlas pages in the seven locales with no live eSIM market (es 64, fr 63,
+>   it 52, pl 42, ja 40, pt 40, nl 27). Their chrome links into their own locale's
+>   eSIM section, which 307s to `/en/` by design. The trailing-slash checks in this
+>   file were sound; they were simply testing the wrong hypothesis.
+> - **"Meta description too short" rose to 45, and 40 of those are not short.** They
+>   are Japanese pages of 49 to 88 characters measured against a Latin-calibrated
+>   threshold. Only 5 are real, all of them eSIM hub pages.
+
 ## Read this before the Health Score
 
 The score reads **60**. That is not the current state of the site, and neither was the 43 from
@@ -105,7 +126,12 @@ rather than a technical one: **114 pages sit in clusters with no English version
 is the highest-reach language on the site. That belongs in the candidate inventory, not the bug
 list.
 
-## WARNING, unresolved: one item awaiting the clean crawl
+## WARNING, RESOLVED 2026-09-29: the item that was awaiting the clean crawl
+
+The clean crawl answered this, and the answer was the opposite of the hypothesis
+below. See CLEAN-BASELINE-2026-09-29.md. The original text is kept unchanged.
+
+## WARNING, unresolved as written on 2026-09-28: one item awaiting the clean crawl
 
 | Count | Change | Issue | What is known |
 | --- | --- | --- | --- |

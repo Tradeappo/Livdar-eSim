@@ -1,8 +1,11 @@
 # User actions required
 
 Updated 2026-09-29, third pass. Everything in this repository that could be done
-without you is done. Item 6 is finished. **Thirteen items remain, and three of them
-expire on 8 October.**
+without you is done. Items 6 and **10** are finished. **Twelve items remain, and two
+of them expire on 8 October.**
+
+**Item 10 closed itself on 2026-09-29:** the Site Audit crawl ran and the site came
+back with health score **100 and zero errors**. The baseline is captured and frozen.
 
 Two new items were added on 2026-09-29 by the 1,000,000 candidate research pass:
 **item 13**, the best opportunity in the programme and the only one blocked on
@@ -11,8 +14,8 @@ worth roughly 700 pages.
 
 > ## The Ahrefs subscription ends 8 October 2026
 >
-> Items **7**, **8** and **10** are worth far less, or nothing, after that date.
-> Item 7 above all: a Rank Tracker baseline started after expiry tracks nothing,
+> Items **7** and **8** are worth far less, or nothing, after that date. Item 10 is
+> already done. Item 7 above all: a Rank Tracker baseline started after expiry tracks nothing,
 > and one started before it keeps reporting. If you do a single thing from this
 > file, do item 7.
 >
@@ -399,7 +402,23 @@ means the file stays unsubmitted.
 
 ---
 
-## 10. Ahrefs: rerun the Site Audit crawl, before 8 October
+## 10. Ahrefs: rerun the Site Audit crawl: DONE 2026-09-29, nothing needed
+
+**The crawl ran and the site came back clean.** 2026-09-29 12:52 UTC, 916 URLs,
+status Completed, **health score 100, zero errors**, 11 of 179 checks non-zero.
+Captured and frozen in
+`reports/ahrefs-export-2026-09-28/site-audit/CLEAN-BASELINE-2026-09-29.md`.
+
+Every prediction below held: Open Graph 583 to 0, hreflang to redirect or broken
+page 189 to 0, the whole 404 family to 0. The one warning that was left open is now
+diagnosed, and the diagnosis was the opposite of the guess: it is not the eSIM
+section and not transitional, it is the 328 Atlas pages in the seven locales with no
+live eSIM market, whose header and footer link into eSIM URLs that correctly 307 to
+`/en/`. That fix is designed and held back until the first clean GSC baseline exists,
+because it changes the internal link graph of 328 live pages.
+
+You only need to touch this again if you want one more crawl before 8 October. The
+original note follows.
 
 **Service** Ahrefs Site Audit
 
@@ -462,14 +481,23 @@ BLOCKED so it is neither lost nor mistaken for ready work.
 
 ---
 
-## 12. Optional: 101 meta descriptions run past 160 characters
+## 12. Optional: 134 meta descriptions run past 160 characters
 
 **Not a settings screen, a one template code change, and it is your call rather than
 mine.**
 
-The Site Audit flagged 101 pages with a meta description that is too long. Verified
-independently by measuring 399 built pages: **96 exceed 160 characters**, median 156,
-longest **201**. Nine titles are also over, and five descriptions are under 70.
+The Site Audit flagged 101 pages with a meta description that is too long, and the
+clean crawl of 2026-09-29 puts the real figure at **134** now that the 497 recovered
+Atlas pages can be measured at all. Verified independently by measuring 399 built
+pages: **96 exceed 160 characters**, median 156, longest **201**. Nine titles are
+also over.
+
+The clean crawl also flags 45 descriptions as too short, and **40 of those are not**:
+they are Japanese pages of 49 to 88 characters measured against a threshold
+calibrated for Latin script, where a Japanese character carries several times the
+information. Only **5** are genuinely short, all of them eSIM section hub pages:
+`/en/regions/`, `/en/guides/`, `/de/regionen/`, `/ro/regiuni/` and
+`/ro/regiuni/central-america/`.
 
 Over 160 characters, the description is truncated in the results page and the last
 clause is discarded, so this is a real click-through cost rather than a cosmetic

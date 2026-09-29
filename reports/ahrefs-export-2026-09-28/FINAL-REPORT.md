@@ -10,8 +10,43 @@ disavow file was not submitted.
 
 ## SITE AUDIT
 
-Crawl 2026-09-28 12:56 UTC, 880 URLs. **179 issue types checked, 16 non-zero.**
-Full classification: [`site-audit/CLASSIFIED-FINDINGS.md`](site-audit/CLASSIFIED-FINDINGS.md)
+**UPDATED 2026-09-29. The clean crawl ran and the site is clean.**
+
+Crawl **2026-09-29 12:52 UTC**, 916 URLs, status Completed. **Health score 100.
+Zero errors.** 11 of 179 checks non-zero.
+Current state: [`site-audit/CLEAN-BASELINE-2026-09-29.md`](site-audit/CLEAN-BASELINE-2026-09-29.md)
+
+| | 2026-09-28 crawl | 2026-09-29 crawl |
+| --- | --- | --- |
+| Health score | 60, and stale | **100** |
+| URLs with errors | 675 | **0** |
+| URLs with warnings | 895 | 576 |
+| URLs with notices | 441 | 278 |
+| Non-zero checks | 16 of 179 | **11 of 179** |
+
+Every error cleared, exactly as the classification predicted: Open Graph tags
+incomplete 583 to 0, hreflang to redirect or broken page 189 to 0, the 404 family
+157 x 3 to 0, page has links to broken page 15 to 0.
+
+What remains is 328 pages linking to redirects (diagnosed below), 134 meta
+descriptions too long, 114 correct-by-design missing x-default annotations, 54
+intentional 3XX redirects, 45 short meta descriptions of which 40 are a Japanese
+character-count artefact, 9 long titles, and 6 new performance notices. No errors.
+
+**The open redirect warning is resolved, and the earlier hypothesis was wrong.**
+It is not transitional and it is not the eSIM section. All 328 flagged URLs are
+Atlas pages, and they are exactly the 328 Atlas pages in the seven locales that
+have no live eSIM market: es 64, fr 63, it 52, pl 42, ja 40, pt 40, nl 27, summing
+to 328 against the repo's own page list. Their header and footer link into their
+own locale's eSIM section, which `lib/routing.js` correctly 307s to `/en/` because
+only en, de and ro are live eSIM markets. About 2,000 internal links redirect, and
+each one drops the visitor's language. The fix is designed and deliberately not
+shipped: it changes the internal link graph of 328 live pages, and the standing
+instruction is to leave internal linking alone until the first clean GSC baseline
+exists. Severity is a hop, not an error, which is why the health score is 100 with
+it outstanding.
+
+### The 2026-09-28 reading, kept as the record
 
 | Class | Findings |
 | --- | --- |
@@ -21,9 +56,9 @@ Full classification: [`site-audit/CLASSIFIED-FINDINGS.md`](site-audit/CLASSIFIED
 | INFORMATIONAL, correct by design | 135 |
 | WARNING, still open | 175 |
 
-**The Health Score of 60 is not the current state.** The crawl began 24 minutes after the 404 fix
-deployed, and two further fixes landed after it (hreflang 19:11 UTC, `og:image` 21:04 UTC). It is
-three fixes stale.
+**The Health Score of 60 was not the current state.** The crawl began 24 minutes after the 404 fix
+deployed, and two further fixes landed after it (hreflang 19:11 UTC, `og:image` 21:04 UTC). It was
+three fixes stale, and the clean crawl confirmed every prediction made from it.
 
 **One real defect class, all metadata length, all in one template.** Verified independently
 against 399 built pages: 96 exceed 160 characters, longest 201. **Not fixed**, because the brief
@@ -34,9 +69,11 @@ Clean and worth knowing: hreflang annotation invalid 0, missing reciprocal hrefl
 points to 4XX 0, sitemap syntax 0, 5XX 0, orphan pages 0, structured data errors 0, missing alt
 text 0, `Main content requires JavaScript rendering` 0, `Indexable page not in sitemap` 0.
 
-**A fresh crawl cannot be triggered from the API.** Site Audit is read-only. The scheduled crawl
-of **2026-09-29 12:56 UTC** will be the first clean one, inside your deadline. Manual trigger:
-Ahrefs > Site Audit > Livdar > **Rerun crawl**.
+**A fresh crawl cannot be triggered from the API.** Site Audit is read-only, so this one had to be
+started in the UI, and it was: the crawl completed at **2026-09-29 12:52 UTC**. That is the clean
+baseline, captured inside the deadline. If you want one more before 8 October, the trigger is
+Ahrefs > Site Audit > Livdar > **Rerun crawl**; otherwise the 2026-09-29 capture is the last Site
+Audit this subscription will produce.
 
 ### Two things fixed and verified live today
 
