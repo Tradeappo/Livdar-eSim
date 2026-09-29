@@ -86,3 +86,41 @@ ladder verdict.
    meta descriptions flagged as too short are correct as written.
 6. **Global volume differs from market volume by up to 100 times** on calendar and
    holiday terms. Record both.
+
+## Pass two, 2026-09-30: the market-reach correction
+
+18,908 units. Every row is in `TIER3-DEMAND-EXPERIMENT.csv` (711 rows),
+`CROSS-LANGUAGE-REACH.csv` (101 rows) or `PLACES-EVENTS-SERP-40.csv` (21 SERPs).
+The ladder that reads them is `scripts/atlas/scale/ladder-v5.mjs`, writing
+`SCALE-LADDER-V5.json` and `CELL-GATE.csv`.
+
+| batch | tool | market | rows | units | what it decided |
+| --- | --- | --- | --- | --- | --- |
+| tier 3 fr | keywords-explorer-overview | fr | 48 | 1,536 | rent and health carry the French tail; events do not |
+| tier 3 nl | keywords-explorer-overview | nl | 48 | 1,536 | jobs and practical services carry; transport and property do not |
+| tier 3 ja | keywords-explorer-overview | jp | 48 | 1,536 | strongest tail measured; events work in Japanese tier 3 unlike Europe |
+| tier 3 tw | keywords-explorer-overview | tw | 48 | 1,536 | travel families only; transport, services, property and health all dead |
+| tier 3 us | keywords-explorer-overview | us | 47 | 1,504 | weather is the largest tier 3 family by volume; property real |
+| new families de | keywords-explorer-overview | de | 48 | 1,536 | transport and property clear the tail gate in German |
+| depth gb | keywords-explorer-overview | gb | 48 | 1,536 | category depth does NOT multiply: restaurants 2,700 then pubs 250, cafes 200, museums 70 |
+| routes | keywords-explorer-overview | gb | 42 | 1,344 | the route axis has real demand including tier 3 pairs |
+| tier 4 de | keywords-explorer-overview | de | 32 | 1,024 | four of five core families clear the gate at about 49,000 population |
+| tier 4 gb | keywords-explorer-overview | gb | 32 | 1,024 | three of five clear; and foreign tail cities return 0 in English |
+| cross-language en | keywords-explorer-overview | gb | 31 | 992 | **the measurement that overturned the ladder**: foreign tail cities are 0 to 60 in English |
+| destinations en | keywords-explorer-overview | gb | 36 | 1,152 | activities and stay DO cross language for destination cities; places does not |
+| destinations de | keywords-explorer-overview | de | 35 | 1,120 | confirms crossing in a second market, and proves the exonym rule |
+| SERP wetter konstanz | serp-overview | de | 10 | 240 | weather is SERP feature suppressed |
+| SERP spokane weather | serp-overview | us | 13 | 247 | weather has no top 10 result under DR 72, the only authority gate found |
+| SERP restaurants lincoln | serp-overview | gb | 16 | 304 | places is OPEN at tier 3: DR 13 at position 5 earning 2,148 |
+| SERP houses for sale carlisle | serp-overview | gb | 20 | 380 | property is open on authority, blocked on source |
+| SERP lincoln to nottingham | serp-overview | gb | 19 | 361 | routes are aggregator locked, nothing under DR 53 |
+
+### The four SERP classes, as used
+
+- OPEN: a winner exists below DR 20. `restaurants lincoln` DR 13 at position 5.
+- AGGREGATOR_LOCKED: the top 10 is portals or operators. `jobs lincoln`,
+  `lincoln to nottingham`.
+- SERP_FEATURE_SUPPRESSED: a Google panel takes the click. `wetter konstanz`
+  yields 1,281 organic clicks on 9,200 volume.
+- OPEN_BUT_SOURCE_BLOCKED: authority is not the barrier, the feed is.
+  `houses for sale carlisle` has a DR 7 winner and every winner serves listings.

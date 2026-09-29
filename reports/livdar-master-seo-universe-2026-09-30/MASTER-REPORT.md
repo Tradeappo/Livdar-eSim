@@ -8,6 +8,37 @@ New measurement this pass: **269 keywords in the 6 markets that had none**, plus
 new SERP samples. 13,550 Ahrefs units spent, **786,046 remaining**.
 Machine readable: `master-universe.jsonl.gz` (912 records), `NUMBERS.json`.
 
+> ## CORRECTED 2026-09-30, pass two. The scale figures in this report are superseded.
+>
+> A second pass measured 663 further keyword rows, bringing the tier 3 and tier 4
+> evidence base to 711 rows across 11 markets and 25 families, plus 101
+> cross-language rows and 5 more SERPs. It overturned the formula this report and
+> every earlier ladder used to size the universe, and the corrected number is
+> lower by roughly a factor of twenty.
+>
+> **What was wrong.** The ladder computed demand-supported pages as
+> `families that pass x 11,553 cities x 11 markets`. The last term was assumed,
+> never measured. Measured, it is false: `things to do in konstanz` is 20 in gb,
+> `things to do in middelburg` 0, `restaurants konstanz` 0, `gottingen hotels` 0,
+> against three and four figure volumes for the same intents in those cities' own
+> languages. Even `things to do in spokane` is 60 in gb against 4,000 in us, so
+> the constraint is the searcher's market and not only the language. A tail city
+> carries its families in one market, not eleven.
+>
+> **The corrected figures.** Demand-supported measured is **29,274**, ceiling
+> **76,308**, against the 574,314 and 897,798 this report's lineage implied.
+> 500,000 and 1,000,000 are both NOT_DEFENSIBLE_ON_DEMAND. Source-obtainable
+> (3,431,138) and source-backed (1,644,451) are unchanged, because those count
+> URLs the generator could emit and were never demand claims.
+>
+> **Two families do cross language**, activities and stay, for destination cities
+> only, and they must use the searcher's exonym: `prag` 15,000 against `praha` 20,
+> `rom` 11,000 against `roma` 70, `florenz` 7,200 against `firenze` 50.
+>
+> Read `SCALE-LADDER.md` (version 3) for the full correction. Version 2 is kept
+> at `SCALE-LADDER-v2-superseded-2026-09-30.md`. The per-cell evidence is in
+> `CELL-GATE.csv`, `SCALE-LADDER-V5.json` and `CROSS-LANGUAGE-REACH.csv`.
+
 > ## UPDATED 2026-09-30 by the three gating measurements
 >
 > Three further measurements ran after this report was first written: 254

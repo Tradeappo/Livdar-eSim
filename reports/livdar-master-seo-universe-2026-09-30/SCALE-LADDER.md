@@ -1,126 +1,152 @@
-# Scale ladder, version 2, recomputed on 2026-09-30 from three new measurements
+# Scale ladder, version 3
 
-**Version 1 of this file is superseded.** It rated 500k "probable, unproven" and
-1M "reachable on arithmetic, unproven on value", both on an evidence base of 287
-keywords. This version rests on **807 measured keywords and 16 sampled SERPs**, and
-the tier-3 assumption behind version 1 was wrong.
+Generated 2026-09-30, pass two. Supersedes version 2, kept at
+`SCALE-LADDER-v2-superseded-2026-09-30.md`. Nothing has been deleted.
 
-New evidence: `FAMILY-MARKET-MEASUREMENTS.csv` (254 rows, 5 markets),
-`TIER3-DEMAND-EXPERIMENT.csv` (284 rows, 51 cities, 6 markets, 14 families),
-`PLACES-EVENTS-SERP-40.csv` (16 SERPs), computed in `MEASUREMENT-SUMMARY.json`.
+## Read this first: version 2 was wrong, and this version says by how much
 
----
+Version 2 reported 500,000 as PROBABLE, 6,557 pages short, and said 48 more
+keyword rows would settle it. Those 48 rows were measured. So were 663 others.
+The result is not that 500,000 closed. It is that the formula behind the 500,000
+figure was wrong, and the corrected figure is 29,274.
 
-## The one finding that moved the ladder
+Versions 1 to 3 of the ladder all computed demand as:
 
-**Tier-3 cities have real demand.** Version 1 assumed they did not, on four climate
-and three sport keywords measuring 9 to 40. Measuring 284 tier-3 keywords across 6
-markets, 51 cities and 14 families:
+    families that pass x 11,553 cities x 11 markets
 
-| Threshold | Share of tier-3 samples |
-| --- | --- |
-| volume > 0 | **96.5%** |
-| >= 10 | 96.5% |
-| >= 50 | 85.2% |
-| >= 100 | 78.5% |
-| >= 500 | **48.9%** |
-| >= 1,000 | **34.2%** |
-| median | **450** |
+The last term was never measured. It assumed a city carries its page set in all
+eleven languages. On 2026-09-30 that assumption was measured directly, and it is
+false:
 
-Version 1's conclusion came from measuring the two families where tier-3 genuinely
-collapses, and generalising. The families that carry tier-3 are different ones.
+| keyword | market | volume | the same intent in the city's own language |
+| --- | --- | --- | --- |
+| things to do in konstanz | gb | 20 | 400 for `sehenswuerdigkeiten`-class phrasing in de |
+| things to do in gottingen | gb | 20 | de rows measure in the hundreds |
+| things to do in middelburg | gb | 0 | 1,600 in nl |
+| things to do in assen | gb | 0 | 700 in nl |
+| restaurants konstanz | gb | 0 | 500 in de |
+| gottingen hotels | gb | 0 | de rows measure in the hundreds |
+| things to do in spokane | gb | 60 | 4,000 in us |
 
-### By family, which is where the answer actually lives
+The last row matters most: same language, different market, 67x apart. So the
+effect is the searcher's market and not only the language. A tail city carries
+its families in one market, not eleven. The multiplier was inflating the answer
+roughly twentyfold.
 
-| Family | n | Median | Max | >= 300 | >= 1,000 | Verdict |
-| --- | --- | --- | --- | --- | --- | --- |
-| `work.city-jobs` | 48 | **1,700** | 12,000 | 95.8% | 72.9% | Highest demand, **SERP locked** |
-| `activities.city-things-to-do` | 43 | **1,100** | 7,600 | 62.8% | 53.5% | **Best combination in the programme** |
-| `weather.city-best-time` | 7 | 700 | 21,000 | 71.4% | 42.9% | Strong |
-| `health.city` | 6 | 450 | 600 | 50% | 0% | Moderate |
-| `rents.city` | 32 | 350 | 4,300 | 62.5% | 21.9% | Strong, partial SERP opening |
-| `events.city-window` | 5 | 350 | 800 | 60% | 0% | Moderate |
-| `places.city-category` | 81 | 300 | 3,200 | 51.9% | 28.4% | Market dependent |
-| `stay.city-type` | 26 | 300 | 1,500 | 50% | 11.5% | Moderate |
-| `events.city-type` | 27 | 90 | 1,300 | 25.9% | 7.4% | **Weak in tier 3**, strong in tier 1 |
-| `education.city-universities` | 5 | 40 | 10,000 | 40% | 20% | One entity carries it |
-| `sport.route`, `safety.city`, `events.recurring`, `cost-of-living.city` | 1 each | 0 to 100 | | 0% | 0% | Negligible |
+## What survived the correction
 
-### By market
+Two families do cross language, and only for destination cities. Measured in two
+markets, both of them strongly:
 
-| Market | n | Median | Max | >= 300 | >= 1,000 |
-| --- | --- | --- | --- | --- | --- |
-| en-GB | 48 | **1,000** | 21,000 | 68.8% | 52.1% |
-| es-ES | 48 | 900 | 7,600 | 77.1% | 43.8% |
-| de-DE | 48 | 800 | 4,300 | 75% | 45.8% |
-| it-IT | 48 | 300 | 4,700 | 50% | 22.9% |
-| pt-BR | 47 | 250 | 2,400 | 48.9% | 17% |
-| pl-PL | 45 | 90 | 12,000 | 33.3% | 22.2% |
+- `activities.city-things-to-do`: gb median about 1,400 (krakow 11,000, rome
+  8,900, porto 6,200, malaga 4,800, seville 3,700); de median about 7,000
+  (amsterdam 17,000, wien 17,000, prag 15,000, rom 11,000), all at KD 0 to 7.
+- `stay.city-type`: gb (rome hotels 3,700, seville 2,000, florence 1,400); de
+  (hotel prag 7,600, hotel rom 2,800, hotel lissabon 2,800).
 
-Poland is the outlier and it is instructive: its tier-3 median is 90 because
-attractions, events, rent and hotels are near zero there, while `praca krosno` is
-12,000. **The family and the market interact; neither alone predicts.**
+Two findings bound that:
 
-## The SERP finding that constrains it
+- `places.city-category` does not cross language. `restaurants rome` is 200 in
+  gb and 200 in de, `restaurants florence` 100, `restaurants utrecht` 40,
+  `restaurants prag` 500. The category page is a local-language page only.
+- It fails for non-tourist tier 2 even in the crossing families:
+  `things to do in taichung` 70, `things to do in kaohsiung` 70. Asia outside
+  Japan is unproven, so it is not counted.
 
-16 SERPs. **10 of the 16 have a winner at DR 20 or below**, including DR 0, DR 2,
-DR 3, DR 4, DR 5 and DR 15. Authority is not the barrier anywhere sampled.
+One tail pattern does cross: `<city> <country>` (nagano japan 800, vannes france
+700, konstanz germany 300, hualien taiwan 100, middelburg netherlands 100). That
+is one orientation page per city, not a family set, and it is counted as one.
 
-| Winnability | SERPs | Examples |
-| --- | --- | --- |
-| **OPEN** | 8 | `イベント 東京` 12,000 with **DR 2 earning 6,269**, the highest traffic on the page; `bank holidays 2026` 415,000 with **DR 15 earning 19,925**; `que ver en segovia` 7,600 with **DR 3 earning 1,410**; `things to do in lincoln` 3,700 with **DR 4 earning 311** |
-| SERP_FEATURE_SUPPRESSED | 3 | The three climate month SERPs: rankable, but AI Overview and a knowledge card sit above the first organic result |
-| **AGGREGATOR_LOCKED** | 2 | `ristoranti milano` (TripAdvisor, Michelin, TheFork, OpenTable, weakest DR 61); `jobs lincoln` (**100% job boards**, no other winner) |
-| COMPETITIVE | 1 | `京都 観光` 78,000, every winner DR 70 to 83, official tourism and portals |
-| OPEN_OFFICIAL_FAVOURED | 1 | `veranstaltungen bayreuth`, DR 5 at position 5, but the district and university calendars dominate |
-| COMPETITIVE_PARTIAL_OPENING | 1 | `wohnung mieten konstanz`, portals own 1 and 2, but **DR 20 takes 1,884 at position 3** |
+## A hard requirement this pass produced
 
-Two structural rules fall out, and both are the opposite of the naive assumption:
+Cross-language pages must use the searcher's exonym, never the city's endonym:
 
-1. **The tail is more open than the head.** `京都 観光` at 78,000 is DR 70+ only;
-   `que ver en segovia` at 7,600 has a DR 3 winner. Tier-3 attractions is the
-   opening, tier-1 attractions is not.
-2. **Jobs has the most tier-3 demand and the least winnable SERP.** Median 1,700,
-   95.8% above 300, and a page one that is 100% Indeed, Reed, SimplyHired, Jooble,
-   Glassdoor and LinkedIn. Livdar cannot win jobs without being a job board with live
-   inventory. It is excluded from the defensible count for that reason, not for lack
-   of demand.
+| exonym | volume | endonym | volume | ratio |
+| --- | --- | --- | --- | --- |
+| prag sehenswuerdigkeiten-class | 15,000 | praha | 20 | 750x |
+| rom | 11,000 | roma | 70 | 157x |
+| florenz | 7,200 | firenze | 50 | 144x |
 
-## The four totals, kept separate
-
-| | Value | What it is |
-| --- | --- | --- |
-| **A. Source-obtainable** | **3,431,138** across markets | Data we could lawfully get |
-| **B. Source-backed today** | **1,644,451** across markets | Data already in the repository |
-| **C. Demand-supported (measured)** | **493,443** | Families with directly measured demand, over their real entities, in the **6 markets actually sampled** |
-| **C2. Demand-supported (extrapolated)** | **897,798** | The same if the remaining 5 markets behave like the 6 sampled |
-| **D. Publishable now** | **1,791** | Today, held data, nothing invented |
-
-Single-market demand-supported is **100,641**, or **89,088** excluding the SERP
-locked jobs family. 8 city families clear the tier-3 median gate, over 11,553 cities
-(2,951 tier 1 and 2 plus 8,602 tier 3), plus 8,217 non-city validated candidates.
+Generating the endonym loses about 99 percent of the demand. Mailand not Milano,
+Venedig not Venezia, Lissabon not Lisboa, Krakau not Krakow, Tokio not Tokyo.
 
 ## The ladder
 
-| Target | Verdict | Pages supported | Families | Markets | Evidence coverage | Missing |
-| --- | --- | --- | --- | --- | --- | --- |
-| **100,000** | **DEFENSIBLE** | 493,443 measured | 7 city families plus 16 non-city | 6 measured | 807 keywords, 16 SERPs | Nothing for the demand case. Sources for places, stay and events |
-| **250,000** | **DEFENSIBLE** | 493,443 measured | as above | 6 measured | as above | Same sources. This is now the conservative target, not the ceiling |
-| **500,000** | **PROBABLE_BUT_UNPROVEN** | 493,443 measured, 6,557 short | as above | needs 7 of 11 | 807 keywords | **One more market measured closes it.** fr-FR or nl-NL, 48 tier-3 rows, about 1,600 units |
-| **1,000,000** | **UNPROVEN** | 897,798 extrapolated | as above | needs all 11 plus a new family class | Source-obtainable is 3.4M so the data exists | Demand in the 5 unmeasured markets, and either the jobs SERP solved or one new validated family class |
-| **3,000,000** | **NOT_DEFENSIBLE** | 897,798 is 3.3x short | | | | No extrapolation from what is measured reaches it. Would need POI level entities, which is a different architecture |
+| target | verdict |
+| --- | --- |
+| 25,000 | DEFENSIBLE |
+| 50,000 | PROBABLE_BUT_UNPROVEN |
+| 100,000 | NOT_DEFENSIBLE_ON_DEMAND |
+| 250,000 | NOT_DEFENSIBLE_ON_DEMAND |
+| 500,000 | NOT_DEFENSIBLE_ON_DEMAND |
+| 1,000,000 | NOT_DEFENSIBLE_ON_DEMAND |
 
-## What changed from version 1
+The four axes, kept separate:
 
-| | Version 1 | Version 2 |
+| axis | pages |
+| --- | --- |
+| A. source-obtainable | 3,431,138 |
+| B. source-backed today | 1,644,451 |
+| C. demand-supported, measured | 29,274 |
+| C. demand-supported, ceiling | 76,308 |
+| D. publishable now | 1,791 |
+
+A and B are counts of URLs the generator could emit from data it has or could
+get. Neither was ever a demand claim, and the gap between B and C is the whole
+point of this pass: 1,644,451 pages can be built and 29,274 of them have
+measured demand Livdar can win.
+
+## Why 1M is not a measurement problem
+
+The binding constraint is entities, not families and not markets. The eleven live
+markets can serve 3,171 cities over 50,000 population and 7,644 smaller towns,
+10,815 in total. About six families pass per city. That is the ceiling.
+
+Adding every language on earth does not fix it. The cities no live market can
+serve number 8,382 at tier 1 to 3, in China (1,282), India (1,110), the Spanish
+speaking Americas (830), the Arabic world (661), Russia (396) and elsewhere.
+Adding all eighteen language groups that would cover them:
+
+| lever | pages it adds |
+| --- | --- |
+| city axis, all 11 current markets, 6 families | about 65,000 |
+| city axis, every language added (29,266 cities) | about 175,600 total |
+| neighbourhoods, 20 per servable tier 1-2 city, 3 families | about 35,000 |
+| the three blocked families unblocked | about 32,400 |
+| absolute total if all of it were solved | about 243,000 |
+
+So 1,000,000 is not 970,726 pages of missing measurement. It is out of reach on
+the city axis by a factor of four even after every language and every blocked
+family. Reaching it needs an entity axis an order of magnitude larger than
+cities: venues and points of interest at roughly 100,000 entities, which is a
+data acquisition project and not a research one. The year and persona axes that
+would get there arithmetically are the padding this project already ruled out.
+
+## What is excluded, and why it is not the same reason each time
+
+| family | class | evidence |
 | --- | --- | --- |
-| 100k | DEFENSIBLE | DEFENSIBLE, now with 493k measured behind it |
-| 250k | DEFENSIBLE, "the honest working target" | **DEFENSIBLE and no longer the ceiling** |
-| 500k | PROBABLE, blocked on the tier-3 question | **PROBABLE and 6,557 pages short**, one market from defensible |
-| 1M | Reachable on arithmetic, unproven on value | **UNPROVEN, and 90% of the way on extrapolated demand** |
-| 3M | NOT_DEFENSIBLE | NOT_DEFENSIBLE, unchanged |
-| Tier 3 | Assumed to collapse | **96.5% have demand, median 450, 34.2% above 1,000** |
+| work.city-jobs | SERP aggregator locked | `jobs lincoln` top 10 is 100 percent job boards. Highest tail demand measured, 10 of 11 markets pass on volume. |
+| weather.city-best-time | SERP feature suppressed | `wetter konstanz` has a knowledge card at 1 and yields 1,281 organic clicks on 9,200 volume. `spokane weather` has no top 10 result under DR 72. Highest volume family at tier 3 and the only authority-gated SERP found in this niche. |
+| property.city-buy | source blocked, SERP open | `houses for sale carlisle` has a DR 7 winner at position 3 earning 1,591, so authority is not the barrier. Every winner serves live listings Livdar has no feed for. |
+| route.city-pair | SERP aggregator locked | `lincoln to nottingham` has no top 10 result under DR 53, all rail operators and aggregators, AI overview at 1. Demand is real: london to paris 24,000, and tier 3 pairs carry volume too. |
 
-The single cheapest action that would change a verdict: **48 tier-3 keyword rows in
-one more market, about 1,600 units**, which would move 500,000 from PROBABLE to
-DEFENSIBLE.
+Those four are 32,445 pages of measured demand set aside on evidence, not taste.
+
+## What this pass proved positively
+
+- Tier 3 is alive and was under-sampled before. 96.5 percent of tier 3 rows are
+  above zero and the strongest markets are Japanese and French.
+- Tier 4 works where probed. In de, four of five core families clear the tail
+  gate on towns of about 49,000 people (Ravensburg, Kleve, Hof, Peine, Leonberg,
+  Bad Oeynhausen). In gb, three of five. The 50,000 population cut is arbitrary.
+- The tier 3 tail is more open than the head, including in the family that was
+  locked at the head. `ristoranti milano` had no winner under DR 61.
+  `restaurants lincoln` has DR 13 at position 5 earning 2,148, DR 13 at 7 and
+  DR 15 at 9, while TripAdvisor at DR 91 takes 337.
+- Category depth does not multiply at tier 3. `restaurants lincoln` is 2,700 and
+  then `pubs` 250, `cafes` 200, `bars` 150, `museums` 70, `parks` 50. One page
+  per family per city was the right model, not a conservative one.
+- The city attribute families are dead at tier 3: cost of living 0, is-it-safe
+  30 to 40, best time to visit 0, city vs city 0, day trips 30 to 50. The
+  anti-padding rule was correct.

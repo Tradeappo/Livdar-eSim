@@ -563,5 +563,39 @@
    "status": "MISSING_DATA",
    "surface": "move"
   }
- ]
+ ],
+ "pass_two_2026_09_30": {
+  "correction": "the 11-market multiplier used by every earlier ladder is invalid for tier 2-4 cities, measured 2026-09-30",
+  "keyword_rows_tier_experiment": 711,
+  "cross_language_rows": 101,
+  "serps_total": 21,
+  "markets_measured": 11,
+  "families_probed": 25,
+  "cells_counting": 66,
+  "cells_excluded_serp_or_source": 29,
+  "cities_servable_tier1_3": 3171,
+  "cities_no_live_market_can_serve_tier1_3": 8382,
+  "cities_servable_tier4": 7644,
+  "destination_cities_cross_language": 333,
+  "A_source_obtainable": 3431138,
+  "B_source_backed_today": 1644451,
+  "C_demand_supported_measured": 29274,
+  "C_demand_supported_ceiling": 76308,
+  "D_publishable_now": 1791,
+  "verdicts": {
+   "25000": "DEFENSIBLE",
+   "50000": "PROBABLE_BUT_UNPROVEN",
+   "100000": "NOT_DEFENSIBLE_ON_DEMAND",
+   "250000": "NOT_DEFENSIBLE_ON_DEMAND",
+   "500000": "NOT_DEFENSIBLE_ON_DEMAND",
+   "1000000": "NOT_DEFENSIBLE_ON_DEMAND"
+  },
+  "superseded_figures": {
+   "v3_demand_supported_measured": 581471,
+   "v2_demand_supported_measured": 574314,
+   "v2_extrapolated": 897798
+  },
+  "ahrefs_units_spent_this_pass": 18908,
+  "ahrefs_units_remaining": 728436
+ }
 }
