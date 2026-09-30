@@ -385,6 +385,35 @@ for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/FAMIL
     notes: brandExcluded ? 'brand or aggregator query, not ours to rank for' : r.verdict });
 }
 
+// --- 7c. Round three, market breadth: the nine under-measured markets --------
+// Round two measured de-DE and en-GB deeply and left the other nine thin. This
+// block carries local-language keyword sets for the surviving families in each
+// of those markets, harvested before the Ahrefs subscription expires. Two
+// markets were badly under-recorded: zh-Hant-TW held 63 keywords at a 32,000
+// maximum and actually reaches 269,000, and pt-BR held 9,900 and reaches 20,000.
+for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/MARKET-BREADTH-HARVEST.csv', ',')) {
+  const v = num(r.volume);
+  const needsFeed = r.feed_required && r.feed_required !== 'none';
+  let st;
+  if (v === '' || v < 50) st = 'REJECT';
+  else if (needsFeed) st = 'OPPORTUNITY_REQUIRES_FEED';
+  else if (v >= 1000) st = 'DURABLE_HEAD';
+  else if (v >= 300) st = 'CANDIDATE_HEAD';
+  else st = 'PROMISING';
+  push({ keyword: r.keyword, market: r.market, surface: r.axis.slice(2), family: r.family,
+    entity_type: r.axis === 'E_jobs' ? 'job' : r.axis === 'D_stay' ? 'accommodation'
+      : r.axis === 'H_transport' ? 'transport_node' : r.axis === 'B_places' ? 'local_place'
+      : r.axis === 'F_move' ? 'city_or_country' : 'city_or_country',
+    intent_type: needsFeed ? 'listing_discovery' : 'informational',
+    status: st, page_type: needsFeed ? 'LISTING' : 'DURABLE',
+    volume: r.volume, kd: r.kd, cpc: r.cpc_cents,
+    SERP_class: needsFeed ? 'LISTING_INVENTORY_REQUIRED' : 'OPEN',
+    source_of_keyword: 'livdar-final-research-freeze-2026-09-30/MARKET-BREADTH-HARVEST.csv',
+    evidence: 'Ahrefs matching-terms market breadth harvest 2026-09-30 round three, local language, pattern ' + r.pattern,
+    data_source_required: needsFeed ? r.feed_required : '',
+    indexable: 'YES', notes: 'market breadth pass, pattern ' + r.pattern });
+}
+
 // --- 8. Tracked keywords already in Rank Tracker ------------------------------
 for (const r of readTable('reports/ahrefs-export-2026-09-28/rank-tracker/tracked-keywords-2026-09-28.tsv', '\t')) {
   push({ keyword: r.keyword, market: r.country, language: r.language,
