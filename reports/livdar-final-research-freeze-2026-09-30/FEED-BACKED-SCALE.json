@@ -1,0 +1,239 @@
+{
+ "generated": "2026-09-30 round two",
+ "corrects": "entity-scale-model.mjs set indexable to 0 wherever a feed was missing and defensible equal to indexable. This model separates rankable from feed-held.",
+ "demand_supported_all_families": 383915,
+ "rankable_families": 11,
+ "not_rankable_families": 7,
+ "pages_rankable_no_feed_needed": 42416,
+ "pages_rankable_affiliate_only": 22000,
+ "pages_rankable_requires_feed": 96000,
+ "pages_measured_not_rankable": 223499,
+ "CURRENT": {
+  "source_backed": 2883978,
+  "demand_supported": 1656362,
+  "rankable": 64416,
+  "indexable": 64416,
+  "publishable_today": 1791
+ },
+ "FEED_BACKED": {
+  "source_backed": 49883978,
+  "demand_supported": 1656362,
+  "rankable": 160416,
+  "indexable": 160416,
+  "realistic_url_universe": 160416
+ },
+ "thresholds": {
+  "100000": {
+   "current": "NO",
+   "feed_backed": "YES",
+   "shortfall_current": 35584,
+   "shortfall_feed_backed": 0
+  },
+  "250000": {
+   "current": "NO",
+   "feed_backed": "NO",
+   "shortfall_current": 185584,
+   "shortfall_feed_backed": 89584
+  },
+  "500000": {
+   "current": "NO",
+   "feed_backed": "NO",
+   "shortfall_current": 435584,
+   "shortfall_feed_backed": 339584
+  },
+  "1000000": {
+   "current": "NO",
+   "feed_backed": "NO",
+   "shortfall_current": 935584,
+   "shortfall_feed_backed": 839584
+  },
+  "3000000": {
+   "current": "NO",
+   "feed_backed": "NO",
+   "shortfall_current": 2935584,
+   "shortfall_feed_backed": 2839584
+  }
+ },
+ "families": [
+  {
+   "axis": "B_places",
+   "family": "places.city-category",
+   "pages": 6342,
+   "rankable": true,
+   "min_dr": 13,
+   "feed": null,
+   "serp": "OPEN",
+   "note": "DR 13 at position 5 earning 2148"
+  },
+  {
+   "axis": "F_move",
+   "family": "move.visa-country",
+   "pages": 1800,
+   "rankable": true,
+   "min_dr": 0,
+   "feed": null,
+   "serp": "OPEN",
+   "note": "highest CPC measured, 60 to 350 cents"
+  },
+  {
+   "axis": "H_transport",
+   "family": "transport.node-route-and-hotels",
+   "pages": 2000,
+   "rankable": true,
+   "min_dr": 0,
+   "feed": null,
+   "serp": "OPEN",
+   "note": "stansted to london TP 84000"
+  },
+  {
+   "axis": "A_poi",
+   "family": "atlas.city-family-carried-forward",
+   "pages": 29274,
+   "rankable": true,
+   "min_dr": 13,
+   "feed": null,
+   "serp": "OPEN",
+   "note": "carried forward from the market reach correction"
+  },
+  {
+   "axis": "D_stay",
+   "family": "rents.city-listings",
+   "pages": 26000,
+   "rankable": true,
+   "min_dr": 31,
+   "feed": "rental listings feed",
+   "serp": "OPEN_REQUIRES_INVENTORY",
+   "note": "DR 43 takes 20374, more than ImmoScout24 at DR 88"
+  },
+  {
+   "axis": "D_stay",
+   "family": "stay.wg-student-furnished",
+   "pages": 9000,
+   "rankable": true,
+   "min_dr": 31,
+   "feed": "student and shared housing feeds",
+   "serp": "OPEN_REQUIRES_INVENTORY",
+   "note": "wg zimmer hamburg 1700 KD 1, studentenwohnheim hamburg 2100 KD 0"
+  },
+  {
+   "axis": "C_events",
+   "family": "events.city-durable-window-concerts",
+   "pages": 11000,
+   "rankable": true,
+   "min_dr": 52,
+   "feed": "licensed event feed",
+   "serp": "COMPETITIVE_MID_AUTHORITY",
+   "note": "veranstaltungen berlin 11000 KD 0, DR 70 earns 1275 and DR 52 ranks"
+  },
+  {
+   "axis": "E_jobs",
+   "family": "jobs.role-city-and-category-city",
+   "pages": 40000,
+   "rankable": true,
+   "min_dr": 17,
+   "feed": "jobs feed",
+   "serp": "LISTING_INVENTORY_REQUIRED_VERTICAL",
+   "note": "builtinlondon DR 17 at position 5, pflegia DR 33 at position 7. VERTICAL cuts only"
+  },
+  {
+   "axis": "D_stay",
+   "family": "property.city-buy",
+   "pages": 10000,
+   "rankable": true,
+   "min_dr": 7,
+   "feed": "property listings feed",
+   "serp": "OPEN_REQUIRES_INVENTORY",
+   "note": "DR 7 at position 3 earning 1591"
+  },
+  {
+   "axis": "A_poi",
+   "family": "poi.entity-tickets",
+   "pages": 22000,
+   "rankable": true,
+   "min_dr": 33,
+   "feed": "attraction affiliate for monetisation only, not for ranking",
+   "serp": "OPEN_WINNER_TAKE_MOST",
+   "note": "DR 33 with zero refdomains takes 18104. Select per entity: fails where a reseller owns the query"
+  },
+  {
+   "axis": "A_poi",
+   "family": "poi.entity-parking",
+   "pages": 3000,
+   "rankable": true,
+   "min_dr": 51,
+   "feed": null,
+   "serp": "COMPETITIVE_MID_AUTHORITY",
+   "note": "JustPark 710, YourParkingSpace 224, greenwichpeninsula 406. Needs about DR 50"
+  },
+  {
+   "axis": "D_stay",
+   "family": "stay.city-hotels",
+   "pages": 3171,
+   "rankable": false,
+   "min_dr": 32,
+   "feed": "rates feed does not help",
+   "serp": "SERP_FEATURE_SUPPRESSED",
+   "note": "whole organic top 10 earns single digits on 7300 volume. Google Hotels takes it"
+  },
+  {
+   "axis": "C_events",
+   "family": "events.venue-event",
+   "pages": 5000,
+   "rankable": false,
+   "min_dr": 0,
+   "feed": "ticketing inventory",
+   "serp": "OPEN_BUT_ECONOMICALLY_DEAD",
+   "note": "everything below position 1 earns 72 clicks on 3900 volume"
+  },
+  {
+   "axis": "H_transport",
+   "family": "route.city-pair",
+   "pages": 2000,
+   "rankable": false,
+   "min_dr": 53,
+   "feed": "timetable feed",
+   "serp": "AGGREGATOR_LOCKED",
+   "note": "nothing under DR 53"
+  },
+  {
+   "axis": "G_services",
+   "family": "weather.city",
+   "pages": 10815,
+   "rankable": false,
+   "min_dr": 72,
+   "feed": null,
+   "serp": "SERP_FEATURE_SUPPRESSED",
+   "note": "nothing under DR 72"
+  },
+  {
+   "axis": "I_sport",
+   "family": "sport.routes-and-facilities",
+   "pages": 3171,
+   "rankable": false,
+   "min_dr": null,
+   "feed": null,
+   "serp": "NO_DEMAND",
+   "note": "running routes lisbon 10, surf spots portugal 30"
+  },
+  {
+   "axis": "G_services",
+   "family": "services.schools-hospitals",
+   "pages": 6342,
+   "rankable": false,
+   "min_dr": null,
+   "feed": null,
+   "serp": "NO_DEMAND",
+   "note": "english speaking doctor berlin 0, private hospitals london 450 at KD 80"
+  },
+  {
+   "axis": "A_poi",
+   "family": "poi.entity-bare-brand",
+   "pages": 193000,
+   "rankable": false,
+   "min_dr": 0,
+   "feed": null,
+   "serp": "BRAND_OWNED_PLUS_SOCIAL",
+   "note": "the bare name goes to the entity plus knowledge panel plus social"
+  }
+ ]
+}

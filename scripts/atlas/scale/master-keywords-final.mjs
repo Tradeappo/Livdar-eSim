@@ -279,6 +279,112 @@ for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/ENTIT
     evidence: 'Ahrefs measured 2026-09-30, axis verdict ' + r.verdict,
     data_source_required: needsData, indexable: st === 'REJECT' || st === 'BLOCKED_DATA' ? 'NO' : 'YES' });
 }
+// --- 7b. Round two, 2026-09-30. The entity modifier research and the local
+// language re-measurement of stay, rentals, events and jobs.
+//
+// WHY THIS ROUND EXISTS. Round one measured rentals, rooms and coliving only in
+// English against foreign cities, which returned zeros that were an artefact of
+// the wrong language: rooms for rent berlin 10 in gb against wg zimmer berlin
+// 1,600 in de, apartments barcelona monthly 0 against wohnung mieten berlin
+// 14,000. Round one also judged the whole entity axis on a bare brand name and one
+// tickets query. Both are corrected here.
+//
+// A family whose SERP is winnable but whose inventory Livdar does not hold is
+// OPPORTUNITY_REQUIRES_FEED, never REJECT. Round one conflated the two.
+const FEED_REQUIRED_FAMILIES = new Set(['rents.city-listings', 'rents.city-area', 'stay.wg-shared',
+  'stay.student', 'stay.furnished', 'stay.sublet', 'stay.vacation-rental', 'stay.pension', 'stay.hostel',
+  'events.city-durable', 'events.city-window', 'events.city-concerts', 'events.city-exhibitions',
+  'events.city-seasonal', 'events.city-market', 'events.city-cinema', 'events.city-whatson',
+  'events.recurring-named', 'events.country-festivals', 'events.venue-event',
+  'jobs.city-durable', 'jobs.city-category', 'jobs.role-city', 'jobs.company-city', 'jobs.remote',
+  'jobs.salary-role', 'property.city-buy']);
+// Families measured as not rankable whatever the feed. Each cites its SERP row.
+const NOT_RANKABLE = {
+  'stay.city-hotels': 'SERP_FEATURE_SUPPRESSED: 7,300 volume and the whole organic top 10 earns single digits, Google Hotels takes the clicks',
+  'stay.coliving': 'demand absent even in local language, coliving berlin 150 at KD 43',
+  'stay.monthly': 'the monthly phrasing does not exist in German or English',
+};
+for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/ROUND2-AXIS-MEASUREMENTS.csv', ',')) {
+  const v = num(r.volume);
+  const notRankable = NOT_RANKABLE[r.family];
+  const needsFeed = FEED_REQUIRED_FAMILIES.has(r.family);
+  let st;
+  if (notRankable) st = 'REJECT';
+  else if (v === '' || v < 50) st = 'REJECT';
+  else if (needsFeed) st = 'OPPORTUNITY_REQUIRES_FEED';
+  else if (v >= 1000) st = 'DURABLE_HEAD';
+  else if (v >= 300) st = 'CANDIDATE_HEAD';
+  else st = 'PROMISING';
+  push({ keyword: r.keyword, market: r.market, surface: r.axis.slice(2), family: r.family,
+    entity_type: r.axis === 'E_jobs' ? 'job' : r.axis === 'C_events' ? 'event' : 'accommodation',
+    intent_type: 'listing_discovery', status: st, page_type: r.page_type,
+    volume: r.volume, kd: r.kd, cpc: r.cpc_cents, traffic_potential: r.traffic_potential,
+    source_of_keyword: 'livdar-final-research-freeze-2026-09-30/ROUND2-AXIS-MEASUREMENTS.csv',
+    evidence: 'Ahrefs measured 2026-09-30 round two. ' + (r.note || ''),
+    data_source_required: notRankable ? '' : (needsFeed ? 'listing feed for this family' : ''),
+    indexable: notRankable ? 'NO' : 'YES',
+    notes: notRankable || r.note });
+}
+for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/ENTITY-MODIFIER-RESEARCH.csv', ',')) {
+  const v = num(r.volume);
+  // The bare brand name is not rankable. Entity plus a practical or commercial
+  // modifier is, where no ticketing reseller owns the query, which has to be
+  // checked per entity rather than assumed for the family.
+  const works = /MODIFIER_WORKS/.test(r.verdict);
+  const highTp = r.verdict === 'MODIFIER_HIGH_TP';
+  const st = works ? (v >= 1000 ? 'ENTITY_HEAD' : 'CANDIDATE_HEAD')
+    : highTp ? 'PROMISING' : 'REJECT';
+  push({ keyword: r.keyword, market: r.market, surface: 'poi', family: 'poi.entity-' + r.modifier.replace(/\s+/g, '-'),
+    entity_type: 'poi', intent_type: 'entity_modifier', status: st, page_type: 'ENTITY_MODIFIER',
+    volume: r.volume, kd: r.kd, cpc: r.cpc_cents, traffic_potential: r.traffic_potential,
+    SERP_class: works ? 'OPEN_WINNER_TAKE_MOST_IF_NO_RESELLER' : 'NOT_SAMPLED',
+    source_of_keyword: 'livdar-final-research-freeze-2026-09-30/ENTITY-MODIFIER-RESEARCH.csv',
+    evidence: 'Ahrefs measured 2026-09-30 round two, entity ' + r.entity + ', tier ' + r.tier + ', ' + r.verdict,
+    data_source_required: works ? 'OSM plus Wikidata; attraction affiliate for monetisation only' : '',
+    indexable: works || highTp ? 'YES' : 'NO', notes: r.verdict });
+}
+
+// --- 7b. Round three: harvested keyword sets per validated family -------------
+// Every earlier pass sized a family by entity arithmetic (cities x modifiers).
+// This block carries the first HARVESTED keyword sets: real matching-terms pulls
+// per family, so a family's demand is a list of measured keywords rather than a
+// multiplication. PATTERN-BREADTH-MEASURED.csv carries the breadth counts that
+// bound each family, including the two that overturned their own page estimate.
+const HARVEST_SERP = {
+  'move.visa-country': 'OPEN',
+  'transport.node-route-and-hotels': 'OPEN',
+  'places.city-category': 'OPEN',
+  'rents.city-listings': 'OPEN_REQUIRES_INVENTORY',
+  'jobs.role-city-and-category-city': 'LISTING_INVENTORY_REQUIRED_VERTICAL',
+  'jobs.rules-durable': 'OPEN',
+  'jobs.employer-city': 'LISTING_INVENTORY_REQUIRED',
+};
+for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/FAMILY-KEYWORD-HARVEST.csv', ',')) {
+  const v = num(r.volume);
+  const needsFeed = r.feed_required && r.feed_required !== 'none';
+  const brandExcluded = /BRAND_EXCLUDE/.test(r.verdict || '');
+  let st;
+  if (brandExcluded) st = 'REJECT';
+  else if (v === '' || v < 50) st = 'REJECT';
+  else if (needsFeed) st = 'OPPORTUNITY_REQUIRES_FEED';
+  else if (v >= 1000) st = 'DURABLE_HEAD';
+  else if (v >= 300) st = 'CANDIDATE_HEAD';
+  else st = 'PROMISING';
+  push({ keyword: r.keyword, market: r.market, surface: r.axis.slice(2), family: r.family,
+    entity_type: r.axis === 'E_jobs' ? 'job' : r.axis === 'D_stay' ? 'accommodation'
+      : r.axis === 'H_transport' ? 'transport_node' : r.axis === 'B_places' ? 'local_place'
+      : r.axis === 'F_move' ? 'city_or_country' : 'poi',
+    intent_type: needsFeed ? 'listing_discovery' : 'informational',
+    status: st, page_type: needsFeed ? 'LISTING' : 'DURABLE',
+    volume: r.volume, kd: r.kd, cpc: r.cpc_cents,
+    SERP_class: HARVEST_SERP[r.family] || 'NOT_SAMPLED',
+    source_of_keyword: 'livdar-final-research-freeze-2026-09-30/FAMILY-KEYWORD-HARVEST.csv',
+    evidence: 'Ahrefs keywords-explorer-matching-terms harvest 2026-09-30 round three, pattern ' + r.pattern,
+    data_source_required: needsFeed ? r.feed_required : '',
+    indexable: brandExcluded ? 'NO' : 'YES',
+    notes: brandExcluded ? 'brand or aggregator query, not ours to rank for' : r.verdict });
+}
+
 // --- 8. Tracked keywords already in Rank Tracker ------------------------------
 for (const r of readTable('reports/ahrefs-export-2026-09-28/rank-tracker/tracked-keywords-2026-09-28.tsv', '\t')) {
   push({ keyword: r.keyword, market: r.country, language: r.language,
@@ -297,7 +403,8 @@ const semantic = (s) => norm(s).replace(/[^\p{L}\p{N} ]/gu, '').split(' ').filte
 
 // Status precedence. A keyword reached by several passes keeps its strongest
 // claim, and LIVE always beats a candidate status for the same string.
-const RANK = ['REJECT', 'EXPERIMENT_ONLY', 'BLOCKED_LICENCE', 'BLOCKED_DATA', 'PROMISING', 'CANDIDATE_HEAD',
+const RANK = ['REJECT', 'EXPERIMENT_ONLY', 'BLOCKED_LICENCE', 'BLOCKED_DATA', 'PROMISING',
+  'OPPORTUNITY_REQUIRES_FEED', 'CANDIDATE_HEAD',
   'DURABLE_HEAD', 'LISTING_HEAD', 'ENTITY_HEAD', 'ESIM', 'LIVE_SECONDARY', 'LIVE_PRIMARY'];
 const rankOf = (s) => { const i = RANK.indexOf(s); return i < 0 ? 0 : i; };
 const better = (a, b) => {
@@ -341,6 +448,7 @@ for (const r of final) {
   else if (r.SERP_class === 'OPEN' && v >= 300) pr = 4;
   else if (r.status === 'DURABLE_HEAD' || r.status === 'ENTITY_HEAD' || r.status === 'LISTING_HEAD') pr = 5;
   else if (r.status === 'CANDIDATE_HEAD') pr = 6;
+  else if (r.status === 'OPPORTUNITY_REQUIRES_FEED') pr = 6.5;
   else if (r.status === 'BLOCKED_DATA') pr = 7;
   else if (r.status === 'EXPERIMENT_ONLY') pr = 8;
   else if (r.status === 'PROMISING') pr = 9;

@@ -1,0 +1,67 @@
+axis,family,page_type,keyword,market,volume,kd,cpc_cents,traffic_potential,note
+D_stay,rents.city-listings,DURABLE,wohnung mieten hamburg,de-DE,15000,3,5,5600,local language rentals are large. English measured 10 to 0
+D_stay,rents.city-listings,DURABLE,wohnung mieten berlin,de-DE,14000,9,10,23000,local language rentals
+D_stay,rents.city-listings,DURABLE,wohnung mieten münchen,de-DE,8400,0,8,27000,local language rentals
+D_stay,rents.city-listings,DURABLE,wohnung mieten nürnberg,de-DE,8300,0,2,8200,tier 2 city and still 8300
+D_stay,rents.city-listings,DURABLE,wohnung mieten leipzig,de-DE,7400,3,2,10000,tier 2 city
+D_stay,rents.city-listings,DURABLE,wohnung mieten stuttgart,de-DE,5400,2,2,3900,tier 2 city
+D_stay,rents.city-listings,DURABLE,wohnung mieten dresden,de-DE,5000,2,1,5400,tier 2 city
+D_stay,rents.city-listings,DURABLE,wohnung mieten köln,de-DE,4600,2,5,12000,tier 2 city
+D_stay,rents.city-area,DURABLE,wohnung mieten berlin mitte,de-DE,300,0,4,700,neighbourhood cut exists but small
+D_stay,stay.vacation-rental,DURABLE,ferienwohnung ostsee,de-DE,20000,6,45,41000,region holiday rental is the biggest stay keyword measured
+D_stay,stay.vacation-rental,DURABLE,ferienwohnung berlin,de-DE,3700,0,50,900,city holiday rental
+D_stay,stay.city-hotels,DURABLE,hotels hamburg,de-DE,9500,4,70,47000,high TP but the SERP is Google Hotels suppressed
+D_stay,stay.city-hotels,DURABLE,hotels berlin,de-DE,7300,0,80,9700,SERP measured: whole top 10 earns single digits
+D_stay,stay.city-hotels,DURABLE,hotel berlin mitte,de-DE,4600,0,90,0,neighbourhood hotel cut
+D_stay,stay.city-hotels,DURABLE,hotels köln,de-DE,3800,0,60,17000,
+D_stay,stay.hostel,DURABLE,hostel berlin,de-DE,5600,0,50,250,hostel is a distinct type with real volume
+D_stay,stay.wg-shared,DURABLE,wg zimmer hamburg,de-DE,1700,1,15,1900,shared room, the intent English measured as 10
+D_stay,stay.wg-shared,DURABLE,wg zimmer berlin,de-DE,1600,9,20,4900,shared room
+D_stay,stay.wg-shared,DURABLE,wg berlin,de-DE,1500,23,35,8200,shared room short form
+D_stay,stay.wg-shared,DURABLE,wg zimmer münchen,de-DE,1400,3,8,5800,shared room
+D_stay,stay.wg-shared,DURABLE,wg zimmer köln,de-DE,700,1,3,2500,shared room
+D_stay,stay.student,DURABLE,studentenwohnheim berlin,de-DE,2100,12,40,1100,student housing
+D_stay,stay.student,DURABLE,studentenwohnheim hamburg,de-DE,2100,0,35,0,student housing
+D_stay,stay.student,DURABLE,studentenwohnheim münchen,de-DE,2000,57,25,3800,student housing
+D_stay,stay.student,DURABLE,studentenwohnung berlin,de-DE,600,0,40,500,student housing variant
+D_stay,stay.furnished,DURABLE,möblierte wohnung berlin,de-DE,900,2,70,2000,furnished is the German equivalent of the dead English monthly phrasing
+D_stay,stay.furnished,DURABLE,möbliertes apartment münchen,de-DE,150,3,110,800,furnished
+D_stay,stay.sublet,DURABLE,zwischenmiete berlin,de-DE,250,34,70,350,sublet
+D_stay,stay.pension,DURABLE,pension berlin,de-DE,1500,23,60,800,guest house
+D_stay,stay.airport-hotels,DURABLE,hotels frankfurt flughafen,de-DE,1200,4,100,6700,airport node hotel works in German too
+D_stay,stay.coliving,DURABLE,coliving berlin,de-DE,150,43,80,200,coliving genuinely small even in local language
+D_stay,stay.monthly,DURABLE,apartment berlin monatlich,de-DE,0,,,,the monthly phrasing is dead in German as well as English
+C_events,events.recurring-named,DURABLE,wacken 2026,de-DE,92000,24,7,42000,named recurring festival is the largest event keyword measured
+C_events,events.city-seasonal,DURABLE,weihnachtsmarkt berlin,de-DE,21000,26,25,9700,seasonal city event
+C_events,events.city-market,DURABLE,flohmarkt berlin,de-DE,16000,0,1,12000,recurring city market
+C_events,events.city-durable,DURABLE,veranstaltungen berlin,de-DE,11000,0,30,6100,city events durable, SERP sampled
+C_events,events.city-exhibitions,DURABLE,ausstellungen berlin,de-DE,10000,0,35,14000,exhibitions
+C_events,events.city-durable,DURABLE,veranstaltungen münchen,de-DE,9800,28,10,26000,city events
+C_events,events.city-durable,DURABLE,veranstaltungen hamburg,de-DE,9500,43,30,33000,city events
+C_events,events.city-concerts,DURABLE,konzerte münchen,de-DE,7100,5,3,25000,concerts
+C_events,events.city-concerts,DURABLE,konzerte berlin,de-DE,7000,0,3,4100,concerts
+C_events,events.city-window,DURABLE,veranstaltungen berlin heute,de-DE,6700,25,30,37000,today window
+C_events,events.city-seasonal,DURABLE,silvester berlin,de-DE,5300,19,15,5500,new year
+C_events,events.country-festivals,DURABLE,festivals deutschland 2026,de-DE,3100,2,10,0,country festivals
+C_events,events.city-window,DURABLE,veranstaltungen berlin wochenende,de-DE,2700,23,30,25000,weekend window
+C_events,events.city-cinema,DURABLE,kino berlin programm,de-DE,2700,66,6,32000,cinema listings
+C_events,events.city-whatson,DURABLE,was ist los in berlin,de-DE,1900,0,20,0,whats on phrasing
+C_events,events.venue-event,DURABLE,olympiastadion berlin veranstaltungen,de-DE,150,1,5,3900,venue event page small volume high TP
+C_events,events.venue-event,DURABLE,lanxess arena köln veranstaltungen,de-DE,10,1,3,70000,venue event page TP 70000 on volume 10
+E_jobs,jobs.city-category,DURABLE,minijob berlin,de-DE,21000,0,25,20,category x city, the largest jobs keyword measured
+E_jobs,jobs.city-durable,DURABLE,jobs berlin,de-DE,16000,37,35,6000,city jobs
+E_jobs,jobs.city-durable,DURABLE,stellenangebote berlin,de-DE,4500,0,35,23000,city jobs local phrasing, SERP sampled
+E_jobs,jobs.city-durable,DURABLE,stellenangebote münchen,de-DE,4000,5,35,6500,city jobs
+E_jobs,jobs.city-durable,DURABLE,jobs münchen,de-DE,8000,5,35,7000,city jobs
+E_jobs,jobs.city-durable,DURABLE,stellenangebote hamburg,de-DE,2600,4,25,20000,city jobs
+E_jobs,jobs.city-category,DURABLE,ausbildung berlin,de-DE,2900,47,45,1600,apprenticeship x city
+E_jobs,jobs.city-category,DURABLE,teilzeit jobs berlin,de-DE,2400,0,35,1100,part time x city
+E_jobs,jobs.city-category,DURABLE,werkstudent berlin,de-DE,2300,0,40,600,working student x city
+E_jobs,jobs.city-category,DURABLE,praktikum berlin,de-DE,1600,0,25,1700,internship x city
+E_jobs,jobs.company-city,DURABLE,siemens jobs münchen,de-DE,700,5,25,13000,company x city
+E_jobs,jobs.company-city,DURABLE,bmw jobs münchen,de-DE,600,1,10,12000,company x city
+E_jobs,jobs.role-city,DURABLE,verkäufer jobs berlin,de-DE,500,0,60,350,role x city
+E_jobs,jobs.remote,DURABLE,homeoffice jobs deutschland,de-DE,300,26,35,130000,remote, TP 130000
+E_jobs,jobs.role-city,DURABLE,softwareentwickler jobs berlin,de-DE,100,,60,,role x city thin
+E_jobs,jobs.role-city,DURABLE,krankenschwester jobs münchen,de-DE,100,0,80,80,role x city thin
+E_jobs,jobs.salary-role,DURABLE,gehalt krankenschwester deutschland,de-DE,30,21,50,4600,salary, small volume high TP

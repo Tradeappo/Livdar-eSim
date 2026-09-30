@@ -1,0 +1,141 @@
+{
+ "generated": "2026-09-30 round three",
+ "what_changed": "Round two sized every family by entity arithmetic: a city count times a modifier count. This pass harvested real keyword sets per family with keywords-explorer-matching-terms and measured each pattern's BREADTH (how many distinct keywords actually exist above a volume floor). Where the tail exhausted below the row limit, the breadth is a hard measured ceiling for that pattern in that market. Four families lose their page estimate on that evidence and one family is new.",
+ "method": {
+  "harvest": "keywords-explorer-matching-terms, select keyword+volume+difficulty+cpc at 22 units/row for keyword sets, keyword only at 11 units/row for breadth counts",
+  "breadth_is_a_ceiling_when": "returned rows < limit. Then no keyword above the floor was left unreturned",
+  "breadth_is_a_floor_when": "returned rows == limit. The tail was still going",
+  "cap_check": "airport to city centre returned exactly 100 at floor 200, which looks like a round cap. Re-run at floor 50 returned 400 (the limit), proving 100 was the true count and not a cap",
+  "units_spent": 34287,
+  "what_was_NOT_measured": "breadth in the other nine markets. Round two already found the 11-market multiplier invalid for the tail (commit 6bd2665), so these counts are NOT multiplied by 11. Every figure below is per-pattern per-market as measured."
+ },
+ "families": [
+  {
+   "family": "stay.wg-student-furnished",
+   "round_two_pages": 9000,
+   "measured_breadth": 73,
+   "market_measured": "de-DE",
+   "tail_exhausted": true,
+   "verdict": "ESTIMATE_REFUTED",
+   "correction": "wg zimmer has 8 city keywords at 300+. All three patterns together reach about 35 cities, every one a university city, and three of those (wien, innsbruck, zürich) are outside the 11 markets. This is a big-city family, not a 9000-page family. Largest overstatement found.",
+   "revised_pages_de": 73
+  },
+  {
+   "family": "poi.entity-parking",
+   "round_two_pages": 3000,
+   "measured_breadth": null,
+   "market_measured": "en-GB",
+   "tail_exhausted": false,
+   "verdict": "ESTIMATE_REFUTED_ON_COMPOSITION",
+   "correction": "Breadth hit the limit but the composition refutes the family rather than supporting it. At 2000+ volume the demand is airport parking, parking-operator brands (britannia, apcoa, parkingeye, purple, maple, saba, ringgo), council parking and parking-rules informational. True attraction-entity parking is a short list: wembley, o2, trafford centre, legoland, battersea power station, westfield, ao arena, cabot circus, st james quarter. Round two already required DR 50 here. Reassign the airport parking demand to the transport node pages and drop the rest.",
+   "revised_pages_gb": 150
+  },
+  {
+   "family": "property.city-buy",
+   "round_two_pages": 10000,
+   "measured_breadth": 350,
+   "market_measured": "de-DE",
+   "tail_exhausted": true,
+   "verdict": "ESTIMATE_OVERSTATED",
+   "correction": "wohnung kaufen exhausts at 78 and haus kaufen at 272, so 350 for both patterns at 1000+ in the largest market. haus kaufen is the wider pattern and reaches small towns; wohnung kaufen is a third of rental breadth. 10000 pages needs the sub-1000 tail plus every market, neither of which is measured.",
+   "revised_pages_de": 350
+  },
+  {
+   "family": "rents.city-listings",
+   "round_two_pages": 26000,
+   "measured_breadth": 223,
+   "market_measured": "de-DE",
+   "tail_exhausted": true,
+   "verdict": "DEMAND_CONFIRMED_COUNT_OVERSTATED",
+   "correction": "223 distinct keywords at 1000+ in de-DE, and the metric pull showed the whole tier-2 and tier-3 tail sitting at KD 0 to 3 with 2300 to 15000 volume each. The demand is real and the difficulty is genuinely near zero; the gate is inventory, not ranking. But 223 is the measured ceiling for the main pattern in the strongest market, so 26000 rests on unmeasured markets and unmeasured sub-patterns.",
+   "revised_pages_de": 223
+  },
+  {
+   "family": "events.city-durable-window-concerts",
+   "round_two_pages": 11000,
+   "measured_breadth": 400,
+   "market_measured": "de-DE",
+   "tail_exhausted": false,
+   "verdict": "DEMAND_CONFIRMED_BUT_MOSTLY_UNPUBLISHABLE",
+   "correction": "Breadth exceeds 400 at 500+ volume, the widest single pull in the set. But the majority of it carries a non-durable time window (heute, morgen, wochenende, dieses wochenende) that a static page cannot serve, plus artist-entity queries (santiano, udo lindenberg, ayliva, helene fischer) that need ticketing inventory. The durable publishable subset is city and city-plus-year only. Counting the time-window keywords as pages is the error in the 11000.",
+   "revised_pages_de": "city and city-plus-year subset only, not the 400"
+  },
+  {
+   "family": "transport.node-route-and-hotels",
+   "round_two_pages": 2000,
+   "measured_breadth": 100,
+   "market_measured": "en-GB",
+   "tail_exhausted": true,
+   "verdict": "ESTIMATE_PLAUSIBLE_STRUCTURE_CORRECTED",
+   "correction": "About 70 airports at 200+ and 150+ airports at 50+, including long-haul. The structural correction: taxi from, bus from, train from, how to get from, how far, distance from, transfer from, cost of taxi from and uber variants are SECONDARY KEYWORDS on one airport page, not separate pages. One page per airport per intent gives roughly 300 durable pages in en-GB, not 2000. This is the best monetising family measured: hotels near X airport carries 70 to 120 cent CPC at KD 0 to 4.",
+   "revised_pages_gb": 300
+  },
+  {
+   "family": "places.city-category",
+   "round_two_pages": 6342,
+   "measured_breadth": 283,
+   "market_measured": "en-GB",
+   "tail_exhausted": true,
+   "verdict": "ESTIMATE_SUPPORTED",
+   "correction": "One category alone (coworking space) exhausts at 283 keywords at 150+ in one market. The composition shows how the family legitimately reaches thousands: not city alone but city, neighbourhood and near-station micro-geo (about 45 cities, about 60 London neighbourhoods, about 40 near-station and near-tube-line queries). Very high commercial value: coworking space CITY runs 150 to 800 cents CPC at KD 0 to 50. Multiply by the category axis (rooftop bar, vegan restaurants, best cafes all measured live) and 6342 stands.",
+   "revised_pages_gb": 6342
+  },
+  {
+   "family": "atlas.city-family-carried-forward",
+   "round_two_pages": 29274,
+   "measured_breadth": 450,
+   "market_measured": "en-GB",
+   "tail_exhausted": false,
+   "verdict": "ESTIMATE_SUPPORTED",
+   "correction": "things to do in exceeds 450 keywords at 500+ volume in one market and one pattern with the tail still going. The destination universe is GLOBAL, not the 11 markets: nashville, sydney, bali, tokyo, cancun and zanzibar all rank as en-GB demand, and it reaches small UK towns (maldon, hayle, wroxham, saundersfoot, aberaeron). Audience modifiers (with kids, for couples, for adults, free, fun) are defensible sub-pages. Best-supported large family in the set.",
+   "revised_pages_gb": 29274
+  },
+  {
+   "family": "jobs.role-city-and-category-city",
+   "round_two_pages": 40000,
+   "measured_breadth": null,
+   "market_measured": "de-DE",
+   "tail_exhausted": false,
+   "verdict": "DEMAND_CONFIRMED_FEED_GATED",
+   "correction": "minijob CITY is a real city-scaled pattern at KD 0 with 6100 to 21000 volume per city (berlin 21000, münchen 13000, hamburg 13000, köln 10000, nürnberg 9300, hannover 8600, bremen 7600, leipzig 7000, dortmund 6900, frankfurt 6700, stuttgart 6400, düsseldorf 6100). jobs CITY runs KD 2 to 37. Demand is not the constraint; the jobs feed is. Employer-brand queries (lidl, dm, db, siemens, rossmann, porsche, rewe, amazon) are excluded as not ours to rank for.",
+   "revised_pages_de": "feed-gated, demand confirmed"
+  },
+  {
+   "family": "jobs.rules-durable",
+   "round_two_pages": 0,
+   "measured_breadth": 9,
+   "market_measured": "de-DE",
+   "tail_exhausted": false,
+   "verdict": "NEW_FAMILY_FOUND",
+   "correction": "A no-feed family that round two missed entirely because it sat inside the jobs axis, which round two classified wholesale as feed-gated. Regulatory and threshold demand needs no listing inventory at all: minijob grenze 2026 at 48000 volume KD 5, minijob grenze 43000 KD 0, minijob grenze 2025 38000 KD 0, minijob 2026 22000 KD 14, minijob gehalt 13000 KD 24, minijob wie viele stunden 6200 KD 18, kündigungsfrist minijob 6000 KD 0. This is publishable today with no feed and no licence.",
+   "revised_pages_de": "9 measured heads, breadth not yet exhausted"
+  },
+  {
+   "family": "move.visa-country",
+   "round_two_pages": 1800,
+   "measured_breadth": 39,
+   "market_measured": "en-GB",
+   "tail_exhausted": true,
+   "verdict": "DEMAND_CONFIRMED_COUNT_UNPROVEN",
+   "correction": "39 usable keywords at 300+ in en-GB on the visa-type times country axis (digital nomad visa SPAIN, australia work visa, canada work visa, portugal digital nomad visa). Round two called this the highest-CPC family measured and that holds: 60 to 350 cents. 1800 pages requires the full visa-type times country grid, of which only the en-GB slice is measured. Noise excluded on write: hot work permit, work permit cloud, permit to work system are industrial-safety queries, not migration."
+  },
+  {
+   "family": "poi.entity-tickets",
+   "round_two_pages": 22000,
+   "measured_breadth": 45,
+   "market_measured": "en-GB",
+   "tail_exhausted": false,
+   "verdict": "UNCHANGED_FROM_ROUND_TWO",
+   "correction": "Not re-measured this pass. The 45 measured entity heads from ENTITY-MODIFIER-RESEARCH.csv still carry it, with the round-two caveat intact: select per entity, because it fails wherever a ticketing reseller owns the query."
+  }
+ ],
+ "headline": {
+  "families_whose_page_estimate_is_refuted": 2,
+  "families_whose_page_estimate_is_overstated": 3,
+  "families_whose_page_estimate_is_supported": 2,
+  "families_new": 1,
+  "the_two_biggest_families_survive": "atlas.city-family-carried-forward at 29274 and places.city-category at 6342 both hold up on measured breadth, and together they are 35616 of the 64416 currently-rankable pages",
+  "what_this_does_to_the_160416_verdict": "It does not restore it. The feed-backed 160416 figure leaned on rents 26000, jobs 40000, events 11000, property 10000 and wg 9000, which is 96000 of it. Measured breadth refutes wg and property outright, shows events is mostly unpublishable time windows, and caps rents at 223 in its strongest market. The 100000 threshold that round two marked YES for the feed-backed case is NOT supported by measured keyword breadth.",
+  "the_honest_position": "Demand-confirmed and publishable without any feed: atlas, places.city-category, transport airport nodes, move.visa-country and the new jobs.rules-durable. That is the buildable universe. Everything feed-gated is now demand-measured rather than arithmetic, and three of those five shrank."
+ }
+}

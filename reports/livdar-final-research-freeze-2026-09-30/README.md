@@ -30,7 +30,7 @@ To merge new evidence:
 | `SCALE-FINAL.md` | the funnel, the thresholds, and why entity pages fail | hand written from `SCALE-FINAL.json` |
 | `SCALE-FINAL.json` | the machine readable funnel and threshold table | `scripts/atlas/scale/entity-scale-model.mjs` |
 | `EXECUTION-ROADMAP.md` | what to build, what not to build, with the reason for each | hand written |
-| `LIVDAR-MASTER-KEYWORDS-FINAL.csv` | **the master keyword set**, 7,306 unique rows, 23 columns | `scripts/atlas/scale/master-keywords-final.mjs` |
+| `LIVDAR-MASTER-KEYWORDS-FINAL.csv` | **the master keyword set**, 7,713 unique rows, 23 columns | `scripts/atlas/scale/master-keywords-final.mjs` |
 | `LIVDAR-MASTER-KEYWORDS-FINAL.jsonl.gz` | the same rows, one JSON object per line | same script |
 | `KEYWORD-COUNTS.json` | the dedupe funnel and every breakdown asked for | same script |
 | `FAMILY-FINAL.csv` | 160 families rolled up from the master file | `scripts/atlas/scale/final-rollups.mjs` |
@@ -43,6 +43,10 @@ To merge new evidence:
 | `DATA-GAPS-FINAL.csv` | the 10 gaps ranked, each with a blocker class and a recommendation | hand written |
 | `SERP-EVIDENCE.csv` | 10 SERPs with the lowest-DR winner and the traffic below position 1 | hand written from Ahrefs |
 | `ENTITY-AXIS-MEASUREMENTS.csv` | 137 keywords measured this pass across the nine axes | hand written from Ahrefs |
+| `ROUND3-MEASURED-DEMAND.md` | round three: the families measured as keywords instead of multiplied, and the four findings that change what gets built | hand written |
+| `FAMILY-KEYWORD-HARVEST.csv` | 282 harvested keywords per validated family, with volume, KD, CPC, pattern and feed requirement | hand written from Ahrefs matching-terms |
+| `PATTERN-BREADTH-MEASURED.csv` | 11 breadth measurements: how many keywords exist per pattern above a volume floor, and whether the tail exhausted | hand written from Ahrefs |
+| `MEASURED-SCALE-ROUND3.json` | each family's round-two estimate against its measured breadth, with the correction | hand written |
 
 ## The status vocabulary in the master keyword file
 
