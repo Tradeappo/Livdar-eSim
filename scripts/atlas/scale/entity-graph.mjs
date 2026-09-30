@@ -71,9 +71,14 @@ for (const f of cityShards) {
   for (const c of list) {
     if (!c || !c.id) continue;
     cities.push({
-      id: String(c.id), type: 'city', name: c.name || c.asciiName, iso2: c.iso2 || null,
+      // The sharded city store spells these `country` and `tz`; the earlier
+      // `c.iso2` / `c.timezone` reads silently returned null for all 31,715
+      // cities, which left every city in the graph without a country and made
+      // market scoping impossible. Both spellings are accepted now.
+      id: String(c.id), type: 'city', name: c.name || c.asciiName,
+      iso2: c.iso2 || c.country || null,
       admin1: c.admin1 ?? null, population: c.population ?? null,
-      lat: c.lat ?? null, lon: c.lon ?? null, timezone: c.timezone || null,
+      lat: c.lat ?? null, lon: c.lon ?? null, timezone: c.timezone || c.tz || null,
       names: c.names || null,
     });
   }

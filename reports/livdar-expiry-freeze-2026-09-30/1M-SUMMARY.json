@@ -1,0 +1,75 @@
+{
+ "generated": "2026-09-30",
+ "raw_candidate_combinations": 128829,
+ "after_exact_dedupe": 106718,
+ "after_semantic_dedupe": 106575,
+ "after_cannibalization_filtering": 98652,
+ "FINAL_DISTINCT_CANDIDATES": 98652,
+ "target": 1000000,
+ "shortfall_to_1m": 901348,
+ "dropped_no_demand_evidence": 86,
+ "families_generating": 69,
+ "families_blocked": 2,
+ "families_with_no_entity_store": 5,
+ "no_entity_store_list": [
+  "events.recurring",
+  "places.poi",
+  "pulse.today",
+  "rankings.index",
+  "sport.route"
+ ],
+ "by_source_status": {
+  "SOURCE_AVAILABLE": 28895,
+  "READY_NOW": 49801,
+  "FEED_REQUIRED": 5082,
+  "LICENCE_REQUIRED": 14874
+ },
+ "by_surface": {
+  "areas": 10201,
+  "pulse": 11252,
+  "tools": 21107,
+  "climate": 9172,
+  "move": 17844,
+  "transport": 2071,
+  "work": 6500,
+  "stay": 18104,
+  "safety": 1823,
+  "sport": 578
+ },
+ "by_market": {
+  "de-DE": 8977,
+  "en-GB": 31877,
+  "ja-JP": 8827,
+  "es-ES": 5639,
+  "fr-FR": 6009,
+  "nl-NL": 4386,
+  "pl-PL": 4938,
+  "it-IT": 4758,
+  "en-US": 10335,
+  "pt-BR": 11798,
+  "zh-Hant-TW": 1108
+ },
+ "by_entity_type": {
+  "city": 54954,
+  "country": 18933,
+  "year": 20,
+  "subdivision-year": 86,
+  "subdivision": 43,
+  "tool": 40,
+  "neighbourhood": 2469,
+  "country-year": 3984,
+  "month-year": 240,
+  "holiday": 3624,
+  "country-pair": 2700,
+  "venue": 11559
+ },
+ "distinct_families": 58,
+ "entity_pools_available": {
+  "cities": 31715,
+  "countries": 249,
+  "neighbourhoods": 1403,
+  "airports": 3244,
+  "venues": 9438,
+  "subdivisions": 69
+ }
+}
