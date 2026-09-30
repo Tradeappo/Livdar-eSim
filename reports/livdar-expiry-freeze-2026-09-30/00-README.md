@@ -21,7 +21,7 @@ first. It is written to be the only file you need to resume work.
 |---|---|
 | `00-README.md` | this file, and the rules above |
 | `01-EXECUTIVE-SUMMARY.md` | the whole programme in one read: what is true, what is built, what is blocked |
-| `02-MASTER-KEYWORDS.csv` | **the keyword master. 8,189 unique keywords, 23 columns.** The single authoritative keyword file |
+| `02-MASTER-KEYWORDS.csv` | **the keyword master. 8,229 unique keywords, 23 columns.** The single authoritative keyword file |
 | `03-MASTER-KEYWORDS.jsonl.gz` | the same rows, one JSON object per line |
 | `04-FAMILY-MASTER.csv` | every family rolled up from the master |
 | `05-MARKET-MASTER.csv` | every market rolled up from the master |

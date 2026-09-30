@@ -70,16 +70,17 @@ conflict.
 | nl-NL | 670 |
 | pt-BR | 645 |
 | ja-JP | 432 |
-| zh-Hant-TW | 108 |
+| zh-Hant-TW | 148 |
 | MULTI_MARKET (eSIM) | 104 |
-| **Total unique** | **8,189** |
+| **Total unique** | **8,229** |
 
-zh-Hant-TW is the market to look at next: it holds only 108 keywords but carries the
-largest single measured head in the entire project (`租屋補助`, 269,000 volume, KD 0).
+zh-Hant-TW is the market to look at next: it holds only 148 keywords but carries the
+largest single measured head in the entire project (`租屋補助`, 269,000 volume, KD 0) and
+its breadth is still not exhausted.
 
 ## 6. The keyword master
 
-`02-MASTER-KEYWORDS.csv`. 8,189 unique keywords, 23 columns: keyword, market, language,
+`02-MASTER-KEYWORDS.csv`. 8,229 unique keywords, 23 columns: keyword, market, language,
 surface, family, entity_type, intent_type, status, live_or_future,
 primary_or_secondary, page_type, target_url_or_pattern, volume, KD, CPC,
 traffic_potential, SERP_class, source_of_keyword, evidence, data_source_required,
@@ -107,8 +108,8 @@ No feed, no licence, demand measured:
 |---|---|
 | `atlas.city-family-carried-forward` | breadth exceeded every limit tested, in six languages. Global destination universe. 29,274 pages |
 | `places.city-category` | breadth exhausted at 283 for one category in one market. City + neighbourhood + near-station. 150–800 cents CPC. 6,342 pages |
-| `jobs.rules-durable` | **new.** `minijob grenze 2026` 48,000 KD 5. No feed |
-| `rents.rules-durable` | **new.** `租屋補助` 269,000 KD 0. Public rules |
+| `jobs.rules-durable` | **new, measured.** Breadth >400 keywords at 500+ in de-DE, limit hit. `minijob grenze 2026` 48,000 KD 5. Rules portion needs no feed; the ~150 `minijob {city}` queries do |
+| `rents.rules-durable` | **new, measured.** Breadth >120 keywords at 300+ in zh-Hant-TW, limit hit, nearly all KD 0–13. `租屋補助` 269,000 KD 0. Sub-intent × year × city × audience × landlord questions. Public rules, no feed |
 | `transport.node-route-and-hotels` | ~70 airports >200 volume, 150+ >50. `hotels near X airport` KD 0–4 at 70–120 cents. **Blocked by a wrong distance field — see §9** |
 | `move.visa-country` | highest CPC measured, 60–350 cents |
 | `poi.entity-tickets` | 45 measured entity heads. Select per entity: fails where a reseller owns the query |
@@ -164,8 +165,9 @@ tool. **This session did not change it.**
 In `18-NEXT-EXECUTION-TASKS.csv`, with gates and dependencies. The first five:
 
 1. Set up the GSC API scheduled export (free, unblocks every controller gate).
-2. Measure breadth of `jobs.rules-durable` and `rents.rules-durable` — the two cheapest
-   families found, both no-feed, before any keyword tool access lapses.
+2. **Done in this session.** Both rules-durable families were measured before expiry;
+   both hit the row limit, so both counts are floors. Next step is to *build* them,
+   starting with their calculator intents against the live `tools.calculator` surface.
 3. Fix the airport distance field, then lift the `transport.airport-to-city` cap of 0.
 4. Publish cohort 003 from the 1,791 publishable candidates **only after** a clean 28-day
    GSC window on the existing 500, per controller step 1.

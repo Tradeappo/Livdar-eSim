@@ -63,17 +63,18 @@ In `reports/livdar-final-research-freeze-2026-09-30/`:
 | File | What it holds |
 |---|---|
 | `FAMILY-KEYWORD-HARVEST.csv` | 282 harvested keywords per validated family, with volume, KD, CPC |
-| `MARKET-BREADTH-HARVEST.csv` | 497 local-language keywords across the nine under-measured markets |
-| `PATTERN-BREADTH-MEASURED.csv` | 11 breadth measurements with floors, limits and whether the tail exhausted |
+| `MARKET-BREADTH-HARVEST.csv` | 537 local-language keywords across the nine under-measured markets, including the Taiwan rent-subsidy family |
+| `PATTERN-BREADTH-MEASURED.csv` | 13 breadth measurements with floors, limits and whether the tail exhausted |
 | `MEASURED-SCALE-ROUND3.json` | each family's estimate against its measured breadth |
 | `ENTITY-MODIFIER-RESEARCH.csv` | 95 entity-plus-modifier measurements |
 | `ROUND2-AXIS-MEASUREMENTS.csv` | the round-two axis measurements |
 | `ENTITY-AXIS-MEASUREMENTS.csv` | 137 keywords across the nine axes |
 
 ## API budget at the freeze
-Advanced plan, monthly. **1,335,064 of 2,000,000 units used, 664,936 remaining**,
-resetting 2026-10-08. This session spent 48,787: 34,287 on the family harvest and
-breadth measurements, 14,500 on the nine-market breadth pass.
+Advanced plan, monthly. **1,342,104 of 2,000,000 units used, 657,896 remaining**,
+resetting 2026-10-08. This session spent 55,827: 34,287 on the family harvest and
+breadth measurements, 14,500 on the nine-market breadth pass, and 7,040 closing the
+breadth of the two rules-durable families rather than leaving them as open questions.
 
 The API key itself is valid to 2036-09-05, so if the subscription is ever reinstated
 the key does not need replacing — only the plan.

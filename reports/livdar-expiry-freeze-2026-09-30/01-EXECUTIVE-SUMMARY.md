@@ -15,7 +15,7 @@ That is a clean, small, healthy site. Nothing in this freeze is a rescue job.
 
 ## What the research establishes
 
-**The keyword master holds 8,189 unique keywords** across 191 families and 11 markets
+**The keyword master holds 8,229 unique keywords** across 191 families and 11 markets
 plus a multi-market eSIM bucket, every row carrying its source file and its evidence.
 This is the asset that would have been most expensive to lose.
 
@@ -47,12 +47,37 @@ each pattern's real keyword breadth. Four estimates did not survive:
 - **events, 11,000 → mostly unpublishable.** The breadth is real but most of it
   carries `heute`/`morgen`/`wochenende` time windows a static page cannot serve.
 
-And one family was **found**: `jobs.rules-durable`. German minijob regulation demand
-needs no feed at all — `minijob grenze 2026` at 48,000 volume and KD 5. Round two had
-classified the whole jobs axis as feed-gated and buried it. A second one of the same
-shape turned up in Taiwan: `租屋補助` (rent subsidy) at **269,000 volume, KD 0**, with
-its query family worth roughly 400,000 combined monthly searches and needing nothing
-but public rules.
+## The two families that were found, and then measured
+
+Round two classified the whole jobs axis as feed-gated, which buried the fact that
+*regulatory* demand needs no listing inventory at all. Two families of that shape turned
+up, and both were measured before the subscription ended rather than left as questions.
+
+**`jobs.rules-durable` (de-DE)** — breadth **exceeded 400 keywords** at 500+ volume, the
+row limit, so the tail is still running. The composition splits three ways and only the
+first needs no feed: a large rules set (thresholds by year, holiday entitlement, notice
+periods, health and pension insurance, tax and deductions, hours, minimum wage by year,
+contract templates, age rules, and every benefit-combination question — minijob with
+unemployment benefit, with parental allowance, as a student, against a midijob), plus
+roughly 150 `minijob {city}` listing queries that do need a feed, plus employer brands
+that are not ours. Heads: `minijob grenze 2026` at 48,000 and KD 5, `minijob grenze`
+43,000 KD 0.
+
+**`rents.rules-durable` (zh-Hant-TW)** — breadth **exceeded 120 keywords** at 300+
+volume, also limit-capped. `租屋補助` (rent subsidy) is **269,000 volume at KD 0**, and
+the family is a complete durable grid, almost all of it KD 0 to 13: sub-intent (check
+status, apply, eligibility, calculate, amount, conditions, payment date, progress,
+documents, review, phone, online application) × year (both ROC 114/115 and Gregorian
+2025/2026, so an annual refresh rather than a rebuild) × city (Taichung 4,000, Kaohsiung
+2,000, New Taipei 1,700, Taipei 1,200, Tainan 1,200, Taoyuan 1,100) × audience (students,
+university students, indigenous residents) × a cluster of landlord questions that nobody
+else answers well (why won't my landlord allow it, will the landlord find out, will the
+landlord be taxed).
+
+Both are built on **public government rules**: no feed, no licence, no inventory. And
+both contain a calculator intent — `minijob rechner` and `租屋補助試算` — which maps
+directly onto `tools.calculator`, a surface Livdar already runs live with 133 keywords.
+That is the cheapest, highest-certainty work on the entire board.
 
 ## The two families that carry the programme
 

@@ -24,12 +24,13 @@ This is the only window where paid or trial access still buys something irreplac
 If Ahrefs units remain (664,936 at the freeze, resetting 2026-10-08) or a trial exists,
 spend it here and nowhere else:
 
-**4. Measure breadth of `jobs.rules-durable` and `rents.rules-durable`.** The two
-families found in the last pass, both no-feed and no-licence, with heads at 48,000 and
-269,000 volume at KD 5 and KD 0. **Neither has had its tail exhausted, so nobody knows
-how many pages they are worth.** This is the highest-value unanswered question in the
-project and it takes about 2,000 API units to answer. Use the method in
-`12-SCALE-LADDER.md` §"How breadth was measured".
+**4. ~~Measure breadth of the two rules-durable families.~~ DONE before expiry.** Both
+hit the row limit: `jobs.rules-durable` exceeds 400 keywords at 500+ volume in de-DE,
+`rents.rules-durable` exceeds 120 at 300+ in zh-Hant-TW at KD 0 to 13. Both counts are
+floors, not ceilings. **The remaining work is to build them, not to measure them** — and
+both start with a calculator intent (`minijob rechner`, `租屋補助試算`) against the
+already-live `tools.calculator` surface. If any keyword access remains, push the floors
+further by re-running at a lower volume floor with a higher row limit.
 
 **5. Measure the atlas tail in the two under-recorded markets.** zh-Hant-TW holds 108
 keywords in the master and reaches 269,000; pt-BR holds 645 and reaches 20,000. Both are

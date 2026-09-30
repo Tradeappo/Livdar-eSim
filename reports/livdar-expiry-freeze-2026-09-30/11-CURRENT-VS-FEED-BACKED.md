@@ -92,9 +92,17 @@ both need no feed at all:
 - `rents.rules-durable` (zh-Hant-TW): `租屋補助` at **269,000 volume KD 0**, with
   `查詢` 45,000, `申請` 32,000, `資格` 32,000, `試算` 12,000, `補貼` 11,000.
 
-Combined that is well over 500,000 monthly searches at near-zero difficulty, against
-public rules that any government publishes and nobody needs to licence. Neither family
-has had its breadth exhausted, so the page count is unknown — but it is the only place
-in this freeze where large demand meets zero difficulty and zero data cost.
+Both were measured before the subscription ended, and both hit the row limit:
 
-**Measure these two families first.** They are the cheapest thing left on the table.
+- `jobs.rules-durable` **exceeds 400 keywords** at 500+ volume in de-DE. The rules
+  portion needs no feed; roughly 150 `minijob {city}` queries in the same pull do.
+- `rents.rules-durable` **exceeds 120 keywords** at 300+ volume in zh-Hant-TW, nearly
+  all at KD 0 to 13, spanning sub-intent × year × city × audience × landlord questions.
+
+Combined that is well over 500,000 monthly searches at near-zero difficulty against
+public rules nobody needs to licence. **Neither tail is exhausted**, so both counts are
+floors, not ceilings — the only two families in this freeze whose next measurement is
+likely to revise a number *upward*.
+
+Both also carry a calculator intent (`minijob rechner`, `租屋補助試算`) that maps onto
+`tools.calculator`, already live with 133 keywords. This is where to start building.
