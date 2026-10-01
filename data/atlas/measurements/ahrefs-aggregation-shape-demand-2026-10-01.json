@@ -2,7 +2,7 @@
  "provider": "Ahrefs Keywords Explorer, matching terms",
  "capturedOn": "2026-10-01",
  "method": "keyword-only select with a volume floor, so each row costs 11 units rather than 22. The question asked of each probe was not 'does this pattern have demand' but 'does the demand carry the MODIFIER the shape needs' - a city name, a neighbourhood name, a cuisine, an attribute. A pattern with large national volume and no city-scoped variants cannot support one page per city.",
- "unitsSpent": 7954,
+ "unitsSpent": 9400,
  "probes": [
   {
    "shape": "city_opening",
@@ -83,6 +83,67 @@
    "verdict": "NOT_VALIDATED_IN_THIS_MARKET",
    "evidence": "one keyword only at a floor of 50. The German-language demand for the 90/180 rule is not expressed as 'rechner'.",
    "consequence": "recorded as a rejected tool intent for de-DE rather than built on an assumption. Not evidence about other markets."
+  },
+  {
+   "shape": "tools.cost-calculator",
+   "market": "en-GB",
+   "keyword": "cost of living calculator",
+   "volumeFloor": 100,
+   "rows": 2,
+   "verdict": "NOT_VALIDATED",
+   "evidence": "two keywords only: 'cost of living calculator' and 'cost of living calculator uk'.",
+   "consequence": "the calculator framing is not where the demand is in this market."
+  },
+  {
+   "shape": "tools.cost-calculator",
+   "market": "de-DE",
+   "keyword": "lebenshaltungskosten vergleich",
+   "volumeFloor": 50,
+   "rows": 4,
+   "verdict": "WEAK_BUT_THE_SHAPE_IS_A_PAIR",
+   "evidence": "four keywords, and the useful one is 'lebenshaltungskosten usa vergleich deutschland': a COUNTRY PAIR, not a calculator.",
+   "consequence": "the demand that exists here belongs to the existing country-pair comparison family, not to a new calculator family."
+  },
+  {
+   "shape": "INTENT_TRAP",
+   "market": "en-GB",
+   "keyword": "cost of living",
+   "volumeFloor": 700,
+   "rows": 52,
+   "verdict": "WRONG_INTENT_ENTIRELY",
+   "evidence": "at a floor of 700 volume, 50 of the 52 keywords are about UK government cost of living PAYMENTS: 'dwp cost of living payment', 'universal credit cost of living payment', 'when will it be paid', 'cost of living payment 2026 uk', 'cost of living crisis'. Only 'cost of living comparison' and 'numbeo cost of living' carry the expat comparison intent Livdar serves.",
+   "consequence": "this is the most expensive mistake the probe prevented. A family built on the head term would have chased a welfare benefit with pages about moving abroad: high volume, zero relevance, and a SERP owned by gov.uk and the DWP. The phrase is recorded as an intent trap and the family stays scoped to explicit comparison phrasing."
+  },
+  {
+   "shape": "activities.city-things-to-do",
+   "market": "zh-Hant-TW",
+   "keyword": "景點",
+   "volumeFloor": 1000,
+   "rows": 70,
+   "verdict": "VALIDATED_IN_LOCAL_LANGUAGE_NOT_BY_TRANSLATION",
+   "evidence": "70 keywords above 1000 volume, researched in Traditional Chinese rather than translated from English. Taiwanese cities and counties are named directly: 台北, 台中, 高雄, 台南, 花蓮, 宜蘭, 嘉義, 新竹, 桃園, 南投, 澎湖, 台東, 屏東, 基隆, 苗栗, 雲林, 彰化, 新北, plus districts 淡水, 士林, 內湖, 新店, 中壢, 礁溪.",
+   "modifiers_measured": [
+    "親子 family",
+    "室內 indoor",
+    "免費 free",
+    "推薦 recommended",
+    "必去 must visit",
+    "私房 hidden",
+    "一日遊 day trip",
+    "排行 ranking",
+    "地圖 map"
+   ],
+   "consequence": "Taiwan is not a thin market, it is an under-researched one. The modifier set is also a data-backed axis where OSM carries the tag: indoor, fee=no for free, and playground or family attraction types."
+  },
+  {
+   "shape": "CROSS_LANGUAGE_REACH",
+   "market": "zh-Hant-TW",
+   "keyword": "景點",
+   "volumeFloor": 1000,
+   "rows": 70,
+   "verdict": "TAIWAN_IS_AN_OUTBOUND_MARKET",
+   "evidence": "the same probe returns foreign destinations searched FROM Taiwan at the same volume floor: 奶良 Nara, 北海道 Hokkaido, 沖縄 Okinawa, 名古屋 Nagoya, 新寿 Shinjuku, 關西 Kansai, 大阪 Osaka, 東京 Tokyo, 曼谷 Bangkok, 釜山 Busan, 泰國 Thailand, 胡志明市 Ho Chi Minh City, 石垃島 Ishigaki, 泉州 Quanzhou.",
+   "consequence": "zh-Hant-TW earns destination pages for Japanese, Korean and South East Asian destinations, which the reach file did not previously record. Added to CROSS-LANGUAGE-REACH.csv."
   }
  ],
  "ruleDerived": {

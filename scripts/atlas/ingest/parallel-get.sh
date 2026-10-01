@@ -55,5 +55,7 @@ for f in "$D"/p*; do GOT=$(( GOT + $(stat -c%s "$f") )); done
 if [ "$GOT" -ne "$TOTAL" ]; then
   echo "incomplete: have $GOT of $TOTAL bytes, re-run to resume"; exit 1
 fi
-cat "$D"/p* > "$OUT.joined" && mv -f "$OUT.joined" "$OUT" && rm -rf "$D"
-echo "done: $(stat -c%s "$OUT") bytes -> $OUT"
+# join in place: appending onto the first part and deleting each one as it goes needs the
+# file plus one part, where "cat parts > joined" needed the whole file twice. With several
+# extracts on disk at once that difference is the whole session allowance.
+"$(dirname "$0")/join-parts.sh" "$OUT"

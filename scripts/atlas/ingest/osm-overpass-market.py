@@ -72,16 +72,16 @@ TILES = {
 
 def fetch_tile(sel, bbox):
     south, west, north, east = bbox
-    q = ('[out:json][timeout:170];\n'
+    q = ('[out:json][timeout:80];\n'
          f'nwr{sel}["name"]({south},{west},{north},{east});\n'
          'out tags center;')
-    for attempt in range(5):
+    for attempt in range(3):
         ep = ENDPOINTS[attempt % len(ENDPOINTS)]
         try:
             data = urllib.parse.urlencode({'data': q}).encode()
             rq = urllib.request.Request(ep, data=data, headers={
                 'User-Agent': 'LivdarCandidateInventory/1.0 (offline research inventory)'})
-            with urllib.request.urlopen(rq, timeout=320) as r:
+            with urllib.request.urlopen(rq, timeout=110) as r:
                 body = json.load(r)
             # Overpass answers a timeout or a load-shedding refusal with HTTP 200 and a
             # "remark" field. Reading that as an empty result silently lost every
@@ -93,7 +93,7 @@ def fetch_tile(sel, bbox):
             return body.get('elements', [])
         except Exception as e:
             print(f'    {ep.split("/")[2]} attempt {attempt + 1}: {e}', flush=True)
-            time.sleep(20 * (attempt + 1))
+            time.sleep(8 * (attempt + 1))
     return None
 
 
@@ -104,7 +104,7 @@ def quarter(bbox):
             (mlat, w_, n_, mlon), (mlat, mlon, n_, e_)]
 
 
-def fetch(sel, max_depth=3):
+def fetch(sel, max_depth=4):
     """Fetch one tag group across every tile, splitting a tile that will not answer.
 
     A fixed tile grid cannot work for every tag group at once: restaurants in the Taipei
