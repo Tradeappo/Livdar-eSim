@@ -1,22 +1,19 @@
 {
- "manifest_rows": 234431,
- "distinct_urls": 234431,
+ "manifest_rows": 233568,
+ "distinct_urls": 233568,
  "checks": {
-  "title_over_65_chars": 131921,
-  "meta_over_165_chars": 2016,
+  "title_over_65_chars": 130993,
+  "meta_over_165_chars": 2006,
   "long_dash_in_source_name_or_derived_text": 47,
   "title_under_15_chars": 363,
   "duplicate_title_exact": 3487,
   "duplicate_title_same_tokens": 3530,
-  "superlative_added_by_template": 20,
+  "superlative_from_the_family_own_intent": 20,
   "uniqueness_reason_shared_with_another_candidate": 22,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 232
+  "orphan_pages": 82
  },
  "orphans_by_family": {
-  "places.area-attribute": 54,
-  "places.city-cuisine": 48,
-  "places.area-opening": 48,
   "places.city-sport": 37,
   "destinations.country-hub": 9,
   "places.city-swimming_pool": 3,
@@ -38,7 +35,9 @@
   "places.city-golf_course": 1,
   "places.city-nature_reserve": 1,
   "places.city-theme_park": 1,
-  "property.city-buy": 1
+  "property.city-buy": 1,
+  "rents.city": 1,
+  "stay.city-type": 1
  },
  "saturated_templates": [],
  "duplicate_examples": [
@@ -396,132 +395,15 @@
   }
  ],
  "long_dash_examples": [],
- "superlative_examples": [
-  {
-   "candidate_id": "c_8d14a679576b",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "London, GB: city best for"
-  },
-  {
-   "candidate_id": "c_5a1a4d798c44",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Barcelona, ES: city best for"
-  },
-  {
-   "candidate_id": "c_3a9ccf4c7529",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Madrid, ES: city best for"
-  },
-  {
-   "candidate_id": "c_0cdd6b44aa97",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "São Paulo, BR: city best for"
-  },
-  {
-   "candidate_id": "c_680b17bc32de",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Naples, IT: city best for"
-  },
-  {
-   "candidate_id": "c_b1920e9bf936",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Turin, IT: city best for"
-  },
-  {
-   "candidate_id": "c_27d511e80c2d",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Berlin, DE: city best for"
-  },
-  {
-   "candidate_id": "c_e878df586f86",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Hamburg, DE: city best for"
-  },
-  {
-   "candidate_id": "c_d61b8d5f329d",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Köln, DE: city best for"
-  },
-  {
-   "candidate_id": "c_e4f677b6ff23",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Chicago, US: city best for"
-  },
-  {
-   "candidate_id": "c_77f27c3493c5",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "New York City, US: city best for"
-  },
-  {
-   "candidate_id": "c_35ddc89751a9",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Philadelphia, US: city best for"
-  },
-  {
-   "candidate_id": "c_b9884e311110",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Paris, FR: city best for"
-  },
-  {
-   "candidate_id": "c_e5cda2a1647f",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Tokyo, JP: city best for"
-  },
-  {
-   "candidate_id": "c_8af3496d3bcf",
-   "field": "_title",
-   "words": [
-    "best"
-   ],
-   "value": "Honolulu, US: city best for"
-  }
- ],
+ "superlative_examples": [],
+ "families_whose_own_name_claims_a_superlative": {
+  "neighbourhoods.city-best-for": 20
+ },
+ "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
   "min": 12,
   "max": 192,
-  "mean": 62.2
+  "mean": 62.1
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
