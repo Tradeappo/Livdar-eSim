@@ -727,6 +727,10 @@ for (country, city, cls, an), n in city_at.items():
         rejects['attr_below_min_count'] += 1; continue
     if city_pop(country, city) < POP_FLOOR_ATTR:
         rejects['attr_city_below_measured_demand_floor'] += 1; continue
+    if (country, city, cls) not in accepted_city:
+        # the modifier page hangs off the plain class list, so without it there is nothing
+        # on the site linking down to this page
+        rejects['attr_parent_city_page_not_accepted'] += 1; continue
     base = city_n.get((country, city, cls), 0)
     if base and n >= 0.9 * base:
         # if nearly every venue in the city has the attribute, the filter tells the
@@ -785,6 +789,8 @@ for (country, city, cls, mode), n in city_op.items():
     floor = POP_FLOOR_OPENING_DE if country == 'DE' else POP_FLOOR_OPENING
     if city_pop(country, city) < floor:
         rejects['opening_city_below_measured_demand_floor'] += 1; continue
+    if (country, city, cls) not in accepted_city:
+        rejects['opening_parent_city_page_not_accepted'] += 1; continue
     base = city_n.get((country, city, cls), 0)
     if base and n >= 0.9 * base:
         # if essentially everything of that kind in the city is open then, the page is
@@ -841,6 +847,9 @@ for (country, city, sp), n in city_sp.items():
     market, lang = mk
     if n < MIN_SPORT_CITY:
         rejects['sport_below_min_count'] += 1; continue
+    if (country, city, 'sports_centre') not in accepted_city:
+        # a sport page sits under the city's sports centre list, which has its own gate
+        rejects['sport_parent_city_page_not_accepted'] += 1; continue
     rows.append({
         'shape': 'city_sport', 'country': country, 'city': city, 'cls': 'sports_facility',
         'sport': sp, 'n': n, 'enriched': n, 'market': market, 'language': lang,

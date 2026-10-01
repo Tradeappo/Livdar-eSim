@@ -135,6 +135,31 @@ for f in sorted(glob.glob(ROOT + 'data/atlas/sources/wikidata/wd-*.jsonl.gz')):
     except (EOFError, OSError): pass
 print(f'Wikidata entities loaded: {len(wd):,}', file=sys.stderr)
 
+# Which pages the OSM aggregation actually accepted. This script runs after it, so it can
+# read the output rather than guess: a Wikidata entity whose class list page was never
+# accepted has no parent, and leaving that to the publication controller still left 1,507
+# museum orphans sitting in the manifest. Resolve it here instead.
+accepted_city_list = set()
+hub_cities = set()
+try:
+    for l in gzip.open(ROOT + 'data/atlas/sources/osm-poi/_aggregations.jsonl.gz', 'rt',
+                       encoding='utf-8'):
+        l = l.strip()
+        if not l:
+            continue
+        try:
+            a = json.loads(l)
+        except Exception:
+            continue
+        if a.get('shape') == 'city_category':
+            accepted_city_list.add((a['country'], a['city'], a['cls']))
+        elif a.get('shape') == 'city_areas_hub':
+            hub_cities.add((a['country'], a['city']))
+except (EOFError, OSError, FileNotFoundError):
+    pass
+print(f'OSM city lists accepted: {len(accepted_city_list):,}; cities with an areas hub: '
+      f'{len(hub_cities):,}', file=sys.stderr)
+
 rows = []
 list_cells = collections.Counter()
 list_cells_web = collections.Counter()
@@ -169,16 +194,24 @@ for o in wd:
         # gives no hours, no address and no phone, so there is nothing practical to say
         rejects['no_official_website_so_page_would_be_thin'] += 1; continue
     # The parent is the class list page for this city, which the OSM aggregation emits only
-    # where it passed its own gates. Wikidata cannot know that, so the parent is recorded
-    # and the publication controller enforces parent-before-child: Part D forbids releasing
-    # a child whose parent is unpublished, which is where this is caught.
+    # where it passed its own gates. Leaving that to the publication controller was not
+    # enough: it left 1,507 museum orphans in the manifest. So the parent is resolved
+    # against pages that exist, the class list first and the city areas hub second, and an
+    # entity with neither is rejected rather than carried as an orphan.
+    if (o['country'], city, cls) in accepted_city_list:
+        parent = f'/{lang}/places/{slug(cls)}/{slug(city)}/'
+    elif (o['country'], city) in hub_cities:
+        parent = f'/{lang}/areas/{slug(city)}/'
+    else:
+        rejects['no_parent_page_exists_on_the_site'] += 1
+        continue
     rows.append({
         'shape': 'wikidata_notable', 'source': 'wikidata', 'country': o['country'],
         'city': city, 'cls': cls, 'n': 1, 'enriched': 2,
         'market': market, 'language': lang,
         'entity_name': o['name'], 'entity_id': o['id'],
         'url': f"/{lang}/poi/{slug(cls)}/{slug(o['name'])}-{o['id'].lower()}/",
-        'parent_url': f"/{lang}/places/{slug(cls)}/{slug(city)}/",
+        'parent_url': parent,
         'attribution': 'wikidata_cc0',
         'uniqueness_reason': (f"{o['name']} is a {cls.replace('_', ' ')} in {city} with "
             f"Wikidata item {o['id']}, coordinates and an official website, and is NOT "
