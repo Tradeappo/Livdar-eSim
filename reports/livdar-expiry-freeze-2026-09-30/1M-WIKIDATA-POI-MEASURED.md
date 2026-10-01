@@ -3,7 +3,7 @@
 Measured 2026-10-01 against `query.wikidata.org/sparql`, counting
 `wdt:P31 <class>` with `wdt:P17` in one of the 11 market countries.
 
-**9 classes measured, 86,341 entities.** This is a PARTIAL
+**13 classes measured, 92,941 entities.** This is a PARTIAL
 measurement: the endpoint hard-throttles (about six queries succeed, then sustained
 429s), so roughly 30 further classes were not reached before the session ended. The
 measured classes are the large ones, and the figure should be read as a floor.
@@ -16,10 +16,13 @@ measured classes are the large ones, and the figure should be read as a floor.
 | theatre | 9,327 |
 | beach | 7,945 |
 | shopping mall | 4,945 |
+| art museum | 4,657 |
 | university | 3,613 |
 | stadium | 3,474 |
+| botanical garden | 1,876 |
 | cafe | 921 |
-| **Total measured** | **86,341** |
+| tourist attraction | 41 |
+| zoo | 26 |
 
 ## The two findings that matter
 
