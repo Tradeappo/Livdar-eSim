@@ -232,6 +232,28 @@ KCLUSTER = {}
 for i, k in enumerate(sorted(cell_kw)):
     KCLUSTER[k] = 'kc_%05d' % i
 
+# Measured tier reach per family x market, from CELL-GATE.csv. The family's generic
+# entity spec (city:t2) is a default; where a cell was actually measured deeper, the
+# measurement wins. 64 of 150 cells reach TAIL and 5 explicitly count tier 4, which is
+# how "wohnung mieten cuxhaven" at 2,800 and "praca stargard" at 9,800 are legitimate
+# candidates while an unmeasured tier-4 town in an unmeasured family is not.
+CELL_TIER = {}
+CELL_REACH = {}
+try:
+    for r in csv.DictReader(open(ROOT + 'reports/livdar-master-seo-universe-2026-09-30/CELL-GATE.csv')):
+        k = (r['family'], r['market'])
+        tiers = (r.get('tiers') or '').strip()
+        reach = (r.get('reach') or '').strip()
+        CELL_REACH[k] = reach
+        if tiers:
+            CELL_TIER[k] = max(int(t) for t in tiers.split('+') if t.strip().isdigit())
+        elif reach == 'TAIL':
+            CELL_TIER[k] = 3          # TAIL without an explicit tier list means tier 3
+        elif reach in ('HEAD_ONLY', 'NONE'):
+            CELL_TIER[k] = 1
+except FileNotFoundError:
+    pass
+
 # measured cross-language destination reach
 xl_markets = collections.defaultdict(set)
 XL_CITIES = set()          # the destination cities actually measured cross-language
@@ -371,6 +393,12 @@ def entity_pool(f):
         elif ':t2' in ent: tier = 2
         elif ':t3' in ent: tier = 3
         elif ent in ('city', 'city-date'): tier = 3   # cap the open-ended ones at t3
+        # Where a family x market cell was measured deeper than the family's generic
+        # spec, the measurement wins. Take the deepest measured tier for this family
+        # across its markets as the pool bound; the per-market filter below trims it
+        # back down for markets whose own cell is shallower.
+        measured = [v for (ff, mm), v in CELL_TIER.items() if ff in kw_names(fid)]
+        if measured: tier = max(tier, max(measured))
         pool = [c for c in cities if c['tier'] <= tier]
         if 'neighbourhood' in fid: pool = [c for c in pool if c['id'] in CITIES_WITH_NEIGH]
         return [('city', c['id'], c['name'], c['country'], c['name'], '', c['tier']) for c in pool]
@@ -524,6 +552,13 @@ for f in fams:
             if l not in by_lang or demand_score(fid, m, tier) > demand_score(fid, by_lang[l], tier):
                 by_lang[l] = m
         for lang, m in sorted(by_lang.items()):
+            # trim to this market's own measured depth: a city deeper than the cell
+            # was measured to reach is not a candidate in that market
+            if etype == 'city':
+                cap = next((CELL_TIER[(n, m)] for n in kw_names(fid) if (n, m) in CELL_TIER), None)
+                if cap is not None and (tier or 4) > cap:
+                    stats['dropped_beyond_measured_tier'] += 1
+                    continue
             dscore = demand_score(fid, m, tier)
             if dscore == 0:
                 stats['dropped_no_demand_evidence'] += 1
@@ -686,6 +721,7 @@ summary = {
     'target': 1000000,
     'shortfall_to_1m': max(0, 1000000 - len(stage3)),
     'dropped_no_demand_evidence': stats['dropped_no_demand_evidence'],
+    'dropped_beyond_measured_tier': stats['dropped_beyond_measured_tier'],
     'families_generating': stats['families_generating'],
     'families_blocked': stats['families_blocked'],
     'families_with_no_entity_store': stats['families_with_no_entity_store'],

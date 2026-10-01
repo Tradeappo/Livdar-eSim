@@ -48,6 +48,8 @@ first. It is written to be the only file you need to resume work.
 | `1M-GAP-SUMMARY.json` | the gap arithmetic in one object |
 | `1M-SUMMARY.json` | the full dedupe funnel and every breakdown |
 | `1M-GSC-VALIDATION-PLAN.md` | per-family GSC thresholds: expand, success, hold, kill |
+| `1M-SOURCE-ACQUISITION-PACK.csv` | **10 sources ranked by candidates unlocked**, each with provider, API, cost, licence, record count, geography, fields, refresh, storage and indexing rights, implementation requirement |
+| `1M-WIKIDATA-POI-MEASURED.csv` / `.md` | Wikidata POI per class in the 11 markets, measured live 2026-10-01, and the CC0 finding |
 | `18-NEXT-EXECUTION-TASKS.csv` | the task backlog, each row with its gate and its dependency |
 
 ## How to sum `06-ENTITY-LISTING-UNIVERSE.csv` without double counting
@@ -110,9 +112,16 @@ real entities on disk: 31,715 named cities with country and tier, 249 countries,
 airports, 9,438 venues, 1,403 neighbourhoods, 69 subdivisions and 3,624 holiday
 occurrences. It is rebuilt by running the script; it is never hand-edited.
 
-**98,652 distinct candidates** survive all three dedupe passes. Keywords validate
-clusters, not pages: 286 keyword clusters from the 8,229-keyword master stand behind
-those 98,652 rows, which is the intended ratio.
+**153,224 distinct candidates** survive all three dedupe passes. Keywords validate
+clusters, not pages: keyword clusters from the 8,229-keyword master stand behind those
+rows, which is the intended ratio.
+
+Depth per family is driven by **measured tier reach**, not a blanket cap. `CELL-GATE.csv`
+records how deep each family x market cell was actually measured: 64 of 150 cells reach
+TAIL and 5 explicitly count tier 4. Where a cell was measured deeper than the family's
+generic entity spec, the measurement wins — which is why `wohnung mieten cuxhaven` at
+2,800 and `praca stargard` at 9,800 are legitimate candidates. 67,210 rows were dropped
+for sitting deeper than their own market's measured depth.
 
 Two structural facts cap it, and both are real rather than conservative choices:
 
@@ -138,12 +147,22 @@ from a first pass of 181,571:
   durable parent pages already in the manifest, not a page per listing.
 - **year multiplication** — capped at the two years the calendar families already use.
 
-**The gap to 1M is 901,348, and one acquisition closes it.** OpenStreetMap plus
+**The gap to 1M is 846,776, and one acquisition closes it.** OpenStreetMap plus
 Wikidata POI ingestion yields 964,920 source-backed POIs; at one validated practical
 modifier each (tickets, opening hours, how to get to, parking — all measured
-MODIFIER_WORKS) that is 964,920 candidates, a 63,572 surplus over the gap. Bare POI
+MODIFIER_WORKS) that is 964,920 candidates, a 118,144 surplus over the gap. Bare POI
 entity pages must not be generated: they are `BRAND_OWNED_PLUS_SOCIAL` and unrankable.
-`1M-GAP-TO-TARGET.csv` carries the basis of every figure.
+`1M-GAP-TO-TARGET.csv` carries the basis of every figure, and
+`1M-SOURCE-ACQUISITION-PACK.csv` has the ten sources ranked with licence, cost and
+implementation requirement for each.
+
+**Wikidata was measured live on 2026-10-01** and is the better of the two POI sources
+on licence: **CC0, with no share-alike**, against OSM's ODbL. 86,341 entities across 9
+classes in the 11 markets, a floor rather than a total because the endpoint throttles.
+But it is **weak on commercial POI** — `cafe` returned only 921 across all eleven
+markets — so restaurants, cafes, gyms and coworking still require OSM and its ODbL
+obligation. Wikidata covers the durable attraction-shaped POI; OSM covers the dense
+commercial tail.
 
 ## The one rule for future work
 

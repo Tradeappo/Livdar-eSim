@@ -33,6 +33,29 @@ def add(source, family_or_axis, basis, unlocks, status, note):
                  'basis_of_the_number': basis, 'candidates_unlocked': unlocks,
                  'source_status_after': status, 'note': note})
 
+# 0 -- Wikidata POI, MEASURED LIVE against the SPARQL endpoint this session.
+#      This matters more than the OSM figure below because the licence is CC0: no
+#      share-alike obligation, unlike ODbL. Counts are instances with wdt:P17 in one
+#      of the 11 market countries.
+try:
+    WD = json.load(open('/tmp/wd_class_counts.json'))
+except Exception:
+    WD = {}
+wd_total = sum(WD.values())
+if WD:
+    add('Wikidata POI ingestion (CC0, measured live)', 'poi.<class>-<modifier>',
+        'LIVE SPARQL counts in the 11 market countries: ' +
+        ', '.join(f'{k} {v:,}' for k, v in sorted(WD.items(), key=lambda x: -x[1])),
+        wd_total, 'READY_NOW once ingested',
+        'CC0 1.0: no share-alike, no legal attribution requirement, which makes it '
+        'strictly easier to publish than OSM. VERIFIED REACHABLE from the Livdar '
+        'container, but the endpoint hard-throttles bulk extraction (about six '
+        'counting queries then sustained 429s), so ingestion must use the JSON dump '
+        'or a multi-day paginated crawler. Wikidata is strong on museums, libraries, '
+        'hospitals, theatres, beaches, universities and stadiums, and WEAK on '
+        'commercial POI: cafe returned only 921 across all 11 markets, so '
+        'restaurants, cafes, gyms and coworking still need OSM.')
+
 # 1 -- POI x validated modifier. The only source large enough to reach 1M.
 add('OpenStreetMap + Wikidata POI ingestion', 'poi.entity-<modifier>',
     f'{POI_SOURCE_BACKED:,} source-backed POI x 1 validated modifier',
@@ -87,6 +110,9 @@ with open(OUT + '1M-GAP-TO-TARGET.csv', 'w', newline='') as fh:
 
 summary = {
     'built_from_entities_on_disk': built,
+    'wikidata_poi_measured_live_11_markets': wd_total,
+    'wikidata_classes_measured': len(WD),
+    'wikidata_licence': 'CC0 1.0, no share-alike',
     'target': 1_000_000,
     'gap': gap,
     'closes_the_gap_alone': 'OpenStreetMap + Wikidata POI ingestion',
