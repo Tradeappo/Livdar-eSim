@@ -56,6 +56,17 @@ OFFICE = {'coworking': 'coworking'}
 RAILWAY = {'station': 'railway_station', 'halt': 'railway_halt', 'tram_stop': 'tram_stop'}
 AEROWAY = {'aerodrome': 'airport', 'terminal': 'airport_terminal'}
 
+# Neighbourhood-level places. These are not POI: they are the AREAS that POI
+# aggregate into, and they are what makes "cafes in Kreuzberg" possible instead of
+# only "cafes in Berlin". Captured in the same pass because they live in the same
+# extract and cost nothing extra.
+PLACE = {'suburb': 'suburb', 'neighbourhood': 'neighbourhood', 'quarter': 'quarter',
+         'borough': 'borough', 'city_block': 'city_block', 'city_district': 'city_district'}
+
+def classify_place(t):
+    v = t.get('place')
+    return PLACE.get(v) if v else None
+
 def classify(t):
     for key, table in (('amenity', AMENITY), ('shop', SHOP), ('leisure', LEISURE),
                        ('tourism', TOURISM), ('historic', HISTORIC), ('natural', NATURAL),
@@ -77,10 +88,22 @@ class POI(osmium.SimpleHandler):
         self.seen += 1
         t = dict(o.tags)
         name = t.get('name')
-        if not name: return                      # unnamed POI cannot carry a page
+        if not name: return                      # unnamed entity cannot carry a page
+        pl = classify_place(t)
+        if pl:
+            rec = {'id': f'{kind}{o.id}', 'kind': 'place', 'cls': pl, 'name': name,
+                   'country': self.iso2,
+                   'lat': round(lat, 6) if lat is not None else None,
+                   'lon': round(lon, 6) if lon is not None else None}
+            for k_src, k_dst in (('population', 'pop'), ('wikidata', 'qid'),
+                                 ('is_in:city', 'in_city'), ('addr:city', 'city')):
+                if t.get(k_src): rec[k_dst] = str(t[k_src])[:120]
+            self.out.write(json.dumps(rec, ensure_ascii=False) + '\n')
+            self.counts['PLACE:' + pl] += 1; self.kept += 1
+            return
         cls = classify(t)
         if not cls: return
-        rec = {'id': f'{kind}{o.id}', 'cls': cls, 'name': name, 'country': self.iso2,
+        rec = {'id': f'{kind}{o.id}', 'kind': 'poi', 'cls': cls, 'name': name, 'country': self.iso2,
                'lat': round(lat, 6) if lat is not None else None,
                'lon': round(lon, 6) if lon is not None else None}
         for k_src, k_dst in (('addr:city', 'city'), ('website', 'web'),
@@ -88,6 +111,24 @@ class POI(osmium.SimpleHandler):
                              ('wikidata', 'qid'), ('cuisine', 'cuisine'),
                              ('addr:postcode', 'pc'), ('operator', 'op')):
             if t.get(k_src): rec[k_dst] = t[k_src][:120]
+        # Attributes a person actually filters on. These are what let a modifier page
+        # ("cafes with wifi in Berlin", "restaurants with outdoor seating in Lyon") be
+        # backed by data instead of asserted: the page exists only where enough
+        # entities carry the tag. Kept as a compact dict so the output stays small.
+        attr = {}
+        for k_src, k_dst in (('internet_access', 'wifi'), ('outdoor_seating', 'outdoor'),
+                             ('wheelchair', 'wheelchair'), ('takeaway', 'takeaway'),
+                             ('delivery', 'delivery'), ('air_conditioning', 'ac'),
+                             ('diet:vegan', 'vegan'), ('diet:vegetarian', 'vegetarian'),
+                             ('diet:halal', 'halal'), ('diet:kosher', 'kosher'),
+                             ('diet:gluten_free', 'gluten_free'), ('dog', 'dog'),
+                             ('drive_through', 'drive_through'), ('fee', 'fee'),
+                             ('sport', 'sport'), ('stars', 'stars'),
+                             ('changing_table', 'changing_table'),
+                             ('reservation', 'reservation'), ('brand', 'brand')):
+            v = t.get(k_src)
+            if v: attr[k_dst] = str(v)[:40]
+        if attr: rec['attr'] = attr
         self.out.write(json.dumps(rec, ensure_ascii=False) + '\n')
         self.counts[cls] += 1; self.kept += 1
 
