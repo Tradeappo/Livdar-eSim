@@ -1,0 +1,55 @@
+{
+  "measurement": "Which additional official and open datasets are actually reachable and usable",
+  "date": "2026-10-01",
+  "brief_section": "Brief 8 section 13: find valid additional sources, respect licence, materialise only legal and durable ones",
+  "method": "Each endpoint was called from this container and the response inspected. Reachability is reported as measured rather than assumed, because two sources this project already depends on turned out to be rate-limited or blocked only when actually called.",
+  "tested_and_reachable": [
+    {
+      "source": "ROR, the Research Organization Registry",
+      "endpoint": "https://api.ror.org/organizations?filter=country.country_code:DE",
+      "status": 200,
+      "measured": "5,843 organisations for Germany alone",
+      "licence": "CC0, public domain",
+      "what_it_would_add": "Verified names, types, locations and links for universities and research institutions. It does NOT add pages: section 15 and the existing WD_LIST_ONLY rule both say an institution's own SERP belongs to the institution, so this enriches the universities-in-a-city LIST with a verified roster rather than creating a page per institution.",
+      "verdict": "USABLE, enrichment not expansion",
+      "ingested_in_this_pass": false
+    },
+    {
+      "source": "Eurostat dissemination API",
+      "endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_a",
+      "status": 200,
+      "measured": "House price index, annual, label returned and updated 2026-10-01T11:00 the same day it was tested",
+      "licence": "Eurostat reuse policy, free with attribution",
+      "what_it_would_add": "A sourced housing cost trend per country and per NUTS region, which is the figure the housing families currently cannot state. It is an INDEX rather than a price, so it supports 'how prices moved' and not 'what a flat costs', and the page must say which.",
+      "verdict": "USABLE for trends, NOT for absolute prices",
+      "ingested_in_this_pass": false
+    }
+  ],
+  "tested_and_blocked": [
+    {
+      "source": "Mobility Database, the GTFS feed catalogue",
+      "endpoint": "https://api.mobilitydatabase.org/v1/metadata",
+      "status": 302,
+      "response": "Invalid GCIP ID token: empty token",
+      "why_it_matters": "This was the intended route to real public transport coverage per city, which section 14 asks for. It needs an account and a token, so it is not usable from here without credentials the environment does not hold.",
+      "verdict": "BLOCKED on authentication, recorded rather than worked around"
+    },
+    {
+      "source": "Geofabrik OSM extracts",
+      "endpoint": "https://download.geofabrik.de/europe/germany-latest.osm.pbf",
+      "status": "tunnel closed mid-exchange, twice, 39 bytes received",
+      "diagnosis": "The agent proxy status named the host and the reason, so this was the egress path rather than the remote service refusing. download.openstreetmap.fr serves the same extracts, answers range requests, and is the mirror the original market ingest used, so the parent capture uses that instead.",
+      "verdict": "WORKED AROUND with a different mirror"
+    }
+  ],
+  "already_in_use_and_unchanged": [
+    "OpenStreetMap, ODbL 1.0, share-alike and attribution: the POI, place and now parent layers",
+    "Wikidata, CC0: notable entities, 13 of 24 classes materialised and labelled a floor",
+    "GeoNames, CC BY 4.0: the city gazetteer and, new in this pass, the admin1 region names",
+    "gov.uk bank-holidays.json, OGL; www8.cao.go.jp syukujitsu.csv; openholidaysapi.org; date.nager.at: the Pulse layer",
+    "NASA POWER: climate",
+    "Eurostat PPP and HICP plus World Bank price level: the cost-of-living tools"
+  ],
+  "honest_note": "Two usable sources were found and NEITHER was ingested in this pass. Testing reachability costs a request; ingesting, normalising, assigning provenance and wiring a family to a source is hours of work each, and the pass already had the two known defects and the parent layer to finish. They are recorded with what they would add and what they would not, so the next pass starts from a tested endpoint rather than a hope.",
+  "what_would_be_wrong_to_do_with_them": "Eurostat gives an INDEX. Rendering an index as a price, or a national figure as a city figure, would be the invented number the standing constraints forbid. ROR gives institutions, and turning each into a page would be exactly the institution-SERP mistake section 15 names."
+}
