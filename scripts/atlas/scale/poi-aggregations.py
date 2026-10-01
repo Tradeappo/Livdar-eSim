@@ -23,10 +23,34 @@ Streaming by construction: at full market coverage the POI corpus is several mil
 records, which does not fit in memory as dicts, so POI are read twice from disk and
 only counters are held - never the corpus.
 """
-import gzip, json, glob, collections, os, sys, math, hashlib, re
+import gzip, json, glob, collections, os, sys, math, hashlib, re, time
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
+
+# One run at a time. This pass takes tens of minutes over five million POI, so it is easy
+# to start a second one by accident - a manual run and the pipeline, for instance - and two
+# runs writing one output file is the failure this project has already hit twice. The lock
+# is a directory because mkdir is atomic; a second run waits for the first rather than
+# skipping, so a caller that needs fresh output gets it.
+_LOCK = '/tmp/poi_aggregations.lock'
+_waited = 0
+while True:
+    try:
+        os.mkdir(_LOCK)
+        break
+    except FileExistsError:
+        if _waited == 0:
+            print('another aggregation run holds the lock; waiting for it to finish',
+                  file=sys.stderr)
+        time.sleep(20)
+        _waited += 20
+        if _waited > 5400:
+            print('lock held for 90 minutes, assuming it is stale and taking it',
+                  file=sys.stderr)
+            break
+import atexit
+atexit.register(lambda: os.rmdir(_LOCK) if os.path.isdir(_LOCK) else None)
 
 # Only classes a person plausibly searches as a LIST. "fire stations in Rotterdam" is
 # not a query; "cafes in Rotterdam" is. Each carries the minimum count that makes the

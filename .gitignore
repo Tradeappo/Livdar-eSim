@@ -34,3 +34,7 @@ reports/scale-universe-*/_rows.jsonl.gz
 reports/scale-universe-*/_raw-count.json
 reports/livdar-master-seo-universe-*/_rows.json
 __pycache__/
+
+# atomic-write temporaries: these exist for milliseconds and must never be tracked
+*.tmp
+*.part

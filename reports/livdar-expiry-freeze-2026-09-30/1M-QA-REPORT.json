@@ -1,408 +1,404 @@
 {
- "manifest_rows": 164656,
- "distinct_urls": 164656,
+ "manifest_rows": 233426,
+ "distinct_urls": 233426,
  "checks": {
-  "title_over_65_chars": 35330,
-  "title_under_15_chars": 17132,
-  "meta_over_165_chars": 1399,
-  "long_dash_in_source_name_or_derived_text": 39,
-  "duplicate_title_exact": 25580,
-  "duplicate_title_same_tokens": 25599,
-  "uniqueness_reason_shared_with_another_candidate": 348,
+  "title_over_65_chars": 72703,
+  "meta_over_165_chars": 2017,
+  "long_dash_in_source_name_or_derived_text": 43,
+  "duplicate_title_exact": 17790,
+  "duplicate_title_same_tokens": 17806,
+  "uniqueness_reason_shared_with_another_candidate": 27,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 3870
+  "orphan_pages": 3430
  },
  "orphans_by_family": {
-  "places.area-cuisine": 1193,
-  "areas.overview": 542,
-  "places.area-supermarket": 187,
-  "places.area-pub": 147,
-  "places.area-pharmacy": 146,
-  "places.city-cuisine": 145,
-  "places.area-opening": 145,
-  "places.area-cafe": 117,
-  "places.area-bar": 107,
-  "places.area-fast_food": 106,
-  "places.area-school": 93,
-  "places.area-clinic": 90,
-  "places.area-dentist": 88,
-  "places.area-gym": 88,
-  "places.area-childcare": 85,
-  "places.area-restaurant": 61,
-  "places.area-veterinary": 54,
-  "places.area-parking": 52,
-  "places.area-guest_house": 44,
-  "places.city-opening": 39,
-  "places.area-attraction": 38,
-  "places.area-railway_station": 27,
-  "places.area-sports_centre": 25,
-  "places.area-nightclub": 24,
-  "places.area-museum": 21
+  "poi.museum-notable": 1535,
+  "areas.overview": 673,
+  "poi.theatre-notable": 647,
+  "places.area-attribute": 136,
+  "places.city-attribute": 98,
+  "places.city-opening": 71,
+  "places.area-opening": 71,
+  "places.city-sport": 65,
+  "places.city-cuisine": 42,
+  "poi.art_museum-notable": 20,
+  "poi.beach-notable": 11,
+  "destinations.country-hub": 9,
+  "poi.aquarium-notable": 4,
+  "neighbourhoods.city-best-for": 3,
+  "neighbourhoods.city-where-to-stay": 3,
+  "poi.theme_park-notable": 3,
+  "poi.water_park-notable": 3,
+  "poi.zoo-notable": 3,
+  "places.city-beach": 2,
+  "places.city-castle": 2,
+  "places.city-mall": 2,
+  "places.city-marina": 2,
+  "places.city-swimming_pool": 2,
+  "places.city-viewpoint": 2,
+  "places.city-zoo": 2
  },
  "saturated_templates": [],
  "duplicate_examples": [
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Berlin, DE",
-   "a": "c_c0366ecba3d2",
-   "b": "c_6634ff54ffd1",
+   "title": "Berlin, DE: what is worth your time",
+   "a": "c_d24610700ea4",
+   "b": "c_c0366ecba3d2",
    "url_a": "",
-   "url_b": "/de/move/city-practical/berlin/"
+   "url_b": "/de/areas/city-category/berlin/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Berlin, DE",
-   "a": "c_c0366ecba3d2",
-   "b": "c_6634ff54ffd1",
+   "title": "Berlin, DE: what is worth your time",
+   "a": "c_d24610700ea4",
+   "b": "c_c0366ecba3d2",
    "url_a": "",
-   "url_b": "/de/move/city-practical/berlin/"
+   "url_b": "/de/areas/city-category/berlin/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Hamburg, DE",
-   "a": "c_97bc748da489",
-   "b": "c_d9c683027ba2",
+   "title": "Hamburg, DE: what is worth your time",
+   "a": "c_278bdec14238",
+   "b": "c_97bc748da489",
    "url_a": "",
-   "url_b": "/de/move/city-practical/hamburg/"
+   "url_b": "/de/areas/city-category/hamburg/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Hamburg, DE",
-   "a": "c_97bc748da489",
-   "b": "c_d9c683027ba2",
+   "title": "Hamburg, DE: what is worth your time",
+   "a": "c_278bdec14238",
+   "b": "c_97bc748da489",
    "url_a": "",
-   "url_b": "/de/move/city-practical/hamburg/"
+   "url_b": "/de/areas/city-category/hamburg/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Köln, DE",
-   "a": "c_12f05925e4dd",
-   "b": "c_259279d73d54",
+   "title": "Köln, DE: what is worth your time",
+   "a": "c_f5efbd7cbfdc",
+   "b": "c_12f05925e4dd",
    "url_a": "",
-   "url_b": "/de/move/city-practical/köln/"
+   "url_b": "/de/areas/city-category/köln/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Köln, DE",
-   "a": "c_12f05925e4dd",
-   "b": "c_259279d73d54",
+   "title": "Köln, DE: what is worth your time",
+   "a": "c_f5efbd7cbfdc",
+   "b": "c_12f05925e4dd",
    "url_a": "",
-   "url_b": "/de/move/city-practical/köln/"
+   "url_b": "/de/areas/city-category/köln/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Munich, DE",
-   "a": "c_245c17b114d5",
-   "b": "c_b6746c808c72",
+   "title": "Munich, DE: what is worth your time",
+   "a": "c_95d2961430d0",
+   "b": "c_245c17b114d5",
    "url_a": "",
-   "url_b": "/de/move/city-practical/munich/"
+   "url_b": "/de/areas/city-category/munich/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Munich, DE",
-   "a": "c_245c17b114d5",
-   "b": "c_b6746c808c72",
+   "title": "Munich, DE: what is worth your time",
+   "a": "c_95d2961430d0",
+   "b": "c_245c17b114d5",
    "url_a": "",
-   "url_b": "/de/move/city-practical/munich/"
+   "url_b": "/de/areas/city-category/munich/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Berlin, DE",
-   "a": "c_c0366ecba3d2",
-   "b": "c_8701be1a1725",
+   "title": "Aachen, DE: what is worth your time",
+   "a": "c_13b7c8047cda",
+   "b": "c_a25fd67c8428",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/berlin/"
+   "url_b": "/de/areas/city-category/aachen/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Berlin, DE",
-   "a": "c_c0366ecba3d2",
-   "b": "c_8701be1a1725",
+   "title": "Aachen, DE: what is worth your time",
+   "a": "c_13b7c8047cda",
+   "b": "c_a25fd67c8428",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/berlin/"
+   "url_b": "/de/areas/city-category/aachen/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Hamburg, DE",
-   "a": "c_97bc748da489",
-   "b": "c_11e07252806c",
+   "title": "Augsburg, DE: what is worth your time",
+   "a": "c_210cbb386a25",
+   "b": "c_56fc21604c03",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/hamburg/"
+   "url_b": "/de/areas/city-category/augsburg/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Hamburg, DE",
-   "a": "c_97bc748da489",
-   "b": "c_11e07252806c",
+   "title": "Augsburg, DE: what is worth your time",
+   "a": "c_210cbb386a25",
+   "b": "c_56fc21604c03",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/hamburg/"
+   "url_b": "/de/areas/city-category/augsburg/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Köln, DE",
-   "a": "c_12f05925e4dd",
-   "b": "c_23e333e8c2cf",
+   "title": "Bielefeld, DE: what is worth your time",
+   "a": "c_b04ad38a798a",
+   "b": "c_09839a27fa37",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/köln/"
+   "url_b": "/de/areas/city-category/bielefeld/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Köln, DE",
-   "a": "c_12f05925e4dd",
-   "b": "c_23e333e8c2cf",
+   "title": "Bielefeld, DE: what is worth your time",
+   "a": "c_b04ad38a798a",
+   "b": "c_09839a27fa37",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/köln/"
+   "url_b": "/de/areas/city-category/bielefeld/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Munich, DE",
-   "a": "c_245c17b114d5",
-   "b": "c_e4aa11669b96",
+   "title": "Bochum, DE: what is worth your time",
+   "a": "c_f3eb4f544d6a",
+   "b": "c_0ac4ffc1cccf",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/munich/"
+   "url_b": "/de/areas/city-category/bochum/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Munich, DE",
-   "a": "c_245c17b114d5",
-   "b": "c_e4aa11669b96",
+   "title": "Bochum, DE: what is worth your time",
+   "a": "c_f3eb4f544d6a",
+   "b": "c_0ac4ffc1cccf",
    "url_a": "",
-   "url_b": "/de/transport/city-getting-around/munich/"
+   "url_b": "/de/areas/city-category/bochum/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Aachen, DE",
-   "a": "c_a25fd67c8428",
-   "b": "c_d3941419d436",
+   "title": "Bonn, DE: what is worth your time",
+   "a": "c_d3407d981a40",
+   "b": "c_9e45d296289e",
    "url_a": "",
-   "url_b": "/de/move/city-practical/aachen/"
+   "url_b": "/de/areas/city-category/bonn/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Aachen, DE",
-   "a": "c_a25fd67c8428",
-   "b": "c_d3941419d436",
+   "title": "Bonn, DE: what is worth your time",
+   "a": "c_d3407d981a40",
+   "b": "c_9e45d296289e",
    "url_a": "",
-   "url_b": "/de/move/city-practical/aachen/"
+   "url_b": "/de/areas/city-category/bonn/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Augsburg, DE",
-   "a": "c_56fc21604c03",
-   "b": "c_74b64ce86aa8",
+   "title": "Braunschweig, DE: what is worth your time",
+   "a": "c_fce4104072be",
+   "b": "c_adb97ac3ea4e",
    "url_a": "",
-   "url_b": "/de/move/city-practical/augsburg/"
+   "url_b": "/de/areas/city-category/braunschweig/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Augsburg, DE",
-   "a": "c_56fc21604c03",
-   "b": "c_74b64ce86aa8",
+   "title": "Braunschweig, DE: what is worth your time",
+   "a": "c_fce4104072be",
+   "b": "c_adb97ac3ea4e",
    "url_a": "",
-   "url_b": "/de/move/city-practical/augsburg/"
+   "url_b": "/de/areas/city-category/braunschweig/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Bielefeld, DE",
-   "a": "c_09839a27fa37",
-   "b": "c_f6d3a0a83284",
+   "title": "Bremen, DE: what is worth your time",
+   "a": "c_56983a59b196",
+   "b": "c_b5954804abcd",
    "url_a": "",
-   "url_b": "/de/move/city-practical/bielefeld/"
+   "url_b": "/de/areas/city-category/bremen/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bielefeld, DE",
-   "a": "c_09839a27fa37",
-   "b": "c_f6d3a0a83284",
+   "title": "Bremen, DE: what is worth your time",
+   "a": "c_56983a59b196",
+   "b": "c_b5954804abcd",
    "url_a": "",
-   "url_b": "/de/move/city-practical/bielefeld/"
+   "url_b": "/de/areas/city-category/bremen/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Bochum, DE",
-   "a": "c_0ac4ffc1cccf",
-   "b": "c_43b1d0fcf9de",
+   "title": "Chemnitz, DE: what is worth your time",
+   "a": "c_2a17755ef3b8",
+   "b": "c_7fd9a6aa883d",
    "url_a": "",
-   "url_b": "/de/move/city-practical/bochum/"
+   "url_b": "/de/areas/city-category/chemnitz/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bochum, DE",
-   "a": "c_0ac4ffc1cccf",
-   "b": "c_43b1d0fcf9de",
+   "title": "Chemnitz, DE: what is worth your time",
+   "a": "c_2a17755ef3b8",
+   "b": "c_7fd9a6aa883d",
    "url_a": "",
-   "url_b": "/de/move/city-practical/bochum/"
+   "url_b": "/de/areas/city-category/chemnitz/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Bonn, DE",
-   "a": "c_9e45d296289e",
-   "b": "c_24d60f26c0f5",
+   "title": "Dortmund, DE: what is worth your time",
+   "a": "c_d5c565edae34",
+   "b": "c_5101b471d507",
    "url_a": "",
-   "url_b": "/de/move/city-practical/bonn/"
+   "url_b": "/de/areas/city-category/dortmund/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
-  "activities.city-things-to-do": 171,
-  "stay.city-type": 128,
-  "weather.city-month": 40,
-  "transport.route-from-market": 4,
-  "poi.attraction-notable": 2,
-  "poi.museum-notable": 2,
-  "poi.gallery-notable": 1
+  "poi.attraction-notable": 17,
+  "poi.gallery-notable": 7,
+  "poi.museum-notable": 3
  },
  "shared_uniqueness_reason_examples": [
   {
    "market": "en-GB",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Hyderabad in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en ",
-   "a": "c_d425da6f39ce",
-   "b": "c_05c6cd5eea08",
-   "url_b": "/en/areas/city-things-to-do/hyderabad-pk/"
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q510323) with 3 source fields: a practical page for a specific visited entity, not a generated st",
+   "a": "c_fafaa0c0e3bb",
+   "b": "c_e726c057518d",
+   "url_b": "/en/poi/attraction/speakers-corner-n5525489356/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Barcelona in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ",
-   "a": "c_15e8985cf0c0",
-   "b": "c_f7ddbdf77e99",
-   "url_b": "/de/areas/city-things-to-do/barcelona-ve/"
+   "market": "en-US",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q826038) with 3 source fields: a practical page for a specific visited entity, not a generated st",
+   "a": "c_64c606255605",
+   "b": "c_cd6f086247db",
+   "url_b": "/en/poi/attraction/boston-marathon-starting-line-n7512978677/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Valencia in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de m",
-   "a": "c_c7df5b0c890b",
-   "b": "c_ecf5d5d3336e",
-   "url_b": "/de/areas/city-things-to-do/valencia-es/"
+   "market": "fr-FR",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q22985090) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_11d1ee013ac4",
+   "b": "c_b3aaeb14fb4b",
+   "url_b": "/fr/poi/attraction/tour-des-larrons-n8126934087/"
   },
   {
-   "market": "en-GB",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Barcelona in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en ",
-   "a": "c_49632f9ad59c",
-   "b": "c_766ada7f8be7",
-   "url_b": "/en/areas/city-things-to-do/barcelona-ve/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_0b6f7a6f250b",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n7174817785/"
   },
   {
-   "market": "en-GB",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Córdoba in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en ma",
-   "a": "c_e2e3d781ce0a",
-   "b": "c_cfc427871b73",
-   "url_b": "/en/areas/city-things-to-do/córdoba-es/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_420fc441827d",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n9022840215/"
   },
   {
-   "market": "en-GB",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Valencia in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en m",
-   "a": "c_859389cb2b85",
-   "b": "c_e3e51c29ca31",
-   "url_b": "/en/areas/city-things-to-do/valencia-es/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_2fa9be6e899f",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n9045174947/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Birmingham in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de",
-   "a": "c_42b15efa45cd",
-   "b": "c_ec3e5800cc5f",
-   "url_b": "/de/areas/city-things-to-do/birmingham-us/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_a491a44dd093",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293462008/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Brentwood in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ",
-   "a": "c_1863b177626b",
-   "b": "c_6dd8eb120a27",
-   "url_b": "/de/areas/city-things-to-do/brentwood-gb/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_c1e73b343575",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293477296/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Bristol in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
-   "a": "c_b9ce6153dff4",
-   "b": "c_a354329dee52",
-   "url_b": "/de/areas/city-things-to-do/bristol-us/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_1d11db6be4ef",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293479732/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Cambridge in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ",
-   "a": "c_54c525da0c9b",
-   "b": "c_cc67c551f9d4",
-   "url_b": "/de/areas/city-things-to-do/cambridge-gb/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_ba453dbee881",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293529091/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Chino in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de mark",
-   "a": "c_e63c7589deac",
-   "b": "c_78ff967f1437",
-   "url_b": "/de/areas/city-things-to-do/chino-jp/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_551bcf1801ed",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293555479/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Cáceres in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
-   "a": "c_e8a301109edf",
-   "b": "c_413985c6f498",
-   "url_b": "/de/areas/city-things-to-do/cáceres-es/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_5bda70496426",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293564985/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Granada in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
-   "a": "c_7cc5026f9c63",
-   "b": "c_fe37594aa91f",
-   "url_b": "/de/areas/city-things-to-do/granada-ni/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_6120581f1796",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293564990/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Granada in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
-   "a": "c_7cc5026f9c63",
-   "b": "c_6bff19a84497",
-   "url_b": "/de/areas/city-things-to-do/granada-co/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_81bc64d7f3cc",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293571074/"
   },
   {
-   "market": "de-DE",
-   "family": "activities.city-things-to-do",
-   "reason": "activities.city-things-to-do for Hamilton in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de m",
-   "a": "c_6fc2d5d9fdec",
-   "b": "c_e6a5743602e3",
-   "url_b": "/de/areas/city-things-to-do/hamilton-us/"
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_a4044827b5d5",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293579130/"
   }
  ],
  "long_dash_examples": [],
+ "superlative_examples": [],
  "title_length": {
-  "min": 6,
+  "min": 27,
   "max": 192,
-  "mean": 48.2
+  "mean": 57.7
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
