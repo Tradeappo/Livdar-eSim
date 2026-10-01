@@ -129,7 +129,12 @@ for qid, cname, cq, iso in PAIRS:
             continue                      # another worker holds this pair
         # Latitude bands, deepest-first, with a full band treated as truncation.
         seen = {}
-        queue = [(-90.0, 90.0, 0)]
+        # Start split rather than whole. One band from pole to pole is the single most
+        # expensive form the query can take, and three pairs timed out on exactly that
+        # before anything had a chance to subdivide. Eight opening bands cost eight cheap
+        # queries instead of one that cannot finish.
+        queue = [(lo, lo + 22.5, 0) for lo in
+                 [-90.0, -67.5, -45.0, -22.5, 0.0, 22.5, 45.0, 67.5]]
         unreachable = False
         truncated_bands = []
         MAX_DEPTH = 14
@@ -137,7 +142,23 @@ for qid, cname, cq, iso in PAIRS:
             lo, hi, depth = queue.pop()
             bnd = fetch_band(qid, cq, iso, lo, hi)
             if bnd is None:
-                print(f'  {cname}/{iso} band {lo}..{hi} UNREACHABLE, leaving the pair unmarked',
+                # A band that cannot be answered is usually a band that is too heavy, not a
+                # band behind a closed door: WDQS has a 60 second query timeout and the label
+                # service over a whole class in a whole country exceeds it. Measurement
+                # settled which it was here: a cheap COUNT against both endpoints returned
+                # 200 at the same moment three pairs were being abandoned as UNREACHABLE.
+                # So an unanswerable band is split exactly like a full one. Giving up on it
+                # instead was the same defect as trusting a full page, wearing a different
+                # hat: in both cases the loop accepted a non-answer as an answer.
+                if depth < MAX_DEPTH:
+                    mid = (lo + hi) / 2.0
+                    print(f'  {cname}/{iso} band {lo}..{hi} did not answer, splitting',
+                          flush=True)
+                    queue.append((lo, mid, depth + 1))
+                    queue.append((mid, hi, depth + 1))
+                    continue
+                print(f'  {cname}/{iso} band {lo}..{hi} did not answer even at depth '
+                      f'{depth}, leaving the pair unmarked so a later run retries it',
                       flush=True)
                 unreachable = True
                 break

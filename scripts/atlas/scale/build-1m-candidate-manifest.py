@@ -386,6 +386,8 @@ XL_CITIES = set()
 # localisation gate asks a narrower one: was this city measured by THIS market. Collapsing
 # the two let a city measured only in en-GB vouch for a German page about it.
 XL_MARKET_CITIES = collections.defaultdict(set)
+XL_LANG_CITIES = collections.defaultdict(set)
+MKT_LANG = {m: l for m, _c, l in MARKETS}
 try:
     for r in csv.DictReader(open(ROOT + 'reports/livdar-master-seo-universe-2026-09-30/CROSS-LANGUAGE-REACH.csv')):
         xl_markets[r['family']].add(r['searcher_market'])
@@ -393,6 +395,15 @@ try:
             pair = (r['city'].strip().lower(), (r.get('city_country') or '').strip())
             XL_CITIES.add(pair)
             XL_MARKET_CITIES[r['searcher_market'].strip()].add(pair)
+            # And pooled by LANGUAGE, because the page is language-scoped. en-US and en-GB
+            # share one /en/ URL, so a destination measured in either is measured for the
+            # page that would serve it. Keyed on market alone, English Prague was rejected
+            # while German, Spanish, Italian and French Prague passed: the en-GB sample is
+            # deliberately tier-3 tail cities and the head destinations were recorded under
+            # en-US, so which of the two markets happened to survive exact dedupe decided
+            # whether the page existed. That is an artefact of the market labels, not a fact
+            # about demand.
+            XL_LANG_CITIES[MKT_LANG.get(r['searcher_market'].strip(), '')].add(pair)
 except FileNotFoundError:
     pass
 
@@ -1177,6 +1188,9 @@ def dest_evidence(r, top_kw):
         if (low, dest_country) in XL_MARKET_CITIES.get(r['market'], set()):
             return (f'{ename} is a destination {r["market"]} was measured searching for '
                     f'in the cross-language reach file')
+        if (low, dest_country) in XL_LANG_CITIES.get(r.get('language', ''), set()):
+            return (f'{ename} is a destination measured in {r.get("language")}, the language '
+                    f'this page is written and served in')
     if MKT_COUNTRY.get(r['market']) == dest_country:
         return f'{dest_country} is the home country of {r["market"]}'
     return ''

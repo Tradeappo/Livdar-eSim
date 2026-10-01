@@ -59,7 +59,14 @@ const TEXT_EXT = new Set([
 // containing an en dash is a fact about their data, and rewriting it would make the capture
 // a false record of the fetch. The dash is normalised at ingest, and the normalised stores
 // the pages read are checked like everything else.
-const GZ_CHECKED_PREFIXES = ['data/atlas/candidates', 'reports', 'data/atlas/manifests'];
+// The candidate tree holds the same rows four times over, partitioned by market, family,
+// surface and language. Reading all four quadruples the runtime to check content that is
+// byte-identical across them, so only the market axis is read: every row appears exactly
+// once across the market partitions, so that axis covers the whole set. The manifest those
+// partitions are copied from is itself checked in full, as an ordinary .csv.gz under
+// reports, which is what makes reading one axis sufficient rather than merely cheaper.
+const GZ_CHECKED_PREFIXES = ['data/atlas/candidates/market=', 'reports',
+                             'data/atlas/manifests'];
 const RAW_CAPTURE_PREFIXES = ['data/atlas/sources/'];
 
 async function walk(dir, out = [], badNames = []) {

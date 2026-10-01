@@ -82,6 +82,10 @@ python3 scripts/atlas/scale/build-1m-gap-analysis.py > /tmp/pipe_gap.log 2>&1 \
 log "long dash check across the repository"
 npm run -s dashcheck 2>&1 | tail -5 || echo "  dashcheck reported findings"
 
+log "do the artifacts agree with each other"
+python3 scripts/atlas/scale/verify-artifacts-agree.py 2>&1 | tail -14 \
+  || echo "  ARTIFACTS DISAGREE: see the lines above; the report below is not trustworthy"
+
 log "final deliverable report"
 python3 scripts/atlas/scale/build-final-deliverable.py 2>&1 | tail -3
 
