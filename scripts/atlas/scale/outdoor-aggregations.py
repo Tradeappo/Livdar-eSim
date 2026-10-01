@@ -36,6 +36,8 @@ Reads  data/atlas/sources/osm-parents/parents-*.jsonl.gz
 Writes data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz
 """
 import collections, glob, gzip, json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity                                      # noqa: E402
 
 ROOT = '/home/user/Livdar-eSim/'
 PARENTS = ROOT + 'data/atlas/sources/osm-parents/'
@@ -122,10 +124,10 @@ with gzip.open(ASSIGN, 'rt', encoding='utf-8') as fh:
                 if a.get('name') and len(examples[(key, ft)]) < 8:
                     examples[(key, ft)].append(a['name'])
 
-def slug(s):
-    out = ''.join(ch if ch.isalnum() else '-' for ch in (s or '').lower())
-    while '--' in out: out = out.replace('--', '-')
-    return out.strip('-')
+# One slug function for the whole pipeline, in the module that owns identity. This file used
+# to carry its own, and the copies disagreed on whether a slash becomes a separator and on
+# what an empty result should be, which is how one place can get two paths.
+slug = entity_identity.slugify
 
 rejects = collections.Counter()
 rows = []

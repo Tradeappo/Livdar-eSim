@@ -28,9 +28,80 @@ Great Britain has four admin1 regions, so two English towns of the same name bot
 England. Those keep a stable id in the SLUG, which must be unique, and are reported by
 `unresolved_labels()` rather than given a region they do not have.
 """
-import glob, gzip, json, os
+import functools, glob, gzip, json, os, unicodedata
 
 ROOT = '/home/user/Livdar-eSim/'
+
+# Latin letters that carry no decomposition, so NFKD leaves them alone and a naive ASCII
+# filter would drop them. Expanded the way the language that uses them expands them.
+_LATIN_EXPANSIONS = {
+    '\u00df': 'ss', '\u00e6': 'ae', '\u0153': 'oe', '\u00f8': 'o', '\u0111': 'd',
+    '\u0142': 'l', '\u0127': 'h', '\u0131': 'i', '\u0138': 'k', '\u014b': 'n',
+    '\u0167': 't', '\u00fe': 'th', '\u00f0': 'd', '\u0259': 'e', '\u0294': '',
+}
+
+
+@functools.lru_cache(maxsize=1 << 20)
+def slugify(s):
+    """The one slug function every URL builder in this pipeline uses.
+
+    There were four of them and three disagreed, which is how two builders can emit two
+    different paths for one place. It lives here because this module is already the single
+    answer to what a place's identity is, and a path segment is part of that answer.
+
+    Latin diacritics fold to ASCII. A macron or an umlaut in a path is a transliteration
+    artefact nobody types, and leaving it in produced 23 pairs of URLs one keystroke apart:
+    /ja/stay/city-type/konan/ beside /ja/stay/city-type/k\u014dnan/, two genuinely different
+    Japanese cities, and chateaufarine beside ch\u00e2teaufarine, which is one neighbourhood of
+    Besan\u00e7on spelled twice in OSM. Folding makes them collide, and a collision is something
+    the resolver can fix; two near-identical URLs is something nothing notices.
+
+    Non-Latin scripts are kept exactly as they are. Folding them yields nothing at all:
+    1,268 of the Japanese neighbourhood names in this corpus are kanji or kana, across 9,874
+    candidates, and they fold to the empty string. A kanji segment on a Japanese page is
+    what a Japanese reader searches for; an empty one is a bug. So the rule is per character,
+    and it is the script that decides, not the byte value.
+
+    Cached, because it is called a few million times over a few hundred thousand distinct
+    strings and the per-character path does a unicodedata lookup for every non-ASCII one.
+    """
+    out = []
+    for ch in (s or '').lower():
+        if ch.isalnum() and ord(ch) < 128:
+            out.append(ch)
+            continue
+        if ord(ch) < 128:
+            out.append('-')
+            continue
+        if ch in _LATIN_EXPANSIONS:
+            out.append(_LATIN_EXPANSIONS[ch])
+            continue
+        # Decompose this one character. A Latin letter with a diacritic yields its ASCII
+        # base; anything else yields itself, and then the script decides.
+        dec = unicodedata.normalize('NFKD', ch)
+        base = ''.join(c for c in dec if c.isalnum() and ord(c) < 128)
+        if base:
+            out.append(base)
+            continue
+        try:
+            name = unicodedata.name(ch)
+        except ValueError:
+            out.append('-')
+            continue
+        if name.startswith('LATIN'):
+            # an exotic Latin letter with no decomposition and no expansion: it would be
+            # guesswork, and a separator is honest
+            out.append('-')
+        elif ch.isalnum():
+            # a letter or digit in a script that does not fold: kanji, kana, hangul,
+            # Cyrillic, Greek. Kept, because the native name IS the slug on that locale.
+            out.append(ch)
+        else:
+            out.append('-')
+    r = ''.join(out)
+    while '--' in r:
+        r = r.replace('--', '-')
+    return r.strip('-')
 
 
 def _load_admin1():

@@ -24,6 +24,8 @@ Two decisions do the work here:
 Everything rejected is counted with its reason.
 """
 import gzip, json, glob, collections, os, sys, math
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity                                      # noqa: E402
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
@@ -45,28 +47,35 @@ MIN_FOR_LIST = {'hospital': 4, 'library': 4, 'university': 2, 'stadium': 2,
                 'shopping_mall': 2, 'movie_theater': 3, 'railway_station': 5,
                 'airport': 2, 'cemetery': 4}
 
-def slug(s):
-    out = []
-    for ch in (s or '').lower():
-        out.append(ch if ch.isalnum() else '-')
-    r = ''.join(out)
-    while '--' in r: r = r.replace('--', '-')
-    return r.strip('-')
+# One slug function for the whole pipeline, in the module that owns identity. This file used
+# to carry its own, and the copies disagreed on whether a slash becomes a separator and on
+# what an empty result should be, which is how one place can get two paths.
+slug = entity_identity.slugify
 
 rejects = collections.Counter()
 
 # ---- gazetteer -------------------------------------------------------------
+# Keyed on the stable GeoNames id, through the shared identity module, because this script
+# used to resolve a Wikidata entity to a city NAME and then rebuild its parent URL from that
+# name. The aggregation builder had meanwhile moved to resolved slugs, so every city whose
+# slug needed a discriminator got a parent that did not exist: 765 candidates declared
+# /en/areas/london/ while the page is at /en/areas/london-gb/. That is the name-only join the
+# brief forbids, and the fix is to never hold a name where an id belongs.
+GAZ = entity_identity.load_gazetteer()
 cities = []
 for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
     d = json.load(open(f))
     lst = d if isinstance(d, list) else (d.get('cities') or list(d.values())[0])
     for c in lst:
-        if c and c.get('lat') is not None and c.get('country'):
-            cities.append((c['country'], c.get('name'), float(c['lat']), float(c['lon']),
+        if c and c.get('lat') is not None and c.get('country') and c.get('id'):
+            cities.append((c['country'], str(c['id']), float(c['lat']), float(c['lon']),
                            c.get('population') or 0))
 cbuckets = collections.defaultdict(list)
 for rec in cities:
     cbuckets[(rec[0], int(rec[2]), int(rec[3]))].append(rec)
+
+def city_label(cid):
+    return GAZ.label(cid) or ''
 
 def radius_km(pop):
     if pop >= 1_000_000: return 20.0
@@ -75,15 +84,16 @@ def radius_km(pop):
     return 4.0
 
 def nearest_city(country, lat, lon):
+    """The id of the nearest city whose radius contains this point, or None."""
     best, bestd = None, 1e9
     ilat, ilon = int(lat), int(lon)
     for dla in (-1, 0, 1):
         for dlo in (-1, 0, 1):
-            for (cc, nm, cla, clo, pop) in cbuckets.get((country, ilat + dla, ilon + dlo), ()):
+            for (cc, cid, cla, clo, pop) in cbuckets.get((country, ilat + dla, ilon + dlo), ()):
                 dk = math.hypot((cla - lat) * 111.0,
                                 (clo - lon) * 111.0 * math.cos(math.radians(lat)))
                 if dk < bestd and dk <= radius_km(pop):
-                    bestd, best = dk, nm
+                    bestd, best = dk, cid
     return best
 
 # ---- the OSM side, for dedupe ---------------------------------------------
@@ -144,8 +154,11 @@ print(f'Wikidata entities loaded: {len(wd):,}', file=sys.stderr)
 # read the output rather than guess: a Wikidata entity whose class list page was never
 # accepted has no parent, and leaving that to the publication controller still left 1,507
 # museum orphans sitting in the manifest. Resolve it here instead.
-accepted_city_list = set()
-hub_cities = set()
+# Not "which cells were accepted" but "what URL did the accepted page get". Reconstructing
+# the parent path from parts is how the two builders drifted apart; reading the URL out of the
+# file the other builder wrote cannot drift, because there is only one string.
+accepted_city_list = {}
+hub_cities = {}
 try:
     for l in gzip.open(ROOT + 'data/atlas/sources/osm-poi/_aggregations.jsonl.gz', 'rt',
                        encoding='utf-8'):
@@ -156,10 +169,13 @@ try:
             a = json.loads(l)
         except Exception:
             continue
+        _cid = str(a.get('city_id') or '')
+        if not _cid:
+            continue
         if a.get('shape') == 'city_category':
-            accepted_city_list.add((a['country'], a['city'], a['cls']))
+            accepted_city_list[(a['country'], _cid, a['cls'])] = a['url']
         elif a.get('shape') == 'city_areas_hub':
-            hub_cities.add((a['country'], a['city']))
+            hub_cities[(a['country'], _cid)] = a['url']
 except (EOFError, OSError, FileNotFoundError):
     pass
 print(f'OSM city lists accepted: {len(accepted_city_list):,}; cities with an areas hub: '
@@ -183,14 +199,17 @@ for o in wd:
     if hit:
         dedup_hits[hit] += 1
         rejects['already_in_osm_corpus'] += 1; continue
-    city = nearest_city(o['country'], float(o['lat']), float(o['lon']))
-    if not city:
+    cid = nearest_city(o['country'], float(o['lat']), float(o['lon']))
+    if not cid:
         # outside every city radius in the gazetteer: no hierarchy, no parent, no page
         rejects['no_parent_city'] += 1; continue
+    # the label a reader sees, qualified with the region only where the bare name is
+    # ambiguous inside its country. The id is what everything else is keyed on.
+    city = city_label(cid)
     cls = o['cls']
     if cls in WD_LIST_ONLY:
-        list_cells[(o['country'], city, cls)] += 1
-        if o.get('web'): list_cells_web[(o['country'], city, cls)] += 1
+        list_cells[(o['country'], cid, cls)] += 1
+        if o.get('web'): list_cells_web[(o['country'], cid, cls)] += 1
         continue
     if cls not in WD_INDIVIDUAL_OK:
         rejects['class_not_page_worthy'] += 1; continue
@@ -203,16 +222,14 @@ for o in wd:
     # enough: it left 1,507 museum orphans in the manifest. So the parent is resolved
     # against pages that exist, the class list first and the city areas hub second, and an
     # entity with neither is rejected rather than carried as an orphan.
-    if (o['country'], city, cls) in accepted_city_list:
-        parent = f'/{lang}/places/{slug(cls)}/{slug(city)}/'
-    elif (o['country'], city) in hub_cities:
-        parent = f'/{lang}/areas/{slug(city)}/'
-    else:
+    parent = (accepted_city_list.get((o['country'], cid, cls))
+              or hub_cities.get((o['country'], cid)))
+    if not parent:
         rejects['no_parent_page_exists_on_the_site'] += 1
         continue
     rows.append({
         'shape': 'wikidata_notable', 'source': 'wikidata', 'country': o['country'],
-        'city': city, 'cls': cls, 'n': 1, 'enriched': 2,
+        'city': city, 'city_id': cid, 'cls': cls, 'n': 1, 'enriched': 2,
         'market': market, 'language': lang,
         'entity_name': o['name'], 'entity_id': o['id'],
         'url': f"/{lang}/poi/{slug(cls)}/{slug(o['name'])}-{o['id'].lower()}/",
@@ -225,19 +242,30 @@ for o in wd:
     })
 
 # ---- list pages from the institution classes ------------------------------
-for (country, city, cls), n in list_cells.items():
+# Keyed on the city id, so the city segment comes from the shared resolver rather than from
+# the name. It also means this script can now see when the OSM aggregation already published
+# a list for the same class in the same city, which is the same page twice: the two builders
+# were emitting one URL each from different spellings of one city, and whichever was written
+# first won the exact-dedupe pass with no rejection recorded against the loser.
+for (country, cid, cls), n in list_cells.items():
     need = MIN_FOR_LIST.get(cls, 4)
     if n < need:
         rejects['list_below_min_count'] += 1; continue
     market, lang = COUNTRY_MKT[country]
-    web = list_cells_web[(country, city, cls)]
+    web = list_cells_web[(country, cid, cls)]
     if web < max(1, n // 4):
         rejects['list_entries_too_thin'] += 1; continue
+    if (country, cid, cls) in accepted_city_list:
+        rejects['list_already_published_from_the_osm_corpus'] += 1; continue
+    city = city_label(cid)
+    cslug = GAZ.slug(cid, slug)
+    if not cslug:
+        rejects['city_has_no_resolved_slug'] += 1; continue
     rows.append({
         'shape': 'wikidata_city_list', 'source': 'wikidata', 'country': country,
-        'city': city, 'cls': cls, 'n': n, 'enriched': web, 'market': market,
+        'city': city, 'city_id': cid, 'cls': cls, 'n': n, 'enriched': web, 'market': market,
         'language': lang,
-        'url': f'/{lang}/places/{slug(cls)}/{slug(city)}/',
+        'url': f'/{lang}/places/{slug(cls)}/{cslug}/',
         'attribution': 'wikidata_cc0',
         'uniqueness_reason': (f'{n} {cls.replace("_", " ")} entities in {city} with '
             f'Wikidata items and coordinates, {web} with an official website: a list '

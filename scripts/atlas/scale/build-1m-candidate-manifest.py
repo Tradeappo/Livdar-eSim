@@ -845,15 +845,13 @@ def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier, eid=''):
             f"{lang} market demand measured for this family")
 
 # ---------------------------------------------------------------- emit
-def slug(s):
-    s = (s or '').lower()
-    out = []
-    for ch in s:
-        if ch.isalnum(): out.append(ch)
-        elif ch in ' -_/': out.append('-')
-    r = ''.join(out)
-    while '--' in r: r = r.replace('--', '-')
-    return r.strip('-') or 'x'
+# The slug function lives in entity_identity, which is where identity lives. There were four
+# copies of it in this pipeline and three of them disagreed, so two builders could emit two
+# different paths for the same place. It also folds Latin diacritics now, which this copy did
+# not: /de/stay/city-type/lohne/ and the version with the umlaut are two different German
+# towns and were two URLs one keystroke apart. The empty-slug fallback that used to be
+# "or 'x'" is handled at the call site instead, where the entity id is in scope.
+slug = entity_identity.slugify
 
 # Which (surface, last segment) pairs more than one family claims. Computed from the family
 # catalogue rather than hard-coded, so a family added later cannot reintroduce the collision
@@ -934,6 +932,15 @@ for f in fams:
             nm = city_slug(eid) if etype == 'city' else entity_slug(etype, eid)
             if not nm:
                 nm = slug(ename)
+            if not nm:
+                # a name that slugs to nothing would put an empty segment in the path, so the
+                # id stands in for it. Counted, because a name this pipeline cannot render is
+                # a data problem worth seeing rather than a URL worth quietly building.
+                nm = slug(str(eid))
+                stats['entity_slug_fell_back_to_the_id'] += 1
+            if not nm:
+                stats['dropped_entity_has_no_renderable_slug'] += 1
+                continue
             # The path segment has to identify the FAMILY, not just its last word. Five
             # country families share the surface "move" and the last segment "country":
             # relocation, health, banking, taxes and cost-of-living. All five were resolving
@@ -1306,6 +1313,59 @@ if semantic_dupes:
     for r in semantic_dupes[:4]:
         print(f"    {r['family']}  {r['url_pattern']}", file=sys.stderr)
 
+# ------------------------------------------- one page per name per city, for entity pages
+# Fifteen benches in Warsaw are each called "Lawka Chopina". Four buildings of the Museo
+# Nazionale Romano carry that one name. Two consecutive OSM nodes are both "Kasmin Gallery",
+# which is one gallery mapped twice. Wikidata holds two separate items for one Bonn museum. In
+# every case the pages would be headed by the same words about the same city, and the data this
+# inventory holds - name, class, city, coordinates - contains nothing a reader could use to
+# tell them apart. No street address is carried, so there is no honest disambiguator to add.
+#
+# This gate is here rather than in either builder because neither builder can see it: the OSM
+# aggregation and the Wikidata candidates are separate files, and the Museo Nazionale Romano
+# pair is one row from each. The duplicates are kept in the rejected set with the id of the
+# page that won, so the count is recoverable and the decision is reviewable.
+name_winner = {}
+stage2a = []
+name_dupes = []
+# Keyed on the SURFACE rather than the family, and on the entity type rather than the page
+# type. Two reasons, both found by measuring. Across families inside one surface: Gagosian is
+# tagged gallery in one OSM node and museum in another, so /en/poi/gallery/gagosian-.../ and
+# /en/poi/museum/gagosian-.../ are one subject twice. Across surfaces it must NOT collapse:
+# /de/poi/museum/tranenpalast-q314446/ and /de/stay/near-venue/tranenpalast/ are the same venue
+# answering two different questions, and that is two pages, not one. And the first version
+# tested page_type == 'ENTITY', which left the venue families out entirely: Beethovenhalle in
+# Bonn held two Wikidata items and produced two identical near-venue pages.
+SPECIFIC_THING = ('poi', 'venue')
+for r in sorted(stage2, key=lambda x: (-x['quality_score'], -x['publication_priority'],
+                                       str(x['entity_id']))):
+    if r['entity_type'] not in SPECIFIC_THING:
+        stage2a.append(r)
+        continue
+    k = (r['language'], r['surface'], (r['city'] or '').casefold(),
+         slug(r['entity_name'] or ''))
+    first = name_winner.get(k)
+    if first is not None:
+        r['rejection_reason'] = (
+            f"REJECTED_SAME_NAME_IN_CITY: {first['url_pattern']} is already the {r['surface']} "
+            f"page for an entity named {r['entity_name']} in {r['city']}, and nothing in the "
+            f"data distinguishes the two, so a second page would be headed by the same words "
+            f"about the same place")
+        r['status'] = 'REJECTED_SAME_NAME_IN_CITY'
+        name_dupes.append(r)
+        continue
+    name_winner[k] = r
+    stage2a.append(r)
+after_name_unique = len(stage2a)
+if name_dupes:
+    print(f'entity pages rejected because their name is not unique in their city: '
+          f'{len(name_dupes):,}', file=sys.stderr)
+    for r in name_dupes[:5]:
+        print(f"    {r['entity_name']} in {r['city']} ({r['url_pattern']})", file=sys.stderr)
+# the same rebinding the localisation gate below uses, so every later stage reads the survivors
+# rather than the list this gate was given
+stage2 = stage2a
+
 # ------------------------------------------------- localisation and cross-locale dedupe
 # A page in a second language is NOT free inventory. The question for every row whose
 # language is not the language of the place it describes is whether that locale has its own
@@ -1475,6 +1535,64 @@ if cannib_rejected:
         print(f'    {n:>5,}  {a} beat {b}', file=sys.stderr)
 after_cannib = len(stage3)
 
+# ------------------------------------------------------- the parent has to survive too
+# Each builder resolves a child's parent against the pages IT accepted. Nothing then checked
+# whether the parent was still standing after the gates in this file ran, so a city list could
+# be removed by the localisation gate while the neighbourhood lists under it were kept, leaving
+# a page whose breadcrumb points at a 404. The QA pass found 766 of them and the cause was two
+# things: this missing check, and a name-only join in the Wikidata builder that is fixed at
+# source.
+#
+# Removing a parent can orphan its own children, so this runs to a fixed point rather than
+# once. The 500 live Atlas pages count as existing parents, because they do exist; this
+# inventory is offline and does not contain them.
+def _live_atlas_paths():
+    try:
+        d = json.load(open(ROOT + 'reports/atlas/live-production.json', encoding='utf-8'))
+    except Exception:
+        return set()
+    out = set()
+    for r in d.get('rows') or ():
+        pth = (r.get('path') or '').strip()
+        if pth:
+            out.add(pth if pth.endswith('/') else pth + '/')
+    return out
+
+LIVE_ATLAS = _live_atlas_paths()
+
+
+def _is_locale_root(u):
+    parts = [x for x in u.split('/') if x]
+    return len(parts) == 1 and len(parts[0]) <= 7
+
+orphan_rejected = []
+_rounds = 0
+while True:
+    _rounds += 1
+    present = {r['url_pattern'] for r in stage3}
+    keep, lost = [], []
+    for r in stage3:
+        pu = (r.get('parent_url') or '').strip()
+        if not pu or pu in present or pu in LIVE_ATLAS or _is_locale_root(pu):
+            keep.append(r)
+            continue
+        r['rejection_reason'] = (
+            f"REJECTED_PARENT_REMOVED: this page declares {pu} as its parent and that page is "
+            f"not in the final set, so the breadcrumb and the internal link would both point "
+            f"at nothing")
+        r['status'] = 'REJECTED_PARENT_REMOVED'
+        lost.append(r)
+    stage3 = keep
+    orphan_rejected.extend(lost)
+    if not lost or _rounds > 20:
+        break
+after_parent = len(stage3)
+if orphan_rejected:
+    print(f'pages rejected because their declared parent did not survive the gates: '
+          f'{len(orphan_rejected):,} over {_rounds} rounds', file=sys.stderr)
+    for r in orphan_rejected[:5]:
+        print(f"    {r['url_pattern']}  wanted  {r['parent_url']}", file=sys.stderr)
+
 # ---------------------------------------------------------------- cohort mapping
 LADDER = [500, 2000, 5000, 25000, 100000, 250000, 500000, 1000000]
 stage3.sort(key=lambda r: (-r['publication_priority'], r['family'], r['market'], r['entity_name'] or ''))
@@ -1487,6 +1605,7 @@ print(f'after exact dedupe:        {after_exact:,}', file=sys.stderr)
 print(f'after semantic dedupe:     {after_semantic:,}', file=sys.stderr)
 print(f'after localisation gate:   {after_localization:,}', file=sys.stderr)
 print(f'after cannibalization:     {after_cannib:,}', file=sys.stderr)
+print(f'after the parent check:    {after_parent:,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- dash safety net
 # Rendered copy may not contain a long dash. The names are normalised where they enter the
@@ -1523,7 +1642,8 @@ print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,}', 
 os.makedirs(OUT, exist_ok=True)
 # every rejection in one file, whatever stage produced it: hiding the localisation
 # rejections in a separate place would make the funnel unauditable
-rejected = rejected + exact_dupes + semantic_dupes + loc_rejected + cannib_rejected
+rejected = (rejected + exact_dupes + semantic_dupes + name_dupes + loc_rejected
+            + cannib_rejected + orphan_rejected)
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
     w.writeheader(); w.writerows(rejected)
@@ -1625,14 +1745,19 @@ summary = {
     'removed_by_localisation_gate': len(loc_rejected),
     'removed_as_semantic_duplicates': len(semantic_dupes),
     'removed_by_cannibalisation': len(cannib_rejected),
+    'removed_as_the_same_name_in_the_same_city': len(name_dupes),
+    'removed_because_the_declared_parent_did_not_survive': len(orphan_rejected),
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
-                          - len(exact_dupes) - len(semantic_dupes) - len(loc_rejected)
-                          - len(cannib_rejected)) == len(stage3),
+                          - len(exact_dupes) - len(semantic_dupes) - len(name_dupes)
+                          - len(loc_rejected) - len(cannib_rejected)
+                          - len(orphan_rejected)) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
     'after_localization_and_cross_locale_gate': after_localization,
     'localization_classes': dict(loc_counts),
+    'after_one_page_per_name_per_city': after_name_unique,
     'after_cannibalization_filtering': after_cannib,
+    'after_the_parent_survival_check': after_parent,
     'FINAL_DISTINCT_CANDIDATES': len(stage3),
     'target': 1000000,
     'shortfall_to_1m': max(0, 1000000 - len(stage3)),

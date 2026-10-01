@@ -30,7 +30,12 @@ what is wrong before anything is published, not to declare the set clean:
 5. LONG DASH CHECK. The project rule is that only "-" is used. This checks every string
    this script generates and every free-text field in the manifest.
 """
-import csv, gzip, collections, json, os, sys, re, hashlib
+import csv, gzip, collections, json, os, sys, re, hashlib, unicodedata
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import page_copy                                              # noqa: E402
+# The three skeletons live in one module now, because each of them was separately wrong in the
+# same way and the only reliable cure is one definition. undash comes from there too.
+from page_copy import title_for, meta_for, h1_for, undash      # noqa: E402
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
@@ -38,119 +43,12 @@ MANIFEST = OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz'
 
 STOP = {'in', 'the', 'a', 'an', 'of', 'and', 'for', 'to', 'with', 'on', 'at', 'is',
         'are', 'best', 'top', 'your', 'you'}
-LONG_DASHES = ('\u2014', '\u2013', '\u2012', '\u2015', '\u2212')
-
-
-def undash(s):
-    """Replace every long dash with "-", the only dash this project uses.
-
-    Most hits come from entity names that genuinely contain one, such as the
-    Italian museum "MIC - Museo dell'Illustrazione Contemporanea". The name in the
-    SOURCE data keeps its original form, because rewriting a source record would be
-    falsifying it. What Livdar renders is its own text, so the rendered strings are
-    normalised and the count of affected source names is reported separately.
-    """
-    out = s or ''
-    for d in LONG_DASHES:
-        out = out.replace(d, '-')
-    return out
+LONG_DASHES = page_copy.LONG_DASHES
 
 
 def norm_tokens(s):
     t = re.sub(r'[^0-9a-zÀ-ɏ　-鿿]+', ' ', (s or '').lower())
     return tuple(sorted(w for w in t.split() if w and w not in STOP))
-
-
-# Which families share a second segment, so the segment alone cannot title them. Derived
-# from the manifest rather than listed, so a family added later is covered without an edit.
-AMBIGUOUS_FAM_LABEL = set()
-
-
-def _compute_ambiguous_labels(all_rows):
-    seg = collections.defaultdict(set)
-    for r in all_rows:
-        f = r.get('family', '')
-        if '.' in f:
-            seg[f.split('.', 1)[1]].add(f)
-    out = set()
-    for _k, v in seg.items():
-        if len(v) > 1:
-            out |= v
-    return out
-
-
-def title_for(r):
-    """The title this candidate would render, from its own fields.
-
-    Keyed on SURFACE, not on family prefixes. Guessing prefixes missed relocation.* whose
-    surface is "move", so those titles fell through to the bare name and reported 25,580
-    collisions that were my skeleton's fault rather than the inventory's. The surface set
-    is small, known and stable; family names are neither.
-    """
-    name = undash(r['entity_name'] or r['entity_id'])
-    city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
-    fam, surface = r['family'], r['surface']
-    where = f"{city}, {country}" if city and country else (city or country or '')
-    qualified = f"{name}, {country}" if country and country not in name else name
-    # Several families share one surface. Keying the skeleton on surface alone gave
-    # activities.city-things-to-do and destinations.city-hub the SAME title for Berlin,
-    # which is a defect in the simulation rather than in the inventory: the two pages are
-    # genuinely different and a real title set would say so. The family's own second
-    # segment is what distinguishes them.
-    # ...and where the second segment does not distinguish either, the topic does. Five
-    # families share the second segment "city" and five share "country": relocation, health,
-    # banking, taxes and cost-of-living. Their URLs were colliding too, which was fixed in
-    # the generator, and 5,573 pages came back as a result. Those pages arrived with
-    # distinct URLs and identical titles, "Berlin, DE: city" for both the relocation page
-    # and the health page, so the label needs the same treatment the path got.
-    fam_label = (fam.split('.', 1)[1] if '.' in fam else fam).replace('-', ' ')
-    if fam in AMBIGUOUS_FAM_LABEL:
-        fam_label = fam.split('.', 1)[0].replace('-', ' ') + ' ' + fam_label
-
-    if r['page_type'] == 'ENTITY':
-        return f"{name}{', ' + where if where else ''}: what to know before you go"
-    if fam == 'areas.city-index':
-        return f"Neighbourhoods of {where}: which area suits you"
-    if fam == 'areas.overview':
-        return f"{area}, {where}: what the area is like"
-    if surface == 'places':
-        return f"{qualified}: {fam_label}, the full list from open data"
-    if surface == 'pulse':
-        return f"{qualified}: {fam_label}, dates and what is open"
-    if surface == 'tools':
-        return f"{name}: work it out with your own numbers"
-    if surface == 'climate':
-        return f"{qualified}: {fam_label}, what it is actually like"
-    if surface == 'areas':
-        return f"{qualified}: {fam_label}"
-    if surface == 'move':
-        return f"{qualified}: {fam_label}"
-    if surface == 'stay':
-        return f"{qualified}: {fam_label}"
-    if surface == 'work':
-        return f"{qualified}: {fam_label}"
-    if surface == 'money':
-        return f"{qualified}: {fam_label}"
-    if surface == 'safety':
-        return f"{qualified}: {fam_label}"
-    return f"{qualified}: {fam_label}"
-
-
-def meta_for(r):
-    name = undash(r['entity_name'] or r['entity_id'])
-    reason = undash((r.get('uniqueness_reason') or '').split(':')[0])
-    if r['page_type'] == 'ENTITY':
-        return f"{name}: location, hours where published, and how to get there."
-    return f"{name}. {reason[:110]}."
-
-
-def h1_for(r):
-    name = undash(r['entity_name'] or r['entity_id'])
-    if r['family'] == 'areas.overview':
-        return undash(f"{r['neighbourhood']}, {r['city']}")
-    if r['family'] == 'areas.city-index':
-        return undash(f"Neighbourhoods of {r['city']}")
-    return name
 
 
 rows = []
@@ -160,7 +58,10 @@ with gzip.open(MANIFEST, 'rt', encoding='utf-8', newline='') as f:
 print(f'manifest rows: {len(rows):,}', file=sys.stderr)
 
 # Must run before any title is simulated, because the label depends on it.
-AMBIGUOUS_FAM_LABEL = _compute_ambiguous_labels(rows)
+page_copy.AMBIGUOUS_FAM_LABEL = AMBIGUOUS_FAM_LABEL = page_copy.compute_ambiguous_labels(rows)
+page_copy.SHARED_SUBJECT = page_copy.compute_shared_subjects(rows)
+print(f'subjects claimed by more than one family in a market, so the heading carries the '
+      f'angle too: {len(page_copy.SHARED_SUBJECT):,}', file=sys.stderr)
 if AMBIGUOUS_FAM_LABEL:
     print(f'families whose second segment does not distinguish them, so the title carries '
           f'the topic too: {len(AMBIGUOUS_FAM_LABEL)}', file=sys.stderr)
@@ -329,6 +230,29 @@ def is_locale_root(u):
     parts = [x for x in u.split('/') if x]
     return len(parts) == 1 and len(parts[0]) <= 7
 
+
+# The 500 Atlas pages that are live. A candidate may legitimately declare one of them as its
+# parent, and the hierarchy check would otherwise call that a broken link: this inventory is
+# offline and does not contain the pages production already serves.
+def _load_live_paths():
+    try:
+        d = json.load(open(ROOT + 'reports/atlas/live-production.json', encoding='utf-8'))
+    except Exception:
+        return set()
+    out = set()
+    for r in d.get('rows') or ():
+        pth = (r.get('path') or '').strip()
+        if pth:
+            out.add(pth if pth.endswith('/') else pth + '/')
+    return out
+
+LIVE_PATHS = _load_live_paths()
+print(f'live production paths a parent may point at: {len(LIVE_PATHS):,}', file=sys.stderr)
+
+
+def is_live_page(u):
+    return u in LIVE_PATHS or is_locale_root(u)
+
 orphans = collections.Counter()
 top_level = collections.Counter()
 for r in rows:
@@ -446,6 +370,102 @@ for r in rows:
         kept_bad_class['(no class assigned)'] += 1
 issues['kept_rows_with_a_rejecting_localisation_class'] = sum(kept_bad_class.values())
 
+# ---- 5f. the section 23 checks that were still missing ----------------------
+# Named in the brief and not previously tested: duplicate slugs, duplicate canonicals,
+# duplicate meta, duplicate H1, and an invalid hierarchy. Each is cheap and each catches a
+# different failure, so there is no reason they were absent except that nobody had written
+# them.
+
+# The first version of this check grouped the last path segment by market and family and
+# reported 5,885 duplicates. Every one was correct behaviour. /de/places/food/african/berlin/
+# and /de/places/food/american/berlin/ both end in "berlin" because the thing that
+# distinguishes them is the cuisine, which sits earlier in the path. The last segment is not
+# the identity of the page, the whole path is, and duplicate whole paths are already counted
+# as duplicate_canonicals. So the check was measuring nothing, which is the fourth time in
+# this pass that I have compared a field that does not carry page-level identity.
+#
+# What IS worth checking in slug space is whether two slugs are distinct only by a diacritic.
+# Those are two URLs one keystroke apart, and a reader, a link and a redirect cannot tell them
+# apart. The slug function folds Latin diacritics for exactly this reason, so after the fold
+# the count should be zero; before it, there were 23.
+def _folded(u):
+    d = unicodedata.normalize('NFKD', u)
+    return ''.join(c for c in d if not unicodedata.combining(c)).lower()
+
+fold_groups = collections.defaultdict(set)
+for u in urls:
+    fold_groups[_folded(u)].add(u)
+dup_slugs = {k: sorted(v) for k, v in fold_groups.items() if len(v) > 1}
+issues['urls_that_collide_once_diacritics_are_folded'] = len(dup_slugs)
+issues['urls_containing_a_latin_character_with_a_diacritic'] = sum(
+    1 for u in urls if any(ord(c) > 127 and unicodedata.name(c, '').startswith('LATIN')
+                           for c in unicodedata.normalize('NFC', u)))
+
+# The canonical of a candidate IS its url_pattern here, so a duplicate canonical and a
+# duplicate URL are the same failure. Asserted rather than assumed, because the day the
+# model gains a separate canonical field this check is the one that notices.
+issues['duplicate_canonicals'] = len(rows) - len(urls)
+
+# Meta and H1 are simulated the same way the title is, and compared the same way.
+meta_seen = collections.defaultdict(set)
+h1_seen = collections.defaultdict(set)
+for r in rows:
+    try:
+        meta_seen[(r['market'], meta_for(r))].add(r['url_pattern'])
+        h1_seen[(r['market'], h1_for(r))].add(r['url_pattern'])
+    except Exception:
+        continue
+dup_meta = {k[1][:70]: sorted(v)[:3] for k, v in meta_seen.items() if len(v) > 1}
+dup_h1 = {k[1][:70]: sorted(v)[:3] for k, v in h1_seen.items() if len(v) > 1}
+issues['duplicate_meta_within_a_market'] = len(dup_meta)
+issues['duplicate_h1_within_a_market'] = len(dup_h1)
+
+# A declared parent has to be a page that exists, must not be the page itself, must not lead
+# back to the page, and must live in the same language. It does NOT have to be a prefix of the
+# URL. The first version of this check tested the prefix and reported 20,107 failures; 19,342
+# of them were a legitimate shape, because the parent of /de/places/food/african/berlin/ is the
+# city restaurant list /de/places/restaurant/berlin/, which is where a reader would find it
+# linked. The hierarchy is semantic, and a path is not the only way to express one.
+#
+# The 765 that remained were real, and they had a single cause: the Wikidata builder rebuilt
+# its parent path from the city NAME while the aggregation builder had moved to resolved
+# slugs, so every city that needed a discriminator got a parent that does not exist
+# (/en/areas/london/ against the real /en/areas/london-gb/). That is fixed at the source, by
+# reading the parent URL out of the aggregation output instead of reconstructing it.
+bad_hier = []
+non_prefix_but_valid = 0
+_parent_of = {r['url_pattern']: (r.get('parent_url') or '').strip() for r in rows}
+for r in rows:
+    pu = (r.get('parent_url') or '').strip()
+    if not pu:
+        continue
+    why = ''
+    if pu == r['url_pattern']:
+        why = 'the page declares itself as its own parent'
+    elif pu not in urls and not is_live_page(pu):
+        why = 'the declared parent is not a page in this inventory or in production'
+    elif pu.split('/')[1:2] != r['url_pattern'].split('/')[1:2]:
+        why = 'the declared parent is in a different language'
+    else:
+        # walk up: a cycle would make a breadcrumb loop forever
+        seen_up, cur, cyc = {r['url_pattern']}, pu, False
+        for _ in range(40):
+            if cur in seen_up:
+                cyc = True
+                break
+            seen_up.add(cur)
+            cur = _parent_of.get(cur, '')
+            if not cur:
+                break
+        if cyc:
+            why = 'following the parents leads back to this page'
+    if why:
+        bad_hier.append({'url': r['url_pattern'], 'declared_parent': pu, 'why': why})
+    elif not r['url_pattern'].startswith(pu):
+        non_prefix_but_valid += 1
+issues['declared_parent_is_not_a_valid_parent'] = len(bad_hier)
+issues['declared_parent_is_valid_but_not_a_path_prefix'] = non_prefix_but_valid
+
 # ---- 6. the usefulness test, section 13 -------------------------------------
 # "Would this page still be useful if Google did not exist?" A page passes when it carries
 # something a person would come back for even with no search engine in the world: a working
@@ -509,6 +529,10 @@ summary = {
     'entity_collisions_same_id_two_names': dict(list(same_id_two_names.items())[:25]),
     'sourceless_candidate_examples': sourceless[:25],
     'kept_rows_by_localisation_class_that_should_have_been_rejected': dict(kept_bad_class),
+    'duplicate_slug_examples': dict(list(dup_slugs.items())[:20]),
+    'duplicate_meta_examples': dict(list(dup_meta.items())[:20]),
+    'duplicate_h1_examples': dict(list(dup_h1.items())[:20]),
+    'invalid_hierarchy_examples': bad_hier[:20],
     'usefulness_test_failures': fails,
     'usefulness_test_by_family_and_locale': useful_by_cell,
     'shared_uniqueness_reason_examples': reason_examples,

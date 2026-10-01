@@ -51,9 +51,11 @@ if summ['FINAL_DISTINCT_CANDIDATES'] != len(man):
 funnel = [('raw_candidate_combinations', summ.get('raw_candidate_combinations')),
           ('after_exact_dedupe', summ.get('after_exact_dedupe')),
           ('after_semantic_dedupe', summ.get('after_semantic_dedupe')),
+          ('after_one_page_per_name_per_city', summ.get('after_one_page_per_name_per_city')),
           ('after_localization_and_cross_locale_gate',
            summ.get('after_localization_and_cross_locale_gate')),
           ('after_cannibalization_filtering', summ.get('after_cannibalization_filtering')),
+          ('after_the_parent_survival_check', summ.get('after_the_parent_survival_check')),
           ('FINAL_DISTINCT_CANDIDATES', summ.get('FINAL_DISTINCT_CANDIDATES'))]
 seq = [(n, v) for n, v in funnel if isinstance(v, int)]
 for (n1, v1), (n2, v2) in zip(seq, seq[1:]):
@@ -69,11 +71,14 @@ note('funnel', {n: v for n, v in seq})
 # removal has to be written down somewhere to be subtracted.
 gen = summ.get('generated_before_any_gate')
 if isinstance(gen, int):
-    removals = (summ.get('removed_by_uniqueness_and_serp_gate', 0)
-                + summ.get('removed_as_exact_duplicate_urls', 0)
-                + summ.get('removed_by_localisation_gate', 0)
-                + summ.get('removed_by_cannibalisation', 0)
-                + summ.get('removed_as_semantic_duplicates', 0))
+    # Every key the summary spells "removed_*", summed, rather than a list of the five that
+    # existed when this was written. Two more stages were added the same afternoon, and a
+    # verifier that has to be edited whenever a stage is added is a verifier that will one day
+    # pass a funnel missing a stage.
+    removal_keys = sorted(k for k, v in summ.items()
+                          if k.startswith('removed_') and isinstance(v, int))
+    removals = sum(summ[k] for k in removal_keys)
+    note('removal_keys_summed', removal_keys)
     note('generated_before_any_gate', gen)
     note('total_recorded_removals', removals)
     if gen - removals != summ['FINAL_DISTINCT_CANDIDATES']:
@@ -85,11 +90,7 @@ if isinstance(gen, int):
     if summ.get('funnel_reconciles') is False:
         problems.append('the manifest itself reports funnel_reconciles false')
     # and the rejected file must hold exactly the removals that are supposed to be preserved
-    preserved = (summ.get('removed_by_uniqueness_and_serp_gate', 0)
-                 + summ.get('removed_as_exact_duplicate_urls', 0)
-                 + summ.get('removed_by_localisation_gate', 0)
-                 + summ.get('removed_by_cannibalisation', 0)
-                 + summ.get('removed_as_semantic_duplicates', 0))
+    preserved = removals
     note('removals_that_should_be_preserved', preserved)
 
 # 3. the QA report

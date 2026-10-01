@@ -24,6 +24,8 @@ records, which does not fit in memory as dicts, so POI are read twice from disk 
 only counters are held - never the corpus.
 """
 import gzip, json, glob, collections, os, sys, math, hashlib, re, time
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity                                      # noqa: E402
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
@@ -219,13 +221,10 @@ def undash_record(r, *fields):
     if changed: r['dash_normalised'] = True
     return r
 
-def slug(s):
-    out = []
-    for ch in (s or '').lower():
-        out.append(ch if ch.isalnum() else '-')
-    r = ''.join(out)
-    while '--' in r: r = r.replace('--', '-')
-    return r.strip('-')
+# One slug function for the whole pipeline, in the module that owns identity. This file used
+# to carry its own, and the copies disagreed on whether a slash becomes a separator and on
+# what an empty result should be, which is how one place can get two paths.
+slug = entity_identity.slugify
 
 rejects = collections.Counter()
 
@@ -331,8 +330,6 @@ name_resolution = collections.Counter()
 
 # The labels and slugs come from the one module both URL builders share, so the manifest and
 # this file cannot disagree about which Woodstock is which.
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import entity_identity                                      # noqa: E402
 GAZ = entity_identity.load_gazetteer()
 CITY_LABEL = {cid: GAZ.label(cid) for cid in GAZ.by_id}
 CITY_COUNTRY = {cid: GAZ.by_id[cid]['country'] for cid in GAZ.by_id}

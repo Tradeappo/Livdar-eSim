@@ -38,3 +38,7 @@ __pycache__/
 # atomic-write temporaries: these exist for milliseconds and must never be tracked
 *.tmp
 *.part
+
+# NASA POWER shards are appended to while the fetch runs, which needs plain JSONL; the
+# finalise pass gzips them and the .gz is what gets committed, like every other source.
+data/atlas/sources/climate/power/*.jsonl

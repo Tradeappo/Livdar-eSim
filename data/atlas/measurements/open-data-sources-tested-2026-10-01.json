@@ -1,55 +1,67 @@
 {
-  "measurement": "Which additional official and open datasets are actually reachable and usable",
-  "date": "2026-10-01",
-  "brief_section": "Brief 8 section 13: find valid additional sources, respect licence, materialise only legal and durable ones",
-  "method": "Each endpoint was called from this container and the response inspected. Reachability is reported as measured rather than assumed, because two sources this project already depends on turned out to be rate-limited or blocked only when actually called.",
-  "tested_and_reachable": [
-    {
-      "source": "ROR, the Research Organization Registry",
-      "endpoint": "https://api.ror.org/organizations?filter=country.country_code:DE",
-      "status": 200,
-      "measured": "5,843 organisations for Germany alone",
-      "licence": "CC0, public domain",
-      "what_it_would_add": "Verified names, types, locations and links for universities and research institutions. It does NOT add pages: section 15 and the existing WD_LIST_ONLY rule both say an institution's own SERP belongs to the institution, so this enriches the universities-in-a-city LIST with a verified roster rather than creating a page per institution.",
-      "verdict": "USABLE, enrichment not expansion",
-      "ingested_in_this_pass": false
-    },
-    {
-      "source": "Eurostat dissemination API",
-      "endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_a",
-      "status": 200,
-      "measured": "House price index, annual, label returned and updated 2026-10-01T11:00 the same day it was tested",
-      "licence": "Eurostat reuse policy, free with attribution",
-      "what_it_would_add": "A sourced housing cost trend per country and per NUTS region, which is the figure the housing families currently cannot state. It is an INDEX rather than a price, so it supports 'how prices moved' and not 'what a flat costs', and the page must say which.",
-      "verdict": "USABLE for trends, NOT for absolute prices",
-      "ingested_in_this_pass": false
-    }
-  ],
-  "tested_and_blocked": [
-    {
-      "source": "Mobility Database, the GTFS feed catalogue",
-      "endpoint": "https://api.mobilitydatabase.org/v1/metadata",
-      "status": 302,
-      "response": "Invalid GCIP ID token: empty token",
-      "why_it_matters": "This was the intended route to real public transport coverage per city, which section 14 asks for. It needs an account and a token, so it is not usable from here without credentials the environment does not hold.",
-      "verdict": "BLOCKED on authentication, recorded rather than worked around"
-    },
-    {
-      "source": "Geofabrik OSM extracts",
-      "endpoint": "https://download.geofabrik.de/europe/germany-latest.osm.pbf",
-      "status": "tunnel closed mid-exchange, twice, 39 bytes received",
-      "diagnosis": "The agent proxy status named the host and the reason, so this was the egress path rather than the remote service refusing. download.openstreetmap.fr serves the same extracts, answers range requests, and is the mirror the original market ingest used, so the parent capture uses that instead.",
-      "verdict": "WORKED AROUND with a different mirror"
-    }
-  ],
-  "already_in_use_and_unchanged": [
-    "OpenStreetMap, ODbL 1.0, share-alike and attribution: the POI, place and now parent layers",
-    "Wikidata, CC0: notable entities, 13 of 24 classes materialised and labelled a floor",
-    "GeoNames, CC BY 4.0: the city gazetteer and, new in this pass, the admin1 region names",
-    "gov.uk bank-holidays.json, OGL; www8.cao.go.jp syukujitsu.csv; openholidaysapi.org; date.nager.at: the Pulse layer",
-    "NASA POWER: climate",
-    "Eurostat PPP and HICP plus World Bank price level: the cost-of-living tools"
-  ],
-  "honest_note": "Two usable sources were found and NEITHER was ingested in this pass. Testing reachability costs a request; ingesting, normalising, assigning provenance and wiring a family to a source is hours of work each, and the pass already had the two known defects and the parent layer to finish. They are recorded with what they would add and what they would not, so the next pass starts from a tested endpoint rather than a hope.",
-  "what_would_be_wrong_to_do_with_them": "Eurostat gives an INDEX. Rendering an index as a price, or a national figure as a city figure, would be the invented number the standing constraints forbid. ROR gives institutions, and turning each into a page would be exactly the institution-SERP mistake section 15 names."
+ "measuredOn": "2026-10-01",
+ "why": "Brief 9 section 5 asks for official and open sources with licences, and the earlier source notes on disk recorded hosts as unreachable from this container. Network routing here has changed at least once, so every host was retested rather than inherited. One of those notes was wrong today, and it was the one holding the climate surface at 267 cities.",
+ "tested": [
+  {
+   "source": "NASA POWER climatology (point)",
+   "endpoint": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+   "status": "HTTP 200, usable without a key",
+   "licence": "public domain, attribution requested",
+   "attribution": "Data from NASA POWER (https://power.larc.nasa.gov)",
+   "grain": "any coordinate, 7 parameters x 12 months, 2001-2020 normals",
+   "distinct_values_per_page": "84 numbers per city, 7 per city-month",
+   "previous_note_on_disk": "fetched through a browser because the sandbox has no network route to the host",
+   "verdict": "MATERIALISING. The climate families were data-limited, not demand-limited: 267 cities had data against 31,715 in the gazetteer.",
+   "scale_if_fully_materialised": "31,715 cities x 12 months, before any demand or usefulness gate"
+  },
+  {
+   "source": "Eurostat dissemination API",
+   "endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/",
+   "status": "HTTP 200, usable without a key",
+   "licence": "Eurostat open data, free reuse with attribution",
+   "grain": "NUTS 0/1/2/3 regions, annual",
+   "verdict": "CANDIDATE. Feeds the COUNTRY to REGION level of the hierarchy for the six EU markets with real regional figures rather than a name and a map.",
+   "scale_estimate": "about 1,500 NUTS2 and NUTS3 regions across DE FR IT ES NL PL"
+  },
+  {
+   "source": "OurAirports",
+   "endpoint": "https://davidmegginson.github.io/ourairports-data/airports.csv",
+   "status": "HTTP 200, 12.7 MB, usable without a key",
+   "licence": "public domain",
+   "grain": "every airport on earth with coordinates, type, municipality, scheduled service flag",
+   "verdict": "CANDIDATE. The parent for an airport complex, and the entity for getting-there pages. Only the scheduled-service subset is page-worthy.",
+   "scale_estimate": "roughly 4,000 to 5,000 airports with scheduled service worldwide"
+  },
+  {
+   "source": "Mobility Database (GTFS feed catalogue)",
+   "endpoint": "https://files.mobilitydatabase.org/feeds_v2.csv",
+   "status": "HTTP 200, 2.6 MB, usable without a key",
+   "licence": "catalogue CC0; each feed carries its own operator licence, which has to be read per feed",
+   "grain": "one row per transit feed, with the operator, the area and the feed URL",
+   "verdict": "CANDIDATE for the transport surface. Static GTFS gives counts of lines, stops and operators, which are facts. It does NOT give live schedules and will not be used to imply any.",
+   "scale_estimate": "about 1,500 cities with a usable feed"
+  },
+  {
+   "source": "World Bank indicators",
+   "endpoint": "https://api.worldbank.org/v2/country/{iso}/indicator/{code}",
+   "status": "HTTP 200, usable without a key",
+   "licence": "CC BY 4.0",
+   "grain": "country, annual",
+   "verdict": "WEAK for scale: country grain only, and country pages are already the smallest part of the inventory. Useful as a corroborating field, not as a page family."
+  },
+  {
+   "source": "OpenAQ v3",
+   "endpoint": "https://api.openaq.org/v3/locations",
+   "status": "HTTP 401, an API key is required",
+   "licence": "CC BY 4.0 for most providers, per-provider",
+   "verdict": "BLOCKED on registration, not on routing. Recorded so the next pass does not retest the route and conclude the source does not exist."
+  },
+  {
+   "source": "Protected Planet (WDPA) API",
+   "endpoint": "https://api.protectedplanet.net/v3/protected_areas",
+   "status": "HTTP 401, a token is required",
+   "licence": "WDPA terms, non-commercial restrictions that would need reading before use",
+   "verdict": "NOT PURSUED. The protected-area parents are already coming from OSM, which carries the same polygons under ODbL and no token, and the WDPA terms are the kind that need legal reading rather than a gate."
+  }
+ ]
 }

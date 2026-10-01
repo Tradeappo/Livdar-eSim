@@ -1,0 +1,32 @@
+{
+ "measuredOn": "2026-10-01",
+ "unitsSpent": 11388,
+ "method": "keywords-explorer-matching-terms, match_mode=terms, one broad sightseeing phrase per language, ordered by volume, with a per-language volume floor chosen so the response stays about 100 rows. The phrase is the one that language actually uses, not a translation of the English one: sehenswurdigkeiten, que faire a, cosa vedere, que ver en, bezienswaardigheden, atrakcje, o que fazer em. Raw rows are in harvest-2026-10-01.csv.",
+ "why": "The localisation gate rejects 46,120 rows as LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION, and it is right to, because the evidence file behind it covered roughly 333 destinations and 59 measured outbound pairs. That is a limit of the measurement, not of the demand. Asking the demand side directly, one call per language, is how to find out which rejections are true and which are the measurement being thin.",
+ "findings": {
+  "cross_language_destination_demand_is_large_and_specific": {
+   "count": "210 of the 638 rows are a destination outside the searcher's own country, 91 of them under the searcher language's own exonym",
+   "examples": "Italians search cosa vedere a praga 9,300, vienna cosa vedere 12,000, tirana cosa vedere 15,000, budapest 11,000, madrid 9,800, lisbona 8,800, cracovia 5,200, copenaghen 5,100, lubiana 4,900, bucarest 6,000, varsavia 3,900, berlino 3,600, monaco di baviera 3,500. Germans search prag 15,000, kopenhagen 13,000, lissabon 9,700, mailand 7,500, florenz 7,200, venedig 6,200, neapel 4,300, warschau 3,300, danzig 3,700, breslau 2,800, stettin 3,300, krakau 2,700, brugge 4,100, nizza 3,200, triest 2,600, bozen 2,600, meran 2,400, marrakesch 2,400, tokio 3,400.",
+   "difficulty": "almost all between 0 and 7",
+   "consequence": "A substantial part of the 46,120 localisation rejections is a false negative. The fix is to widen the EVIDENCE, which is what this harvest is, not to widen the gate."
+  },
+  "domestic_small_towns_are_the_largest_single_surprise": {
+   "count": "116 rows are a town most lists would call too small to matter",
+   "examples": "Polish spa and mountain towns: szklarska poreba 9,300, karpacz 8,100, zakopane 7,700, kolobrzeg 6,600, sandomierz 6,500, szczawnica 6,100, kudowa zdroj 5,300, kazimierz dolny 5,100, swieradow zdroj 4,800, krynica zdroj 4,700, ciechocinek 3,800, wisla 3,700, ustron 3,600, muszyna 2,800, bialka tatrzanska 2,800. Brazilian serra and coast towns: gramado 14,000, campos do jordao 10,000, balneario camboriu 9,400, monte verde 7,500, paraty 7,000, porto de galinhas 5,600, pocos de caldas 5,500, holambra 5,400, serra negra 4,300, tiradentes 3,800, arraial do cabo 3,800, maragogi 3,200, pomerode 2,500, urubici 2,100, bonito 2,000. German small towns: wernigerode 6,900, quedlinburg 5,800, cochem 5,200, monschau 4,900, fussen 4,600, wismar 3,900, stralsund 3,900, rothenburg ob der tauber 3,500, celle 2,700, lindau 2,700, bautzen 2,300. Italian hill towns: assisi 9,000, spoleto 7,900, urbino 5,900, gubbio 5,500, viterbo 5,500, volterra 5,300, san gimignano 4,800, matera 4,700, taormina 3,900, sirmione 3,700. Spanish towns: toledo 11,000, segovia 7,600, cuenca 6,600, avila 5,400, soria 4,900, zamora 4,800, teruel 4,700, nerja 4,700, altea 5,000, llanes 4,400, ronda 3,200, penicola 3,100, trujillo 3,200.",
+   "consequence": "These are HOME MARKET pages, so no localisation question arises at all, and the OSM corpus already holds their POI. The limiter is the city tier bound in the generator, which was set from population. Population is not demand: Wernigerode has 32,000 people and 6,900 searches a month for its sights."
+  },
+  "islands_regions_lakes_and_mountain_areas_are_entity_types_the_graph_does_not_have": {
+   "counts": "52 island rows, 18 region rows, 9 island-country rows, 4 lake rows, 3 mountain-area rows",
+   "examples": "Islands: teneriffa 7,400, kreta 7,400, madeira 7,100, fuerteventura 7,000, lanzarote 6,200, korfu 5,400, rhodos 5,300, mallorca 7,600 in es, menorca 7,100, ibiza 5,700, gran canaria 7,900, rugen 4,300, kos 3,900, sylt 2,800, usedom 3,100, sardinien 3,000, sizilien 2,900, zakynthos, kefalonia, lefkas, samos, corfu, curacao, bonaire, la palma 3,200, ilhabela. Regions: umbria 7,800, abruzzo 5,000, molise 4,700, puglia 4,700, toscana 4,600, cantabria 8,100, asturias 8,000, galicia 3,900, navarra 3,900, bayern 3,200, thuringen 2,800, nrw 2,600, baden wurttemberg 2,500, andalusien 2,200, normandie 2,400, kaszuby 2,700. Lakes: lago di como 6,200, gardasee 2,300, bodensee 2,400, solina 3,700. Mountain areas: harz 4,000, eifel 2,800, bieszczady 3,000.",
+   "consequence": "This is independent demand-side evidence for the parallel hierarchies the brief asks for: COUNTRY to REGION, COUNTRY to ISLAND, and the lake and mountain-range parents the outdoor pass is capturing. It was measured from search demand, not inferred from the fact that OSM has polygons for them."
+  },
+  "noise_that_had_to_be_excluded": "que ver en netflix 12,000, que ver hoy en tv 9,100, cosa vedere su netflix 9,300, cosa vedere stasera in tv 9,000, que faire a manger 1,600, atrakcje dla dzieci 6,300, energylandia atrakcje 3,900. A phrase match on a sightseeing verb catches television listings and a theme park. Every row here was classified by hand against the gazetteer rather than accepted because it matched."
+ },
+ "what_this_does_not_say": "It does not say the pages exist. A measured destination still has to pass the source, completeness, SERP, usefulness and cannibalisation gates, and a region or island page needs an entity record and real data behind it, neither of which the entity graph holds yet. The harvest is demand evidence and nothing more.",
+ "next": [
+  "resolve every exonym in this file to a gazetteer city id and feed it to the localisation gate as destination evidence, which recovers true positives out of the 46,120 rejections without touching the gate",
+  "replace the population-derived city tier bound for destination families with measured demand where this harvest supplies it",
+  "add island and region entity types, sourced from the OSM parent layer now being captured, and only where real data backs a page",
+  "repeat the harvest for en-US, en-GB, ja-JP and zh-Hant-TW, which are not in this pass"
+ ]
+}

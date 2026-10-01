@@ -1,0 +1,19 @@
+{
+ "source": "NASA POWER climatology (point)",
+ "endpoint": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+ "parameters": [
+  "T2M",
+  "T2M_MAX",
+  "T2M_MIN",
+  "PRECTOTCORR",
+  "RH2M",
+  "WS2M",
+  "ALLSKY_SFC_SW_DWN"
+ ],
+ "period": "2001-2020",
+ "licence": "NASA POWER data are freely available and in the public domain, attribution requested",
+ "attribution": "Data from NASA POWER (https://power.larc.nasa.gov)",
+ "capturedOn": "2026-10-01",
+ "cities_written_this_run": 12,
+ "note": "The earlier climate file on disk was captured by hand with a note saying the sandbox had no route to this host. It has one now, which is why this exists: the limit on the climate surface was never the data, it was the fetch."
+}

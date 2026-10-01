@@ -1,0 +1,31 @@
+{
+ "measuredOn": "2026-10-01",
+ "question": "The climate families currently emit one page per city, not one per city per month. NASA POWER now gives twelve distinct monthly fact sets per city for any coordinate on earth. Does the month page own an intent of its own, and at what entity grain, and in which markets?",
+ "unitsSpent": 9208,
+ "method": "keywords-explorer-overview for a city x month sample in en-US, de-DE and fr-FR, then keywords-explorer-matching-terms for every keyword containing the terms of \"weather in january\" in en-US at volume >= 100, ordered by volume, 400 rows.",
+ "findings": {
+  "the_month_page_does_own_an_intent_but_only_for_destinations": {
+   "evidence": "Rome, Barcelona, Lisbon, Tokyo, Prague, Marrakech and Amsterdam all carry 100 to 1,600 monthly searches for a city-plus-month phrase in at least one market, and in most cases Ahrefs names the phrase itself as its own parent topic. Hamburg in de-DE, Vienna in de-DE, Bordeaux in fr-FR and Krakow in de-DE return 10 to 40 searches and a NULL parent topic, meaning the month phrase does not own a topic at all.",
+   "conclusion": "A city-month page is legitimate where the city is a measured destination and the month phrase is its own parent topic. It is NOT legitimate as 31,715 cities x 12 months: that would be padding, and the measurement says so rather than my judgement."
+  },
+  "the_entity_grain_is_not_only_the_city": {
+   "evidence": "Of the 400 en-US keywords above 100 searches for January, the entities are a mixture: countries (Japan 1,000, Greece 700, Portugal 700, Thailand 700, Italy 600), US states (Florida 1,900, Arizona 900, Texas 350, Colorado 200, Tennessee 150, Utah 150, South Carolina 200, Georgia 150), islands and regions (Bahamas 2,100, Hawaii 1,700, Maui 450, Oahu 150, Kauai 150, Key West 1,100, Caribbean 200, Sicily 250, Azores 150, Croatia 150), and cities (Miami 2,500, Orlando 1,500, Rome 600, Paris 500, Barcelona 500, Lisbon 300, Madrid 250, Tokyo 600, Istanbul 150, Athens 100, Florence 150, Venice 100, Milan 100, Taipei 100).",
+   "conclusion": "This is direct demand evidence for the REGION and ISLAND levels of the parallel hierarchies, measured rather than assumed. The gazetteer holds 3,865 admin1 regions, so a region-month family has a real entity pool behind it."
+  },
+  "competition_is_almost_absent": {
+   "evidence": "Keyword difficulty is 0 to 2 for the overwhelming majority of the 400 rows. The exceptions are specific and few: nyc weather in january at 66, weather in punta cana in january at 96, guatemala weather in january at 70, san francisco weather in january at 40, azores weather in january at 40.",
+   "caveat": "Difficulty is a model, not the SERP. These need the usual archetype check before any of them is called winnable, and the two examples above show the model itself disagreeing across near-identical phrases, which is a reason to trust it less rather than more."
+  },
+  "keyword_count_is_not_page_count": {
+   "evidence": "miami weather in january, weather in miami in january, miami in january weather, january weather in miami and weather in miami january are five of the 400 rows and one page.",
+   "conclusion": "The 400 rows collapse to roughly 150 to 180 distinct destination entities for one month in one market. Any scale estimate built on keyword counts rather than entity counts would be inflated by about a factor of two and a half."
+  }
+ },
+ "scale_estimate_for_this_family": {
+  "method": "distinct destination entities with measured demand, times twelve months, times the markets whose own language has measured demand for the phrasing. NOT cities times months.",
+  "en-US_january_above_100_searches": "150 to 180 distinct entities",
+  "honest_range_all_markets_all_months": "25,000 to 60,000 pages",
+  "what_would_move_it": "a lower volume floor multiplies the entity count and weakens intent ownership at the same time, so the floor is a quality decision rather than a scale decision, and it is recorded here rather than tuned to reach a target"
+ },
+ "decision": "BUILD, at three grains: city-month, region-month and country-month, each gated on measured demand for that entity in that market and on twelve complete months of NASA POWER data. This does not close the gap to a million on its own and is not presented as if it did."
+}

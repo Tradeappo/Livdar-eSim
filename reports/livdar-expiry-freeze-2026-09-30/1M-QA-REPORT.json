@@ -1,291 +1,190 @@
 {
- "manifest_rows": 208621,
- "distinct_urls": 208621,
+ "manifest_rows": 208841,
+ "distinct_urls": 208841,
  "checks": {
-  "title_over_65_chars": 135878,
-  "meta_over_165_chars": 3225,
+  "meta_over_165_chars": 28074,
+  "title_over_65_chars": 136232,
   "title_under_15_chars": 4,
-  "duplicate_title_exact": 135,
-  "duplicate_title_same_tokens": 143,
-  "superlative_from_the_family_own_intent": 20,
-  "uniqueness_reason_shared_with_another_candidate": 133,
+  "duplicate_title_exact": 6,
+  "duplicate_title_same_tokens": 7,
+  "superlative_from_the_family_own_intent": 60,
+  "uniqueness_reason_shared_with_another_candidate": 98,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 107,
+  "orphan_pages": 62,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 155,
+  "entity_names_needing_a_disambiguator_in_the_title": 130,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
+  "urls_that_collide_once_diacritics_are_folded": 0,
+  "urls_containing_a_latin_character_with_a_diacritic": 0,
+  "duplicate_canonicals": 0,
+  "duplicate_meta_within_a_market": 0,
+  "duplicate_h1_within_a_market": 0,
+  "declared_parent_is_not_a_valid_parent": 0,
+  "declared_parent_is_valid_but_not_a_path_prefix": 20403,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
  "orphans_by_family": {
-  "poi.museum-notable": 20,
-  "poi.theatre-notable": 13,
   "destinations.country-hub": 9,
   "taxes.country-remote-work": 7,
   "relocation.country": 7,
-  "poi.botanical_garden-notable": 4,
   "places.city-castle": 3,
   "places.city-garden": 3,
   "places.city-swimming_pool": 3,
   "neighbourhoods.city-best-for": 3,
   "neighbourhoods.city-where-to-stay": 3,
-  "poi.art_museum-notable": 3,
   "places.city-marina": 2,
   "places.city-theme_park": 2,
   "places.city-viewpoint": 2,
   "places.city-zoo": 2,
   "places.city-stadium": 2,
-  "poi.castle-notable": 2,
-  "poi.park-notable": 2,
   "education.city-schools": 2,
   "activities.city-things-to-do": 1,
-  "places.area-fast_food": 1,
   "places.city-camp_site": 1,
   "places.city-mall": 1,
-  "places.city-park": 1
+  "places.city-park": 1,
+  "places.city-parking": 1,
+  "places.city-aquarium": 1,
+  "places.city-beach": 1,
+  "places.city-nature_reserve": 1,
+  "places.city-water_park": 1,
+  "property.city-buy": 1,
+  "rents.city": 1
  },
  "top_level_by_family": {},
  "saturated_templates": [],
  "duplicate_examples": [
   {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Bürgermeister-Stroof-Haus, Bonn, DE: what to know before you go",
-   "a": "c_d4790a272ca8",
-   "b": "c_d26b56e44d69",
-   "url_a": "",
-   "url_b": "/de/poi/museum/bürgermeister-stroof-haus-q76634430/"
-  },
-  {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bürgermeister-Stroof-Haus, Bonn, DE: what to know before you go",
-   "a": "c_d4790a272ca8",
-   "b": "c_d26b56e44d69",
+   "market": "en-GB",
+   "title": "Postal Museum, London, GB: what to know before you go",
+   "a": "c_9322f0a68033",
+   "b": "c_12fe3f632456",
    "url_a": "",
-   "url_b": "/de/poi/museum/bürgermeister-stroof-haus-q76634430/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Fürstlich-Fürstenbergische Sammlungen, Donaueschingen, DE: what to know before you go",
-   "a": "c_ec18664c2acd",
-   "b": "c_4afadc40124f",
-   "url_a": "",
-   "url_b": "/de/poi/museum/fürstlich-fürstenbergische-sammlungen-q18753934/"
+   "url_b": "/en/poi/museum/postal-museum-q113261646/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Alte Oper, DE: near venue",
-   "a": "c_65f214fb1202",
-   "b": "c_8b0218da6d8d",
+   "market": "en-US",
+   "title": "Port Richmond, US: neighbourhood category",
+   "a": "c_cade17dcefcf",
+   "b": "c_4a79dc016722",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/alte-oper-q436068/"
+   "url_b": "/en/areas/neighbourhood-category/port-richmond-5132028/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Alte Oper, DE: near venue",
-   "a": "c_65f214fb1202",
-   "b": "c_8b0218da6d8d",
+   "market": "en-US",
+   "title": "Port Richmond, US: neighbourhood category",
+   "a": "c_cade17dcefcf",
+   "b": "c_4a79dc016722",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/alte-oper-q436068/"
+   "url_b": "/en/areas/neighbourhood-category/port-richmond-5132028/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Beethovenhalle, DE: near venue",
-   "a": "c_b26e8066a8ca",
-   "b": "c_a55faf188a35",
+   "market": "en-US",
+   "title": "Port Richmond, US: guide",
+   "a": "c_307c9790e942",
+   "b": "c_0c117d6fe95c",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/beethovenhalle-q61702877/"
+   "url_b": "/en/areas/guide/port-richmond-5132028/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Beethovenhalle, DE: near venue",
-   "a": "c_b26e8066a8ca",
-   "b": "c_a55faf188a35",
+   "market": "en-US",
+   "title": "Port Richmond, US: guide",
+   "a": "c_307c9790e942",
+   "b": "c_0c117d6fe95c",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/beethovenhalle-q61702877/"
+   "url_b": "/en/areas/guide/port-richmond-5132028/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "E-Werk, DE: near venue",
-   "a": "c_42bddb6a9b51",
-   "b": "c_db1961664930",
+   "market": "en-US",
+   "title": "Port Richmond, US: neighbourhood",
+   "a": "c_f37c7f99c86b",
+   "b": "c_ed1fa60f0787",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/e-werk-q325230/"
+   "url_b": "/en/stay/neighbourhood/port-richmond-5132028/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "E-Werk, DE: near venue",
-   "a": "c_42bddb6a9b51",
-   "b": "c_db1961664930",
+   "market": "en-US",
+   "title": "Port Richmond, US: neighbourhood",
+   "a": "c_f37c7f99c86b",
+   "b": "c_ed1fa60f0787",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/e-werk-q325230/"
+   "url_b": "/en/stay/neighbourhood/port-richmond-5132028/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Gewandhaus, DE: near venue",
-   "a": "c_1c6795abc47f",
-   "b": "c_8f1626a6114f",
+   "market": "fr-FR",
+   "title": "Sainte-Marguerite, FR: neighbourhood category",
+   "a": "c_5e9af6a400ad",
+   "b": "c_f2494790c238",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/gewandhaus-q63000434/"
+   "url_b": "/fr/areas/neighbourhood-category/sainte-marguerite-2980467/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Gewandhaus, DE: near venue",
-   "a": "c_1c6795abc47f",
-   "b": "c_8f1626a6114f",
+   "market": "fr-FR",
+   "title": "Sainte-Marguerite, FR: neighbourhood category",
+   "a": "c_5e9af6a400ad",
+   "b": "c_f2494790c238",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/gewandhaus-q63000434/"
+   "url_b": "/fr/areas/neighbourhood-category/sainte-marguerite-2980467/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Harmonie, DE: near venue",
-   "a": "c_2be4bb9ab9c7",
-   "b": "c_2c3d4ac72ab5",
+   "market": "fr-FR",
+   "title": "Sainte-Marguerite, FR: neighbourhood",
+   "a": "c_4d2dc8c5b689",
+   "b": "c_f6b880020dc3",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/harmonie-q1783653/"
+   "url_b": "/fr/stay/neighbourhood/sainte-marguerite-2980467/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Harmonie, DE: near venue",
-   "a": "c_2be4bb9ab9c7",
-   "b": "c_2c3d4ac72ab5",
+   "market": "fr-FR",
+   "title": "Sainte-Marguerite, FR: neighbourhood",
+   "a": "c_4d2dc8c5b689",
+   "b": "c_f6b880020dc3",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/harmonie-q1783653/"
+   "url_b": "/fr/stay/neighbourhood/sainte-marguerite-2980467/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Haus Vaterland, DE: near venue",
-   "a": "c_5717c13d9cb2",
-   "b": "c_b591d37547df",
+   "market": "fr-FR",
+   "title": "Sainte-Marguerite, FR: guide",
+   "a": "c_1d8811c64da8",
+   "b": "c_b94d4cb12cd7",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/haus-vaterland-q116383688/"
+   "url_b": "/fr/areas/guide/sainte-marguerite-2980467/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Haus Vaterland, DE: near venue",
-   "a": "c_5717c13d9cb2",
-   "b": "c_b591d37547df",
+   "market": "fr-FR",
+   "title": "Sainte-Marguerite, FR: guide",
+   "a": "c_1d8811c64da8",
+   "b": "c_b94d4cb12cd7",
    "url_a": "",
-   "url_b": "/de/stay/near-venue/haus-vaterland-q116383688/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Haus des Gastes, DE: near venue",
-   "a": "c_762b3a7f5620",
-   "b": "c_291d2f4d6245",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/haus-des-gastes-q57389155/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Haus des Gastes, DE: near venue",
-   "a": "c_762b3a7f5620",
-   "b": "c_291d2f4d6245",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/haus-des-gastes-q57389155/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Konzert- und Ballhaus Tivoli, DE: near venue",
-   "a": "c_b48714275a75",
-   "b": "c_8762ab04bf4d",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/konzert-und-ballhaus-tivoli-q98457020/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Konzert- und Ballhaus Tivoli, DE: near venue",
-   "a": "c_b48714275a75",
-   "b": "c_8762ab04bf4d",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/konzert-und-ballhaus-tivoli-q98457020/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Konzerthaus, DE: near venue",
-   "a": "c_eefea179da43",
-   "b": "c_1796cb0771b8",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/konzerthaus-q116771370/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Konzerthaus, DE: near venue",
-   "a": "c_eefea179da43",
-   "b": "c_1796cb0771b8",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/konzerthaus-q116771370/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Kurhaus Wiesbaden, DE: near venue",
-   "a": "c_85e78304527d",
-   "b": "c_0841c4893895",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/kurhaus-wiesbaden-q16054321/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Kurhaus Wiesbaden, DE: near venue",
-   "a": "c_85e78304527d",
-   "b": "c_0841c4893895",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/kurhaus-wiesbaden-q16054321/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Pfalzbau, DE: near venue",
-   "a": "c_cbbfe0cfb39b",
-   "b": "c_6632ff374dba",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/pfalzbau-q56513594/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Pfalzbau, DE: near venue",
-   "a": "c_cbbfe0cfb39b",
-   "b": "c_6632ff374dba",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/pfalzbau-q56513594/"
+   "url_b": "/fr/areas/guide/sainte-marguerite-2980467/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
-  "stay.near-venue": 105,
-  "poi.attraction-notable": 14,
-  "poi.gallery-notable": 6,
+  "stay.near-venue": 87,
   "places.neighbourhood-category": 2,
   "neighbourhoods.guide": 2,
   "rents.neighbourhood": 2,
-  "poi.museum-notable": 2
+  "poi.attraction-notable": 2,
+  "poi.museum-notable": 2,
+  "poi.gallery-notable": 1
  },
  "contested_intent_owners": {},
  "locale_mismatch_examples": [],
@@ -313,28 +212,7 @@
   "('poi.attraction-notable', 'pl-PL', 'ławeczka chopina', 'PL')": [
    "n13293462008",
    "n13293477296",
-   "n13293479732",
-   "n13293529091"
-  ],
-  "('poi.gallery-notable', 'en-US', 'gagosian', 'US')": [
-   "n10859974159",
-   "n10873196741"
-  ],
-  "('poi.gallery-notable', 'en-US', 'kasmin gallery', 'US')": [
-   "n10860703829",
-   "n10860703833"
-  ],
-  "('poi.gallery-notable', 'en-US', 'marianne boesky gallery', 'US')": [
-   "n10859974155",
-   "n10859974156"
-  ],
-  "('poi.gallery-notable', 'en-US', 'matthew marks gallery', 'US')": [
-   "n10861543614",
-   "n10861543615"
-  ],
-  "('poi.gallery-notable', 'en-US', 'pace gallery', 'US')": [
-   "n10861507198",
-   "n9470785217"
+   "n13293479732"
   ],
   "('poi.museum-notable', 'de-DE', 'caricatura', 'DE')": [
    "n1851762708",
@@ -398,12 +276,38 @@
   "('poi.museum-notable', 'fr-FR', 'musée national de la marine', 'FR')": [
    "n13727664577",
    "n5882540291"
+  ],
+  "('poi.museum-notable', 'fr-FR', 'musée de minéralogie', 'FR')": [
+   "n1426245245",
+   "n6482311825"
+  ],
+  "('poi.museum-notable', 'fr-FR', 'musée de la marine', 'FR')": [
+   "n1296754169",
+   "n2854735858"
+  ],
+  "('poi.museum-notable', 'fr-FR', 'musée des arts décoratifs', 'FR')": [
+   "n239825781",
+   "n247584452"
+  ],
+  "('poi.museum-notable', 'fr-FR', 'musée des beaux-arts', 'FR')": [
+   "n13530619691",
+   "n1445028137",
+   "n239830896",
+   "n371712800"
+  ],
+  "('poi.museum-notable', 'fr-FR', 'musée du chocolat', 'FR')": [
+   "Q93929598",
+   "n1209893702"
   ]
  },
  "urls_sharing_a_cannibalization_key_examples": {},
  "entity_collisions_same_id_two_names": {},
  "sourceless_candidate_examples": [],
  "kept_rows_by_localisation_class_that_should_have_been_rejected": {},
+ "duplicate_slug_examples": {},
+ "duplicate_meta_examples": {},
+ "duplicate_h1_examples": {},
+ "invalid_hierarchy_examples": [],
  "usefulness_test_failures": {},
  "usefulness_test_by_family_and_locale": {
   "activities.city-things-to-do|de": {
@@ -1937,7 +1841,7 @@
    ]
   },
   "places.area-childcare|pt": {
-   "rows": 38,
+   "rows": 37,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2081,7 +1985,7 @@
    ]
   },
   "places.area-clinic|pt": {
-   "rows": 182,
+   "rows": 181,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2249,7 +2153,7 @@
    ]
   },
   "places.area-cuisine|fr": {
-   "rows": 1581,
+   "rows": 1583,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2465,7 +2369,7 @@
    ]
   },
   "places.area-fast_food|fr": {
-   "rows": 401,
+   "rows": 400,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2697,7 +2601,7 @@
    ]
   },
   "places.area-gym|fr": {
-   "rows": 180,
+   "rows": 181,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2913,7 +2817,7 @@
    ]
   },
   "places.area-library|fr": {
-   "rows": 97,
+   "rows": 98,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3337,7 +3241,7 @@
    ]
   },
   "places.area-opening|pt": {
-   "rows": 216,
+   "rows": 215,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3697,7 +3601,7 @@
    ]
   },
   "places.area-restaurant|fr": {
-   "rows": 499,
+   "rows": 498,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3737,7 +3641,7 @@
    ]
   },
   "places.area-restaurant|pt": {
-   "rows": 287,
+   "rows": 286,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3809,7 +3713,7 @@
    ]
   },
   "places.area-school|pt": {
-   "rows": 233,
+   "rows": 232,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3913,7 +3817,7 @@
    ]
   },
   "places.area-supermarket|fr": {
-   "rows": 225,
+   "rows": 226,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5375,7 +5279,7 @@
    ]
   },
   "places.city-fast_food|en": {
-   "rows": 2073,
+   "rows": 2074,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5719,7 +5623,7 @@
    ]
   },
   "places.city-hospital|en": {
-   "rows": 211,
+   "rows": 197,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5751,7 +5655,7 @@
    ]
   },
   "places.city-hospital|ja": {
-   "rows": 130,
+   "rows": 124,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5775,7 +5679,7 @@
    ]
   },
   "places.city-hospital|pt": {
-   "rows": 47,
+   "rows": 46,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5871,7 +5775,7 @@
    ]
   },
   "places.city-library|en": {
-   "rows": 201,
+   "rows": 197,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5903,7 +5807,7 @@
    ]
   },
   "places.city-library|ja": {
-   "rows": 65,
+   "rows": 64,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6519,7 +6423,7 @@
    ]
   },
   "places.city-pharmacy|en": {
-   "rows": 666,
+   "rows": 667,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6879,7 +6783,7 @@
    ]
   },
   "places.city-shopping_mall|en": {
-   "rows": 246,
+   "rows": 231,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6911,7 +6815,7 @@
    ]
   },
   "places.city-shopping_mall|ja": {
-   "rows": 162,
+   "rows": 160,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7059,7 +6963,7 @@
    ]
   },
   "places.city-stadium|en": {
-   "rows": 138,
+   "rows": 133,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7379,7 +7283,7 @@
    ]
   },
   "places.city-university|en": {
-   "rows": 186,
+   "rows": 180,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7411,7 +7315,7 @@
    ]
   },
   "places.city-university|ja": {
-   "rows": 128,
+   "rows": 127,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7435,7 +7339,7 @@
    ]
   },
   "places.city-university|pt": {
-   "rows": 55,
+   "rows": 53,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7757,7 +7661,7 @@
    ]
   },
   "poi.archaeological_site-notable|en": {
-   "rows": 21,
+   "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7806,7 +7710,7 @@
    ]
   },
   "poi.art_museum-notable|ja": {
-   "rows": 91,
+   "rows": 98,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7820,7 +7724,7 @@
    ]
   },
   "poi.art_museum-notable|pt": {
-   "rows": 22,
+   "rows": 26,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7876,7 +7780,7 @@
    ]
   },
   "poi.attraction-notable|pl": {
-   "rows": 19,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7911,7 +7815,7 @@
    ]
   },
   "poi.botanical_garden-notable|en": {
-   "rows": 37,
+   "rows": 42,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7932,7 +7836,7 @@
    ]
   },
   "poi.botanical_garden-notable|ja": {
-   "rows": 25,
+   "rows": 26,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7946,7 +7850,7 @@
    ]
   },
   "poi.botanical_garden-notable|pt": {
-   "rows": 5,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7960,7 +7864,7 @@
    ]
   },
   "poi.castle-notable|en": {
-   "rows": 11,
+   "rows": 12,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8009,7 +7913,7 @@
    ]
   },
   "poi.gallery-notable|en": {
-   "rows": 76,
+   "rows": 71,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -8058,14 +7962,14 @@
    ]
   },
   "poi.museum-notable|de": {
-   "rows": 1062,
+   "rows": 1060,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|en": {
-   "rows": 961,
+   "rows": 1063,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -8086,21 +7990,21 @@
    ]
   },
   "poi.museum-notable|it": {
-   "rows": 790,
+   "rows": 789,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|ja": {
-   "rows": 310,
+   "rows": 314,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|nl": {
-   "rows": 381,
+   "rows": 380,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -8114,10 +8018,17 @@
    ]
   },
   "poi.museum-notable|pt": {
-   "rows": 375,
+   "rows": 410,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "poi.national_park-notable|en": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.national_park-notable|fr": {
@@ -8142,7 +8053,7 @@
    ]
   },
   "poi.park-notable|en": {
-   "rows": 110,
+   "rows": 155,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8163,7 +8074,7 @@
    ]
   },
   "poi.park-notable|ja": {
-   "rows": 56,
+   "rows": 67,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8184,7 +8095,7 @@
    ]
   },
   "poi.park-notable|pt": {
-   "rows": 7,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8212,7 +8123,7 @@
    ]
   },
   "poi.theatre-notable|en": {
-   "rows": 153,
+   "rows": 244,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8226,7 +8137,7 @@
    ]
   },
   "poi.theatre-notable|fr": {
-   "rows": 95,
+   "rows": 94,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8240,7 +8151,7 @@
    ]
   },
   "poi.theatre-notable|ja": {
-   "rows": 43,
+   "rows": 49,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8261,7 +8172,7 @@
    ]
   },
   "poi.theatre-notable|pt": {
-   "rows": 35,
+   "rows": 37,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8919,14 +8830,14 @@
    ]
   },
   "stay.near-venue|de": {
-   "rows": 621,
+   "rows": 613,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from venue-data-verified; stay-inventory-verified, a named source with provenance"
    ]
   },
   "stay.near-venue|en": {
-   "rows": 2588,
+   "rows": 2582,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from venue-data-verified; stay-inventory-verified, a named source with provenance"
@@ -8954,14 +8865,14 @@
    ]
   },
   "stay.near-venue|ja": {
-   "rows": 376,
+   "rows": 375,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from venue-data-verified; stay-inventory-verified, a named source with provenance"
    ]
   },
   "stay.near-venue|nl": {
-   "rows": 129,
+   "rows": 125,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from venue-data-verified; stay-inventory-verified, a named source with provenance"
@@ -9432,101 +9343,101 @@
    "market": "pl-PL",
    "family": "poi.attraction-notable",
    "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_0b6f7a6f250b",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n7174817785/"
-  },
-  {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_420fc441827d",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n9022840215/"
-  },
-  {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_2fa9be6e899f",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n9045174947/"
-  },
-  {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_a491a44dd093",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293462008/"
-  },
-  {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
+   "a": "c_a491a44dd093",
    "b": "c_c1e73b343575",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293477296/"
+   "url_b": "/pl/poi/attraction/laweczka-chopina-n13293477296/"
   },
   {
    "market": "pl-PL",
    "family": "poi.attraction-notable",
    "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
+   "a": "c_a491a44dd093",
    "b": "c_1d11db6be4ef",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293479732/"
+   "url_b": "/pl/poi/attraction/laweczka-chopina-n13293479732/"
   },
   {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_ba453dbee881",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293529091/"
+   "market": "en-US",
+   "family": "poi.gallery-notable",
+   "reason": "notable gallery cross-referenced in Wikidata (QID Q1950826) with 4 source fields: a practical page for a specific visited entity, not a generated stub",
+   "a": "c_80dc5091204a",
+   "b": "c_5987568434d1",
+   "url_b": "/en/poi/gallery/david-zwirner-gallery-n10873196751/"
   },
   {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_551bcf1801ed",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293555479/"
+   "market": "en-US",
+   "family": "poi.museum-notable",
+   "reason": "notable museum cross-referenced in Wikidata (QID Q3329587) with 5 source fields: a practical page for a specific visited entity, not a generated stub",
+   "a": "c_3d48b16009c3",
+   "b": "c_97ba7c387d3d",
+   "url_b": "/en/poi/museum/museum-of-contemporary-art-san-diego-n368173981/"
   },
   {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_5bda70496426",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293564985/"
+   "market": "it-IT",
+   "family": "poi.museum-notable",
+   "reason": "notable museum cross-referenced in Wikidata (QID Q3768551) with 5 source fields: a practical page for a specific visited entity, not a generated stub",
+   "a": "c_80a05e342780",
+   "b": "c_8a3944ec2e38",
+   "url_b": "/it/poi/museum/museo-civico-olmo-n6469959648/"
   },
   {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_6120581f1796",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293564990/"
+   "market": "fr-FR",
+   "family": "neighbourhoods.guide",
+   "reason": "neighbourhoods.guide for Sainte-Marguerite (FR) in fr-FR: neighbourhood-level characteristics within a named city; 2 source fields from HELD_PARTIAL; ",
+   "a": "c_1d8811c64da8",
+   "b": "c_b94d4cb12cd7",
+   "url_b": "/fr/areas/guide/sainte-marguerite-2980467/"
   },
   {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a5107182f0c7",
-   "b": "c_81bc64d7f3cc",
-   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293571074/"
+   "market": "en-US",
+   "family": "rents.neighbourhood",
+   "reason": "rents.neighbourhood for Port Richmond (US) in en-US: neighbourhood-level characteristics within a named city; 2 source fields from MISSING_ACQUIRABLE;",
+   "a": "c_f37c7f99c86b",
+   "b": "c_ed1fa60f0787",
+   "url_b": "/en/stay/neighbourhood/port-richmond-5132028/"
+  },
+  {
+   "market": "de-DE",
+   "family": "stay.near-venue",
+   "reason": "stay.near-venue for Alte Oper (DE) in de-DE: a specific venue with its own location and surroundings; 2 source fields from HELD_PARTIAL; de market dem",
+   "a": "c_8b0218da6d8d",
+   "b": "c_65f214fb1202",
+   "url_b": "/de/stay/near-venue/alte-oper-q436079/"
+  },
+  {
+   "market": "de-DE",
+   "family": "stay.near-venue",
+   "reason": "stay.near-venue for E-Werk (DE) in de-DE: a specific venue with its own location and surroundings; 2 source fields from HELD_PARTIAL; de market demand",
+   "a": "c_42bddb6a9b51",
+   "b": "c_db1961664930",
+   "url_b": "/de/stay/near-venue/e-werk-q325230/"
+  },
+  {
+   "market": "de-DE",
+   "family": "stay.near-venue",
+   "reason": "stay.near-venue for Haus Vaterland (DE) in de-DE: a specific venue with its own location and surroundings; 2 source fields from HELD_PARTIAL; de marke",
+   "a": "c_b591d37547df",
+   "b": "c_5717c13d9cb2",
+   "url_b": "/de/stay/near-venue/haus-vaterland-q1590621/"
+  },
+  {
+   "market": "de-DE",
+   "family": "stay.near-venue",
+   "reason": "stay.near-venue for Haus des Gastes (DE) in de-DE: a specific venue with its own location and surroundings; 2 source fields from HELD_PARTIAL; de mark",
+   "a": "c_291d2f4d6245",
+   "b": "c_762b3a7f5620",
+   "url_b": "/de/stay/near-venue/haus-des-gastes-q98902636/"
   }
  ],
  "long_dash_examples": [],
  "superlative_examples": [],
  "families_whose_own_name_claims_a_superlative": {
-  "neighbourhoods.city-best-for": 20
+  "neighbourhoods.city-best-for": 60
  },
  "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
   "min": 13,
   "max": 192,
-  "mean": 67.5
+  "mean": 67.8
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
