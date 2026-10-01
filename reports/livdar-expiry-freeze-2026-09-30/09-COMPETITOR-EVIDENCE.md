@@ -91,3 +91,40 @@ holds position 3 in property. A DR 33 page with zero referring domains takes 18,
 attraction tickets. The families where that is *not* true are the ones already
 classified `BRAND_OWNED_PLUS_SOCIAL`, `AGGREGATOR_LOCKED` or `SERP_FEATURE_SUPPRESSED`
 in `08-SERP-EVIDENCE.csv`, and those classifications should be treated as settled.
+
+## Competitors found by SERP sampling on 2026-10-01
+
+These were not found by looking for competitors. They turned up while measuring SERPs for
+the new aggregation shapes, which is the cheaper way to find them: the sites that rank for
+the pages you intend to build are by definition your competitors for those pages.
+
+| competitor | DR | ranks for | position | why it matters |
+| --- | --- | --- | --- | --- |
+| `supermarktcheck.de` | 35 | supermarkt münchen sonntag geöffnet | 2 | A purpose-built directory at DR 35 outranks outlets at DR 56, 63, 73, 74 and 81. The clearest proof measured that this SERP rewards the page that answers rather than the domain that is large. |
+| `localgroningen.nl` | 20 | stoomgemaal winschoten | 6 | Ranks on `/nl/poi/museum-stoomgemaal-winschoten`, which is the same URL pattern Livdar generates for a notable entity. A DR 20 site doing this is the strongest evidence that the notable-entity shape is reachable. |
+| `museumgidsnederland.nl` | 28 | stoomgemaal winschoten | 5 | A single-vertical national directory, above localgroningen and below Wikipedia. |
+| `manchestersfinest.com` | 60 | indian restaurants manchester | 2 (first organic) | A city editorial brand taking the first organic slot above TripAdvisor at DR 91. The city-cuisine shape is won by local editorial authority, not by scale. |
+| `mitvergnuegen.com`, `tip-berlin.de` | 73, 73 | restaurants kreuzberg | 2, 3 | City magazines own neighbourhood lists in Germany. |
+| `berlin-ick-liebe-dir.de` | 39 | restaurants kreuzberg | 7 | A DR 39 independent in the same set, which is what makes the shape worth entering. |
+| `cremeguides.com` | 59 | restaurants kreuzberg | 4 | A multi-city guide operating the exact area-category shape across cities. |
+| `playfinder.com` | 43 | tennis courts london | 5 | A booking platform ranking on `/london/results/tennis/west-silvertown`: city plus sport plus neighbourhood, the shape Livdar calls city_sport and area_category combined. |
+| `padelandtennis.co.uk` | 10 | tennis courts london | 6 | DR 10, ranking below the sport's governing body. |
+
+### What the pattern across them says
+
+The lowest-authority sites that rank, in every one of these SERPs, are **single-purpose
+pages that answer one question completely**: supermarkets open on Sunday in one city,
+tennis courts in one London neighbourhood, one museum. The highest-authority sites that
+rank are **aggregators and encyclopaedias**, which Livdar will not outrank, and **city
+editorial brands**, which it could eventually compete with but not immediately.
+
+That is an argument for the shape of the inventory rather than its size. A page that
+answers one question completely is what every gate in `poi-aggregations.py` is trying to
+force: a minimum count so the list is a list, an enrichment share so the entries carry more
+than a name, and a rejection when the area's list is merely the city's list again.
+
+It is also a warning. `padelandtennis.co.uk` at DR 10 and `localgroningen.nl` at DR 20
+rank at positions 6, not 1. Low authority gets a seat, not the head of the table, which is
+why the first-release caps in `14-PUBLICATION-CONTROLLER.md` Part D are small and why the
+GSC thresholds in the addendum to `1M-GSC-VALIDATION-PLAN.md` ask for "any page in the top
+20" rather than top three for the mixed archetypes.
