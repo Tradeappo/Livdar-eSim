@@ -695,7 +695,15 @@ DISTINCT_BASIS = {
     'year': 'a dated period with its own calendar facts',
     'tool': 'a distinct calculation with its own formula and inputs',
 }
-def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier):
+# how many entities share a name inside one country, so the reason can add an id only
+# where it is actually needed rather than cluttering every row
+SAME_NAME_IN_COUNTRY = collections.Counter()
+for _c in cities:
+    if _c.get('name'):
+        SAME_NAME_IN_COUNTRY[(_c.get('country'), _c['name'].casefold())] += 1
+
+
+def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier, eid=''):
     basis = DISTINCT_BASIS.get(etype)
     if not basis:
         return ''                       # no defensible basis: the gate below drops it
@@ -710,6 +718,11 @@ def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier):
     who = ename or etype
     if ecountry and etype in ('city', 'city-pair', 'neighbourhood', 'venue', 'airport'):
         who = f"{who} ({ecountry})"
+    # A country is not always enough: the United States has several Springfields, and two
+    # of them produced identical reasons. The entity id is the last resort that always
+    # distinguishes, because it is the id of the row's own entity.
+    if eid and ename and SAME_NAME_IN_COUNTRY.get((ecountry, (ename or '').casefold()), 0) > 1:
+        who = f"{who} [{eid}]"
     return (f"{f['family_id']} for {who} in {market}: {basis}; "
             f"{nf} source fields from {f.get('source_state', 'source')}; "
             f"{lang} market demand measured for this family")
@@ -812,7 +825,7 @@ for f in fams:
                 # Why this page deserves to exist separately. Built from the family's
                 # own distinct-value test plus the entity and market that make this row
                 # different from its siblings. A row without one is dropped below.
-                'uniqueness_reason': uniqueness_reason(f, etype, ename, ecountry, m, lang, tier),
+                'uniqueness_reason': uniqueness_reason(f, etype, ename, ecountry, m, lang, tier, eid),
             })
 
 # ---- OSM POI AGGREGATIONS (not one page per POI) ---------------------------

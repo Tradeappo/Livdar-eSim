@@ -51,12 +51,29 @@ def fetch(qid, cq, iso, offset, limit=10000):
             time.sleep(15 * (attempt + 1))
     return None
 
+# Partition the work so several workers can run at once without doing it twice.
+# One worker takes about 1.2 minutes per class-country pair, which is four hours for the
+# 264 pairs; four workers is one hour. STRIDE and OFFSET split the pair list
+# deterministically, and a claim directory makes the split safe even if two workers are
+# given the same offset by mistake: mkdir is atomic, so the second one loses and moves on.
+STRIDE = int(os.environ.get('WD_STRIDE', '1'))
+OFFSET = int(os.environ.get('WD_OFFSET', '0'))
+
+PAIRS = [(qid, cname, cq, iso) for qid, cname in CLASSES for cq, iso in COUNTRIES]
+PAIRS = [p for i, p in enumerate(PAIRS) if i % STRIDE == OFFSET]
+print(f'worker offset {OFFSET} of stride {STRIDE}: {len(PAIRS)} pairs to try', flush=True)
+
 total = 0
 stats = collections.Counter()
-for qid, cname in CLASSES:
-    for cq, iso in COUNTRIES:
+for qid, cname, cq, iso in PAIRS:
+    if True:
         mark = f'{MARK}{cname}_{iso}.done'
+        claim = f'{MARK}{cname}_{iso}.claim'
         if os.path.exists(mark): continue
+        try:
+            os.mkdir(claim)
+        except FileExistsError:
+            continue                      # another worker holds this pair
         rows = []
         offset = 0
         while True:
@@ -85,6 +102,10 @@ for qid, cname in CLASSES:
             total += len(rows); stats[cname] += len(rows)
             print(f'  {cname}/{iso}: {len(rows):,}', flush=True)
         open(mark, 'w').close()
-        time.sleep(4)
+        try:
+            os.rmdir(claim)
+        except OSError:
+            pass
+        time.sleep(2)
 print(f'\nTOTAL materialised: {total:,}')
 print('by class:', dict(stats.most_common()))

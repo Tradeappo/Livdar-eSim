@@ -64,35 +64,44 @@ def norm_tokens(s):
 def title_for(r):
     """The title this candidate would render, from its own fields.
 
-    The first skeleton fell through to the bare entity name for several families, which
-    produced 42,805 exact title collisions. Reading them found a real defect behind the
-    noise: two different cities called Barcelona, one in Spain and one in Venezuela, both
-    earning a German page. The country is now carried on every city-scoped title, so a
-    collision reported here is a genuine collision rather than a thin skeleton.
+    Keyed on SURFACE, not on family prefixes. Guessing prefixes missed relocation.* whose
+    surface is "move", so those titles fell through to the bare name and reported 25,580
+    collisions that were my skeleton's fault rather than the inventory's. The surface set
+    is small, known and stable; family names are neither.
     """
     name = undash(r['entity_name'] or r['entity_id'])
     city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
-    shape = r['family']
+    fam, surface = r['family'], r['surface']
     where = f"{city}, {country}" if city and country else (city or country or '')
+    qualified = f"{name}, {country}" if country and country not in name else name
+
     if r['page_type'] == 'ENTITY':
         return f"{name}{', ' + where if where else ''}: what to know before you go"
-    if shape == 'areas.city-index':
+    if fam == 'areas.city-index':
         return f"Neighbourhoods of {where}: which area suits you"
-    if shape == 'areas.overview':
+    if fam == 'areas.overview':
         return f"{area}, {where}: what the area is like"
-    if r['surface'] == 'places':
-        return f"{name}, {country}: the full list from open data" if country else name
-    if shape.startswith(('pulse.', 'events.')):
-        return f"{name}{' in ' + country if country else ''}: dates and what is open"
-    if shape.startswith('tools.'):
+    if surface == 'places':
+        return f"{qualified}: the full list from open data"
+    if surface == 'pulse':
+        return f"{qualified}: dates and what is open"
+    if surface == 'tools':
         return f"{name}: work it out with your own numbers"
-    if shape.startswith(('weather.', 'climate.')):
-        return f"{name}, {country}: what the weather is actually like" if country else name
-    if shape.startswith(('activities.', 'destinations.')):
-        return f"{name}, {country}: what is worth your time" if country else name
-    if shape.startswith(('move.', 'work.', 'stay.', 'safety.', 'money.', 'rents.')):
-        return f"{name}{' (' + country + ')' if country else ''}: what to sort out first"
-    return f"{name}{', ' + country if country else ''}"
+    if surface == 'climate':
+        return f"{qualified}: what the weather is actually like"
+    if surface == 'areas':
+        return f"{qualified}: what is worth your time"
+    if surface == 'move':
+        return f"{qualified}: what to sort out before you go"
+    if surface == 'stay':
+        return f"{qualified}: where to stay and what it costs"
+    if surface == 'work':
+        return f"{qualified}: working there, in practice"
+    if surface == 'money':
+        return f"{qualified}: the money side, in plain numbers"
+    if surface == 'safety':
+        return f"{qualified}: what the official figures say"
+    return f"{qualified}: the practical guide"
 
 
 def meta_for(r):
