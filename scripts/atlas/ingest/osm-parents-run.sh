@@ -40,9 +40,22 @@ FILT="$WORK/$ISO-parents.osm.pbf"
 
 if [ ! -f "$FILT" ]; then
   if [ ! -f "$PBF" ]; then
-    echo "[$(date +%T)] [$ISO] downloading $REGION in parallel ranges"
-    if ! ./scripts/atlas/ingest/parallel-get.sh "$BASE/$REGION-latest.osm.pbf" "$PBF" 8 "$PBF.part"; then
-      echo "[$ISO] download incomplete, will resume on the next run"
+    # Three streams, not eight, and retried. The mirror served the first 5.9GB pull on eight
+    # parallel ranges and then began resetting connections partway through the second, which
+    # is what throttling one IP looks like. parallel-get resumes with curl -C, so each attempt
+    # continues from where the last stopped rather than starting over; the run that stalled at
+    # 78.4 per cent lost nothing but time.
+    DL_OK=0
+    for attempt in 1 2 3 4 5 6; do
+      echo "[$(date +%T)] [$ISO] downloading $REGION, attempt $attempt, 3 streams"
+      if ./scripts/atlas/ingest/parallel-get.sh "$BASE/$REGION-latest.osm.pbf" "$PBF" 3 "$PBF.part"; then
+        DL_OK=1; break
+      fi
+      echo "[$ISO] attempt $attempt incomplete; backing off before resuming"
+      sleep $((attempt * 20))
+    done
+    if [ "$DL_OK" != "1" ]; then
+      echo "[$ISO] download still incomplete after 6 attempts, will resume on the next run"
       exit 1
     fi
   fi

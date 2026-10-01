@@ -18,6 +18,24 @@ set -u
 URL="$1"; OUT="$2"; PARTS="${3:-8}"; SEED="${4:-}"
 D="$OUT.parts"; mkdir -p "$D"
 
+# The part LAYOUT has to match, or resuming corrupts the file. curl -C - continues a part
+# from its current length, and it has no idea which byte range that part was originally
+# asked for: change the part count and p01 is resumed from offset N of a DIFFERENT range,
+# so the joined file is silently wrong. This happened: a stalled 8-part download was
+# re-run with 3 parts, the three new ranges were appended onto three old part files, and
+# the directory summed to 114 per cent of the file size, which is the only reason it was
+# noticed. A size that happened to land under 100 per cent would have produced a corrupt
+# extract that osmium would have failed on much later, with no clue why.
+LAYOUT="$D/.layout"
+WANT="parts=$PARTS seed=$([ -n "${4:-}" ] && echo yes || echo no)"
+if [ -f "$LAYOUT" ] && [ "$(cat "$LAYOUT")" != "$WANT" ]; then
+  echo "part layout changed: have [$(cat "$LAYOUT")], asked for [$WANT]."
+  echo "Resuming across a layout change would corrupt the output, so the old parts are"
+  echo "discarded and this starts over. Keep the part count stable to keep resume working."
+  rm -f "$D"/p* 
+fi
+printf '%s' "$WANT" > "$LAYOUT"
+
 TOTAL=$(curl -sS -m 60 -I "$URL" | awk 'tolower($1)=="content-length:"{print $2+0}')
 [ -n "${TOTAL:-}" ] && [ "$TOTAL" -gt 0 ] || { echo "no content-length for $URL"; exit 1; }
 echo "total $TOTAL bytes in $PARTS parts"
