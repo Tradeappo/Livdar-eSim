@@ -1,32 +1,23 @@
 {
- "manifest_rows": 239807,
- "distinct_urls": 239807,
+ "manifest_rows": 234431,
+ "distinct_urls": 234431,
  "checks": {
-  "title_over_65_chars": 134923,
-  "meta_over_165_chars": 2032,
-  "long_dash_in_source_name_or_derived_text": 62,
+  "title_over_65_chars": 131921,
+  "meta_over_165_chars": 2016,
+  "long_dash_in_source_name_or_derived_text": 47,
   "title_under_15_chars": 363,
-  "duplicate_title_exact": 3490,
-  "duplicate_title_same_tokens": 3533,
+  "duplicate_title_exact": 3487,
+  "duplicate_title_same_tokens": 3530,
   "superlative_added_by_template": 20,
   "uniqueness_reason_shared_with_another_candidate": 22,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 3443
+  "orphan_pages": 232
  },
  "orphans_by_family": {
-  "poi.museum-notable": 1507,
-  "poi.theatre-notable": 635,
-  "poi.art_museum-notable": 286,
-  "poi.botanical_garden-notable": 271,
-  "places.area-attribute": 139,
-  "places.city-attribute": 98,
-  "poi.park-notable": 96,
-  "places.area-opening": 95,
-  "poi.castle-notable": 75,
-  "places.city-sport": 74,
-  "places.city-opening": 64,
-  "places.city-cuisine": 47,
-  "poi.beach-notable": 11,
+  "places.area-attribute": 54,
+  "places.city-cuisine": 48,
+  "places.area-opening": 48,
+  "places.city-sport": 37,
   "destinations.country-hub": 9,
   "places.city-swimming_pool": 3,
   "places.city-water_park": 3,
@@ -38,7 +29,16 @@
   "places.city-viewpoint": 2,
   "places.city-stadium": 2,
   "education.city-schools": 2,
-  "activities.city-things-to-do": 1
+  "activities.city-things-to-do": 1,
+  "places.city-mall": 1,
+  "places.city-parking": 1,
+  "places.city-zoo": 1,
+  "places.city-aquarium": 1,
+  "places.city-beach": 1,
+  "places.city-golf_course": 1,
+  "places.city-nature_reserve": 1,
+  "places.city-theme_park": 1,
+  "property.city-buy": 1
  },
  "saturated_templates": [],
  "duplicate_examples": [
@@ -521,7 +521,7 @@
  "title_length": {
   "min": 12,
   "max": 192,
-  "mean": 62.3
+  "mean": 62.2
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

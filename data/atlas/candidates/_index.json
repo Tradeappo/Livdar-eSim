@@ -1,62 +1,62 @@
 {
  "source": "LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz",
- "rows": 239807,
+ "rows": 234431,
  "partitions": {
   "market": {
    "de-DE": {
     "path": "data/atlas/candidates/market=de-DE/candidates.jsonl.gz",
-    "rows": 41374,
-    "content_sha1": "5013166165739c27"
+    "rows": 40214,
+    "content_sha1": "1b4fc190e293a2d1"
    },
    "en-GB": {
     "path": "data/atlas/candidates/market=en-GB/candidates.jsonl.gz",
-    "rows": 38392,
-    "content_sha1": "6b2942f23bfe987c"
+    "rows": 38100,
+    "content_sha1": "14477f85deef3087"
    },
    "en-US": {
     "path": "data/atlas/candidates/market=en-US/candidates.jsonl.gz",
-    "rows": 48038,
-    "content_sha1": "6be1704882210edd"
+    "rows": 46867,
+    "content_sha1": "6c7668f4f64187f8"
    },
    "es-ES": {
     "path": "data/atlas/candidates/market=es-ES/candidates.jsonl.gz",
-    "rows": 15434,
-    "content_sha1": "35cc2ee8c402e20f"
+    "rows": 15182,
+    "content_sha1": "16b0656a91d1be30"
    },
    "fr-FR": {
     "path": "data/atlas/candidates/market=fr-FR/candidates.jsonl.gz",
-    "rows": 16371,
-    "content_sha1": "8ec5b32e875be7ff"
+    "rows": 16017,
+    "content_sha1": "01d4c57da728377e"
    },
    "it-IT": {
     "path": "data/atlas/candidates/market=it-IT/candidates.jsonl.gz",
-    "rows": 15055,
-    "content_sha1": "962dd9e8593bf3c1"
+    "rows": 14726,
+    "content_sha1": "8132313706c1f9b3"
    },
    "ja-JP": {
     "path": "data/atlas/candidates/market=ja-JP/candidates.jsonl.gz",
-    "rows": 24154,
-    "content_sha1": "57be0d41f54d898b"
+    "rows": 23505,
+    "content_sha1": "a84c3050c5147c5d"
    },
    "nl-NL": {
     "path": "data/atlas/candidates/market=nl-NL/candidates.jsonl.gz",
-    "rows": 9645,
-    "content_sha1": "b3cd2bbc10b2b076"
+    "rows": 9522,
+    "content_sha1": "12b811e4c5970f11"
    },
    "pl-PL": {
     "path": "data/atlas/candidates/market=pl-PL/candidates.jsonl.gz",
-    "rows": 12125,
-    "content_sha1": "8eedc9b9af17a5e3"
+    "rows": 11910,
+    "content_sha1": "e8b1b419194d2cf1"
    },
    "pt-BR": {
     "path": "data/atlas/candidates/market=pt-BR/candidates.jsonl.gz",
-    "rows": 15351,
-    "content_sha1": "0d35c215acb961ae"
+    "rows": 14645,
+    "content_sha1": "12cc5a11924c6607"
    },
    "zh-Hant-TW": {
     "path": "data/atlas/candidates/market=zh-Hant-TW/candidates.jsonl.gz",
-    "rows": 3868,
-    "content_sha1": "61885094a137d04e"
+    "rows": 3743,
+    "content_sha1": "348fe4f3ac6d4a77"
    }
   },
   "family": {
@@ -152,8 +152,8 @@
    },
    "places.area-attribute": {
     "path": "data/atlas/candidates/family=places.area-attribute/candidates.jsonl.gz",
-    "rows": 6406,
-    "content_sha1": "5b58a168692db5f5"
+    "rows": 6273,
+    "content_sha1": "8f9e85b1879e67e5"
    },
    "places.area-bar": {
     "path": "data/atlas/candidates/family=places.area-bar/candidates.jsonl.gz",
@@ -287,8 +287,8 @@
    },
    "places.area-opening": {
     "path": "data/atlas/candidates/family=places.area-opening/candidates.jsonl.gz",
-    "rows": 9549,
-    "content_sha1": "20144c60eec2f707"
+    "rows": 9471,
+    "content_sha1": "927369c27fb0f756"
    },
    "places.area-park": {
     "path": "data/atlas/candidates/family=places.area-park/candidates.jsonl.gz",
@@ -387,8 +387,8 @@
    },
    "places.city-attribute": {
     "path": "data/atlas/candidates/family=places.city-attribute/candidates.jsonl.gz",
-    "rows": 2845,
-    "content_sha1": "3f52ca25988cfdd7"
+    "rows": 2694,
+    "content_sha1": "036be1420d644ebf"
    },
    "places.city-bar": {
     "path": "data/atlas/candidates/family=places.city-bar/candidates.jsonl.gz",
@@ -523,7 +523,7 @@
    "places.city-museum": {
     "path": "data/atlas/candidates/family=places.city-museum/candidates.jsonl.gz",
     "rows": 1032,
-    "content_sha1": "6637cc2d5ad68486"
+    "content_sha1": "5ac030de7723aa7c"
    },
    "places.city-nature_reserve": {
     "path": "data/atlas/candidates/family=places.city-nature_reserve/candidates.jsonl.gz",
@@ -537,8 +537,8 @@
    },
    "places.city-opening": {
     "path": "data/atlas/candidates/family=places.city-opening/candidates.jsonl.gz",
-    "rows": 3590,
-    "content_sha1": "e65369616ec71b15"
+    "rows": 3472,
+    "content_sha1": "4dcac51d8269c488"
    },
    "places.city-park": {
     "path": "data/atlas/candidates/family=places.city-park/candidates.jsonl.gz",
@@ -582,8 +582,8 @@
    },
    "places.city-sport": {
     "path": "data/atlas/candidates/family=places.city-sport/candidates.jsonl.gz",
-    "rows": 168,
-    "content_sha1": "05c01069b4232cc2"
+    "rows": 123,
+    "content_sha1": "b94752fd145a1c72"
    },
    "places.city-sports_centre": {
     "path": "data/atlas/candidates/family=places.city-sports_centre/candidates.jsonl.gz",
@@ -657,8 +657,8 @@
    },
    "poi.art_museum-notable": {
     "path": "data/atlas/candidates/family=poi.art_museum-notable/candidates.jsonl.gz",
-    "rows": 650,
-    "content_sha1": "9831a6ead13c5af1"
+    "rows": 278,
+    "content_sha1": "91cbce633ce79efb"
    },
    "poi.attraction-notable": {
     "path": "data/atlas/candidates/family=poi.attraction-notable/candidates.jsonl.gz",
@@ -667,18 +667,18 @@
    },
    "poi.beach-notable": {
     "path": "data/atlas/candidates/family=poi.beach-notable/candidates.jsonl.gz",
-    "rows": 13,
-    "content_sha1": "55b8c43d688ef83d"
+    "rows": 3,
+    "content_sha1": "bcb6f78f25b6894e"
    },
    "poi.botanical_garden-notable": {
     "path": "data/atlas/candidates/family=poi.botanical_garden-notable/candidates.jsonl.gz",
-    "rows": 357,
-    "content_sha1": "9e920bfff3c2c55a"
+    "rows": 135,
+    "content_sha1": "b27dfd9eac943fe8"
    },
    "poi.castle-notable": {
     "path": "data/atlas/candidates/family=poi.castle-notable/candidates.jsonl.gz",
-    "rows": 92,
-    "content_sha1": "49f144ee3216c209"
+    "rows": 25,
+    "content_sha1": "dcc1d51b1f53929e"
    },
    "poi.gallery-notable": {
     "path": "data/atlas/candidates/family=poi.gallery-notable/candidates.jsonl.gz",
@@ -687,13 +687,13 @@
    },
    "poi.museum-notable": {
     "path": "data/atlas/candidates/family=poi.museum-notable/candidates.jsonl.gz",
-    "rows": 8229,
-    "content_sha1": "702ab188bed9929d"
+    "rows": 4973,
+    "content_sha1": "6468a5574b3f8238"
    },
    "poi.park-notable": {
     "path": "data/atlas/candidates/family=poi.park-notable/candidates.jsonl.gz",
-    "rows": 253,
-    "content_sha1": "3df2ef7709ab4618"
+    "rows": 122,
+    "content_sha1": "544b1b15dfc1f8ab"
    },
    "poi.stadium-notable": {
     "path": "data/atlas/candidates/family=poi.stadium-notable/candidates.jsonl.gz",
@@ -702,8 +702,8 @@
    },
    "poi.theatre-notable": {
     "path": "data/atlas/candidates/family=poi.theatre-notable/candidates.jsonl.gz",
-    "rows": 1612,
-    "content_sha1": "67e84cf4b8e33c8c"
+    "rows": 819,
+    "content_sha1": "a6366c0f6f492cb7"
    },
    "poi.theme_park-notable": {
     "path": "data/atlas/candidates/family=poi.theme_park-notable/candidates.jsonl.gz",

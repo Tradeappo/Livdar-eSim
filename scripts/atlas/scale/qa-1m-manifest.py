@@ -213,18 +213,30 @@ issues['duplicate_title_same_tokens'] = token_dupe
 # means it is in the rendered string and NOT in the entity's own name.
 SUPERLATIVES = {'best', 'top', 'safest', 'cheapest', 'greatest', 'ultimate', 'perfect',
                 'worst', 'finest', 'number one'}
+# Three sources of a superlative, and they mean different things:
+#   - the entity's own name, such as the Dutch town of Best, which must not be rewritten
+#   - the FAMILY's own intent, such as neighbourhoods.city-best-for, which is a real
+#     content-policy question for that family rather than a generation bug
+#   - a template inventing one, which is the bug this check exists to catch
 superlative_examples = []
+family_superlatives = collections.Counter()
 for r in rows:
     own = (r['entity_name'] or '').casefold()
+    fam_words = {w for w in r['family'].replace('.', ' ').replace('-', ' ').split()}
     for field in ('_title', '_meta', '_h1'):
         words = {w.strip('.:,()').casefold()
                  for w in (r.get(field) or '').replace(',', ' ').split()}
-        added = {w for w in (words & SUPERLATIVES) if w not in own}
-        if added:
-            issues['superlative_added_by_template'] += 1
+        hits = {w for w in (words & SUPERLATIVES) if w not in own}
+        from_family = {w for w in hits if w in fam_words}
+        invented = hits - from_family
+        if from_family:
+            issues['superlative_from_the_family_own_intent'] += 1
+            family_superlatives[r['family']] += 1
+        if invented:
+            issues['superlative_invented_by_template'] += 1
             if len(superlative_examples) < 15:
                 superlative_examples.append({'candidate_id': r['candidate_id'],
-                                             'field': field, 'words': sorted(added),
+                                             'field': field, 'words': sorted(invented),
                                              'value': (r.get(field) or '')[:120]})
 
 # ---- 2b. uniqueness_reason must actually distinguish --------------------------
@@ -294,6 +306,12 @@ summary = {
     'shared_uniqueness_reason_examples': reason_examples,
     'long_dash_examples': dash_hits,
     'superlative_examples': superlative_examples,
+    'families_whose_own_name_claims_a_superlative': dict(family_superlatives.most_common(10)),
+    'families_needing_a_documented_ranking_methodology': (
+        'A family whose own identity is a ranking claim, such as '
+        'neighbourhoods.city-best-for, cannot publish without a documented methodology. '
+        'That is a content requirement for the family, not a defect in generation, so it '
+        'is counted separately from a superlative a template invented.'),
     'title_length': {
         'min': min((len(r['_title']) for r in rows), default=0),
         'max': max((len(r['_title']) for r in rows), default=0),

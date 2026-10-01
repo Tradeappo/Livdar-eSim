@@ -662,6 +662,9 @@ for (country, city, cu), n in city_cu.items():
         rejects['cuisine_below_min_count'] += 1; continue
     if city_pop(country, city) < POP_FLOOR_CUISINE:
         rejects['cuisine_city_below_measured_demand_floor'] += 1; continue
+    if (country, city, 'restaurant') not in accepted_city:
+        # a cuisine page sits under the city's restaurant list, which has its own gates
+        rejects['cuisine_parent_restaurant_list_not_accepted'] += 1; continue
     enriched = city_cu_rich[(country, city, cu)]
     if enriched < max(1, n // 10):
         rejects['cuisine_entries_too_thin'] += 1; continue
@@ -707,6 +710,12 @@ for (pi, cu), n in area_cu.items():
             f"of {p['_city']}, against {city_total} citywide: a neighbourhood cuisine "
             f"list neither the city cuisine page nor the area page covers"),
     })
+
+# Which area category pages were accepted, so an area modifier page can require the page
+# it declares as its parent. Gating these on the CITY attribute page was not enough: the
+# QA pass still found 54 area attribute and 48 area opening orphans, because their
+# parent_url points at the area category page rather than the city one.
+accepted_area_cat = {(r['area_id'], r['cls']) for r in rows if r['shape'] == 'area_category'}
 
 # ---- 2c. attribute modifiers ----------------------------------------------
 # Only where the tag is actually on the entities. A "cafes with wifi" page built on two
@@ -762,6 +771,8 @@ for (pi, cls, an), n in area_at.items():
         rejects['area_attr_area_not_a_searched_entity'] += 1; continue
     if city_pop(p['country'], p['_city']) < POP_FLOOR_ATTR:
         rejects['area_attr_city_below_measured_demand_floor'] += 1; continue
+    if (p['id'], cls) not in accepted_area_cat:
+        rejects['area_attr_parent_area_page_not_accepted'] += 1; continue
     city_total = city_at.get((p['country'], p['_city'], cls, an), 0)
     if city_total and n >= 0.8 * city_total:
         rejects['area_attr_duplicates_city_list'] += 1; continue
@@ -823,6 +834,8 @@ for (pi, cls, mode), n in area_op.items():
     ofloor = POP_FLOOR_OPENING_DE if p['country'] == 'DE' else POP_FLOOR_OPENING
     if city_pop(p['country'], p['_city']) < ofloor:
         rejects['area_opening_city_below_measured_demand_floor'] += 1; continue
+    if (p['id'], cls) not in accepted_area_cat:
+        rejects['area_opening_parent_area_page_not_accepted'] += 1; continue
     city_total = city_op.get((p['country'], p['_city'], cls, mode), 0)
     if city_total and n >= 0.8 * city_total:
         rejects['area_opening_duplicates_city_list'] += 1; continue
