@@ -191,13 +191,35 @@ to 18,000 pages. **Outdoor is a real path and it is not the size the brief hoped
 it as several hundred thousand would require counting administrative containment as attribution or
 memorial plaques as destinations, and both are refused here.
 
-Two named gaps keep that number smaller than it could be. 70,009 trail systems in the German
+One named gap keeps that number smaller than it could be: 70,975 trail systems in the German
 layer are route relations carrying no geometry in this extract, so hiking routes contribute
 nothing to containment yet, and a trail is one of the most demand-rich outdoor parents there is.
-And the POI corpus kept no elevation: 246,255 named peaks hold an id, a class, a name, a country
-and a coordinate, which is a name on a map, and this project already refused to build pages out of
-those. A second pass over the same extract is running to capture elevation, prominence, local
-names and difficulty grades.
+
+### The feature layer, which turned out to be the largest path in the pass
+
+The POI corpus kept no elevation. 246,255 named peaks held an id, a class, a name, a country and a
+coordinate, which is a name on a map, and this project had already refused to build pages out of
+those. A second pass over the same preserved German extract captured what the ingest had thrown
+away, and the result changes the arithmetic more than anything else found here.
+
+171,666 outdoor features for Germany: 32,938 with an elevation, 26,598 with a Wikidata item,
+11,768 with a Wikipedia article, 3,440 carrying a local-language name. Berchtesgadener Hochthron
+comes back with elevation 1,972m, prominence 1,278m, a summit cross, Q317811, the German Wikipedia
+article and, now, monthly climate normals for the nearest city. That is a page.
+
+The gate: a feature carries a page when it is notable and measurable, or notable with practical
+detail, or measurable with practical detail. Notable means a Wikidata item or a Wikipedia article.
+Measurable means a number a reader came for. Practical means something that governs a visit.
+**23,540 of the 100,691 non-route features qualify, 23.4 per cent**: 12,787 peaks, 2,806 camp
+sites, 2,688 caravan sites, 1,466 castles, 1,110 towers. 48,215 carry only a name and are counted
+rather than quietly included.
+
+The caveat has to travel with the number. Wikipedia presence is a **source-backed proxy for public
+interest, not a demand measurement**. Ahrefs cannot measure 23,540 German peaks and no keyword
+volume was bought for any one of them. Every other family in this inventory rests on a measured
+keyword; this one would rest on a proxy. The proxy is defensible, because an editor wrote an
+encyclopedia article about the thing and that is a stronger signal than a population rank, but it
+is a different kind of evidence and it is labelled as one rather than averaged in.
 
 ## Tools are not a scale path, and here is the arithmetic
 
@@ -246,54 +268,64 @@ whether each page carries distinct data, which is a different condition's job.
 | kept rows with a rejecting localisation class | 0 |
 | family and locale cells failing the usefulness test | 0 |
 | templates with repeated entities | 0 |
-| exact duplicate titles | 31 |
-| duplicate meta within a market | 31 |
-| duplicate H1 within a market | 31 |
+| exact duplicate titles | 0 |
+| duplicate meta within a market | 0 |
+| duplicate H1 within a market | 0 |
 | orphan pages | 61 |
 | em and en dashes | 0 |
 
-The 31 remaining title, meta and H1 duplicates are same-named city pairs whose labels were fixed
-after this QA pass read the manifest; the next run resolves them. The 61 orphans are pages whose
-declared parent is valid and whose sibling set is empty, counted rather than hidden.
+Every duplication check reads zero. The last 31 title, meta and H1 duplicates were the same-named
+city pairs, and the nearest-larger-town discriminator closed them in the following run. The 61
+orphans are pages whose declared parent is valid and whose sibling set is empty, counted rather
+than hidden: they are the one number in this table that is not zero and it is not rounded away.
 
 ## The arithmetic to one million
 
 | path | measured contribution | basis |
 | --- | --- | --- |
 | current inventory | 226,472 | built and verified |
-| outdoor aggregation, 11 markets | 13,000 to 18,000 | Germany measured, extrapolated at 6 to 8x |
+| outdoor FEATURE entities | 120,000 to 165,000 | Germany measured at 23,540, extrapolated at 5 to 7x |
+| outdoor aggregation, 11 markets | 13,000 to 18,000 | Germany measured at 2,249 cells, 6 to 8x |
 | climate at three grains | 25,000 to 60,000 | demand measured per grain, data materialising |
 | region and island entity types | 10,000 to 30,000 | demand measured, entities not yet built |
 | county level where data exists | 10,000 to 40,000 | data-bound, mostly US |
-| outdoor feature entities | unknown until the elevation pass lands | extract preserved, pass running |
 | tools | about 1,000 | arithmetic above |
-| **defensible total** | **285,000 to 375,000** | |
+| **defensible total** | **405,000 to 540,000** | |
 
 To reach one million from here would require one of three things, and the first two are refused:
 
 1. Relaxing a quality gate. Each gate is in the repository with the measurement that put it there.
 2. Translating families across eleven markets without local evidence. The localisation gate exists
    precisely to stop that and it rejected 62,911 rows in this build.
-3. A new entity axis of roughly 500,000 real entities carrying distinct data AND measured demand.
-   The only candidate found in this pass is the outdoor feature layer, and whether it qualifies
-   depends on elevation and notability data that is being captured now. If 64,000 peaks with a
-   Wikidata item and an elevation pass the notability gate, with viewpoints, caves, castles,
-   waterfalls and camp sites behind them, that axis is worth perhaps 50,000 to 80,000 pages, not
-   500,000.
+3. A new entity axis of roughly 460,000 real entities carrying distinct data AND measured demand.
+   The outdoor feature layer is the only candidate found in this pass and it is now measured
+   rather than hypothetical: 23,540 qualifying features in Germany, 120,000 to 165,000 across
+   eleven markets. That is a quarter of what would be needed, and it rests on a Wikipedia proxy
+   rather than a keyword measurement, so it cannot be stretched by lowering its bar without
+   turning 48,215 names on a map into pages.
 
 **The honest conclusion is that one million valid pages is not reachable from the sources
 available today without breaking a rule the brief itself sets.** That is stated as a measured
 result with the arithmetic attached, not as a refusal to try: this pass added 17,851 pages, four
-gates, two new data sources and six corrected checks, and every path named in the brief has been
-either built, measured and sized, or recorded with the specific missing input that blocks it.
+gates, three new data sources and six corrected checks, found the largest remaining path by
+re-reading data an earlier ingest had discarded, and sized every path named in the brief either by
+building it or by recording the specific missing input that blocks it.
+
+Between 405,000 and 540,000 is the defensible ceiling with everything measured here built out. If
+the target is one million, the gap is a sourcing problem with three named candidates: a licensed
+city-level price, rent or wage series, which would turn every economic family from country-scoped
+to city-scoped against a pool of 64,418; route member geometry and the other ten parent layers,
+which are downloads; and a demand instrument for feature pages better than a Wikipedia proxy. None
+of those is a gate to relax.
 
 ## What is still running or waiting
 
 - NASA POWER climate normals: 11,757 of 64,418 cities, resumable, about three hours of fetch left.
 - Wikidata: 146 files, 14 of 24 classes, restarted after the worker died, under WDQS throttling.
-- Outdoor feature extraction for Germany: filtered layer built, extraction running.
+- Outdoor feature extraction for Germany: DONE, 171,666 features, 23,540 of them page-worthy.
+  The candidate builder for them is written and not yet run against this layer.
 - Parent layers for the other ten markets: downloads rather than questions.
-- Route member geometry for 70,009 trail systems: not started, named as the largest gap in the
+- Route member geometry for 70,975 trail systems: not started, named as the largest gap in the
   outdoor layer.
 - A separate technical audit of sitemaps, redirects and Google Search Console, which the brief
   ring-fenced from this pipeline: acknowledged, not started, and deliberately kept apart.

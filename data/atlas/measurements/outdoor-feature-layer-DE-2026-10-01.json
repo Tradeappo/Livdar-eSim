@@ -1,0 +1,47 @@
+{
+ "measuredOn": "2026-10-01",
+ "country": "DE",
+ "why": "The POI ingest captured 246,255 named mountain peaks and kept, for each, an id, a class, a name, a country and a coordinate. Nothing else. No elevation, no prominence, no Wikipedia link. That is a name on a map, and this project had already refused to build pages out of those: a Wikidata entity with no website was rejected as thin for the same reason. So the peaks were never a scale path, they were a count. This pass re-read the preserved German extract for the attributes that make a page possible.",
+ "layer": {
+  "features": 171666,
+  "with_an_elevation": 32938,
+  "with_a_wikidata_item": 26598,
+  "with_a_wikipedia_article": 11768,
+  "with_at_least_one_local_language_name": 3440,
+  "route_relations_held_as_parents_only": 70975,
+  "largest_classes": {"trail_route": 70975, "peak": 37806, "viewpoint": 9037,
+                      "spring": 6608, "archaeological_site": 5844, "castle": 5134,
+                      "camp_site": 4131, "caravan_site": 3816, "ruins": 3809,
+                      "picnic_site": 3669, "cliff": 3511, "tower": 3150, "pier": 3036,
+                      "cave": 1779}
+ },
+ "the_page_gate_and_what_it_passes": {
+  "rule": "A feature carries a page when it is NOTABLE and MEASURABLE, or notable with practical detail, or measurable with practical detail. Notable means a Wikidata item or a Wikipedia article. Measurable means a number a reader came for: elevation, prominence, depth, length, height, a difficulty grade, a capacity. Practical means something that governs a visit: a website, an operator, opening hours, a fee, an access rule.",
+  "non_route_features": 100691,
+  "would_qualify": 23540,
+  "share": "23.4 per cent",
+  "breakdown": {"notable_and_measurable": 14610, "measurable_with_practical_detail": 6376,
+                "notable_with_practical_detail": 2554},
+  "would_not_qualify": {"a_name_on_a_map": 48215,
+                        "measurable_only_no_evidence_anyone_looks_for_it": 20655,
+                        "notable_only_no_measurable_fact": 8281},
+  "by_class_passing": {"peak": 12787, "camp_site": 2806, "caravan_site": 2688, "castle": 1466,
+                       "tower": 1110, "archaeological_site": 525, "ruins": 278, "cave": 239,
+                       "mountain_pass": 202, "mountain_hut": 186, "viewpoint": 145,
+                       "picnic_site": 130, "windmill": 129, "pier": 104,
+                       "wilderness_hut": 104, "watermill": 93},
+  "example": "Berchtesgadener Hochthron: elevation 1,972m, prominence 1,278m, a summit cross, Wikidata Q317811, the German Wikipedia article, inside a containment parent from the parent layer, and now with monthly climate normals for the nearest city. That is a page. The 48,215 that carry only a name are not, and they are counted rather than quietly included."
+ },
+ "the_honest_caveat": "Wikipedia and Wikidata presence is a SOURCE-BACKED PROXY for public interest, not a demand measurement. Ahrefs cannot measure 23,540 German peaks and no keyword volume was bought for any of them individually. Every other family in this inventory rests on a measured keyword; this one would rest on a proxy, and that difference has to be carried into the publication decision rather than smoothed over. The proxy is defensible because an editor wrote an encyclopedia article about the thing, which is a stronger signal than a population rank, but it is a different kind of evidence and it is labelled as one.",
+ "extrapolation": {
+  "germany": 23540,
+  "method": "Germany is exceptionally well served here: the Alps and the Mittelgebirge give it peaks, and German Wikipedia coverage of them is unusually complete. The flat markets will yield far less and the large ones more. A multiplier of 5 to 7 across the eleven markets is the defensible range.",
+  "range_all_markets": "120,000 to 165,000 feature pages before the demand and usefulness gates",
+  "what_this_changes": "This is the largest single path found in the whole discovery pass, and it was invisible until the extract was re-read, because the ingest had thrown the attributes away. It raises the defensible total materially and it still does not reach one million."
+ },
+ "what_is_still_missing": [
+  "route member geometry for the 70,975 trail relations, which would make trails parents in the containment sense and give the trail pages themselves a length and an ascent",
+  "the other ten markets, which are downloads rather than questions",
+  "a demand instrument for feature pages that is better than a Wikipedia proxy"
+ ]
+}

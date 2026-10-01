@@ -40,7 +40,7 @@ SHARDS = 64
 # longer exists; neither is a city, and the quarter test downstream is not the place to discover
 # that a row was never a city to begin with.
 FC_OK = {'PPL', 'PPLA', 'PPLA2', 'PPLA3', 'PPLA4', 'PPLA5', 'PPLC', 'PPLG', 'PPLS', 'PPLL'}
-LONG_DASHES = ('—', '–', '‒', '―', '−')
+LONG_DASHES = ('\u2014', '\u2013', '\u2012', '\u2015', '\u2212')
 # alternate names worth keeping: the Latin and CJK forms a Livdar market would type. The dump
 # carries up to a hundred per row including Devanagari and Cyrillic, which no market here uses.
 KEEP_SCRIPTS = ('LATIN', 'CJK', 'HIRAGANA', 'KATAKANA', 'IDEOGRAPH')

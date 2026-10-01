@@ -4,9 +4,9 @@ Built 2026-10-01. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **226,406**
+- FINAL DISTINCT VALID CANDIDATES: **226,472**
 - target: 1,000,000
-- shortfall: **773,594** (22.6 per cent of target)
+- shortfall: **773,528** (22.6 per cent of target)
 - rejected and kept visible: 137,885
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 289,374 | same url_pattern |
-| after semantic dedupe | 289,374 | same market, family, template signature and entity |
-| FINAL DISTINCT | 226,406 | what is in the manifest |
+| after exact dedupe | 289,440 | same url_pattern |
+| after semantic dedupe | 289,440 | same market, family, template signature and entity |
+| FINAL DISTINCT | 226,472 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -28,15 +28,15 @@ The target was not reached. The rest of this report is about why, which of the g
 | market | candidates |
 | --- | --- |
 | en-US | 49,269 |
-| de-DE | 37,146 |
+| de-DE | 37,149 |
 | en-GB | 27,670 |
 | ja-JP | 25,143 |
 | fr-FR | 18,380 |
 | pt-BR | 15,668 |
-| es-ES | 15,466 |
-| it-IT | 15,261 |
+| es-ES | 15,520 |
+| it-IT | 15,268 |
 | pl-PL | 11,905 |
-| nl-NL | 9,700 |
+| nl-NL | 9,702 |
 | zh-Hant-TW | 798 |
 
 ### By surface
@@ -48,7 +48,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | stay | 17,603 |
 | pulse | 12,589 |
 | move | 12,327 |
-| poi | 6,827 |
+| poi | 6,893 |
 | work | 3,921 |
 | climate | 3,212 |
 | transport | 3,064 |
@@ -60,7 +60,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | status | candidates |
 | --- | --- |
-| POI_AGGREGATION | 156,391 |
+| POI_AGGREGATION | 156,457 |
 | MISSING_DATA | 36,295 |
 | BLOCKED_BY_LICENCE | 21,176 |
 | NOT_IMPLEMENTED | 7,727 |
@@ -72,7 +72,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 191,489 |
+| SOURCE_AVAILABLE | 191,555 |
 | LICENCE_REQUIRED | 21,176 |
 | FEED_REQUIRED | 9,747 |
 | READY_NOW | 3,994 |
@@ -83,7 +83,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- |
 | viable | 69,495 |
 | unsampled_needs_serp_check | 61,148 |
-| competitive | 55,792 |
+| competitive | 55,858 |
 | poor_fit | 20,583 |
 | strong_opportunity | 19,388 |
 
@@ -94,7 +94,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 150,876 |
 | OK | 48,839 |
 | LICENCE_REQUIRED | 21,176 |
-| CC0_NO_CONDITIONS | 5,515 |
+| CC0_NO_CONDITIONS | 5,581 |
 
 ### By demand evidence for the market the page targets
 
@@ -102,7 +102,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | market_demand_evidence | candidates |
 | --- | --- |
-| shape_measured_2026_10_01 | 156,391 |
+| shape_measured_2026_10_01 | 156,457 |
 | measured_in_this_market | 65,026 |
 | family_measured_elsewhere | 4,989 |
 
@@ -121,7 +121,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | events.city-calendar | 5,924 |
 | places.city-restaurant | 5,920 |
 | rents.city | 5,202 |
-| poi.museum-notable | 4,952 |
+| poi.museum-notable | 4,936 |
 | places.area-cafe | 4,895 |
 | places.area-pharmacy | 4,893 |
 | stay.near-venue | 4,786 |
@@ -139,16 +139,16 @@ A second language is not free inventory. Every row whose language is not the lan
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | en-US | 58,066 | 49,269 | 7,662 | 882 | 0 | 0 | 247 | 0 | 6 |
 | en-GB | 63,961 | 27,670 | 9,943 | 3,947 | 0 | 0 | 22,382 | 0 | 19 |
-| de-DE | 70,526 | 37,146 | 8,071 | 3,426 | 0 | 1 | 21,873 | 0 | 9 |
+| de-DE | 70,529 | 37,149 | 8,071 | 3,426 | 0 | 1 | 21,873 | 0 | 9 |
 | ja-JP | 31,533 | 25,143 | 4,485 | 1,106 | 0 | 1 | 548 | 248 | 2 |
 | zh-Hant-TW | 4,749 | 798 | 690 | 80 | 0 | 1 | 3,180 | 0 | 0 |
-| it-IT | 24,104 | 15,261 | 4,698 | 277 | 0 | 1 | 3,866 | 0 | 1 |
-| es-ES | 24,408 | 15,466 | 4,791 | 308 | 0 | 1 | 3,842 | 0 | 0 |
+| it-IT | 24,111 | 15,268 | 4,698 | 277 | 0 | 1 | 3,866 | 0 | 1 |
+| es-ES | 24,462 | 15,520 | 4,791 | 308 | 0 | 1 | 3,842 | 0 | 0 |
 | fr-FR | 29,459 | 18,380 | 6,927 | 286 | 0 | 1 | 3,616 | 248 | 1 |
-| nl-NL | 15,494 | 9,700 | 4,878 | 114 | 0 | 1 | 796 | 0 | 5 |
+| nl-NL | 15,496 | 9,702 | 4,878 | 114 | 0 | 1 | 796 | 0 | 5 |
 | pl-PL | 17,825 | 11,905 | 4,893 | 218 | 0 | 1 | 796 | 0 | 12 |
 | pt-BR | 24,166 | 15,668 | 5,881 | 1,354 | 0 | 1 | 1,260 | 0 | 2 |
-| **all 11** | **364,291** | **226,406** | | | | | | | |
+| **all 11** | **364,357** | **226,472** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -156,7 +156,7 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 226,022 |
+| NATIVE_LOCALE | 226,088 |
 | VALID_LOCALIZATION | 384 |
 
 - flagged LOCAL_SERP_UNVERIFIED: 61,148. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
@@ -205,7 +205,7 @@ Transliterations are used above for the Japanese and Chinese roots so this table
 - named places loaded: 431,150, of which 47,517 passed the entity gates
 - POI assigned to an area by polygon containment: 353,257; by documented proximity to a place node: 1,304,969
 - aggregation candidates: 150,896 ({'city_category': 37454, 'area_category': 52752, 'city_cuisine': 13011, 'area_cuisine': 17594, 'city_attribute': 2755, 'area_attribute': 6344, 'city_opening': 3732, 'area_opening': 9613, 'city_sport': 129, 'area_parent': 4269, 'city_areas_hub': 520, 'notable_entity': 2723})
-- Wikidata entities loaded: 128,854, candidates 5,520, deduped against OSM by {'qid': 11020, 'name_and_position': 3893}
+- Wikidata entities loaded: 138,504, candidates 5,586, deduped against OSM by {'qid': 12126, 'name_and_position': 4085}
 - Pulse entities normalised from four providers: {'national': 1081, 'regional': 623, 'school': 1502, 'long_weekends': 687, 'bridge_days': 233, 'long_weekends_subdivision': 3539, 'bridge_days_subdivision': 1052, 'bridge_plans': 348}
 
 ## 5. Every gate that fired, with its count
@@ -268,12 +268,12 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 | gate | rejected |
 | --- | --- |
-| no_parent_city | 37,969 |
-| no_official_website_so_page_would_be_thin | 35,678 |
-| already_in_osm_corpus | 14,913 |
-| list_below_min_count | 10,161 |
-| no_parent_page_exists_on_the_site | 7,683 |
-| wikidata_duplicate_qid | 6,881 |
+| no_official_website_so_page_would_be_thin | 40,643 |
+| no_parent_city | 40,478 |
+| already_in_osm_corpus | 16,211 |
+| list_below_min_count | 10,160 |
+| no_parent_page_exists_on_the_site | 7,751 |
+| wikidata_duplicate_qid | 7,626 |
 | list_entries_too_thin | 488 |
 | list_already_published_from_the_osm_corpus | 212 |
 
@@ -336,14 +336,14 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 ## 6. QA at scale
 
-- rows checked: 226,406, distinct URLs 226,406
+- rows checked: 226,472, distinct URLs 226,472
 
 | check | count |
 | --- | --- |
-| meta_over_165_chars | 30,254 |
-| title_over_65_chars | 138,918 |
-| duplicate_title_exact | 31 |
-| duplicate_title_same_tokens | 33 |
+| meta_over_165_chars | 30,322 |
+| title_over_65_chars | 138,992 |
+| duplicate_title_exact | 0 |
+| duplicate_title_same_tokens | 2 |
 | superlative_from_the_family_own_intent | 60 |
 | uniqueness_reason_shared_with_another_candidate | 98 |
 | templates_with_repeated_entities | 0 |
@@ -352,17 +352,17 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | intent_owners_claimed_by_more_than_one_url | 0 |
 | urls_sharing_a_cannibalization_key | 0 |
 | locale_mismatch_between_url_and_row | 0 |
-| entity_names_needing_a_disambiguator_in_the_title | 164 |
+| entity_names_needing_a_disambiguator_in_the_title | 133 |
 | same_entity_id_under_two_names | 0 |
 | candidates_with_no_usable_source | 0 |
 | kept_rows_with_a_rejecting_localisation_class | 0 |
 | urls_that_collide_once_diacritics_are_folded | 0 |
 | urls_containing_a_latin_character_with_a_diacritic | 0 |
 | duplicate_canonicals | 0 |
-| duplicate_meta_within_a_market | 31 |
-| duplicate_h1_within_a_market | 31 |
+| duplicate_meta_within_a_market | 0 |
+| duplicate_h1_within_a_market | 0 |
 | declared_parent_is_not_a_valid_parent | 0 |
-| declared_parent_is_valid_but_not_a_path_prefix | 19,967 |
+| declared_parent_is_valid_but_not_a_path_prefix | 20,033 |
 | family_locale_cells_failing_the_usefulness_test | 0 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
@@ -418,7 +418,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-226,406 candidates survive the gates. The target is 1,000,000.
+226,472 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 
