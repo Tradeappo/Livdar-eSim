@@ -1,0 +1,28 @@
+tool_intent,exists_in_master_before,exists_in_manifest_before,measured_keywords_now,top_volume,top_kd,top_cpc_cents,market_coverage,candidate_pages,source_data_needed,can_scale,page_type,indexability_rule,verdict
+net salary / gross-to-net,YES,YES,3 existing,254000,43,1,"pl-PL, de-DE, en-GB",1 per market,"tax tables per country, held or public",per market and per subdivision,DURABLE_TOOL,"index the tool page; do NOT index parameter result states",ALREADY_LIVE_STRONGEST_TOOL
+take-home pay,NO,NO,5 added,217000,68,50,en-GB,1 per market + subdivision,"tax tables, public",yes by subdivision (scotland and NI measured separately),DURABLE_TOOL,"index tool and subdivision variants; not result states",ADD_HIGH_VALUE
+mortgage affordability,NO,NO,29 added,380000,0,70,en-GB,1 per market + variants,"interest rates and lending rules, public",yes by product variant,DURABLE_TOOL,"index the tool and the distinct product variants (overpayment, interest-only, buy-to-let); not result states",ADD_HIGHEST_VOLUME_FOUND
+rent affordability,PARTIAL,NO,8 added,3100,45,70,en-GB,1 per market,"rent indices held",yes per market,DURABLE_TOOL,index tool only,ADD
+property affordability,NO,NO,"covered by mortgage cluster",450,52,45,en-GB,1 per market,property price indices,yes,DURABLE_TOOL,index tool only,ADD_WITH_MORTGAGE
+healthcare cost estimator,NO,NO,14 added,2200,42,800,en-GB,1 per market,"insurer price ranges, public or affiliate",yes per market,DURABLE_TOOL,index tool and the per-market cost explainer,ADD_HIGHEST_CPC_IN_PROJECT
+tax calculator,YES,YES,3 existing,0,,,"3 markets",1 per market,tax tables,yes,DURABLE_TOOL,index tool only,ALREADY_PRESENT
+cost-of-living calculator,YES,YES,5 existing,39000,,,"3 markets",1 per market,cost-of-living data held,yes,DURABLE_TOOL,index tool only,ALREADY_LIVE
+cost-of-living comparison,YES,YES,12 existing,49000,82,40,en-GB,city and country pairs,held,"capped: pairs are combinatorial and duplicate_risk HIGH",DURABLE_TOOL,"index the tool plus the capped pair set only",ALREADY_LIVE_PAIRS_CAPPED
+country comparison,NO,YES,0,0,,,none,capped pair set,held,capped,DURABLE_TOOL,index capped pairs only,IN_MANIFEST_NO_KEYWORD_EVIDENCE
+city comparison,PARTIAL,YES,2 existing,2100,,,2 markets,capped pair set,held,capped at 40 tier-1 cities,DURABLE_TOOL,index capped pairs only,ALREADY_PRESENT_CAPPED
+city vs home,NO,YES,0,0,,,none,1 per city,held,yes,DURABLE_TOOL,index tool only,IN_MANIFEST_NO_KEYWORD_EVIDENCE
+where should I live,YES,YES,3 existing,6200,,,2 markets,1 per market,held,no,DURABLE_TOOL,"index the matcher; never index answer permutations",ALREADY_LIVE
+where should I stay,YES,YES,92 existing,8100,,,3 markets,1 per city,neighbourhood facts partial,"yes, 39 cities held",DURABLE_TOOL,index per city,ALREADY_LIVE
+destination matcher,YES,YES,2 existing,100,,,2 markets,1 per market,held,no,DURABLE_TOOL,index matcher only,ALREADY_PRESENT_THIN
+travel budget,PARTIAL,NO,3 existing,150,,,3 markets,1 per market,cost data held,yes,DURABLE_TOOL,index tool only,LOW_DEMAND
+moving cost origin to destination,PARTIAL,NO,5 existing,2500,,,4 markets,origin-destination pairs,"moving quotes, commercial",capped,DURABLE_TOOL,"index the tool; pairs only where demand measured",KEEP_CAPPED
+relocation budget,PARTIAL,NO,1 existing,0,,,1 market,1 per market,held,yes,DURABLE_TOOL,index tool only,LOW_DEMAND
+visa eligibility,PARTIAL,NO,4 existing,600,,,1 market,1 per visa type x country,"visa rules, public",yes,DURABLE_TOOL,"index the tool and the visa-type pages; not result states",KEEP_SMALL
+residency eligibility,NO,NO,0,0,,,none,,visa rules,yes,DURABLE_TOOL,index tool only,NO_MEASURABLE_DEMAND
+commute calculator,NO,NO,0,0,,,none,,"GTFS and routing",yes,DURABLE_TOOL,index tool only,NO_MEASURABLE_DEMAND
+salary vs rent affordability,NO,NO,"covered by rent affordability",2100,4,40,en-GB,1 per market,held,yes,DURABLE_TOOL,index tool only,MERGE_INTO_RENT_AFFORDABILITY
+neighbourhood matcher,NO,NO,0,0,,,none,,neighbourhood facts,"only 39 cities held",DURABLE_TOOL,index per city,NO_MEASURABLE_DEMAND
+job/salary affordability,NO,NO,0,0,,,none,,salary data,yes,DURABLE_TOOL,index tool only,NO_MEASURABLE_DEMAND
+student budget,NO,NO,0,0,,,none,,cost data held,yes,DURABLE_TOOL,index tool only,NO_MEASURABLE_DEMAND
+family relocation calculator,NO,NO,0,0,,,none,,cost data held,yes,DURABLE_TOOL,index tool only,NO_MEASURABLE_DEMAND
+airport transfer cost and time,NO,NO,0,0,,,none,,"GTFS plus taxi tariffs",yes per airport,DURABLE_TOOL,"index per airport, NOT as a calculator",NO_DEMAND_AS_TOOL_BUT_STRONG_AS_CONTENT

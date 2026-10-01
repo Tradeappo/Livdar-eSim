@@ -50,6 +50,8 @@ first. It is written to be the only file you need to resume work.
 | `1M-GSC-VALIDATION-PLAN.md` | per-family GSC thresholds: expand, success, hold, kill |
 | `1M-SOURCE-ACQUISITION-PACK.csv` | **10 sources ranked by candidates unlocked**, each with provider, API, cost, licence, record count, geography, fields, refresh, storage and indexing rights, implementation requirement |
 | `1M-WIKIDATA-POI-MEASURED.csv` / `.md` | Wikidata POI per class in the 11 markets, measured live 2026-10-01, and the CC0 finding |
+| `1M-TOOLS-COVERAGE.csv` | all 27 tool intents audited: what exists, what was added, what has no measurable demand |
+| `1M-READINESS-REPORT.md` | **read this for the 1M status**: what is materialised, what is queued, and the exact command to finish |
 | `18-NEXT-EXECUTION-TASKS.csv` | the task backlog, each row with its gate and its dependency |
 
 ## How to sum `06-ENTITY-LISTING-UNIVERSE.csv` without double counting
@@ -112,7 +114,7 @@ real entities on disk: 31,715 named cities with country and tier, 249 countries,
 airports, 9,438 venues, 1,403 neighbourhoods, 69 subdivisions and 3,624 holiday
 occurrences. It is rebuilt by running the script; it is never hand-edited.
 
-**153,224 distinct candidates** survive all three dedupe passes. Keywords validate
+**297,988 distinct candidates** survive all three dedupe passes, of which 161,474 are real OSM POI ingested this pass. Keywords validate
 clusters, not pages: keyword clusters from the 8,229-keyword master stand behind those
 rows, which is the intended ratio.
 

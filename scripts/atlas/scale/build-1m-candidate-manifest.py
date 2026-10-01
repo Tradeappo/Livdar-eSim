@@ -141,6 +141,41 @@ CITIES_WITH_NEIGH = {n['cityId'] for n in neigh if n['cityId']}
 CITIES_WITH_VENUE = {v['cityId'] for v in venues if v['cityId']}
 VENUE_COUNTRIES = {v['country'] for v in venues if v['country']}
 
+# ---------------------------------------------------------------- OSM POI
+# Materialised from OSM regional extracts (node-only pass, named entities only).
+# ODbL 1.0: share-alike and attribution are mandatory on anything published from it.
+# Bare POI entity pages are BRAND_OWNED_PLUS_SOCIAL per the SERP evidence and are NOT
+# generated. Only entity-plus-practical-modifier pages are, and only for the three
+# modifiers ENTITY-MODIFIER-RESEARCH.csv verified as MODIFIER_WORKS: tickets, opening
+# hours, how to get to.
+osm_poi = []
+for _f in sorted(glob.glob(ROOT + 'data/atlas/sources/osm-poi/poi-*.jsonl.gz')):
+    try:
+        for _l in gzip.open(_f, 'rt', encoding='utf-8'):
+            _l = _l.strip()
+            if not _l: continue
+            try: _o = json.loads(_l)
+            except Exception: continue
+            if _o.get('name') and _o.get('cls'):
+                osm_poi.append(_o)
+    except (EOFError, OSError):
+        pass
+print(f'  osm poi {len(osm_poi):,}', file=sys.stderr)
+
+# Which practical modifier each POI class can carry. One or two per class, never more:
+# the modifier must answer a question that class actually gets asked.
+TICKETED = {'attraction', 'museum', 'castle', 'zoo', 'theme_park', 'gallery',
+            'aquarium', 'water_park', 'archaeological_site', 'fort', 'manor'}
+TRANSPORT_CLS = {'railway_station', 'railway_halt', 'tram_stop', 'bus_station',
+                 'ferry_terminal', 'airport', 'airport_terminal'}
+OUTDOOR = {'park', 'garden', 'beach', 'nature_reserve', 'peak', 'waterfall', 'cave',
+           'viewpoint', 'marina', 'golf_course', 'picnic_site', 'camp_site'}
+def poi_modifiers(cls):
+    if cls in TICKETED: return ['tickets', 'opening-hours']
+    if cls in TRANSPORT_CLS: return ['how-to-get-to']
+    if cls in OUTDOOR: return ['how-to-get-to']
+    return ['opening-hours']
+
 # ---------------------------------------------------------------- families
 fams = list(csv.DictReader(open(ROOT + 'reports/livdar-master-seo-universe-2026-09-30/FAMILY-MASTER.csv')))
 print(f'  families {len(fams)}', file=sys.stderr)
@@ -599,6 +634,63 @@ for f in fams:
                 'status': f['status'],
             })
 
+# ---- OSM POI x validated modifier ------------------------------------------
+# A POI only generates in the market whose country it sits in: a Dutch restaurant is a
+# Dutch-language page and nowhere else. No cross-market multiplication.
+POI_SERP = 'OPEN_WINNER_TAKE_MOST_IF_NO_RESELLER'
+poi_emitted = 0
+for o in osm_poi:
+    cty = o.get('country')
+    mkts = COUNTRY_MKTS.get(cty, [])
+    if not mkts:
+        stats['poi_dropped_no_market'] += 1
+        continue
+    # one language per POI; pick the market for that country
+    m = mkts[0]
+    lang = MKT_LANG[m]
+    cls = o['cls']
+    for mod in poi_modifiers(cls):
+        fid = f'poi.{cls}-{mod}'
+        nm = slug(o['name'])
+        if not nm or nm == 'x':
+            stats['poi_dropped_unslugged'] += 1
+            continue
+        url = f"/{lang}/poi/{slug(cls)}/{nm}-{o['id']}/{mod}/"
+        # data richness drives quality: a POI with hours, site and phone supports a
+        # fuller page than a bare name
+        extras = sum(1 for k in ('oh', 'web', 'tel', 'city', 'qid', 'cuisine') if o.get(k))
+        q = min(100, 35 + extras * 10)
+        dsc = 55 if cls in TICKETED else 45 if cls in TRANSPORT_CLS else 40
+        src = 55                      # SOURCE_AVAILABLE: held now, ODbL obligations
+        ssc = SERP_SCORE[POI_SERP]
+        idx = min(q, dsc, src, ssc)
+        rows.append({
+            'candidate_id': 'c_' + sig(fid, o['id'], m),
+            'url_pattern': url, 'market': m, 'language': lang,
+            'surface': 'poi', 'family': fid, 'vertical': 'discovery',
+            'page_type': 'ENTITY_MODIFIER', 'entity_type': 'poi', 'entity_id': o['id'],
+            'entity_name': o['name'], 'city': o.get('city', ''), 'country': cty,
+            'neighbourhood': '', 'primary_intent': mod.replace('-', ' '),
+            'primary_keyword_if_known': f"{o['name']} {mod.replace('-', ' ')}",
+            'keyword_cluster_id': next((KCLUSTER[(n, m)] for n in ('poi.entity-tickets',
+                'poi.entity-opening-hours', 'poi.entity-how-to-get-to') if (n, m) in KCLUSTER), ''),
+            'semantic_cluster_id': 'sc_' + sig('poi', cls, mod, m),
+            'data_source': 'OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
+            'source_status': 'SOURCE_AVAILABLE', 'source_record_id': f"osm:{o['id']}",
+            'feed_required': '', 'licence_status': 'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED',
+            'data_signature': sig('data', fid, o['id'], m),
+            'template_signature': sig('tpl', 'poi', cls, mod),
+            'duplicate_risk': 'LOW' if extras >= 2 else 'MEDIUM',
+            'cannibalization_risk': 'LOW',
+            'quality_score': q, 'demand_score': dsc, 'source_score': src,
+            'serp_score': ssc, 'indexability_score': idx,
+            'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
+            'publication_cohort_candidate': '', 'status': 'POI_SOURCE_AVAILABLE',
+        })
+        poi_emitted += 1
+stats['poi_emitted'] = poi_emitted
+print(f'  poi candidates emitted {poi_emitted:,}', file=sys.stderr)
+
 raw_total = len(rows)
 print(f'\nraw candidate combinations: {raw_total:,}', file=sys.stderr)
 
@@ -726,6 +818,8 @@ summary = {
     'shortfall_to_1m': max(0, 1000000 - len(stage3)),
     'dropped_no_demand_evidence': stats['dropped_no_demand_evidence'],
     'dropped_beyond_measured_tier': stats['dropped_beyond_measured_tier'],
+    'poi_emitted': stats['poi_emitted'],
+    'poi_dropped_no_market': stats['poi_dropped_no_market'],
     'families_generating': stats['families_generating'],
     'families_blocked': stats['families_blocked'],
     'families_with_no_entity_store': stats['families_with_no_entity_store'],

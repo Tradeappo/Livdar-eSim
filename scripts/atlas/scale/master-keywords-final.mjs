@@ -414,6 +414,32 @@ for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/MARKE
     indexable: 'YES', notes: 'market breadth pass, pattern ' + r.pattern });
 }
 
+// --- 7d. Round four: the Tools gap -------------------------------------------
+// The Tools audit checked 27 tool intents against the master and found 12 with no
+// keyword at all. These are the measured survivors, harvested 2026-10-01. Brand-
+// qualified variants (nationwide, halifax, natwest, hsbc, santander, barclays,
+// lloyds, bupa, mse, martin lewis, bbc, google, nhs) are excluded: a bank's own
+// calculator query is not ours to rank for. The two findings that matter are
+// mortgage calculator at 380,000 volume KD 0, the largest KD-0 head in the project,
+// and the health-insurance cost cluster at 500 to 1,100 cents CPC, the highest
+// commercial intent measured anywhere.
+for (const r of readTable('reports/livdar-final-research-freeze-2026-09-30/TOOLS-KEYWORD-HARVEST.csv', ',')) {
+  const v = num(r.volume);
+  let st;
+  if (v === '' || v < 50) st = 'REJECT';
+  else if (v >= 10000) st = 'DURABLE_HEAD';
+  else if (v >= 1000) st = 'DURABLE_HEAD';
+  else if (v >= 300) st = 'CANDIDATE_HEAD';
+  else st = 'PROMISING';
+  push({ keyword: r.keyword, market: r.market, surface: 'tools', family: r.family,
+    entity_type: 'tool', intent_type: 'tool_use', status: st, page_type: 'DURABLE_TOOL',
+    volume: r.volume, kd: r.kd, cpc: r.cpc_cents, SERP_class: 'NOT_SAMPLED',
+    source_of_keyword: 'livdar-final-research-freeze-2026-09-30/TOOLS-KEYWORD-HARVEST.csv',
+    evidence: 'Ahrefs matching-terms Tools gap harvest 2026-10-01, pattern ' + r.pattern,
+    data_source_required: '', indexable: 'YES',
+    notes: 'tools gap pass. Index the tool page and distinct product variants; never index parameter result states' });
+}
+
 // --- 8. Tracked keywords already in Rank Tracker ------------------------------
 for (const r of readTable('reports/ahrefs-export-2026-09-28/rank-tracker/tracked-keywords-2026-09-28.tsv', '\t')) {
   push({ keyword: r.keyword, market: r.country, language: r.language,

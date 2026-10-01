@@ -1,18 +1,18 @@
 {
  "generated": "2026-09-30",
  "dedupe_funnel": {
-  "raw": 12570,
-  "after_exact": 8388,
-  "after_normalised": 8296,
-  "after_same_market_semantic": 8229,
-  "final": 8229
+  "raw": 12626,
+  "after_exact": 8444,
+  "after_normalised": 8352,
+  "after_same_market_semantic": 8275,
+  "final": 8275
  },
- "total_unique_keywords": 8229,
+ "total_unique_keywords": 8275,
  "by_status": {
   "LIVE_PRIMARY": 500,
   "LIVE_SECONDARY": 249,
-  "DURABLE_HEAD": 833,
-  "CANDIDATE_HEAD": 457,
+  "DURABLE_HEAD": 868,
+  "CANDIDATE_HEAD": 468,
   "ENTITY_HEAD": 40,
   "OPPORTUNITY_REQUIRES_FEED": 320,
   "BLOCKED_DATA": 72,
@@ -25,7 +25,7 @@
  "by_market": {
   "pl-PL": 679,
   "de-DE": 1111,
-  "en-GB": 687,
+  "en-GB": 733,
   "en-US": 1326,
   "ja-JP": 432,
   "zh-Hant-TW": 148,
@@ -39,7 +39,7 @@
  "by_language": {
   "pl": 679,
   "de": 1111,
-  "en": 2013,
+  "en": 2059,
   "ja": 432,
   "zh-Hant": 148,
   "fr": 844,
@@ -50,7 +50,7 @@
   "multi": 104
  },
  "by_surface": {
-  "tools": 547,
+  "tools": 593,
   "pulse": 2248,
   "(none)": 119,
   "climate": 37,
@@ -92,6 +92,8 @@
   "events.city-type": 55,
   "transport.node-route-and-hotels": 66,
   "jobs.salary-role-city": 2,
+  "tools.mortgage-affordability": 25,
+  "tools.net-pay": 4,
   "events.recurring-named": 3,
   "transport.city-getting-around": 39,
   "poi.entity-tickets": 45,
@@ -109,10 +111,12 @@
   "property.city-buy": 23,
   "stay.student-accommodation": 2,
   "stay.airport-hotels": 3,
+  "tools.rent-affordability": 7,
   "health.city": 32,
   "transport.airport-city-route": 5,
   "poi.entity-parking": 6,
   "stay.station-hotels": 1,
+  "tools.healthcare-cost": 10,
   "sport.facility-durable": 4,
   "move.relocate-country": 3,
   "stay.aparthotel": 1,
@@ -264,7 +268,7 @@
  },
  "by_entity_type": {
   "city_or_country": 915,
-  "tool": 106,
+  "tool": 152,
   "(unclassified)": 264,
   "city": 14,
   "neighbourhood": 352,
@@ -290,11 +294,12 @@
   "local_discovery": 942,
   "cross_language": 101,
   "listing_discovery": 449,
+  "tool_use": 46,
   "entity_modifier": 95,
   "entity_lookup": 26
  },
  "by_serp_class": {
-  "NOT_SAMPLED": 6788,
+  "NOT_SAMPLED": 6834,
   "OPEN": 905,
   "OPEN_WINNER_TAKE_MOST_IF_NO_RESELLER": 51,
   "SERP_FEATURE_SUPPRESSED": 45,
@@ -308,6 +313,7 @@
  },
  "by_page_type": {
   "DURABLE": 7830,
+  "DURABLE_TOOL": 46,
   "ENTITY_MODIFIER": 95,
   "LISTING": 278,
   "ENTITY": 26
@@ -317,8 +323,8 @@
   "2": 220,
   "3": 549,
   "4": 199,
-  "5": 266,
-  "6": 278,
+  "5": 301,
+  "6": 289,
   "7": 73,
   "8": 27,
   "9": 5305,
@@ -992,7 +998,7 @@
   "6.5": 320
  },
  "measured_with_ahrefs": 1617,
- "with_a_volume": 3039,
+ "with_a_volume": 3085,
  "rank_tracker_worthy": 1599,
  "entity_or_listing_keywords": 2845,
  "blocked_total": 74,

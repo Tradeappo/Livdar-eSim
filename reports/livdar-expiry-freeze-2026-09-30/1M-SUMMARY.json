@@ -1,14 +1,16 @@
 {
  "generated": "2026-09-30",
- "raw_candidate_combinations": 169751,
- "after_exact_dedupe": 144580,
- "after_semantic_dedupe": 144437,
- "after_cannibalization_filtering": 136514,
- "FINAL_DISTINCT_CANDIDATES": 136514,
+ "raw_candidate_combinations": 331225,
+ "after_exact_dedupe": 306054,
+ "after_semantic_dedupe": 305911,
+ "after_cannibalization_filtering": 297988,
+ "FINAL_DISTINCT_CANDIDATES": 297988,
  "target": 1000000,
- "shortfall_to_1m": 863486,
+ "shortfall_to_1m": 702012,
  "dropped_no_demand_evidence": 59,
  "dropped_beyond_measured_tier": 67210,
+ "poi_emitted": 161474,
+ "poi_dropped_no_market": 6513,
  "families_generating": 69,
  "families_blocked": 2,
  "families_with_no_entity_store": 5,
@@ -20,7 +22,7 @@
   "sport.route"
  ],
  "by_source_status": {
-  "SOURCE_AVAILABLE": 47153,
+  "SOURCE_AVAILABLE": 208627,
   "READY_NOW": 46278,
   "FEED_REQUIRED": 7992,
   "LICENCE_REQUIRED": 35091
@@ -33,6 +35,7 @@
   "move": 18844,
   "transport": 3796,
   "work": 9025,
+  "poi": 161474,
   "stay": 31445,
   "safety": 1786,
   "sport": 578
@@ -43,7 +46,7 @@
   "ja-JP": 12547,
   "es-ES": 6146,
   "fr-FR": 8336,
-  "nl-NL": 5124,
+  "nl-NL": 166598,
   "pl-PL": 5004,
   "it-IT": 5130,
   "en-US": 14803,
@@ -57,6 +60,7 @@
   "subdivision-year": 86,
   "subdivision": 43,
   "tool": 40,
+  "poi": 161474,
   "neighbourhood": 2469,
   "country-year": 3984,
   "month-year": 240,
@@ -65,7 +69,7 @@
   "country-pair": 2700,
   "venue": 11559
  },
- "distinct_families": 58,
+ "distinct_families": 149,
  "entity_pools_available": {
   "cities": 31715,
   "countries": 249,
