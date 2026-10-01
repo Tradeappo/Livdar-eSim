@@ -295,6 +295,110 @@ for r in rows:
         orphans[r['family']] += 1
 issues['orphan_pages'] = sum(orphans.values())
 
+# ---- 5. the checks the multilingual brief names that nothing was testing ----
+# Section 21 lists what a QA pass has to show, and four of its items were simply absent
+# from this report: duplicate intent owners, locale mismatches, entity collisions and
+# source-less candidates. A check that does not exist reports no failures, which reads
+# exactly like a check that passes.
+
+# 5a. intent ownership. Section 15: one owner per query cluster, and no two pages competing
+# for effectively the same query. The owner is recorded per row; what was never tested is
+# whether two different URLs claim the same one.
+owner_urls = collections.defaultdict(set)
+for r in rows:
+    owner = (r.get('intent_owner') or '').strip()
+    if owner:
+        owner_urls[owner].add(r['url_pattern'])
+contested = {o: sorted(u)[:4] for o, u in owner_urls.items() if len(u) > 1}
+issues['intent_owners_claimed_by_more_than_one_url'] = len(contested)
+
+# 5b. locale mismatch. The language in the URL prefix has to be the language the row says
+# it is in. A page served at /de/ while the row calls itself Italian is a mislabelled page
+# whichever of the two is right.
+locale_mismatch = []
+for r in rows:
+    u = r['url_pattern']
+    seg = u.split('/')[1] if u.startswith('/') and u.count('/') > 1 else ''
+    lang = (r.get('language') or '').strip()
+    if seg and lang and seg != lang:
+        locale_mismatch.append({'url': u, 'url_language': seg, 'row_language': lang})
+issues['locale_mismatch_between_url_and_row'] = len(locale_mismatch)
+
+# 5c. entity collisions. Two rows in the same family and market naming the same entity by a
+# different id are a collision; so are two different entities sharing an id. The first is
+# how Barcelona Venezuela once inherited Barcelona Spain's demand, so it is worth a standing
+# check rather than a one-off fix.
+name_ids = collections.defaultdict(set)
+id_names = collections.defaultdict(set)
+for r in rows:
+    nm = (r.get('entity_name') or '').strip().lower()
+    eid = (r.get('entity_id') or '').strip()
+    if not nm or not eid: continue
+    key = (r['family'], r['market'], nm, (r.get('country') or ''))
+    name_ids[key].add(eid)
+    id_names[(r['family'], r['market'], eid)].add(nm)
+same_name_two_ids = {str(k): sorted(v)[:4] for k, v in name_ids.items() if len(v) > 1}
+same_id_two_names = {str(k): sorted(v)[:4] for k, v in id_names.items() if len(v) > 1}
+issues['same_entity_name_and_country_under_two_ids'] = len(same_name_two_ids)
+issues['same_entity_id_under_two_names'] = len(same_id_two_names)
+
+# 5d. source-less candidates. A row with no data source, or whose source is blocked, has
+# nothing to put on the page, and section 16 allows no page without one.
+sourceless = [r['url_pattern'] for r in rows
+              if not (r.get('data_source') or '').strip()
+              or (r.get('source_status') or '') == 'BLOCKED']
+issues['candidates_with_no_usable_source'] = len(sourceless)
+
+# 5e. cross-locale residue. After the gate, nothing in the kept set should be classed as a
+# translation or as missing local intent. If any is, the gate wrote a class and then kept
+# the row anyway, which is worse than not having the gate.
+kept_bad_class = collections.Counter()
+for r in rows:
+    c = (r.get('localization_class') or '').strip()
+    if c and c not in ('NATIVE_LOCALE', 'VALID_LOCALIZATION'):
+        kept_bad_class[c] += 1
+    if not c:
+        kept_bad_class['(no class assigned)'] += 1
+issues['kept_rows_with_a_rejecting_localisation_class'] = sum(kept_bad_class.values())
+
+# ---- 6. the usefulness test, section 13 -------------------------------------
+# "Would this page still be useful if Google did not exist?" A page passes when it carries
+# something a person would come back for even with no search engine in the world: a working
+# calculation, a list of real named places they could visit, or figures from an official
+# source. It fails when all it has is a phrase arranged to match a query.
+#
+# This is judged per family and locale rather than per row, because the answer is a property
+# of what the family puts on the page. It is recorded, not enforced: a family that fails is
+# listed here with the reason, so the decision to redesign or drop it is made by a person
+# looking at the list rather than by a threshold hidden in this script.
+useful_by_cell = {}
+cell_rows = collections.defaultdict(list)
+for r in rows:
+    cell_rows[(r['family'], r.get('language') or '')].append(r)
+for (fam, lang), rs in sorted(cell_rows.items()):
+    r0 = rs[0]
+    tool = (r0.get('tool_or_content') or '').strip()
+    completeness = (r0.get('data_completeness') or '').strip()
+    src = (r0.get('data_source') or '').strip()
+    reasons = []
+    if tool == 'tool':
+        reasons.append('it computes an answer the visitor supplies the inputs for, which is '
+                       'useful with or without a search engine')
+    if any('entities' in (r.get('uniqueness_reason') or '') or
+           'venues' in (r.get('uniqueness_reason') or '') for r in rs[:50]):
+        reasons.append('it lists real named places the visitor could go to, drawn from the '
+                       'POI corpus rather than asserted')
+    if src and src not in ('', 'none') and completeness in ('COMPLETE', 'PARTIAL'):
+        reasons.append(f'it carries figures from {src}, a named source with provenance')
+    verdict = 'USEFUL_WITHOUT_SEARCH' if reasons else 'NEEDS_REDESIGN_OR_REJECT'
+    useful_by_cell[f'{fam}|{lang}'] = {
+        'rows': len(rs), 'verdict': verdict,
+        'why': reasons or ['nothing on this page survives the loss of the query that '
+                           'brought the visitor: no computation, no named real places and '
+                           'no sourced figures']}
+fails = {k: v for k, v in useful_by_cell.items() if v['verdict'] == 'NEEDS_REDESIGN_OR_REJECT'}
+issues['family_locale_cells_failing_the_usefulness_test'] = len(fails)
+
 summary = {
     'manifest_rows': len(rows),
     'distinct_urls': len(urls),
@@ -303,6 +407,14 @@ summary = {
     'saturated_templates': saturated[:25],
     'duplicate_examples': dupe_examples[:25],
     'shared_uniqueness_reason_by_family': dict(reason_dupes.most_common(20)),
+    'contested_intent_owners': dict(list(contested.items())[:25]),
+    'locale_mismatch_examples': locale_mismatch[:25],
+    'entity_collisions_same_name_two_ids': dict(list(same_name_two_ids.items())[:25]),
+    'entity_collisions_same_id_two_names': dict(list(same_id_two_names.items())[:25]),
+    'sourceless_candidate_examples': sourceless[:25],
+    'kept_rows_by_localisation_class_that_should_have_been_rejected': dict(kept_bad_class),
+    'usefulness_test_failures': fails,
+    'usefulness_test_by_family_and_locale': useful_by_cell,
     'shared_uniqueness_reason_examples': reason_examples,
     'long_dash_examples': dash_hits,
     'superlative_examples': superlative_examples,
