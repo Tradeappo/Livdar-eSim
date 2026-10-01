@@ -58,6 +58,7 @@ if [ ! -f "$FILT" ]; then
       aeroway=aerodrome amenity=university \
       historic=archaeological_site,memorial \
       tourism=theme_park,zoo \
+      boundary=administrative \
       r/type=route 2>/dev/null; then
     mv -f "$FILT.tmp" "$FILT"
     # the full extract is no longer needed and is the big one

@@ -1,0 +1,44 @@
+{
+  "measurement": "Is there demand for pages about outdoor features inside a named geography, and what is the geography?",
+  "date": "2026-10-01",
+  "brief_section": "Brief 8 sections 7 and 8: give the unattributable POI a real parent, and consider natural and outdoor families",
+  "why_it_was_measured_before_building": "1,665,240 POI have no city, and the temptation is to invent a hierarchy for them. Section 8 says to use demand, notability, source completeness and usefulness rather than generating a page per entity, so the demand was measured first and it changed the design.",
+  "the_finding_that_changed_the_design": {
+    "what_I_expected": "demand for features inside a PARK: viewpoints in a national park, peaks in a reserve",
+    "what_the_data_says": "demand is overwhelmingly for features inside a REGION, and the region is usually an administrative one",
+    "evidence": [
+      {"keyword": "seen in bayern", "market": "de-DE", "volume": 8600, "difficulty": 0, "geography": "Bavaria, a federal state, not a park"},
+      {"keyword": "seen in bayern karte", "market": "de-DE", "volume": 1100, "difficulty": 0, "note": "karte means map: the page is expected to place them"},
+      {"keyword": "schöne seen in bayern", "market": "de-DE", "volume": 900, "difficulty": 0},
+      {"keyword": "best beaches in cornwall", "market": "en-GB", "volume": 1800, "difficulty": 1, "geography": "Cornwall, a county"},
+      {"keyword": "how many lakes in the lake district", "market": "en-GB", "volume": 4100, "difficulty": 0, "geography": "the Lake District, which IS a national park"},
+      {"keyword": "lakes in the lake district", "market": "en-GB", "volume": 700, "difficulty": 0, "cpc_usd_cents": 40},
+      {"keyword": "wanderwege harz", "market": "de-DE", "volume": 700, "difficulty": 6, "traffic_potential": 3600, "geography": "the Harz, a named mountain range"}
+    ],
+    "so_the_parent_is": "an administrative region or county first, a named national park or range second, and an arbitrary OSM polygon not at all",
+    "what_that_changed_in_the_code": "The parent capture now also reads boundary=administrative and keeps admin_level 4 as a region and 6 as a county, which are the levels a reader recognises as a place. Lower levels are countries and higher ones are municipalities the city layer already covers."
+  },
+  "a_count_question_is_a_real_page": {
+    "keyword": "how many lakes in the lake district",
+    "volume": 4100,
+    "difficulty": 0,
+    "why_it_matters": "This is the usefulness test passing on its own terms. The question has a factual answer, the answer is a number plus the list behind it, and OSM carries both. A page that answers it is useful whether or not a search engine exists, which is the section 13 test, and it is source-backed rather than asserted."
+  },
+  "what_is_still_unknown": [
+    "Whether OSM carries enough named parent polygons to attach a useful share of the 1,665,240. That is measured by scripts/atlas/scale/poi-parent-assign.py, which tests CONTAINMENT only, and the answer is a fact about OSM rather than a choice.",
+    "Whether a region feature list clears the template similarity gate. Lakes in Bavaria and lakes in Saxony are different lakes, so the distinct data is real, but the test has to be run rather than assumed."
+  ],
+  "families_this_justifies_measuring_further": [
+    "outdoors.region-lakes, measured at 8,600 in de-DE alone",
+    "outdoors.region-beaches, measured at 1,800 in en-GB",
+    "outdoors.region-trails, measured at 700 plus 400 in de-DE for one range",
+    "outdoors.park-feature-count, the how-many question at 4,100"
+  ],
+  "families_this_does_NOT_justify": [
+    "a page per peak. 66,280 peaks and no measured demand for an individual unknown summit. The peaks belong on a region or range list, which is what the demand asks for.",
+    "a page per memorial. 30,169 memorials, same reasoning, and section 9 says so explicitly.",
+    "a page per OSM polygon. Nothing measured asks for a page about an unnamed landcover forest."
+  ],
+  "nothing_was_generated_from_this": "These are measurements taken before the code was written, and they changed what the code does. No page exists from them yet.",
+  "units_spent": 462
+}

@@ -67,7 +67,18 @@ IN, ISO, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 wkbfab = osmium.geom.WKBFactory()
 
 
+# Administrative regions, because the measured demand is REGION-scoped far more often than
+# park-scoped: "seen in bayern" is 8,600 a month at difficulty 0 and Bavaria is a state, not a
+# park; "best beaches in cornwall" is 1,800 and Cornwall is a county. Only the levels a reader
+# would recognise as a place: 4 is a state or region in most countries, 6 a county or
+# department. Lower levels are countries, higher ones are municipalities the city layer
+# already covers.
+ADMIN_LEVEL_CLASS = {'4': 'region', '6': 'county'}
+
+
 def parent_class(t):
+    if t.get('boundary') == 'administrative':
+        return ADMIN_LEVEL_CLASS.get(str(t.get('admin_level') or ''))
     if t.get('natural') == 'water':
         return 'lake' if (t.get('water') in WATER_OK) else None
     if t.get('natural') == 'mountain_range' or t.get('region:type') == 'mountain_area':
@@ -97,6 +108,8 @@ class Parents(osmium.SimpleHandler):
             'kind': 'parent', 'country': ISO, 'name': name, 'cls': cls,
             'qid': t.get('wikidata'),
             'wikipedia': t.get('wikipedia'),
+            'admin_level': t.get('admin_level'),
+            'iso_code': t.get('ISO3166-2') or t.get('ref:nuts'),
             'protect_class': t.get('protect_class'),
             'protection_title': t.get('protection_title'),
             'operator': t.get('operator'),
