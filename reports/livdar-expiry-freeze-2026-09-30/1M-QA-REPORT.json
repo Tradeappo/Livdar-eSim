@@ -1,21 +1,20 @@
 {
- "manifest_rows": 208841,
- "distinct_urls": 208841,
+ "manifest_rows": 226472,
+ "distinct_urls": 226472,
  "checks": {
-  "meta_over_165_chars": 28074,
-  "title_over_65_chars": 136232,
-  "title_under_15_chars": 4,
-  "duplicate_title_exact": 6,
-  "duplicate_title_same_tokens": 7,
+  "meta_over_165_chars": 30322,
+  "title_over_65_chars": 138992,
+  "duplicate_title_exact": 0,
+  "duplicate_title_same_tokens": 2,
   "superlative_from_the_family_own_intent": 60,
   "uniqueness_reason_shared_with_another_candidate": 98,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 62,
+  "orphan_pages": 61,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 130,
+  "entity_names_needing_a_disambiguator_in_the_title": 133,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
@@ -25,156 +24,56 @@
   "duplicate_meta_within_a_market": 0,
   "duplicate_h1_within_a_market": 0,
   "declared_parent_is_not_a_valid_parent": 0,
-  "declared_parent_is_valid_but_not_a_path_prefix": 20403,
+  "declared_parent_is_valid_but_not_a_path_prefix": 20033,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
  "orphans_by_family": {
   "destinations.country-hub": 9,
   "taxes.country-remote-work": 7,
-  "relocation.country": 7,
-  "places.city-castle": 3,
+  "relocation.country": 6,
+  "places.city-castle": 4,
   "places.city-garden": 3,
   "places.city-swimming_pool": 3,
+  "places.city-theme_park": 3,
   "neighbourhoods.city-best-for": 3,
   "neighbourhoods.city-where-to-stay": 3,
-  "places.city-marina": 2,
-  "places.city-theme_park": 2,
+  "places.city-beach": 2,
   "places.city-viewpoint": 2,
   "places.city-zoo": 2,
+  "places.city-water_park": 2,
   "places.city-stadium": 2,
-  "education.city-schools": 2,
   "activities.city-things-to-do": 1,
   "places.city-camp_site": 1,
   "places.city-mall": 1,
-  "places.city-park": 1,
+  "places.city-marina": 1,
   "places.city-parking": 1,
   "places.city-aquarium": 1,
-  "places.city-beach": 1,
   "places.city-nature_reserve": 1,
-  "places.city-water_park": 1,
   "property.city-buy": 1,
-  "rents.city": 1
+  "rents.city": 1,
+  "stay.city-type": 1
  },
  "top_level_by_family": {},
  "saturated_templates": [],
  "duplicate_examples": [
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Postal Museum, London, GB: what to know before you go",
-   "a": "c_9322f0a68033",
-   "b": "c_12fe3f632456",
+   "market": "pl-PL",
+   "title": "museum in Цытадэль, Terespol, PL: area museum, the full list from open data",
+   "a": "c_4dc67a8b4d8e",
+   "b": "c_5796bf293b05",
    "url_a": "",
-   "url_b": "/en/poi/museum/postal-museum-q113261646/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Port Richmond, US: neighbourhood category",
-   "a": "c_cade17dcefcf",
-   "b": "c_4a79dc016722",
-   "url_a": "",
-   "url_b": "/en/areas/neighbourhood-category/port-richmond-5132028/"
+   "url_b": "/pl/places/museum/terespol/цытадэль/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Port Richmond, US: neighbourhood category",
-   "a": "c_cade17dcefcf",
-   "b": "c_4a79dc016722",
+   "market": "pl-PL",
+   "title": "pharmacy in Брэсцкая крэпасць, Terespol, PL: area pharmacy, the full list from open data",
+   "a": "c_99fe71af4a27",
+   "b": "c_b5dbb87e42e7",
    "url_a": "",
-   "url_b": "/en/areas/neighbourhood-category/port-richmond-5132028/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Port Richmond, US: guide",
-   "a": "c_307c9790e942",
-   "b": "c_0c117d6fe95c",
-   "url_a": "",
-   "url_b": "/en/areas/guide/port-richmond-5132028/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Port Richmond, US: guide",
-   "a": "c_307c9790e942",
-   "b": "c_0c117d6fe95c",
-   "url_a": "",
-   "url_b": "/en/areas/guide/port-richmond-5132028/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Port Richmond, US: neighbourhood",
-   "a": "c_f37c7f99c86b",
-   "b": "c_ed1fa60f0787",
-   "url_a": "",
-   "url_b": "/en/stay/neighbourhood/port-richmond-5132028/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Port Richmond, US: neighbourhood",
-   "a": "c_f37c7f99c86b",
-   "b": "c_ed1fa60f0787",
-   "url_a": "",
-   "url_b": "/en/stay/neighbourhood/port-richmond-5132028/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "fr-FR",
-   "title": "Sainte-Marguerite, FR: neighbourhood category",
-   "a": "c_5e9af6a400ad",
-   "b": "c_f2494790c238",
-   "url_a": "",
-   "url_b": "/fr/areas/neighbourhood-category/sainte-marguerite-2980467/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "fr-FR",
-   "title": "Sainte-Marguerite, FR: neighbourhood category",
-   "a": "c_5e9af6a400ad",
-   "b": "c_f2494790c238",
-   "url_a": "",
-   "url_b": "/fr/areas/neighbourhood-category/sainte-marguerite-2980467/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "fr-FR",
-   "title": "Sainte-Marguerite, FR: neighbourhood",
-   "a": "c_4d2dc8c5b689",
-   "b": "c_f6b880020dc3",
-   "url_a": "",
-   "url_b": "/fr/stay/neighbourhood/sainte-marguerite-2980467/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "fr-FR",
-   "title": "Sainte-Marguerite, FR: neighbourhood",
-   "a": "c_4d2dc8c5b689",
-   "b": "c_f6b880020dc3",
-   "url_a": "",
-   "url_b": "/fr/stay/neighbourhood/sainte-marguerite-2980467/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "fr-FR",
-   "title": "Sainte-Marguerite, FR: guide",
-   "a": "c_1d8811c64da8",
-   "b": "c_b94d4cb12cd7",
-   "url_a": "",
-   "url_b": "/fr/areas/guide/sainte-marguerite-2980467/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "fr-FR",
-   "title": "Sainte-Marguerite, FR: guide",
-   "a": "c_1d8811c64da8",
-   "b": "c_b94d4cb12cd7",
-   "url_a": "",
-   "url_b": "/fr/areas/guide/sainte-marguerite-2980467/"
+   "url_b": "/pl/places/pharmacy/terespol/брэсцкая-крэпасць/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -282,6 +181,7 @@
    "n6482311825"
   ],
   "('poi.museum-notable', 'fr-FR', 'musée de la marine', 'FR')": [
+   "Q23719005",
    "n1296754169",
    "n2854735858"
   ],
@@ -311,42 +211,42 @@
  "usefulness_test_failures": {},
  "usefulness_test_by_family_and_locale": {
   "activities.city-things-to-do|de": {
-   "rows": 215,
+   "rows": 270,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|en": {
-   "rows": 3476,
+   "rows": 7283,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|es": {
-   "rows": 164,
+   "rows": 185,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|fr": {
-   "rows": 152,
+   "rows": 162,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|it": {
-   "rows": 149,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -367,7 +267,7 @@
    ]
   },
   "activities.city-things-to-do|pt": {
-   "rows": 160,
+   "rows": 164,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -397,7 +297,7 @@
    ]
   },
   "areas.city-index|es": {
-   "rows": 69,
+   "rows": 68,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -405,7 +305,7 @@
    ]
   },
   "areas.city-index|fr": {
-   "rows": 55,
+   "rows": 57,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -413,7 +313,7 @@
    ]
   },
   "areas.city-index|it": {
-   "rows": 47,
+   "rows": 46,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -461,7 +361,7 @@
    ]
   },
   "areas.overview|en": {
-   "rows": 1255,
+   "rows": 1253,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -469,7 +369,7 @@
    ]
   },
   "areas.overview|es": {
-   "rows": 526,
+   "rows": 519,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -477,7 +377,7 @@
    ]
   },
   "areas.overview|fr": {
-   "rows": 310,
+   "rows": 318,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -485,7 +385,7 @@
    ]
   },
   "areas.overview|it": {
-   "rows": 437,
+   "rows": 429,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -501,7 +401,7 @@
    ]
   },
   "areas.overview|nl": {
-   "rows": 177,
+   "rows": 176,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -549,7 +449,7 @@
    ]
   },
   "comparisons.city-vs-home|de": {
-   "rows": 38,
+   "rows": 81,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -557,7 +457,7 @@
    ]
   },
   "comparisons.city-vs-home|en": {
-   "rows": 168,
+   "rows": 171,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -565,7 +465,7 @@
    ]
   },
   "comparisons.city-vs-home|es": {
-   "rows": 30,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -573,7 +473,7 @@
    ]
   },
   "comparisons.city-vs-home|fr": {
-   "rows": 13,
+   "rows": 30,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -581,7 +481,7 @@
    ]
   },
   "comparisons.city-vs-home|it": {
-   "rows": 15,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -597,7 +497,7 @@
    ]
   },
   "comparisons.city-vs-home|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -605,7 +505,7 @@
    ]
   },
   "comparisons.city-vs-home|pl": {
-   "rows": 16,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -613,7 +513,7 @@
    ]
   },
   "comparisons.city-vs-home|pt": {
-   "rows": 159,
+   "rows": 194,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -636,7 +536,7 @@
    ]
   },
   "cost-of-living.city|en": {
-   "rows": 883,
+   "rows": 885,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -657,14 +557,14 @@
    ]
   },
   "cost-of-living.city|it": {
-   "rows": 133,
+   "rows": 144,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "cost-of-living.city|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -685,7 +585,7 @@
    ]
   },
   "cost-of-living.city|pt": {
-   "rows": 677,
+   "rows": 699,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -699,35 +599,35 @@
    ]
   },
   "cost-of-living.city-vs-market|de": {
-   "rows": 38,
+   "rows": 81,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|en": {
-   "rows": 168,
+   "rows": 171,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|es": {
-   "rows": 30,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|fr": {
-   "rows": 13,
+   "rows": 30,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|it": {
-   "rows": 15,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
@@ -741,21 +641,21 @@
    ]
   },
   "cost-of-living.city-vs-market|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|pl": {
-   "rows": 16,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|pt": {
-   "rows": 159,
+   "rows": 194,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
@@ -839,35 +739,35 @@
    ]
   },
   "education.city-schools|de": {
-   "rows": 4,
+   "rows": 61,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|en": {
-   "rows": 17,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|es": {
-   "rows": 2,
+   "rows": 37,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|fr": {
-   "rows": 1,
+   "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|it": {
-   "rows": 2,
+   "rows": 27,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -880,15 +780,22 @@
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
+  "education.city-schools|nl": {
+   "rows": 13,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
+   ]
+  },
   "education.city-schools|pl": {
-   "rows": 1,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|pt": {
-   "rows": 15,
+   "rows": 39,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -902,35 +809,35 @@
    ]
   },
   "education.city-universities|de": {
-   "rows": 38,
+   "rows": 81,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|en": {
-   "rows": 168,
+   "rows": 171,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|es": {
-   "rows": 30,
+   "rows": 56,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|fr": {
-   "rows": 13,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|it": {
-   "rows": 15,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -944,21 +851,21 @@
    ]
   },
   "education.city-universities|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|pl": {
-   "rows": 16,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|pt": {
-   "rows": 159,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -972,14 +879,14 @@
    ]
   },
   "events.city-calendar|de": {
-   "rows": 868,
+   "rows": 2405,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
    ]
   },
   "events.city-calendar|en": {
-   "rows": 920,
+   "rows": 921,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -993,7 +900,7 @@
    ]
   },
   "events.city-calendar|fr": {
-   "rows": 471,
+   "rows": 1456,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1007,14 +914,14 @@
    ]
   },
   "events.city-calendar|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
    ]
   },
   "events.city-calendar|nl": {
-   "rows": 195,
+   "rows": 357,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1042,14 +949,14 @@
    ]
   },
   "events.city-type|de": {
-   "rows": 868,
+   "rows": 2405,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-type|en": {
-   "rows": 920,
+   "rows": 921,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1063,7 +970,7 @@
    ]
   },
   "events.city-type|fr": {
-   "rows": 471,
+   "rows": 1456,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1077,14 +984,14 @@
    ]
   },
   "events.city-type|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-type|nl": {
-   "rows": 195,
+   "rows": 357,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1112,35 +1019,35 @@
    ]
   },
   "events.city-window|de": {
-   "rows": 38,
+   "rows": 81,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|en": {
-   "rows": 168,
+   "rows": 170,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|es": {
-   "rows": 30,
+   "rows": 56,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|fr": {
-   "rows": 13,
+   "rows": 30,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|it": {
-   "rows": 15,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1154,21 +1061,21 @@
    ]
   },
   "events.city-window|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|pl": {
-   "rows": 16,
+   "rows": 39,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|pt": {
-   "rows": 159,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1189,14 +1096,14 @@
    ]
   },
   "health.city|en": {
-   "rows": 883,
+   "rows": 884,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
    ]
   },
   "health.city|es": {
-   "rows": 150,
+   "rows": 158,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1210,14 +1117,14 @@
    ]
   },
   "health.city|it": {
-   "rows": 133,
+   "rows": 144,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
    ]
   },
   "health.city|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1231,7 +1138,7 @@
    ]
   },
   "health.city|pl": {
-   "rows": 101,
+   "rows": 117,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1465,7 +1372,7 @@
    ]
   },
   "places.area-arts_centre|fr": {
-   "rows": 57,
+   "rows": 55,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1513,7 +1420,7 @@
    ]
   },
   "places.area-attraction|de": {
-   "rows": 37,
+   "rows": 43,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1521,7 +1428,7 @@
    ]
   },
   "places.area-attraction|en": {
-   "rows": 64,
+   "rows": 60,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1529,7 +1436,7 @@
    ]
   },
   "places.area-attraction|es": {
-   "rows": 14,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1585,7 +1492,7 @@
    ]
   },
   "places.area-attribute|de": {
-   "rows": 2673,
+   "rows": 2672,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1593,7 +1500,7 @@
    ]
   },
   "places.area-attribute|en": {
-   "rows": 2866,
+   "rows": 2854,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1617,7 +1524,7 @@
    ]
   },
   "places.area-bar|de": {
-   "rows": 253,
+   "rows": 252,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1625,7 +1532,7 @@
    ]
   },
   "places.area-bar|en": {
-   "rows": 947,
+   "rows": 940,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1633,7 +1540,7 @@
    ]
   },
   "places.area-bar|es": {
-   "rows": 380,
+   "rows": 379,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1641,7 +1548,7 @@
    ]
   },
   "places.area-bar|fr": {
-   "rows": 298,
+   "rows": 299,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1649,7 +1556,7 @@
    ]
   },
   "places.area-bar|it": {
-   "rows": 397,
+   "rows": 399,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1665,7 +1572,7 @@
    ]
   },
   "places.area-bar|nl": {
-   "rows": 79,
+   "rows": 76,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1673,7 +1580,7 @@
    ]
   },
   "places.area-bar|pl": {
-   "rows": 70,
+   "rows": 69,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1697,7 +1604,7 @@
    ]
   },
   "places.area-cafe|de": {
-   "rows": 491,
+   "rows": 484,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1705,7 +1612,7 @@
    ]
   },
   "places.area-cafe|en": {
-   "rows": 2043,
+   "rows": 2030,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1713,7 +1620,7 @@
    ]
   },
   "places.area-cafe|es": {
-   "rows": 464,
+   "rows": 459,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1721,7 +1628,7 @@
    ]
   },
   "places.area-cafe|fr": {
-   "rows": 260,
+   "rows": 269,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1729,7 +1636,7 @@
    ]
   },
   "places.area-cafe|it": {
-   "rows": 551,
+   "rows": 549,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1745,7 +1652,7 @@
    ]
   },
   "places.area-cafe|nl": {
-   "rows": 211,
+   "rows": 210,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1753,7 +1660,7 @@
    ]
   },
   "places.area-cafe|pl": {
-   "rows": 213,
+   "rows": 215,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1776,8 +1683,16 @@
     "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
+  "places.area-camp_site|pl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
   "places.area-childcare|de": {
-   "rows": 314,
+   "rows": 308,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1785,7 +1700,7 @@
    ]
   },
   "places.area-childcare|en": {
-   "rows": 264,
+   "rows": 260,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1793,7 +1708,7 @@
    ]
   },
   "places.area-childcare|es": {
-   "rows": 178,
+   "rows": 176,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1801,7 +1716,7 @@
    ]
   },
   "places.area-childcare|fr": {
-   "rows": 172,
+   "rows": 169,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1825,7 +1740,7 @@
    ]
   },
   "places.area-childcare|nl": {
-   "rows": 195,
+   "rows": 193,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1873,7 +1788,7 @@
    ]
   },
   "places.area-cinema|fr": {
-   "rows": 23,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1881,7 +1796,7 @@
    ]
   },
   "places.area-cinema|it": {
-   "rows": 37,
+   "rows": 35,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1897,7 +1812,7 @@
    ]
   },
   "places.area-cinema|nl": {
-   "rows": 15,
+   "rows": 14,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1921,7 +1836,7 @@
    ]
   },
   "places.area-clinic|de": {
-   "rows": 552,
+   "rows": 549,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1929,7 +1844,7 @@
    ]
   },
   "places.area-clinic|en": {
-   "rows": 828,
+   "rows": 814,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1937,7 +1852,7 @@
    ]
   },
   "places.area-clinic|es": {
-   "rows": 293,
+   "rows": 287,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1945,7 +1860,7 @@
    ]
   },
   "places.area-clinic|fr": {
-   "rows": 280,
+   "rows": 277,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1969,7 +1884,7 @@
    ]
   },
   "places.area-clinic|nl": {
-   "rows": 264,
+   "rows": 259,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1977,7 +1892,7 @@
    ]
   },
   "places.area-clinic|pl": {
-   "rows": 523,
+   "rows": 526,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -1985,7 +1900,7 @@
    ]
   },
   "places.area-clinic|pt": {
-   "rows": 181,
+   "rows": 180,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2017,7 +1932,7 @@
    ]
   },
   "places.area-college|fr": {
-   "rows": 123,
+   "rows": 119,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2129,7 +2044,7 @@
    ]
   },
   "places.area-cuisine|de": {
-   "rows": 1602,
+   "rows": 1593,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2137,7 +2052,7 @@
    ]
   },
   "places.area-cuisine|en": {
-   "rows": 6690,
+   "rows": 6647,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2145,7 +2060,7 @@
    ]
   },
   "places.area-cuisine|es": {
-   "rows": 1222,
+   "rows": 1209,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2153,7 +2068,7 @@
    ]
   },
   "places.area-cuisine|fr": {
-   "rows": 1583,
+   "rows": 1573,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2161,7 +2076,7 @@
    ]
   },
   "places.area-cuisine|it": {
-   "rows": 1429,
+   "rows": 1414,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2177,7 +2092,7 @@
    ]
   },
   "places.area-cuisine|nl": {
-   "rows": 594,
+   "rows": 586,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2201,7 +2116,7 @@
    ]
   },
   "places.area-dentist|de": {
-   "rows": 290,
+   "rows": 286,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2209,7 +2124,7 @@
    ]
   },
   "places.area-dentist|en": {
-   "rows": 689,
+   "rows": 679,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2217,7 +2132,7 @@
    ]
   },
   "places.area-dentist|es": {
-   "rows": 229,
+   "rows": 228,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2225,7 +2140,7 @@
    ]
   },
   "places.area-dentist|fr": {
-   "rows": 132,
+   "rows": 130,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2233,7 +2148,7 @@
    ]
   },
   "places.area-dentist|it": {
-   "rows": 116,
+   "rows": 111,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2241,7 +2156,7 @@
    ]
   },
   "places.area-dentist|ja": {
-   "rows": 299,
+   "rows": 298,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2249,7 +2164,7 @@
    ]
   },
   "places.area-dentist|nl": {
-   "rows": 233,
+   "rows": 228,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2281,7 +2196,7 @@
    ]
   },
   "places.area-department_store|en": {
-   "rows": 145,
+   "rows": 140,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2321,7 +2236,7 @@
    ]
   },
   "places.area-department_store|nl": {
-   "rows": 30,
+   "rows": 27,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2345,7 +2260,7 @@
    ]
   },
   "places.area-fast_food|de": {
-   "rows": 767,
+   "rows": 763,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2353,7 +2268,7 @@
    ]
   },
   "places.area-fast_food|en": {
-   "rows": 2576,
+   "rows": 2525,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2361,7 +2276,7 @@
    ]
   },
   "places.area-fast_food|es": {
-   "rows": 340,
+   "rows": 339,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2369,7 +2284,7 @@
    ]
   },
   "places.area-fast_food|fr": {
-   "rows": 400,
+   "rows": 399,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2377,7 +2292,7 @@
    ]
   },
   "places.area-fast_food|it": {
-   "rows": 397,
+   "rows": 392,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2393,7 +2308,7 @@
    ]
   },
   "places.area-fast_food|nl": {
-   "rows": 449,
+   "rows": 446,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2401,7 +2316,7 @@
    ]
   },
   "places.area-fast_food|pl": {
-   "rows": 427,
+   "rows": 428,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2409,7 +2324,7 @@
    ]
   },
   "places.area-fast_food|pt": {
-   "rows": 173,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2425,7 +2340,7 @@
    ]
   },
   "places.area-gallery|en": {
-   "rows": 178,
+   "rows": 177,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2441,7 +2356,7 @@
    ]
   },
   "places.area-gallery|fr": {
-   "rows": 75,
+   "rows": 74,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2505,7 +2420,7 @@
    ]
   },
   "places.area-guest_house|de": {
-   "rows": 45,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2521,7 +2436,7 @@
    ]
   },
   "places.area-guest_house|es": {
-   "rows": 38,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2529,7 +2444,7 @@
    ]
   },
   "places.area-guest_house|fr": {
-   "rows": 9,
+   "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2537,7 +2452,7 @@
    ]
   },
   "places.area-guest_house|it": {
-   "rows": 209,
+   "rows": 224,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2553,7 +2468,7 @@
    ]
   },
   "places.area-guest_house|nl": {
-   "rows": 37,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2561,7 +2476,7 @@
    ]
   },
   "places.area-guest_house|pl": {
-   "rows": 34,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2585,7 +2500,7 @@
    ]
   },
   "places.area-gym|en": {
-   "rows": 798,
+   "rows": 778,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2593,7 +2508,7 @@
    ]
   },
   "places.area-gym|es": {
-   "rows": 171,
+   "rows": 170,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2601,7 +2516,7 @@
    ]
   },
   "places.area-gym|fr": {
-   "rows": 181,
+   "rows": 178,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2609,7 +2524,7 @@
    ]
   },
   "places.area-gym|it": {
-   "rows": 136,
+   "rows": 131,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2625,7 +2540,7 @@
    ]
   },
   "places.area-gym|nl": {
-   "rows": 177,
+   "rows": 174,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2681,7 +2596,7 @@
    ]
   },
   "places.area-hospital|it": {
-   "rows": 3,
+   "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2737,7 +2652,7 @@
    ]
   },
   "places.area-hostel|es": {
-   "rows": 69,
+   "rows": 75,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2753,7 +2668,7 @@
    ]
   },
   "places.area-hostel|it": {
-   "rows": 31,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2769,7 +2684,7 @@
    ]
   },
   "places.area-hostel|nl": {
-   "rows": 11,
+   "rows": 10,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2785,7 +2700,7 @@
    ]
   },
   "places.area-hostel|pt": {
-   "rows": 19,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2793,7 +2708,7 @@
    ]
   },
   "places.area-library|de": {
-   "rows": 123,
+   "rows": 121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2801,7 +2716,7 @@
    ]
   },
   "places.area-library|en": {
-   "rows": 123,
+   "rows": 122,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2809,7 +2724,7 @@
    ]
   },
   "places.area-library|es": {
-   "rows": 62,
+   "rows": 59,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2817,7 +2732,7 @@
    ]
   },
   "places.area-library|fr": {
-   "rows": 98,
+   "rows": 97,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2825,7 +2740,7 @@
    ]
   },
   "places.area-library|it": {
-   "rows": 116,
+   "rows": 111,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2849,7 +2764,7 @@
    ]
   },
   "places.area-library|pl": {
-   "rows": 175,
+   "rows": 174,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2921,7 +2836,7 @@
    ]
   },
   "places.area-marina|de": {
-   "rows": 42,
+   "rows": 43,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2953,11 +2868,11 @@
    ]
   },
   "places.area-marina|nl": {
-   "rows": 5,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+    "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.area-marina|pl": {
@@ -2985,7 +2900,7 @@
    ]
   },
   "places.area-market|es": {
-   "rows": 7,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -2993,7 +2908,7 @@
    ]
   },
   "places.area-market|fr": {
-   "rows": 69,
+   "rows": 68,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3001,7 +2916,7 @@
    ]
   },
   "places.area-market|it": {
-   "rows": 8,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3025,7 +2940,7 @@
    ]
   },
   "places.area-museum|de": {
-   "rows": 95,
+   "rows": 93,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3041,7 +2956,7 @@
    ]
   },
   "places.area-museum|es": {
-   "rows": 67,
+   "rows": 68,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3049,7 +2964,7 @@
    ]
   },
   "places.area-museum|fr": {
-   "rows": 57,
+   "rows": 58,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3057,7 +2972,7 @@
    ]
   },
   "places.area-museum|it": {
-   "rows": 140,
+   "rows": 139,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3073,7 +2988,7 @@
    ]
   },
   "places.area-museum|nl": {
-   "rows": 76,
+   "rows": 72,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3081,7 +2996,7 @@
    ]
   },
   "places.area-museum|pl": {
-   "rows": 54,
+   "rows": 57,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3129,7 +3044,7 @@
    ]
   },
   "places.area-nightclub|fr": {
-   "rows": 47,
+   "rows": 46,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3177,7 +3092,7 @@
    ]
   },
   "places.area-opening|de": {
-   "rows": 2386,
+   "rows": 2378,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3185,7 +3100,7 @@
    ]
   },
   "places.area-opening|en": {
-   "rows": 3279,
+   "rows": 3267,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3193,7 +3108,7 @@
    ]
   },
   "places.area-opening|es": {
-   "rows": 614,
+   "rows": 611,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3209,7 +3124,7 @@
    ]
   },
   "places.area-opening|it": {
-   "rows": 621,
+   "rows": 616,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3225,7 +3140,7 @@
    ]
   },
   "places.area-opening|nl": {
-   "rows": 412,
+   "rows": 401,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3321,7 +3236,7 @@
    ]
   },
   "places.area-parking|fr": {
-   "rows": 46,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3345,7 +3260,7 @@
    ]
   },
   "places.area-parking|nl": {
-   "rows": 44,
+   "rows": 43,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3369,7 +3284,7 @@
    ]
   },
   "places.area-pharmacy|de": {
-   "rows": 1073,
+   "rows": 1055,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3377,7 +3292,7 @@
    ]
   },
   "places.area-pharmacy|en": {
-   "rows": 879,
+   "rows": 857,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3385,7 +3300,7 @@
    ]
   },
   "places.area-pharmacy|es": {
-   "rows": 664,
+   "rows": 648,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3401,7 +3316,7 @@
    ]
   },
   "places.area-pharmacy|it": {
-   "rows": 585,
+   "rows": 574,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3417,7 +3332,7 @@
    ]
   },
   "places.area-pharmacy|nl": {
-   "rows": 102,
+   "rows": 97,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3425,7 +3340,7 @@
    ]
   },
   "places.area-pharmacy|pl": {
-   "rows": 602,
+   "rows": 604,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3433,7 +3348,7 @@
    ]
   },
   "places.area-pharmacy|pt": {
-   "rows": 209,
+   "rows": 208,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3441,7 +3356,7 @@
    ]
   },
   "places.area-pub|de": {
-   "rows": 519,
+   "rows": 516,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3449,7 +3364,7 @@
    ]
   },
   "places.area-pub|en": {
-   "rows": 981,
+   "rows": 965,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3457,7 +3372,7 @@
    ]
   },
   "places.area-pub|es": {
-   "rows": 349,
+   "rows": 358,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3465,7 +3380,7 @@
    ]
   },
   "places.area-pub|fr": {
-   "rows": 128,
+   "rows": 132,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3473,7 +3388,7 @@
    ]
   },
   "places.area-pub|it": {
-   "rows": 209,
+   "rows": 203,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3489,7 +3404,7 @@
    ]
   },
   "places.area-pub|nl": {
-   "rows": 159,
+   "rows": 154,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3505,7 +3420,7 @@
    ]
   },
   "places.area-pub|pt": {
-   "rows": 77,
+   "rows": 76,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3521,7 +3436,7 @@
    ]
   },
   "places.area-railway_station|en": {
-   "rows": 204,
+   "rows": 196,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3545,7 +3460,7 @@
    ]
   },
   "places.area-railway_station|it": {
-   "rows": 46,
+   "rows": 44,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3561,7 +3476,7 @@
    ]
   },
   "places.area-railway_station|nl": {
-   "rows": 19,
+   "rows": 18,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3577,7 +3492,7 @@
    ]
   },
   "places.area-restaurant|de": {
-   "rows": 1158,
+   "rows": 1156,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3585,7 +3500,7 @@
    ]
   },
   "places.area-restaurant|en": {
-   "rows": 2397,
+   "rows": 2371,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3593,7 +3508,7 @@
    ]
   },
   "places.area-restaurant|es": {
-   "rows": 957,
+   "rows": 986,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3601,7 +3516,7 @@
    ]
   },
   "places.area-restaurant|fr": {
-   "rows": 498,
+   "rows": 525,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3609,7 +3524,7 @@
    ]
   },
   "places.area-restaurant|it": {
-   "rows": 812,
+   "rows": 821,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3625,7 +3540,7 @@
    ]
   },
   "places.area-restaurant|nl": {
-   "rows": 446,
+   "rows": 449,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3633,7 +3548,7 @@
    ]
   },
   "places.area-restaurant|pl": {
-   "rows": 473,
+   "rows": 479,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3641,7 +3556,7 @@
    ]
   },
   "places.area-restaurant|pt": {
-   "rows": 286,
+   "rows": 284,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3649,7 +3564,7 @@
    ]
   },
   "places.area-school|de": {
-   "rows": 110,
+   "rows": 104,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3657,7 +3572,7 @@
    ]
   },
   "places.area-school|en": {
-   "rows": 393,
+   "rows": 364,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3665,7 +3580,7 @@
    ]
   },
   "places.area-school|es": {
-   "rows": 137,
+   "rows": 135,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3673,7 +3588,7 @@
    ]
   },
   "places.area-school|fr": {
-   "rows": 183,
+   "rows": 193,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3681,7 +3596,7 @@
    ]
   },
   "places.area-school|it": {
-   "rows": 159,
+   "rows": 154,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3697,7 +3612,7 @@
    ]
   },
   "places.area-school|nl": {
-   "rows": 306,
+   "rows": 297,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3705,7 +3620,7 @@
    ]
   },
   "places.area-school|pl": {
-   "rows": 269,
+   "rows": 271,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3713,7 +3628,7 @@
    ]
   },
   "places.area-school|pt": {
-   "rows": 232,
+   "rows": 231,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3721,7 +3636,7 @@
    ]
   },
   "places.area-sports_centre|de": {
-   "rows": 128,
+   "rows": 127,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3729,7 +3644,7 @@
    ]
   },
   "places.area-sports_centre|en": {
-   "rows": 129,
+   "rows": 128,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3745,7 +3660,7 @@
    ]
   },
   "places.area-sports_centre|fr": {
-   "rows": 92,
+   "rows": 94,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3753,7 +3668,7 @@
    ]
   },
   "places.area-sports_centre|it": {
-   "rows": 68,
+   "rows": 65,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3777,7 +3692,7 @@
    ]
   },
   "places.area-sports_centre|pl": {
-   "rows": 62,
+   "rows": 61,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3793,7 +3708,7 @@
    ]
   },
   "places.area-supermarket|de": {
-   "rows": 824,
+   "rows": 819,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3801,7 +3716,7 @@
    ]
   },
   "places.area-supermarket|en": {
-   "rows": 671,
+   "rows": 655,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3809,7 +3724,7 @@
    ]
   },
   "places.area-supermarket|es": {
-   "rows": 740,
+   "rows": 730,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3817,7 +3732,7 @@
    ]
   },
   "places.area-supermarket|fr": {
-   "rows": 226,
+   "rows": 223,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3825,7 +3740,7 @@
    ]
   },
   "places.area-supermarket|it": {
-   "rows": 517,
+   "rows": 497,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3833,7 +3748,7 @@
    ]
   },
   "places.area-supermarket|ja": {
-   "rows": 505,
+   "rows": 504,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3841,7 +3756,7 @@
    ]
   },
   "places.area-supermarket|nl": {
-   "rows": 504,
+   "rows": 495,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3862,14 +3777,6 @@
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "places.area-swimming_pool|fr": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.area-swimming_pool|it": {
@@ -3905,7 +3812,7 @@
    ]
   },
   "places.area-theatre|fr": {
-   "rows": 79,
+   "rows": 80,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -3913,7 +3820,7 @@
    ]
   },
   "places.area-theatre|it": {
-   "rows": 52,
+   "rows": 51,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4033,7 +3940,7 @@
    ]
   },
   "places.area-veterinary|de": {
-   "rows": 43,
+   "rows": 42,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4041,7 +3948,7 @@
    ]
   },
   "places.area-veterinary|en": {
-   "rows": 132,
+   "rows": 127,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4049,7 +3956,7 @@
    ]
   },
   "places.area-veterinary|es": {
-   "rows": 111,
+   "rows": 110,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4057,7 +3964,7 @@
    ]
   },
   "places.area-veterinary|fr": {
-   "rows": 52,
+   "rows": 53,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4065,7 +3972,7 @@
    ]
   },
   "places.area-veterinary|it": {
-   "rows": 51,
+   "rows": 49,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4081,7 +3988,7 @@
    ]
   },
   "places.area-veterinary|nl": {
-   "rows": 25,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4121,7 +4028,7 @@
    ]
   },
   "places.area-viewpoint|es": {
-   "rows": 2,
+   "rows": 3,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4193,7 +4100,7 @@
    ]
   },
   "places.city-arts_centre|en": {
-   "rows": 100,
+   "rows": 105,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4201,7 +4108,7 @@
    ]
   },
   "places.city-arts_centre|es": {
-   "rows": 18,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4209,7 +4116,7 @@
    ]
   },
   "places.city-arts_centre|fr": {
-   "rows": 74,
+   "rows": 78,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4217,7 +4124,7 @@
    ]
   },
   "places.city-arts_centre|it": {
-   "rows": 26,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4233,7 +4140,7 @@
    ]
   },
   "places.city-arts_centre|nl": {
-   "rows": 24,
+   "rows": 25,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4241,7 +4148,7 @@
    ]
   },
   "places.city-arts_centre|pl": {
-   "rows": 32,
+   "rows": 33,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4257,7 +4164,7 @@
    ]
   },
   "places.city-attraction|de": {
-   "rows": 44,
+   "rows": 54,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4265,7 +4172,7 @@
    ]
   },
   "places.city-attraction|en": {
-   "rows": 85,
+   "rows": 90,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4273,7 +4180,7 @@
    ]
   },
   "places.city-attraction|es": {
-   "rows": 27,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4281,7 +4188,7 @@
    ]
   },
   "places.city-attraction|fr": {
-   "rows": 20,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4289,7 +4196,7 @@
    ]
   },
   "places.city-attraction|it": {
-   "rows": 21,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4297,7 +4204,7 @@
    ]
   },
   "places.city-attraction|ja": {
-   "rows": 34,
+   "rows": 35,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4305,7 +4212,7 @@
    ]
   },
   "places.city-attraction|nl": {
-   "rows": 20,
+   "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4313,7 +4220,7 @@
    ]
   },
   "places.city-attraction|pl": {
-   "rows": 30,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4321,7 +4228,7 @@
    ]
   },
   "places.city-attraction|pt": {
-   "rows": 18,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4329,7 +4236,7 @@
    ]
   },
   "places.city-attribute|de": {
-   "rows": 772,
+   "rows": 769,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4337,7 +4244,7 @@
    ]
   },
   "places.city-attribute|en": {
-   "rows": 1467,
+   "rows": 1448,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4369,7 +4276,7 @@
    ]
   },
   "places.city-bar|de": {
-   "rows": 76,
+   "rows": 74,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4377,7 +4284,7 @@
    ]
   },
   "places.city-bar|en": {
-   "rows": 373,
+   "rows": 378,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4385,7 +4292,7 @@
    ]
   },
   "places.city-bar|es": {
-   "rows": 141,
+   "rows": 169,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4393,7 +4300,7 @@
    ]
   },
   "places.city-bar|fr": {
-   "rows": 244,
+   "rows": 283,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4401,7 +4308,7 @@
    ]
   },
   "places.city-bar|it": {
-   "rows": 197,
+   "rows": 267,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4433,7 +4340,7 @@
    ]
   },
   "places.city-bar|pt": {
-   "rows": 46,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4448,6 +4355,22 @@
     "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
+  "places.city-beach|es": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "places.city-beach|it": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
   "places.city-beach|pl": {
    "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -4457,7 +4380,7 @@
    ]
   },
   "places.city-cafe|de": {
-   "rows": 175,
+   "rows": 170,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4465,7 +4388,7 @@
    ]
   },
   "places.city-cafe|en": {
-   "rows": 1038,
+   "rows": 1108,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4473,7 +4396,7 @@
    ]
   },
   "places.city-cafe|es": {
-   "rows": 168,
+   "rows": 190,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4481,7 +4404,7 @@
    ]
   },
   "places.city-cafe|fr": {
-   "rows": 198,
+   "rows": 207,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4489,7 +4412,7 @@
    ]
   },
   "places.city-cafe|it": {
-   "rows": 271,
+   "rows": 347,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4497,7 +4420,7 @@
    ]
   },
   "places.city-cafe|ja": {
-   "rows": 224,
+   "rows": 226,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4505,7 +4428,7 @@
    ]
   },
   "places.city-cafe|nl": {
-   "rows": 82,
+   "rows": 79,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4513,7 +4436,7 @@
    ]
   },
   "places.city-cafe|pl": {
-   "rows": 73,
+   "rows": 75,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4529,7 +4452,7 @@
    ]
   },
   "places.city-camp_site|en": {
-   "rows": 14,
+   "rows": 26,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4537,7 +4460,15 @@
    ]
   },
   "places.city-camp_site|fr": {
-   "rows": 2,
+   "rows": 3,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "places.city-camp_site|it": {
+   "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4553,7 +4484,7 @@
    ]
   },
   "places.city-camp_site|nl": {
-   "rows": 15,
+   "rows": 21,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4561,7 +4492,7 @@
    ]
   },
   "places.city-camp_site|pl": {
-   "rows": 1,
+   "rows": 3,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4577,7 +4508,7 @@
    ]
   },
   "places.city-castle|es": {
-   "rows": 3,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4590,6 +4521,14 @@
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "places.city-castle|it": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-castle|ja": {
@@ -4609,14 +4548,14 @@
    ]
   },
   "places.city-category|de": {
-   "rows": 868,
+   "rows": 2405,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|en": {
-   "rows": 920,
+   "rows": 921,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -4644,7 +4583,7 @@
    ]
   },
   "places.city-category|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -4679,7 +4618,7 @@
    ]
   },
   "places.city-childcare|de": {
-   "rows": 91,
+   "rows": 87,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4687,7 +4626,7 @@
    ]
   },
   "places.city-childcare|en": {
-   "rows": 189,
+   "rows": 183,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4695,7 +4634,7 @@
    ]
   },
   "places.city-childcare|es": {
-   "rows": 56,
+   "rows": 60,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4703,7 +4642,7 @@
    ]
   },
   "places.city-childcare|fr": {
-   "rows": 129,
+   "rows": 134,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4711,7 +4650,7 @@
    ]
   },
   "places.city-childcare|it": {
-   "rows": 50,
+   "rows": 53,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4727,7 +4666,7 @@
    ]
   },
   "places.city-childcare|nl": {
-   "rows": 74,
+   "rows": 73,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4735,7 +4674,7 @@
    ]
   },
   "places.city-childcare|pl": {
-   "rows": 96,
+   "rows": 106,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4743,7 +4682,7 @@
    ]
   },
   "places.city-childcare|pt": {
-   "rows": 88,
+   "rows": 96,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4751,7 +4690,7 @@
    ]
   },
   "places.city-cinema|de": {
-   "rows": 67,
+   "rows": 66,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4759,7 +4698,7 @@
    ]
   },
   "places.city-cinema|en": {
-   "rows": 100,
+   "rows": 99,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4767,7 +4706,7 @@
    ]
   },
   "places.city-cinema|es": {
-   "rows": 26,
+   "rows": 27,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4775,7 +4714,7 @@
    ]
   },
   "places.city-cinema|fr": {
-   "rows": 85,
+   "rows": 88,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4783,7 +4722,7 @@
    ]
   },
   "places.city-cinema|it": {
-   "rows": 50,
+   "rows": 51,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4823,7 +4762,7 @@
    ]
   },
   "places.city-clinic|de": {
-   "rows": 242,
+   "rows": 280,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4831,7 +4770,7 @@
    ]
   },
   "places.city-clinic|en": {
-   "rows": 874,
+   "rows": 912,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4839,7 +4778,7 @@
    ]
   },
   "places.city-clinic|es": {
-   "rows": 139,
+   "rows": 144,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4847,7 +4786,7 @@
    ]
   },
   "places.city-clinic|fr": {
-   "rows": 239,
+   "rows": 301,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4855,7 +4794,7 @@
    ]
   },
   "places.city-clinic|it": {
-   "rows": 109,
+   "rows": 129,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4871,7 +4810,7 @@
    ]
   },
   "places.city-clinic|nl": {
-   "rows": 112,
+   "rows": 119,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4879,7 +4818,7 @@
    ]
   },
   "places.city-clinic|pl": {
-   "rows": 158,
+   "rows": 176,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4887,7 +4826,7 @@
    ]
   },
   "places.city-clinic|pt": {
-   "rows": 139,
+   "rows": 145,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4911,7 +4850,7 @@
    ]
   },
   "places.city-college|en": {
-   "rows": 59,
+   "rows": 60,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4927,7 +4866,7 @@
    ]
   },
   "places.city-college|fr": {
-   "rows": 112,
+   "rows": 117,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4959,7 +4898,7 @@
    ]
   },
   "places.city-college|pl": {
-   "rows": 29,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -4999,7 +4938,7 @@
    ]
   },
   "places.city-coworking|fr": {
-   "rows": 39,
+   "rows": 38,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5007,7 +4946,7 @@
    ]
   },
   "places.city-coworking|it": {
-   "rows": 10,
+   "rows": 9,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5047,7 +4986,7 @@
    ]
   },
   "places.city-cuisine|de": {
-   "rows": 1062,
+   "rows": 1043,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5055,7 +4994,7 @@
    ]
   },
   "places.city-cuisine|en": {
-   "rows": 6304,
+   "rows": 6143,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5063,7 +5002,7 @@
    ]
   },
   "places.city-cuisine|es": {
-   "rows": 791,
+   "rows": 779,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5071,7 +5010,7 @@
    ]
   },
   "places.city-cuisine|fr": {
-   "rows": 1156,
+   "rows": 1135,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5079,7 +5018,7 @@
    ]
   },
   "places.city-cuisine|it": {
-   "rows": 658,
+   "rows": 643,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5087,7 +5026,7 @@
    ]
   },
   "places.city-cuisine|ja": {
-   "rows": 1814,
+   "rows": 1813,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5095,7 +5034,7 @@
    ]
   },
   "places.city-cuisine|nl": {
-   "rows": 498,
+   "rows": 476,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5103,7 +5042,7 @@
    ]
   },
   "places.city-cuisine|pl": {
-   "rows": 507,
+   "rows": 506,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5119,7 +5058,7 @@
    ]
   },
   "places.city-dentist|de": {
-   "rows": 142,
+   "rows": 145,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5127,7 +5066,7 @@
    ]
   },
   "places.city-dentist|en": {
-   "rows": 751,
+   "rows": 756,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5135,7 +5074,7 @@
    ]
   },
   "places.city-dentist|es": {
-   "rows": 115,
+   "rows": 119,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5143,7 +5082,7 @@
    ]
   },
   "places.city-dentist|fr": {
-   "rows": 104,
+   "rows": 118,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5151,7 +5090,7 @@
    ]
   },
   "places.city-dentist|it": {
-   "rows": 72,
+   "rows": 75,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5167,7 +5106,7 @@
    ]
   },
   "places.city-dentist|nl": {
-   "rows": 103,
+   "rows": 99,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5175,7 +5114,7 @@
    ]
   },
   "places.city-dentist|pl": {
-   "rows": 104,
+   "rows": 108,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5183,7 +5122,7 @@
    ]
   },
   "places.city-dentist|pt": {
-   "rows": 44,
+   "rows": 46,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5199,7 +5138,7 @@
    ]
   },
   "places.city-department_store|de": {
-   "rows": 64,
+   "rows": 63,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5207,7 +5146,7 @@
    ]
   },
   "places.city-department_store|en": {
-   "rows": 775,
+   "rows": 834,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5215,7 +5154,7 @@
    ]
   },
   "places.city-department_store|es": {
-   "rows": 10,
+   "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5223,7 +5162,7 @@
    ]
   },
   "places.city-department_store|fr": {
-   "rows": 9,
+   "rows": 10,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5247,7 +5186,7 @@
    ]
   },
   "places.city-department_store|nl": {
-   "rows": 66,
+   "rows": 63,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5255,7 +5194,7 @@
    ]
   },
   "places.city-department_store|pl": {
-   "rows": 7,
+   "rows": 9,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5271,7 +5210,7 @@
    ]
   },
   "places.city-fast_food|de": {
-   "rows": 223,
+   "rows": 220,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5279,7 +5218,7 @@
    ]
   },
   "places.city-fast_food|en": {
-   "rows": 2074,
+   "rows": 2284,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5295,7 +5234,7 @@
    ]
   },
   "places.city-fast_food|fr": {
-   "rows": 350,
+   "rows": 409,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5303,7 +5242,7 @@
    ]
   },
   "places.city-fast_food|it": {
-   "rows": 173,
+   "rows": 179,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5319,7 +5258,7 @@
    ]
   },
   "places.city-fast_food|nl": {
-   "rows": 135,
+   "rows": 140,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5327,7 +5266,7 @@
    ]
   },
   "places.city-fast_food|pl": {
-   "rows": 137,
+   "rows": 143,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5335,7 +5274,7 @@
    ]
   },
   "places.city-fast_food|pt": {
-   "rows": 137,
+   "rows": 140,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5351,7 +5290,7 @@
    ]
   },
   "places.city-gallery|en": {
-   "rows": 139,
+   "rows": 148,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5359,7 +5298,7 @@
    ]
   },
   "places.city-gallery|es": {
-   "rows": 12,
+   "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5367,7 +5306,7 @@
    ]
   },
   "places.city-gallery|fr": {
-   "rows": 68,
+   "rows": 73,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5375,7 +5314,7 @@
    ]
   },
   "places.city-gallery|it": {
-   "rows": 18,
+   "rows": 19,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5471,7 +5410,7 @@
    ]
   },
   "places.city-guest_house|de": {
-   "rows": 59,
+   "rows": 83,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5479,7 +5418,7 @@
    ]
   },
   "places.city-guest_house|en": {
-   "rows": 64,
+   "rows": 84,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5487,7 +5426,7 @@
    ]
   },
   "places.city-guest_house|es": {
-   "rows": 30,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5495,7 +5434,7 @@
    ]
   },
   "places.city-guest_house|fr": {
-   "rows": 34,
+   "rows": 61,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5503,7 +5442,7 @@
    ]
   },
   "places.city-guest_house|it": {
-   "rows": 148,
+   "rows": 237,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5511,7 +5450,7 @@
    ]
   },
   "places.city-guest_house|ja": {
-   "rows": 25,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5519,7 +5458,7 @@
    ]
   },
   "places.city-guest_house|nl": {
-   "rows": 67,
+   "rows": 81,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5527,7 +5466,7 @@
    ]
   },
   "places.city-guest_house|pl": {
-   "rows": 25,
+   "rows": 51,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5535,7 +5474,7 @@
    ]
   },
   "places.city-guest_house|pt": {
-   "rows": 24,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5551,7 +5490,7 @@
    ]
   },
   "places.city-gym|en": {
-   "rows": 661,
+   "rows": 646,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5559,7 +5498,7 @@
    ]
   },
   "places.city-gym|es": {
-   "rows": 84,
+   "rows": 86,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5567,7 +5506,7 @@
    ]
   },
   "places.city-gym|fr": {
-   "rows": 165,
+   "rows": 151,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5575,7 +5514,7 @@
    ]
   },
   "places.city-gym|it": {
-   "rows": 68,
+   "rows": 64,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5599,7 +5538,7 @@
    ]
   },
   "places.city-gym|pl": {
-   "rows": 69,
+   "rows": 70,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5607,7 +5546,7 @@
    ]
   },
   "places.city-gym|pt": {
-   "rows": 73,
+   "rows": 74,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5615,7 +5554,7 @@
    ]
   },
   "places.city-hospital|de": {
-   "rows": 44,
+   "rows": 42,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5623,7 +5562,7 @@
    ]
   },
   "places.city-hospital|en": {
-   "rows": 197,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5631,7 +5570,7 @@
    ]
   },
   "places.city-hospital|es": {
-   "rows": 48,
+   "rows": 46,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5639,7 +5578,7 @@
    ]
   },
   "places.city-hospital|fr": {
-   "rows": 27,
+   "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5647,7 +5586,7 @@
    ]
   },
   "places.city-hospital|it": {
-   "rows": 20,
+   "rows": 19,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5655,7 +5594,7 @@
    ]
   },
   "places.city-hospital|ja": {
-   "rows": 124,
+   "rows": 125,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5671,7 +5610,7 @@
    ]
   },
   "places.city-hospital|pl": {
-   "rows": 13,
+   "rows": 10,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5679,7 +5618,7 @@
    ]
   },
   "places.city-hospital|pt": {
-   "rows": 46,
+   "rows": 47,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5695,7 +5634,7 @@
    ]
   },
   "places.city-hostel|de": {
-   "rows": 9,
+   "rows": 10,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5711,7 +5650,7 @@
    ]
   },
   "places.city-hostel|es": {
-   "rows": 46,
+   "rows": 67,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5719,7 +5658,7 @@
    ]
   },
   "places.city-hostel|fr": {
-   "rows": 8,
+   "rows": 12,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5727,7 +5666,7 @@
    ]
   },
   "places.city-hostel|it": {
-   "rows": 17,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5735,7 +5674,7 @@
    ]
   },
   "places.city-hostel|ja": {
-   "rows": 26,
+   "rows": 28,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5743,7 +5682,7 @@
    ]
   },
   "places.city-hostel|nl": {
-   "rows": 8,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5751,7 +5690,7 @@
    ]
   },
   "places.city-hostel|pl": {
-   "rows": 36,
+   "rows": 39,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5759,7 +5698,7 @@
    ]
   },
   "places.city-hostel|pt": {
-   "rows": 27,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5767,7 +5706,7 @@
    ]
   },
   "places.city-library|de": {
-   "rows": 119,
+   "rows": 122,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5775,7 +5714,7 @@
    ]
   },
   "places.city-library|en": {
-   "rows": 197,
+   "rows": 189,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5783,7 +5722,7 @@
    ]
   },
   "places.city-library|es": {
-   "rows": 77,
+   "rows": 76,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5791,7 +5730,7 @@
    ]
   },
   "places.city-library|fr": {
-   "rows": 148,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5799,7 +5738,7 @@
    ]
   },
   "places.city-library|it": {
-   "rows": 95,
+   "rows": 115,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5815,7 +5754,7 @@
    ]
   },
   "places.city-library|nl": {
-   "rows": 66,
+   "rows": 68,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5823,7 +5762,7 @@
    ]
   },
   "places.city-library|pl": {
-   "rows": 99,
+   "rows": 104,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5855,7 +5794,7 @@
    ]
   },
   "places.city-mall|en": {
-   "rows": 7,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5871,7 +5810,7 @@
    ]
   },
   "places.city-mall|it": {
-   "rows": 7,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5895,7 +5834,7 @@
    ]
   },
   "places.city-mall|pl": {
-   "rows": 6,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5911,7 +5850,7 @@
    ]
   },
   "places.city-marina|de": {
-   "rows": 77,
+   "rows": 109,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5919,7 +5858,7 @@
    ]
   },
   "places.city-marina|en": {
-   "rows": 24,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5927,7 +5866,7 @@
    ]
   },
   "places.city-marina|es": {
-   "rows": 3,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5935,7 +5874,7 @@
    ]
   },
   "places.city-marina|fr": {
-   "rows": 5,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5943,7 +5882,7 @@
    ]
   },
   "places.city-marina|it": {
-   "rows": 5,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5951,7 +5890,7 @@
    ]
   },
   "places.city-marina|nl": {
-   "rows": 17,
+   "rows": 25,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5959,7 +5898,7 @@
    ]
   },
   "places.city-marina|pl": {
-   "rows": 1,
+   "rows": 3,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5975,7 +5914,7 @@
    ]
   },
   "places.city-market|de": {
-   "rows": 47,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5983,7 +5922,7 @@
    ]
   },
   "places.city-market|en": {
-   "rows": 125,
+   "rows": 129,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5991,7 +5930,7 @@
    ]
   },
   "places.city-market|es": {
-   "rows": 26,
+   "rows": 27,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5999,7 +5938,7 @@
    ]
   },
   "places.city-market|fr": {
-   "rows": 121,
+   "rows": 174,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6007,7 +5946,7 @@
    ]
   },
   "places.city-market|it": {
-   "rows": 29,
+   "rows": 34,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6023,7 +5962,7 @@
    ]
   },
   "places.city-market|nl": {
-   "rows": 15,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6031,7 +5970,7 @@
    ]
   },
   "places.city-market|pl": {
-   "rows": 6,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6039,7 +5978,7 @@
    ]
   },
   "places.city-market|pt": {
-   "rows": 38,
+   "rows": 41,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6047,7 +5986,7 @@
    ]
   },
   "places.city-museum|de": {
-   "rows": 113,
+   "rows": 134,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6055,7 +5994,7 @@
    ]
   },
   "places.city-museum|en": {
-   "rows": 263,
+   "rows": 280,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6063,7 +6002,7 @@
    ]
   },
   "places.city-museum|es": {
-   "rows": 75,
+   "rows": 82,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6071,7 +6010,7 @@
    ]
   },
   "places.city-museum|fr": {
-   "rows": 96,
+   "rows": 117,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6079,7 +6018,7 @@
    ]
   },
   "places.city-museum|it": {
-   "rows": 152,
+   "rows": 193,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6087,7 +6026,7 @@
    ]
   },
   "places.city-museum|ja": {
-   "rows": 123,
+   "rows": 126,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6095,7 +6034,7 @@
    ]
   },
   "places.city-museum|nl": {
-   "rows": 85,
+   "rows": 107,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6103,7 +6042,7 @@
    ]
   },
   "places.city-museum|pl": {
-   "rows": 50,
+   "rows": 57,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6119,7 +6058,7 @@
    ]
   },
   "places.city-nature_reserve|en": {
-   "rows": 19,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6151,7 +6090,7 @@
    ]
   },
   "places.city-nightclub|es": {
-   "rows": 33,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6159,7 +6098,7 @@
    ]
   },
   "places.city-nightclub|fr": {
-   "rows": 35,
+   "rows": 34,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6167,7 +6106,7 @@
    ]
   },
   "places.city-nightclub|it": {
-   "rows": 17,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6207,7 +6146,7 @@
    ]
   },
   "places.city-opening|de": {
-   "rows": 719,
+   "rows": 715,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6215,7 +6154,7 @@
    ]
   },
   "places.city-opening|en": {
-   "rows": 1345,
+   "rows": 1332,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6223,7 +6162,7 @@
    ]
   },
   "places.city-opening|es": {
-   "rows": 240,
+   "rows": 239,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6231,7 +6170,7 @@
    ]
   },
   "places.city-opening|fr": {
-   "rows": 132,
+   "rows": 131,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6239,7 +6178,7 @@
    ]
   },
   "places.city-opening|it": {
-   "rows": 166,
+   "rows": 165,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6255,7 +6194,7 @@
    ]
   },
   "places.city-opening|nl": {
-   "rows": 85,
+   "rows": 84,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6287,7 +6226,7 @@
    ]
   },
   "places.city-park|en": {
-   "rows": 29,
+   "rows": 31,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6303,7 +6242,7 @@
    ]
   },
   "places.city-park|fr": {
-   "rows": 4,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6319,7 +6258,7 @@
    ]
   },
   "places.city-park|ja": {
-   "rows": 8,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6327,7 +6266,7 @@
    ]
   },
   "places.city-park|pl": {
-   "rows": 1,
+   "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6367,7 +6306,7 @@
    ]
   },
   "places.city-parking|fr": {
-   "rows": 46,
+   "rows": 47,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6415,7 +6354,7 @@
    ]
   },
   "places.city-pharmacy|de": {
-   "rows": 389,
+   "rows": 365,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6423,7 +6362,7 @@
    ]
   },
   "places.city-pharmacy|en": {
-   "rows": 667,
+   "rows": 619,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6431,7 +6370,7 @@
    ]
   },
   "places.city-pharmacy|es": {
-   "rows": 241,
+   "rows": 257,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6439,7 +6378,7 @@
    ]
   },
   "places.city-pharmacy|fr": {
-   "rows": 401,
+   "rows": 474,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6447,7 +6386,7 @@
    ]
   },
   "places.city-pharmacy|it": {
-   "rows": 303,
+   "rows": 330,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6455,7 +6394,7 @@
    ]
   },
   "places.city-pharmacy|ja": {
-   "rows": 198,
+   "rows": 199,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6463,7 +6402,7 @@
    ]
   },
   "places.city-pharmacy|nl": {
-   "rows": 62,
+   "rows": 59,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6471,7 +6410,7 @@
    ]
   },
   "places.city-pharmacy|pl": {
-   "rows": 243,
+   "rows": 292,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6487,7 +6426,7 @@
    ]
   },
   "places.city-pharmacy|zh-Hant": {
-   "rows": 30,
+   "rows": 31,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6495,7 +6434,7 @@
    ]
   },
   "places.city-pub|de": {
-   "rows": 157,
+   "rows": 154,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6503,7 +6442,7 @@
    ]
   },
   "places.city-pub|en": {
-   "rows": 441,
+   "rows": 500,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6511,7 +6450,7 @@
    ]
   },
   "places.city-pub|es": {
-   "rows": 118,
+   "rows": 149,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6519,7 +6458,7 @@
    ]
   },
   "places.city-pub|fr": {
-   "rows": 76,
+   "rows": 80,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6527,7 +6466,7 @@
    ]
   },
   "places.city-pub|it": {
-   "rows": 84,
+   "rows": 83,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6535,7 +6474,7 @@
    ]
   },
   "places.city-pub|ja": {
-   "rows": 118,
+   "rows": 119,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6559,7 +6498,7 @@
    ]
   },
   "places.city-pub|pt": {
-   "rows": 49,
+   "rows": 50,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6567,7 +6506,7 @@
    ]
   },
   "places.city-railway_station|de": {
-   "rows": 11,
+   "rows": 12,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6575,7 +6514,7 @@
    ]
   },
   "places.city-railway_station|en": {
-   "rows": 66,
+   "rows": 53,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6591,7 +6530,7 @@
    ]
   },
   "places.city-railway_station|fr": {
-   "rows": 12,
+   "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6607,7 +6546,7 @@
    ]
   },
   "places.city-railway_station|ja": {
-   "rows": 54,
+   "rows": 57,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6623,7 +6562,7 @@
    ]
   },
   "places.city-railway_station|pt": {
-   "rows": 11,
+   "rows": 10,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6631,7 +6570,7 @@
    ]
   },
   "places.city-restaurant|de": {
-   "rows": 528,
+   "rows": 635,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6639,7 +6578,7 @@
    ]
   },
   "places.city-restaurant|en": {
-   "rows": 1942,
+   "rows": 2265,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6647,7 +6586,7 @@
    ]
   },
   "places.city-restaurant|es": {
-   "rows": 323,
+   "rows": 452,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6655,7 +6594,7 @@
    ]
   },
   "places.city-restaurant|fr": {
-   "rows": 445,
+   "rows": 771,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6663,7 +6602,7 @@
    ]
   },
   "places.city-restaurant|it": {
-   "rows": 401,
+   "rows": 690,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6671,7 +6610,7 @@
    ]
   },
   "places.city-restaurant|ja": {
-   "rows": 419,
+   "rows": 436,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6679,7 +6618,7 @@
    ]
   },
   "places.city-restaurant|nl": {
-   "rows": 192,
+   "rows": 255,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6687,7 +6626,7 @@
    ]
   },
   "places.city-restaurant|pl": {
-   "rows": 192,
+   "rows": 211,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6695,7 +6634,7 @@
    ]
   },
   "places.city-restaurant|pt": {
-   "rows": 196,
+   "rows": 205,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6703,7 +6642,7 @@
    ]
   },
   "places.city-school|de": {
-   "rows": 65,
+   "rows": 64,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6711,7 +6650,7 @@
    ]
   },
   "places.city-school|en": {
-   "rows": 417,
+   "rows": 410,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6727,7 +6666,7 @@
    ]
   },
   "places.city-school|fr": {
-   "rows": 211,
+   "rows": 296,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6735,7 +6674,7 @@
    ]
   },
   "places.city-school|it": {
-   "rows": 96,
+   "rows": 94,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6751,7 +6690,7 @@
    ]
   },
   "places.city-school|nl": {
-   "rows": 115,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6759,7 +6698,7 @@
    ]
   },
   "places.city-school|pl": {
-   "rows": 86,
+   "rows": 96,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6767,7 +6706,7 @@
    ]
   },
   "places.city-school|pt": {
-   "rows": 296,
+   "rows": 383,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6783,7 +6722,7 @@
    ]
   },
   "places.city-shopping_mall|en": {
-   "rows": 231,
+   "rows": 232,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6799,7 +6738,7 @@
    ]
   },
   "places.city-shopping_mall|fr": {
-   "rows": 23,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6815,7 +6754,7 @@
    ]
   },
   "places.city-shopping_mall|ja": {
-   "rows": 160,
+   "rows": 166,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6839,7 +6778,7 @@
    ]
   },
   "places.city-shopping_mall|pt": {
-   "rows": 26,
+   "rows": 25,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6855,14 +6794,14 @@
    ]
   },
   "places.city-sport|de": {
-   "rows": 38,
+   "rows": 37,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "places.city-sport|en": {
-   "rows": 61,
+   "rows": 58,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -6883,7 +6822,7 @@
    ]
   },
   "places.city-sports_centre|de": {
-   "rows": 108,
+   "rows": 110,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6891,7 +6830,7 @@
    ]
   },
   "places.city-sports_centre|en": {
-   "rows": 256,
+   "rows": 246,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6899,7 +6838,7 @@
    ]
   },
   "places.city-sports_centre|es": {
-   "rows": 48,
+   "rows": 47,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6907,7 +6846,7 @@
    ]
   },
   "places.city-sports_centre|fr": {
-   "rows": 133,
+   "rows": 144,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6915,7 +6854,7 @@
    ]
   },
   "places.city-sports_centre|it": {
-   "rows": 63,
+   "rows": 64,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6931,7 +6870,7 @@
    ]
   },
   "places.city-sports_centre|nl": {
-   "rows": 162,
+   "rows": 203,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6947,7 +6886,7 @@
    ]
   },
   "places.city-sports_centre|pt": {
-   "rows": 25,
+   "rows": 26,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6963,7 +6902,7 @@
    ]
   },
   "places.city-stadium|en": {
-   "rows": 133,
+   "rows": 130,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6995,7 +6934,7 @@
    ]
   },
   "places.city-stadium|ja": {
-   "rows": 18,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7035,7 +6974,7 @@
    ]
   },
   "places.city-supermarket|de": {
-   "rows": 174,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7043,7 +6982,7 @@
    ]
   },
   "places.city-supermarket|en": {
-   "rows": 434,
+   "rows": 418,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7051,7 +6990,7 @@
    ]
   },
   "places.city-supermarket|es": {
-   "rows": 233,
+   "rows": 246,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7059,7 +6998,7 @@
    ]
   },
   "places.city-supermarket|fr": {
-   "rows": 205,
+   "rows": 192,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7067,7 +7006,7 @@
    ]
   },
   "places.city-supermarket|it": {
-   "rows": 245,
+   "rows": 252,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7075,7 +7014,7 @@
    ]
   },
   "places.city-supermarket|ja": {
-   "rows": 262,
+   "rows": 263,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7083,7 +7022,7 @@
    ]
   },
   "places.city-supermarket|nl": {
-   "rows": 143,
+   "rows": 138,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7091,7 +7030,7 @@
    ]
   },
   "places.city-supermarket|pl": {
-   "rows": 131,
+   "rows": 138,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7099,7 +7038,7 @@
    ]
   },
   "places.city-supermarket|pt": {
-   "rows": 143,
+   "rows": 145,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7122,14 +7061,6 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
-  "places.city-swimming_pool|fr": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
   "places.city-swimming_pool|it": {
    "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -7139,7 +7070,7 @@
    ]
   },
   "places.city-swimming_pool|nl": {
-   "rows": 2,
+   "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7163,7 +7094,7 @@
    ]
   },
   "places.city-theatre|en": {
-   "rows": 142,
+   "rows": 146,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7179,7 +7110,7 @@
    ]
   },
   "places.city-theatre|fr": {
-   "rows": 85,
+   "rows": 88,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7187,7 +7118,7 @@
    ]
   },
   "places.city-theatre|it": {
-   "rows": 36,
+   "rows": 35,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7203,7 +7134,7 @@
    ]
   },
   "places.city-theatre|nl": {
-   "rows": 52,
+   "rows": 50,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7219,7 +7150,15 @@
    ]
   },
   "places.city-theatre|pt": {
-   "rows": 12,
+   "rows": 13,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "places.city-theme_park|de": {
+   "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7227,7 +7166,7 @@
    ]
   },
   "places.city-theme_park|en": {
-   "rows": 3,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7283,7 +7222,7 @@
    ]
   },
   "places.city-university|en": {
-   "rows": 180,
+   "rows": 182,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7299,7 +7238,7 @@
    ]
   },
   "places.city-university|fr": {
-   "rows": 55,
+   "rows": 56,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7315,7 +7254,7 @@
    ]
   },
   "places.city-university|ja": {
-   "rows": 127,
+   "rows": 125,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7339,7 +7278,7 @@
    ]
   },
   "places.city-university|pt": {
-   "rows": 53,
+   "rows": 54,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7355,7 +7294,7 @@
    ]
   },
   "places.city-veterinary|de": {
-   "rows": 45,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7363,7 +7302,7 @@
    ]
   },
   "places.city-veterinary|en": {
-   "rows": 233,
+   "rows": 224,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7371,7 +7310,7 @@
    ]
   },
   "places.city-veterinary|es": {
-   "rows": 77,
+   "rows": 75,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7379,7 +7318,7 @@
    ]
   },
   "places.city-veterinary|fr": {
-   "rows": 88,
+   "rows": 86,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7403,7 +7342,7 @@
    ]
   },
   "places.city-veterinary|nl": {
-   "rows": 38,
+   "rows": 37,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7411,7 +7350,7 @@
    ]
   },
   "places.city-veterinary|pl": {
-   "rows": 79,
+   "rows": 78,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7419,7 +7358,7 @@
    ]
   },
   "places.city-veterinary|pt": {
-   "rows": 36,
+   "rows": 38,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7451,7 +7390,7 @@
    ]
   },
   "places.city-viewpoint|es": {
-   "rows": 3,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7499,11 +7438,19 @@
    ]
   },
   "places.city-water_park|de": {
-   "rows": 4,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "places.city-water_park|en": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-water_park|it": {
@@ -7547,7 +7494,7 @@
    ]
   },
   "places.city-zoo|nl": {
-   "rows": 7,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -7661,7 +7608,7 @@
    ]
   },
   "poi.archaeological_site-notable|en": {
-   "rows": 22,
+   "rows": 19,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7675,7 +7622,7 @@
    ]
   },
   "poi.archaeological_site-notable|it": {
-   "rows": 59,
+   "rows": 58,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7689,14 +7636,14 @@
    ]
   },
   "poi.archaeological_site-notable|pt": {
-   "rows": 2,
+   "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.art_museum-notable|en": {
-   "rows": 73,
+   "rows": 59,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7710,7 +7657,7 @@
    ]
   },
   "poi.art_museum-notable|ja": {
-   "rows": 98,
+   "rows": 80,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7731,21 +7678,21 @@
    ]
   },
   "poi.attraction-notable|de": {
-   "rows": 29,
+   "rows": 27,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.attraction-notable|en": {
-   "rows": 63,
+   "rows": 61,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.attraction-notable|es": {
-   "rows": 5,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7759,7 +7706,7 @@
    ]
   },
   "poi.attraction-notable|it": {
-   "rows": 10,
+   "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7780,7 +7727,7 @@
    ]
   },
   "poi.attraction-notable|pl": {
-   "rows": 7,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7808,35 +7755,35 @@
    ]
   },
   "poi.botanical_garden-notable|de": {
-   "rows": 25,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.botanical_garden-notable|en": {
-   "rows": 42,
+   "rows": 35,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.botanical_garden-notable|fr": {
-   "rows": 7,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.botanical_garden-notable|it": {
-   "rows": 23,
+   "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.botanical_garden-notable|ja": {
-   "rows": 26,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7864,7 +7811,7 @@
    ]
   },
   "poi.castle-notable|en": {
-   "rows": 12,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7878,7 +7825,7 @@
    ]
   },
   "poi.castle-notable|it": {
-   "rows": 17,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7906,14 +7853,14 @@
    ]
   },
   "poi.gallery-notable|de": {
-   "rows": 9,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.gallery-notable|en": {
-   "rows": 71,
+   "rows": 73,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -7961,74 +7908,102 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "poi.monument-notable|de": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.monument-notable|en": {
+   "rows": 9,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.monument-notable|es": {
+   "rows": 71,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.monument-notable|it": {
+   "rows": 7,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.monument-notable|nl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
   "poi.museum-notable|de": {
-   "rows": 1060,
+   "rows": 1048,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|en": {
-   "rows": 1063,
+   "rows": 1014,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|es": {
-   "rows": 349,
+   "rows": 329,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|fr": {
-   "rows": 319,
+   "rows": 318,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|it": {
-   "rows": 789,
+   "rows": 819,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|ja": {
-   "rows": 314,
+   "rows": 300,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|nl": {
-   "rows": 380,
+   "rows": 392,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|pl": {
-   "rows": 305,
+   "rows": 314,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|pt": {
-   "rows": 410,
+   "rows": 402,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "poi.national_park-notable|en": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.national_park-notable|fr": {
@@ -8046,14 +8021,14 @@
    ]
   },
   "poi.park-notable|de": {
-   "rows": 49,
+   "rows": 46,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.park-notable|en": {
-   "rows": 155,
+   "rows": 140,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8067,21 +8042,21 @@
    ]
   },
   "poi.park-notable|it": {
-   "rows": 22,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.park-notable|ja": {
-   "rows": 67,
+   "rows": 59,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.park-notable|nl": {
-   "rows": 17,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8116,49 +8091,49 @@
    ]
   },
   "poi.theatre-notable|de": {
-   "rows": 107,
+   "rows": 103,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|en": {
-   "rows": 244,
+   "rows": 214,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|es": {
-   "rows": 48,
+   "rows": 46,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|fr": {
-   "rows": 94,
+   "rows": 87,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|it": {
-   "rows": 123,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|ja": {
-   "rows": 49,
+   "rows": 39,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|nl": {
-   "rows": 95,
+   "rows": 85,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8186,7 +8161,7 @@
    ]
   },
   "poi.theme_park-notable|en": {
-   "rows": 5,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -8227,6 +8202,13 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "poi.zoo-notable|fr": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
   "property.city-buy|de": {
    "rows": 195,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -8235,7 +8217,7 @@
    ]
   },
   "property.city-buy|en": {
-   "rows": 1121,
+   "rows": 1123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -8263,14 +8245,14 @@
    ]
   },
   "property.city-buy|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
    ]
   },
   "property.city-buy|pl": {
-   "rows": 101,
+   "rows": 117,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -8291,14 +8273,14 @@
    ]
   },
   "relocation.city|de": {
-   "rows": 195,
+   "rows": 205,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "relocation.city|en": {
-   "rows": 1121,
+   "rows": 1123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8312,21 +8294,21 @@
    ]
   },
   "relocation.city|fr": {
-   "rows": 143,
+   "rows": 149,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "relocation.city|it": {
-   "rows": 133,
+   "rows": 144,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "relocation.city|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8347,7 +8329,7 @@
    ]
   },
   "relocation.city|pt": {
-   "rows": 677,
+   "rows": 699,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8382,7 +8364,7 @@
    ]
   },
   "relocation.country|fr": {
-   "rows": 1,
+   "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
@@ -8424,14 +8406,14 @@
    ]
   },
   "rents.city|de": {
-   "rows": 868,
+   "rows": 2405,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|en": {
-   "rows": 1121,
+   "rows": 1122,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8459,7 +8441,7 @@
    ]
   },
   "rents.city|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8550,35 +8532,35 @@
    ]
   },
   "safety.city|de": {
-   "rows": 38,
+   "rows": 71,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|en": {
-   "rows": 131,
+   "rows": 134,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|es": {
-   "rows": 30,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|fr": {
-   "rows": 13,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|it": {
-   "rows": 15,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -8592,21 +8574,21 @@
    ]
   },
   "safety.city|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|pl": {
-   "rows": 16,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|pt": {
-   "rows": 159,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -8627,7 +8609,7 @@
    ]
   },
   "services.city-practical|en": {
-   "rows": 168,
+   "rows": 169,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8690,35 +8672,35 @@
    ]
   },
   "sport.city-activity|de": {
-   "rows": 38,
+   "rows": 71,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|en": {
-   "rows": 168,
+   "rows": 170,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|es": {
-   "rows": 30,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|fr": {
-   "rows": 13,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|it": {
-   "rows": 15,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8732,21 +8714,21 @@
    ]
   },
   "sport.city-activity|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|pl": {
-   "rows": 16,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|pt": {
-   "rows": 159,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8760,7 +8742,7 @@
    ]
   },
   "stay.city-type|de": {
-   "rows": 888,
+   "rows": 2486,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8795,7 +8777,7 @@
    ]
   },
   "stay.city-type|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8963,7 +8945,7 @@
    ]
   },
   "transport.city-getting-around|en": {
-   "rows": 369,
+   "rows": 370,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -8991,14 +8973,14 @@
    ]
   },
   "transport.city-getting-around|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
    ]
   },
   "transport.city-getting-around|pl": {
-   "rows": 101,
+   "rows": 117,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -9019,35 +9001,35 @@
    ]
   },
   "transport.route-from-market|de": {
-   "rows": 38,
+   "rows": 71,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|en": {
-   "rows": 198,
+   "rows": 201,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|es": {
-   "rows": 30,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|fr": {
-   "rows": 13,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|it": {
-   "rows": 15,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -9061,21 +9043,21 @@
    ]
   },
   "transport.route-from-market|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|pl": {
-   "rows": 16,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|pt": {
-   "rows": 159,
+   "rows": 172,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -9110,7 +9092,7 @@
    ]
   },
   "weather.city-month|es": {
-   "rows": 150,
+   "rows": 158,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -9131,7 +9113,7 @@
    ]
   },
   "weather.city-month|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -9166,35 +9148,35 @@
    ]
   },
   "work.city-jobs-category|de": {
-   "rows": 38,
+   "rows": 71,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|en": {
-   "rows": 168,
+   "rows": 170,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|es": {
-   "rows": 30,
+   "rows": 56,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|fr": {
-   "rows": 13,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|it": {
-   "rows": 15,
+   "rows": 40,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9208,21 +9190,21 @@
    ]
   },
   "work.city-jobs-category|nl": {
-   "rows": 7,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|pl": {
-   "rows": 16,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|pt": {
-   "rows": 159,
+   "rows": 194,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9243,14 +9225,14 @@
    ]
   },
   "work.city-salaries|en": {
-   "rows": 1121,
+   "rows": 1122,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-salaries|es": {
-   "rows": 150,
+   "rows": 158,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9264,14 +9246,14 @@
    ]
   },
   "work.city-salaries|it": {
-   "rows": 133,
+   "rows": 144,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-salaries|ja": {
-   "rows": 554,
+   "rows": 553,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9435,9 +9417,9 @@
  },
  "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
-  "min": 13,
+  "min": 16,
   "max": 192,
-  "mean": 67.8
+  "mean": 66.6
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

@@ -28,7 +28,7 @@ Great Britain has four admin1 regions, so two English towns of the same name bot
 England. Those keep a stable id in the SLUG, which must be unique, and are reported by
 `unresolved_labels()` rather than given a region they do not have.
 """
-import functools, glob, gzip, json, os, unicodedata
+import functools, glob, gzip, json, math, os, unicodedata
 
 ROOT = '/home/user/Livdar-eSim/'
 
@@ -183,6 +183,7 @@ class Gazetteer:
                 'id': cid, 'name': c['name'], 'country': c.get('country') or '',
                 'admin1': str(c.get('admin1') or ''), 'admin2': str(c.get('admin2') or ''),
                 'population': c.get('population') or 0,
+                'lat': c.get('lat'), 'lon': c.get('lon'),
             }
         # a name shared by more than one country
         name_countries = {}
@@ -205,6 +206,52 @@ class Gazetteer:
             quad_ids.setdefault((c['name'].lower(), c['country'], c['admin1'],
                                  c['admin2']), []).append(c['id'])
         self.quad_repeats = {k for k, v in quad_ids.items() if len(v) > 1}
+        self._near_cache = {}
+        self._grid = None
+
+    # ---- the discriminator of last resort --------------------------------------
+    # Two towns called Ebersbach sit in Saxony with admin2 empty in GeoNames, so neither the
+    # region nor the county separates them, and the gazetteer expansion turned that from a
+    # curiosity into 31 pairs of pages with identical titles. Their URLs differ, because the slug
+    # resolver falls through to the id, but a reader cannot tell the pages apart from the title.
+    #
+    # The discriminator is the nearest substantially larger town, which is a real geographic fact
+    # and is how a person actually distinguishes two places of the same name: Ebersbach near
+    # Loebau against Ebersbach near Grossenhain. Nothing is invented; if there is no larger town
+    # within reach, the label says so by falling back to the id, and that case is countable.
+    def _build_grid(self):
+        self._grid = {}
+        for c in self.by_id.values():
+            if c.get('lat') is None or c.get('lon') is None:
+                continue
+            self._grid.setdefault((c['country'], int(c['lat']), int(c['lon'])), []).append(c)
+
+    def nearest_larger(self, cid, factor=2.5, max_km=45.0):
+        """The nearest town at least `factor` times this one's population, within `max_km`."""
+        key = (str(cid), factor, max_km)
+        if key in self._near_cache:
+            return self._near_cache[key]
+        c = self.by_id.get(str(cid))
+        if not c or c.get('lat') is None:
+            self._near_cache[key] = ''
+            return ''
+        if self._grid is None:
+            self._build_grid()
+        lat, lon = float(c['lat']), float(c['lon'])
+        need = (c['population'] or 0) * factor
+        best, bestd = '', 1e9
+        for dla in (-1, 0, 1):
+            for dlo in (-1, 0, 1):
+                for o in self._grid.get((c['country'], int(lat) + dla, int(lon) + dlo), ()):
+                    if o['id'] == c['id'] or (o['population'] or 0) < need:
+                        continue
+                    dk = math.hypot((float(o['lat']) - lat) * 111.0,
+                                    (float(o['lon']) - lon) * 111.0
+                                    * math.cos(math.radians(lat)))
+                    if dk < bestd and dk <= max_km:
+                        bestd, best = dk, o['name']
+        self._near_cache[key] = best
+        return best
 
     def _county_repeats(self, c):
         """True when even the county does not separate this city from its namesake."""
@@ -236,8 +283,14 @@ class Gazetteer:
         cty = county_name(c['country'], c['admin1'], c['admin2'])
         if cty and not self._county_repeats(c):
             return f"{c['name']}, {cty}" + (f", {reg}" if reg else '')
-        # neither level separates them. Do not invent a region it does not have.
-        return c['name']
+        # Neither administrative level separates them, so the nearest substantially larger town
+        # does. Do NOT invent a region it does not have.
+        near = self.nearest_larger(cid)
+        if near and near.lower() != low:
+            return f"{c['name']} near {near}" + (f", {reg}" if reg else '')
+        # nothing geographic separates them either: the id is the only honest discriminator, and
+        # a pair that reaches this point is usually one place recorded twice
+        return f"{c['name']} ({c['id']})"
 
     def label_is_ambiguous(self, cid):
         """True when the label still does not identify the city uniquely."""
@@ -254,8 +307,22 @@ class Gazetteer:
         return not (cty and not self._county_repeats(c))
 
     def unresolved_labels(self):
-        """Cities whose label cannot be made unique from the data available."""
-        return [cid for cid in self.by_id if self.label_is_ambiguous(cid)]
+        """Cities whose label still carries an id, meaning nothing in the data separated them.
+
+        This used to return every city whose NAME was ambiguous after the administrative levels,
+        which was 265 once the gazetteer grew. Most of those are now separated by the nearest
+        larger town, which is a real geographic fact rather than an administrative one, so the
+        honest definition of unresolved is narrower: the label fell all the way through to the
+        id. A pair that reaches that point is usually one place recorded twice, and Red Hill in
+        Horry County, South Carolina appears twice with the same name, the same admin1, the same
+        admin2 and the same population of 13,223, which is not two towns.
+        """
+        out = []
+        for cid in self.by_id:
+            lab = self.label(cid)
+            if lab.endswith(f'({cid})'):
+                out.append(cid)
+        return out
 
     # ---- slugs ------------------------------------------------------------------
     # Resolved by construction rather than by predicate, because the property a URL needs is

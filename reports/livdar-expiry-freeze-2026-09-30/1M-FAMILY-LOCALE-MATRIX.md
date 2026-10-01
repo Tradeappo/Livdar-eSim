@@ -4,155 +4,156 @@ Which families actually reach which locales, and at what size. A blank cell mean
 
 | family | en-US | en-GB | de-DE | ja-JP | zh-Hant-TW | it-IT | es-ES | fr-FR | nl-NL | pl-PL | pt-BR |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| places.area-cuisine | 4,652 | 2,038 | 1,602 | 3,311 |  | 1,429 | 1,222 | 1,583 | 594 | 841 | 420 |
-| places.city-cuisine | 5,019 | 1,285 | 1,062 | 1,814 |  | 658 | 791 | 1,156 | 498 | 507 | 473 |
-| places.area-opening | 2,583 | 696 | 2,386 | 1,082 |  | 621 | 614 | 482 | 412 | 561 | 215 |
-| places.area-restaurant | 1,737 | 660 | 1,158 | 983 |  | 812 | 957 | 498 | 446 | 473 | 286 |
-| places.area-attribute | 2,866 |  | 2,673 |  |  |  |  |  |  | 569 | 249 |
-| places.area-fast_food | 1,458 | 1,118 | 767 | 595 |  | 397 | 340 | 400 | 449 | 427 | 173 |
-| poi.museum-notable | 682 | 381 | 1,060 | 314 |  | 789 | 349 | 319 | 380 | 305 | 410 |
-| activities.city-things-to-do |  | 3,476 | 215 | 554 | 51 | 149 | 164 | 152 | 57 | 1 | 160 |
-| places.area-pharmacy | 358 | 521 | 1,073 | 399 |  | 585 | 664 | 451 | 102 | 602 | 209 |
-| places.area-cafe | 1,077 | 966 | 491 | 595 |  | 551 | 464 | 260 | 211 | 213 | 84 |
+| places.area-cuisine | 4,636 | 2,011 | 1,593 | 3,311 |  | 1,414 | 1,209 | 1,573 | 586 | 841 | 420 |
+| places.city-cuisine | 4,894 | 1,249 | 1,043 | 1,813 |  | 643 | 779 | 1,135 | 476 | 506 | 473 |
+| places.area-opening | 2,574 | 693 | 2,378 | 1,082 |  | 616 | 611 | 482 | 401 | 561 | 215 |
+| activities.city-things-to-do |  | 7,283 | 270 | 553 | 51 | 161 | 185 | 162 | 57 | 1 | 164 |
+| places.area-restaurant | 1,723 | 648 | 1,156 | 983 |  | 821 | 986 | 525 | 449 | 479 | 284 |
+| places.area-attribute | 2,854 |  | 2,672 |  |  |  |  |  |  | 569 | 249 |
+| places.area-fast_food | 1,433 | 1,092 | 763 | 595 |  | 392 | 339 | 399 | 446 | 428 | 172 |
+| events.city-calendar | 882 | 39 | 2,405 | 553 | 40 | 15 | 2 | 1,456 | 357 | 16 | 159 |
+| events.city-type | 882 | 39 | 2,405 | 553 | 40 | 15 | 2 | 1,456 | 357 | 16 | 159 |
+| places.city-restaurant | 1,918 | 347 | 635 | 436 |  | 690 | 452 | 771 | 255 | 211 | 205 |
+| rents.city | 882 | 240 | 2,405 | 553 | 18 | 133 | 150 | 143 |  | 1 | 677 |
+| poi.museum-notable | 658 | 356 | 1,048 | 300 |  | 819 | 329 | 318 | 392 | 314 | 402 |
+| places.area-cafe | 1,069 | 961 | 484 | 595 |  | 549 | 459 | 269 | 210 | 215 | 84 |
+| places.area-pharmacy | 349 | 508 | 1,055 | 399 |  | 574 | 648 | 451 | 97 | 604 | 208 |
 | stay.near-venue |  | 2,582 | 613 | 375 |  | 169 | 214 | 295 | 125 | 172 | 241 |
-| places.city-restaurant | 1,624 | 318 | 528 | 419 |  | 401 | 323 | 445 | 192 | 192 | 196 |
-| places.area-supermarket | 420 | 251 | 824 | 505 |  | 517 | 740 | 226 | 504 | 415 | 161 |
-| areas.overview | 750 | 505 | 403 | 688 |  | 437 | 526 | 310 | 177 | 298 | 185 |
-| places.city-opening | 1,078 | 267 | 719 | 597 | 21 | 166 | 240 | 132 | 85 | 181 | 267 |
-| rents.city | 881 | 240 | 868 | 554 | 18 | 133 | 150 | 143 |  | 1 | 677 |
-| places.city-fast_food | 1,646 | 428 | 223 | 253 |  | 173 | 134 | 350 | 135 | 137 | 137 |
-| places.area-clinic | 571 | 257 | 552 | 359 |  | 213 | 293 | 280 | 264 | 523 | 181 |
-| events.city-calendar | 881 | 39 | 868 | 554 | 40 | 15 | 2 | 471 | 195 | 16 | 159 |
-| events.city-type | 881 | 39 | 868 | 554 | 40 | 15 | 2 | 471 | 195 | 16 | 159 |
-| weather.city-month |  | 1,155 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
-| relocation.city | 881 | 240 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
-| work.city-salaries | 881 | 240 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
-| places.city-category | 881 | 39 | 868 | 554 | 40 | 133 | 150 | 143 | 57 | 16 | 159 |
-| property.city-buy | 881 | 240 | 195 | 554 | 40 | 133 | 150 | 1 |  | 101 | 677 |
-| cost-of-living.city | 881 | 2 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
-| places.city-attribute | 1,467 |  | 772 |  | 5 |  |  |  |  | 249 | 284 |
-| health.city | 881 | 2 | 38 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
-| places.area-bar | 702 | 245 | 253 | 243 |  | 397 | 380 | 298 | 79 | 70 | 82 |
-| places.area-pub | 328 | 653 | 519 | 205 |  | 209 | 349 | 128 | 159 | 94 | 77 |
-| places.city-pharmacy | 414 | 253 | 389 | 198 | 30 | 303 | 241 | 401 | 62 | 243 | 158 |
-| places.area-dentist | 410 | 279 | 290 | 299 |  | 116 | 229 | 132 | 233 | 353 | 43 |
-| transport.city-getting-around | 129 | 240 | 195 | 554 | 5 | 133 | 150 | 143 |  | 101 | 677 |
-| places.city-cafe | 626 | 412 | 175 | 224 |  | 271 | 168 | 198 | 82 | 73 | 46 |
-| stay.city-type |  | 197 | 888 | 554 | 40 | 15 | 150 | 143 | 57 | 1 | 159 |
-| places.city-clinic | 737 | 137 | 242 | 158 | 30 | 109 | 139 | 239 | 112 | 158 | 139 |
-| places.city-supermarket | 352 | 82 | 174 | 262 |  | 245 | 233 | 205 | 143 | 131 | 143 |
-| places.area-gym | 548 | 250 | 85 | 120 |  | 136 | 171 | 181 | 177 | 187 | 98 |
-| places.area-school | 342 | 51 | 110 | 64 |  | 159 | 137 | 183 | 306 | 269 | 232 |
-| places.area-childcare | 140 | 124 | 314 | 67 |  | 62 | 178 | 172 | 195 | 363 | 37 |
-| services.city-practical | 129 | 39 | 38 | 120 | 5 | 133 | 150 | 143 | 57 | 101 | 677 |
-| places.city-dentist | 590 | 161 | 142 | 112 | 19 | 72 | 115 | 104 | 103 | 104 | 44 |
-| places.city-school | 387 | 30 | 65 | 66 |  | 96 | 58 | 211 | 115 | 86 | 296 |
-| places.city-gym | 554 | 107 | 45 | 71 |  | 68 | 84 | 165 | 75 | 69 | 73 |
-| places.city-bar | 273 | 100 | 76 | 97 |  | 197 | 141 | 244 | 27 | 29 | 46 |
-| places.city-pub | 117 | 324 | 157 | 118 |  | 84 | 118 | 76 | 60 | 46 | 49 |
-| places.city-department_store | 720 | 55 | 64 | 11 |  | 19 | 10 | 9 | 66 | 7 | 29 |
-| places.city-museum | 186 | 77 | 113 | 123 |  | 152 | 75 | 96 | 85 | 50 | 28 |
-| places.city-library | 139 | 58 | 119 | 64 | 3 | 95 | 77 | 148 | 66 | 99 | 18 |
-| places.city-sports_centre | 195 | 61 | 108 | 26 |  | 63 | 48 | 133 | 162 | 48 | 25 |
-| places.city-childcare | 110 | 79 | 91 | 55 |  | 50 | 56 | 129 | 74 | 96 | 88 |
+| places.city-category | 882 | 39 | 2,405 | 553 | 40 | 133 | 150 | 143 | 57 | 16 | 159 |
+| places.area-supermarket | 411 | 244 | 819 | 504 |  | 497 | 730 | 223 | 495 | 415 | 161 |
+| areas.overview | 750 | 503 | 403 | 688 |  | 429 | 519 | 318 | 176 | 298 | 185 |
+| places.city-fast_food | 1,797 | 487 | 220 | 253 |  | 179 | 134 | 409 | 140 | 143 | 140 |
+| stay.city-type |  | 197 | 2,486 | 553 | 40 | 15 | 150 | 143 | 57 | 1 | 159 |
+| places.city-opening | 1,068 | 264 | 715 | 597 | 21 | 165 | 239 | 131 | 84 | 181 | 267 |
+| places.area-clinic | 563 | 251 | 549 | 359 |  | 213 | 287 | 277 | 259 | 526 | 180 |
+| relocation.city | 883 | 240 | 205 | 553 | 40 | 144 | 150 | 149 | 57 | 101 | 699 |
+| weather.city-month |  | 1,155 | 195 | 553 | 40 | 133 | 158 | 143 | 57 | 101 | 677 |
+| work.city-salaries | 882 | 240 | 195 | 553 | 40 | 144 | 158 | 143 | 57 | 101 | 677 |
+| property.city-buy | 883 | 240 | 195 | 553 | 40 | 133 | 150 | 1 |  | 117 | 677 |
+| cost-of-living.city | 883 | 2 | 195 | 553 | 40 | 144 | 150 | 143 | 57 | 101 | 699 |
+| health.city | 882 | 2 | 38 | 553 | 40 | 144 | 158 | 143 | 57 | 117 | 677 |
+| places.city-pharmacy | 379 | 240 | 365 | 199 | 31 | 330 | 257 | 474 | 59 | 292 | 158 |
+| places.city-attribute | 1,448 |  | 769 |  | 5 |  |  |  |  | 249 | 284 |
+| places.area-bar | 699 | 241 | 252 | 243 |  | 399 | 379 | 299 | 76 | 69 | 82 |
+| places.area-pub | 324 | 641 | 516 | 205 |  | 203 | 358 | 132 | 154 | 94 | 76 |
+| places.city-cafe | 623 | 485 | 170 | 226 |  | 347 | 190 | 207 | 79 | 75 | 46 |
+| places.city-clinic | 776 | 136 | 280 | 158 | 30 | 129 | 144 | 301 | 119 | 176 | 145 |
+| places.area-dentist | 404 | 275 | 286 | 298 |  | 111 | 228 | 130 | 228 | 353 | 43 |
+| transport.city-getting-around | 130 | 240 | 195 | 553 | 5 | 133 | 150 | 143 |  | 117 | 677 |
+| places.city-supermarket | 338 | 80 | 172 | 263 |  | 252 | 246 | 192 | 138 | 138 | 145 |
+| places.area-gym | 535 | 243 | 85 | 120 |  | 131 | 170 | 178 | 174 | 187 | 98 |
+| places.area-school | 313 | 51 | 104 | 64 |  | 154 | 135 | 193 | 297 | 271 | 231 |
+| places.area-childcare | 137 | 123 | 308 | 67 |  | 62 | 176 | 169 | 193 | 363 | 37 |
+| places.city-dentist | 598 | 158 | 145 | 112 | 19 | 75 | 119 | 118 | 99 | 108 | 46 |
+| services.city-practical | 130 | 39 | 38 | 120 | 5 | 133 | 150 | 143 | 57 | 101 | 677 |
+| places.city-school | 382 | 28 | 64 | 66 |  | 94 | 58 | 296 | 120 | 96 | 383 |
+| places.city-bar | 281 | 97 | 74 | 97 |  | 267 | 169 | 283 | 27 | 29 | 48 |
+| places.city-gym | 541 | 105 | 45 | 71 |  | 64 | 86 | 151 | 75 | 70 | 74 |
+| places.city-pub | 114 | 386 | 154 | 119 |  | 83 | 149 | 80 | 60 | 46 | 50 |
+| places.city-museum | 201 | 79 | 134 | 126 |  | 193 | 82 | 117 | 107 | 57 | 28 |
+| places.city-department_store | 778 | 56 | 63 | 11 |  | 19 | 11 | 10 | 63 | 9 | 29 |
+| places.city-library | 131 | 58 | 122 | 64 | 3 | 115 | 76 | 161 | 68 | 104 | 18 |
+| places.city-sports_centre | 188 | 58 | 110 | 26 |  | 64 | 47 | 144 | 203 | 48 | 26 |
+| places.city-childcare | 105 | 78 | 87 | 55 |  | 53 | 60 | 134 | 73 | 106 | 96 |
 | neighbourhoods.guide | 192 | 43 | 127 | 80 |  | 45 | 180 | 33 | 8 | 17 | 100 |
 | places.neighbourhood-category | 192 | 43 | 127 | 80 |  | 45 | 180 | 33 | 8 | 17 | 100 |
 | rents.neighbourhood | 192 | 43 | 127 | 80 |  | 45 | 180 | 33 | 8 | 17 | 100 |
-| places.area-sports_centre | 86 | 43 | 128 | 24 |  | 68 | 53 | 92 | 233 | 62 | 24 |
-| poi.theatre-notable | 244 |  | 107 | 49 |  | 123 | 48 | 94 | 95 | 15 | 37 |
-| places.area-museum | 118 | 51 | 95 | 111 |  | 140 | 67 | 57 | 76 | 54 | 23 |
-| places.area-library | 79 | 44 | 123 | 39 |  | 116 | 62 | 98 | 27 | 175 | 14 |
-| places.city-veterinary | 184 | 49 | 45 | 47 | 9 | 43 | 77 | 88 | 38 | 79 | 36 |
-| places.area-veterinary | 92 | 40 | 43 | 58 |  | 51 | 111 | 52 | 25 | 136 | 34 |
-| transport.route-from-market |  | 198 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| comparisons.city-vs-home | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| cost-of-living.city-vs-market | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| education.city-universities | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| events.city-window | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| sport.city-activity | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| work.city-jobs-category | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| safety.city | 129 | 2 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
-| places.city-hospital | 138 | 59 | 44 | 124 | 21 | 20 | 48 | 27 | 3 | 13 | 46 |
-| places.city-shopping_mall | 181 | 50 | 34 | 160 | 14 | 4 | 13 | 23 | 12 | 24 | 26 |
-| places.city-university | 163 | 17 | 11 | 127 | 15 | 32 | 13 | 55 | 15 | 25 | 53 |
-| areas.city-index | 74 | 76 | 52 | 58 |  | 47 | 69 | 55 | 24 | 40 | 25 |
-| places.area-theatre | 115 | 27 | 73 | 49 |  | 52 | 38 | 79 | 41 | 20 | 25 |
-| places.city-guest_house | 2 | 62 | 59 | 25 |  | 148 | 30 | 34 | 67 | 25 | 24 |
-| places.area-guest_house | 4 | 69 | 45 | 13 |  | 209 | 38 | 9 | 37 | 34 | 4 |
-| places.city-theatre | 119 | 23 | 54 | 25 |  | 36 | 24 | 85 | 52 | 15 | 12 |
-| places.area-railway_station | 197 | 7 | 16 | 53 |  | 46 | 78 | 8 | 19 |  | 12 |
-| places.city-cinema | 74 | 26 | 67 | 19 |  | 50 | 26 | 85 | 38 | 26 | 12 |
-| places.city-market | 102 | 23 | 47 | 3 |  | 29 | 26 | 121 | 15 | 6 | 38 |
-| places.area-gallery | 124 | 54 | 36 | 16 |  | 30 | 15 | 75 | 17 | 29 | 3 |
-| places.area-nightclub | 59 | 40 | 61 | 23 |  | 34 | 55 | 47 | 14 | 23 | 9 |
-| places.area-parking | 31 | 13 | 73 | 46 |  | 34 | 59 | 46 | 44 | 2 | 15 |
-| poi.park-notable | 134 | 21 | 49 | 67 |  | 22 | 38 |  | 17 | 3 | 8 |
-| places.city-arts_centre | 79 | 21 | 35 | 5 |  | 26 | 18 | 74 | 24 | 32 | 23 |
-| places.city-college | 50 | 9 | 29 | 13 |  | 9 | 12 | 112 | 31 | 29 | 42 |
-| places.city-gallery | 109 | 30 | 20 | 10 |  | 18 | 12 | 68 | 21 | 16 | 5 |
-| places.city-attraction | 53 | 32 | 44 | 34 |  | 21 | 27 | 20 | 20 | 30 | 18 |
-| places.area-arts_centre | 61 | 17 | 30 | 2 |  | 25 | 13 | 57 | 27 | 27 | 19 |
-| places.area-college | 16 | 9 | 15 | 25 |  | 6 | 14 | 123 | 18 | 41 | 10 |
-| poi.art_museum-notable |  | 73 |  | 98 |  |  | 70 |  | 9 |  | 26 |
-| places.city-nightclub | 49 | 21 | 41 | 14 |  | 17 | 33 | 35 | 10 | 21 | 11 |
-| places.area-department_store | 126 | 19 | 16 | 15 |  | 17 | 3 | 4 | 30 | 3 | 16 |
-| places.city-parking | 18 | 10 | 54 | 29 |  | 16 | 35 | 46 | 21 | 1 | 13 |
-| places.area-hostel | 11 | 9 | 14 | 33 |  | 31 | 69 | 3 | 11 | 39 | 19 |
-| places.city-railway_station | 54 | 12 | 11 | 54 |  | 37 | 19 | 12 | 19 |  | 11 |
-| places.area-attraction | 41 | 23 | 37 | 18 |  | 22 | 14 | 14 | 12 | 34 | 4 |
-| places.city-hostel | 12 | 10 | 9 | 26 |  | 17 | 46 | 8 | 8 | 36 | 27 |
-| places.area-cinema | 23 | 10 | 36 | 14 |  | 37 | 8 | 23 | 15 | 11 | 14 |
-| places.city-stadium | 115 | 18 | 3 | 18 | 1 | 4 | 3 | 10 | 1 | 5 | 9 |
+| places.area-sports_centre | 85 | 43 | 127 | 24 |  | 65 | 53 | 94 | 233 | 61 | 24 |
+| places.area-museum | 119 | 50 | 93 | 111 |  | 139 | 68 | 58 | 72 | 57 | 23 |
+| places.area-library | 78 | 44 | 121 | 39 |  | 111 | 59 | 97 | 27 | 174 | 14 |
+| poi.theatre-notable | 214 |  | 103 | 39 |  | 120 | 46 | 87 | 85 | 15 | 37 |
+| events.city-window | 131 | 39 | 81 | 120 | 18 | 40 | 56 | 30 | 15 | 39 | 172 |
+| comparisons.city-vs-home | 132 | 39 | 81 | 120 | 18 | 40 | 48 | 30 | 15 | 23 | 194 |
+| cost-of-living.city-vs-market | 132 | 39 | 81 | 120 | 18 | 40 | 48 | 30 | 15 | 23 | 194 |
+| work.city-jobs-category | 131 | 39 | 71 | 120 | 18 | 40 | 56 | 24 | 15 | 23 | 194 |
+| transport.route-from-market |  | 201 | 71 | 120 | 18 | 29 | 48 | 24 | 15 | 23 | 172 |
+| education.city-universities | 132 | 39 | 81 | 120 | 18 | 29 | 56 | 24 | 15 | 23 | 172 |
+| places.city-guest_house | 2 | 82 | 83 | 29 |  | 237 | 40 | 61 | 81 | 51 | 32 |
+| sport.city-activity | 131 | 39 | 71 | 120 | 18 | 29 | 48 | 24 | 15 | 23 | 172 |
+| places.city-veterinary | 179 | 45 | 40 | 47 | 9 | 43 | 75 | 86 | 37 | 78 | 38 |
+| safety.city | 132 | 2 | 71 | 120 | 18 | 29 | 48 | 24 | 15 | 23 | 172 |
+| places.area-veterinary | 91 | 36 | 42 | 58 |  | 49 | 110 | 53 | 24 | 136 | 34 |
+| places.city-shopping_mall | 185 | 47 | 34 | 166 | 14 | 4 | 13 | 20 | 12 | 24 | 25 |
+| places.city-university | 164 | 18 | 11 | 125 | 15 | 32 | 13 | 56 | 15 | 25 | 54 |
+| areas.city-index | 74 | 76 | 52 | 58 |  | 46 | 68 | 57 | 24 | 40 | 25 |
+| places.area-theatre | 115 | 27 | 73 | 49 |  | 51 | 38 | 80 | 41 | 20 | 25 |
+| places.city-hospital | 127 | 45 | 42 | 125 | 21 | 19 | 46 | 22 | 3 | 10 | 47 |
+| places.area-guest_house | 4 | 69 | 48 | 13 |  | 224 | 40 | 11 | 36 | 48 | 4 |
+| places.city-market | 105 | 24 | 48 | 3 |  | 34 | 27 | 174 | 16 | 7 | 41 |
+| places.city-theatre | 122 | 24 | 54 | 25 |  | 35 | 24 | 88 | 50 | 15 | 13 |
+| places.city-cinema | 74 | 25 | 66 | 19 |  | 51 | 27 | 88 | 38 | 26 | 12 |
+| places.area-railway_station | 190 | 6 | 16 | 53 |  | 44 | 78 | 8 | 18 |  | 12 |
+| places.area-gallery | 124 | 53 | 36 | 16 |  | 30 | 15 | 74 | 17 | 29 | 3 |
+| places.area-nightclub | 59 | 40 | 61 | 23 |  | 34 | 55 | 46 | 14 | 23 | 9 |
+| places.area-parking | 31 | 13 | 73 | 46 |  | 34 | 59 | 48 | 43 | 2 | 15 |
+| places.city-arts_centre | 83 | 22 | 35 | 5 |  | 24 | 20 | 78 | 25 | 33 | 23 |
+| places.city-attraction | 55 | 35 | 54 | 35 |  | 23 | 32 | 29 | 22 | 40 | 20 |
+| places.city-college | 51 | 9 | 29 | 13 |  | 9 | 12 | 117 | 31 | 32 | 42 |
+| poi.park-notable | 122 | 18 | 46 | 59 |  | 15 | 38 |  | 16 | 3 | 8 |
+| places.city-gallery | 117 | 31 | 20 | 10 |  | 19 | 11 | 73 | 21 | 16 | 5 |
+| places.area-arts_centre | 61 | 17 | 30 | 2 |  | 25 | 13 | 55 | 27 | 27 | 19 |
+| places.area-college | 16 | 9 | 15 | 25 |  | 6 | 14 | 119 | 18 | 41 | 10 |
+| education.city-schools | 20 | 3 | 61 | 12 | 5 | 27 | 37 | 22 | 13 | 20 | 39 |
+| places.city-nightclub | 49 | 21 | 41 | 14 |  | 16 | 32 | 34 | 10 | 21 | 11 |
+| places.area-hostel | 11 | 9 | 14 | 33 |  | 32 | 75 | 3 | 10 | 39 | 20 |
+| places.city-parking | 18 | 10 | 54 | 29 |  | 16 | 35 | 47 | 21 | 1 | 13 |
+| poi.art_museum-notable |  | 59 |  | 80 |  |  | 70 |  | 9 |  | 26 |
+| places.area-department_store | 122 | 18 | 16 | 15 |  | 17 | 3 | 4 | 27 | 3 | 16 |
+| places.city-hostel | 12 | 10 | 10 | 28 |  | 20 | 67 | 12 | 7 | 39 | 32 |
+| places.area-attraction | 40 | 20 | 43 | 18 |  | 22 | 15 | 14 | 12 | 34 | 4 |
+| places.city-railway_station | 44 | 9 | 12 | 57 |  | 37 | 19 | 11 | 19 |  | 10 |
+| places.city-marina | 34 | 2 | 109 |  |  | 6 | 4 | 7 | 25 | 3 | 1 |
+| places.area-cinema | 23 | 10 | 36 | 14 |  | 35 | 8 | 20 | 14 | 11 | 14 |
+| places.city-stadium | 114 | 16 | 3 | 16 | 1 | 4 | 3 | 10 | 1 | 5 | 9 |
 | places.area-university | 11 | 4 | 8 | 8 |  | 25 | 17 | 31 | 13 | 32 | 15 |
-| places.city-coworking | 44 | 13 | 2 | 10 |  | 10 | 13 | 39 | 13 | 6 | 7 |
+| places.city-coworking | 44 | 13 | 2 | 10 |  | 9 | 13 | 38 | 13 | 6 | 7 |
 | places.area-coworking | 29 | 21 |  | 11 |  | 10 | 18 | 42 | 11 | 5 | 6 |
-| places.area-market | 33 | 7 | 14 |  |  | 8 | 7 | 69 | 3 |  | 12 |
-| poi.attraction-notable | 19 | 44 | 29 | 11 |  | 10 | 5 | 20 | 6 | 7 | 2 |
-| places.city-marina | 23 | 1 | 77 |  |  | 5 | 3 | 5 | 17 | 1 | 1 |
-| places.city-sport | 61 |  | 38 |  |  |  |  |  |  | 18 | 16 |
-| poi.botanical_garden-notable | 31 | 11 | 25 | 26 |  | 23 |  | 7 |  | 4 | 6 |
-| poi.gallery-notable | 43 | 28 | 9 | 1 |  | 8 | 2 | 4 | 5 | 9 |  |
-| places.area-hospital | 12 | 1 | 1 | 56 |  | 3 | 1 | 4 | 3 | 1 | 21 |
-| poi.archaeological_site-notable | 7 | 15 | 3 | 4 |  | 59 | 4 |  |  |  | 2 |
-| education.city-schools | 15 | 2 | 4 | 12 | 5 | 2 | 2 | 1 |  | 1 | 15 |
-| places.city-mall | 6 | 1 | 1 | 16 |  | 7 | 2 |  | 8 | 6 | 10 |
-| places.area-marina | 4 |  | 42 |  |  | 1 |  | 1 | 5 | 1 |  |
-| places.city-park | 27 | 2 |  | 8 |  | 3 | 3 | 4 |  | 1 | 6 |
-| poi.castle-notable |  | 12 | 11 | 1 |  | 17 | 4 |  | 1 | 5 |  |
+| poi.attraction-notable | 18 | 43 | 27 | 11 |  | 11 | 6 | 20 | 6 | 8 | 2 |
+| places.area-market | 33 | 7 | 14 |  |  | 7 | 6 | 68 | 3 |  | 12 |
+| places.city-sport | 58 |  | 37 |  |  |  |  |  |  | 18 | 16 |
+| poi.botanical_garden-notable | 24 | 11 | 24 | 23 |  | 22 |  | 6 |  | 4 | 6 |
+| poi.gallery-notable | 44 | 29 | 8 | 1 |  | 8 | 2 | 4 | 5 | 9 |  |
+| places.area-hospital | 12 | 1 | 1 | 56 |  | 2 | 1 | 4 | 3 | 1 | 21 |
+| poi.monument-notable | 9 |  | 4 |  |  | 7 | 71 |  | 2 |  |  |
+| poi.archaeological_site-notable | 7 | 12 | 3 | 4 |  | 58 | 4 |  |  |  | 1 |
+| places.city-camp_site | 16 | 10 |  | 3 |  | 1 |  | 3 | 21 | 3 | 6 |
+| places.city-mall | 7 | 1 | 1 | 16 |  | 6 | 2 |  | 8 | 7 | 10 |
+| places.city-park | 29 | 2 |  | 7 |  | 3 | 3 | 5 |  | 2 | 6 |
+| places.area-marina | 4 |  | 43 |  |  | 1 |  | 1 | 6 | 1 |  |
 | comparisons.city-vs-city |  | 11 |  | 15 |  |  |  |  |  |  | 24 |
-| places.city-viewpoint | 6 | 1 | 14 | 10 |  | 1 | 3 | 1 | 3 | 3 |  |
-| places.city-camp_site | 10 | 4 |  | 3 |  |  |  | 2 | 15 | 1 | 6 |
-| places.area-viewpoint | 7 | 1 | 5 | 5 |  | 1 | 2 |  | 1 | 6 |  |
+| poi.castle-notable |  | 8 | 11 | 1 |  | 16 | 4 |  | 1 | 5 |  |
+| places.city-viewpoint | 6 | 1 | 14 | 10 |  | 1 | 5 | 1 | 3 | 3 |  |
+| places.area-viewpoint | 7 | 1 | 5 | 5 |  | 1 | 3 |  | 1 | 6 |  |
 | places.area-mall | 1 |  |  | 15 |  | 1 | 1 |  | 1 | 1 | 6 |
+| places.city-nature_reserve | 21 | 3 |  |  |  |  |  |  |  |  | 1 |
 | places.city-garden | 13 | 4 | 1 | 1 |  |  |  | 4 | 1 |  |  |
+| places.city-theme_park | 3 | 1 | 1 | 2 |  | 1 |  | 7 |  | 5 | 1 |
 | neighbourhoods.city-best-for | 4 | 1 | 3 | 1 |  | 2 | 2 | 3 | 1 | 2 | 1 |
 | neighbourhoods.city-where-to-stay | 4 | 1 | 3 | 1 |  | 2 | 2 | 3 | 1 | 2 | 1 |
-| places.city-nature_reserve | 16 | 3 |  |  |  |  |  |  |  |  | 1 |
-| places.city-theme_park | 2 | 1 |  | 2 |  | 1 |  | 7 |  | 5 | 1 |
-| places.city-zoo | 2 |  |  | 1 |  | 1 |  |  | 7 | 2 |  |
+| places.city-zoo | 2 |  |  | 1 |  | 1 |  |  | 8 | 2 |  |
+| poi.theme_park-notable | 4 | 2 | 1 | 5 |  |  |  |  | 1 |  |  |
+| relocation.country |  | 3 | 1 | 1 |  | 1 | 1 | 2 | 1 | 1 | 2 |
 | places.area-garden | 10 | 1 |  |  |  |  |  | 1 |  |  |  |
-| poi.theme_park-notable | 3 | 2 | 1 | 5 |  |  |  |  | 1 |  |  |
-| relocation.country |  | 3 | 1 | 1 |  | 1 | 1 | 1 | 1 | 1 | 2 |
 | taxes.country-remote-work |  | 3 | 1 | 1 |  | 1 | 1 | 1 | 1 | 1 | 2 |
 | destinations.country-hub | 2 |  | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | places.area-park | 5 |  |  | 1 |  | 1 | 1 | 2 |  |  | 1 |
 | places.city-golf_course | 6 |  |  | 4 |  |  |  |  |  |  |  |
-| places.city-swimming_pool |  |  | 1 |  |  | 2 | 1 | 1 | 2 | 3 |  |
-| places.city-water_park |  |  | 4 |  |  | 2 |  |  |  |  | 1 |
+| places.city-water_park | 1 |  | 6 |  |  | 2 |  |  |  |  | 1 |
+| places.city-castle |  |  |  | 1 |  | 1 | 5 | 1 | 1 |  |  |
+| places.city-swimming_pool |  |  | 1 |  |  | 2 | 1 |  | 1 | 3 |  |
 | poi.aquarium-notable | 1 | 2 | 1 | 2 |  |  |  | 1 |  |  |  |
-| places.city-castle |  |  |  | 1 |  |  | 3 | 1 | 1 |  |  |
+| places.city-beach | 1 |  |  |  |  | 2 | 1 |  |  | 2 |  |
 | places.city-aquarium | 2 | 2 |  |  |  |  | 1 |  |  |  |  |
+| places.area-camp_site | 2 |  |  |  |  |  |  |  |  | 2 |  |
 | places.area-nature_reserve | 4 |  |  |  |  |  |  |  |  |  |  |
-| places.city-beach | 1 |  |  |  |  |  |  |  |  | 2 |  |
 | poi.beach-notable |  |  | 2 | 1 |  |  |  |  |  |  |  |
-| poi.national_park-notable | 1 |  |  |  |  |  |  | 1 |  |  | 1 |
 | poi.stadium-notable |  |  |  | 2 |  |  |  |  |  |  | 1 |
-| places.area-camp_site | 2 |  |  |  |  |  |  |  |  |  |  |
-| places.area-swimming_pool |  |  |  |  |  | 1 |  | 1 |  |  |  |
+| poi.zoo-notable | 1 |  | 1 |  |  |  |  | 1 |  |  |  |
 | places.area-theme_park |  |  |  |  |  |  |  |  |  | 2 |  |
-| poi.zoo-notable | 1 |  | 1 |  |  |  |  |  |  |  |  |
+| poi.national_park-notable |  |  |  |  |  |  |  | 1 |  |  | 1 |
 | visas.country-work-permit |  | 2 |  |  |  |  |  |  |  |  |  |
 | places.area-beach |  |  |  |  |  |  |  |  |  | 1 |  |
+| places.area-swimming_pool |  |  |  |  |  | 1 |  |  |  |  |  |
 | places.area-water_park |  |  | 1 |  |  |  |  |  |  |  |  |
 | poi.water_park-notable |  |  |  |  |  |  |  | 1 |  |  |  |
 

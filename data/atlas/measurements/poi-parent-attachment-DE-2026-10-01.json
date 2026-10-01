@@ -1,0 +1,53 @@
+{
+ "measuredOn": "2026-10-01",
+ "country": "DE",
+ "why": "The brief names outdoor and geography as the principal scale path, and the number that decides whether it is one is the share of rural POI that attach to a real geographic parent by CONTAINMENT. It was unmeasured until now because the parent layer did not exist: the POI ingest reads nodes and filters amenity-shaped tags, and a protected area is a way or a relation. This is the first country with a parent layer, and the rate is measured rather than estimated.",
+ "parent_layer": {
+  "entities": 131869,
+  "by_geometry": {"polygon": 56554, "route": 70009, "point": 5306},
+  "polygons_usable_after_the_size_gate": 26352,
+  "largest_classes": {"trail_system": 70009, "park": 14359, "forest": 14050,
+                      "nature_reserve": 9574, "lake": 5977, "garden": 4708,
+                      "protected_area": 4400, "marina": 2360, "campus": 1616},
+  "note": "The 70,009 trail systems are route RELATIONS and carry no geometry in this extract, so they contribute nothing to containment yet. That is the single largest gap in this layer and it is named rather than averaged away: a hiking route is one of the most demand-rich outdoor parents there is."
+ },
+ "the_headline_rate_and_why_it_is_misleading": {
+  "outdoor_poi_tested": 61672,
+  "attached_to_some_parent": 60735,
+  "raw_rate": "98.5 per cent",
+  "why_this_number_should_not_be_quoted": "73.3 per cent of those attachments are to a region or a county, and every point in Germany is inside a region and a county by construction. A rate that counts administrative containment is measuring geometry, not attribution. The 937 POI inside no polygon at all do say something useful: the polygon layer covers the country."
+ },
+ "the_honest_rates": {
+  "attached_to_a_real_outdoor_parent": {
+   "count": 16226, "share_of_attached": "26.7 per cent",
+   "parent_classes": "protected_area 6,457, forest 2,860, nature_reserve 2,812, park 1,195, national_park 887, mountain_range 707, zoo_complex 382, theme_park 249, island 211, peninsula 131"
+  },
+  "restricted_to_children_worth_a_page": {
+   "features": 34767,
+   "inside_a_real_outdoor_parent": 13123,
+   "share": "37.7 per cent",
+   "excluded_and_why": "25,968 of the 60,735 attachments are memorials, which are mostly small plaques. This project already removed historic=memorial as a parent class after it produced 75,725 memorial complexes in Germany that were simply the memorial nodes; as a child it is the same objection from the other side. A page per plaque is thin whatever it is inside."
+  }
+ },
+ "what_that_yields_in_pages_for_germany": {
+  "outdoor_parent_x_class_cells_with_at_least_3_features": 854,
+  "same_at_5": 462,
+  "distinct_outdoor_parents_holding_any_qualifying_cell": 3090,
+  "outdoor_parents_with_2_or_more_qualifying_cells_so_a_hub_is_warranted": 144,
+  "region_or_county_x_class_cells_with_at_least_3": 1395,
+  "same_at_5": 961,
+  "distinct_admin_parents": 400,
+  "admin_parents_with_2_or_more_qualifying_cells": 326,
+  "note_on_the_admin_cells": "These are NOT discarded as administrative noise. The Ahrefs measurement of outdoor phrasing found demand that is region-scoped far more often than park-scoped: seen in bayern at 8,600 a month and difficulty 0, best beaches in cornwall at 1,800. Peaks in Hochsauerlandkreis and viewpoints in Suedwestpfalz are the family that demand actually asks for. The two sets are different families with different parents, and both are real."
+ },
+ "extrapolation_and_its_honesty": {
+  "germany_total_qualifying_cells": 2249,
+  "method": "Germany is large, mountainous and the best-mapped country in OSM, so it is an upper-middle case rather than an average. Across the eleven markets a multiplier of 6 to 8 is the defensible range, which puts the outdoor aggregation layer at roughly 13,000 to 18,000 pages.",
+  "verdict": "OUTDOOR IS A REAL PATH AND IT IS NOT THE SIZE THE BRIEF HOPED FOR. It is worth building: the cells are real, the containment is real, the demand for the region-scoped version is measured. It is not a path to several hundred thousand pages, and reporting it as one would require either counting administrative containment as attribution or counting memorial plaques as destinations, and both are refused here.",
+  "what_would_move_it": [
+   "route member geometry for the 70,009 trail systems, which would add trail pages and attach the POI strung along them",
+   "the outdoor FEATURE layer, which is a separate pass: the POI corpus kept no elevation for its 246,255 peaks, so a peak page today would be a name on a map. The extractor and runner for that are written and the German extract is preserved for it.",
+   "the other ten markets, which are downloads rather than questions"
+  ]
+ }
+}

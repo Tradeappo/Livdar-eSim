@@ -99,15 +99,24 @@ rows = []
 seen = set()
 
 for f in sorted(glob.glob(POI + 'poi-*.jsonl.gz')):
-    iso = os.path.basename(f)[4:-10]
-    if iso not in countries:
-        continue
+    # The country comes from the RECORD, not from the filename. Parsing it out of the name with
+    # basename(f)[4:-10] took one character too many off the end and produced "D" for poi-DE, so
+    # every file was skipped and this script reported "outdoor POI tested: 0". It printed a zero
+    # rather than an empty success, which is the only reason the bug was visible at all; a
+    # filename is a guess about the data and the data was carrying the answer the whole time.
+    # The US is sharded by region (poi-US-west), which a filename parse has to special-case and
+    # a record read does not.
+    file_isos = set()
     with gzip.open(f, 'rt', encoding='utf-8') as fh:
         for line in fh:
             line = line.strip()
             if not line: continue
             try: o = json.loads(line)
             except Exception: continue
+            if (o.get('country') or '') not in countries:
+                stats['poi_outside_the_countries_with_a_parent_layer'] += 1
+                continue
+            file_isos.add(o.get('country') or '')
             if o.get('kind') == 'place': continue
             cls = o.get('cls')
             if cls not in OUTDOOR_POI:
@@ -117,7 +126,7 @@ for f in sorted(glob.glob(POI + 'poi-*.jsonl.gz')):
             if lat is None or lon is None:
                 stats['skipped_no_coordinates'] += 1
                 continue
-            key = (o.get('id'), iso)
+            key = (o.get('id'), o.get('country'))
             if key in seen:
                 continue
             seen.add(key)
@@ -128,7 +137,7 @@ for f in sorted(glob.glob(POI + 'poi-*.jsonl.gz')):
                 if not geoms[gi].covers(pt):
                     continue
                 pi = meta[gi]
-                if parents[pi]['country'] != iso:
+                if parents[pi]['country'] != o.get('country'):
                     continue
                 km2 = parents[pi].get('km2') or 1e9
                 # most specific containing parent wins, the same rule the area layer uses:
@@ -143,7 +152,7 @@ for f in sorted(glob.glob(POI + 'poi-*.jsonl.gz')):
             parent_poi[best_i] += 1
             parent_poi_cls[best_i][cls] += 1
             rows.append({
-                'poi_id': o.get('id'), 'country': iso, 'cls': cls,
+                'poi_id': o.get('id'), 'country': o.get('country'), 'cls': cls,
                 'name': o.get('name'), 'lat': lat, 'lon': lon,
                 'parent_id': parents[best_i]['id'],
                 'parent_name': parents[best_i]['name'],

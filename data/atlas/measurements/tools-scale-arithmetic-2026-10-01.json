@@ -1,0 +1,28 @@
+{
+ "measuredOn": "2026-10-01",
+ "question": "Brief section 6 asks for many more tool families across salary, tax, housing, moving, travel, insurance and education. Before building them: can tools be a path to the remaining gap, or are they worth building for another reason?",
+ "how_a_tool_page_multiplies": "A tool is a calculation. It is useful only where real per-entity inputs exist, so it scales with the number of entities for which this project holds licensed data, not with the number of tools and not with the number of markets. A calculator repeated across eleven markets with one country's tax table behind it is the same page eleven times, which is the translated clone the brief forbids.",
+ "what_data_exists": {
+  "cost_of_living": {
+   "level": "COUNTRY only",
+   "countries": 199,
+   "with_a_full_basket": 36,
+   "headline_only": 3,
+   "ratio_only": 160,
+   "cities": 0,
+   "city_level_verdict": "NOT_AVAILABLE, and recorded as such rather than estimated. No openly licensed city consumer price index exists across the priority destinations; Eurostat is national.",
+   "sources": "Eurostat prc_ppp_ind and HICP, World Bank price level"
+  },
+  "rent": {"level": "COUNTRY, Eurostat rent index", "cities": 0},
+  "salary": {"level": "COUNTRY, Eurostat", "cities": 0}
+ },
+ "arithmetic": {
+  "tool_families_worth_building": "roughly 30 across the seven themes the brief names",
+  "entities_with_a_full_data_basket": 36,
+  "upper_bound_if_every_tool_is_country_scoped_and_fully_backed": "30 x 36 = 1,080 pages",
+  "upper_bound_if_the_ratio_only_countries_count_too": "30 x 199 = 5,970 pages, most of them resting on a single ratio, which would fail the distinct-data condition of the acceptance test",
+  "what_tools_contribute_today": "the tool families in the manifest are GLOBAL scope, one page per market, which is 11 pages each"
+ },
+ "verdict": "TOOLS ARE NOT A SCALE PATH. The honest ceiling is four figures, against a gap of hundreds of thousands. They are still worth building, for three reasons that have nothing to do with page count: a working calculation is the strongest answer to the usefulness test, tools are where the commercial intent sits, and a tool page earns links that the aggregation pages do not. Recording this rather than building thirty calculators and reporting the page count as progress toward a million.",
+ "what_would_change_it": "a licensed CITY level price, rent or wage series. That single source would turn every economic tool family from country-scoped to city-scoped, and the city pool is 64,418. It does not exist openly today, which is why the city families are blocked rather than estimated."
+}
