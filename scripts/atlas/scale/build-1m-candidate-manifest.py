@@ -938,6 +938,11 @@ for a in agg:
     surface, ptype, etype, dsc = wiring
     cls = a.get('cls', '')
     modifier = a.get('cuisine') or a.get('attribute') or a.get('opening') or a.get('sport') or ''
+    # Class and modifier keys are machine slugs. Leaking them into reader-facing text gave
+    # titles like "fast_food in Best, NL" and "sports_centre in Lyon". URLs keep the slug;
+    # anything a person reads gets the words. The class is humanised at its use site,
+    # where the shape decides which of base, area or entity name is being named.
+    mod_h = str(modifier).replace('_', ' ')
     area = a.get('area', '')
     is_wd = a.get('source') == 'wikidata'
 
@@ -967,6 +972,7 @@ for a in agg:
             fid = f'places.city-{base}'
         parts = [p for p in (a['country'], slug(a.get('city', '')), slug(area), base, modifier) if p]
         eid = '-'.join(parts)
+        base_h = base.replace('_', ' ')
         if shape == 'city_areas_hub':
             ename = f"neighbourhoods of {a['city']}"
             intent = f"compare the neighbourhoods of {a['city']}"
@@ -974,11 +980,11 @@ for a in agg:
             ename = f"{area}, {a['city']}"
             intent = f"what {area} in {a['city']} is like"
         elif area:
-            ename = f"{modifier + ' ' if modifier else ''}{base} in {area}, {a['city']}"
-            intent = f"find {modifier + ' ' if modifier else ''}{base} in {area}"
+            ename = f"{mod_h + ' ' if mod_h else ''}{base_h} in {area}, {a['city']}"
+            intent = f"find {mod_h + ' ' if mod_h else ''}{base_h} in {area}"
         else:
-            ename = f"{modifier + ' ' if modifier else ''}{base} in {a['city']}"
-            intent = f"find {modifier + ' ' if modifier else ''}{base} in {a['city']}"
+            ename = f"{mod_h + ' ' if mod_h else ''}{base_h} in {a['city']}"
+            intent = f"find {mod_h + ' ' if mod_h else ''}{base_h} in {a['city']}"
         # a longer list of better-described entries is a better page
         q = min(100, 45 + min(30, a['n']) + min(15, a.get('enriched', 0)))
 

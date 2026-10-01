@@ -199,6 +199,28 @@ for mkt, items in title_by_market.items():
 issues['duplicate_title_exact'] = exact
 issues['duplicate_title_same_tokens'] = token_dupe
 
+# ---- 2a. superlatives the template added, not the entity name ---------------
+# "best", "top" and "safest" may not be claimed without a documented methodology. The
+# check has to distinguish a claim from a proper noun: all fifteen hits in the first run
+# were the Dutch town of Best, and rewriting a real place name to satisfy a style rule
+# would be falsifying it. So a superlative counts only when the template added it, which
+# means it is in the rendered string and NOT in the entity's own name.
+SUPERLATIVES = {'best', 'top', 'safest', 'cheapest', 'greatest', 'ultimate', 'perfect',
+                'worst', 'finest', 'number one'}
+superlative_examples = []
+for r in rows:
+    own = (r['entity_name'] or '').casefold()
+    for field in ('_title', '_meta', '_h1'):
+        words = {w.strip('.:,()').casefold()
+                 for w in (r.get(field) or '').replace(',', ' ').split()}
+        added = {w for w in (words & SUPERLATIVES) if w not in own}
+        if added:
+            issues['superlative_added_by_template'] += 1
+            if len(superlative_examples) < 15:
+                superlative_examples.append({'candidate_id': r['candidate_id'],
+                                             'field': field, 'words': sorted(added),
+                                             'value': (r.get(field) or '')[:120]})
+
 # ---- 2b. uniqueness_reason must actually distinguish --------------------------
 # The brief requires a uniqueness_reason per candidate. A reason that two candidates
 # share does not justify either of them: Barcelona ES and Barcelona VE both read
@@ -265,6 +287,7 @@ summary = {
     'shared_uniqueness_reason_by_family': dict(reason_dupes.most_common(20)),
     'shared_uniqueness_reason_examples': reason_examples,
     'long_dash_examples': dash_hits,
+    'superlative_examples': superlative_examples,
     'title_length': {
         'min': min((len(r['_title']) for r in rows), default=0),
         'max': max((len(r['_title']) for r in rows), default=0),
