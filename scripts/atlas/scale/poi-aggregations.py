@@ -867,7 +867,12 @@ for (country, city, sp), n in city_sp.items():
         'shape': 'city_sport', 'country': country, 'city': city, 'cls': 'sports_facility',
         'sport': sp, 'n': n, 'enriched': n, 'market': market, 'language': lang,
         'url': f'/{lang}/places/sport/{slug(sp)}/{slug(city)}/',
-        'parent_url': f'/{lang}/places/sports_centre/{slug(city)}/',
+        # slug(), not the raw class key. The city list page for this class lives at
+        # slug('sports_centre') which is "sports-centre" with a hyphen, so hardcoding the
+        # underscore made every city_sport page declare a parent URL that cannot exist.
+        # That was all 37 remaining orphans: the gate above was correct and the string was
+        # not, which is why the count looked fine from every angle except the link graph.
+        'parent_url': f"/{lang}/places/{slug('sports_centre')}/{slug(city)}/",
         'attribution': 'tag',
         'uniqueness_reason': (f'{n} facilities in {city} tagged for {sp} in OSM: the '
             f'answer to "where can I play {sp} in {city}", which no generic sports '
