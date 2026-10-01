@@ -124,7 +124,12 @@ def in_osm(o):
 
 # ---- Wikidata --------------------------------------------------------------
 wd = []
-for f in sorted(glob.glob(ROOT + 'data/atlas/sources/wikidata/wd-*.jsonl.gz')):
+# The Wikidata corpus is still filling under the WDQS rate limit, so record how many files
+# this run actually read. Without it a later report could quote a file count that grew
+# after the candidates were built, and the two numbers would disagree with no trace of why.
+_wd_files = sorted(glob.glob(ROOT + 'data/atlas/sources/wikidata/wd-*.jsonl.gz'))
+print(f'Wikidata files read by this run: {len(_wd_files)}', file=sys.stderr)
+for f in _wd_files:
     try:
         for l in gzip.open(f, 'rt', encoding='utf-8'):
             l = l.strip()

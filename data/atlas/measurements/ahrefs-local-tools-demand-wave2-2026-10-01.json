@@ -1,0 +1,146 @@
+{
+  "measurement": "Local-language Tools demand in the six markets the first wave did not reach",
+  "date": "2026-10-01",
+  "brief_section": "Brief 7 section 4 and section 9: measure LOCAL demand in the local language, not an English proxy",
+  "method": "keywords-explorer matching-terms, match_mode=terms, terms=all, local country code, local-language roots chosen from how each language actually names the utility rather than from a translation of the English phrase. Selected keyword, volume, cpc, difficulty, traffic_potential and parent_topic, which section 4 asks for.",
+  "correction_to_an_earlier_record": {
+    "what_i_said": "The 2026-10-01 first-wave file recorded French as '3 keywords' and flagged it as a measurement limitation rather than an absence of demand.",
+    "what_the_remeasurement_shows": "The flag was right and the number was an artefact of the root I used. French demand is the largest of any market measured so far: 'salaire brut net' alone is 258,000 a month with 507,000 traffic potential.",
+    "why_the_first_root_failed": "I probed a phrasing built from the English concept. French users do not search a 'net salary calculator'; they search the conversion itself, brut to net. The root word, not the market, was missing."
+  },
+  "markets": {
+    "fr-FR": {
+      "head_terms": [
+        {"keyword": "salaire brut net", "volume": 258000, "cpc_usd_cents": 15, "difficulty": 62, "traffic_potential": 507000, "parent_topic": "brut en net"},
+        {"keyword": "salaire brut en net", "volume": 66000, "cpc_usd_cents": 50, "difficulty": 0, "traffic_potential": 1100},
+        {"keyword": "simulation credit immobilier", "volume": 26000, "cpc_usd_cents": 50, "difficulty": 61, "traffic_potential": 63000, "parent_topic": "simulateur pret immobilier"},
+        {"keyword": "credit immobilier simulation", "volume": 4200, "cpc_usd_cents": 50, "difficulty": 58, "traffic_potential": 109000}
+      ],
+      "keywords_at_or_above_500": 40,
+      "local_specifics_that_no_translation_would_find": [
+        "The entire cluster is organised around the brut/net conversion as the noun, not around the word calculator. A page titled 'net salary calculator France' addresses a phrasing French users do not type.",
+        "Cross-border variants carry their own demand because French workers commute: 'salaire brut net suisse' 2,700 and 'salaire brut net luxembourg' 1,700. Each needs a different country's tax rules, so each is a different page with a different source, not a localised clone.",
+        "'salaire smic net' 6,500 and 'salaire net smic' 5,200 anchor on the SMIC, the statutory French minimum wage. The utility only exists because that legal figure exists."
+      ],
+      "buildability": {
+        "arithmetic_only": ["mensualite from principal, rate and term"],
+        "requires_official_data": ["brut to net, which needs the French cotisations salariales schedule and the SMIC for the year"],
+        "verdict": "the credit calculator is buildable now; brut/net is SOURCE_REQUIRED on URSSAF rates"
+      }
+    },
+    "it-IT": {
+      "head_terms": [
+        {"keyword": "calcolo stipendio netto", "volume": 42000, "cpc_usd_cents": 150, "difficulty": 12, "traffic_potential": 167000},
+        {"keyword": "stipendio netto", "volume": 18000, "difficulty": 12, "traffic_potential": 155000},
+        {"keyword": "calcolo rata mutuo", "volume": 18000, "cpc_usd_cents": 30, "difficulty": 0},
+        {"keyword": "calcolo mutuo", "volume": 14000, "cpc_usd_cents": 50, "difficulty": 59, "traffic_potential": 54000}
+      ],
+      "keywords_at_or_above_500": 40,
+      "local_specifics_that_no_translation_would_find": [
+        "RAL-anchored queries: 'ral 30000 stipendio netto' 1,400, 'ral 35.000' 1,100, 'ral 28000' 1,100, 'ral 45000' 1,000. RAL is Retribuzione Annua Lorda, the gross annual figure Italian offers are written in. An English page has no equivalent anchor, so these queries cannot be reached by translating one.",
+        "CCNL contract-level queries: 'livello d2 metalmeccanico stipendio netto' 3,000, 'stipendio netto 4 livello commercio 40 ore' 1,900, 'livello d1 metalmeccanico' 1,600, '5 livello commercio' 1,500, '3 livello commercio' 1,300. Italian pay is set by national sector contracts with numbered levels. This is a real family with a real source, the CCNL tables, and it exists in no other market measured.",
+        "Head-term difficulty is 12, far below the 55-68 the same utility carries in France and Spain. The Italian cluster is the least contested local Tools demand found in any market so far."
+      ],
+      "buildability": {
+        "arithmetic_only": ["rata mutuo, rata prestito, rata finanziamento"],
+        "requires_official_data": ["stipendio netto from RAL, which needs IRPEF brackets, regional and municipal addizionali and INPS rates", "the CCNL level tables, one per sector contract"],
+        "verdict": "mutuo and prestito buildable now; RAL and CCNL are SOURCE_REQUIRED, and the CCNL tables are the single highest-value source gap found in this wave"
+      }
+    },
+    "es-ES": {
+      "head_terms": [
+        {"keyword": "calculadora sueldo neto", "volume": 91000, "difficulty": 0, "traffic_potential": 60},
+        {"keyword": "sueldo neto", "volume": 31000, "difficulty": 51, "traffic_potential": 113000, "parent_topic": "bruto a neto"},
+        {"keyword": "calcular sueldo neto", "volume": 21000, "difficulty": 52, "traffic_potential": 113000},
+        {"keyword": "calcular hipoteca", "volume": 21000, "cpc_usd_cents": 40, "difficulty": 58, "traffic_potential": 40000, "parent_topic": "simulador hipoteca"}
+      ],
+      "keywords_at_or_above_500": 30,
+      "local_specifics_that_no_translation_would_find": [
+        "Year-stamped variants carry independent demand: 'calculadora sueldo neto 2026' 3,200 and '2025' 2,300. Spanish users expect the figure to be current because the IRPEF tramos change annually, which makes freshness part of the page's utility rather than a nicety.",
+        "Brand-anchored mortgage queries are a large share of the cluster: 'calcular hipoteca ing' 1,000, 'idealista' 900 at difficulty 81, 'bbva' 800. These belong to the banks and the portal; a neutral calculator competes for the unbranded head term only. Recorded so the SERP reality is not mistaken for open ground."
+      ],
+      "buildability": {
+        "arithmetic_only": ["cuota hipoteca, cuota prestamo"],
+        "requires_official_data": ["sueldo neto, which needs IRPEF tramos plus the autonomous community's own scale, so the correct answer differs by region within Spain"],
+        "verdict": "hipoteca buildable now; sueldo neto is SOURCE_REQUIRED and is regional, not national"
+      }
+    },
+    "ja-JP": {
+      "head_terms": [
+        {"keyword": "手取り計算", "volume": 43000, "cpc_usd_cents": 25, "difficulty": 0, "traffic_potential": 86000},
+        {"keyword": "手取り 計算", "volume": 12000, "cpc_usd_cents": 100, "difficulty": 4, "traffic_potential": 83000},
+        {"keyword": "ボーナス 手取り 計算", "volume": 10000, "difficulty": 0, "traffic_potential": 22000},
+        {"keyword": "家賃 目安", "volume": 9700, "difficulty": 0, "traffic_potential": 7300},
+        {"keyword": "住宅ローン 計算", "volume": 3700, "cpc_usd_cents": 15, "difficulty": 0}
+      ],
+      "keywords_at_or_above_300": 30,
+      "local_specifics_that_no_translation_would_find": [
+        "Bonus take-home is a separate utility with its own 10,000 a month, plus 賞与手取り計算 at 4,600. Japanese pay includes large semi-annual bonuses whose deductions differ from monthly salary. No English market has a bonus take-home calculator because no English market has the bonus.",
+        "住宅ローン控除 (the mortgage tax deduction) forms its own cluster: 'いくら戻る 計算' 900, '計算方法' 900, '還付金 計算' 900, and 'ふるさと納税 併用 計算' 900 which asks how the deduction interacts with the furusato nozei donation scheme. Both instruments are Japanese law. This is a family, not a variant.",
+        "初任給 手取り 計算 1,500 is starting-salary take-home, which has volume because Japanese hiring runs on a single April cohort.",
+        "家賃 目安 9,700 is the rent-guideline query, and its parent topic is 家賃 収入の何割, rent as what share of income. That is the rent-to-income utility the brief names, and in Japan it is the primary phrasing rather than a derived one."
+      ],
+      "buildability": {
+        "arithmetic_only": ["住宅ローン monthly payment", "家賃目安 as a share-of-income rule once the share is sourced rather than asserted"],
+        "requires_official_data": ["手取り, which needs income tax, resident tax and the four social insurance rates", "ボーナス手取り, which needs the separate bonus deduction treatment", "住宅ローン控除, which needs the current deduction rules"],
+        "verdict": "ローン計算 buildable now; the take-home and deduction families are SOURCE_REQUIRED. Difficulty is 0-4 on the head terms, the lowest measured anywhere, so the source gap is the only thing standing in the way."
+      }
+    },
+    "zh-Hant-TW": {
+      "head_terms": [
+        {"keyword": "房貸試算", "volume": 17000, "cpc_usd_cents": 25, "difficulty": 16, "traffic_potential": 27000},
+        {"keyword": "1000萬房貸試算", "volume": 2400, "difficulty": 0, "traffic_potential": 4900},
+        {"keyword": "新青安房貸試算", "volume": 1800, "difficulty": 3, "traffic_potential": 2900},
+        {"keyword": "薪水計算", "volume": 900, "cpc_usd_cents": 40, "difficulty": 4, "traffic_potential": 22000}
+      ],
+      "keywords_at_or_above_200": 25,
+      "local_specifics_that_no_translation_would_find": [
+        "新青安房貸試算 1,800 and 青年首購房貸試算 200 are the government New Youth Housing loan scheme, a named Taiwanese policy with its own rate and term. 公務人員房貸利率試算 200 is the civil servant loan. These are instruments, not phrasings.",
+        "二胎房貸試算 350 and 二胎房貸利率試算 500 are second-lien mortgages, a distinct Taiwanese product. 房貸增貸試算 300 is topping up an existing loan.",
+        "Amount-anchored queries are counted in 萬, units of ten thousand: 1000萬, 800萬, 700萬, 600萬, 1500萬. An English page's amount axis would be wrong by a factor of ten thousand, so even the numeric spine of the page is local.",
+        "薪水扣勞健保計算 350 and 薪水實領計算 300 both ask for pay after labour and health insurance, which in Taiwan are the dominant deductions and are named in the query itself.",
+        "591 appears inside the query four times (房貸試算591 1,400 and three variants). 591 is the Taiwanese property portal; users are searching for its calculator by name. Recorded as an incumbent, not as open ground."
+      ],
+      "buildability": {
+        "arithmetic_only": ["房貸試算 monthly payment, including the 萬 axis"],
+        "requires_official_data": ["新青安 and 青年首購 scheme terms", "勞健保 contribution tables for 薪水實領"],
+        "verdict": "房貸試算 buildable now at difficulty 16; the scheme-specific variants are SOURCE_REQUIRED on the Ministry of Finance and bank scheme terms"
+      }
+    },
+    "pt-BR": {
+      "head_terms": [
+        {"keyword": "calculo salario liquido", "volume": 68000, "difficulty": 1, "traffic_potential": 213000},
+        {"keyword": "calculadora salario liquido", "volume": 64000, "difficulty": 3, "traffic_potential": 337000},
+        {"keyword": "salario liquido", "volume": 62000, "difficulty": 0},
+        {"keyword": "simulador de financiamento", "volume": 42000, "cpc_usd_cents": 35, "difficulty": 0, "traffic_potential": 244000, "parent_topic": "simulador caixa"},
+        {"keyword": "simulador de financiamento de veículos", "volume": 10000, "cpc_usd_cents": 40, "difficulty": 0, "traffic_potential": 67000}
+      ],
+      "keywords_at_or_above_500": 25,
+      "local_specifics_that_no_translation_would_find": [
+        "Vehicle financing is a first-class category: 'simulador de financiamento de veículos' 10,000 and 'simulador financiamento veiculo' 4,700. In the European markets measured, financing means housing. In Brazil it means a car as often as a home.",
+        "The parent topic of the whole financing cluster is 'simulador caixa', Caixa Economica Federal, the state bank that dominates Brazilian housing finance: 'simulador de financiamento caixa' 7,600 and 'simulador financiamento caixa' 3,700. The demand is attached to one institution's product terms.",
+        "Year-stamped salary variants are unusually large: 2026 at 16,000 plus 13,000 plus 12,000 plus 4,500 plus 3,600 across phrasings, and 2025 still at 3,400. Brazilian INSS and IRRF tables change annually and users encode the year in the query, so a page without a year and a source date answers the wrong question.",
+        "Head-term difficulty is 0-3 against 337,000 traffic potential, the widest gap between demand and contest found in this wave."
+      ],
+      "buildability": {
+        "arithmetic_only": ["prestacao for housing and for vehicles, including the Tabela Price and SAC amortisation systems Brazil uses"],
+        "requires_official_data": ["salario liquido, which needs the INSS contribution bands and the IRRF table for the year"],
+        "verdict": "financiamento buildable now; salario liquido is SOURCE_REQUIRED and must carry the table year on the page"
+      }
+    }
+  },
+  "what_this_changes": {
+    "localisation_gate": "Every one of these six markets clears the local_keyword and local_volume requirements of the localisation gate on real measured numbers rather than on an inherited English figure. None of them clears it by translation: in each case the winning root is a word the English page does not contain (brut/net, RAL, 手取り, 房貸試算, salario liquido).",
+    "families_this_justifies": "Loan and mortgage payment calculators in all six languages are buildable now on arithmetic alone. Net-pay calculators in all six are SOURCE_REQUIRED, each on a different country's official tables, so they are recorded and not generated.",
+    "families_this_newly_identifies": [
+      "it-IT CCNL contract-level net pay, source: the sector contract tables",
+      "ja-JP bonus take-home, source: the bonus deduction rules",
+      "ja-JP mortgage tax deduction including its interaction with furusato nozei",
+      "zh-Hant-TW government housing loan schemes, 新青安 and 青年首購",
+      "pt-BR vehicle financing, and the Tabela Price versus SAC distinction",
+      "fr-FR cross-border net pay for Switzerland and Luxembourg"
+    ],
+    "nothing_was_generated_from_this": "These are measurements. No page was created from them in this run. The SOURCE_REQUIRED families stay unbuilt until the official tables are ingested with provenance, licence and a version date, because a net-pay page with an invented deduction rate is exactly the fabrication the standing constraints forbid."
+  },
+  "units_spent": 6270
+}

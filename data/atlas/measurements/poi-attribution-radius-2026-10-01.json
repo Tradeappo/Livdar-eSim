@@ -1,0 +1,43 @@
+{
+  "measurement": "How far are unattributable POI from their nearest city?",
+  "date": "2026-10-01",
+  "question_being_tested": "1,314,927 materialised POI carry no city attribution. Is the population-scaled radius (20/12/7/4km by city size) the binding constraint, in which case widening it recovers legitimate pages, or are those POI genuinely rural, in which case widening would invent attributions?",
+  "method": "For every POI in DE, FR, PL and GB that carries no area polygon AND falls outside every city radius, compute the great-circle distance to the nearest city in the 31,715-city gazetteer and record that city's population.",
+  "sample": {
+    "poi_sampled": 1771464,
+    "markets": ["DE", "FR", "PL", "GB"],
+    "untagged_and_outside_radius": 533415,
+    "share_of_sample": 0.301
+  },
+  "distance_to_nearest_city": {
+    "0-5km": 26026,
+    "5-8km": 68371,
+    "8-12km": 91619,
+    "12-20km": 142658,
+    "over_20km": 204741,
+    "no_city_in_span": 756
+  },
+  "nearest_city_size": {
+    "under_35k": 339229,
+    "35k_or_more": 194186
+  },
+  "classes_most_affected": {
+    "shop_other": 151118,
+    "peak": 66280,
+    "restaurant": 40053,
+    "memorial": 30169,
+    "attraction": 13019,
+    "post_office": 12737,
+    "archaeological_site": 12654,
+    "school": 12272
+  },
+  "conclusion": "LEAVE THE RADIUS AS IT IS. Three independent readings of the same data agree.",
+  "reasoning": [
+    "65 per cent of these POI sit 12km or more from the nearest city, and 38 per cent sit beyond 20km. No defensible radius reaches them. A page claiming a POI 20km outside a town is in that town is false, and falseness is the thing the gates exist to stop.",
+    "The classes that dominate the residue are rural by nature: 66,280 mountain peaks, 30,169 memorials, 12,654 archaeological sites. These are not misattributed urban POI; they are features of open country. OSM maps the countryside as densely as it maps cities, and the countryside has no city to belong to.",
+    "For 64 per cent of them the nearest city is under 35,000 people, which carries a 4km radius. The only bucket a widening could touch is 0-5km, which is 26,026 POI, 4.9 per cent of the residue. Spread across several thousand small towns that is single-digit POI per town, far below every density threshold any aggregation shape requires, so even an attribution that were true would produce almost no accepted page."
+  ],
+  "what_would_be_wrong_about_widening": "A restaurant 4.5km outside a 10,000-person town is not a restaurant in that town. Attributing it to the town to raise the candidate count is the geographic form of the city-name swapping the brief prohibits: the page name would change while the underlying fact did not.",
+  "legitimate_alternative_recorded_not_built": "These POI are reachable by a page type keyed on the thing they actually belong to rather than on a city: a national park, a mountain range, a long-distance trail, a coastline, an administrative district. That is a different family with its own source and demand requirements, not a loosening of city attribution. It is recorded in the gap analysis as a data/family path, unmeasured and unbuilt.",
+  "gate_status": "unchanged"
+}
