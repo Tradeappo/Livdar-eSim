@@ -52,6 +52,10 @@ log "partitioned export by market and by family"
 python3 scripts/atlas/scale/export-partitions.py > /tmp/pipe_part.log 2>&1 \
   && tail -3 /tmp/pipe_part.log || echo "  partitions: see /tmp/pipe_part.log"
 
+log "family by locale matrix and template similarity"
+python3 scripts/atlas/scale/build-family-locale-matrix.py > /tmp/pipe_matrix.log 2>&1 \
+  && tail -8 /tmp/pipe_matrix.log || echo "  matrix: see /tmp/pipe_matrix.log"
+
 log "gap analysis against the one million target"
 python3 scripts/atlas/scale/build-1m-gap-analysis.py > /tmp/pipe_gap.log 2>&1 \
   && tail -6 /tmp/pipe_gap.log || echo "  gap analysis: see /tmp/pipe_gap.log"
