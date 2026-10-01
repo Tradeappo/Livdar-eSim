@@ -1,0 +1,404 @@
+{
+  "measurement": "Utility families beyond the ones already found, probed per market in the local language",
+  "date": "2026-10-01",
+  "brief_section": "Brief 8 section 10 and 16: do not stop at the tools already found; search systematically for calculator, estimator, affordability, cost, comparison intents",
+  "method": "keywords-explorer matching-terms, match_mode=terms, terms=all, local country and local-language roots. Volume floors set per market so a small market is not judged against a large one.",
+  "the_standout_finding": {
+    "family": "mortgage overpayment calculator",
+    "market": "en-GB",
+    "volume": 52000,
+    "difficulty": 5,
+    "cpc_usd_cents": 50,
+    "traffic_potential": 58000,
+    "why_it_matters": "This is the best ratio of demand to difficulty found anywhere in the project: 52,000 searches a month against a difficulty of 5. It is also pure arithmetic. Overpaying a loan shortens its term and cuts total interest, and that is computable from principal, rate, term and the overpayment alone, with no official table and no licence. Nothing is blocking it.",
+    "the_serp_is_not_empty_though": "Bank-branded variants sit beneath the head term: nationwide 800 at difficulty 55, mse 700, natwest 500, halifax 500, martin lewis 450 at a CPC of 6 dollars. The unbranded head term is the open one; the branded queries belong to those brands and are recorded as theirs.",
+    "buildable_now": true
+  },
+  "markets": {
+    "en-GB": {
+      "found": [
+        {
+          "keyword": "mortgage overpayment calculator",
+          "volume": 52000,
+          "difficulty": 5,
+          "cpc_usd_cents": 50,
+          "traffic_potential": 58000,
+          "buildable": "arithmetic only"
+        },
+        {
+          "keyword": "mortgage overpayment calculator uk",
+          "volume": 5300,
+          "difficulty": 0,
+          "cpc_usd_cents": 45,
+          "buildable": "arithmetic only"
+        },
+        {
+          "keyword": "overpayment mortgage calculator",
+          "volume": 3000,
+          "difficulty": 0,
+          "traffic_potential": 39000,
+          "buildable": "arithmetic only"
+        },
+        {
+          "keyword": "rent affordability calculator",
+          "volume": 2100,
+          "difficulty": 4,
+          "cpc_usd_cents": 40,
+          "buildable": "arithmetic, but the affordability RULE needs a source"
+        },
+        {
+          "keyword": "rent affordability calculator uk",
+          "volume": 1500,
+          "difficulty": 0,
+          "cpc_usd_cents": 100,
+          "buildable": "same"
+        },
+        {
+          "keyword": "cost of moving house",
+          "volume": 900,
+          "cpc_usd_cents": 160,
+          "buildable": "needs real cost data, not a formula"
+        }
+      ],
+      "keywords_at_or_above_400": 19
+    },
+    "de-DE": {
+      "found": [
+        {
+          "keyword": "private krankenversicherung kosten",
+          "volume": 8900,
+          "difficulty": 12,
+          "cpc_usd_cents": 250,
+          "buildable": "NO: insurer pricing, commercial and per-person"
+        },
+        {
+          "keyword": "umzugskosten",
+          "volume": 1900,
+          "difficulty": 0,
+          "cpc_usd_cents": 120,
+          "traffic_potential": 4300
+        },
+        {
+          "keyword": "umzugskosten steuer",
+          "volume": 1600,
+          "difficulty": 0,
+          "traffic_potential": 4100,
+          "buildable": "needs the German Umzugskostenpauschale, an official figure"
+        },
+        {
+          "keyword": "stromkosten rechner",
+          "volume": 1100,
+          "difficulty": 3,
+          "cpc_usd_cents": 60,
+          "buildable": "arithmetic only: kWh times price"
+        },
+        {
+          "keyword": "hauskauf nebenkosten rechner",
+          "volume": 900,
+          "difficulty": 8,
+          "cpc_usd_cents": 50,
+          "traffic_potential": 15000,
+          "buildable": "SOURCE_REQUIRED and SUBDIVISION-SCOPED"
+        },
+        {
+          "keyword": "nebenkosten hauskauf rechner",
+          "volume": 700,
+          "difficulty": 8,
+          "traffic_potential": 13000
+        },
+        {
+          "keyword": "umzugskosten berechnen ohne anfrage",
+          "volume": 400,
+          "difficulty": 2,
+          "note": "ohne anfrage means without an enquiry: users are explicitly looking for a calculator rather than a quote form, which is exactly the gap a neutral tool fills"
+        }
+      ],
+      "keywords_at_or_above_400": 25,
+      "the_local_specific": "hauskauf nebenkosten is the German property purchase cost, and it is Bundesland-scoped: the Grunderwerbsteuer rate differs by state, from 3.5 to 6.5 per cent, and the notary and land registry fees are statutory. So this family is one page per Bundesland, not one page for Germany, which is the same subdivision shape the Pulse measurement found. The tax deduction cluster around umzugskosten steuer is also German law and has no equivalent in the other markets."
+    },
+    "nl-NL": {
+      "found": [
+        {
+          "keyword": "kosten koper berekenen",
+          "volume": 5000,
+          "difficulty": 0,
+          "traffic_potential": 3900,
+          "buildable": "SOURCE_REQUIRED"
+        },
+        {
+          "keyword": "energiekosten berekenen",
+          "volume": 700,
+          "difficulty": 47,
+          "cpc_usd_cents": 100,
+          "traffic_potential": 51000
+        },
+        {
+          "keyword": "huur berekenen",
+          "volume": 300,
+          "difficulty": 35,
+          "cpc_usd_cents": 70,
+          "parent_topic": "puntensysteem huur"
+        }
+      ],
+      "keywords_at_or_above_300": 5,
+      "the_local_specific": "kosten koper at 5,000 and difficulty 0 is the Dutch buyer-pays-costs convention, and it needs the overdrachtsbelasting rate, which is 2 per cent normally, 10.4 per cent for an investor and 0 for a first-time buyer under a price cap. That is Dutch regulation, so the page is source-required and must carry the year. The parent topic of huur berekenen is puntensysteem huur, the Dutch points system that caps regulated rents: a legal instrument with no equivalent elsewhere, and a genuine utility if the points table is sourced."
+    },
+    "en-US": {
+      "found": [
+        {
+          "keyword": "cost of living comparison",
+          "volume": 49000,
+          "difficulty": 80,
+          "cpc_usd_cents": 45,
+          "note": "difficulty 80, so the head term is contested; recorded rather than chased"
+        },
+        {
+          "keyword": "mortgage payoff calculator",
+          "volume": 38000,
+          "difficulty": 54,
+          "traffic_potential": 77000,
+          "buildable": "arithmetic only"
+        },
+        {
+          "keyword": "closing cost calculator",
+          "volume": 14000,
+          "difficulty": 38,
+          "cpc_usd_cents": 150,
+          "buildable": "SOURCE_REQUIRED, and state-scoped"
+        },
+        {
+          "keyword": "cost of living comparison by city",
+          "volume": 8300,
+          "difficulty": 71
+        },
+        {
+          "keyword": "early mortgage payoff calculator",
+          "volume": 6200,
+          "difficulty": 52,
+          "traffic_potential": 76000
+        },
+        {
+          "keyword": "rent affordability calculator",
+          "volume": 3600,
+          "difficulty": 0,
+          "traffic_potential": 39000,
+          "buildable": "arithmetic plus a sourced rule"
+        },
+        {
+          "keyword": "moving cost calculator",
+          "volume": 2500,
+          "difficulty": 32,
+          "cpc_usd_cents": 500,
+          "note": "a CPC of five dollars, the highest in the whole Tools set"
+        }
+      ],
+      "keywords_at_or_above_2000": 14,
+      "the_local_specific": "The American payoff cluster is the same utility as the British overpayment one under a different name, which is the section 2 case exactly: same utility, different local keyword, its own demand. Difficulty differs sharply, 5 in Britain against 54 in America, so they are not one page in two languages, they are two pages with different prospects. closing cost is state-scoped like the German Nebenkosten is Bundesland-scoped."
+    },
+    "pl-PL": {
+      "found": [
+        {
+          "keyword": "kalkulator nadpłaty kredytu hipotecznego",
+          "volume": 13000,
+          "difficulty": 0,
+          "cpc_usd_cents": 15,
+          "traffic_potential": 38000,
+          "buildable": "arithmetic only"
+        },
+        {
+          "keyword": "kalkulator nadpłaty kredytu",
+          "volume": 8100,
+          "difficulty": 0,
+          "cpc_usd_cents": 25,
+          "traffic_potential": 17000
+        },
+        {
+          "keyword": "kalkulator nadpłaty kredytu gotówkowego",
+          "volume": 1600,
+          "difficulty": 3,
+          "note": "gotówkowego is a cash loan, a separate product from the mortgage"
+        }
+      ],
+      "keywords_at_or_above_200": 4,
+      "the_local_specific": "13,000 a month at difficulty ZERO. Polish borrowers overpay because the loans are variable rate, which is the same reason the earlier wave found o ile wzrośnie rata, a rate-change calculator. The cash-loan variant is a distinct product and a distinct page."
+    },
+    "fr-FR": {
+      "found": [
+        {
+          "keyword": "calcul frais de notaire",
+          "volume": 16000,
+          "difficulty": 45,
+          "traffic_potential": 52000,
+          "buildable": "SOURCE_REQUIRED"
+        },
+        {
+          "keyword": "frais de notaire calcul",
+          "volume": 3600,
+          "difficulty": 0
+        },
+        {
+          "keyword": "calcul frais de notaire 2025",
+          "volume": 600,
+          "difficulty": 44
+        },
+        {
+          "keyword": "calcul frais de notaire 2026",
+          "volume": 400
+        },
+        {
+          "keyword": "cout demenagement",
+          "volume": 700,
+          "difficulty": 6,
+          "cpc_usd_cents": 100
+        }
+      ],
+      "keywords_at_or_above_400": 6,
+      "the_local_specific": "frais de notaire are the French statutory purchase costs, set by a published barème of émoluments plus droits de mutation. 16,000 a month with a 52,000 traffic potential, and the year-stamped variants confirm the page must carry its year and its source date, because the barème changes."
+    },
+    "it-IT": {
+      "found": [
+        {
+          "keyword": "costo trasloco",
+          "volume": 700,
+          "difficulty": 0
+        },
+        {
+          "keyword": "spese notaio acquisto prima casa",
+          "volume": 700,
+          "difficulty": 0,
+          "traffic_potential": 6900
+        },
+        {
+          "keyword": "calcolo estinzione anticipata mutuo",
+          "volume": 300,
+          "difficulty": 49
+        }
+      ],
+      "keywords_at_or_above_300": 5,
+      "verdict": "THIN for the overpayment family. 300 a month at difficulty 49 is not an opportunity, and recording it that way is the point of measuring per locale."
+    },
+    "es-ES": {
+      "found": [
+        {
+          "keyword": "calculadora amortizar hipoteca",
+          "volume": 450,
+          "difficulty": 56,
+          "traffic_potential": 12000
+        }
+      ],
+      "keywords_at_or_above_300": 1,
+      "verdict": "THIN for the overpayment family: one keyword at 450 and difficulty 56."
+    }
+  },
+  "new_families_this_wave": [
+    {
+      "family": "tools.loan-overpayment",
+      "verdict": "BUILD FIRST",
+      "why": "52,000 a month at difficulty 5 in en-GB, 38,000 at 54 in en-US, arithmetic only, no source and no licence"
+    },
+    {
+      "family": "tools.energy-cost",
+      "verdict": "BUILDABLE",
+      "why": "stromkosten rechner 1,100 at difficulty 3 is kWh times unit price; the price itself is a user input, not a claim the page makes"
+    },
+    {
+      "family": "tools.property-purchase-costs",
+      "verdict": "SOURCE_REQUIRED, SUBDIVISION SCOPED",
+      "why": "hauskauf nebenkosten DE 900 by Bundesland, kosten koper NL 5,000, closing cost US 14,000 by state. Each needs a statutory rate table and each is regional, not national"
+    },
+    {
+      "family": "tools.moving-cost",
+      "verdict": "NOT BUILDABLE AS A FORMULA",
+      "why": "umzugskosten 1,900 and moving cost calculator 2,500 at a 5 dollar CPC are real demand, but a moving cost is a quote, not a calculation. Without a price dataset the page would have to invent figures, so it is recorded and refused"
+    },
+    {
+      "family": "tools.moving-cost-tax-deduction",
+      "verdict": "SOURCE_REQUIRED",
+      "why": "umzugskosten steuer 1,600 plus 600 plus 500 is German tax law, the Umzugskostenpauschale, which is a published official figure that changes yearly"
+    },
+    {
+      "family": "tools.rent-affordability",
+      "verdict": "SOURCE_REQUIRED FOR THE RULE",
+      "why": "3,600 US and 2,100 GB at difficulty 0 to 4. The arithmetic is trivial; the share-of-income rule is a convention that must be cited, and in the Netherlands it is a statutory points system"
+    }
+  ],
+  "rejected_this_wave": [
+    {
+      "idea": "private health insurance cost",
+      "market": "de-DE",
+      "volume": 8900,
+      "why_rejected": "the figure depends on an individual's age, health and insurer. Any number a generated page showed would be invented, and the standing constraints forbid an invented insurance cost"
+    },
+    {
+      "idea": "cost of living comparison head term",
+      "market": "en-US",
+      "volume": 49000,
+      "why_rejected": "not rejected on usefulness but on feasibility: difficulty 80. Recorded so the number is not mistaken for an opportunity"
+    },
+    {
+      "idea": "pet insurance cost",
+      "market": "de-DE",
+      "volume": 400,
+      "why_rejected": "outside what Livdar is about, and the same invented-pricing problem"
+    }
+  ],
+  "units_spent_this_wave": 2624,
+  "the_family_by_locale_result": {
+    "tools.loan-overpayment": {
+      "en-GB": {
+        "volume": 52000,
+        "difficulty": 5,
+        "verdict": "BUILD"
+      },
+      "pl-PL": {
+        "volume": 13000,
+        "difficulty": 0,
+        "verdict": "BUILD"
+      },
+      "en-US": {
+        "volume": 38000,
+        "difficulty": 54,
+        "verdict": "BUILD, contested"
+      },
+      "it-IT": {
+        "volume": 300,
+        "difficulty": 49,
+        "verdict": "DO NOT BUILD"
+      },
+      "es-ES": {
+        "volume": 450,
+        "difficulty": 56,
+        "verdict": "DO NOT BUILD"
+      },
+      "note": "This is what section 20 means by not forcing every family into every locale. The same utility, measured in five languages, is a 52,000-a-month open field in Britain, a 13,000-a-month open field in Poland, and 300 a month against entrenched competition in Italy. A family is not a property of the site, it is a property of the family AND the locale."
+    },
+    "tools.property-purchase-costs": {
+      "fr-FR": {
+        "volume": 16000,
+        "difficulty": 45,
+        "verdict": "BUILD, source required"
+      },
+      "en-US": {
+        "volume": 14000,
+        "difficulty": 38,
+        "verdict": "BUILD, state scoped"
+      },
+      "nl-NL": {
+        "volume": 5000,
+        "difficulty": 0,
+        "verdict": "BUILD, source required"
+      },
+      "de-DE": {
+        "volume": 2000,
+        "difficulty": 8,
+        "verdict": "BUILD, Bundesland scoped, 16 pages"
+      },
+      "it-IT": {
+        "volume": 700,
+        "difficulty": 0,
+        "verdict": "BUILD, modest"
+      },
+      "note": "One family, five markets, and in three of them it is REGIONAL rather than national: the German Grunderwerbsteuer differs by Bundesland, American closing costs by state, and the Dutch rate depends on whether the buyer is a first-timer under a price cap. So the page count is not five, it is five plus the subdivisions, and every one of them needs a statutory table with a version date."
+    }
+  }
+}

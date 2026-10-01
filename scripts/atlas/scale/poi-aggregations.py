@@ -515,7 +515,11 @@ for p in places.values():
     p['_city_id'] = _cid
     p['_city'] = city_label(_cid)
     p['_cslug'] = city_slug(_cid)
-    by_name_in_city[(_cid, name.casefold())] += 1
+    # Keyed on the SLUG, not the casefolded name. Two places in Lille named Bois-Blancs and
+    # Bois Blancs are different names and one URL, so a name-space check passed both and the
+    # URL collided. This is the same lesson the city slugs needed: the property a URL depends
+    # on is slug uniqueness, which is not the same as name uniqueness.
+    by_name_in_city[(_cid, slug(name))] += 1
     resolved.append(p)
 
 places_ok = []
@@ -523,7 +527,7 @@ for p in resolved:
     if not area_is_named(p):
         # no polygon, no population, no Wikidata, no Wikipedia: a bare name on a map
         rejects['place_not_a_named_entity'] += 1; continue
-    if by_name_in_city[(p['_city_id'], (p['name'] or '').strip().casefold())] > 1:
+    if by_name_in_city[(p['_city_id'], slug((p['name'] or '').strip()))] > 1:
         # two different OSM objects with the same name in the same city: ambiguous,
         # and the brief is explicit that an ambiguous neighbourhood gets no page
         rejects['place_ambiguous_duplicate_name_in_city'] += 1; continue
@@ -705,6 +709,15 @@ for o in iter_poi():
 print(f"POI read: {counts['poi_read']:,}  attributed tag: {counts['attr_tag']:,} "
       f"spatial: {counts['attr_spatial']:,}  unattributable: {counts['poi_unattributable']:,} "
       f"cross-extract duplicates: {counts['poi_duplicate_across_extracts']:,}", file=sys.stderr)
+# What happened to every tagged city name, because the change from name to identity moved
+# 350,313 POI into the unattributable bucket and that number needs an explanation rather than
+# a shrug. The old code used the OSM addr:city STRING as the city, so a POI tagged with a
+# place that is not in the gazetteer at all still produced a city cell, and city_category has
+# no population floor to catch it. Those pages were about places the entity store had never
+# heard of. They are gone now, and this counter says how many of each kind.
+print('tagged city name resolution:', file=sys.stderr)
+for k, v in name_resolution.most_common():
+    print(f'    {v:>9,}  {k}', file=sys.stderr)
 print(f'distinct (city id, class) cells: {len(city_n):,}', file=sys.stderr)
 
 rows = []
