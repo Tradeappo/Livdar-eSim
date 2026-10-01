@@ -1,0 +1,48 @@
+{
+  "measurement": "SERP sampling for the two families this wave found, because a keyword difficulty is not a SERP",
+  "date": "2026-10-01",
+  "why_this_was_needed": "I characterised the loan overpayment family as having 'nothing blocking it' on the strength of a difficulty of 5. That was a claim about a number, not about the page. Sampling the actual SERP corrects it, and sampling the outdoor one strengthens it beyond what the difficulty alone said.",
+  "serps": [
+    {
+      "keyword": "seen in bayern",
+      "market": "de-DE",
+      "volume": 8600,
+      "keyword_difficulty": 0,
+      "archetype": "OPEN_LOW_DR_WINS",
+      "top_8": [
+        {"position": 1, "url": "adac.de/reise-freizeit/.../schoenste-seen-bayern/", "note": "a large motoring club's travel section"},
+        {"position": 1, "url": "de.wikipedia.org/wiki/Liste_von_Seen_in_Bayern", "note": "Wikipedia, and it is a LIST: the format Google is rewarding here is an enumeration, which is exactly what a sourced page would be"},
+        {"position": 2, "url": "schloesser.bayern.de/.../Seen.pdf", "domain_rating": 92, "backlinks": 0, "traffic": 830, "note": "an official Bavarian PDF with zero backlinks"},
+        {"position": 4, "url": "hammerhof.de/aktiv-im-sommer/bayern-wandern-see/", "domain_rating": 32, "traffic": 529},
+        {"position": 5, "url": "de.pinterest.com/pin/...", "note": "Pinterest filler"},
+        {"position": 6, "url": "photo-nature.de/fotografie-guides/fotospots/bergseen-bayern/", "domain_rating": 1, "traffic": 277},
+        {"position": 7, "url": "tiktok.com/@travelwithshareforreal/...", "note": "TikTok filler"},
+        {"position": 8, "url": "daswetter.com/nachrichten/...", "domain_rating": 72, "backlinks": 0, "traffic": 160}
+      ],
+      "the_decisive_detail": "photo-nature.de is DOMAIN RATING 1. Its top pages were checked and it is not a programmatic site at all: it is a hobby photography blog whose single fotospots page carries 138 of its traffic, and the rest of the site ranks for desktop wallpapers. A DR 1 hobby blog holds position 6 for an 8,600-a-month query, and two of the other eight slots are Pinterest and TikTok.",
+      "what_it_means_for_livdar": "This is the most open SERP measured anywhere in this project. A complete, mapped, sourced list of the lakes in Bavaria, built from OSM with counts and coordinates, is a better answer than a photography blog's photo-spot guide, and the Wikipedia list ranking at the top says the enumeration format is what wins. The family is worth building.",
+      "caution": "The head term is a superlative in practice: four of the measured variants say schönste, the most beautiful. Livdar must not claim that. The page answers which lakes are in Bavaria and what is true of each, and leaves the ranking to the visitor, per the standing rule against an undocumented best."
+    },
+    {
+      "keyword": "mortgage overpayment calculator",
+      "market": "en-GB",
+      "volume": 52000,
+      "keyword_difficulty": 5,
+      "archetype": "BRAND_OWNED_TOP_WITH_SPECIALIST_ENTRY",
+      "top_8": [
+        {"position": 1, "url": "moneysavingexpert.com/mortgages/mortgage-overpayment-calculator/", "domain_rating": 84, "backlinks": 768, "traffic": 57256, "keywords": 239},
+        {"position": 2, "url": "nationwide.co.uk/mortgages/mortgage-calculators/overpayment-calculator", "domain_rating": 78, "backlinks": 27, "traffic": 26558},
+        {"position": 4, "url": "hsbc.co.uk/mortgages/mortgage-overpayment-calculator/", "domain_rating": 79, "traffic": 1659},
+        {"position": 5, "url": "whistletree.co.uk/helpful-tools/overpaying-mortgage", "domain_rating": 40, "backlinks": 0, "traffic": 662, "keywords": 60},
+        {"position": 6, "url": "experian.co.uk/consumer/mortgages/calculators/overpayment-calculator.html", "domain_rating": 85, "backlinks": 3, "traffic": 390},
+        {"position": 7, "url": "natwest.com/mortgages/mortgage-calculators/mortgage-overpayment-tool.html", "domain_rating": 79, "backlinks": 384, "traffic": 3191},
+        {"position": 8, "url": "topazfinance.co.uk/mortgage-overpayment-calculator/", "domain_rating": 23, "traffic": 129}
+      ],
+      "CORRECTION_TO_MY_EARLIER_CHARACTERISATION": "I wrote that nothing is blocking this family. The SERP says otherwise about the HEAD term: positions 1, 2, 4, 6 and 7 are MoneySavingExpert and four banks, at domain ratings 78 to 85. A difficulty of 5 does not describe that page.",
+      "what_is_still_true": "Two specialists hold page one on almost no authority: whistletree.co.uk at DR 40 with ZERO backlinks and 662 traffic, and topazfinance.co.uk at DR 23. So the SERP admits a specialist calculator page; it is not a closed brand SERP. The honest reading is that the head term is contested and the family is enterable, with the long tail and the non-branded variants the realistic entry, not position 1.",
+      "what_it_means_for_livdar": "Still build it, because the arithmetic is free and the tail is real, but score it as competitive rather than open, and expect the entry at the variants rather than the head. The 52,000 figure is the cluster, not a number Livdar would take."
+    }
+  ],
+  "the_general_lesson": "Keyword difficulty 0 understated the outdoor opportunity and difficulty 5 overstated the mortgage one. Both needed the SERP, and in opposite directions. A difficulty score is a model of a page's chances; the SERP is who is actually there.",
+  "units_spent": 660
+}
