@@ -71,7 +71,9 @@ gen = summ.get('generated_before_any_gate')
 if isinstance(gen, int):
     removals = (summ.get('removed_by_uniqueness_and_serp_gate', 0)
                 + summ.get('removed_as_exact_duplicate_urls', 0)
-                + summ.get('removed_by_localisation_gate', 0))
+                + summ.get('removed_by_localisation_gate', 0)
+                + summ.get('removed_by_cannibalisation', 0)
+                + summ.get('removed_as_semantic_duplicates', 0))
     note('generated_before_any_gate', gen)
     note('total_recorded_removals', removals)
     if gen - removals != summ['FINAL_DISTINCT_CANDIDATES']:
@@ -85,7 +87,9 @@ if isinstance(gen, int):
     # and the rejected file must hold exactly the removals that are supposed to be preserved
     preserved = (summ.get('removed_by_uniqueness_and_serp_gate', 0)
                  + summ.get('removed_as_exact_duplicate_urls', 0)
-                 + summ.get('removed_by_localisation_gate', 0))
+                 + summ.get('removed_by_localisation_gate', 0)
+                 + summ.get('removed_by_cannibalisation', 0)
+                 + summ.get('removed_as_semantic_duplicates', 0))
     note('removals_that_should_be_preserved', preserved)
 
 # 3. the QA report

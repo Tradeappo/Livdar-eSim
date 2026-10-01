@@ -1270,12 +1270,33 @@ if exact_dupes:
     for (a, b), n in _pairs.most_common(8):
         print(f'    {n:>6,}  {a} already claims the URL {b} wanted', file=sys.stderr)
 
-seen = set(); stage2 = []
+# Semantic dedupe, and its losers are preserved too. This stage was dropping 2 rows with no
+# record, which the cross-artifact check found after the cannibalisation ones were fixed: the
+# funnel still came to 208,878 against a final 208,876. Two rows is nothing and the point is
+# not the two rows, it is that a funnel which does not sum cannot be used to tell a small
+# silent loss from a large one, and this pass has already found a large one.
+seen = {}
+stage2 = []
+semantic_dupes = []
 for r in stage1:
     k = (r['market'], r['family'], r['template_signature'], r['entity_id'])
-    if k in seen: continue
-    seen.add(k); stage2.append(r)
+    first = seen.get(k)
+    if first is not None:
+        r['rejection_reason'] = (
+            f"REJECTED_SEMANTIC_DUPLICATE: same market, family, template and entity as "
+            f"{first['url_pattern']}, so the two pages would say the same thing about the "
+            f"same thing")
+        r['status'] = 'REJECTED_SEMANTIC_DUPLICATE'
+        semantic_dupes.append(r)
+        continue
+    seen[k] = r
+    stage2.append(r)
 after_semantic = len(stage2)
+if semantic_dupes:
+    print(f'semantic duplicates rejected and preserved: {len(semantic_dupes):,}',
+          file=sys.stderr)
+    for r in semantic_dupes[:4]:
+        print(f"    {r['family']}  {r['url_pattern']}", file=sys.stderr)
 
 # ------------------------------------------------- localisation and cross-locale dedupe
 # A page in a second language is NOT free inventory. The question for every row whose
@@ -1413,14 +1434,37 @@ stage2 = stage2b
 
 # cannibalisation: two families targeting the same intent on the same entity in the
 # same market. Keep the higher publication_priority, flag the loser out.
+# The loser is KEPT as a rejection. It was being dropped with only a flag set on the
+# winner, and the cross-artifact check caught it: 326,655 generated minus 117,732 recorded
+# removals came to 208,923 against a final count of 208,876, a 47-row hole with no record.
+# 47 is small and that is exactly why it mattered - the same silent-loss shape hid a URL
+# collision that was costing thousands, and a funnel that does not sum cannot be trusted to
+# say which.
 best = {}
+cannib_rejected = []
 for r in sorted(stage2, key=lambda x: -x['publication_priority']):
     k = (r['market'], r['entity_type'], r['entity_id'], r['primary_intent'])
     if k in best:
         best[k]['cannibalization_risk'] = 'RESOLVED_KEPT_HIGHER_PRIORITY'
+        w = best[k]
+        r['rejection_reason'] = (
+            f"REJECTED_CANNIBALIZATION: {w['family']} already owns this intent for this "
+            f"entity in this market at priority {w['publication_priority']}, against "
+            f"{r['publication_priority']} here")
+        r['status'] = 'REJECTED_CANNIBALIZATION'
+        cannib_rejected.append(r)
         continue
     best[k] = r
 stage3 = list(best.values())
+if cannib_rejected:
+    import collections as _c2
+    _cp = _c2.Counter((best[(x['market'], x['entity_type'], x['entity_id'],
+                             x['primary_intent'])]['family'], x['family'])
+                      for x in cannib_rejected)
+    print(f'cannibalisation losers rejected and preserved: {len(cannib_rejected):,}',
+          file=sys.stderr)
+    for (a, b), n in _cp.most_common(6):
+        print(f'    {n:>5,}  {a} beat {b}', file=sys.stderr)
 after_cannib = len(stage3)
 
 # ---------------------------------------------------------------- cohort mapping
@@ -1462,14 +1506,16 @@ def strip_long_dashes(rows):
     return touched
 
 _dash_fixed = (strip_long_dashes(stage3) + strip_long_dashes(rejected)
-              + strip_long_dashes(exact_dupes) + strip_long_dashes(loc_rejected))
+              + strip_long_dashes(exact_dupes) + strip_long_dashes(loc_rejected)
+              + strip_long_dashes(cannib_rejected)
+              + strip_long_dashes(semantic_dupes))
 print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- outputs
 os.makedirs(OUT, exist_ok=True)
 # every rejection in one file, whatever stage produced it: hiding the localisation
 # rejections in a separate place would make the funnel unauditable
-rejected = rejected + exact_dupes + loc_rejected
+rejected = rejected + exact_dupes + semantic_dupes + loc_rejected + cannib_rejected
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
     w.writeheader(); w.writerows(rejected)
@@ -1569,8 +1615,11 @@ summary = {
     'removed_by_uniqueness_and_serp_gate': generated_total - raw_total,
     'removed_as_exact_duplicate_urls': len(exact_dupes),
     'removed_by_localisation_gate': len(loc_rejected),
+    'removed_as_semantic_duplicates': len(semantic_dupes),
+    'removed_by_cannibalisation': len(cannib_rejected),
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
-                          - len(exact_dupes) - len(loc_rejected)) == len(stage3),
+                          - len(exact_dupes) - len(semantic_dupes) - len(loc_rejected)
+                          - len(cannib_rejected)) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
     'after_localization_and_cross_locale_gate': after_localization,
