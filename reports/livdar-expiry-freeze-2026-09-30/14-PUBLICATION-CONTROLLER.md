@@ -201,3 +201,61 @@ Part A's ten STOP conditions are the most valuable paragraph in this freeze. Not
 three subsequent passes has given any reason to soften one of them, and STOP condition
 7 in particular - no number presented as a measurement that the source does not
 actually measure - is the rule that keeps a programmatic site publishable at all.
+
+# PART D - the aggregation shapes, and the two gates Part A cannot express
+
+Part A is unchanged and still governs. This part exists because the quality-first pass
+added page shapes that Part A was not written for, and because two of the gates those
+shapes need are structural rather than numeric, which is the one thing Part A's cap table
+cannot say.
+
+## D1. Per-shape caps, ordered by measured archetype rather than by size
+
+Each cap below comes from the SERP measured for that shape on 2026-10-01, recorded in
+`08b-SERP-EVIDENCE-AGGREGATION-SHAPES.csv`. A shape is not capped by how many candidates
+exist for it; it is capped by how good its SERP looked.
+
+| shape | archetype | first release | cap until GSC says otherwise |
+| --- | --- | --- | --- |
+| `city_opening` | OPEN_SPECIALIST_PAGE_WINS | 150 | 2,000 |
+| `city_cuisine` | OPEN_LOCAL_PACK_ABOVE_ORGANIC | 300 | 10,000 |
+| `area_category` | OPEN_LOCAL_PACK_ABOVE_ORGANIC | 300 | 10,000 |
+| `city_category` | OFFICIAL_PLUS_AGGREGATOR_MIXED | 300 | 8,000 |
+| `city_areas_hub` and `area_parent` | OFFICIAL_PLUS_AGGREGATOR_MIXED | 150 | 3,000 |
+| `city_sport` | OFFICIAL_PLUS_AGGREGATOR_MIXED | 100 | 1,500 |
+| `notable_entity` and `wikidata_notable` | ENTITY_OWNED_PLUS_WIKIPEDIA_DIRECTORIES_BELOW | 200 | 5,000 |
+| `area_cuisine` | AGGREGATOR_AND_VENUE_OWNED | 100, experiment | 100 until proven |
+| `city_attribute`, `area_attribute`, `area_opening` | not measured or no SERP data | 0 | blocked pending a SERP sample |
+
+`city_opening` gets the smallest first release and the clearest path to its cap because
+its SERP was the best measured: a DR 35 page holds position 2 above outlets at DR 56 to
+81. `area_cuisine` is capped at its experiment size because its SERP had no independent
+list in the top eight at all.
+
+## D2. Two structural gates, which no cap can replace
+
+**A page may not publish before its parent.** An area page whose city page is unpublished
+is an orphan on a live site, not just in the manifest. The controller must release in
+order: city category, then area category, then area modifier. The manifest carries
+`parent_url` so this is checkable before release rather than after.
+
+**A proximity-attributed area page may not publish in the same cohort as a
+containment-attributed one.** Every area page records in `attribution` whether its POI
+were assigned by polygon containment or by documented proximity to a place node. Polygons
+are the minority everywhere measured: France 3,714 of 34,614 places, Germany 1,829 of
+15,667, Poland 584 of 13,063. Release containment first, compare the two groups in GSC
+after 28 days, and if proximity pages underperform materially, stop generating them. Mixing
+them in one cohort makes that comparison impossible, and the comparison is the only way to
+learn whether the weaker attribution method is worth keeping.
+
+## D3. What is NOT publishable regardless of score
+
+- Any candidate whose `source_status` is BLOCKED, and any whose `status` is MISSING_DATA.
+  They are in the inventory because hiding them would lose the research, not because they
+  are ready. The final report breaks the total down by source readiness for this reason.
+- Any candidate whose `market_demand_evidence` is `none`. A family proven in other markets
+  reads `family_measured_elsewhere` and may publish under the caps above; a family with no
+  evidence anywhere may not.
+- Any shape in the last row of the D1 table, until its SERP has been sampled. Treating
+  absence of SERP evidence as a reason to publish is the mirror image of treating it as a
+  reason to reject, and this project has already made the second mistake once.
