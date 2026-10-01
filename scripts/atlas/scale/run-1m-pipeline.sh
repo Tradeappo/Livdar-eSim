@@ -48,11 +48,18 @@ log "QA: titles, duplicates, uniqueness reasons, orphans, dashes"
 python3 scripts/atlas/scale/qa-1m-manifest.py > /tmp/pipe_qa.log 2>&1
 tail -22 /tmp/pipe_qa.log
 
+log "partitioned export by market and by family"
+python3 scripts/atlas/scale/export-partitions.py > /tmp/pipe_part.log 2>&1 \
+  && tail -3 /tmp/pipe_part.log || echo "  partitions: see /tmp/pipe_part.log"
+
 log "gap analysis against the one million target"
 python3 scripts/atlas/scale/build-1m-gap-analysis.py > /tmp/pipe_gap.log 2>&1 \
   && tail -6 /tmp/pipe_gap.log || echo "  gap analysis: see /tmp/pipe_gap.log"
 
 log "long dash check across the repository"
 npm run -s dashcheck 2>&1 | tail -5 || echo "  dashcheck reported findings"
+
+log "final deliverable report"
+python3 scripts/atlas/scale/build-final-deliverable.py 2>&1 | tail -3
 
 log "pipeline complete"

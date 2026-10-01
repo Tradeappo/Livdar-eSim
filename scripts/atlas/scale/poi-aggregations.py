@@ -134,6 +134,14 @@ def open_modes(oh):
     return tuple(out)
 
 
+# A cuisine has to be common enough across the whole corpus to be a category a reader
+# recognises. "pancake" passed the per-city floor on three venues in one Paris quarter and
+# produced a page for a cuisine nobody searches as a cuisine. The floor is measured from
+# the corpus rather than guessed from a list, so it adapts as more markets are ingested.
+MIN_CUISINE_CORPUS = 400
+CUISINE_OK = set()          # filled by a counting pass before any row is emitted
+
+
 def cuisines(v):
     """Split an OSM cuisine value into usable tokens."""
     out = []
@@ -166,6 +174,14 @@ def slug(s):
 rejects = collections.Counter()
 
 # ---- gazetteer -------------------------------------------------------------
+def radius_km(pop):
+    # a metropolis legitimately claims POI further out than a small town does
+    if pop >= 1_000_000: return 20.0
+    if pop >= 250_000: return 12.0
+    if pop >= 50_000: return 7.0
+    return 4.0
+
+
 cities = []
 for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
     d = json.load(open(f))
@@ -174,17 +190,42 @@ for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
         if c and c.get('lat') is not None and c.get('country'):
             cities.append((c['country'], c.get('name'), float(c['lat']), float(c['lon']),
                            c.get('population') or 0))
+# A gazetteer "city" that sits inside a much larger city is a QUARTER of it, not a city.
+# GeoNames lists Quinze-Vingts with 26,265 people and feature class PPL, and it is the
+# 12th arrondissement of Paris; Natahoyo is a district of Gijon. Left as cities they
+# produced pages like "pancake restaurants in Faubourg Saint-Antoine, a suburb of
+# Quinze-Vingts, against 0 citywide" - a sub-area of a sub-area, with a parent page that
+# could not exist. The test is relational, not a name list: a place inside the radius of
+# another place at least five times its size is that place's quarter.
+_city_by_cell = collections.defaultdict(list)
+for rec in cities:
+    _city_by_cell[(rec[0], int(rec[2]), int(rec[3]))].append(rec)
+
+SUBAREA_OF = {}
+for (cc, nm, la, lo, pop) in cities:
+    if not nm:
+        continue
+    best = None
+    for dla in (-1, 0, 1):
+        for dlo in (-1, 0, 1):
+            for (c2, n2, la2, lo2, p2) in _city_by_cell.get((cc, int(la) + dla, int(lo) + dlo), ()):
+                if n2 == nm or p2 < max(50_000, pop * 5):
+                    continue
+                d = math.hypot((la2 - la) * 111.0,
+                               (lo2 - lo) * 111.0 * math.cos(math.radians(la)))
+                if d <= radius_km(p2) and (best is None or p2 > best[1]):
+                    best = (n2, p2)
+    if best:
+        SUBAREA_OF[(cc, nm)] = best[0]
+
+# POI attribute to real cities only, so a quarter never becomes the parent of an area
 buckets = collections.defaultdict(list)
 for rec in cities:
+    if (rec[0], rec[1]) in SUBAREA_OF:
+        continue
     buckets[(rec[0], int(rec[2]), int(rec[3]))].append(rec)
-print(f'gazetteer cities: {len(cities):,}', file=sys.stderr)
-
-def radius_km(pop):
-    # a metropolis legitimately claims POI further out than a small town does
-    if pop >= 1_000_000: return 20.0
-    if pop >= 250_000: return 12.0
-    if pop >= 50_000: return 7.0
-    return 4.0
+print(f'gazetteer cities: {len(cities):,}; of those {len(SUBAREA_OF):,} sit inside a '
+      f'larger city and are treated as its quarters, not as cities', file=sys.stderr)
 
 def nearest_city(country, lat, lon):
     """Return (name, population) of the nearest city that may claim this point."""
@@ -370,6 +411,15 @@ def iter_poi():
                 yield o
         except (EOFError, OSError): pass
 
+cuisine_corpus = collections.Counter()
+for o in iter_poi():
+    if o['cls'] in FOOD_CLASSES and o.get('cuisine'):
+        for cu in cuisines(o['cuisine']):
+            cuisine_corpus[cu] += 1
+CUISINE_OK = {c for c, n in cuisine_corpus.items() if n >= MIN_CUISINE_CORPUS}
+print(f'cuisine values in the corpus: {len(cuisine_corpus):,}; common enough to carry a '
+      f'page (>= {MIN_CUISINE_CORPUS}): {len(CUISINE_OK):,}', file=sys.stderr)
+
 for o in iter_poi():
     counts['poi_read'] += 1
     # the same OSM object can appear twice when regional extracts overlap
@@ -432,6 +482,8 @@ for o in iter_poi():
     attrs = o.get('attr') or {}
     if o['cls'] in FOOD_CLASSES and o.get('cuisine'):
         for cu in cuisines(o['cuisine']):
+            if cu not in CUISINE_OK:
+                continue
             city_cu[(o['country'], city, cu)] += 1
             if rich: city_cu_rich[(o['country'], city, cu)] += 1
             if _area_pi is not None:

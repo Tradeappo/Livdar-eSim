@@ -21,7 +21,7 @@ Feed-gated verticals are KEPT, with source_status separating them, because the b
 is a candidate inventory and a missing feed is an acquisition task, not a reason to
 delete real demand.
 """
-import json, glob, gzip, csv, hashlib, collections, os, sys
+import json, glob, gzip, csv, hashlib, collections, os, sys, math
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
@@ -66,6 +66,42 @@ bt = idx.get('byTier', {})
 t1, t2, t3 = int(bt.get('1', 0)), int(bt.get('2', 0)), int(bt.get('3', 0))
 for i, c in enumerate(sorted(cities, key=lambda x: -(x['pop'] or 0))):
     c['tier'] = 1 if i < t1 else 2 if i < t1 + t2 else 3 if i < t1 + t2 + t3 else 4
+# A gazetteer "city" inside a much larger city is a QUARTER of it, not a city. GeoNames
+# lists Quinze-Vingts with 26,265 people and feature class PPL, and it is the 12th
+# arrondissement of Paris; Natahoyo is a district of Gijon. Left in the city pool they
+# earn city-level pages - things to do in Quinze-Vingts - whose parent city page is
+# another quarter. The test is relational rather than a name list: a place inside the
+# radius of another place at least five times its size is that place's quarter. They stay
+# in the data as neighbourhood-level entities; they are only removed from CITY families.
+def _radius_km(pop):
+    if pop >= 1_000_000: return 20.0
+    if pop >= 250_000: return 12.0
+    if pop >= 50_000: return 7.0
+    return 4.0
+
+
+_cell = collections.defaultdict(list)
+for c in cities:
+    if c.get('lat') is None or c.get('lon') is None: continue
+    _cell[(c['country'], int(c['lat']), int(c['lon']))].append(c)
+SUBAREA_CITY_IDS = set()
+for c in cities:
+    if c.get('lat') is None or c.get('lon') is None or not c.get('name'): continue
+    la, lo, pop = float(c['lat']), float(c['lon']), c['pop'] or 0
+    for dla in (-1, 0, 1):
+        for dlo in (-1, 0, 1):
+            for o in _cell.get((c['country'], int(la) + dla, int(lo) + dlo), ()):
+                if o['id'] == c['id'] or (o['pop'] or 0) < max(50_000, pop * 5): continue
+                d = math.hypot((float(o['lat']) - la) * 111.0,
+                               (float(o['lon']) - lo) * 111.0 * math.cos(math.radians(la)))
+                if d <= _radius_km(o['pop'] or 0):
+                    SUBAREA_CITY_IDS.add(c['id']); break
+            if c['id'] in SUBAREA_CITY_IDS: break
+        if c['id'] in SUBAREA_CITY_IDS: break
+cities = [c for c in cities if c['id'] not in SUBAREA_CITY_IDS]
+print(f'  gazetteer quarters removed from the city pool: {len(SUBAREA_CITY_IDS):,}; '
+      f'cities remaining {len(cities):,}', file=sys.stderr)
+
 CITY_BY_ID = {c['id']: c for c in cities}
 # 1,168 city names are shared by 2,833 cities (1,123 of them inside the 11 market
 # countries), so a name-only slug silently collapses two different cities onto one
@@ -97,13 +133,23 @@ airports = [{'id': a.get('iata') or a.get('id'), 'name': a.get('name'), 'country
              'size': a.get('size'), 'municipality': a.get('municipality')}
             for a in apt if a and (a.get('iata') or a.get('id'))]
 
+# Only venues people travel TO can carry a "where to stay near" page. The pool also holds
+# generic sports venues, which is how a hotels-near-Titan-Gym candidate was generated: a
+# local gym is not a reason to book a hotel. Stadiums, arenas, concert halls and event
+# venues are; a bare "sports venue" with no stronger type is not.
+TRAVEL_VENUE_TYPES = {'stadium', 'arena', 'concert hall', 'event venue'}
 venues = []
+venues_rejected_local = 0
 for f in sorted(glob.glob(ROOT + 'data/atlas/sources/venues/by-country/*.json')):
     d = json.load(open(f))
     for v in (d.get('rows') or []):
+        types = {t.strip().lower() for t in (v.get('types') or [])}
+        if not (types & TRAVEL_VENUE_TYPES):
+            venues_rejected_local += 1
+            continue
         venues.append({'id': v.get('id'), 'name': v.get('name'), 'country': v.get('iso2'),
                        'cityId': str(v.get('cityId') or ''), 'cityName': v.get('cityName') or '',
-                       'types': ','.join(v.get('types') or [])})
+                       'types': ','.join(sorted(types))})
 
 # Pulse entities, from the normalised store built by scripts/atlas/ingest/
 # pulse-materialise.py. The old loader read the European-only public-holiday file, which
@@ -156,6 +202,8 @@ try:
 except FileNotFoundError:
     pass
 
+print(f'  venues kept as travel destinations {len(venues):,}, local venues rejected '
+      f'{venues_rejected_local:,}', file=sys.stderr)
 print(f'  cities {len(cities):,}  countries {len(countries)}  neighbourhoods {len(neigh):,} '
       f' airports {len(airports):,}  venues {len(venues):,}  subdivisions {len(subdiv)} '
       f' holidays {len(holidays):,} regional {len(holidays_regional):,} '
