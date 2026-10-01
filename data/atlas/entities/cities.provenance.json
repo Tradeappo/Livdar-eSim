@@ -1,0 +1,10 @@
+{
+ "source": "GeoNames cities5000",
+ "url": "https://download.geonames.org/export/dump/cities5000.zip",
+ "licence": "CC BY 4.0",
+ "attribution": "GeoNames (https://www.geonames.org)",
+ "capturedOn": "2026-10-01",
+ "rows": 64418,
+ "replaces": "cities15000, 31,715 rows",
+ "note": "The floor moved from 15,000 to 5,000 because the demand harvest found 116 towns below it with measured search volume, and because 567,208 POI were attributed to city strings that were not gazetteer names. Tier boundaries are unchanged at the same absolute ranks, so no city already in the inventory changes tier and every new city lands in tier 4, which no city family draws from by default."
+}

@@ -163,11 +163,13 @@ def title_for(r):
     city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
     fam, surface = r['family'], r['surface']
     where = f"{city}, {country}" if city and country else (city or country or '')
-    # A venue or a POI is qualified by its CITY, not just its country. There are two Alte
-    # Opers in Germany, in Frankfurt and in Erfurt, and two E-Werks, and titling both
-    # "Alte Oper, DE: near venue" reported 111 duplicate titles that were the skeleton's
-    # fault: the pages are legitimately two, the title just refused to say which city.
-    if r.get('entity_type') in ('poi', 'venue') and where and where not in name:
+    # A venue, a POI or a NEIGHBOURHOOD is qualified by its CITY, not just its country. There
+    # are two Alte Opers in Germany, in Frankfurt and in Erfurt, and two E-Werks, and titling
+    # both "Alte Oper, DE: near venue" reported 111 duplicate titles that were the skeleton's
+    # fault: the pages are legitimately two, the title just refused to say which city. The same
+    # is true one level down, where Sainte-Marguerite is a quarter of Paris and also of
+    # Marseille, and all three French neighbourhood families titled both the same way.
+    if r.get('entity_type') in ('poi', 'venue', 'neighbourhood') and where and where not in name:
         qualified = f"{name}, {where}"
     else:
         qualified = f"{name}, {country}" if country and country not in name else name

@@ -441,6 +441,42 @@ try:
 except FileNotFoundError:
     pass
 
+# The destination harvest, resolved to gazetteer ids. CROSS-LANGUAGE-REACH.csv is frozen evidence
+# from an earlier pass covering roughly 333 destinations and 59 outbound pairs, and the
+# localisation gate was rejecting 46,120 rows for want of evidence that had simply never been
+# collected. This file is that evidence: one call per language in the phrase that language
+# actually uses, resolved to a city id through GeoNames alternate names rather than a hand
+# mapping. It is ADDED to the frozen file, never substituted for it, so the earlier measurement
+# stays auditable on its own.
+#
+# HARVEST_CITY_IDS is the entity-level demand override. The pool bound for a city family is a
+# TIER, which is a rank over population, and population is not demand: Szklarska Poreba has
+# 6,970 people and 9,300 searches a month for its sights. A city with a measured keyword enters
+# the pool whatever its tier. Nothing else promotes a city, so this cannot become a licence to
+# generate: it reaches exactly the places the harvest names.
+HARVEST_CITY_IDS = set()
+HARVEST_LANG_IDS = collections.defaultdict(set)
+HARVEST_VOL = {}
+try:
+    for r in csv.DictReader(open(ROOT + 'data/atlas/measurements/destination-harvest/'
+                                 'resolved-cities-2026-10-01.csv')):
+        pair = (r['city'].strip().lower(), (r.get('city_country') or '').strip())
+        XL_CITIES.add(pair)
+        XL_MARKET_CITIES[r['searcher_market'].strip()].add(pair)
+        XL_LANG_CITIES[r['language'].strip()].add(pair)
+        cid = str(r.get('city_id') or '')
+        if cid:
+            HARVEST_CITY_IDS.add(cid)
+            HARVEST_LANG_IDS[r['language'].strip()].add(cid)
+            try:
+                HARVEST_VOL[cid] = max(HARVEST_VOL.get(cid, 0), int(r['volume']))
+            except ValueError:
+                pass
+except FileNotFoundError:
+    pass
+print(f'  destination harvest: {len(HARVEST_CITY_IDS):,} cities with measured demand in at '
+      f'least one language', file=sys.stderr)
+
 # SERP class per family, from the frozen evidence
 serp_by_fam = {}
 try:
@@ -663,6 +699,16 @@ def entity_pool(f):
         measured = [v for (ff, mm), v in CELL_TIER.items() if ff in kw_names(fid)]
         if measured: tier = max(tier, max(measured))
         pool = [c for c in cities if c['tier'] <= tier]
+        # A city the harvest measured is in the pool whatever its tier, because a measurement
+        # beats a population rank. Only for the families the harvest actually asked about, which
+        # is the sightseeing and destination side, and only for cities it names.
+        if HARVEST_CITY_IDS and SCOPE.get(fid) in (DESTINATION, LOCAL):
+            have = {c['id'] for c in pool}
+            extra = [c for c in cities
+                     if str(c['id']) in HARVEST_CITY_IDS and c['id'] not in have]
+            if extra:
+                stats['cities_added_by_measured_demand_over_tier'] += len(extra)
+                pool = pool + extra
         if 'neighbourhood' in fid: pool = [c for c in pool if c['id'] in CITIES_WITH_NEIGH]
         return [('city', c['id'], c['name'], c['country'], c['name'], '', c['tier']) for c in pool]
     if ent == 'neighbourhood':
@@ -1763,6 +1809,10 @@ summary = {
     'shortfall_to_1m': max(0, 1000000 - len(stage3)),
     'rejected_by_quality_gates': len(rejected),
     'dropped_no_demand_evidence': stats['dropped_no_demand_evidence'],
+    'cities_added_by_measured_demand_over_tier': stats['cities_added_by_measured_demand_over_tier'],
+    'entity_slug_fell_back_to_the_id': stats['entity_slug_fell_back_to_the_id'],
+    'dropped_entity_has_no_renderable_slug': stats['dropped_entity_has_no_renderable_slug'],
+    'destination_harvest_cities': len(HARVEST_CITY_IDS),
     'dropped_beyond_measured_tier': stats['dropped_beyond_measured_tier'],
     'poi_emitted': stats['poi_emitted'],
     'poi_dropped_no_market': stats['poi_dropped_no_market'],
