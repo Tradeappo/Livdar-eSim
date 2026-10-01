@@ -381,11 +381,18 @@ xl_markets = collections.defaultdict(set)
 # Barcelona, Spain and earn a German things-to-do page. The reach file has carried
 # city_country all along; throwing it away was the bug.
 XL_CITIES = set()
+# The same pairs again, but kept PER SEARCHER MARKET. XL_CITIES answers "was this city ever
+# measured cross-language by anyone", which is the question the generation step asks. The
+# localisation gate asks a narrower one: was this city measured by THIS market. Collapsing
+# the two let a city measured only in en-GB vouch for a German page about it.
+XL_MARKET_CITIES = collections.defaultdict(set)
 try:
     for r in csv.DictReader(open(ROOT + 'reports/livdar-master-seo-universe-2026-09-30/CROSS-LANGUAGE-REACH.csv')):
         xl_markets[r['family']].add(r['searcher_market'])
         if r.get('city'):
-            XL_CITIES.add((r['city'].strip().lower(), (r.get('city_country') or '').strip()))
+            pair = (r['city'].strip().lower(), (r.get('city_country') or '').strip())
+            XL_CITIES.add(pair)
+            XL_MARKET_CITIES[r['searcher_market'].strip()].add(pair)
 except FileNotFoundError:
     pass
 
@@ -768,7 +775,10 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           # localisation and cross-locale fields, required per the multilingual brief
           'locale','source_page_family','local_keyword','local_volume','local_intent',
           'local_serp','localization_class','localization_flag','localization_reason',
-          'destination']
+          'destination',
+          # set only where a long dash was normalised out of a rendered string, so the
+          # change is recorded in the manifest rather than only in the run log
+          'dash_normalised']
 
 stats = collections.Counter()
 rows = []
@@ -1137,6 +1147,31 @@ group_langs = collections.defaultdict(set)
 for r in stage2:
     group_langs[(r['family'], r['entity_id'])].add(r['language'])
 
+# Does the demand measured for this (family, market) actually concern THIS destination?
+# Three things count, and nothing else does:
+#   1. the measured keyword names the destination, which is evidence about the page itself
+#   2. the (destination, searcher market) pair appears in the measured reach file, which is
+#      the only record of which markets were observed searching which places
+#   3. the destination is the market's own country, which is not a cross-language case at
+#      all and is only reachable here when the page language differs from the country's
+# A tier is deliberately not accepted as evidence. Population is not demand, and treating
+# tier 1 as a licence is how Aba and Abidjan once earned German travel pages.
+def dest_evidence(r, top_kw):
+    ename = (r.get('entity_name') or '').strip()
+    dest_country = r.get('country') or ''
+    if ename:
+        low = ename.lower()
+        # the city name as the measurement spelled it, which may be a transliteration:
+        # "hotel prag" names Prague in German, "praga" in Italian
+        if low in (top_kw or '').lower():
+            return f'the measured keyword names {ename} itself'
+        if (low, dest_country) in XL_MARKET_CITIES.get(r['market'], set()):
+            return (f'{ename} is a destination {r["market"]} was measured searching for '
+                    f'in the cross-language reach file')
+    if MKT_COUNTRY.get(r['market']) == dest_country:
+        return f'{dest_country} is the home country of {r["market"]}'
+    return ''
+
 loc_counts = collections.Counter()
 loc_rejected = []
 stage2b = []
@@ -1161,10 +1196,26 @@ for r in stage2:
         cls = 'NATIVE_LOCALE'
         reason = (f'the page is written in {lang}, the language of {r["country"]}, the '
                   f'country it describes, so no cross-language justification is needed')
-    elif r.get('market_demand_evidence') == 'measured_in_this_market' and top_vol > 0:
+    elif r.get('market_demand_evidence') == 'measured_in_this_market' and top_vol > 0 \
+            and dest_evidence(r, top_kw):
         cls = 'VALID_LOCALIZATION'
-        reason = (f'{m} demand measured for {fid}: "{top_kw}" at {top_vol:,} volume, so '
-                  f'this locale has its own query behind it rather than a translation')
+        reason = (f'{m} demand measured for {fid}: "{top_kw}" at {top_vol:,} volume, and '
+                  f'{dest_evidence(r, top_kw)}, so this locale has its own query behind '
+                  f'this destination rather than a translation')
+    elif r.get('market_demand_evidence') == 'measured_in_this_market' and top_vol > 0:
+        # The family has measured demand in this market and this destination does not.
+        # This is the case the first version of the gate let through, and it was the whole
+        # point of the gate: one measured German keyword about Prague, "hotel prag" at
+        # 7,600, was licensing 8,342 German hotel pages for cities nobody in Germany was
+        # measured searching for. Demand for a family in a market is not demand for every
+        # destination in it, and treating it as such is city-name swapping with a locale
+        # boundary crossed on the way. The brief's first line says it directly: the
+        # origin market is not the destination.
+        cls = 'LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION'
+        reason = (f'{fid} has measured {m} demand ("{top_kw}" at {top_vol:,}), but that '
+                  f'measurement is not about {r.get("entity_name") or r["country"]}, and '
+                  f'this destination was never measured as something {m} searches for in '
+                  f'{lang}: the family is proven in this locale, this page is not')
     elif r['source_status'] in ('BLOCKED',) or r['status'] == 'MISSING_DATA':
         cls = 'LOCAL_DATA_MISSING'
         reason = (f'cross-language page for {r["country"]} in {lang} whose source is '
@@ -1225,6 +1276,34 @@ print(f'after exact dedupe:        {after_exact:,}', file=sys.stderr)
 print(f'after semantic dedupe:     {after_semantic:,}', file=sys.stderr)
 print(f'after localisation gate:   {after_localization:,}', file=sys.stderr)
 print(f'after cannibalization:     {after_cannib:,}', file=sys.stderr)
+
+# ---------------------------------------------------------------- dash safety net
+# Rendered copy may not contain a long dash. The names are normalised where they enter the
+# aggregation, which is the right place and fixes the cause, but this manifest draws rows
+# from several stores and a name that gains a dash in a store added later would otherwise
+# reach a title unnoticed. 670 of them did exactly that once, invisibly, because the dash
+# check could not read a compressed partition. This pass is the belt to that braces: it
+# runs over every string in every row that is kept or rejected, so there is no path to an
+# output file that skips it. It is a no-op when the sources are already clean.
+LONG_DASHES = ('\u2010', '\u2011', '\u2012', '\u2013', '\u2014',
+               '\u2015', '\u2212', '\ufe58', '\ufe63', '\uff0d')
+
+def strip_long_dashes(rows):
+    touched = 0
+    for r in rows:
+        hit = False
+        for k, v in list(r.items()):
+            if isinstance(v, str) and any(d in v for d in LONG_DASHES):
+                for d in LONG_DASHES: v = v.replace(d, '-')
+                r[k] = v
+                hit = True
+        if hit:
+            r['dash_normalised'] = 'yes'
+            touched += 1
+    return touched
+
+_dash_fixed = strip_long_dashes(stage3) + strip_long_dashes(rejected) + strip_long_dashes(loc_rejected)
+print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- outputs
 os.makedirs(OUT, exist_ok=True)

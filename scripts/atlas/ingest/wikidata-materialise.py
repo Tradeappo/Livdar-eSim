@@ -31,40 +31,78 @@ COUNTRIES = [('Q30','US'),('Q183','DE'),('Q142','FR'),('Q38','IT'),('Q29','ES'),
 LANG = {'US':'en','GB':'en','DE':'de','FR':'fr','IT':'it','ES':'es','NL':'nl',
         'PL':'pl','BR':'pt','JP':'ja','TW':'zh-hant'}
 
-# The endpoint's own result cap is the open question here. Every file this has produced
-# sits at or below 10,000 rows and exactly one, wd-park-US, sits at 9,992, which is the
-# shape truncation would take: if WDQS caps the underlying result set at 10,000, then
-# OFFSET 10000 returns nothing even though more entities exist, and the loop below reads
-# that as the end of the data. It could not be verified because WDQS went into an active
-# outage mid-pass, answering 429 with "Aggressively rate-limiting to 1 req / min - this
-# rule was created during active wdqs outage". VERIFY_WHEN_WDQS_RECOVERS: run a COUNT for
-# park/US against the file's row count, and if they differ, page by a sort key rather than
-# by OFFSET, which is the standard way around a result cap.
-WDQS_OUTAGE_NOTE = ('WDQS was rate-limiting to 1 request per minute during this pass, so '
-                    'the Wikidata corpus is a floor rather than a total')
+# VERIFIED 2026-10-01: the result cap is real and it did truncate.
+# The earlier pass left this as an open question because WDQS was in an active outage. It
+# has since answered, and a COUNT over exactly the population the materialiser paginates
+# puts United States parks at 56,755 while the file this script produced holds 9,992. So
+# the shape I suspected was the shape it took: the first page returned the full 10,000,
+# OFFSET 10000 returned nothing because the cap applies to the underlying result set, and
+# the loop below read an empty page as the end of the data. 83 per cent of that pair was
+# lost silently, which is the worst kind of loss because the file looks complete.
+#
+# Only one of the 125 files carried the signature. Every other file sits well below 10,000,
+# which means its result set ended naturally rather than being cut off. The damage was one
+# pair; the defect was in every pair, waiting for a large enough class.
+#
+# The fix is to stop paginating by OFFSET at all. Instead each pair is collected in
+# latitude bands, and a band that comes back at or above the cap is not trusted: it is
+# split in half and both halves are re-asked. A band can therefore never be quietly
+# truncated, because a full band is treated as evidence of truncation rather than as a
+# complete answer. Points carry one latitude each and the bands are half-open, so no entity
+# is counted twice and none falls between two bands.
+
+# Two endpoints, each with its own rate budget. The outage rule is one request per minute
+# and it is enforced per host, which measurement showed: two requests to one host a second
+# apart gave 200 then 429, while one request to each host gave 200 twice. Alternating them
+# under a per-host minute gives one request roughly every 31 seconds without asking either
+# host for more than it said it would give.
+ENDPOINTS = ['https://query-main.wikidata.org/sparql',
+             'https://query.wikidata.org/sparql']
+_last = {e: 0.0 for e in ENDPOINTS}
+_turn = [0]
+CAP = 10000
 
 
-def fetch(qid, cq, iso, offset, limit=10000):
-    lang = LANG[iso]
-    q = f"""SELECT ?x ?xLabel ?lat ?lon ?site WHERE {{
-  ?x wdt:P31 wd:{qid} ; wdt:P17 wd:{cq} .
-  ?x p:P625/psv:P625 [ wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon ] .
-  OPTIONAL {{ ?x wdt:P856 ?site }}
-  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "{lang},en". }}
-}} LIMIT {limit} OFFSET {offset}"""
-    url = 'https://query.wikidata.org/sparql?format=json&query=' + urllib.parse.quote(q)
-    for attempt in range(6):
+def ask(q, timeout=180):
+    """One SPARQL query, routed to whichever endpoint has waited longest."""
+    for attempt in range(8):
+        ep = ENDPOINTS[_turn[0] % len(ENDPOINTS)]
+        _turn[0] += 1
+        gap = 62 - (time.time() - _last[ep])
+        if gap > 0:
+            time.sleep(gap)
+        url = ep + '?format=json&query=' + urllib.parse.quote(q)
         try:
             rq = urllib.request.Request(url, headers={
                 'User-Agent': 'LivdarCandidateInventory/1.0 (offline research inventory)',
                 'Accept': 'application/sparql-results+json'})
-            with urllib.request.urlopen(rq, timeout=180) as r:
+            _last[ep] = time.time()
+            with urllib.request.urlopen(rq, timeout=timeout) as r:
                 return json.load(r)['results']['bindings']
         except Exception as e:
-            # 429 during the outage means wait a full minute, not back off from seconds
-            wait = 70 if '429' in str(e) else 15 * (attempt + 1)
-            time.sleep(wait)
+            _last[ep] = time.time()
+            if '429' in str(e):
+                continue            # the alternation already spaces the next attempt
+            time.sleep(10 * (attempt + 1))
     return None
+
+
+def fetch_band(qid, cq, iso, lo, hi, limit=CAP):
+    """Entities of one class in one country whose latitude falls in [lo, hi)."""
+    lang = LANG[iso]
+    q = f"""SELECT ?x ?xLabel ?lat ?lon ?site WHERE {{
+  ?x wdt:P31 wd:{qid} ; wdt:P17 wd:{cq} .
+  ?x p:P625/psv:P625 [ wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon ] .
+  FILTER(?lat >= {lo} && ?lat < {hi})
+  OPTIONAL {{ ?x wdt:P856 ?site }}
+  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "{lang},en". }}
+}} LIMIT {limit}"""
+    return ask(q)
+
+
+def fetch(qid, cq, iso, offset, limit=CAP):
+    """Kept so nothing that imports this module breaks; the band path is what runs."""
+    return fetch_band(qid, cq, iso, -90.0, 90.0, limit)
 
 # Partition the work so several workers can run at once without doing it twice.
 # One worker takes about 1.2 minutes per class-country pair, which is four hours for the
@@ -89,26 +127,53 @@ for qid, cname, cq, iso in PAIRS:
             os.mkdir(claim)
         except FileExistsError:
             continue                      # another worker holds this pair
-        rows = []
-        offset = 0
-        while True:
-            b = fetch(qid, cq, iso, offset)
-            if b is None:
-                print(f'  {cname}/{iso} UNREACHABLE after retries, leaving unmarked', flush=True)
+        # Latitude bands, deepest-first, with a full band treated as truncation.
+        seen = {}
+        queue = [(-90.0, 90.0, 0)]
+        unreachable = False
+        truncated_bands = []
+        MAX_DEPTH = 14
+        while queue:
+            lo, hi, depth = queue.pop()
+            bnd = fetch_band(qid, cq, iso, lo, hi)
+            if bnd is None:
+                print(f'  {cname}/{iso} band {lo}..{hi} UNREACHABLE, leaving the pair unmarked',
+                      flush=True)
+                unreachable = True
                 break
-            for r in b:
+            if len(bnd) >= CAP:
+                # Do not believe a full band. Either it is exactly the cap by coincidence or
+                # it was cut off, and there is no way to tell from the response, so split.
+                if depth >= MAX_DEPTH:
+                    truncated_bands.append([lo, hi, len(bnd)])
+                    print(f'  {cname}/{iso} band {lo}..{hi} still full at depth {depth}: '
+                          f'recording it as truncated rather than claiming it is complete',
+                          flush=True)
+                else:
+                    mid = (lo + hi) / 2.0
+                    queue.append((lo, mid, depth + 1))
+                    queue.append((mid, hi, depth + 1))
+                    continue
+            for r in bnd:
                 lbl = r.get('xLabel', {}).get('value', '')
                 qidv = r['x']['value'].rsplit('/', 1)[1]
                 if not lbl or lbl == qidv: continue       # unlabelled: cannot make a page
-                rows.append({'id': qidv, 'kind': 'wd', 'cls': cname, 'name': lbl,
-                             'country': iso, 'lat': round(float(r['lat']['value']), 6),
-                             'lon': round(float(r['lon']['value']), 6),
-                             **({'web': r['site']['value'][:160]} if r.get('site') else {})})
-            if len(b) < 10000: break
-            offset += 10000
-            time.sleep(65)        # the endpoint asked for one request per minute
-        else:
-            pass
+                seen[qidv] = {'id': qidv, 'kind': 'wd', 'cls': cname, 'name': lbl,
+                              'country': iso, 'lat': round(float(r['lat']['value']), 6),
+                              'lon': round(float(r['lon']['value']), 6),
+                              **({'web': r['site']['value'][:160]} if r.get('site') else {})}
+        if unreachable:
+            os.rmdir(claim)
+            continue
+        rows = sorted(seen.values(), key=lambda r: r['id'])
+        if truncated_bands:
+            # Say so in the data rather than only in the log, so a later reader of the file
+            # cannot mistake it for a complete class.
+            with open(f'{OUT}wd-{cname}-{iso}.truncated.json', 'w') as tf:
+                json.dump({'class': cname, 'country': iso, 'rows_kept': len(rows),
+                           'bands_still_full_at_max_depth': truncated_bands,
+                           'meaning': 'this class in this country is a floor, not a total'},
+                          tf, indent=2)
         if rows:
             dst = f'{OUT}wd-{cname}-{iso}.jsonl.gz'
             with gzip.open(dst + '.tmp', 'wt', encoding='utf-8') as f:

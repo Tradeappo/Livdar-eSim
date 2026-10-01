@@ -187,6 +187,38 @@ COUNTRY_MKT = {c: (m, l) for m, c, l in MARKETS}
 POINT_RADIUS_KM = {'city_block': 0.4, 'neighbourhood': 1.0, 'quarter': 1.3,
                    'suburb': 1.8, 'district': 2.5, 'city_district': 2.5, 'borough': 3.0}
 
+# Long dashes come in from OSM, which is entitled to its own spelling: "Core-Columbia" in
+# San Diego and "La Alma-Lincoln Park" in Denver are both written with an en dash there, and
+# 63 Wikidata venue names carry one too. The project rule is that nothing Livdar renders may
+# contain one, so the name is normalised the moment it is read rather than at each of the
+# dozen places it is later interpolated into a title, an intent or a uniqueness reason.
+# Normalising at the point of use is how 670 of them reached the generated partitions while
+# the dash check reported a clean repository: the check could not see inside a .gz, and the
+# normalisation was not where the data entered. Every record that was changed carries
+# dash_normalised so the capture and the rendered form can still be told apart.
+LONG_DASHES = {'\u2010': '-', '\u2011': '-', '\u2012': '-', '\u2013': '-', '\u2014': '-',
+               '\u2015': '-', '\u2212': '-', '\ufe58': '-', '\ufe63': '-', '\uff0d': '-'}
+
+def undash(s):
+    if not s: return s
+    out = s
+    for bad, good in LONG_DASHES.items():
+        if bad in out: out = out.replace(bad, good)
+    return out
+
+def undash_record(r, *fields):
+    """Normalise the named fields in place, flagging the record if anything changed."""
+    changed = False
+    for k in fields:
+        v = r.get(k)
+        if isinstance(v, str):
+            n = undash(v)
+            if n != v:
+                r[k] = n
+                changed = True
+    if changed: r['dash_normalised'] = True
+    return r
+
 def slug(s):
     out = []
     for ch in (s or '').lower():
@@ -344,6 +376,7 @@ for pat in ('data/atlas/sources/osm-places/places-*.jsonl.gz',
                 except Exception: continue
                 if p.get('kind') != 'place': continue
                 if not p.get('name') or p.get('lat') is None: continue
+                undash_record(p, 'name')
                 k = place_key(p)
                 old = places.get(k)
                 if old is None or (p.get('geometry') == 'polygon' and old.get('geometry') != 'polygon'):
@@ -466,6 +499,7 @@ def iter_poi():
                 except Exception: continue
                 if o.get('kind') == 'place': continue
                 if not o.get('name') or not o.get('cls'): continue
+                undash_record(o, 'name')
                 yield o
         except (EOFError, OSError): pass
 
