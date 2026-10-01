@@ -1,293 +1,279 @@
 {
- "manifest_rows": 242996,
- "distinct_urls": 242996,
+ "manifest_rows": 239807,
+ "distinct_urls": 239807,
  "checks": {
-  "title_over_65_chars": 72299,
-  "meta_over_165_chars": 2036,
-  "long_dash_in_source_name_or_derived_text": 66,
-  "duplicate_title_exact": 17789,
-  "duplicate_title_same_tokens": 17813,
-  "uniqueness_reason_shared_with_another_candidate": 27,
+  "title_over_65_chars": 134923,
+  "meta_over_165_chars": 2032,
+  "long_dash_in_source_name_or_derived_text": 62,
+  "title_under_15_chars": 363,
+  "duplicate_title_exact": 3490,
+  "duplicate_title_same_tokens": 3533,
+  "superlative_added_by_template": 20,
+  "uniqueness_reason_shared_with_another_candidate": 22,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 4176
+  "orphan_pages": 3443
  },
  "orphans_by_family": {
   "poi.museum-notable": 1507,
-  "areas.overview": 864,
   "poi.theatre-notable": 635,
   "poi.art_museum-notable": 286,
+  "poi.botanical_garden-notable": 271,
   "places.area-attribute": 139,
-  "poi.botanical_garden-notable": 122,
   "places.city-attribute": 98,
-  "poi.park-notable": 97,
+  "poi.park-notable": 96,
   "places.area-opening": 95,
-  "poi.castle-notable": 77,
+  "poi.castle-notable": 75,
   "places.city-sport": 74,
   "places.city-opening": 64,
   "places.city-cuisine": 47,
   "poi.beach-notable": 11,
   "destinations.country-hub": 9,
-  "poi.aquarium-notable": 4,
   "places.city-swimming_pool": 3,
   "places.city-water_park": 3,
   "neighbourhoods.city-best-for": 3,
   "neighbourhoods.city-where-to-stay": 3,
-  "poi.theme_park-notable": 3,
-  "poi.water_park-notable": 3,
-  "poi.zoo-notable": 3,
   "places.city-castle": 2,
-  "places.city-garden": 2
+  "places.city-garden": 2,
+  "places.city-marina": 2,
+  "places.city-viewpoint": 2,
+  "places.city-stadium": 2,
+  "education.city-schools": 2,
+  "activities.city-things-to-do": 1
  },
  "saturated_templates": [],
  "duplicate_examples": [
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Berlin, DE: what is worth your time",
-   "a": "c_d24610700ea4",
-   "b": "c_c0366ecba3d2",
+   "title": "Berlin, DE: city",
+   "a": "c_bc82717cf817",
+   "b": "c_df4511f5dd9a",
    "url_a": "",
-   "url_b": "/de/areas/city-category/berlin/"
+   "url_b": "/de/move/city/berlin/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Berlin, DE: what is worth your time",
-   "a": "c_d24610700ea4",
-   "b": "c_c0366ecba3d2",
+   "title": "Berlin, DE: city",
+   "a": "c_bc82717cf817",
+   "b": "c_df4511f5dd9a",
    "url_a": "",
-   "url_b": "/de/areas/city-category/berlin/"
+   "url_b": "/de/move/city/berlin/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Hamburg, DE: what is worth your time",
-   "a": "c_278bdec14238",
-   "b": "c_97bc748da489",
+   "title": "Hamburg, DE: city",
+   "a": "c_c6b26f212379",
+   "b": "c_0c6b4c6872ca",
    "url_a": "",
-   "url_b": "/de/areas/city-category/hamburg/"
+   "url_b": "/de/move/city/hamburg/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Hamburg, DE: what is worth your time",
-   "a": "c_278bdec14238",
-   "b": "c_97bc748da489",
+   "title": "Hamburg, DE: city",
+   "a": "c_c6b26f212379",
+   "b": "c_0c6b4c6872ca",
    "url_a": "",
-   "url_b": "/de/areas/city-category/hamburg/"
+   "url_b": "/de/move/city/hamburg/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Köln, DE: what is worth your time",
-   "a": "c_f5efbd7cbfdc",
-   "b": "c_12f05925e4dd",
+   "title": "Köln, DE: city",
+   "a": "c_93792ec772a5",
+   "b": "c_159e970982a3",
    "url_a": "",
-   "url_b": "/de/areas/city-category/köln/"
+   "url_b": "/de/move/city/köln/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Köln, DE: what is worth your time",
-   "a": "c_f5efbd7cbfdc",
-   "b": "c_12f05925e4dd",
+   "title": "Köln, DE: city",
+   "a": "c_93792ec772a5",
+   "b": "c_159e970982a3",
    "url_a": "",
-   "url_b": "/de/areas/city-category/köln/"
+   "url_b": "/de/move/city/köln/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Munich, DE: what is worth your time",
-   "a": "c_95d2961430d0",
-   "b": "c_245c17b114d5",
+   "title": "Munich, DE: city",
+   "a": "c_d6e53d489af7",
+   "b": "c_cade4f3803b3",
    "url_a": "",
-   "url_b": "/de/areas/city-category/munich/"
+   "url_b": "/de/move/city/munich/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Munich, DE: what is worth your time",
-   "a": "c_95d2961430d0",
-   "b": "c_245c17b114d5",
+   "title": "Munich, DE: city",
+   "a": "c_d6e53d489af7",
+   "b": "c_cade4f3803b3",
    "url_a": "",
-   "url_b": "/de/areas/city-category/munich/"
+   "url_b": "/de/move/city/munich/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Aachen, DE: what is worth your time",
-   "a": "c_13b7c8047cda",
-   "b": "c_a25fd67c8428",
+   "title": "Aachen, DE: city",
+   "a": "c_e8612180762b",
+   "b": "c_c07da4d177b8",
    "url_a": "",
-   "url_b": "/de/areas/city-category/aachen/"
+   "url_b": "/de/move/city/aachen/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Aachen, DE: what is worth your time",
-   "a": "c_13b7c8047cda",
-   "b": "c_a25fd67c8428",
+   "title": "Aachen, DE: city",
+   "a": "c_e8612180762b",
+   "b": "c_c07da4d177b8",
    "url_a": "",
-   "url_b": "/de/areas/city-category/aachen/"
+   "url_b": "/de/move/city/aachen/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Augsburg, DE: what is worth your time",
-   "a": "c_210cbb386a25",
-   "b": "c_56fc21604c03",
+   "title": "Augsburg, DE: city",
+   "a": "c_8ec5f0ace863",
+   "b": "c_4ef35074ddd5",
    "url_a": "",
-   "url_b": "/de/areas/city-category/augsburg/"
+   "url_b": "/de/move/city/augsburg/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Augsburg, DE: what is worth your time",
-   "a": "c_210cbb386a25",
-   "b": "c_56fc21604c03",
+   "title": "Augsburg, DE: city",
+   "a": "c_8ec5f0ace863",
+   "b": "c_4ef35074ddd5",
    "url_a": "",
-   "url_b": "/de/areas/city-category/augsburg/"
+   "url_b": "/de/move/city/augsburg/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Bielefeld, DE: what is worth your time",
-   "a": "c_b04ad38a798a",
-   "b": "c_09839a27fa37",
+   "title": "Bielefeld, DE: city",
+   "a": "c_9b55f02c31d7",
+   "b": "c_89a5e4774b48",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bielefeld/"
+   "url_b": "/de/move/city/bielefeld/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bielefeld, DE: what is worth your time",
-   "a": "c_b04ad38a798a",
-   "b": "c_09839a27fa37",
+   "title": "Bielefeld, DE: city",
+   "a": "c_9b55f02c31d7",
+   "b": "c_89a5e4774b48",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bielefeld/"
+   "url_b": "/de/move/city/bielefeld/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Bochum, DE: what is worth your time",
-   "a": "c_f3eb4f544d6a",
-   "b": "c_0ac4ffc1cccf",
+   "title": "Bochum, DE: city",
+   "a": "c_f66808e237e5",
+   "b": "c_59162479cb52",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bochum/"
+   "url_b": "/de/move/city/bochum/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bochum, DE: what is worth your time",
-   "a": "c_f3eb4f544d6a",
-   "b": "c_0ac4ffc1cccf",
+   "title": "Bochum, DE: city",
+   "a": "c_f66808e237e5",
+   "b": "c_59162479cb52",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bochum/"
+   "url_b": "/de/move/city/bochum/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Bonn, DE: what is worth your time",
-   "a": "c_d3407d981a40",
-   "b": "c_9e45d296289e",
+   "title": "Bonn, DE: city",
+   "a": "c_c9633509079b",
+   "b": "c_50bdb461b696",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bonn/"
+   "url_b": "/de/move/city/bonn/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bonn, DE: what is worth your time",
-   "a": "c_d3407d981a40",
-   "b": "c_9e45d296289e",
+   "title": "Bonn, DE: city",
+   "a": "c_c9633509079b",
+   "b": "c_50bdb461b696",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bonn/"
+   "url_b": "/de/move/city/bonn/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Braunschweig, DE: what is worth your time",
-   "a": "c_fce4104072be",
-   "b": "c_adb97ac3ea4e",
+   "title": "Braunschweig, DE: city",
+   "a": "c_9682f3185e78",
+   "b": "c_19afcfa76654",
    "url_a": "",
-   "url_b": "/de/areas/city-category/braunschweig/"
+   "url_b": "/de/move/city/braunschweig/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Braunschweig, DE: what is worth your time",
-   "a": "c_fce4104072be",
-   "b": "c_adb97ac3ea4e",
+   "title": "Braunschweig, DE: city",
+   "a": "c_9682f3185e78",
+   "b": "c_19afcfa76654",
    "url_a": "",
-   "url_b": "/de/areas/city-category/braunschweig/"
+   "url_b": "/de/move/city/braunschweig/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Bremen, DE: what is worth your time",
-   "a": "c_56983a59b196",
-   "b": "c_b5954804abcd",
+   "title": "Bremen, DE: city",
+   "a": "c_d5f134e6be2c",
+   "b": "c_ef675f3cfb58",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bremen/"
+   "url_b": "/de/move/city/bremen/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bremen, DE: what is worth your time",
-   "a": "c_56983a59b196",
-   "b": "c_b5954804abcd",
+   "title": "Bremen, DE: city",
+   "a": "c_d5f134e6be2c",
+   "b": "c_ef675f3cfb58",
    "url_a": "",
-   "url_b": "/de/areas/city-category/bremen/"
+   "url_b": "/de/move/city/bremen/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Chemnitz, DE: what is worth your time",
-   "a": "c_2a17755ef3b8",
-   "b": "c_7fd9a6aa883d",
+   "title": "Chemnitz, DE: city",
+   "a": "c_36249ef06739",
+   "b": "c_c05bdc565ad4",
    "url_a": "",
-   "url_b": "/de/areas/city-category/chemnitz/"
+   "url_b": "/de/move/city/chemnitz/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Chemnitz, DE: what is worth your time",
-   "a": "c_2a17755ef3b8",
-   "b": "c_7fd9a6aa883d",
+   "title": "Chemnitz, DE: city",
+   "a": "c_36249ef06739",
+   "b": "c_c05bdc565ad4",
    "url_a": "",
-   "url_b": "/de/areas/city-category/chemnitz/"
+   "url_b": "/de/move/city/chemnitz/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Dortmund, DE: what is worth your time",
-   "a": "c_d5c565edae34",
-   "b": "c_5101b471d507",
+   "title": "Dortmund, DE: city",
+   "a": "c_1d15f61edd23",
+   "b": "c_59e8642a4250",
    "url_a": "",
-   "url_b": "/de/areas/city-category/dortmund/"
+   "url_b": "/de/move/city/dortmund/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
-  "poi.attraction-notable": 17,
-  "poi.gallery-notable": 7,
-  "poi.museum-notable": 3
+  "poi.attraction-notable": 15,
+  "poi.gallery-notable": 6,
+  "poi.museum-notable": 1
  },
  "shared_uniqueness_reason_examples": [
-  {
-   "market": "en-GB",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q510323) with 3 source fields: a practical page for a specific visited entity, not a generated st",
-   "a": "c_fafaa0c0e3bb",
-   "b": "c_e726c057518d",
-   "url_b": "/en/poi/attraction/speakers-corner-n5525489356/"
-  },
-  {
-   "market": "en-US",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q826038) with 3 source fields: a practical page for a specific visited entity, not a generated st",
-   "a": "c_64c606255605",
-   "b": "c_cd6f086247db",
-   "url_b": "/en/poi/attraction/boston-marathon-starting-line-n7512978677/"
-  },
   {
    "market": "fr-FR",
    "family": "poi.attraction-notable",
@@ -391,14 +377,151 @@
    "a": "c_a5107182f0c7",
    "b": "c_a4044827b5d5",
    "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293579130/"
+  },
+  {
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_e14808f90348",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293614210/"
+  },
+  {
+   "market": "pl-PL",
+   "family": "poi.attraction-notable",
+   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
+   "a": "c_a5107182f0c7",
+   "b": "c_9b8436abd9a4",
+   "url_b": "/pl/poi/attraction/ławeczka-chopina-n13293614220/"
   }
  ],
  "long_dash_examples": [],
- "superlative_examples": [],
+ "superlative_examples": [
+  {
+   "candidate_id": "c_8d14a679576b",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "London, GB: city best for"
+  },
+  {
+   "candidate_id": "c_5a1a4d798c44",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Barcelona, ES: city best for"
+  },
+  {
+   "candidate_id": "c_3a9ccf4c7529",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Madrid, ES: city best for"
+  },
+  {
+   "candidate_id": "c_0cdd6b44aa97",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "São Paulo, BR: city best for"
+  },
+  {
+   "candidate_id": "c_680b17bc32de",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Naples, IT: city best for"
+  },
+  {
+   "candidate_id": "c_b1920e9bf936",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Turin, IT: city best for"
+  },
+  {
+   "candidate_id": "c_27d511e80c2d",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Berlin, DE: city best for"
+  },
+  {
+   "candidate_id": "c_e878df586f86",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Hamburg, DE: city best for"
+  },
+  {
+   "candidate_id": "c_d61b8d5f329d",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Köln, DE: city best for"
+  },
+  {
+   "candidate_id": "c_e4f677b6ff23",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Chicago, US: city best for"
+  },
+  {
+   "candidate_id": "c_77f27c3493c5",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "New York City, US: city best for"
+  },
+  {
+   "candidate_id": "c_35ddc89751a9",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Philadelphia, US: city best for"
+  },
+  {
+   "candidate_id": "c_b9884e311110",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Paris, FR: city best for"
+  },
+  {
+   "candidate_id": "c_e5cda2a1647f",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Tokyo, JP: city best for"
+  },
+  {
+   "candidate_id": "c_8af3496d3bcf",
+   "field": "_title",
+   "words": [
+    "best"
+   ],
+   "value": "Honolulu, US: city best for"
+  }
+ ],
  "title_length": {
-  "min": 27,
+  "min": 12,
   "max": 192,
-  "mean": 57.5
+  "mean": 62.3
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
