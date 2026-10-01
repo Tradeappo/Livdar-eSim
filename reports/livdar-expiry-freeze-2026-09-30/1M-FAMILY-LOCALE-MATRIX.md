@@ -10,10 +10,10 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-restaurant | 1,737 | 660 | 1,158 | 983 |  | 812 | 957 | 499 | 446 | 473 | 287 |
 | places.area-attribute | 2,866 |  | 2,673 |  |  |  |  |  |  | 569 | 249 |
 | places.area-fast_food | 1,458 | 1,118 | 767 | 595 |  | 397 | 340 | 401 | 449 | 427 | 173 |
-| poi.museum-notable | 737 | 379 | 1,038 | 311 |  | 796 | 347 | 314 | 373 | 299 | 407 |
 | activities.city-things-to-do |  | 3,476 | 215 | 554 | 51 | 149 | 164 | 152 | 57 | 1 | 160 |
 | places.area-pharmacy | 358 | 521 | 1,073 | 399 |  | 585 | 664 | 451 | 102 | 602 | 209 |
 | places.area-cafe | 1,077 | 966 | 491 | 595 |  | 551 | 464 | 260 | 211 | 213 | 84 |
+| poi.museum-notable | 581 | 380 | 1,062 | 310 |  | 790 | 349 | 319 | 381 | 305 | 375 |
 | stay.near-venue |  | 2,588 | 621 | 376 |  | 169 | 214 | 295 | 129 | 172 | 241 |
 | places.city-restaurant | 1,624 | 318 | 528 | 419 |  | 401 | 323 | 445 | 192 | 192 | 196 |
 | places.area-supermarket | 420 | 251 | 824 | 505 |  | 517 | 740 | 225 | 504 | 415 | 161 |
@@ -58,10 +58,10 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | neighbourhoods.guide | 192 | 43 | 127 | 80 |  | 45 | 180 | 33 | 8 | 17 | 100 |
 | places.neighbourhood-category | 192 | 43 | 127 | 80 |  | 45 | 180 | 33 | 8 | 17 | 100 |
 | rents.neighbourhood | 192 | 43 | 127 | 80 |  | 45 | 180 | 33 | 8 | 17 | 100 |
-| poi.theatre-notable | 259 |  | 106 | 49 |  | 120 | 48 | 93 | 92 | 15 | 37 |
 | places.area-sports_centre | 86 | 43 | 128 | 24 |  | 68 | 53 | 92 | 233 | 62 | 24 |
 | places.area-museum | 118 | 51 | 95 | 111 |  | 140 | 67 | 57 | 76 | 54 | 23 |
 | places.area-library | 79 | 44 | 123 | 39 |  | 116 | 62 | 97 | 27 | 175 | 14 |
+| poi.theatre-notable | 153 |  | 107 | 43 |  | 123 | 48 | 95 | 95 | 15 | 35 |
 | places.city-veterinary | 184 | 49 | 45 | 47 | 9 | 43 | 77 | 88 | 38 | 79 | 36 |
 | places.area-veterinary | 92 | 40 | 43 | 58 |  | 51 | 111 | 52 | 25 | 136 | 34 |
 | transport.route-from-market |  | 198 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
@@ -86,14 +86,14 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-gallery | 124 | 54 | 36 | 16 |  | 30 | 15 | 75 | 17 | 29 | 3 |
 | places.area-nightclub | 59 | 40 | 61 | 23 |  | 34 | 55 | 47 | 14 | 23 | 9 |
 | places.area-parking | 31 | 13 | 73 | 46 |  | 34 | 59 | 46 | 44 | 2 | 15 |
-| poi.park-notable | 122 | 22 | 49 | 67 |  | 23 | 38 |  | 17 | 3 | 8 |
 | places.city-arts_centre | 79 | 21 | 35 | 5 |  | 26 | 18 | 74 | 24 | 32 | 23 |
 | places.city-college | 50 | 9 | 29 | 13 |  | 9 | 12 | 112 | 31 | 29 | 42 |
 | places.city-gallery | 109 | 30 | 20 | 10 |  | 18 | 12 | 68 | 21 | 16 | 5 |
+| poi.park-notable | 89 | 21 | 49 | 56 |  | 22 | 38 |  | 17 | 3 | 7 |
 | places.city-attraction | 53 | 32 | 44 | 34 |  | 21 | 27 | 20 | 20 | 30 | 18 |
 | places.area-arts_centre | 61 | 17 | 30 | 2 |  | 25 | 13 | 57 | 27 | 27 | 19 |
-| poi.art_museum-notable |  | 73 |  | 100 |  |  | 70 |  | 9 |  | 26 |
 | places.area-college | 16 | 9 | 15 | 25 |  | 6 | 14 | 123 | 18 | 41 | 10 |
+| poi.art_museum-notable |  | 73 |  | 91 |  |  | 70 |  | 9 |  | 22 |
 | places.city-nightclub | 49 | 21 | 41 | 14 |  | 17 | 33 | 35 | 10 | 21 | 11 |
 | places.area-department_store | 126 | 19 | 16 | 15 |  | 17 | 3 | 4 | 30 | 3 | 16 |
 | places.city-parking | 18 | 10 | 54 | 29 |  | 16 | 35 | 46 | 21 | 1 | 13 |
@@ -108,17 +108,18 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.city-coworking | 44 | 13 | 2 | 10 |  | 10 | 13 | 39 | 13 | 6 | 7 |
 | places.area-coworking | 29 | 21 |  | 11 |  | 10 | 18 | 42 | 11 | 5 | 6 |
 | places.area-market | 33 | 7 | 14 |  |  | 8 | 7 | 69 | 3 |  | 12 |
-| poi.botanical_garden-notable | 33 | 11 | 25 | 26 |  | 23 |  | 7 |  | 4 | 6 |
 | places.city-marina | 23 | 1 | 77 |  |  | 5 | 3 | 5 | 17 | 1 | 1 |
 | places.city-sport | 61 |  | 38 |  |  |  |  |  |  | 18 | 16 |
+| poi.botanical_garden-notable | 26 | 11 | 25 | 25 |  | 23 |  | 7 |  | 4 | 5 |
 | poi.gallery-notable | 48 | 28 | 9 | 1 |  | 8 | 2 | 4 | 5 | 9 |  |
 | places.area-hospital | 12 | 1 | 1 | 56 |  | 3 | 1 | 4 | 3 | 1 | 21 |
+| poi.archaeological_site-notable | 7 | 14 | 3 | 4 |  | 59 | 4 |  |  |  | 2 |
 | education.city-schools | 15 | 2 | 4 | 12 | 5 | 2 | 2 | 1 |  | 1 | 15 |
 | places.city-mall | 6 | 1 | 1 | 16 |  | 7 | 2 |  | 8 | 6 | 10 |
-| poi.castle-notable |  | 18 | 11 | 1 |  | 17 | 4 |  | 1 | 5 |  |
 | places.area-marina | 4 |  | 42 |  |  | 1 |  | 1 | 5 | 1 |  |
 | places.city-park | 27 | 2 |  | 8 |  | 3 | 3 | 4 |  | 1 | 6 |
 | comparisons.city-vs-city |  | 11 |  | 15 |  |  |  |  |  |  | 24 |
+| poi.castle-notable |  | 11 | 11 | 1 |  | 17 | 4 |  | 1 | 5 |  |
 | places.city-viewpoint | 6 | 1 | 14 | 10 |  | 1 | 3 | 1 | 3 | 3 |  |
 | places.city-camp_site | 10 | 4 |  | 3 |  |  |  | 2 | 15 | 1 | 6 |
 | places.area-viewpoint | 7 | 1 | 5 | 5 |  | 1 | 2 |  | 1 | 6 |  |
@@ -128,7 +129,6 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | neighbourhoods.city-where-to-stay | 4 | 1 | 3 | 1 |  | 2 | 2 | 3 | 1 | 2 | 1 |
 | places.city-nature_reserve | 16 | 3 |  |  |  |  |  |  |  |  | 1 |
 | places.city-theme_park | 2 | 1 |  | 2 |  | 1 |  | 7 |  | 5 | 1 |
-| poi.archaeological_site-notable | 1 | 2 | 2 |  |  | 12 |  |  |  |  |  |
 | places.city-zoo | 2 |  |  | 1 |  | 1 |  |  | 7 | 2 |  |
 | places.area-garden | 10 | 1 |  |  |  |  |  | 1 |  |  |  |
 | poi.theme_park-notable | 3 | 2 | 1 | 5 |  |  |  |  | 1 |  |  |
@@ -145,11 +145,11 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-nature_reserve | 4 |  |  |  |  |  |  |  |  |  |  |
 | places.city-beach | 1 |  |  |  |  |  |  |  |  | 2 |  |
 | poi.beach-notable |  |  | 2 | 1 |  |  |  |  |  |  |  |
-| poi.national_park-notable | 1 |  |  |  |  |  |  | 1 |  |  | 1 |
 | poi.stadium-notable |  |  |  | 2 |  |  |  |  |  |  | 1 |
 | places.area-camp_site | 2 |  |  |  |  |  |  |  |  |  |  |
 | places.area-swimming_pool |  |  |  |  |  | 1 |  | 1 |  |  |  |
 | places.area-theme_park |  |  |  |  |  |  |  |  |  | 2 |  |
+| poi.national_park-notable |  |  |  |  |  |  |  | 1 |  |  | 1 |
 | poi.zoo-notable | 1 |  | 1 |  |  |  |  |  |  |  |  |
 | visas.country-work-permit |  | 2 |  |  |  |  |  |  |  |  |  |
 | places.area-beach |  |  |  |  |  |  |  |  |  | 1 |  |

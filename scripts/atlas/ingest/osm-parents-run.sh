@@ -73,9 +73,23 @@ fi
 
 echo "[$(date +%T)] [$ISO] extracting named parents with geometry"
 if python3 scripts/atlas/ingest/osm-parents-extract.py "$FILT" "$ISO" "$DONE.tmp"; then
+  # Verify the OUTPUT before freeing the input. Exiting 0 is not the same as having worked: a
+  # from_wkb call with a bogus argument raised, the exception was swallowed into an unprinted
+  # counter, and a whole German run produced 155,255 parents of which ZERO were polygons.
+  # Because the script had exited 0 it deleted both the filtered layer and the full extract,
+  # so finding the bug cost a 5.9GB re-download. A parent layer with no polygons cannot
+  # support a containment test, which is the only thing this layer is for, so that is the
+  # thing to check.
+  POLY=$(zcat "$DONE.tmp" 2>/dev/null | grep -c '"geometry": "polygon"' || true)
+  if [ "${POLY:-0}" -lt 50 ]; then
+    echo "[$ISO] EXTRACTION PRODUCED ONLY ${POLY:-0} POLYGONS, which cannot ground a"
+    echo "  containment test. Keeping $FILT so this can be diagnosed without re-downloading."
+    mv -f "$DONE.tmp" "$DONE.suspect"
+    exit 1
+  fi
   mv -f "$DONE.tmp" "$DONE"
   rm -f "$FILT"
-  echo "[$(date +%T)] [$ISO] done: $DONE"
+  echo "[$(date +%T)] [$ISO] done: $DONE with $POLY polygons"
 else
   rm -f "$DONE.tmp"
   echo "[$ISO] extraction FAILED, filtered layer kept at $FILT for a retry"

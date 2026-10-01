@@ -25,7 +25,7 @@ is kept and flagged, so the assignment step can refuse to let it ground a contai
 
 Usage: osm-parents-extract.py <parent-layer.pbf> <country_iso2> <out.jsonl.gz>
 """
-import sys, gzip, json, collections
+import sys, gzip, json, collections, math
 import osmium
 from shapely import from_wkb
 from shapely.geometry import mapping
@@ -52,8 +52,11 @@ PARENT_TAGS = {
     ('landuse', 'winter_sports'): 'ski_area',
     ('aeroway', 'aerodrome'): 'airport_complex',
     ('amenity', 'university'): 'campus',
-    ('historic', 'archaeological_site'): 'archaeological_area',
-    ('historic', 'memorial'): 'memorial_complex',
+    # historic=memorial and historic=archaeological_site are NOT parents, they are the POI
+    # this whole exercise is trying to find parents FOR. Including them produced 75,725
+    # "memorial complexes" in Germany that were simply the 75,725 memorial nodes, which would
+    # have made each memorial its own parent and answered nothing. A memorial complex worth a
+    # page is tagged as a park, a protected area or a named site, and those are already here.
     ('tourism', 'theme_park'): 'theme_park',
     ('tourism', 'zoo'): 'zoo_complex',
 }
@@ -131,9 +134,20 @@ class Parents(osmium.SimpleHandler):
             return
         self.seen.add(key)
         try:
-            geom = from_wkb(wkbfab.create_multipolygon(a), hex=True)
-        except Exception:
+            # create_multipolygon returns a HEX STRING. shapely 2's from_wkb has no hex
+            # argument, so from_wkb(s, hex=True) raises TypeError, and the except below was
+            # counting it as a geometry failure in a counter that was never printed. The
+            # result was 0 polygons out of Germany, which read as "OSM has no parent areas"
+            # when it meant "this code cannot parse them". Decode the hex explicitly, the way
+            # the place extractor already does.
+            geom = from_wkb(bytes.fromhex(wkbfab.create_multipolygon(a)))
+        except Exception as e:
             self.stats['area_geometry_failed'] += 1
+            # Print the first few, because an unprinted failure counter is
+            # indistinguishable from an absence of data, and that is exactly how the
+            # from_wkb bug above survived a whole country run.
+            if self.stats['area_geometry_failed'] <= 3:
+                print(f'  area geometry failed: {type(e).__name__}: {e}', file=sys.stderr)
             return
         if geom.is_empty:
             self.stats['area_geometry_empty'] += 1
@@ -141,7 +155,6 @@ class Parents(osmium.SimpleHandler):
         c = geom.centroid
         minx, miny, maxx, maxy = geom.bounds
         # square degrees to km2, scaled by latitude so a polar polygon is not overstated
-        import math
         km2 = geom.area * (111.0 ** 2) * max(0.05, math.cos(math.radians(c.y)))
         r = self._row(t, name, cls)
         r.update({
@@ -202,6 +215,10 @@ with gzip.GzipFile(OUT, 'wb', compresslevel=6, mtime=0) as gz:
     for r in sorted(h.rows, key=lambda x: (x['cls'], x['name'], x['id'])):
         gz.write((json.dumps(r, ensure_ascii=False) + '\n').encode('utf-8'))
 
+if h.stats:
+    print('  handler stats:', file=sys.stderr)
+    for k, v in h.stats.most_common():
+        print(f'    {v:>8,}  {k}', file=sys.stderr)
 by_cls = collections.Counter(r['cls'] for r in h.rows)
 by_geom = collections.Counter(r['geometry'] for r in h.rows)
 print(f'{ISO}: {len(h.rows):,} parent entities written to {OUT}', file=sys.stderr)

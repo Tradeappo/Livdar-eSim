@@ -1,21 +1,21 @@
 {
- "manifest_rows": 208876,
- "distinct_urls": 208876,
+ "manifest_rows": 208621,
+ "distinct_urls": 208621,
  "checks": {
-  "title_over_65_chars": 135972,
+  "title_over_65_chars": 135878,
   "meta_over_165_chars": 3225,
   "title_under_15_chars": 4,
-  "duplicate_title_exact": 159,
-  "duplicate_title_same_tokens": 166,
+  "duplicate_title_exact": 135,
+  "duplicate_title_same_tokens": 143,
   "superlative_from_the_family_own_intent": 20,
   "uniqueness_reason_shared_with_another_candidate": 133,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 142,
+  "orphan_pages": 107,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 181,
+  "entity_names_needing_a_disambiguator_in_the_title": 155,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
@@ -23,25 +23,25 @@
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
  "orphans_by_family": {
-  "poi.museum-notable": 37,
-  "poi.theatre-notable": 27,
+  "poi.museum-notable": 20,
+  "poi.theatre-notable": 13,
   "destinations.country-hub": 9,
   "taxes.country-remote-work": 7,
-  "poi.botanical_garden-notable": 7,
   "relocation.country": 7,
+  "poi.botanical_garden-notable": 4,
   "places.city-castle": 3,
   "places.city-garden": 3,
   "places.city-swimming_pool": 3,
   "neighbourhoods.city-best-for": 3,
   "neighbourhoods.city-where-to-stay": 3,
   "poi.art_museum-notable": 3,
-  "poi.park-notable": 3,
   "places.city-marina": 2,
   "places.city-theme_park": 2,
   "places.city-viewpoint": 2,
   "places.city-zoo": 2,
   "places.city-stadium": 2,
   "poi.castle-notable": 2,
+  "poi.park-notable": 2,
   "education.city-schools": 2,
   "activities.city-things-to-do": 1,
   "places.area-fast_food": 1,
@@ -71,6 +71,15 @@
    "url_b": "/de/poi/museum/bürgermeister-stroof-haus-q76634430/"
   },
   {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Fürstlich-Fürstenbergische Sammlungen, Donaueschingen, DE: what to know before you go",
+   "a": "c_ec18664c2acd",
+   "b": "c_4afadc40124f",
+   "url_a": "",
+   "url_b": "/de/poi/museum/fürstlich-fürstenbergische-sammlungen-q18753934/"
+  },
+  {
    "kind": "exact_title",
    "market": "de-DE",
    "title": "Alte Oper, DE: near venue",
@@ -267,15 +276,6 @@
    "b": "c_6632ff374dba",
    "url_a": "",
    "url_b": "/de/stay/near-venue/pfalzbau-q56513594/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Saalbau Essen, DE: near venue",
-   "a": "c_cc79932de86e",
-   "b": "c_ada39bbf1edd",
-   "url_a": "",
-   "url_b": "/de/stay/near-venue/saalbau-essen-q61435369/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -290,22 +290,6 @@
  "contested_intent_owners": {},
  "locale_mismatch_examples": [],
  "entity_names_needing_a_disambiguator": {
-  "('activities.city-things-to-do', 'en-GB', 'ashford', 'GB')": [
-   "2656954",
-   "2656955"
-  ],
-  "('activities.city-things-to-do', 'en-GB', 'neston', 'GB')": [
-   "2641795",
-   "3345432"
-  ],
-  "('places.city-category', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
-  ],
-  "('activities.city-things-to-do', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
-  ],
   "('places.neighbourhood-category', 'en-US', 'port richmond', 'US')": [
    "4560691",
    "5132028"
@@ -321,30 +305,6 @@
   "('rents.neighbourhood', 'fr-FR', 'sainte-marguerite', 'FR')": [
    "12808662",
    "2980467"
-  ],
-  "('work.city-jobs-category', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
-  ],
-  "('comparisons.city-vs-home', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
-  ],
-  "('cost-of-living.city', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
-  ],
-  "('cost-of-living.city-vs-market', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
-  ],
-  "('relocation.city', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
-  ],
-  "('weather.city-month', 'pt-BR', 'são josé', 'BR')": [
-   "3448742",
-   "3448744"
   ],
   "('poi.attraction-notable', 'fr-FR', 'jardin des plantes', 'FR')": [
    "n2063753155",
@@ -394,6 +354,50 @@
   "('poi.museum-notable', 'de-DE', 'münzkabinett', 'DE')": [
    "Q323169",
    "n1721721621"
+  ],
+  "('poi.museum-notable', 'de-DE', 'ns-dokumentationszentrum', 'DE')": [
+   "Q1961427",
+   "n78605265"
+  ],
+  "('poi.museum-notable', 'de-DE', 'rotkreuz-museum', 'DE')": [
+   "n3354056742",
+   "n667068550"
+  ],
+  "('poi.museum-notable', 'de-DE', 'schlossmuseum', 'DE')": [
+   "n1238956832",
+   "n255893339",
+   "n3273230816",
+   "n663417452"
+  ],
+  "('poi.museum-notable', 'de-DE', 'stadtgalerie', 'DE')": [
+   "Q76636430",
+   "n622354400"
+  ],
+  "('poi.museum-notable', 'de-DE', 'stadtmuseum', 'DE')": [
+   "n2431199581",
+   "n2728930615",
+   "n295603345",
+   "n390493343"
+  ],
+  "('poi.museum-notable', 'de-DE', 'theatermuseum', 'DE')": [
+   "n3210890800",
+   "n336252050"
+  ],
+  "('poi.museum-notable', 'en-GB', 'hunterian museum', 'GB')": [
+   "n3349882188",
+   "n600576868"
+  ],
+  "('poi.museum-notable', 'en-GB', 'museum of antiquities', 'GB')": [
+   "Q6940740",
+   "n11901119398"
+  ],
+  "('poi.museum-notable', 'en-US', 'national museum of the american indian', 'US')": [
+   "Q1075141",
+   "n368061337"
+  ],
+  "('poi.museum-notable', 'fr-FR', 'musée national de la marine', 'FR')": [
+   "n13727664577",
+   "n5882540291"
   ]
  },
  "urls_sharing_a_cannibalization_key_examples": {},
@@ -7746,24 +7750,45 @@
    ]
   },
   "poi.archaeological_site-notable|de": {
-   "rows": 2,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "poi.archaeological_site-notable|en": {
    "rows": 3,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
-  "poi.archaeological_site-notable|it": {
-   "rows": 12,
+  "poi.archaeological_site-notable|en": {
+   "rows": 21,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "poi.archaeological_site-notable|es": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.archaeological_site-notable|it": {
+   "rows": 59,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "poi.archaeological_site-notable|ja": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.archaeological_site-notable|pt": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.art_museum-notable|en": {
@@ -7781,7 +7806,7 @@
    ]
   },
   "poi.art_museum-notable|ja": {
-   "rows": 100,
+   "rows": 91,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7795,7 +7820,7 @@
    ]
   },
   "poi.art_museum-notable|pt": {
-   "rows": 26,
+   "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7886,7 +7911,7 @@
    ]
   },
   "poi.botanical_garden-notable|en": {
-   "rows": 44,
+   "rows": 37,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7907,7 +7932,7 @@
    ]
   },
   "poi.botanical_garden-notable|ja": {
-   "rows": 26,
+   "rows": 25,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7921,7 +7946,7 @@
    ]
   },
   "poi.botanical_garden-notable|pt": {
-   "rows": 6,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7935,7 +7960,7 @@
    ]
   },
   "poi.castle-notable|en": {
-   "rows": 18,
+   "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8033,73 +8058,66 @@
    ]
   },
   "poi.museum-notable|de": {
-   "rows": 1038,
+   "rows": 1062,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|en": {
-   "rows": 1116,
+   "rows": 961,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|es": {
-   "rows": 347,
+   "rows": 349,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|fr": {
-   "rows": 314,
+   "rows": 319,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|it": {
-   "rows": 796,
+   "rows": 790,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|ja": {
-   "rows": 311,
+   "rows": 310,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|nl": {
-   "rows": 373,
+   "rows": 381,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|pl": {
-   "rows": 299,
+   "rows": 305,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "poi.museum-notable|pt": {
-   "rows": 407,
+   "rows": 375,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "poi.national_park-notable|en": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.national_park-notable|fr": {
@@ -8124,7 +8142,7 @@
    ]
   },
   "poi.park-notable|en": {
-   "rows": 144,
+   "rows": 110,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8138,14 +8156,14 @@
    ]
   },
   "poi.park-notable|it": {
-   "rows": 23,
+   "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.park-notable|ja": {
-   "rows": 67,
+   "rows": 56,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8166,7 +8184,7 @@
    ]
   },
   "poi.park-notable|pt": {
-   "rows": 8,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8187,14 +8205,14 @@
    ]
   },
   "poi.theatre-notable|de": {
-   "rows": 106,
+   "rows": 107,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|en": {
-   "rows": 259,
+   "rows": 153,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8208,28 +8226,28 @@
    ]
   },
   "poi.theatre-notable|fr": {
-   "rows": 93,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|it": {
-   "rows": 120,
+   "rows": 123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|ja": {
-   "rows": 49,
+   "rows": 43,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.theatre-notable|nl": {
-   "rows": 92,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8243,7 +8261,7 @@
    ]
   },
   "poi.theatre-notable|pt": {
-   "rows": 37,
+   "rows": 35,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"

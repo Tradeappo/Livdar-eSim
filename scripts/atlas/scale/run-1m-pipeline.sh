@@ -50,12 +50,20 @@ python3 scripts/atlas/scale/wikidata-candidates.py > /tmp/pipe_wd.log 2>&1
 grep -E "^(Wikidata candidates|  by shape)" /tmp/pipe_wd.log || tail -3 /tmp/pipe_wd.log
 
 else
-  log "resuming at the manifest; the aggregation and Wikidata candidate files on disk are reused"
-  for need in data/atlas/sources/osm-poi/_aggregations.jsonl.gz \
-              data/atlas/sources/wikidata/_candidates.jsonl.gz; do
-    [ -f "$need" ] || { echo "  MISSING $need, cannot resume; run without --from-manifest"; exit 1; }
-    echo "  reusing $need  ($(stat -c '%y' "$need" | cut -d. -f1))"
-  done
+  log "resuming at the manifest; the aggregation file on disk is reused"
+  need=data/atlas/sources/osm-poi/_aggregations.jsonl.gz
+  [ -f "$need" ] || { echo "  MISSING $need, cannot resume; run without --from-manifest"; exit 1; }
+  echo "  reusing $need  ($(stat -c '%y' "$need" | cut -d. -f1))"
+  # The Wikidata candidates are REBUILT even on a resume, because they are not independent of
+  # the aggregation: each notable entity resolves its parent against the city list pages the
+  # aggregation accepted, so reusing a candidate file built against an older aggregation points
+  # those parents at pages that no longer exist. That is exactly what happened: orphans rose
+  # from 59 to 142, almost all of them museum and theatre pages whose parent city list had
+  # stopped being accepted when the city identity fix changed which cities exist. Rebuilding
+  # costs a couple of minutes against the aggregation's nine, so the resume still pays.
+  log "Wikidata candidates rebuilt against the current aggregation (they depend on it)"
+  python3 scripts/atlas/scale/wikidata-candidates.py > /tmp/pipe_wd.log 2>&1
+  grep -E "^(Wikidata candidates|  by shape|Wikidata files read)" /tmp/pipe_wd.log || tail -3 /tmp/pipe_wd.log
 fi
 
 log "candidate manifest, with every quality gate"

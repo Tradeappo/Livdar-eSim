@@ -1,0 +1,34 @@
+{
+  "measurement": "Status of the parent geography layer, and the bug that nearly produced a false conclusion",
+  "date": "2026-10-01",
+  "brief_section": "Brief 8 sections 7 and 8",
+  "what_was_built": {
+    "extractor": "scripts/atlas/ingest/osm-parents-extract.py",
+    "runner": "scripts/atlas/ingest/osm-parents-run.sh",
+    "assigner": "scripts/atlas/scale/poi-parent-assign.py",
+    "parent_classes": ["region", "county", "national_park", "protected_area", "nature_reserve", "park", "garden", "forest", "island", "archipelago", "lake", "bay", "peninsula", "beach_area", "ski_area", "marina", "airport_complex", "campus", "theme_park", "zoo_complex", "mountain_range", "trail_system"],
+    "assignment_rule": "CONTAINMENT ONLY, most specific containing polygon wins, the same rule the area layer uses. Never proximity to a centroid, which is the mistake the city radius makes and the reason that radius was left alone."
+  },
+  "the_bug_and_why_it_matters_more_than_the_bug": {
+    "what_happened": "The first full German run produced 155,255 parent entities and ZERO polygons: 85,246 points and 70,009 routes. On its face that reads as a fact about OpenStreetMap, that it does not carry named parent areas, and it would have been written down as one.",
+    "the_actual_cause": "from_wkb(wkbfab.create_multipolygon(a), hex=True). create_multipolygon returns a hex STRING and shapely 2's from_wkb has no hex argument, so every call raised TypeError. The place extractor, which works, decodes the hex explicitly with bytes.fromhex. One wrong keyword argument.",
+    "why_it_survived_a_whole_country": "The exception was caught into self.stats['area_geometry_failed'], and that counter was never printed. An unprinted failure counter is indistinguishable from an absence of data. The run exited 0, so the script then deleted both the filtered layer and the 5.9GB extract, and finding the bug cost a re-download.",
+    "the_three_fixes": [
+      "decode the hex explicitly, as the working extractor does",
+      "print the first few geometry failures with their exception type, so a silent swallow cannot happen again",
+      "the runner now counts polygons in the OUTPUT before freeing the input, because exiting 0 is not the same as having worked, and a parent layer with no polygons cannot ground the only test it exists for"
+    ],
+    "verified_after_the_fix": "Run against a place-filtered German pbf, which is a far thinner file than the real one: 613 island areas, 142 parks, 43 mountain ranges, 31 protected areas, 20 counties, 16 regions, 9 nature reserves. Areas assemble."
+  },
+  "a_second_defect_in_my_own_tag_list": {
+    "what_it_was": "historic=memorial and historic=archaeological_site were listed as PARENT classes. They are not parents, they are the POI this exercise is trying to find parents FOR.",
+    "the_measured_consequence": "75,725 of the 155,255 German parents were memorial_complex, which were simply the 75,725 memorial nodes. Each memorial would have become its own parent, which answers nothing.",
+    "fix": "both removed, with a comment saying why. A memorial complex worth a page is tagged as a park, a protected area or a named site, and those classes are already in the list."
+  },
+  "status_now": {
+    "germany": "re-downloading after the bug forced it. The mirror began resetting connections partway through the second 5.9GB pull, and parallel-get resumes with -C, so it is progressing rather than failing.",
+    "the_other_ten_markets": "NOT CAPTURED. Each needs its own extract, and at roughly 16 minutes of download plus 4 of filtering plus the area assembly, the set is a multi-hour job.",
+    "the_attachment_rate_is_therefore_still_UNMEASURED": "This is the number that decides whether the outdoor families are worth building, and it is honest to say it is not yet known. The demand is measured and strong, the SERP is measured and open, the extractor is fixed and verified, and the one remaining unknown is what share of the 1,665,240 unattributable POI sit inside a named parent polygon."
+  },
+  "what_would_be_wrong_to_do_next": "Attach POI to the nearest parent centroid to get a number. That is the same error as widening the city radius, and it would turn a measurement into an assertion. If containment attaches few POI, the answer is that OSM does not carry the parents, and that is a finding."
+}
