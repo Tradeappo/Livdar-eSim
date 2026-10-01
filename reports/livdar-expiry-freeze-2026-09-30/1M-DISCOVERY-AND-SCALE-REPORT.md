@@ -7,7 +7,7 @@ and there is no cohort 003.
 
 | stage | rows |
 | --- | --- |
-| generated before any gate | 364,357 |
+| generated before any gate | 383,395 |
 | removed by the uniqueness and SERP gate | 74,917 |
 | removed as exact duplicate URLs | 0 |
 | removed as semantic duplicates | 0 |
@@ -15,17 +15,19 @@ and there is no cohort 003.
 | removed by the localisation and cross-locale gate | 62,911 |
 | removed by cannibalisation | 0 |
 | removed because the declared parent did not survive | 0 |
-| **FINAL DISTINCT VALID** | **226,472** |
-| shortfall to one million | 773,528 |
+| **FINAL DISTINCT VALID** | **245,510** |
+| shortfall to one million | 754,490 |
 
 The funnel reconciles: generated minus every recorded removal equals the final count, checked by
-a verifier that fails the run rather than by reading the numbers. 152 families across 11 markets.
+a verifier that fails the run rather than by reading the numbers. 183 families across 11 markets.
 Every artifact agrees: manifest, summary, QA report, gap summary, four partition axes, the
 partition files on disk, and the rejected set. Em dash 0, en dash 0 across 1,901 files including
 compressed partitions and filenames.
 
-The count moved from 208,621 to 226,472 in this pass, and every one of those 17,851 pages came
-from a measurement rather than from a relaxed gate. Four gates were ADDED in the same pass.
+The count moved from 208,621 to 245,510 in this pass, and every one of those 36,889 pages came
+from a measurement rather than from a relaxed gate. Four gates were ADDED in the same pass. By
+surface: places 144,775, areas 19,954, **outdoors 19,015**, stay 17,603, pulse 12,589, move
+12,327, poi 6,916, work 3,921, climate 3,212, transport 3,064, tools 790, sport 690, safety 654.
 
 ## What this pass changed, and why
 
@@ -221,6 +223,39 @@ keyword; this one would rest on a proxy. The proxy is defensible, because an edi
 encyclopedia article about the thing and that is a stronger signal than a population rank, but it
 is a different kind of evidence and it is labelled as one rather than averaged in.
 
+### Both outdoor families are built and in the manifest
+
+Not projected. Built, gated, and counted in the funnel for Germany, which is the one market with a
+parent layer so far.
+
+| | rows |
+| --- | --- |
+| outdoor feature candidates, after the gates in the builder | 18,071 |
+| outdoor region lists, class by geography | 944 |
+| loaded into the manifest | 19,015 |
+| surviving every gate in the manifest | 19,015 |
+
+The feature builder's own rejections are recorded in full, and the two largest say what the family
+is not: 70,975 trail relations are held as parents and not as pages, because a route with no
+geometry cannot be placed; 57,984 features carry no Wikidata item and no Wikipedia article, so
+there is no evidence anyone looks for them. 6,165 are notable and carry no fact a reader came for.
+6,608 named springs and 3,511 named cliffs are excluded by class, because water coming out of the
+ground is a feature of a landscape rather than a place people go to by name, and 6,608 pages about
+them would be padding with a source attached.
+
+The list gate was widened only where demand was measured, and the measurement refused half of what
+was tested. Castle lists at 300 searches and difficulty 0, camp site lists at 250 and 4, cave lists
+at 150 and 3, trail lists at 150 and 7 are in. Lake lists at 800 behind difficulty 71, waterfall
+lists at 70 behind 31, and nature park and viewing tower lists at ZERO are out, and they are out
+because of the numbers rather than because of a view about what people search for outdoors.
+
+One more identity problem surfaced and was fixed with data rather than with an id. 1,415 German
+features share a name inside one language and class. The containment parent and the nearest town
+separate most of them; 188 pairs survived both, which is two summits of one ridge carrying one name
+or one hill mapped twice. Those take their measured fact into the name, so Hochberg at 1,024m is
+not Hochberg at 987m, and the 30 that carry no such fact are dropped rather than published as two
+pages saying the same words.
+
 ## Tools are not a scale path, and here is the arithmetic
 
 A tool is a calculation and is useful only where real per-entity inputs exist, so it scales with
@@ -283,21 +318,25 @@ than hidden: they are the one number in this table that is not zero and it is no
 
 | path | measured contribution | basis |
 | --- | --- | --- |
-| current inventory | 226,472 | built and verified |
-| outdoor FEATURE entities | 120,000 to 165,000 | Germany measured at 23,540, extrapolated at 5 to 7x |
-| outdoor aggregation, 11 markets | 13,000 to 18,000 | Germany measured at 2,249 cells, 6 to 8x |
+| current inventory, Germany's outdoor layers included | 245,510 | built and verified |
+| outdoor features, the other ten markets | 100,000 to 145,000 | Germany BUILT at 18,071, 5 to 7x in total |
+| outdoor region lists, the other ten markets | 5,000 to 8,000 | Germany BUILT at 944 |
 | climate at three grains | 25,000 to 60,000 | demand measured per grain, data materialising |
 | region and island entity types | 10,000 to 30,000 | demand measured, entities not yet built |
 | county level where data exists | 10,000 to 40,000 | data-bound, mostly US |
 | tools | about 1,000 | arithmetic above |
 | **defensible total** | **405,000 to 540,000** | |
 
+The first row is no longer an estimate for Germany: the German outdoor layers are built, gated and
+counted, which is what moved the inventory from 226,472 to 245,510 and what makes the rest of the
+outdoor row a multiplication of a measured thing rather than of a hoped-for one.
+
 To reach one million from here would require one of three things, and the first two are refused:
 
 1. Relaxing a quality gate. Each gate is in the repository with the measurement that put it there.
 2. Translating families across eleven markets without local evidence. The localisation gate exists
    precisely to stop that and it rejected 62,911 rows in this build.
-3. A new entity axis of roughly 460,000 real entities carrying distinct data AND measured demand.
+3. A new entity axis of roughly 450,000 real entities carrying distinct data AND measured demand.
    The outdoor feature layer is the only candidate found in this pass and it is now measured
    rather than hypothetical: 23,540 qualifying features in Germany, 120,000 to 165,000 across
    eleven markets. That is a quarter of what would be needed, and it rests on a Wikipedia proxy

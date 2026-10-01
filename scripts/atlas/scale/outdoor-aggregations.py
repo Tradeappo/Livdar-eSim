@@ -73,10 +73,41 @@ FEATURE_DEMAND = {
              'measured_in': ['de-DE']},
     'viewpoint': {'root_en': 'viewpoints in', 'volume': 700, 'kd': 6,
                   'measured_in': ['de-DE']},
+    # Measured 2026-10-01, after the German layer landed, to find out whether the list shape
+    # works for any class beyond the three above. Four more clear a floor at a difficulty worth
+    # entering; four were tested and refused. "naturparks in hessen" and "aussichtstuerme in nrw"
+    # return ZERO, and "seen in brandenburg" at 800 sits behind difficulty 71 while
+    # "wasserfaelle in bayern" at 70 sits behind 31. Those four are not here, and the reason they
+    # are not is the measurement rather than a guess about what people search for outdoors.
+    'castle': {'root_de': 'burgen in', 'root_it': 'castelli in', 'volume': 300, 'kd': 0,
+               'measured_in': ['de-DE', 'it-IT']},
+    'camp_site': {'root_de': 'campingplaetze in', 'root_it': 'campeggi in', 'volume': 600,
+                  'kd': 1, 'measured_in': ['de-DE', 'it-IT']},
+    'cave': {'root_de': 'hoehlen in', 'volume': 150, 'kd': 3, 'measured_in': ['de-DE']},
+    'trail': {'root_de': 'wanderwege im', 'volume': 150, 'kd': 7, 'measured_in': ['de-DE']},
+    # Measured 2026-10-01 in it-IT, once the Italian layers landed, because a gate keyed on
+    # de-DE is a gate that refuses every other market for want of a measurement rather than for
+    # want of demand. campeggi in toscana 600 at KD 1, laghi in lombardia 300 at 0, spiagge in
+    # sardegna 200 at 0, castelli in toscana 150 at 0, rifugi in trentino 150 at 1, cascate in
+    # trentino 100 at 0. Refused in Italian: cime del trentino at 10 and belvedere a roma at 20,
+    # so peak and viewpoint lists stay German-only, and grotte in puglia at 350 behind KD 56.
+    # Several Italian parent topics are "i piu belli", the most beautiful, which this project does
+    # not claim: the no_superlative field on every row is what that rule looks like in the data.
+    'waterfall_it': {'root_it': 'cascate in', 'volume': 100, 'kd': 0, 'measured_in': ['it-IT']},
+    'mountain_hut': {'root_it': 'rifugi in', 'volume': 150, 'kd': 1, 'measured_in': ['it-IT']},
 }
+# Italian demand for lake and beach lists, measured in the same pass, extends two families that
+# had only German and British evidence.
+FEATURE_DEMAND['lake']['measured_in'].append('it-IT')
+FEATURE_DEMAND['lake']['root_it'] = 'laghi in'
+FEATURE_DEMAND['beach']['measured_in'].append('it-IT')
+FEATURE_DEMAND['beach']['root_it'] = 'spiagge in'
 # The POI classes that count as each feature type
 FEATURE_CLASSES = {
     'lake': {'lake'}, 'beach': {'beach'}, 'peak': {'peak'}, 'viewpoint': {'viewpoint'},
+    'castle': {'castle', 'fort'}, 'camp_site': {'camp_site', 'caravan_site'},
+    'cave': {'cave', 'cave_entrance'}, 'trail': {'trail_route'},
+    'waterfall_it': {'waterfall'}, 'mountain_hut': {'mountain_hut', 'wilderness_hut'},
 }
 
 # A list needs enough entries to be a list. Three is the floor every other shape in this
@@ -185,6 +216,23 @@ for key, counts in sorted(per.items()):
 with gzip.GzipFile(OUT, 'wb', compresslevel=6, mtime=0) as gz:
     for r in sorted(rows, key=lambda r: (r['country'], r['feature'], r['parent_name'])):
         gz.write((json.dumps(r, ensure_ascii=False) + '\n').encode('utf-8'))
+
+# Two parent polygons can carry one name. Saechsische Schweiz is a protected area AND a national
+# park; Arnsberger Wald is a forest and a nature park. Their URLs differ by the OSM id so no page is
+# lost, but their titles were identical and a reader could not tell which list they were looking at.
+# The class is what separates them and it is a fact rather than a discriminator invented for the
+# purpose, so the label carries it wherever the name repeats.
+_pname = collections.defaultdict(set)
+for _r in rows:
+    _pname[(_r['language'], _r['feature'], slug(_r['parent_name']))].add(_r['parent_id'])
+_qualified = 0
+for _r in rows:
+    if len(_pname[(_r['language'], _r['feature'], slug(_r['parent_name']))]) > 1:
+        _r['parent_name'] = f"{_r['parent_name']} ({_r['parent_cls'].replace('_', ' ')})"
+        _qualified += 1
+if _qualified:
+    print(f'region lists whose parent name repeats, so the label carries its class: '
+          f'{_qualified:,}', file=sys.stderr)
 
 print(f'outdoor candidates: {len(rows):,}', file=sys.stderr)
 print(f"  by feature: {dict(collections.Counter(r['feature'] for r in rows))}", file=sys.stderr)

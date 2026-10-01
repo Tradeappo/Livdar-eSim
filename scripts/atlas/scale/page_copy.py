@@ -105,7 +105,7 @@ def place_phrase(r):
     module resolved, which already holds a region where the bare name repeats.
     """
     city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
-    if r.get('entity_type') == 'neighbourhood' and area:
+    if r.get('entity_type') in ('neighbourhood', 'outdoor_feature') and area:
         return f'{area}, {city}' if city and city != area else (city or area)
     if city and country and country not in city:
         return f'{city}, {country}'
@@ -163,13 +163,19 @@ def title_for(r):
     city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
     fam, surface = r['family'], r['surface']
     where = f"{city}, {country}" if city and country else (city or country or '')
+    # An outdoor feature is located by the polygon that contains it and then by the nearest town,
+    # which is how a walker would describe it and is also what keeps 1,415 same-named German
+    # features apart: Hochberg in the Naturpark Altmuehltal is not Hochberg in the Schwarzwald.
+    if r.get('entity_type') == 'outdoor_feature' and area:
+        where = f"{area}, {city}" if city else area
     # A venue, a POI or a NEIGHBOURHOOD is qualified by its CITY, not just its country. There
     # are two Alte Opers in Germany, in Frankfurt and in Erfurt, and two E-Werks, and titling
     # both "Alte Oper, DE: near venue" reported 111 duplicate titles that were the skeleton's
     # fault: the pages are legitimately two, the title just refused to say which city. The same
     # is true one level down, where Sainte-Marguerite is a quarter of Paris and also of
     # Marseille, and all three French neighbourhood families titled both the same way.
-    if r.get('entity_type') in ('poi', 'venue', 'neighbourhood') and where and where not in name:
+    if (r.get('entity_type') in ('poi', 'venue', 'neighbourhood', 'outdoor_feature')
+            and where and where not in name):
         qualified = f"{name}, {where}"
     else:
         qualified = f"{name}, {country}" if country and country not in name else name

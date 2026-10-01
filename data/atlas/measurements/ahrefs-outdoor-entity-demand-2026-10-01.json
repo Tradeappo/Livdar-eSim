@@ -1,0 +1,40 @@
+{
+ "measuredOn": "2026-10-01",
+ "unitsSpent": 440,
+ "two_questions": [
+  "Does a class-by-region outdoor list have demand beyond the three classes already measured?",
+  "Does an INDIVIDUAL outdoor feature have demand in its own name?"
+ ],
+ "answer_one_the_lists_are_thin": {
+  "measured_de": {
+   "burgen in bayern": {"volume": 300, "kd": 0, "parent_topic": "burgen"},
+   "campingplaetze in bayern": {"volume": 250, "kd": 4, "parent_topic": "camping bayern"},
+   "hoehlen in deutschland": {"volume": 150, "kd": 3, "parent_topic": "hoehlen in deutschland"},
+   "wanderwege im harz": {"volume": 150, "kd": 7, "parent_topic": "harz wandern"},
+   "seen in brandenburg": {"volume": 800, "kd": 71, "parent_topic": "badeseen brandenburg"},
+   "wasserfaelle in bayern": {"volume": 70, "kd": 31, "parent_topic": "wasserfaelle"},
+   "schluchten in bayern": {"volume": 50, "kd": 0},
+   "klettersteige in bayern": {"volume": 10, "kd": 0},
+   "naturparks in hessen": {"volume": 0},
+   "aussichtstuerme in nrw": {"volume": 0}
+  },
+  "reading": "Castle, camp site, cave and trail lists clear a floor and the gate can open for them. Waterfall and lake lists carry difficulty 31 and 71, which is a different proposition from the difficulty 0 the peak and viewpoint lists showed. Nature park and viewing tower lists have no demand at all, and two of the ten returning zero is the measurement doing its job rather than a disappointment. Opening the gate to the four that qualify takes the German outdoor aggregation from 843 candidates to roughly 1,500 to 2,000. It is a small family and it is now sized."
+ },
+ "answer_two_the_individual_features_are_where_the_demand_is": {
+  "measured_de": {
+   "zugspitze": {"volume": 63000, "kd": 0},
+   "burg eltz": {"volume": 31000, "kd": 0},
+   "watzmann": {"volume": 19000, "kd": 0},
+   "brocken": {"volume": 15000, "kd": 0},
+   "externsteine": {"volume": 12000, "kd": 0},
+   "feldberg": {"volume": 11000, "kd": 53},
+   "ochsenkopf": {"volume": 5800, "kd": 8, "parent_topic": "webcam ochsenkopf"},
+   "teufelshoehle pottenstein": {"volume": 2100, "kd": 0},
+   "berchtesgadener hochthron": {"volume": 100, "kd": 0},
+   "jenner berchtesgaden": {"volume": 100, "parent_topic": null}
+  },
+  "reading": "A named outdoor feature carries its demand in its own name, and at the head the volumes are large with a difficulty of zero: Zugspitze 63,000, Burg Eltz 31,000, Watzmann 19,000, Brocken 15,000, Externsteine 12,000. The tail falls to 100 and below, and Jenner returns a null parent topic, meaning the bare name owns no topic of its own. This is a power law, which is what an entity family always looks like.",
+  "what_it_means_for_the_23540": "The 23,540 German features that pass the data and notability gate are legitimate pages by this project's standards: a real entity, real distinct data, a containment parent, and something a reader returns for. Their TRAFFIC is concentrated in the head. That is a publication-ordering fact and not a validity fact, and conflating the two would be the mistake in either direction: dropping the tail loses real pages, and quoting 23,540 as if every one of them were a Zugspitze overstates what they are worth."
+ },
+ "decision": "BUILD the feature-entity shape, ordered by measured or proxied interest, and widen the aggregation gate to castle, camp site, cave and trail. Do NOT widen it to waterfall, lake, nature park or viewing tower: two have no demand and two sit behind difficulty 31 and 71."
+}

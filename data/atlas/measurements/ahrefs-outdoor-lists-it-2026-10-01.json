@@ -1,0 +1,25 @@
+{
+ "measuredOn": "2026-10-01",
+ "unitsSpent": 220,
+ "why": "The outdoor list gate was keyed on de-DE because Germany was the only market with a parent layer when the demand was first measured. A gate keyed on one market refuses every other market for want of a measurement rather than for want of demand, and the Italian layers had just landed, so the Italian phrasing was measured rather than assumed from the German result.",
+ "measured_it": {
+  "campeggi in toscana": {"volume": 600, "kd": 1, "parent_topic": "campeggi toscana"},
+  "grotte in puglia": {"volume": 350, "kd": 56, "parent_topic": "grotte di castellana"},
+  "laghi in lombardia": {"volume": 300, "kd": 0, "parent_topic": "laghi lombardia"},
+  "spiagge in sardegna": {"volume": 200, "kd": 0, "parent_topic": "spiagge piu belle sardegna"},
+  "borghi in umbria": {"volume": 200, "kd": 0, "parent_topic": "borghi piu belli umbria"},
+  "castelli in toscana": {"volume": 150, "kd": 0, "parent_topic": "castelli toscana"},
+  "rifugi in trentino": {"volume": 150, "kd": 1, "parent_topic": "rifugi vicino a me"},
+  "cascate in trentino": {"volume": 100, "kd": 0, "parent_topic": "cascate trento"},
+  "belvedere a roma": {"volume": 20, "kd": 0},
+  "cime del trentino": {"volume": 10, "kd": 0}
+ },
+ "accepted_for_it": ["camp_site", "lake", "beach", "castle", "mountain_hut", "waterfall"],
+ "refused_for_it": {
+  "peak": "cime del trentino at 10 searches. The German peak list clears a floor and the Italian phrasing does not, which is a fact about how the two languages ask the question rather than about mountains.",
+  "viewpoint": "belvedere a roma at 20 searches.",
+  "cave": "grotte in puglia at 350 behind difficulty 56, and the parent topic is grotte di castellana, a single named cave rather than a regional list, so the query is entity intent wearing a list's clothes."
+ },
+ "a_note_on_the_parent_topics": "Several Italian parent topics are 'i piu belli', the most beautiful: spiagge piu belle sardegna, borghi piu belli umbria. Livdar does not claim a most beautiful anything without a documented methodology, so these pages answer WHICH beaches are in Sardinia and what is true of each. The no_superlative field on every outdoor row is that rule expressed in the data rather than in a style guide.",
+ "effect": "Italian region lists went from 0 to 118, and the German set is unchanged at 944. 1,062 in total across two markets."
+}

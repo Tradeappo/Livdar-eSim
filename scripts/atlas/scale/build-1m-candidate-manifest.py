@@ -1073,6 +1073,23 @@ except (EOFError, OSError, FileNotFoundError):
     pass
 print(f'  poi aggregations loaded {len(agg):,}', file=sys.stderr)
 
+# The outdoor layers, built from the parent polygons captured per market. Two shapes: a list of
+# one feature class inside a named geography, and a page for a single named feature. Both are
+# containment only, and the feature pages rest on a Wikipedia or Wikidata PROXY for interest rather
+# than on a measured keyword, which the uniqueness reason on every row says in those words.
+_outdoor_before = len(agg)
+for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz',
+             ROOT + 'data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz'):
+    try:
+        for _l in gzip.open(_src, 'rt', encoding='utf-8'):
+            _l = _l.strip()
+            if _l:
+                try: agg.append(json.loads(_l))
+                except Exception: pass
+    except (EOFError, OSError, FileNotFoundError):
+        pass
+print(f'  outdoor candidates loaded {len(agg) - _outdoor_before:,}', file=sys.stderr)
+
 # Every aggregation shape used to inherit one assumed archetype. That was an assumption
 # applied to roughly a hundred thousand rows, so each shape was measured instead and
 # carries the archetype its own SERP showed. Shapes not yet sampled keep NOT_SAMPLED,
@@ -1096,6 +1113,14 @@ SHAPE_SERP = {
     'notable_entity': 'ENTITY_OWNED_PLUS_WIKIPEDIA_DIRECTORIES_BELOW',
     'wikidata_notable': 'ENTITY_OWNED_PLUS_WIKIPEDIA_DIRECTORIES_BELOW',
     'wikidata_city_list': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    # measured on "seen in bayern": photo-nature.de holds position 6 at DOMAIN RATING 1 and its
+    # own top pages are a hobby photography blog, two slots are Pinterest and TikTok, and
+    # Wikipedia ranks a LIST at the top. The format Google rewards here is an enumeration.
+    'outdoor_region_feature': 'OPEN_SPECIALIST_PAGE_WINS',
+    # measured on the entity names: zugspitze 63,000 at KD 0, burg eltz 31,000 at 0, watzmann
+    # 19,000 at 0, brocken 15,000 at 0, externsteine 12,000 at 0. The head of this family is
+    # wide open. The tail is 100 and below, which is a publication-ordering fact.
+    'outdoor_feature': 'OPEN_SPECIALIST_PAGE_WINS',
 }
 
 # Wikidata candidates, built and deduped against OSM by scripts/atlas/scale/
@@ -1133,10 +1158,27 @@ SHAPE_WIRING = {
     'notable_entity':  ('poi', 'ENTITY', 'poi', 50),
     'wikidata_notable': ('poi', 'ENTITY', 'poi', 45),
     'wikidata_city_list': ('places', 'AGGREGATION', 'city_category', 50),
+    # Outdoor. The demand score is the measured list volume for the lists and a deliberately
+    # modest 45 for the feature pages, because their evidence is an encyclopedia article rather
+    # than a keyword and the score should not pretend otherwise.
+    'outdoor_region_feature': ('outdoors', 'AGGREGATION', 'outdoor_region', 55),
+    'outdoor_feature': ('outdoors', 'ENTITY', 'outdoor_feature', 45),
 }
 WD_LICENCE = ('Wikidata (CC0 1.0, public domain dedication, no share-alike)', 'CC0_NO_CONDITIONS')
 OSM_LICENCE = ('OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
                'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED')
+
+# A feature page's parent is the list of its own class inside its own containment parent, where
+# that list was accepted. Built from the outdoor aggregation rows rather than constructed from
+# parts, for the same reason the Wikidata parents are: a URL read out of the file that wrote it
+# cannot drift from the URL that file emitted.
+OUTDOOR_PARENT_URL = {}
+for _a in agg:
+    if _a.get('shape') == 'outdoor_region_feature':
+        OUTDOOR_PARENT_URL[(_a.get('parent_id'), _a.get('feature'), _a.get('language'))] = _a['url']
+if OUTDOOR_PARENT_URL:
+    print(f'  outdoor region lists available as parents: {len(OUTDOOR_PARENT_URL):,}',
+          file=sys.stderr)
 
 for a in agg:
     m, lang, shape = a['market'], a['language'], a['shape']
@@ -1153,9 +1195,29 @@ for a in agg:
     # where the shape decides which of base, area or entity name is being named.
     mod_h = str(modifier).replace('_', ' ')
     area = a.get('area', '')
+    # For an outdoor feature the containment parent IS the sub-geography, so it goes in the field
+    # the skeletons already read for one. Two peaks called Hochberg near one town are two real
+    # mountains and must not be collapsed; what they need is a title that says which polygon each
+    # sits in, and the parent is the only honest answer the data holds.
+    if shape in ('outdoor_feature', 'outdoor_region_feature'):
+        area = a.get('parent_name', '')
     is_wd = a.get('source') == 'wikidata'
 
-    if ptype == 'ENTITY':
+    if shape == 'outdoor_feature':
+        # A named outdoor feature. The family is its class, so peaks and castles are separate
+        # families with separate acceptance verdicts rather than one outdoors bucket.
+        fid = f'outdoors.{cls}'
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = f"what {ename} is and how to reach it"
+        q = min(100, 45 + a['enriched'] * 6)
+    elif shape == 'outdoor_region_feature':
+        fid = f"outdoors.{a['feature']}-in-region"
+        eid = f"{a['parent_id']}-{a['feature']}"
+        ename = f"{a['feature'].replace('_', ' ')}s in {a['parent_name']}"
+        intent = f"find the {a['feature'].replace('_', ' ')}s in {a['parent_name']}"
+        q = min(100, 45 + min(30, a['n']) * 2)
+    elif ptype == 'ENTITY':
         fid = f'poi.{cls}-notable'
         eid = a['entity_id']
         ename = a['entity_name']
@@ -1228,7 +1290,8 @@ for a in agg:
         'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
         'publication_cohort_candidate': '', 'status': 'POI_AGGREGATION',
         'uniqueness_reason': a['uniqueness_reason'],
-        'parent_url': a.get('parent_url', ''),
+        'parent_url': a.get('parent_url', '') or OUTDOOR_PARENT_URL.get(
+            (a.get('parent_id'), a.get('cls'), a.get('language')), ''),
     })
 print(f'  aggregation candidates emitted {len(agg):,}', file=sys.stderr)
 
