@@ -130,3 +130,51 @@ per-family caps already bind, so deliberately mix the early cohorts instead:
 Only after cohort 005 does the POI ingestion that closes the gap to 1M become worth
 starting, because POI pages are archetype A only in their modifier form, and cohorts
 003 to 005 are what prove the modifier templates work.
+
+## Addendum: the aggregation shapes added in the quality-first pass
+
+These shapes did not exist when the plan above was written. Each one now carries a SERP
+archetype measured on 2026-10-01 rather than inherited from a family it resembles, which
+changes what counts as a pass. The thresholds below are set from the archetype, because
+a shape whose SERP has a local pack above every organic result cannot be judged by the
+same impression floor as one where a purpose-built page holds position two.
+
+| shape | measured archetype | first cohort | pass after 28 days | hold | kill |
+| --- | --- | --- | --- | --- | --- |
+| `city_cuisine` | OPEN_LOCAL_PACK_ABOVE_ORGANIC | 300 | 60 per cent indexed and median position under 30 | indexed but position 30 to 60 | under 30 per cent indexed |
+| `area_category` | OPEN_LOCAL_PACK_ABOVE_ORGANIC | 300 | same | same | same |
+| `city_opening` | OPEN_SPECIALIST_PAGE_WINS | 150 | 70 per cent indexed and median position under 20 | position 20 to 40 | under 40 per cent indexed |
+| `city_category` | OFFICIAL_PLUS_AGGREGATOR_MIXED | 300 | 50 per cent indexed and any page in the top 20 | indexed, nothing in the top 20 | under 25 per cent indexed |
+| `area_parent` and `city_areas_hub` | OFFICIAL_PLUS_AGGREGATOR_MIXED | 150 | same | same | same |
+| `city_sport` | OFFICIAL_PLUS_AGGREGATOR_MIXED | 100 | same | same | same |
+| `area_cuisine` | AGGREGATOR_AND_VENUE_OWNED | 100, experiment only | any page in the top 20 at all | indexed, nothing in the top 20 | under 20 per cent indexed |
+| `city_attribute`, `area_attribute`, `area_opening` | NOT_SAMPLED | 100, experiment only | sample the SERP before judging | - | - |
+| `wikidata_notable` | NOT_SAMPLED | 100, experiment only | sample the SERP before judging | - | - |
+
+Three readings matter more than the table.
+
+**`city_opening` gets the smallest cohort and the strictest threshold on purpose.** Its
+SERP is the most encouraging one measured: a DR 35 page holds position 2 for "supermarkt
+münchen sonntag geöffnet" above outlets at DR 56 to 81. If a shape with that SERP cannot
+reach the top 20, the problem is the page, not the competition, and a bigger cohort would
+only produce more of the same page.
+
+**`area_cuisine` ships as an experiment or not at all.** Its measured SERP has no
+independent list in the top eight: venue sites at DR 43 and DR 72, then TripAdvisor at DR
+91 and OpenTable at DR 84. The 100-page cohort exists to test whether that reading
+generalises beyond Shoreditch, not to scale the shape.
+
+**A shape marked NOT_SAMPLED must not be judged against an impression floor at all.**
+Absence of SERP evidence was treated as poor fit once in this project and labelled 62 per
+cent of the inventory as bad on no evidence. Sample the SERP first, then set the
+threshold. `serp_feasibility` reads `unsampled_needs_serp_check` for exactly these rows
+and the count is in `1M-FINAL-DELIVERABLE.md`.
+
+### What to do with the proximity-attributed area pages
+
+An area page says in `attribution` whether its POI were assigned by polygon containment
+or by documented proximity to a place node. Polygons are the minority everywhere
+measured: France 3,714 of 34,614 places, Germany 1,829 of 15,667, Poland 584 of 13,063.
+Publish containment-backed area pages first and compare the two groups in GSC after 28
+days. If proximity-backed pages underperform containment-backed ones materially, that is
+the signal to stop generating them rather than to tune their copy.
