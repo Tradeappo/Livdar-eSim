@@ -1,0 +1,49 @@
+{
+  "measurement": "Pulse phrasing measured in each local language, not translated from English",
+  "date": "2026-10-01",
+  "brief_section": "Brief 7 section 10: Pulse multilingual expansion in local language per market, not translated English phrasing",
+  "method": "keywords-explorer matching-terms with local-language roots per market, match_mode=terms, terms=all.",
+  "markets": {
+    "de-DE": {
+      "roots_probed": ["brückentage", "feiertage", "schulferien"],
+      "head_terms": [
+        {"keyword": "feiertage nrw 2026", "volume": 202000, "difficulty": 0, "traffic_potential": 38000},
+        {"keyword": "feiertage bayern 2026", "volume": 149000, "difficulty": 2, "traffic_potential": 98000},
+        {"keyword": "schulferien bayern 2026", "volume": 104000, "cpc_usd_cents": 50, "difficulty": 0, "traffic_potential": 231000},
+        {"keyword": "schulferien nrw 2026", "volume": 103000, "difficulty": 3, "traffic_potential": 293000},
+        {"keyword": "feiertage 2026", "volume": 90000, "difficulty": 0},
+        {"keyword": "schulferien niedersachsen 2026", "volume": 87000, "difficulty": 1, "traffic_potential": 184000}
+      ],
+      "keywords_at_or_above_2000": 20,
+      "what_the_shape_of_the_demand_says": [
+        "The Bundesland is inside the query, not implied by it. 'feiertage nrw 2026' at 202,000 beats the unqualified 'feiertage 2026' at 90,000 by more than two to one, and the same holds for schulferien. A national German holiday page answers the smaller half of the demand.",
+        "This is the independent confirmation the subdivision-level Pulse work needed. The normalised store already carries 3,539 subdivision long weekends, 1,052 subdivision bridge days and 32 German bridge plans, which is 16 Laender across two years. The measurement says those are the primary pages rather than a refinement of a national one.",
+        "Every head term carries a year. A Pulse page without a year on its face, and without the year in its URL, is answering a question nobody typed."
+      ],
+      "difficulty": "0 to 6 across every head term measured, which is the lowest of any family in the inventory"
+    },
+    "pl-PL": {
+      "roots_probed": ["długi weekend", "dni wolne", "wakacje szkolne"],
+      "head_terms": [
+        {"keyword": "dni wolne od pracy 2026", "volume": 67000, "difficulty": 0},
+        {"keyword": "dni wolne od pracy 2024", "volume": 59000, "difficulty": 0, "traffic_potential": 22000},
+        {"keyword": "dni wolne od pracy 2025", "volume": 26000, "difficulty": 0, "traffic_potential": 24000},
+        {"keyword": "dni wolne 2026", "volume": 15000, "difficulty": 0, "traffic_potential": 24000},
+        {"keyword": "dni wolne od szkoły 2026", "volume": 3100, "difficulty": 0},
+        {"keyword": "długi weekend", "volume": 2500, "difficulty": 0}
+      ],
+      "keywords_at_or_above_1000": 20,
+      "what_the_shape_of_the_demand_says": [
+        "The phrase that wins is 'dni wolne od pracy', days free from work, at 67,000. 'długi weekend', the direct equivalent of the English long weekend this family is named after in the internal vocabulary, is 2,500. A Polish page titled after the English concept would address 4 per cent of the demand it could have.",
+        "Polish demand is national, not subdivision-scoped, which is the opposite of German. The same family therefore needs a different page granularity per market, and granularity cannot be inherited from the family.",
+        "'dni ustawowo wolne od pracy' at 2,100 is the statutory phrasing and a distinct query: users asking which days are legally free, not which days are off.",
+        "Work and school are separate queries with separate volumes: od pracy 67,000 against od szkoły 3,100."
+      ],
+      "difficulty": "0 to 7 across every head term measured"
+    }
+  },
+  "conclusion": "Section 10 is satisfied by phrasing, not by translation, and the two markets measured prove the point in opposite directions. German demand is Bundesland-scoped and the subdivision pages are primary. Polish demand is national and the winning phrase is not the one the internal family name would have produced. Neither could have been reached by translating the English page, and the granularity differs per market even though the family does not.",
+  "what_was_not_measured": "nl-NL, fr-FR, it-IT, es-ES, ja-JP, zh-Hant-TW and pt-BR Pulse phrasing. Recorded as unmeasured rather than assumed to follow either pattern, because the two markets measured here disagree with each other on the one thing that matters most, which is page granularity.",
+  "nothing_was_generated_from_this": "These are measurements. The Pulse store already holds the normalised national, regional, school, long-weekend, bridge-day and bridge-plan rows from official and official-derived providers with provenance per row. No page was created from this probe.",
+  "units_spent": 1320
+}

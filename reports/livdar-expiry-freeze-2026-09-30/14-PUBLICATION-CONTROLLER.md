@@ -259,3 +259,48 @@ learn whether the weaker attribution method is worth keeping.
 - Any shape in the last row of the D1 table, until its SERP has been sampled. Treating
   absence of SERP evidence as a reason to publish is the mirror image of treating it as a
   reason to reject, and this project has already made the second mistake once.
+
+## PART E - what the localisation gate means for publication
+
+Added 2026-10-01, after the gate was made destination-aware and the inventory fell from
+233,646 to 198,050.
+
+### E1. The cross-language inventory is 223 pages, and it should be published as 223 pages
+
+Of 198,050 candidates, 197,827 are NATIVE_LOCALE: the page is written in the language of the
+country it describes and needs no cross-language justification. Exactly 223 are
+VALID_LOCALIZATION, which means a measured keyword for the family in that market AND measured
+demand from that market, or that language, for that specific destination.
+
+The controller must not treat those two groups the same way. A native page competes in a
+market's own language about its own country, which is the ordinary case the cohort caps were
+measured on. A cross-language page competes against that country's own publishers writing in
+their own language, plus the searcher market's established travel media. 223 is a small enough
+set to publish as one cohort and watch individually in GSC, and that is what it should be: a
+single named cohort, not sprinkled through the others, so its performance can be read on its
+own. If cross-language pages underperform native pages at the same caps, the gate's threshold
+is the thing to revisit, and that comparison is only possible if the two are not mixed.
+
+### E2. LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION is not a publication queue
+
+44,628 rows carry this class. They are kept in the rejected file with a reason naming the
+family demand they have and the destination demand they lack. They are NOT a backlog waiting
+for capacity, and the controller must never promote one because a cohort has room.
+
+The only thing that moves a row out of this class is a measurement: demand for that
+destination, from that market or in that language. That measurement costs Ahrefs units and
+the measurement, not the page, is the next step. The reach file is the single place such a
+measurement is recorded, and the gate reads it on the next run, so the path from measurement
+to published page is one file and one command.
+
+### E3. Two places a cohort can still go wrong on locale
+
+- **Do not publish a cross-language page before its native counterpart.** If a German page
+  about Prague and a Czech page about Prague both existed, the Czech one is the primary and
+  the German one is the alternate. Czech is not a Livdar market, so for Prague the question
+  does not arise, but it will the moment two Livdar markets share a destination: a German page
+  about Rome has an Italian counterpart in the inventory, and the Italian one is the primary.
+- **Do not let the two English markets both claim a destination page.** en-US and en-GB
+  collapse to one `/en/` URL. The manifest dedupes them, but the controller assigns cohorts
+  per market, so a naive split would schedule the same URL twice. Cohort assignment must key
+  on the URL, not on the market.

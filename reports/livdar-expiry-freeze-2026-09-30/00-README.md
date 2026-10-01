@@ -37,7 +37,7 @@ first. It is written to be the only file you need to resume work.
 | `15-AHREFS-REPLACEMENT.md` | what replaces Ahrefs for each job it did, by cost tier |
 | `16-CLAUDE-HANDOFF.md` | **read this first.** Full state so any agent can continue with no lost context |
 | `17-NEXT-30-DAYS.md` | the sequenced plan for the first month after expiry |
-| `LIVDAR-1M-CANDIDATE-MANIFEST.parquet` | **the candidate inventory. 98,652 distinct candidate pages, 35 columns** |
+| `LIVDAR-1M-CANDIDATE-MANIFEST.parquet` | **the candidate inventory. See 1M-FINAL-DELIVERABLE.md for the current count, which is generated rather than typed here; 56 columns** |
 | `LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz` | the same rows as gzipped CSV |
 | `1M-FAMILY-BREAKDOWN.csv` | candidates per family, with source status and average scores |
 | `1M-MARKET-BREAKDOWN.csv` | candidates per market and language |
@@ -111,9 +111,26 @@ and are still the evidence of record:
 
 **The authoritative number is in `1M-FINAL-DELIVERABLE.md`, which is generated from the
 files rather than written by hand, so it cannot drift from the inventory.** Read that
-first. The figure as this was last written was **164,656 FINAL DISTINCT** with 71,736
-rejected and kept visible, and it moves when a market finishes ingesting, because the
-whole chain is one command: `scripts/atlas/scale/run-1m-pipeline.sh`.
+first. The figure as this was last written was **198,050 FINAL DISTINCT** out of 251,611
+raw combinations, with every rejection kept visible and carrying a reason, and it moves when
+a market finishes ingesting, because the whole chain is one command:
+`scripts/atlas/scale/run-1m-pipeline.sh` (add `--from-manifest` to reuse the aggregation and
+Wikidata files when only a gate or a report has changed). The step before the report is
+`verify-artifacts-agree.py`, which fails the run if the manifest, the summary, the QA report,
+the gap summary, the four partition axes and the rejected set do not all carry the same
+count.
+
+**The number went DOWN in the pass of 2026-10-01, from 233,646, and that is the main result
+rather than a setback.** The localisation gate was granting a locale on the strength of its
+family alone, so one measured German keyword, "hotel prag" at 7,600 a month, was by itself
+licensing 8,342 German hotel pages for destinations nobody in Germany was ever measured
+searching for. Made destination-aware, and given the 59 outbound measurements that existed in
+MARKET-BREADTH-HARVEST.csv but had never reached the reach file, the gate finds that the
+cross-language inventory this project can actually evidence is **223 pages, not 35,426**. The
+other 44,628 are preserved as LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION, each naming the family
+demand it has and the destination demand it lacks. Measured cross-language reach covers about
+100 destination and market pairs; it does not cover thousands of cities, and extending it to
+them is the geographic form of the city-name swapping this inventory is built to avoid.
 
 An earlier version of this section said the gap to one million was closed by a single
 acquisition: ingest OSM and Wikidata POI, give each POI one practical modifier, and that
