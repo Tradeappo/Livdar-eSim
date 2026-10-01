@@ -1,0 +1,33 @@
+{
+  "measurement": "Was the Wikidata result cap truncating the materialisation?",
+  "date": "2026-10-01",
+  "status_before": "SUSPECTED BUT UNVERIFIABLE. The earlier pass noted that every file sat at or below 10,000 rows and that one, wd-park-US, sat at 9,992, which is the shape truncation would take. It could not be tested because WDQS was in an active outage.",
+  "status_now": "VERIFIED REAL",
+  "test": {
+    "method": "A COUNT over exactly the population the materialiser paginates: entities of the class, in the country, carrying coordinates. Not a looser count, because a looser count would prove nothing about what the loop was asking for.",
+    "query_shape": "SELECT (COUNT(DISTINCT ?x) AS ?c) WHERE { ?x wdt:P31 wd:Q22698 ; wdt:P17 wd:Q30 . ?x p:P625/psv:P625 [ wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon ] }",
+    "result": {"true_count": 56755, "rows_in_file": 9992, "share_lost": 0.824}
+  },
+  "mechanism": "The first page returned the full 10,000. The cap applies to the underlying result set rather than to the page, so OFFSET 10000 returned nothing even though 46,763 more entities existed, and the loop's termination test, len(page) < limit, read an empty page as the end of the data. The file then looked complete, which is why this went unnoticed through several passes.",
+  "blast_radius": {
+    "files_at_the_time": 125,
+    "files_carrying_the_signature": 1,
+    "which": "wd-park-US only",
+    "why_only_one": "every other class and country pair returned fewer than 10,000 rows, so its result set ended naturally rather than being cut off",
+    "the_important_part": "The damage was one pair. The DEFECT was in every pair, waiting for a class large enough to reach the cap. Counting the damage rather than the defect would have been the wrong lesson."
+  },
+  "fix": {
+    "what_changed": "OFFSET pagination removed entirely. Each class and country pair is now collected in latitude bands, and a band is not trusted when it comes back at or above the cap: it is split in half and both halves are re-asked. A band that does not answer at all is split the same way.",
+    "why_a_band_that_does_not_answer_is_also_split": "Measurement settled what the non-answer meant. Three pairs were being abandoned as unreachable at the same moment a cheap COUNT against both endpoints returned 200, so the cause was the 60-second query timeout on a pole-to-pole band with the label service attached, not a closed door. Abandoning such a band was the same error as trusting a full page: both accept a non-answer as an answer.",
+    "opening_bands": "eight, rather than one global band, because one band from pole to pole is the most expensive form the query can take",
+    "when_a_band_is_still_full_at_maximum_depth": "a wd-<class>-<country>.truncated.json file is written beside the data recording the bands and saying in the data, not only in a log, that this class in this country is a floor rather than a total"
+  },
+  "refetch_status": "RATE-LIMITED UPSTREAM, NOT BY THE CODE",
+  "refetch_evidence": [
+    "WDQS answers 429 with 'Aggressively rate-limiting to 1 req / min - this rule was created during active wdqs outage'. The limit is enforced per host, which measurement showed: two requests to one host a second apart gave 200 then 429, while one request to each of two hosts gave 200 twice.",
+    "The Wikidata search API, a different service entirely (action=query&list=search with haswbstatement), answered 429 to the very first request from this container, so switching services does not avoid it.",
+    "The agent proxy reports enabled with no recent relay failures, so the limit is at Wikimedia rather than in this environment.",
+    "A full JSON dump would avoid the limit but does not fit the disk allowance for this session."
+  ],
+  "honest_position": "The corpus is a floor and is labelled as one everywhere it is quoted. 13 of 24 classes are materialised. The fix is shipped and verified working, with park/US bands observed splitting, but the refetch will not complete at one request per minute per host within this session, and the gap analysis scales the remaining classes rather than claiming a count."
+}

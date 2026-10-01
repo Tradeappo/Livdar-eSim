@@ -77,15 +77,23 @@ add('Complete the Wikidata materialisation',
     'the remaining classes are thinner. Individual pages are emitted only for '
     'visitor-intent classes, because the SERP for a named hospital, university or station '
     'belongs to that institution. '
-    'TWO LIMITS ON THIS FIGURE, both recorded rather than smoothed over. WDQS went into an '
-    'active outage during this pass and began answering 429 with "Aggressively '
-    'rate-limiting to 1 req / min - this rule was created during active wdqs outage", so '
-    'the corpus is a floor and the pass is unfinished. And every file produced sits at or '
-    'below 10,000 rows with one, wd-park-US, at 9,992, which is the shape a result cap '
-    'would take: if WDQS caps the underlying set at 10,000 then OFFSET 10000 returns '
-    'nothing although more entities exist. That could not be verified while the endpoint '
-    'was down. When it recovers, compare a COUNT for park/US against the file row count, '
-    'and if they differ, page by a sort key instead of by OFFSET.')
+    'TWO LIMITS ON THIS FIGURE, both recorded rather than smoothed over. '
+    'FIRST, THE TRUNCATION WAS REAL AND IS NOW VERIFIED. The earlier pass could only '
+    'suspect it, because WDQS was in an active outage. It has since answered, and a COUNT '
+    'over exactly the population the materialiser paginates puts United States parks at '
+    '56,755 against the 9,992 the file held: the cap applies to the underlying result set, '
+    'so OFFSET 10000 returned nothing and the loop read an empty page as the end of the '
+    'data. 83 per cent of that pair was lost silently, which is the worst kind of loss '
+    'because the file looks complete. Only one file of 125 carried the signature, so the '
+    'damage was one pair, but the defect was in every pair and was waiting for a large '
+    'enough class. OFFSET pagination is replaced by latitude bands in which a band that '
+    'comes back full, or that does not come back at all, is split rather than trusted. '
+    'SECOND, REFETCHING IS RATE-LIMITED UPSTREAM, NOT BY THE CODE. WDQS answers 429 with '
+    '"Aggressively rate-limiting to 1 req / min - this rule was created during active wdqs '
+    'outage", enforced per host, and the Wikidata search API answers 429 to the first '
+    'request from this container. The agent proxy reports no relay failures, so the limit '
+    'is at Wikimedia. The corpus is therefore a floor and is labelled as one, and the '
+    'figure above is scaled from the classes already materialised rather than counted.')
 
 poly = poi_gate.get('place_geometries_containment', 0)
 prox = poi_gate.get('place_geometries_proximity', 0)

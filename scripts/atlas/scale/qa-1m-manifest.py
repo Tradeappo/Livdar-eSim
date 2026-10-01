@@ -285,15 +285,33 @@ for r in rows:
     pu = (r.get('parent_url') or '').strip() or parent_of(r['url_pattern'])
     r['_parent'] = pu
     sib[pu] += 1
+# A page whose derived parent is a bare locale root is not an orphan: its parent is the
+# locale home page, which the site serves and this candidate inventory does not contain. The
+# distinction started to matter in the pass of 2026-10-01, when the orphan count rose from 45
+# to 59 for a reason that was not a regression. The destination gate removed the
+# cross-language country hubs, and those hubs had been each other's siblings, so one hub per
+# language was left standing alone under a parent nothing declared. The sibling test had been
+# masking a missing parent declaration rather than satisfying it, and removing the siblings
+# revealed it. Counting them as broken internal links would misreport the cause.
+def is_locale_root(u):
+    parts = [x for x in u.split('/') if x]
+    return len(parts) == 1 and len(parts[0]) <= 7
+
 orphans = collections.Counter()
+top_level = collections.Counter()
 for r in rows:
     pu = r['_parent']
     has_parent = pu in urls
     has_sibling = sib[pu] > 1
+    if not (has_parent or has_sibling) and is_locale_root(pu):
+        r['_orphan'] = False
+        top_level[r['family']] += 1
+        continue
     r['_orphan'] = not (has_parent or has_sibling)
     if r['_orphan']:
         orphans[r['family']] += 1
 issues['orphan_pages'] = sum(orphans.values())
+issues['top_level_pages_whose_parent_is_the_locale_home'] = sum(top_level.values())
 
 # ---- 5. the checks the multilingual brief names that nothing was testing ----
 # Section 21 lists what a QA pass has to show, and four of its items were simply absent
@@ -312,16 +330,28 @@ for r in rows:
 contested = {o: sorted(u)[:4] for o, u in owner_urls.items() if len(u) > 1}
 issues['intent_owners_claimed_by_more_than_one_url'] = len(contested)
 
-# The one that actually means competition: two URLs in the same market aiming at the same
-# query. Sharing a keyword cluster is not competition, because a cluster is what proved the
-# family and every city in it owns a different query. Sharing the QUERY is.
-query_urls = collections.defaultdict(set)
+# THREE FIELDS IN THIS MANIFEST ARE FAMILY-LEVEL, NOT PAGE-LEVEL, AND I HAVE NOW WRITTEN A
+# CHECK AGAINST EACH OF THEM AS IF IT WERE PAGE-LEVEL. They are semantic_cluster_id,
+# primary_keyword_if_known and local_keyword, and all three carry the measurement that proved
+# the FAMILY in that market. Every German things-to-do page therefore records
+# "amsterdam sehenswürdigkeiten" as its primary keyword, because that is the keyword the
+# family was validated on, and Aachen's page does not target it. A collision test over any of
+# the three counts cities, not competitors: the first version counted 2,479 and the second
+# 285, and both numbers were properties of the field rather than of the inventory.
+#
+# A per-page target query is not recorded anywhere in the manifest, so a query-level
+# competition test cannot be done from it. Rather than run a test that cannot mean what it
+# says, this checks the thing the data does support: the cannibalization key. Two pages in one
+# market claiming the same intent for the same entity ARE competitors, and that is the key the
+# pipeline dedupes on, so a duplicate surviving here would mean the gate failed.
+cannib = collections.defaultdict(set)
 for r in rows:
-    kw = (r.get('primary_keyword_if_known') or '').strip().lower()
-    if kw:
-        query_urls[(r['market'], kw)].add(r['url_pattern'])
-same_query = {f'{m} | {kw}': sorted(u)[:4] for (m, kw), u in query_urls.items() if len(u) > 1}
-issues['urls_competing_for_the_same_query_in_one_market'] = len(same_query)
+    k = (r['market'], r.get('entity_type', ''), r.get('entity_id', ''),
+         r.get('primary_intent', ''))
+    cannib[k].add(r['url_pattern'])
+same_intent = {str(k): sorted(v)[:4] for k, v in cannib.items() if len(v) > 1}
+issues['urls_sharing_a_cannibalization_key'] = len(same_intent)
+issues['per_page_target_query_recorded'] = 'NO: see the comment above, a query-level test is not possible from this manifest'
 
 # 5b. locale mismatch. The language in the URL prefix has to be the language the row says
 # it is in. A page served at /de/ while the row calls itself Italian is a mislabelled page
@@ -428,13 +458,14 @@ summary = {
     'distinct_urls': len(urls),
     'checks': dict(issues),
     'orphans_by_family': dict(orphans.most_common(25)),
+    'top_level_by_family': dict(top_level.most_common(25)),
     'saturated_templates': saturated[:25],
     'duplicate_examples': dupe_examples[:25],
     'shared_uniqueness_reason_by_family': dict(reason_dupes.most_common(20)),
     'contested_intent_owners': dict(list(contested.items())[:25]),
     'locale_mismatch_examples': locale_mismatch[:25],
     'entity_names_needing_a_disambiguator': dict(list(same_name_two_ids.items())[:25]),
-    'urls_competing_for_the_same_query_examples': dict(list(same_query.items())[:25]),
+    'urls_sharing_a_cannibalization_key_examples': dict(list(same_intent.items())[:25]),
     'entity_collisions_same_id_two_names': dict(list(same_id_two_names.items())[:25]),
     'sourceless_candidate_examples': sourceless[:25],
     'kept_rows_by_localisation_class_that_should_have_been_rejected': dict(kept_bad_class),
