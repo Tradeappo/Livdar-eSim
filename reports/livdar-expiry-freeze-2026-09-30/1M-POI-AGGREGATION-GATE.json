@@ -20,7 +20,7 @@
  "city_sport_cells": 5649,
  "city_opening_cells": 88912,
  "area_opening_cells": 63538,
- "aggregation_candidates": 149822,
+ "aggregation_candidates": 146283,
  "by_shape": {
   "city_category": 35157,
   "area_category": 51091,
@@ -31,22 +31,22 @@
   "city_opening": 3590,
   "area_opening": 9551,
   "city_sport": 168,
-  "area_parent": 5700,
+  "area_parent": 4271,
   "city_areas_hub": 519,
-  "notable_entity": 4713
+  "notable_entity": 2603
  },
  "by_market": {
-  "pt-BR": 6187,
-  "de-DE": 21237,
-  "es-ES": 11748,
-  "fr-FR": 12532,
-  "en-GB": 14593,
-  "it-IT": 12234,
-  "ja-JP": 14765,
-  "nl-NL": 7747,
-  "pl-PL": 10051,
+  "pt-BR": 6129,
+  "de-DE": 20557,
+  "es-ES": 11484,
+  "fr-FR": 12232,
+  "en-GB": 14027,
+  "it-IT": 11732,
+  "ja-JP": 14517,
+  "nl-NL": 7492,
+  "pl-PL": 9909,
   "zh-Hant-TW": 102,
-  "en-US": 38626
+  "en-US": 38102
  },
  "rejections": {
   "place_no_parent_city": 140462,
@@ -86,8 +86,9 @@
   "area_opening_duplicates_city_list": 206,
   "sport_below_min_count": 5481,
   "area_parent_too_narrow": 10629,
-  "areas_hub_too_few_areas": 1150,
+  "area_parent_city_has_no_areas_hub": 1429,
   "notable_but_data_thin": 6464,
+  "notable_entity_has_no_parent_page": 2110,
   "entity_not_notable": 5001502
  }
 }
