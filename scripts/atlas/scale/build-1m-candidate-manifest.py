@@ -971,7 +971,15 @@ for f in fams:
                 'url_pattern': url, 'market': m, 'language': lang,
                 'surface': f['surface'], 'family': fid, 'vertical': f['vertical'],
                 'page_type': f['intent'], 'entity_type': etype, 'entity_id': eid,
-                'entity_name': ename, 'city': ecity, 'country': ecountry or '',
+                # The DISPLAY name carries the region where the bare name would be
+                # ambiguous inside its country: Woodstock, Georgia against Woodstock,
+                # Illinois. ename stays raw above, because the keyword and reach lookups key
+                # on the name a measurement used. This is the title half of the collision the
+                # slug fix solved: 1,144 same-name cities got distinct URLs and kept
+                # identical titles until the label was used here.
+                'entity_name': (CITY_LABELS.get(str(eid)) or ename) if etype == 'city' else ename,
+                'city': (CITY_LABELS.get(str(eid)) or ecity) if etype == 'city' else ecity,
+                'country': ecountry or '',
                 'neighbourhood': eneigh, 'primary_intent': f['intent'],
                 'primary_keyword_if_known': pk, 'keyword_cluster_id': kc,
                 'semantic_cluster_id': 'sc_' + sig(fid, m, tsig),

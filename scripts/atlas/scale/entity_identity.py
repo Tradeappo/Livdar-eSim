@@ -53,6 +53,37 @@ def _load_admin1():
 ADMIN1_NAME, ADMIN1_ASCII = _load_admin1()
 
 
+def _load_admin2():
+    """The county level, because admin1 is not always enough. Great Britain has four admin1
+    regions, so two English towns of one name both resolve to England; admin1 closed 805 of
+    986 title collisions and admin2 is what separates the rest. Coverage is uneven by design
+    of the source, not of this code: Brazil has 5,570 entries and Germany 19, which is fine
+    because Germany's collisions were already closed at admin1."""
+    out, out_ascii = {}, {}
+    p = ROOT + 'data/atlas/sources/geonames/admin2-regions.jsonl.gz'
+    if not os.path.exists(p):
+        return out, out_ascii
+    with gzip.open(p, 'rt', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line: continue
+            try: r = json.loads(line)
+            except Exception: continue
+            k = (r['country'], str(r['admin1']), str(r['admin2']))
+            out[k] = r['name']
+            out_ascii[k] = r.get('ascii') or r['name']
+    return out, out_ascii
+
+
+ADMIN2_NAME, ADMIN2_ASCII = _load_admin2()
+
+
+def county_name(country, admin1, admin2):
+    if not country or admin2 in (None, ''):
+        return ''
+    return ADMIN2_NAME.get((country, str(admin1), str(admin2)), '')
+
+
 def region_name(country, admin1):
     """The human-readable region, or '' when the table does not cover it."""
     if not country or admin1 in (None, ''):
@@ -98,6 +129,16 @@ class Gazetteer:
         self.pair_repeats = {k for k, v in pair_ids.items() if len(v) > 1}
         self.triple_repeats = {k for k, v in triple_ids.items() if len(v) > 1}
         self._slug_cache = {}
+        quad_ids = {}
+        for c in self.by_id.values():
+            quad_ids.setdefault((c['name'].lower(), c['country'], c['admin1'],
+                                 c['admin2']), []).append(c['id'])
+        self.quad_repeats = {k for k, v in quad_ids.items() if len(v) > 1}
+
+    def _county_repeats(self, c):
+        """True when even the county does not separate this city from its namesake."""
+        return (c['name'].lower(), c['country'], c['admin1'],
+                c['admin2']) in self.quad_repeats
 
     # ---- identity ---------------------------------------------------------------
     def key(self, cid):
@@ -119,7 +160,12 @@ class Gazetteer:
         reg = region_name(c['country'], c['admin1'])
         if reg and (low, c['country'], c['admin1']) not in self.triple_repeats:
             return f"{c['name']}, {reg}"
-        # the region does not separate them either. Do not invent one.
+        # the region does not separate them. Try the county, which does in most of the
+        # countries where admin1 is too coarse.
+        cty = county_name(c['country'], c['admin1'], c['admin2'])
+        if cty and not self._county_repeats(c):
+            return f"{c['name']}, {cty}" + (f", {reg}" if reg else '')
+        # neither level separates them. Do not invent a region it does not have.
         return c['name']
 
     def label_is_ambiguous(self, cid):
@@ -131,7 +177,10 @@ class Gazetteer:
         if (low, c['country']) not in self.pair_repeats:
             return False
         reg = region_name(c['country'], c['admin1'])
-        return not (reg and (low, c['country'], c['admin1']) not in self.triple_repeats)
+        if reg and (low, c['country'], c['admin1']) not in self.triple_repeats:
+            return False
+        cty = county_name(c['country'], c['admin1'], c['admin2'])
+        return not (cty and not self._county_repeats(c))
 
     def unresolved_labels(self):
         """Cities whose label cannot be made unique from the data available."""
@@ -148,7 +197,7 @@ class Gazetteer:
     # are qualified, one level at a time until nothing collides.
     def _resolve_slugs(self, slugify):
         cand = {cid: slugify(c['name']) for cid, c in self.by_id.items()}
-        for level in ('country', 'region', 'id'):
+        for level in ('country', 'region', 'county', 'id'):
             groups = {}
             for cid, sl in cand.items():
                 groups.setdefault(sl, []).append(cid)
@@ -162,6 +211,9 @@ class Gazetteer:
                         extra = c['country'].lower()
                     elif level == 'region':
                         extra = slugify(region_ascii(c['country'], c['admin1']))
+                    elif level == 'county':
+                        extra = slugify(ADMIN2_ASCII.get(
+                            (c['country'], str(c['admin1']), str(c['admin2'])), ''))
                     else:
                         extra = slugify(c['id'])
                     if extra:

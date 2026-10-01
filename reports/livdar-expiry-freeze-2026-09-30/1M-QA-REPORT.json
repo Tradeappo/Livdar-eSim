@@ -2,11 +2,11 @@
  "manifest_rows": 208876,
  "distinct_urls": 208876,
  "checks": {
-  "title_over_65_chars": 135821,
+  "title_over_65_chars": 135972,
   "meta_over_165_chars": 3225,
   "title_under_15_chars": 4,
-  "duplicate_title_exact": 1279,
-  "duplicate_title_same_tokens": 1288,
+  "duplicate_title_exact": 159,
+  "duplicate_title_same_tokens": 166,
   "superlative_from_the_family_own_intent": 20,
   "uniqueness_reason_shared_with_another_candidate": 133,
   "templates_with_repeated_entities": 0,
@@ -15,7 +15,7 @@
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 1067,
+  "entity_names_needing_a_disambiguator_in_the_title": 181,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
@@ -55,24 +55,6 @@
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Senden, DE: city category",
-   "a": "c_4050ee1d80c2",
-   "b": "c_595b1153e9e3",
-   "url_a": "",
-   "url_b": "/de/areas/city-category/senden-de-bavaria/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Senden, DE: city category",
-   "a": "c_4050ee1d80c2",
-   "b": "c_595b1153e9e3",
-   "url_a": "",
-   "url_b": "/de/areas/city-category/senden-de-bavaria/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
    "title": "Bürgermeister-Stroof-Haus, Bonn, DE: what to know before you go",
    "a": "c_d4790a272ca8",
    "b": "c_d26b56e44d69",
@@ -87,42 +69,6 @@
    "b": "c_d26b56e44d69",
    "url_a": "",
    "url_b": "/de/poi/museum/bürgermeister-stroof-haus-q76634430/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Senden, DE: rents city",
-   "a": "c_573a962ff652",
-   "b": "c_24102f1ea479",
-   "url_a": "",
-   "url_b": "/de/stay/city/senden-de-bavaria/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Senden, DE: rents city",
-   "a": "c_573a962ff652",
-   "b": "c_24102f1ea479",
-   "url_a": "",
-   "url_b": "/de/stay/city/senden-de-bavaria/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Senden, DE: events city type, dates and what is open",
-   "a": "c_3e3f38e857a1",
-   "b": "c_41bae9c2f739",
-   "url_a": "",
-   "url_b": "/de/pulse/city-type/senden-de-bavaria/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Senden, DE: events city type, dates and what is open",
-   "a": "c_3e3f38e857a1",
-   "b": "c_41bae9c2f739",
-   "url_a": "",
-   "url_b": "/de/pulse/city-type/senden-de-bavaria/"
   },
   {
    "kind": "exact_title",
@@ -276,6 +222,60 @@
    "b": "c_1796cb0771b8",
    "url_a": "",
    "url_b": "/de/stay/near-venue/konzerthaus-q116771370/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Konzerthaus, DE: near venue",
+   "a": "c_eefea179da43",
+   "b": "c_1796cb0771b8",
+   "url_a": "",
+   "url_b": "/de/stay/near-venue/konzerthaus-q116771370/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Kurhaus Wiesbaden, DE: near venue",
+   "a": "c_85e78304527d",
+   "b": "c_0841c4893895",
+   "url_a": "",
+   "url_b": "/de/stay/near-venue/kurhaus-wiesbaden-q16054321/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Kurhaus Wiesbaden, DE: near venue",
+   "a": "c_85e78304527d",
+   "b": "c_0841c4893895",
+   "url_a": "",
+   "url_b": "/de/stay/near-venue/kurhaus-wiesbaden-q16054321/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Pfalzbau, DE: near venue",
+   "a": "c_cbbfe0cfb39b",
+   "b": "c_6632ff374dba",
+   "url_a": "",
+   "url_b": "/de/stay/near-venue/pfalzbau-q56513594/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Pfalzbau, DE: near venue",
+   "a": "c_cbbfe0cfb39b",
+   "b": "c_6632ff374dba",
+   "url_a": "",
+   "url_b": "/de/stay/near-venue/pfalzbau-q56513594/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Saalbau Essen, DE: near venue",
+   "a": "c_cc79932de86e",
+   "b": "c_ada39bbf1edd",
+   "url_a": "",
+   "url_b": "/de/stay/near-venue/saalbau-essen-q61435369/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -290,122 +290,110 @@
  "contested_intent_owners": {},
  "locale_mismatch_examples": [],
  "entity_names_needing_a_disambiguator": {
-  "('activities.city-things-to-do', 'en-GB', 'dallas', 'US')": [
-   "4684888",
-   "5722064"
+  "('activities.city-things-to-do', 'en-GB', 'ashford', 'GB')": [
+   "2656954",
+   "2656955"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'jacksonville', 'US')": [
-   "4116315",
-   "4160021",
-   "4241704",
-   "4473083"
+  "('activities.city-things-to-do', 'en-GB', 'neston', 'GB')": [
+   "2641795",
+   "3345432"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'manhattan', 'US')": [
-   "4274994",
-   "5125771"
+  "('places.city-category', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'ja-JP', 'sendai', 'JP')": [
-   "1852736",
-   "2111149"
+  "('activities.city-things-to-do', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'arlington', 'US')": [
-   "4671240",
-   "4744709",
-   "4929180",
-   "5785868"
+  "('places.neighbourhood-category', 'en-US', 'port richmond', 'US')": [
+   "4560691",
+   "5132028"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'aurora', 'US')": [
-   "4883817",
-   "5146233",
-   "5412347"
+  "('places.neighbourhood-category', 'fr-FR', 'sainte-marguerite', 'FR')": [
+   "12808662",
+   "2980467"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'austin', 'US')": [
-   "4671654",
-   "5016884"
+  "('neighbourhoods.guide', 'en-US', 'port richmond', 'US')": [
+   "4560691",
+   "5132028"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'buffalo', 'US')": [
-   "5019588",
-   "5110629"
+  "('rents.neighbourhood', 'fr-FR', 'sainte-marguerite', 'FR')": [
+   "12808662",
+   "2980467"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'cleveland', 'US')": [
-   "4614088",
-   "5150529"
+  "('work.city-jobs-category', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'columbus', 'US')": [
-   "4188985",
-   "4256038",
-   "4422442",
-   "4509177"
+  "('comparisons.city-vs-home', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'cypress', 'US')": [
-   "4684724",
-   "5341256"
+  "('cost-of-living.city', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'des moines', 'US')": [
-   "4853828",
-   "5792244"
+  "('cost-of-living.city-vs-market', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'fayetteville', 'US')": [
-   "4110486",
-   "4194474",
-   "4466033"
+  "('relocation.city', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'fremont', 'US')": [
-   "5068725",
-   "5155207",
-   "5350734"
+  "('weather.city-month', 'pt-BR', 'são josé', 'BR')": [
+   "3448742",
+   "3448744"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'fresno', 'US')": [
-   "4692400",
-   "5350937"
+  "('poi.attraction-notable', 'fr-FR', 'jardin des plantes', 'FR')": [
+   "n2063753155",
+   "n9677488144"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'glendale', 'US')": [
-   "5295985",
-   "5352423"
+  "('poi.attraction-notable', 'pl-PL', 'ławeczka chopina', 'PL')": [
+   "n13293462008",
+   "n13293477296",
+   "n13293479732",
+   "n13293529091"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'henderson', 'US')": [
-   "4294494",
-   "4470566",
-   "5505411"
+  "('poi.gallery-notable', 'en-US', 'gagosian', 'US')": [
+   "n10859974159",
+   "n10873196741"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'huntsville', 'US')": [
-   "4068590",
-   "4699540"
+  "('poi.gallery-notable', 'en-US', 'kasmin gallery', 'US')": [
+   "n10860703829",
+   "n10860703833"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'kansas city', 'US')": [
-   "4273837",
-   "4393217"
+  "('poi.gallery-notable', 'en-US', 'marianne boesky gallery', 'US')": [
+   "n10859974155",
+   "n10859974156"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'lexington', 'US')": [
-   "4297983",
-   "4475773",
-   "4585000",
-   "4941935"
+  "('poi.gallery-notable', 'en-US', 'matthew marks gallery', 'US')": [
+   "n10861543614",
+   "n10861543615"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'lincoln', 'US')": [
-   "5072006",
-   "5366375",
-   "8531960"
+  "('poi.gallery-notable', 'en-US', 'pace gallery', 'US')": [
+   "n10861507198",
+   "n9470785217"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'long beach', 'US')": [
-   "4434069",
-   "5367929"
+  "('poi.museum-notable', 'de-DE', 'caricatura', 'DE')": [
+   "n1851762708",
+   "n769153464"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'louisville', 'US')": [
-   "4299276",
-   "5429522"
+  "('poi.museum-notable', 'de-DE', 'feuerwehrmuseum', 'DE')": [
+   "Q76631832",
+   "n707929405",
+   "n767116789"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'madison', 'US')": [
-   "4074267",
-   "4434663",
-   "4838116",
-   "5100748"
+  "('poi.museum-notable', 'de-DE', 'heimatmuseum', 'DE')": [
+   "n1082639452",
+   "n1531223506",
+   "n250887769",
+   "n270274191"
   ],
-  "('activities.city-things-to-do', 'en-GB', 'newark', 'US')": [
-   "4143861",
-   "5101798",
-   "5164466",
-   "5376803"
+  "('poi.museum-notable', 'de-DE', 'münzkabinett', 'DE')": [
+   "Q323169",
+   "n1721721621"
   ]
  },
  "urls_sharing_a_cannibalization_key_examples": {},
@@ -9520,7 +9508,7 @@
  "title_length": {
   "min": 13,
   "max": 192,
-  "mean": 67.3
+  "mean": 67.5
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
