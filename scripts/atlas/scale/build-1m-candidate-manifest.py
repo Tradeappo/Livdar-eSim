@@ -318,11 +318,16 @@ except FileNotFoundError:
 
 # measured cross-language destination reach
 xl_markets = collections.defaultdict(set)
-XL_CITIES = set()          # the destination cities actually measured cross-language
+# The destination cities actually measured cross-language, keyed by NAME AND COUNTRY.
+# Keying on the name alone let Barcelona, Venezuela inherit the measured demand of
+# Barcelona, Spain and earn a German things-to-do page. The reach file has carried
+# city_country all along; throwing it away was the bug.
+XL_CITIES = set()
 try:
     for r in csv.DictReader(open(ROOT + 'reports/livdar-master-seo-universe-2026-09-30/CROSS-LANGUAGE-REACH.csv')):
         xl_markets[r['family']].add(r['searcher_market'])
-        if r.get('city'): XL_CITIES.add(r['city'].strip().lower())
+        if r.get('city'):
+            XL_CITIES.add((r['city'].strip().lower(), (r.get('city_country') or '').strip()))
 except FileNotFoundError:
     pass
 
@@ -590,7 +595,7 @@ def markets_for(f, ent_country, tier, ename=''):
         # destination family, because nothing was ever measured for it.
         t = tier or 4
         mkt_countries = set(MKT_COUNTRY.values())
-        measured_destination = ((ename or '').lower() in XL_CITIES
+        measured_destination = (((ename or '').lower(), ent_country) in XL_CITIES
                                or ent_country in mkt_countries)
         xl = set((xl_markets.get(fid) or set())) if measured_destination else set()
         # The English markets were measured searching GLOBALLY in round three, and not
@@ -650,7 +655,14 @@ def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier):
     nf = len([x for x in req.replace(';', ',').split(',') if x.strip()])
     if nf < 2:
         return ''                       # too few source fields to say anything distinct
-    return (f"{f['family_id']} for {ename or etype} in {market}: {basis}; "
+    # The entity's country belongs in the reason. Without it two cities that share a
+    # name produced byte-identical reasons - Barcelona ES and Barcelona VE both read
+    # "for Barcelona in de-DE" - and a reason that cannot tell two candidates apart is
+    # not doing the job the gate exists for.
+    who = ename or etype
+    if ecountry and etype in ('city', 'city-pair', 'neighbourhood', 'venue', 'airport'):
+        who = f"{who} ({ecountry})"
+    return (f"{f['family_id']} for {who} in {market}: {basis}; "
             f"{nf} source fields from {f.get('source_state', 'source')}; "
             f"{lang} market demand measured for this family")
 
@@ -674,7 +686,8 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           'publication_priority','publication_cohort_candidate','status',
           # added for the quality-first pass
           'uniqueness_reason','serp_feasibility','data_completeness','source_freshness',
-          'intent_owner','monetization_fit','tool_or_content','rejection_reason','serp_class']
+          'intent_owner','monetization_fit','tool_or_content','rejection_reason','serp_class',
+          'parent_url']
 
 stats = collections.Counter()
 rows = []
@@ -787,6 +800,7 @@ SHAPE_SERP = {
     'city_attribute': 'NOT_SAMPLED',
     'area_attribute': 'NOT_SAMPLED',
     'city_sport': 'NOT_SAMPLED',
+    'city_areas_hub': 'NOT_SAMPLED',
     'area_parent': 'NOT_SAMPLED',
     'notable_entity': 'NOT_SAMPLED',
     'wikidata_notable': 'NOT_SAMPLED',
@@ -824,6 +838,7 @@ SHAPE_WIRING = {
     'city_opening':    ('places', 'AGGREGATION', 'city_opening', 55),
     'area_opening':    ('places', 'AGGREGATION', 'area_opening', 48),
     'city_sport':      ('places', 'AGGREGATION', 'city_sport', 50),
+    'city_areas_hub':  ('areas', 'AGGREGATION', 'areas_index', 55),
     'notable_entity':  ('poi', 'ENTITY', 'poi', 50),
     'wikidata_notable': ('poi', 'ENTITY', 'poi', 45),
     'wikidata_city_list': ('places', 'AGGREGATION', 'city_category', 50),
@@ -862,13 +877,18 @@ for a in agg:
             fid = 'places.city-sport'
         elif shape == 'area_parent':
             fid = 'areas.overview'
+        elif shape == 'city_areas_hub':
+            fid = 'areas.city-index'
         elif shape == 'area_category':
             fid = f'places.area-{base}'
         else:
             fid = f'places.city-{base}'
         parts = [p for p in (a['country'], slug(a.get('city', '')), slug(area), base, modifier) if p]
         eid = '-'.join(parts)
-        if shape == 'area_parent':
+        if shape == 'city_areas_hub':
+            ename = f"neighbourhoods of {a['city']}"
+            intent = f"compare the neighbourhoods of {a['city']}"
+        elif shape == 'area_parent':
             ename = f"{area}, {a['city']}"
             intent = f"what {area} in {a['city']} is like"
         elif area:
@@ -910,6 +930,7 @@ for a in agg:
         'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
         'publication_cohort_candidate': '', 'status': 'POI_AGGREGATION',
         'uniqueness_reason': a['uniqueness_reason'],
+        'parent_url': a.get('parent_url', ''),
     })
 print(f'  aggregation candidates emitted {len(agg):,}', file=sys.stderr)
 

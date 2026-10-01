@@ -1,0 +1,402 @@
+{
+ "manifest_rows": 164656,
+ "distinct_urls": 164656,
+ "checks": {
+  "title_under_15_chars": 61185,
+  "title_over_65_chars": 46610,
+  "meta_over_165_chars": 1399,
+  "long_dash": 232,
+  "duplicate_title_exact": 42805,
+  "duplicate_title_same_tokens": 42829,
+  "templates_with_repeated_entities": 0,
+  "orphan_pages": 3870
+ },
+ "orphans_by_family": {
+  "places.area-cuisine": 1193,
+  "areas.overview": 542,
+  "places.area-supermarket": 187,
+  "places.area-pub": 147,
+  "places.area-pharmacy": 146,
+  "places.city-cuisine": 145,
+  "places.area-opening": 145,
+  "places.area-cafe": 117,
+  "places.area-bar": 107,
+  "places.area-fast_food": 106,
+  "places.area-school": 93,
+  "places.area-clinic": 90,
+  "places.area-dentist": 88,
+  "places.area-gym": 88,
+  "places.area-childcare": 85,
+  "places.area-restaurant": 61,
+  "places.area-veterinary": 54,
+  "places.area-parking": 52,
+  "places.area-guest_house": 44,
+  "places.city-opening": 39,
+  "places.area-attraction": 38,
+  "places.area-railway_station": 27,
+  "places.area-sports_centre": 25,
+  "places.area-nightclub": 24,
+  "places.area-museum": 21
+ },
+ "saturated_templates": [],
+ "duplicate_examples": [
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Barcelona",
+   "a": "c_15e8985cf0c0",
+   "b": "c_f7ddbdf77e99",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/barcelona-ve/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Barcelona",
+   "a": "c_15e8985cf0c0",
+   "b": "c_f7ddbdf77e99",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/barcelona-ve/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Valencia",
+   "a": "c_c7df5b0c890b",
+   "b": "c_ecf5d5d3336e",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/valencia-es/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Valencia",
+   "a": "c_c7df5b0c890b",
+   "b": "c_ecf5d5d3336e",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/valencia-es/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Birmingham",
+   "a": "c_42b15efa45cd",
+   "b": "c_ec3e5800cc5f",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/birmingham-us/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Birmingham",
+   "a": "c_42b15efa45cd",
+   "b": "c_ec3e5800cc5f",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/birmingham-us/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Brentwood",
+   "a": "c_1863b177626b",
+   "b": "c_6dd8eb120a27",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/brentwood-gb/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Brentwood",
+   "a": "c_1863b177626b",
+   "b": "c_6dd8eb120a27",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/brentwood-gb/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Bristol",
+   "a": "c_b9ce6153dff4",
+   "b": "c_a354329dee52",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/bristol-us/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bristol",
+   "a": "c_b9ce6153dff4",
+   "b": "c_a354329dee52",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/bristol-us/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Cambridge",
+   "a": "c_54c525da0c9b",
+   "b": "c_cc67c551f9d4",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/cambridge-gb/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Cambridge",
+   "a": "c_54c525da0c9b",
+   "b": "c_cc67c551f9d4",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/cambridge-gb/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Chino",
+   "a": "c_e63c7589deac",
+   "b": "c_78ff967f1437",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/chino-jp/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Chino",
+   "a": "c_e63c7589deac",
+   "b": "c_78ff967f1437",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/chino-jp/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Cáceres",
+   "a": "c_e8a301109edf",
+   "b": "c_413985c6f498",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/cáceres-es/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Cáceres",
+   "a": "c_e8a301109edf",
+   "b": "c_413985c6f498",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/cáceres-es/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Granada",
+   "a": "c_7cc5026f9c63",
+   "b": "c_fe37594aa91f",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/granada-ni/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Granada",
+   "a": "c_7cc5026f9c63",
+   "b": "c_fe37594aa91f",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/granada-ni/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Granada",
+   "a": "c_7cc5026f9c63",
+   "b": "c_6bff19a84497",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/granada-co/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Granada",
+   "a": "c_7cc5026f9c63",
+   "b": "c_6bff19a84497",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/granada-co/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Hamilton",
+   "a": "c_6fc2d5d9fdec",
+   "b": "c_e6a5743602e3",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/hamilton-us/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Hamilton",
+   "a": "c_6fc2d5d9fdec",
+   "b": "c_e6a5743602e3",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/hamilton-us/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Kettering",
+   "a": "c_2aafabb7535e",
+   "b": "c_2cc833d7a0fc",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/kettering-gb/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Kettering",
+   "a": "c_2aafabb7535e",
+   "b": "c_2cc833d7a0fc",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/kettering-gb/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Lincoln",
+   "a": "c_77a158248dfa",
+   "b": "c_4d31ae0c56ff",
+   "url_a": "",
+   "url_b": "/de/areas/city-things-to-do/lincoln-gb/"
+  }
+ ],
+ "long_dash_examples": [
+  {
+   "candidate_id": "c_848da1861843",
+   "field": "_title",
+   "value": "MIC – Museo dell'Illustrazione Contemporanea, Grottammare: what to know before you go"
+  },
+  {
+   "candidate_id": "c_848da1861843",
+   "field": "_meta",
+   "value": "MIC – Museo dell'Illustrazione Contemporanea: location, hours where published, and how to get there."
+  },
+  {
+   "candidate_id": "c_848da1861843",
+   "field": "_h1",
+   "value": "MIC – Museo dell'Illustrazione Contemporanea"
+  },
+  {
+   "candidate_id": "c_848da1861843",
+   "field": "primary_intent",
+   "value": "visit MIC – Museo dell'Illustrazione Contemporanea"
+  },
+  {
+   "candidate_id": "c_848da1861843",
+   "field": "entity_name",
+   "value": "MIC – Museo dell'Illustrazione Contemporanea"
+  },
+  {
+   "candidate_id": "c_fb25c8a119eb",
+   "field": "_title",
+   "value": "Historisches Museum Basel – Musikmuseum, Basel: what to know before you go"
+  },
+  {
+   "candidate_id": "c_fb25c8a119eb",
+   "field": "_meta",
+   "value": "Historisches Museum Basel – Musikmuseum: location, hours where published, and how to get there."
+  },
+  {
+   "candidate_id": "c_fb25c8a119eb",
+   "field": "_h1",
+   "value": "Historisches Museum Basel – Musikmuseum"
+  },
+  {
+   "candidate_id": "c_fb25c8a119eb",
+   "field": "primary_intent",
+   "value": "visit Historisches Museum Basel – Musikmuseum"
+  },
+  {
+   "candidate_id": "c_fb25c8a119eb",
+   "field": "entity_name",
+   "value": "Historisches Museum Basel – Musikmuseum"
+  },
+  {
+   "candidate_id": "c_b0b8e717b0bd",
+   "field": "_title",
+   "value": "Alice – Museum für Kinder, Berlin: what to know before you go"
+  },
+  {
+   "candidate_id": "c_b0b8e717b0bd",
+   "field": "_meta",
+   "value": "Alice – Museum für Kinder: location, hours where published, and how to get there."
+  },
+  {
+   "candidate_id": "c_b0b8e717b0bd",
+   "field": "_h1",
+   "value": "Alice – Museum für Kinder"
+  },
+  {
+   "candidate_id": "c_b0b8e717b0bd",
+   "field": "uniqueness_reason",
+   "value": "Alice – Museum für Kinder is a museum in Berlin with Wikidata item Q1741851, coordinates and an official website, and is NOT in the OSM corp"
+  },
+  {
+   "candidate_id": "c_b0b8e717b0bd",
+   "field": "primary_intent",
+   "value": "visit Alice – Museum für Kinder"
+  },
+  {
+   "candidate_id": "c_b0b8e717b0bd",
+   "field": "entity_name",
+   "value": "Alice – Museum für Kinder"
+  },
+  {
+   "candidate_id": "c_538e897e0a88",
+   "field": "_title",
+   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst, Wittlich: what to know before you go"
+  },
+  {
+   "candidate_id": "c_538e897e0a88",
+   "field": "_meta",
+   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst: location, hours where published, and how to get there."
+  },
+  {
+   "candidate_id": "c_538e897e0a88",
+   "field": "_h1",
+   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst"
+  },
+  {
+   "candidate_id": "c_538e897e0a88",
+   "field": "uniqueness_reason",
+   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst is a museum in Wittlich with Wikidata item Q439518, coordinates and an official website"
+  },
+  {
+   "candidate_id": "c_538e897e0a88",
+   "field": "primary_intent",
+   "value": "visit Altes Rathaus – Städtische Galerie für moderne Kunst"
+  },
+  {
+   "candidate_id": "c_538e897e0a88",
+   "field": "entity_name",
+   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst"
+  },
+  {
+   "candidate_id": "c_ea2fc87caae0",
+   "field": "_title",
+   "value": "Aquazoo – Löbbecke Museum, Düsseldorf: what to know before you go"
+  },
+  {
+   "candidate_id": "c_ea2fc87caae0",
+   "field": "_meta",
+   "value": "Aquazoo – Löbbecke Museum: location, hours where published, and how to get there."
+  },
+  {
+   "candidate_id": "c_ea2fc87caae0",
+   "field": "_h1",
+   "value": "Aquazoo – Löbbecke Museum"
+  }
+ ],
+ "title_length": {
+  "min": 2,
+  "max": 188,
+  "mean": 39.1
+ },
+ "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
+}

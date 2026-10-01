@@ -467,6 +467,15 @@ print(f"POI read: {counts['poi_read']:,}  attributed tag: {counts['attr_tag']:,}
 print(f'distinct (country, city) class cells: {len(city_n):,}', file=sys.stderr)
 
 rows = []
+# Which city-level pages were actually accepted. An area page whose parent city page was
+# rejected is an orphan by construction: the QA pass found 1,193 such area cuisine pages
+# and 542 area overviews, each pointing at a parent that does not exist. A city can fail
+# while one of its areas passes because the floors differ, so the parent has to be
+# checked rather than assumed.
+accepted_city = set()
+accepted_city_cuisine = set()
+accepted_city_attr = set()
+accepted_city_open = set()
 
 # ---- 1. city x category ----------------------------------------------------
 for (country, city, cls), n in city_n.items():
@@ -491,6 +500,7 @@ for (country, city, cls), n in city_n.items():
             f'{enriched} with hours, website or phone: a list a person searching '
             f'"{cls} in {city}" cannot get from any single venue page'),
     })
+    accepted_city.add((country, city, cls))
 
 # ---- 2. area x category ----------------------------------------------------
 for (pi, cls), n in area_n.items():
@@ -501,6 +511,8 @@ for (pi, cls), n in area_n.items():
     need = MIN_FOR_AREA.get(cls)
     if need is None:
         rejects['area_class_not_a_list_intent'] += 1; continue
+    if (p['country'], p['_city'], cls) not in accepted_city:
+        rejects['area_parent_city_page_not_accepted'] += 1; continue
     if n < need:
         rejects['area_below_min_count'] += 1; continue
     enriched = area_rich[(pi, cls)]
@@ -553,6 +565,7 @@ for (country, city, cu), n in city_cu.items():
             f'hours, website or phone: a cuisine-specific list the generic restaurants '
             f'page cannot answer'),
     })
+    accepted_city_cuisine.add((country, city, cu))
 
 for (pi, cu), n in area_cu.items():
     p = places_ok[pi]
@@ -561,6 +574,8 @@ for (pi, cu), n in area_cu.items():
     market, lang = mk
     if n < MIN_CUISINE_AREA:
         rejects['area_cuisine_below_min_count'] += 1; continue
+    if (p['country'], p['_city'], cu) not in accepted_city_cuisine:
+        rejects['area_cuisine_parent_page_not_accepted'] += 1; continue
     if city_pop(p['country'], p['_city']) < POP_FLOOR_CUISINE:
         # the area inherits its city's demand context. Without this the inventory grew
         # more area modifier pages than city ones, and each of them would have had a
@@ -618,6 +633,7 @@ for (country, city, cls, an), n in city_at.items():
             f'{ATTR_LABEL.get(an, an)} in OSM: a filter backed by the tag on each '
             f'entity, not an assertion about the city'),
     })
+    accepted_city_attr.add((country, city, cls, an))
 
 for (pi, cls, an), n in area_at.items():
     p = places_ok[pi]
@@ -626,6 +642,8 @@ for (pi, cls, an), n in area_at.items():
     market, lang = mk
     if n < MIN_ATTR_AREA:
         rejects['area_attr_below_min_count'] += 1; continue
+    if (p['country'], p['_city'], cls, an) not in accepted_city_attr:
+        rejects['area_attr_parent_page_not_accepted'] += 1; continue
     if not area_is_searched_entity(p):
         rejects['area_attr_area_not_a_searched_entity'] += 1; continue
     if city_pop(p['country'], p['_city']) < POP_FLOOR_ATTR:
@@ -673,6 +691,7 @@ for (country, city, cls, mode), n in city_op.items():
             f'opening_hours value that reads as {OPEN_LABEL[mode]}: a time-based answer '
             f'read from each entity own hours, not asserted about the city'),
     })
+    accepted_city_open.add((country, city, cls, mode))
 
 for (pi, cls, mode), n in area_op.items():
     p = places_ok[pi]
@@ -681,6 +700,8 @@ for (pi, cls, mode), n in area_op.items():
     market, lang = mk
     if n < MIN_OPEN_AREA[mode]:
         rejects['area_opening_below_min_count'] += 1; continue
+    if (p['country'], p['_city'], cls, mode) not in accepted_city_open:
+        rejects['area_opening_parent_page_not_accepted'] += 1; continue
     if not area_is_searched_entity(p):
         rejects['area_opening_area_not_a_searched_entity'] += 1; continue
     ofloor = POP_FLOOR_OPENING_DE if p['country'] == 'DE' else POP_FLOOR_OPENING
@@ -755,6 +776,32 @@ for pi, (total, ncls) in area_breadth.items():
             f"{', population ' + str(p['pop']) if p.get('pop') else ''}"
             f"{', Wikidata ' + p['qid'] if p.get('qid') else ''}: an area overview that "
             f"no single category list and no city page covers"),
+    })
+
+# ---- 3b. the city areas hub ------------------------------------------------
+# An area overview page needs somewhere to be listed. Without this hub the QA pass found
+# 542 area overviews whose parent URL led nowhere. The hub is a real page in its own
+# right - which neighbourhoods a city has and what each is like - and it only exists
+# where there are enough area pages to make a list worth reading.
+areas_by_city = collections.defaultdict(list)
+for r in rows:
+    if r['shape'] == 'area_parent':
+        areas_by_city[(r['country'], r['city'])].append(r)
+for (country, city), lst in areas_by_city.items():
+    if len(lst) < 3:
+        rejects['areas_hub_too_few_areas'] += 1; continue
+    market, lang = COUNTRY_MKT[country]
+    named = sum(1 for r in lst if r['area_method'] == 'containment')
+    rows.append({
+        'shape': 'city_areas_hub', 'country': country, 'city': city,
+        'cls': 'areas_index', 'n': len(lst), 'enriched': named,
+        'market': market, 'language': lang,
+        'url': f'/{lang}/areas/{slug(city)}/',
+        'attribution': 'containment' if named == len(lst) else 'mixed',
+        'uniqueness_reason': (f'{len(lst)} named neighbourhoods of {city} that each have '
+            f'enough mapped entities to describe, {named} of them with a mapped polygon: '
+            f'the index a person comparing areas of {city} needs, and the parent every '
+            f'area page links up to'),
     })
 
 # ---- 4. notable individual entities ---------------------------------------

@@ -24,17 +24,19 @@ for REGION in us-northeast us-midwest us-west us-south; do
   [ -f "$MARK" ] && { echo "[$REGION] already done"; continue; }
   mkdir "$LOCK" 2>/dev/null || { echo "[$REGION] locked"; continue; }
 
-  echo "[$(date +%T)] [$REGION] download"
-  if ! curl -sS -m 7200 -o "$PBF.part" "$BASE/$REGION-latest.osm.pbf"; then
-    echo "[$REGION] download FAILED"; rm -f "$PBF.part"; rmdir "$LOCK"; continue
+  # Parallel range requests, not one stream. The mirror gives a single connection about
+  # 0.3 MB/s, which puts the four US regions over ten hours away; eight ranges at once
+  # move the same bytes in well under one. parallel-get.sh verifies every part against
+  # the length the mirror reports before joining, so a short part cannot reach osmium.
+  if [ ! -f "$PBF" ]; then
+    echo "[$(date +%T)] [$REGION] download in parallel ranges"
+    if ! /home/user/Livdar-eSim/scripts/atlas/ingest/parallel-get.sh \
+           "$BASE/$REGION-latest.osm.pbf" "$PBF" 8 "$PBF.part"; then
+      echo "[$REGION] download incomplete, will resume on the next run"
+      rmdir "$LOCK"; continue
+    fi
   fi
-  # verify against the mirror's own length before trusting the file
-  want=$(curl -sS -I "$BASE/$REGION-latest.osm.pbf" 2>/dev/null | awk 'tolower($1)=="content-length:"{print $2+0}')
-  got=$(stat -c%s "$PBF.part")
-  if [ -n "$want" ] && [ "$want" -gt 0 ] && [ "$got" != "$want" ]; then
-    echo "[$REGION] TRUNCATED $got != $want"; rm -f "$PBF.part"; rmdir "$LOCK"; continue
-  fi
-  mv "$PBF.part" "$PBF"
+  got=$(stat -c%s "$PBF")
 
   echo "[$(date +%T)] [$REGION] $(( got / 1048576 ))MB prefilter"
   if ! osmium tags-filter -O -o /tmp/f_$REGION.osm.pbf "$PBF" $TAGS 2>/dev/null; then

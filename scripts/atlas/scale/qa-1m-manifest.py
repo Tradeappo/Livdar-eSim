@@ -38,7 +38,22 @@ MANIFEST = OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz'
 
 STOP = {'in', 'the', 'a', 'an', 'of', 'and', 'for', 'to', 'with', 'on', 'at', 'is',
         'are', 'best', 'top', 'your', 'you'}
-LONG_DASHES = ('—', '–', '‒', '―', '−')
+LONG_DASHES = ('\u2014', '\u2013', '\u2012', '\u2015', '\u2212')
+
+
+def undash(s):
+    """Replace every long dash with "-", the only dash this project uses.
+
+    Most hits come from entity names that genuinely contain one, such as the
+    Italian museum "MIC - Museo dell'Illustrazione Contemporanea". The name in the
+    SOURCE data keeps its original form, because rewriting a source record would be
+    falsifying it. What Livdar renders is its own text, so the rendered strings are
+    normalised and the count of affected source names is reported separately.
+    """
+    out = s or ''
+    for d in LONG_DASHES:
+        out = out.replace(d, '-')
+    return out
 
 
 def norm_tokens(s):
@@ -47,35 +62,53 @@ def norm_tokens(s):
 
 
 def title_for(r):
-    """The title this candidate would render, from its own fields."""
-    name = r['entity_name'] or r['entity_id']
-    city, area = r['city'], r['neighbourhood']
+    """The title this candidate would render, from its own fields.
+
+    The first skeleton fell through to the bare entity name for several families, which
+    produced 42,805 exact title collisions. Reading them found a real defect behind the
+    noise: two different cities called Barcelona, one in Spain and one in Venezuela, both
+    earning a German page. The country is now carried on every city-scoped title, so a
+    collision reported here is a genuine collision rather than a thin skeleton.
+    """
+    name = undash(r['entity_name'] or r['entity_id'])
+    city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
     shape = r['family']
+    where = f"{city}, {country}" if city and country else (city or country or '')
     if r['page_type'] == 'ENTITY':
-        return f"{name}{', ' + city if city else ''}: what to know before you go"
+        return f"{name}{', ' + where if where else ''}: what to know before you go"
+    if shape == 'areas.city-index':
+        return f"Neighbourhoods of {where}: which area suits you"
     if shape == 'areas.overview':
-        return f"{area}, {city}: what the area is like"
+        return f"{area}, {where}: what the area is like"
     if r['surface'] == 'places':
-        return f"{name}: the full list, updated from open data"
-    if shape.startswith('pulse.') or shape.startswith('events.'):
-        return f"{name}: dates and what is open"
+        return f"{name}, {country}: the full list from open data" if country else name
+    if shape.startswith(('pulse.', 'events.')):
+        return f"{name}{' in ' + country if country else ''}: dates and what is open"
     if shape.startswith('tools.'):
         return f"{name}: work it out with your own numbers"
-    return f"{name}"
+    if shape.startswith(('weather.', 'climate.')):
+        return f"{name}, {country}: what the weather is actually like" if country else name
+    if shape.startswith(('activities.', 'destinations.')):
+        return f"{name}, {country}: what is worth your time" if country else name
+    if shape.startswith(('move.', 'work.', 'stay.', 'safety.', 'money.', 'rents.')):
+        return f"{name}{' (' + country + ')' if country else ''}: what to sort out first"
+    return f"{name}{', ' + country if country else ''}"
 
 
 def meta_for(r):
-    name = r['entity_name'] or r['entity_id']
-    reason = (r.get('uniqueness_reason') or '').split(':')[0]
+    name = undash(r['entity_name'] or r['entity_id'])
+    reason = undash((r.get('uniqueness_reason') or '').split(':')[0])
     if r['page_type'] == 'ENTITY':
         return f"{name}: location, hours where published, and how to get there."
     return f"{name}. {reason[:110]}."
 
 
 def h1_for(r):
-    name = r['entity_name'] or r['entity_id']
+    name = undash(r['entity_name'] or r['entity_id'])
     if r['family'] == 'areas.overview':
-        return f"{r['neighbourhood']}, {r['city']}"
+        return undash(f"{r['neighbourhood']}, {r['city']}")
+    if r['family'] == 'areas.city-index':
+        return undash(f"Neighbourhoods of {r['city']}")
     return name
 
 
@@ -109,14 +142,18 @@ for r in rows:
         issues['meta_over_165_chars'] += 1
     if not h.strip():
         issues['h1_empty'] += 1
-    for field in ('_title', '_meta', '_h1', 'uniqueness_reason', 'primary_intent',
-                  'entity_name'):
-        v = r.get(field) or ''
-        if any(d in v for d in LONG_DASHES):
-            issues['long_dash'] += 1
+    # a long dash in a RENDERED string is a rule violation and has to be zero; one in a
+    # source entity name is a fact about the source and is counted, not rewritten
+    for field in ('_title', '_meta', '_h1'):
+        if any(d in (r.get(field) or '') for d in LONG_DASHES):
+            issues['long_dash_in_rendered_string'] += 1
             if len(dash_hits) < 25:
                 dash_hits.append({'candidate_id': r['candidate_id'], 'field': field,
-                                  'value': v[:140]})
+                                  'value': (r.get(field) or '')[:140]})
+    for field in ('entity_name', 'uniqueness_reason', 'primary_intent'):
+        if any(d in (r.get(field) or '') for d in LONG_DASHES):
+            issues['long_dash_in_source_name_or_derived_text'] += 1
+            break
 
 # ---- 2. near duplicates ----------------------------------------------------
 dupe_examples = []
@@ -147,6 +184,29 @@ for mkt, items in title_by_market.items():
 issues['duplicate_title_exact'] = exact
 issues['duplicate_title_same_tokens'] = token_dupe
 
+# ---- 2b. uniqueness_reason must actually distinguish --------------------------
+# The brief requires a uniqueness_reason per candidate. A reason that two candidates
+# share does not justify either of them: Barcelona ES and Barcelona VE both read
+# "activities.city-things-to-do for Barcelona in de-DE" before the country was added.
+reason_dupes = collections.Counter()
+reason_examples = []
+seen_reason = {}
+for r in rows:
+    k = (r['market'], (r.get('uniqueness_reason') or '').strip())
+    if not k[1]:
+        issues['uniqueness_reason_missing'] += 1
+        continue
+    if k in seen_reason:
+        issues['uniqueness_reason_shared_with_another_candidate'] += 1
+        reason_dupes[r['family']] += 1
+        if len(reason_examples) < 15:
+            reason_examples.append({'market': r['market'], 'family': r['family'],
+                                    'reason': k[1][:150],
+                                    'a': seen_reason[k], 'b': r['candidate_id'],
+                                    'url_b': r['url_pattern']})
+    else:
+        seen_reason[k] = r['candidate_id']
+
 # ---- 3. template saturation ------------------------------------------------
 saturated = []
 for key, n in tmpl_pages.most_common():
@@ -165,7 +225,9 @@ def parent_of(u):
 
 sib = collections.Counter()
 for r in rows:
-    pu = parent_of(r['url_pattern'])
+    # the manifest now carries an explicit parent for the shapes that have one. Deriving
+    # it from the URL path alone reported pages as orphans although they knew their parent
+    pu = (r.get('parent_url') or '').strip() or parent_of(r['url_pattern'])
     r['_parent'] = pu
     sib[pu] += 1
 orphans = collections.Counter()
@@ -185,6 +247,8 @@ summary = {
     'orphans_by_family': dict(orphans.most_common(25)),
     'saturated_templates': saturated[:25],
     'duplicate_examples': dupe_examples[:25],
+    'shared_uniqueness_reason_by_family': dict(reason_dupes.most_common(20)),
+    'shared_uniqueness_reason_examples': reason_examples,
     'long_dash_examples': dash_hits,
     'title_length': {
         'min': min((len(r['_title']) for r in rows), default=0),
