@@ -858,6 +858,13 @@ for (pi, cls), n in area_n.items():
     if cls in LIST_CLASSES and n >= MIN_FOR_AREA[cls]:
         area_breadth[pi][0] += n
         area_breadth[pi][1] += 1
+areas_in_city = collections.Counter()
+for pi, (total, ncls) in area_breadth.items():
+    if ncls >= 4 and total >= 25:
+        pp = places_ok[pi]
+        if COUNTRY_MKT.get(pp['country']):
+            areas_in_city[(pp['country'], pp['_city'])] += 1
+
 for pi, (total, ncls) in area_breadth.items():
     p = places_ok[pi]
     mk = COUNTRY_MKT.get(p['country'])
@@ -865,6 +872,11 @@ for pi, (total, ncls) in area_breadth.items():
     market, lang = mk
     if ncls < 4 or total < 25:
         rejects['area_parent_too_narrow'] += 1; continue
+    if areas_in_city[(p['country'], p['_city'])] < 3:
+        # the city areas hub needs three described neighbourhoods to be a list worth
+        # reading, so an overview in a city with fewer has no parent to live under. The QA
+        # pass found 864 of these: a page that nothing links down to is not reachable.
+        rejects['area_parent_city_has_no_areas_hub'] += 1; continue
     identity = sum(1 for k in ('qid', 'pop', 'wikipedia') if p.get(k)) + \
                (1 if p.get('geometry') == 'polygon' else 0)
     if identity < 1:
@@ -915,14 +927,27 @@ for (country, city), lst in areas_by_city.items():
     })
 
 # ---- 4. notable individual entities ---------------------------------------
+# A notable entity page needs somewhere to be listed. Its natural parent is the city list
+# for its own class, which may not have been accepted, and the QA pass found 2,650 such
+# orphans. So the parent is resolved against pages that actually exist: the class list
+# first, then the city areas hub. An entity with neither has no home on the site and is
+# rejected rather than published into nowhere.
+hub_cities = {(r['country'], r['city']) for r in rows if r['shape'] == 'city_areas_hub'}
 for o, city, extras in notable:
     mk = COUNTRY_MKT.get(o['country'])
     if not mk: continue
     market, lang = mk
     if extras < 3:
         rejects['notable_but_data_thin'] += 1; continue
+    if (o['country'], city, o['cls']) in accepted_city:
+        parent = f"/{lang}/places/{slug(o['cls'])}/{slug(city)}/"
+    elif (o['country'], city) in hub_cities:
+        parent = f'/{lang}/areas/{slug(city)}/'
+    else:
+        rejects['notable_entity_has_no_parent_page'] += 1; continue
     rows.append({
         'shape': 'notable_entity', 'country': o['country'], 'city': city,
+        'parent_url': parent,
         'cls': o['cls'], 'n': 1, 'enriched': extras, 'market': market, 'language': lang,
         'url': f"/{lang}/poi/{slug(o['cls'])}/{slug(o['name'])}-{o['id']}/",
         'entity_name': o['name'], 'entity_id': o['id'], 'attribution': 'tag',

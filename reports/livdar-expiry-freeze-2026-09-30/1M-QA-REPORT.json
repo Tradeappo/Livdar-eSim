@@ -1,42 +1,42 @@
 {
- "manifest_rows": 233426,
- "distinct_urls": 233426,
+ "manifest_rows": 242996,
+ "distinct_urls": 242996,
  "checks": {
-  "title_over_65_chars": 72703,
-  "meta_over_165_chars": 2017,
-  "long_dash_in_source_name_or_derived_text": 43,
-  "duplicate_title_exact": 17790,
-  "duplicate_title_same_tokens": 17806,
+  "title_over_65_chars": 72299,
+  "meta_over_165_chars": 2036,
+  "long_dash_in_source_name_or_derived_text": 66,
+  "duplicate_title_exact": 17789,
+  "duplicate_title_same_tokens": 17813,
   "uniqueness_reason_shared_with_another_candidate": 27,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 3430
+  "orphan_pages": 4176
  },
  "orphans_by_family": {
-  "poi.museum-notable": 1535,
-  "areas.overview": 673,
-  "poi.theatre-notable": 647,
-  "places.area-attribute": 136,
+  "poi.museum-notable": 1507,
+  "areas.overview": 864,
+  "poi.theatre-notable": 635,
+  "poi.art_museum-notable": 286,
+  "places.area-attribute": 139,
+  "poi.botanical_garden-notable": 122,
   "places.city-attribute": 98,
-  "places.city-opening": 71,
-  "places.area-opening": 71,
-  "places.city-sport": 65,
-  "places.city-cuisine": 42,
-  "poi.art_museum-notable": 20,
+  "poi.park-notable": 97,
+  "places.area-opening": 95,
+  "poi.castle-notable": 77,
+  "places.city-sport": 74,
+  "places.city-opening": 64,
+  "places.city-cuisine": 47,
   "poi.beach-notable": 11,
   "destinations.country-hub": 9,
   "poi.aquarium-notable": 4,
+  "places.city-swimming_pool": 3,
+  "places.city-water_park": 3,
   "neighbourhoods.city-best-for": 3,
   "neighbourhoods.city-where-to-stay": 3,
   "poi.theme_park-notable": 3,
   "poi.water_park-notable": 3,
   "poi.zoo-notable": 3,
-  "places.city-beach": 2,
   "places.city-castle": 2,
-  "places.city-mall": 2,
-  "places.city-marina": 2,
-  "places.city-swimming_pool": 2,
-  "places.city-viewpoint": 2,
-  "places.city-zoo": 2
+  "places.city-garden": 2
  },
  "saturated_templates": [],
  "duplicate_examples": [
@@ -398,7 +398,7 @@
  "title_length": {
   "min": 27,
   "max": 192,
-  "mean": 57.7
+  "mean": 57.5
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

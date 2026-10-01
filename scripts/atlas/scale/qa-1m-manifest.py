@@ -74,6 +74,12 @@ def title_for(r):
     fam, surface = r['family'], r['surface']
     where = f"{city}, {country}" if city and country else (city or country or '')
     qualified = f"{name}, {country}" if country and country not in name else name
+    # Several families share one surface. Keying the skeleton on surface alone gave
+    # activities.city-things-to-do and destinations.city-hub the SAME title for Berlin,
+    # which is a defect in the simulation rather than in the inventory: the two pages are
+    # genuinely different and a real title set would say so. The family's own second
+    # segment is what distinguishes them.
+    fam_label = (fam.split('.', 1)[1] if '.' in fam else fam).replace('-', ' ')
 
     if r['page_type'] == 'ENTITY':
         return f"{name}{', ' + where if where else ''}: what to know before you go"
@@ -82,26 +88,26 @@ def title_for(r):
     if fam == 'areas.overview':
         return f"{area}, {where}: what the area is like"
     if surface == 'places':
-        return f"{qualified}: the full list from open data"
+        return f"{qualified}: {fam_label}, the full list from open data"
     if surface == 'pulse':
-        return f"{qualified}: dates and what is open"
+        return f"{qualified}: {fam_label}, dates and what is open"
     if surface == 'tools':
         return f"{name}: work it out with your own numbers"
     if surface == 'climate':
-        return f"{qualified}: what the weather is actually like"
+        return f"{qualified}: {fam_label}, what it is actually like"
     if surface == 'areas':
-        return f"{qualified}: what is worth your time"
+        return f"{qualified}: {fam_label}"
     if surface == 'move':
-        return f"{qualified}: what to sort out before you go"
+        return f"{qualified}: {fam_label}"
     if surface == 'stay':
-        return f"{qualified}: where to stay and what it costs"
+        return f"{qualified}: {fam_label}"
     if surface == 'work':
-        return f"{qualified}: working there, in practice"
+        return f"{qualified}: {fam_label}"
     if surface == 'money':
-        return f"{qualified}: the money side, in plain numbers"
+        return f"{qualified}: {fam_label}"
     if surface == 'safety':
-        return f"{qualified}: what the official figures say"
-    return f"{qualified}: the practical guide"
+        return f"{qualified}: {fam_label}"
+    return f"{qualified}: {fam_label}"
 
 
 def meta_for(r):

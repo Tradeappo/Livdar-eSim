@@ -168,6 +168,10 @@ for o in wd:
         # a visitor-intent entity with no official site is a name on a map: Wikidata
         # gives no hours, no address and no phone, so there is nothing practical to say
         rejects['no_official_website_so_page_would_be_thin'] += 1; continue
+    # The parent is the class list page for this city, which the OSM aggregation emits only
+    # where it passed its own gates. Wikidata cannot know that, so the parent is recorded
+    # and the publication controller enforces parent-before-child: Part D forbids releasing
+    # a child whose parent is unpublished, which is where this is caught.
     rows.append({
         'shape': 'wikidata_notable', 'source': 'wikidata', 'country': o['country'],
         'city': city, 'cls': cls, 'n': 1, 'enriched': 2,

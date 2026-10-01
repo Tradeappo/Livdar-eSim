@@ -1142,11 +1142,20 @@ with gzip.open(OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz', 'wt', newline='') as
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore'); w.writeheader(); w.writerows(stage3)
 try:
     import pyarrow as pa, pyarrow.parquet as pq
-    cols = {k: pa.array([r[k] for r in stage3]) for k in FIELDS}
+    # r.get rather than r[k]. The CSV writer tolerates a row that is missing a field and
+    # this did not: adding parent_url to FIELDS, which only the aggregation shapes set,
+    # raised KeyError here AFTER the manifest had been written and BEFORE the summary was,
+    # leaving the summary stale at the previous run's count while the manifest held the new
+    # one. A report that reads the summary would then have contradicted the data it
+    # describes, which is the one property this folder is supposed to guarantee.
+    cols = {k: pa.array([r.get(k, '') for r in stage3]) for k in FIELDS}
     pq.write_table(pa.table(cols), OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.parquet', compression='snappy')
     print('parquet written', file=sys.stderr)
 except ImportError:
     print('pyarrow missing: parquet skipped', file=sys.stderr)
+except Exception as e:
+    # an export format failing must never cost the summary and the reports built from it
+    print(f'parquet FAILED but the run continues: {type(e).__name__}: {e}', file=sys.stderr)
 
 def brk(name, keyfn, cols):
     agg = collections.defaultdict(lambda: collections.Counter())
