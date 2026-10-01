@@ -76,7 +76,16 @@ add('Complete the Wikidata materialisation',
     'materialised, which is optimistic: museums and libraries are Wikidata strengths and '
     'the remaining classes are thinner. Individual pages are emitted only for '
     'visitor-intent classes, because the SERP for a named hospital, university or station '
-    'belongs to that institution.')
+    'belongs to that institution. '
+    'TWO LIMITS ON THIS FIGURE, both recorded rather than smoothed over. WDQS went into an '
+    'active outage during this pass and began answering 429 with "Aggressively '
+    'rate-limiting to 1 req / min - this rule was created during active wdqs outage", so '
+    'the corpus is a floor and the pass is unfinished. And every file produced sits at or '
+    'below 10,000 rows with one, wd-park-US, at 9,992, which is the shape a result cap '
+    'would take: if WDQS caps the underlying set at 10,000 then OFFSET 10000 returns '
+    'nothing although more entities exist. That could not be verified while the endpoint '
+    'was down. When it recovers, compare a COUNT for park/US against the file row count, '
+    'and if they differ, page by a sort key instead of by OFFSET.')
 
 poly = poi_gate.get('place_geometries_containment', 0)
 prox = poi_gate.get('place_geometries_proximity', 0)

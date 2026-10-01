@@ -31,6 +31,19 @@ COUNTRIES = [('Q30','US'),('Q183','DE'),('Q142','FR'),('Q38','IT'),('Q29','ES'),
 LANG = {'US':'en','GB':'en','DE':'de','FR':'fr','IT':'it','ES':'es','NL':'nl',
         'PL':'pl','BR':'pt','JP':'ja','TW':'zh-hant'}
 
+# The endpoint's own result cap is the open question here. Every file this has produced
+# sits at or below 10,000 rows and exactly one, wd-park-US, sits at 9,992, which is the
+# shape truncation would take: if WDQS caps the underlying result set at 10,000, then
+# OFFSET 10000 returns nothing even though more entities exist, and the loop below reads
+# that as the end of the data. It could not be verified because WDQS went into an active
+# outage mid-pass, answering 429 with "Aggressively rate-limiting to 1 req / min - this
+# rule was created during active wdqs outage". VERIFY_WHEN_WDQS_RECOVERS: run a COUNT for
+# park/US against the file's row count, and if they differ, page by a sort key rather than
+# by OFFSET, which is the standard way around a result cap.
+WDQS_OUTAGE_NOTE = ('WDQS was rate-limiting to 1 request per minute during this pass, so '
+                    'the Wikidata corpus is a floor rather than a total')
+
+
 def fetch(qid, cq, iso, offset, limit=10000):
     lang = LANG[iso]
     q = f"""SELECT ?x ?xLabel ?lat ?lon ?site WHERE {{
@@ -47,8 +60,10 @@ def fetch(qid, cq, iso, offset, limit=10000):
                 'Accept': 'application/sparql-results+json'})
             with urllib.request.urlopen(rq, timeout=180) as r:
                 return json.load(r)['results']['bindings']
-        except Exception:
-            time.sleep(15 * (attempt + 1))
+        except Exception as e:
+            # 429 during the outage means wait a full minute, not back off from seconds
+            wait = 70 if '429' in str(e) else 15 * (attempt + 1)
+            time.sleep(wait)
     return None
 
 # Partition the work so several workers can run at once without doing it twice.
@@ -91,7 +106,7 @@ for qid, cname, cq, iso in PAIRS:
                              **({'web': r['site']['value'][:160]} if r.get('site') else {})})
             if len(b) < 10000: break
             offset += 10000
-            time.sleep(3)
+            time.sleep(65)        # the endpoint asked for one request per minute
         else:
             pass
         if rows:
@@ -106,6 +121,6 @@ for qid, cname, cq, iso in PAIRS:
             os.rmdir(claim)
         except OSError:
             pass
-        time.sleep(2)
+        time.sleep(65)
 print(f'\nTOTAL materialised: {total:,}')
 print('by class:', dict(stats.most_common()))
