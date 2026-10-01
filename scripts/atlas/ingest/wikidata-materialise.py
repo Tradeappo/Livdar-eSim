@@ -114,6 +114,24 @@ OFFSET = int(os.environ.get('WD_OFFSET', '0'))
 
 PAIRS = [(qid, cname, cq, iso) for qid, cname in CLASSES for cq, iso in COUNTRIES]
 PAIRS = [p for i, p in enumerate(PAIRS) if i % STRIDE == OFFSET]
+
+# Pairs that already have a file are REFETCHES, and a refetch exists because the pair was
+# large enough to hit the result cap, which is exactly what makes it slow: many bands, each
+# costing a minute or more under the per-host rate limit. Put them last.
+#
+# Clearing park_US's done-mark to force its refetch put the single most expensive pair at the
+# front of the queue, and 135 pairs that could each finish in one or two requests sat behind
+# it for nineteen minutes while it produced nothing but band splits. The queue order decided
+# how much got done, and I had it backwards. Cheap, unstarted pairs first; known-expensive
+# refetches with the time that is left.
+def _is_refetch(pair):
+    _qid, cname, _cq, iso = pair
+    return os.path.exists(f'{OUT}wd-{cname}-{iso}.jsonl.gz')
+
+PAIRS.sort(key=_is_refetch)
+print(f'queue order: {sum(1 for p in PAIRS if not _is_refetch(p))} unstarted pairs first, '
+      f'then {sum(1 for p in PAIRS if _is_refetch(p))} refetches',
+      flush=True)
 print(f'worker offset {OFFSET} of stride {STRIDE}: {len(PAIRS)} pairs to try', flush=True)
 
 total = 0
@@ -129,12 +147,15 @@ for qid, cname, cq, iso in PAIRS:
             continue                      # another worker holds this pair
         # Latitude bands, deepest-first, with a full band treated as truncation.
         seen = {}
-        # Start split rather than whole. One band from pole to pole is the single most
-        # expensive form the query can take, and three pairs timed out on exactly that
-        # before anything had a chance to subdivide. Eight opening bands cost eight cheap
-        # queries instead of one that cannot finish.
-        queue = [(lo, lo + 22.5, 0) for lo in
-                 [-90.0, -67.5, -45.0, -22.5, 0.0, 22.5, 45.0, 67.5]]
+        # Start whole, and let the split handle the expensive case. Pre-splitting into eight
+        # opening bands was belt added to braces and it cost 8x on every pair that needed one
+        # request: most class and country pairs hold tens or hundreds of entities and answer
+        # a global band immediately. With 135 such pairs queued at roughly 31 seconds a
+        # request, the pre-split turned about ninety minutes of work into nine hours and
+        # produced nothing in the first few minutes. Since a band that does not answer is now
+        # split anyway, one global band is self-correcting: a small pair costs one request, a
+        # large one costs a single wasted request before it subdivides.
+        queue = [(-90.0, 90.0, 0)]
         unreachable = False
         truncated_bands = []
         MAX_DEPTH = 14
