@@ -292,8 +292,12 @@ def area_is_searched_entity(p):
 # POI pass picked up along the way (points only). The polygon record always wins.
 places = {}
 def place_key(p):
+    # Two decimals is about a kilometre. Three was too strict: a polygon centroid and the
+    # place node for the same suburb are routinely more than 100 metres apart, so the same
+    # neighbourhood arrived twice, once as a polygon and once as a point, and would have
+    # produced two sets of area pages for one place.
     return (p.get('country'), (p.get('name') or '').casefold(),
-            round(float(p['lat']), 3), round(float(p['lon']), 3))
+            round(float(p['lat']), 2), round(float(p['lon']), 2))
 
 for pat in ('data/atlas/sources/osm-places/places-*.jsonl.gz',
             'data/atlas/sources/osm-poi/places-*.jsonl.gz',
@@ -312,7 +316,28 @@ for pat in ('data/atlas/sources/osm-places/places-*.jsonl.gz',
                 if old is None or (p.get('geometry') == 'polygon' and old.get('geometry') != 'polygon'):
                     places[k] = p
         except (EOFError, OSError): pass
-print(f'place records loaded (deduped): {len(places):,}', file=sys.stderr)
+# Second pass for the cases a grid key still misses: drop a POINT place when a POLYGON
+# place of the same name sits within 3km of it, because that is the same neighbourhood
+# mapped twice and the polygon is the better record.
+_poly_by_name = collections.defaultdict(list)
+for p in places.values():
+    if p.get('geometry') == 'polygon':
+        _poly_by_name[(p.get('country'), (p.get('name') or '').casefold())].append(p)
+_dropped_points = 0
+for k in list(places):
+    p = places[k]
+    if p.get('geometry') == 'polygon':
+        continue
+    for q in _poly_by_name.get((p.get('country'), (p.get('name') or '').casefold()), ()):
+        d = math.hypot((float(q['lat']) - float(p['lat'])) * 111.0,
+                       (float(q['lon']) - float(p['lon'])) * 111.0
+                       * math.cos(math.radians(float(p['lat']))))
+        if d <= 3.0:
+            del places[k]
+            _dropped_points += 1
+            break
+print(f'place records loaded (deduped): {len(places):,}; point records dropped because a '
+      f'polygon of the same name sits within 3km: {_dropped_points:,}', file=sys.stderr)
 
 # resolve each place to a parent city and apply the entity gates
 by_name_in_city = collections.Counter()

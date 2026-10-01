@@ -748,7 +748,7 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           # added for the quality-first pass
           'uniqueness_reason','serp_feasibility','data_completeness','source_freshness',
           'intent_owner','monetization_fit','tool_or_content','rejection_reason','serp_class',
-          'parent_url']
+          'parent_url','market_demand_evidence']
 
 stats = collections.Counter()
 rows = []
@@ -798,6 +798,16 @@ for f in fams:
             dsig = sig('data', fid, eid, m)
             q = max(0, min(100, qbase))
             iscore = min(q, dscore, srcscore, sscore)   # a floor on every score, never blended
+            # demand_score already distinguishes a cell measured in THIS market from a
+            # family proven elsewhere, scoring the latter 30 rather than zero. That
+            # distinction was invisible in the output, so it is now a field a reader can
+            # filter on instead of having to infer it from a number.
+            if kw_cell(fid, m):
+                dev = 'measured_in_this_market'
+            elif kw_fam(fid):
+                dev = 'family_measured_elsewhere'
+            else:
+                dev = 'none'
             cell = kw_cell(fid, m) or kw_fam(fid)
             kc = next((KCLUSTER[(n, m)] for n in kw_names(fid) if (n, m) in KCLUSTER), '')
             pk = cell[0][0] if cell else ''
@@ -817,6 +827,7 @@ for f in fams:
                 'licence_status': 'LICENCE_REQUIRED' if ss == 'LICENCE_REQUIRED' else 'OK',
                 'data_signature': dsig, 'template_signature': tsig,
                 'duplicate_risk': dup, 'cannibalization_risk': can,
+                'market_demand_evidence': dev,
                 'quality_score': q, 'demand_score': dscore, 'source_score': srcscore,
                 'serp_score': sscore, 'serp_class': serp_c,
                 'indexability_score': iscore,
@@ -990,6 +1001,7 @@ for a in agg:
         'data_signature': sig('data', fid, eid, m),
         'template_signature': sig('tpl', shape, cls, modifier),
         'duplicate_risk': 'LOW', 'cannibalization_risk': 'LOW',
+        'market_demand_evidence': 'shape_measured_2026_10_01',
         'quality_score': q, 'demand_score': dsc, 'source_score': src,
         'serp_score': ssc, 'serp_class': serp_cls, 'indexability_score': idx,
         'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),

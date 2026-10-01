@@ -53,6 +53,7 @@ by_status = collections.Counter(r['status'] for r in rows)
 by_source_status = collections.Counter(r['source_status'] for r in rows)
 by_feas = collections.Counter(r.get('serp_feasibility', '') for r in rows)
 by_licence = collections.Counter(r.get('licence_status', '') for r in rows)
+by_demand_evidence = collections.Counter(r.get('market_demand_evidence', '') for r in rows)
 by_family = collections.Counter(r['family'] for r in rows)
 final = len(rows)
 
@@ -139,6 +140,17 @@ A('| licence_status | candidates |')
 A('| --- | --- |')
 for s, n in by_licence.most_common():
     A(f'| {s or "(unset)"} | {n:,} |')
+A('')
+A('### By demand evidence for the market the page targets')
+A('')
+A('A family proven in other markets but unmeasured in this one scores 30 rather than '
+  'zero, because one keyword validates a cluster. That is not the same as measured '
+  'demand, so the distinction is a field rather than something to infer from a score.')
+A('')
+A('| market_demand_evidence | candidates |')
+A('| --- | --- |')
+for s_, n in by_demand_evidence.most_common():
+    A(f'| {s_ or "(unset)"} | {n:,} |')
 A('')
 A('### The twenty largest families')
 A('')
