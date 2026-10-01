@@ -38,12 +38,14 @@ except FileNotFoundError:
 
 rejected = 0
 reject_reasons = collections.Counter()
+rejected_rows = []
 try:
     with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'rt',
                    encoding='utf-8', newline='') as f:
         for r in csv.DictReader(f):
             rejected += 1
             reject_reasons[r.get('rejection_reason', 'unrecorded')] += 1
+            rejected_rows.append(r)
 except FileNotFoundError:
     pass
 
@@ -158,6 +160,56 @@ A('| family | candidates |')
 A('| --- | --- |')
 for s, n in by_family.most_common(20):
     A(f'| {s} | {n:,} |')
+A('')
+
+A('## 3b. The multilingual breakdown')
+A('')
+A('A second language is not free inventory. Every row whose language is not the language of '
+  'the country it describes has to show its own reason to exist, and the default answer is '
+  'no. The table below separates what each market kept from what it was refused and why.')
+A('')
+MARKET_LANG = {'en-US': 'en', 'en-GB': 'en', 'de-DE': 'de', 'ja-JP': 'ja',
+               'zh-Hant-TW': 'zh-Hant', 'it-IT': 'it', 'es-ES': 'es', 'fr-FR': 'fr',
+               'nl-NL': 'nl', 'pl-PL': 'pl', 'pt-BR': 'pt'}
+rej_by_market = collections.defaultdict(collections.Counter)
+for r in rejected_rows:
+    rej_by_market[r.get('market', '')][r.get('rejection_reason', 'unrecorded')] += 1
+
+A('| market | final valid | rejected total | translation only | local intent missing | '
+  'local data missing | other rejections |')
+A('| --- | --- | --- | --- | --- | --- | --- |')
+for mk in MARKET_LANG:
+    fin = by_market.get(mk, 0)
+    rj = rej_by_market.get(mk, collections.Counter())
+    tot = sum(rj.values())
+    tr = rj.get('localization:TRANSLATION_ONLY', 0)
+    li = rj.get('localization:LOCAL_INTENT_MISSING', 0)
+    ld = rj.get('localization:LOCAL_DATA_MISSING', 0)
+    A(f'| {mk} | {fin:,} | {tot:,} | {tr:,} | {li:,} | {ld:,} | {tot - tr - li - ld:,} |')
+A('')
+A('### Localisation class of every row that survived')
+A('')
+loc_cls = collections.Counter(r.get('localization_class', '') for r in rows)
+loc_flag = collections.Counter(r.get('localization_flag', '') for r in rows)
+A('| localization_class | candidates |')
+A('| --- | --- |')
+for k, v in loc_cls.most_common():
+    A(f'| {k or "(unset)"} | {v:,} |')
+A('')
+A(f"- flagged LOCAL_SERP_UNVERIFIED: {loc_flag.get('LOCAL_SERP_UNVERIFIED', 0):,}. These are "
+  'kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating '
+  'it as one already mislabelled 62 per cent of this inventory once.')
+A('')
+A('### Top families per market')
+A('')
+fam_by_market = collections.defaultdict(collections.Counter)
+for r in rows:
+    fam_by_market[r['market']][r['family']] += 1
+A('| market | strongest families |')
+A('| --- | --- |')
+for mk in MARKET_LANG:
+    top = fam_by_market.get(mk, collections.Counter()).most_common(4)
+    A(f'| {mk} | ' + ', '.join(f'{f} ({n:,})' for f, n in top) + ' |')
 A('')
 
 A('## 4. What was materialised in this pass')

@@ -764,7 +764,11 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           # added for the quality-first pass
           'uniqueness_reason','serp_feasibility','data_completeness','source_freshness',
           'intent_owner','monetization_fit','tool_or_content','rejection_reason','serp_class',
-          'parent_url','market_demand_evidence']
+          'parent_url','market_demand_evidence',
+          # localisation and cross-locale fields, required per the multilingual brief
+          'locale','source_page_family','local_keyword','local_volume','local_intent',
+          'local_serp','localization_class','localization_flag','localization_reason',
+          'destination']
 
 stats = collections.Counter()
 rows = []
@@ -1107,6 +1111,96 @@ for r in stage1:
     seen.add(k); stage2.append(r)
 after_semantic = len(stage2)
 
+# ------------------------------------------------- localisation and cross-locale dedupe
+# A page in a second language is NOT free inventory. The question for every row whose
+# language is not the language of the place it describes is whether that locale has its own
+# reason to exist, and the honest default is no. Six outcomes, and only two of them keep the
+# row:
+#
+#   NATIVE_LOCALE        the page is in the language of the country it describes. A German
+#                        page about a German city needs no further justification.
+#   VALID_LOCALIZATION   a cross-language page WITH a measured keyword cluster for this
+#                        family in this market. Somebody in that market searches for this.
+#   LOCAL_INTENT_MISSING the family is proven elsewhere but was never measured in this
+#                        market, and this is not the entity's own language. Rejected.
+#   TRANSLATION_ONLY     the row exists in the entity's native language already and this
+#                        variant adds no measured local demand. Rejected.
+#   LOCAL_DATA_MISSING   a cross-language variant whose source is blocked or absent, so
+#                        there would be nothing locale-specific on the page. Rejected.
+#   LOCAL_SERP_UNVERIFIED kept with the flag. Absence of SERP evidence is not evidence of a
+#                        poor fit; treating it as one already mislabelled 62 per cent of this
+#                        inventory once, and the same mistake is not repeated here.
+NATIVE_LANG = {c: l for _m, c, l in MARKETS}
+
+# which (family, entity) groups exist in more than one language at all
+group_langs = collections.defaultdict(set)
+for r in stage2:
+    group_langs[(r['family'], r['entity_id'])].add(r['language'])
+
+loc_counts = collections.Counter()
+loc_rejected = []
+stage2b = []
+for r in stage2:
+    native = NATIVE_LANG.get(r['country'])
+    lang = r['language']
+    fid, m = r['family'], r['market']
+    cell = kw_cell(fid, m)
+    top_kw, top_vol = (cell[0][0], cell[0][1]) if cell else ('', 0)
+    r['local_keyword'] = top_kw
+    r['local_volume'] = top_vol
+    r['locale'] = lang
+    r['source_page_family'] = fid
+    r['destination'] = r['country']
+    r['local_serp'] = r.get('serp_class', 'NOT_SAMPLED')
+    # the intent in this locale's own words where a local keyword was measured, otherwise
+    # the page's intent, marked so the two are never confused
+    r['local_intent'] = (f'local query: {top_kw}' if top_kw
+                         else f'page intent only, no local keyword measured: {r["primary_intent"]}')
+
+    if native and lang == native:
+        cls = 'NATIVE_LOCALE'
+        reason = (f'the page is written in {lang}, the language of {r["country"]}, the '
+                  f'country it describes, so no cross-language justification is needed')
+    elif r.get('market_demand_evidence') == 'measured_in_this_market' and top_vol > 0:
+        cls = 'VALID_LOCALIZATION'
+        reason = (f'{m} demand measured for {fid}: "{top_kw}" at {top_vol:,} volume, so '
+                  f'this locale has its own query behind it rather than a translation')
+    elif r['source_status'] in ('BLOCKED',) or r['status'] == 'MISSING_DATA':
+        cls = 'LOCAL_DATA_MISSING'
+        reason = (f'cross-language page for {r["country"]} in {lang} whose source is '
+                  f'{r["source_status"]}, so nothing locale-specific could be put on it')
+    elif len(group_langs[(fid, r['entity_id'])]) > 1 and native in group_langs[(fid, r['entity_id'])]:
+        cls = 'TRANSLATION_ONLY'
+        reason = (f'the same {fid} page for this entity already exists in {native}, the '
+                  f'language of {r["country"]}, and this {lang} variant adds no measured '
+                  f'local demand: it would be a translation, not a localisation')
+    else:
+        cls = 'LOCAL_INTENT_MISSING'
+        reason = (f'{fid} is proven in other markets but was never measured in {m}, and '
+                  f'{lang} is not the language of {r["country"]}, so no local query, '
+                  f'utility or data context justifies this locale')
+    if cls in ('NATIVE_LOCALE', 'VALID_LOCALIZATION') and r['local_serp'] == 'NOT_SAMPLED':
+        r['localization_class'] = cls
+        r['localization_flag'] = 'LOCAL_SERP_UNVERIFIED'
+    else:
+        r['localization_class'] = cls
+        r['localization_flag'] = ''
+    r['localization_reason'] = reason
+    loc_counts[cls] += 1
+    if cls in ('NATIVE_LOCALE', 'VALID_LOCALIZATION'):
+        stage2b.append(r)
+    else:
+        r['rejection_reason'] = 'localization:' + cls
+        r['status'] = 'REJECTED_LOCALIZATION'
+        loc_rejected.append(r)
+
+after_localization = len(stage2b)
+print(f'localisation gate: kept {after_localization:,}, rejected {len(loc_rejected):,}',
+      file=sys.stderr)
+for k, v in loc_counts.most_common():
+    print(f'    {k:24} {v:>9,}', file=sys.stderr)
+stage2 = stage2b
+
 # cannibalisation: two families targeting the same intent on the same entity in the
 # same market. Keep the higher publication_priority, flag the loser out.
 best = {}
@@ -1129,10 +1223,14 @@ for i, r in enumerate(stage3):
 
 print(f'after exact dedupe:        {after_exact:,}', file=sys.stderr)
 print(f'after semantic dedupe:     {after_semantic:,}', file=sys.stderr)
+print(f'after localisation gate:   {after_localization:,}', file=sys.stderr)
 print(f'after cannibalization:     {after_cannib:,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- outputs
 os.makedirs(OUT, exist_ok=True)
+# every rejection in one file, whatever stage produced it: hiding the localisation
+# rejections in a separate place would make the funnel unauditable
+rejected = rejected + loc_rejected
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
     w.writeheader(); w.writerows(rejected)
@@ -1225,6 +1323,8 @@ summary = {
     'raw_candidate_combinations': raw_total,
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
+    'after_localization_and_cross_locale_gate': after_localization,
+    'localization_classes': dict(loc_counts),
     'after_cannibalization_filtering': after_cannib,
     'FINAL_DISTINCT_CANDIDATES': len(stage3),
     'target': 1000000,

@@ -1,0 +1,39 @@
+{
+  "provider": "Ahrefs Keywords Explorer, matching terms",
+  "capturedOn": "2026-10-01",
+  "question": "Does the same tool utility have its own local query space per market, or is a second language just a translation?",
+  "method": "local-language head term per market, keyword-only select with a volume floor. The test is not whether the tool has demand somewhere, it is whether each market expresses the need in its own distinct variants.",
+  "unitsSpent": 1414,
+  "verdict": "VALID_LOCALIZATION_CONFIRMED_FOR_MORTGAGE_AND_CREDIT_TOOLS",
+  "finding": "The same utility exists in every market measured, and the variant sets do not overlap. This is the distinction the brief draws between a localisation and a translation: one utility, three genuinely different local query spaces, each with its own demand.",
+  "probes": [
+    {
+      "market": "de-DE", "keyword": "kreditrechner", "volumeFloor": 500, "rows": 34,
+      "local_variants": ["hauskauf", "baufinanzierung", "auto", "immobilien", "kostenlos", "online", "neutral", "ohne anmeldung", "einfacher"],
+      "note": "Heavily brand-qualified: ing, santander, volksbank, sparkasse, deutsche bank, dkb, targobank, commerzbank, smava, adac. The two most interesting non-brand variants are 'kreditrechner neutral' and 'kreditrechner ohne anmeldung': users explicitly looking for a calculator that is NOT a bank's. That is the opening for an independent tool, and it is also a warning that the generic head term SERP belongs to banks."
+    },
+    {
+      "market": "nl-NL", "keyword": "hypotheek berekenen", "volumeFloor": 300, "rows": 60,
+      "rowsHitLimit": true,
+      "local_variants": ["maximale", "maandlasten", "lineaire", "annuiteiten", "extra aflossen", "oversluiten", "aflossingsvrije", "zzp", "tweede hypotheek", "met eigen geld", "met overwaarde", "netto maandlasten"],
+      "note": "The strongest result and the most useful. These are not city swaps or synonyms, they are DIFFERENT CALCULATORS with different formulas: maximum borrowing, monthly payment, linear versus annuity amortisation, overpayment, refinancing, interest-only, self-employed. Each is buildable from arithmetic with no external dataset."
+    },
+    {
+      "market": "pl-PL", "keyword": "kalkulator kredytu hipotecznego", "volumeFloor": 200, "rows": 30,
+      "rowsHitLimit": true,
+      "local_variants": ["nadplata", "zdolnosc kredytowa", "koszty", "raty", "zmiana oprocentowania", "refinansowanie", "wczesniejsza splata", "o ile wzrosnie rata"],
+      "note": "Distinct variants again, and one of them is a question no English market phrases the same way: 'o ile wzrosnie rata kredytu hipotecznego' - by how much will my instalment rise. That is a rate-change calculator, and it exists because Polish mortgages are predominantly variable rate. A translated English page could not have found it."
+    },
+    {
+      "market": "fr-FR", "keyword": "calcul mensualite pret", "volumeFloor": 200, "rows": 3,
+      "verdict": "MEASUREMENT_LIMITATION_NOT_ABSENCE_OF_DEMAND",
+      "note": "Three keywords only, which says my French phrasing was wrong rather than that France has no demand. French almost certainly expresses this as 'simulation pret immobilier' or 'calculette credit'. Recorded as unmeasured rather than as rejected, because concluding absence from one badly chosen head term is exactly the error the cost-of-living intent trap taught."
+    }
+  ],
+  "buildability": {
+    "arithmetic_only_buildable_now": ["monthly payment on an annuity loan", "linear amortisation", "overpayment saving", "refinancing comparison", "interest-only versus annuity", "rent to income ratio", "salary to rent", "moving budget", "total cost of credit"],
+    "requires_official_data_not_held": ["net salary from gross, which needs each country's income tax and social contribution rules", "maximum borrowing under local lending norms, which in the Netherlands means the NIBUD tables and in Poland the KNF recommendation"],
+    "consequence": "The arithmetic tools are genuinely usable today and enter the inventory. The data-dependent ones are recorded as SOURCE_REQUIRED with the exact dataset named, not generated with invented numbers."
+  },
+  "countHonesty": "These tools are global per language, one page per variant per locale, so the whole opportunity measured here is in the order of sixty to eighty pages across ten languages. High value per page, negligible contribution to a one million target. Recorded so the value is not confused with volume."
+}
