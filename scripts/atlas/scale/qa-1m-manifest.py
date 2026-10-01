@@ -302,8 +302,8 @@ issues['orphan_pages'] = sum(orphans.values())
 # exactly like a check that passes.
 
 # 5a. intent ownership. Section 15: one owner per query cluster, and no two pages competing
-# for effectively the same query. The owner is recorded per row; what was never tested is
-# whether two different URLs claim the same one.
+# for effectively the same query. Two tests, because they catch different things, and the
+# first version of this check ran only the weaker reading of the second.
 owner_urls = collections.defaultdict(set)
 for r in rows:
     owner = (r.get('intent_owner') or '').strip()
@@ -311,6 +311,17 @@ for r in rows:
         owner_urls[owner].add(r['url_pattern'])
 contested = {o: sorted(u)[:4] for o, u in owner_urls.items() if len(u) > 1}
 issues['intent_owners_claimed_by_more_than_one_url'] = len(contested)
+
+# The one that actually means competition: two URLs in the same market aiming at the same
+# query. Sharing a keyword cluster is not competition, because a cluster is what proved the
+# family and every city in it owns a different query. Sharing the QUERY is.
+query_urls = collections.defaultdict(set)
+for r in rows:
+    kw = (r.get('primary_keyword_if_known') or '').strip().lower()
+    if kw:
+        query_urls[(r['market'], kw)].add(r['url_pattern'])
+same_query = {f'{m} | {kw}': sorted(u)[:4] for (m, kw), u in query_urls.items() if len(u) > 1}
+issues['urls_competing_for_the_same_query_in_one_market'] = len(same_query)
 
 # 5b. locale mismatch. The language in the URL prefix has to be the language the row says
 # it is in. A page served at /de/ while the row calls itself Italian is a mislabelled page
@@ -337,9 +348,14 @@ for r in rows:
     key = (r['family'], r['market'], nm, (r.get('country') or ''))
     name_ids[key].add(eid)
     id_names[(r['family'], r['market'], eid)].add(nm)
+# A shared name under different ids is usually correct rather than a collision: France has
+# several Jardins des Plantes, Warsaw has a series of identical Chopin benches, and Gagosian
+# runs more than one gallery. The ids being distinct is the system working. What it does
+# flag is a titling problem, because several pages would carry the same visible name, so
+# these are reported as needing a disambiguator rather than as duplicates.
 same_name_two_ids = {str(k): sorted(v)[:4] for k, v in name_ids.items() if len(v) > 1}
 same_id_two_names = {str(k): sorted(v)[:4] for k, v in id_names.items() if len(v) > 1}
-issues['same_entity_name_and_country_under_two_ids'] = len(same_name_two_ids)
+issues['entity_names_needing_a_disambiguator_in_the_title'] = len(same_name_two_ids)
 issues['same_entity_id_under_two_names'] = len(same_id_two_names)
 
 # 5d. source-less candidates. A row with no data source, or whose source is blocked, has
@@ -388,8 +404,16 @@ for (fam, lang), rs in sorted(cell_rows.items()):
            'venues' in (r.get('uniqueness_reason') or '') for r in rs[:50]):
         reasons.append('it lists real named places the visitor could go to, drawn from the '
                        'POI corpus rather than asserted')
-    if src and src not in ('', 'none') and completeness in ('COMPLETE', 'PARTIAL'):
+    # data_completeness is written as high / medium / low by the manifest. Testing it
+    # against COMPLETE and PARTIAL meant this branch never fired, and 363 cells were
+    # reported as failing the usefulness test on the strength of a comparison that could
+    # not be true. The families were fine; the test was wrong, which is the more dangerous
+    # of the two because it reads as a finding.
+    if src and src not in ('', 'none') and completeness in ('high', 'medium'):
         reasons.append(f'it carries figures from {src}, a named source with provenance')
+    elif src and src not in ('', 'none') and completeness == 'low':
+        reasons.append(f'it names {src} as a source, but at low completeness, so the page '
+                       f'would stand or fall on how much of that source is actually present')
     verdict = 'USEFUL_WITHOUT_SEARCH' if reasons else 'NEEDS_REDESIGN_OR_REJECT'
     useful_by_cell[f'{fam}|{lang}'] = {
         'rows': len(rs), 'verdict': verdict,
@@ -409,7 +433,8 @@ summary = {
     'shared_uniqueness_reason_by_family': dict(reason_dupes.most_common(20)),
     'contested_intent_owners': dict(list(contested.items())[:25]),
     'locale_mismatch_examples': locale_mismatch[:25],
-    'entity_collisions_same_name_two_ids': dict(list(same_name_two_ids.items())[:25]),
+    'entity_names_needing_a_disambiguator': dict(list(same_name_two_ids.items())[:25]),
+    'urls_competing_for_the_same_query_examples': dict(list(same_query.items())[:25]),
     'entity_collisions_same_id_two_names': dict(list(same_id_two_names.items())[:25]),
     'sourceless_candidate_examples': sourceless[:25],
     'kept_rows_by_localisation_class_that_should_have_been_rejected': dict(kept_bad_class),

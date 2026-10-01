@@ -4,20 +4,18 @@ Which families actually reach which locales, and at what size. A blank cell mean
 
 | family | en-US | en-GB | de-DE | ja-JP | zh-Hant-TW | it-IT | es-ES | fr-FR | nl-NL | pl-PL | pt-BR |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| activities.city-things-to-do |  | 9,700 | 3,112 | 543 | 3,112 | 133 | 150 | 143 | 57 | 1 | 158 |
 | places.area-cuisine | 4,575 | 2,002 | 1,555 | 2,911 |  | 1,389 | 1,202 | 1,574 | 529 | 790 | 400 |
 | places.city-cuisine | 5,005 | 1,223 | 996 | 1,316 |  | 581 | 752 | 1,131 | 423 | 462 | 456 |
-| stay.city-type |  | 1,078 | 9,209 | 543 | 40 | 15 | 150 | 143 | 57 | 1 | 158 |
 | places.area-opening | 2,493 | 687 | 2,359 | 969 |  | 611 | 607 | 482 | 386 | 560 | 202 |
 | places.area-restaurant | 1,680 | 644 | 1,123 | 902 |  | 807 | 944 | 498 | 422 | 469 | 277 |
-| stay.near-venue |  | 4,689 | 602 | 375 |  | 165 | 214 | 290 | 125 | 169 | 240 |
 | places.area-attribute | 2,790 |  | 2,620 |  |  |  |  |  |  | 551 | 236 |
 | places.area-fast_food | 1,421 | 1,100 | 748 | 549 |  | 389 | 330 | 397 | 437 | 423 | 166 |
-| weather.city-month |  | 3,603 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
 | poi.museum-notable | 764 | 369 | 1,024 | 278 |  | 804 | 341 | 320 | 362 | 299 | 406 |
 | places.city-restaurant | 1,604 | 333 | 555 | 428 |  | 492 | 357 | 508 | 241 | 198 | 193 |
 | places.area-pharmacy | 359 | 507 | 1,044 | 371 |  | 569 | 609 | 449 | 86 | 599 | 202 |
 | places.area-cafe | 1,038 | 959 | 475 | 583 |  | 535 | 452 | 260 | 199 | 206 | 82 |
+| stay.near-venue |  | 2,509 | 602 | 375 |  | 165 | 214 | 290 | 125 | 169 | 240 |
+| activities.city-things-to-do |  | 3,099 | 215 | 543 | 48 | 133 | 150 | 143 | 57 | 1 | 158 |
 | places.area-supermarket | 422 | 242 | 797 | 488 |  | 500 | 727 | 223 | 478 | 408 | 157 |
 | areas.overview | 739 | 510 | 403 | 689 |  | 437 | 526 | 310 | 178 | 298 | 180 |
 | rents.city | 833 | 240 | 867 | 543 | 18 | 133 | 150 | 143 |  | 1 | 668 |
@@ -26,11 +24,11 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-clinic | 537 | 252 | 538 | 339 |  | 208 | 284 | 277 | 247 | 513 | 176 |
 | events.city-calendar | 833 | 39 | 867 | 543 | 40 | 15 | 2 | 471 | 195 | 16 | 158 |
 | events.city-type | 833 | 39 | 867 | 543 | 40 | 15 | 2 | 471 | 195 | 16 | 158 |
+| weather.city-month |  | 1,099 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
 | relocation.city | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
 | work.city-salaries | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
 | places.city-category | 833 | 39 | 867 | 543 | 40 | 133 | 150 | 143 | 57 | 16 | 158 |
 | property.city-buy | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 1 |  | 101 | 668 |
-| comparisons.country-vs-country |  | 300 | 300 | 300 |  | 300 | 300 | 300 | 300 | 300 | 300 |
 | places.city-attribute | 1,448 |  | 740 |  |  |  |  |  |  | 233 | 273 |
 | places.city-pharmacy | 424 | 236 | 369 | 181 | 25 | 289 | 232 | 395 | 54 | 263 | 162 |
 | places.area-bar | 669 | 242 | 248 | 180 |  | 370 | 375 | 299 | 76 | 65 | 77 |
@@ -38,9 +36,8 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | transport.city-getting-around | 125 | 240 | 195 | 543 | 5 | 133 | 150 | 143 |  | 101 | 668 |
 | places.area-dentist | 397 | 276 | 278 | 285 |  | 103 | 223 | 128 | 222 | 348 | 38 |
 | places.city-cafe | 596 | 456 | 163 | 233 |  | 283 | 168 | 200 | 74 | 71 | 46 |
-| relocation.country |  | 249 | 249 | 249 |  | 249 | 249 | 249 | 249 | 249 | 249 |
-| taxes.country-remote-work |  | 249 | 249 | 249 |  | 249 | 249 | 249 | 249 | 249 | 249 |
 | places.city-clinic | 739 | 132 | 255 | 156 | 28 | 111 | 136 | 262 | 117 | 160 | 140 |
+| stay.city-type |  | 185 | 887 | 543 | 40 | 15 | 150 | 143 | 57 | 1 | 158 |
 | places.city-supermarket | 362 | 77 | 168 | 236 |  | 237 | 230 | 194 | 126 | 129 | 143 |
 | places.area-gym | 542 | 245 | 84 | 105 |  | 126 | 167 | 179 | 169 | 181 | 94 |
 | places.area-school | 318 | 47 | 103 | 51 |  | 148 | 134 | 185 | 289 | 260 | 225 |
@@ -48,7 +45,6 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | services.city-practical | 125 | 39 | 38 | 119 | 5 | 133 | 150 | 143 | 57 | 101 | 668 |
 | places.city-dentist | 575 | 159 | 141 | 116 | 16 | 63 | 112 | 113 | 102 | 107 | 45 |
 | places.city-school | 392 | 29 | 63 | 57 |  | 94 | 56 | 214 | 120 | 90 | 395 |
-| transport.route-from-market |  | 1,078 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
 | places.city-gym | 540 | 102 | 44 | 64 |  | 62 | 84 | 159 | 76 | 67 | 73 |
 | places.city-bar | 279 | 96 | 75 | 87 |  | 217 | 145 | 254 | 27 | 26 | 46 |
 | places.city-pub | 117 | 364 | 156 | 104 |  | 87 | 127 | 78 | 54 | 41 | 49 |
@@ -60,7 +56,6 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | neighbourhoods.guide | 191 | 43 | 127 | 80 |  | 45 | 180 | 32 | 8 | 17 | 100 |
 | places.neighbourhood-category | 191 | 43 | 127 | 80 |  | 45 | 180 | 32 | 8 | 17 | 100 |
 | rents.neighbourhood | 191 | 43 | 127 | 80 |  | 45 | 180 | 32 | 8 | 17 | 100 |
-| comparisons.city-vs-city |  | 780 |  | 15 |  |  |  |  |  |  | 24 |
 | poi.theatre-notable | 259 |  | 106 | 49 |  | 120 | 48 | 93 | 92 | 15 | 37 |
 | places.area-sports_centre | 73 | 42 | 126 | 23 |  | 61 | 46 | 90 | 219 | 53 | 23 |
 | places.area-museum | 118 | 47 | 90 | 104 |  | 133 | 66 | 57 | 68 | 47 | 23 |
@@ -68,6 +63,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.city-guest_house | 6 | 96 | 85 | 24 |  | 221 | 36 | 49 | 85 | 69 | 27 |
 | places.city-veterinary | 198 | 40 | 38 | 47 | 9 | 41 | 68 | 82 | 29 | 74 | 36 |
 | places.area-veterinary | 92 | 37 | 40 | 51 |  | 46 | 106 | 52 | 21 | 130 | 31 |
+| transport.route-from-market |  | 186 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
 | comparisons.city-vs-home | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
 | cost-of-living.city-vs-market | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
 | education.city-universities | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
@@ -89,17 +85,15 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-parking | 30 | 13 | 73 | 40 |  | 33 | 59 | 46 | 42 | 2 | 15 |
 | places.area-nightclub | 57 | 40 | 58 | 22 |  | 32 | 54 | 47 | 13 | 20 | 9 |
 | places.city-college | 53 | 9 | 29 | 16 |  | 11 | 12 | 118 | 29 | 33 | 40 |
+| poi.park-notable | 122 | 22 | 49 | 67 |  | 23 | 38 |  | 17 | 3 | 8 |
 | places.city-arts_centre | 85 | 22 | 37 | 2 |  | 24 | 18 | 77 | 24 | 25 | 22 |
 | places.city-gallery | 126 | 30 | 21 | 9 |  | 20 | 11 | 72 | 23 | 17 | 5 |
 | places.city-attraction | 58 | 32 | 45 | 35 |  | 22 | 24 | 24 | 17 | 31 | 16 |
 | poi.art_museum-notable |  | 73 |  | 100 |  |  | 70 |  | 9 |  | 26 |
 | places.area-college | 15 | 9 | 14 | 22 |  | 6 | 13 | 120 | 17 | 39 | 9 |
-| destinations.country-hub | 249 |  | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | places.city-nightclub | 50 | 21 | 42 | 14 |  | 17 | 32 | 35 | 11 | 21 | 11 |
 | places.city-hostel | 12 | 10 | 9 | 24 |  | 22 | 91 | 10 | 7 | 36 | 31 |
 | places.area-arts_centre | 59 | 17 | 26 | 2 |  | 21 | 13 | 55 | 21 | 21 | 16 |
-| poi.park-notable | 122 |  | 49 |  |  | 23 | 38 |  | 17 |  |  |
-| visas.country-work-permit |  | 249 |  |  |  |  |  |  |  |  |  |
 | places.city-parking | 18 | 10 | 55 | 27 |  | 19 | 35 | 47 | 22 | 1 | 13 |
 | places.area-department_store | 121 | 17 | 14 | 11 |  | 14 | 3 | 3 | 23 | 3 | 16 |
 | places.area-hostel | 11 | 9 | 12 | 31 |  | 25 | 66 | 3 | 10 | 37 | 19 |
@@ -122,6 +116,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | poi.castle-notable |  | 18 | 11 | 1 |  | 17 | 4 |  | 1 | 5 |  |
 | places.city-park | 34 | 2 |  | 2 |  | 3 | 2 | 4 |  | 2 | 6 |
 | places.area-marina | 3 |  | 42 |  |  | 1 |  | 1 | 5 | 1 |  |
+| comparisons.city-vs-city |  | 11 |  | 15 |  |  |  |  |  |  | 24 |
 | places.city-mall | 6 | 1 | 1 | 14 |  | 5 | 2 |  | 8 | 6 | 7 |
 | places.city-viewpoint | 6 | 1 | 14 | 9 |  | 1 | 3 | 1 | 3 | 3 |  |
 | places.area-viewpoint | 7 | 1 | 5 | 5 |  | 1 | 2 |  | 1 | 6 |  |
@@ -133,6 +128,9 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.city-theme_park | 3 | 1 |  |  |  |  |  | 7 |  | 5 | 1 |
 | places.city-zoo | 2 |  |  | 2 |  | 1 |  |  | 7 | 2 |  |
 | poi.archaeological_site-notable | 1 | 2 | 2 |  |  | 7 |  |  |  |  |  |
+| relocation.country |  | 3 | 1 | 1 |  | 1 | 1 | 1 | 1 | 1 | 2 |
+| taxes.country-remote-work |  | 3 | 1 | 1 |  | 1 | 1 | 1 | 1 | 1 | 2 |
+| destinations.country-hub | 2 |  | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | places.area-garden | 9 | 1 |  |  |  |  |  | 1 |  |  |  |
 | places.area-park | 5 |  |  |  |  | 1 | 1 | 1 |  |  | 1 |
 | places.city-golf_course | 7 |  |  | 1 |  |  |  |  |  |  |  |
@@ -145,9 +143,11 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-nature_reserve | 4 |  |  |  |  |  |  |  |  |  |  |
 | places.city-beach | 1 |  |  |  |  |  |  |  |  | 2 |  |
 | poi.beach-notable |  |  | 2 | 1 |  |  |  |  |  |  |  |
+| poi.national_park-notable | 1 |  |  |  |  |  |  | 1 |  |  | 1 |
 | poi.zoo-notable | 1 |  | 1 | 1 |  |  |  |  |  |  |  |
 | places.area-camp_site | 2 |  |  |  |  |  |  |  |  |  |  |
 | places.area-theme_park |  |  |  |  |  |  |  |  |  | 2 |  |
+| visas.country-work-permit |  | 2 |  |  |  |  |  |  |  |  |  |
 | places.area-beach |  |  |  |  |  |  |  |  |  | 1 |  |
 | places.area-swimming_pool |  |  |  |  |  |  |  | 1 |  |  |  |
 | places.area-water_park |  |  | 1 |  |  |  |  |  |  |  |  |

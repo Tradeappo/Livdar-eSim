@@ -157,6 +157,66 @@ w = csv.DictWriter(buf, fieldnames=cols, extrasaction='ignore')
 w.writeheader()
 for r in rows:
     w.writerow(r)
+# ---- paths and limits measured on 2026-10-01 -------------------------------------------
+add('Page the 1,314,927 unattributable POI off the thing they actually belong to',
+    'MEASURED 2026-10-01: of 533,415 such POI across DE, FR, PL and GB, 65 per cent sit '
+    '12km or more from the nearest city and 38 per cent beyond 20km. The classes that '
+    'dominate are rural by nature: 66,280 mountain peaks, 30,169 memorials, 12,654 '
+    'archaeological sites. Only 4.9 per cent fall within 5km of a city',
+    'UNMEASURED',
+    'DATA PATH, NOT BUILT',
+    'These POI are real and they are not reachable from a city page, because they are not '
+    'in a city. Widening the population-scaled radius was tested and rejected: it would '
+    'attribute a restaurant 4.5km outside a 10,000-person town to that town, which is the '
+    'geographic form of city-name swapping, and the 4.9 per cent it could reach is spread '
+    'over thousands of towns at single-digit POI each, below every density threshold a '
+    'shape requires. The legitimate route is a page keyed on the feature they belong to: a '
+    'national park, a mountain range, a long-distance trail, a coastline, an administrative '
+    'district. That is a new family with its own source and demand requirements and it has '
+    'not been measured, so no number is claimed for it.')
+
+add('REMOVE THE GATE: let a locale inherit demand measured for its family',
+    'MEASURED 2026-10-01: the localisation gate, once it was made destination-aware, '
+    'reclassified the rows that one measured keyword had been licensing. "hotel prag" at '
+    '7,600 was by itself licensing 8,342 German hotel pages for destinations nobody in '
+    'Germany was measured searching for',
+    'see LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION in the manifest',
+    'GATE KEPT',
+    'This is listed so the size of the temptation is on the record. Reverting to a '
+    '(family, market) test would raise the count immediately and every page it added would '
+    'be a destination swap behind a locale boundary. The brief first line is that the '
+    'origin market is not the destination.')
+
+add('Build the ten measured Tool families',
+    'MEASURED 2026-10-01 in local language: net pay 175 keywords across 9 markets, peak '
+    '258,000 a month in France; loan payment 199 keywords across 10 markets; plus eight '
+    'smaller families including the Italian CCNL contract levels and the Japanese bonus '
+    'take-home',
+    80,
+    'TWO BUILDABLE, EIGHT SOURCE_REQUIRED',
+    'High value, low count, and recorded that way so the value is not confused with volume. '
+    'One page per language, not per city, so ten languages give roughly 80 pages across the '
+    'set. Two families need no source: loan payment and Brazilian vehicle financing. The '
+    'other eight each need one country official table, and they stay unbuilt until those '
+    'are ingested with provenance and a version date, because a net-pay page with a guessed '
+    'deduction rate is wrong in a way a visitor would act on.')
+
+add('Recover the Wikidata truncation',
+    'VERIFIED 2026-10-01: a COUNT over the exact population the materialiser paginates puts '
+    'United States parks at 56,755 against the 9,992 the file held. The result cap applied '
+    'to the underlying set, so OFFSET 10000 returned nothing and the loop read that as the '
+    'end of the data. One pair of 125 carried the signature',
+    46763,
+    'FIX SHIPPED, REFETCH RATE-LIMITED',
+    'The number is the measured difference for that one pair, and it is an upper bound on '
+    'rows rather than on pages: most of 56,755 United States parks are municipal pocket '
+    'parks with no search intent, and the gates reject an entity without one. Pagination is '
+    'replaced by latitude bands where a full band is treated as evidence of truncation and '
+    'split. Refetching is throttled by Wikimedia, not by the code: WDQS answers 429 with an '
+    'active-outage rule of one request per minute per host, and the Wikidata search API '
+    'answers 429 to the first request from this container. The proxy reports no relay '
+    'failures, so the limit is upstream. The corpus is a floor and is labelled as one.')
+
 # built in memory and written once: a DictWriter that raises part way through leaves a
 # truncated file, which is how the acquisition pack once lost nine of its ten rows
 open(OUT + '1M-GAP-TO-TARGET.csv', 'w', newline='').write(buf.getvalue())

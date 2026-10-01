@@ -17,12 +17,22 @@
 #            scripts/atlas/ingest/osm-run-place-layers.sh                named places with polygons
 #   generate this script
 #
-# Usage: run-1m-pipeline.sh [--skip-places]
+# Usage: run-1m-pipeline.sh [--skip-places|--from-manifest]
+#
+# --from-manifest starts at the manifest and reuses the aggregation and Wikidata candidate
+# files already on disk. Those two stages read 5 million POI and take about nine minutes,
+# and they do not depend on any of the gate logic downstream of them, so when only a gate or
+# a report has changed, re-running them produces byte-identical inputs at a nine-minute
+# cost. The full run remains the default, because reusing an intermediate is only safe when
+# the sources behind it have not moved.
 set -u
 cd /home/user/Livdar-eSim || exit 1
 log() { echo "[$(date +%T)] == $*"; }
 
-if [ "${1:-}" != "--skip-places" ]; then
+MODE="${1:-}"
+
+if [ "$MODE" != "--from-manifest" ]; then
+if [ "$MODE" != "--skip-places" ]; then
   log "place layers (named neighbourhoods with polygons where OSM has them)"
   ./scripts/atlas/ingest/osm-run-place-layers.sh || echo "  place layers: partial"
 fi
@@ -38,6 +48,15 @@ grep -E "^(POI read|aggregation candidates|  by shape)" /tmp/pipe_agg.log || tai
 log "Wikidata candidates, deduped against the OSM corpus"
 python3 scripts/atlas/scale/wikidata-candidates.py > /tmp/pipe_wd.log 2>&1
 grep -E "^(Wikidata candidates|  by shape)" /tmp/pipe_wd.log || tail -3 /tmp/pipe_wd.log
+
+else
+  log "resuming at the manifest; the aggregation and Wikidata candidate files on disk are reused"
+  for need in data/atlas/sources/osm-poi/_aggregations.jsonl.gz \
+              data/atlas/sources/wikidata/_candidates.jsonl.gz; do
+    [ -f "$need" ] || { echo "  MISSING $need, cannot resume; run without --from-manifest"; exit 1; }
+    echo "  reusing $need  ($(stat -c '%y' "$need" | cut -d. -f1))"
+  done
+fi
 
 log "candidate manifest, with every quality gate"
 python3 scripts/atlas/scale/build-1m-candidate-manifest.py > /tmp/pipe_manifest.log 2>&1

@@ -1076,7 +1076,12 @@ for r in rows:
                               else 'medium' if r.get('quality_score', 0) >= 50 else 'low')
     r['source_freshness'] = ('static' if r['source_status'] == 'READY_NOW'
                              else 'refresh_on_source_update')
-    r['intent_owner'] = r.get('semantic_cluster_id', '')
+    # The owner of a page's intent is the cluster AND the entity, not the cluster alone.
+    # Keyed on the cluster alone, every German things-to-do page carried the same owner, so
+    # a check for contested ownership reported 2,479 collisions between pages that do not
+    # compete: Aachen and Aalen share a keyword cluster because the cluster is what proved
+    # the family, and they own entirely different queries within it.
+    r['intent_owner'] = f"{r.get('semantic_cluster_id', '')}:{r.get('entity_id', '')}" 
     r['monetization_fit'] = ('high' if r['surface'] in ('stay', 'move', 'work', 'tools')
                              else 'medium' if r['surface'] in ('places', 'transport', 'poi')
                              else 'low')
@@ -1094,7 +1099,11 @@ for r in rows:
         r['rejection_reason'] = 'REJECTED_QUALITY: no defensible uniqueness basis'
         r['status'] = 'REJECTED_QUALITY'; rejected.append(r)
     elif r['serp_feasibility'] == 'rejected':
-        r['rejection_reason'] = f"REJECTED_SERP: {r.get('SERP_class')} is not winnable"
+        # the field is serp_class, lowercase. Reading SERP_class gave None for all 11,880
+        # of these, so every one of them recorded "None is not winnable", which names no
+        # cause and makes the rejection impossible to audit or appeal.
+        r['rejection_reason'] = (f"REJECTED_SERP: {r.get('serp_class') or 'unknown'} is a "
+                                 f"measured closed SERP, not winnable")
         r['status'] = 'REJECTED_SERP'; rejected.append(r)
     elif r['indexability_score'] < 15:
         r['rejection_reason'] = f"REJECTED_QUALITY: indexability floor {r['indexability_score']}"

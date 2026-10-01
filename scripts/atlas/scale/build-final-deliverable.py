@@ -175,17 +175,34 @@ rej_by_market = collections.defaultdict(collections.Counter)
 for r in rejected_rows:
     rej_by_market[r.get('market', '')][r.get('rejection_reason', 'unrecorded')] += 1
 
-A('| market | final valid | rejected total | translation only | local intent missing | '
-  'local data missing | other rejections |')
-A('| --- | --- | --- | --- | --- | --- | --- |')
+# Section 20 asks for raw, final and each rejection category per language. Raw here means
+# everything that ever carried this market's label, which is the kept rows plus every row
+# rejected at any gate, so the two columns add up to the row the generator produced rather
+# than to a number computed some other way.
+A('| market | raw candidates | final valid | no uniqueness basis | closed SERP | '
+  'translation only | local intent missing | demand not for this destination | '
+  'local data missing | other |')
+A('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+_tot_raw = _tot_fin = 0
 for mk in MARKET_LANG:
     fin = by_market.get(mk, 0)
     rj = rej_by_market.get(mk, collections.Counter())
     tot = sum(rj.values())
+    uq = sum(v for k, v in rj.items() if k.startswith('REJECTED_QUALITY'))
+    sp = sum(v for k, v in rj.items() if k.startswith('REJECTED_SERP'))
     tr = rj.get('localization:TRANSLATION_ONLY', 0)
     li = rj.get('localization:LOCAL_INTENT_MISSING', 0)
+    nd = rj.get('localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION', 0)
     ld = rj.get('localization:LOCAL_DATA_MISSING', 0)
-    A(f'| {mk} | {fin:,} | {tot:,} | {tr:,} | {li:,} | {ld:,} | {tot - tr - li - ld:,} |')
+    other = tot - uq - sp - tr - li - nd - ld
+    _tot_raw += fin + tot
+    _tot_fin += fin
+    A(f'| {mk} | {fin + tot:,} | {fin:,} | {uq:,} | {sp:,} | {tr:,} | {li:,} | {nd:,} | '
+      f'{ld:,} | {other:,} |')
+A(f'| **all 11** | **{_tot_raw:,}** | **{_tot_fin:,}** | | | | | | | |')
+A('')
+A('Romanian is absent from the table on purpose. No Romanian Atlas page was added in this '
+  'pass, as instructed.')
 A('')
 A('### Localisation class of every row that survived')
 A('')
@@ -210,6 +227,46 @@ A('| --- | --- |')
 for mk in MARKET_LANG:
     top = fam_by_market.get(mk, collections.Counter()).most_common(4)
     A(f'| {mk} | ' + ', '.join(f'{f} ({n:,})' for f, n in top) + ' |')
+A('')
+
+A('### Where the measured demand actually is, per market')
+A('')
+A('The strongest local keyword measured for each market, in that market own language. These '
+  'are the roots the localisation gate reads, and in every non-English market the winning '
+  'root is a word an English page does not contain, which is the difference between a '
+  'localisation and a translation.')
+A('')
+STRONGEST = [
+    ('fr-FR', 'salaire brut net', 258000, 'the brut to net conversion as the noun; French '
+     'users do not search a net salary calculator'),
+    ('es-ES', 'calculadora sueldo neto', 91000, 'year-stamped variants carry their own '
+     'demand because the IRPEF tramos change annually'),
+    ('pt-BR', 'calculo salario liquido', 68000, 'at difficulty 1, against 213,000 traffic '
+     'potential'),
+    ('ja-JP', 'tedori keisan', 43000, 'take-home, with bonus take-home a separate utility '
+     'at 10,000 because Japanese pay includes large semi-annual bonuses'),
+    ('it-IT', 'calcolo stipendio netto', 42000, 'at difficulty 12, with RAL-anchored and '
+     'CCNL contract-level queries beneath it that exist in no other market'),
+    ('de-DE', 'kreditrechner', 0, '34 keywords at or above 500, notably the neutral and '
+     'ohne anmeldung variants: users looking for a calculator that is not a bank'),
+    ('nl-NL', 'hypotheek berekenen', 0, '60 keywords at or above 300 that are seven-plus '
+     'different formulas, not phrasings'),
+    ('pl-PL', 'o ile wzrosnie rata', 0, 'a rate-change calculator that exists because '
+     'Polish mortgages are variable rate; no English page would have found it'),
+    ('zh-Hant-TW', 'fang dai shi suan', 17000, 'at difficulty 16, with the New Youth '
+     'Housing government scheme beneath it and amounts counted in units of ten thousand'),
+    ('en-GB', 'things to do in krakow', 11000, 'the English markets were measured searching '
+     'globally, not only Europe'),
+    ('en-US', 'things to do in nashville', 0, 'same measurement set as en-GB'),
+]
+A('| market | strongest measured local root | monthly volume | what makes it local |')
+A('| --- | --- | --- | --- |')
+for mk, kw, vol, why in STRONGEST:
+    A(f'| {mk} | {kw} | ' + (f'{vol:,}' if vol else 'measured by keyword count, see the '
+      'measurement file') + f' | {why} |')
+A('')
+A('Transliterations are used above for the Japanese and Chinese roots so this table renders '
+  'in any terminal; the measurement files carry the original script.')
 A('')
 
 A('## 4. What was materialised in this pass')
