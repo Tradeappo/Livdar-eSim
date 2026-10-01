@@ -62,6 +62,32 @@ for (n1, v1), (n2, v2) in zip(seq, seq[1:]):
                         f"a filter cannot do")
 note('funnel', {n: v for n, v in seq})
 
+# 2b. the funnel has to SUM, not merely shrink. Monotonicity alone passed a funnel in which
+# 2,855 rows disappeared at exact dedupe with no record anywhere: every stage was smaller
+# than the one before it and the inventory was still short by rows nobody could account for.
+# Generated minus every recorded removal must equal the final count, which also means every
+# removal has to be written down somewhere to be subtracted.
+gen = summ.get('generated_before_any_gate')
+if isinstance(gen, int):
+    removals = (summ.get('removed_by_uniqueness_and_serp_gate', 0)
+                + summ.get('removed_as_exact_duplicate_urls', 0)
+                + summ.get('removed_by_localisation_gate', 0))
+    note('generated_before_any_gate', gen)
+    note('total_recorded_removals', removals)
+    if gen - removals != summ['FINAL_DISTINCT_CANDIDATES']:
+        problems.append(
+            f"the funnel does not sum: {gen:,} generated minus {removals:,} recorded "
+            f"removals is {gen - removals:,}, but the final count is "
+            f"{summ['FINAL_DISTINCT_CANDIDATES']:,}. The difference is rows that left the "
+            f"pipeline without a record, which is what hid the URL collision.")
+    if summ.get('funnel_reconciles') is False:
+        problems.append('the manifest itself reports funnel_reconciles false')
+    # and the rejected file must hold exactly the removals that are supposed to be preserved
+    preserved = (summ.get('removed_by_uniqueness_and_serp_gate', 0)
+                 + summ.get('removed_as_exact_duplicate_urls', 0)
+                 + summ.get('removed_by_localisation_gate', 0))
+    note('removals_that_should_be_preserved', preserved)
+
 # 3. the QA report
 qa = json.load(open(OUT + '1M-QA-REPORT.json'))
 note('qa_rows', qa['manifest_rows'])
@@ -103,10 +129,20 @@ with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'rt', encoding='utf
     rej = list(csv.DictReader(f))
 note('rejected_rows', len(rej))
 kept_urls = {r['url_pattern'] for r in man}
-both = kept_urls & {r['url_pattern'] for r in rej}
+# A REJECTED_DUPLICATE row shares its URL with the row that claimed it first; that is what
+# the rejection MEANS, so those are exempt. Every other rejection sharing a URL with a kept
+# page is the symptom that found the five-family path collision in this pass, so the check
+# stays sharp for them.
+both = kept_urls & {r['url_pattern'] for r in rej
+                    if not (r.get('rejection_reason') or '').startswith('REJECTED_DUPLICATE')}
 if both:
-    problems.append(f"{len(both):,} URLs appear in both the manifest and the rejected file, "
-                    f"for example {sorted(both)[0]}")
+    problems.append(f"{len(both):,} URLs appear in both the manifest and the rejected file "
+                    f"without being duplicate-URL rejections, for example "
+                    f"{sorted(both)[0]}; two different families are claiming one path")
+if isinstance(gen, int) and len(rej) != facts.get('removals_that_should_be_preserved'):
+    problems.append(f"the rejected file holds {len(rej):,} rows but the funnel records "
+                    f"{facts.get('removals_that_should_be_preserved'):,} removals that are "
+                    f"supposed to be preserved; the difference was dropped without a record")
 no_reason = [r for r in rej if not (r.get('rejection_reason') or '').strip()]
 if no_reason:
     problems.append(f"{len(no_reason):,} rejected rows carry no rejection_reason, so the "

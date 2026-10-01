@@ -111,8 +111,7 @@ and are still the evidence of record:
 
 **The authoritative number is in `1M-FINAL-DELIVERABLE.md`, which is generated from the
 files rather than written by hand, so it cannot drift from the inventory.** Read that
-first. The figure as this was last written was **203,623 FINAL DISTINCT** out of 251,611
-raw combinations, with every rejection kept visible and carrying a reason, and it moves when
+first. The figure as this was last written was **204,767 FINAL DISTINCT** out of 323,026 generated, with every rejection kept visible and carrying a reason, and it moves when
 a market finishes ingesting, because the whole chain is one command:
 `scripts/atlas/scale/run-1m-pipeline.sh` (add `--from-manifest` to reuse the aggregation and
 Wikidata files when only a gate or a report has changed). The step before the report is
@@ -120,10 +119,10 @@ Wikidata files when only a gate or a report has changed). The step before the re
 the gap summary, the four partition axes and the rejected set do not all carry the same
 count.
 
-**The number moved from 233,646 to 203,623 in the pass of 2026-10-01, and the shape of that
+**The number moved from 233,646 to 204,767 in the pass of 2026-10-01, and the shape of that
 move is the main result.** Two opposite corrections happened in the same pass: a gate that
-was too loose removed about 44,600 rows, and a URL collision that had been silently
-discarding pages gave 5,573 back.
+was too loose removed about 46,100 rows, and three URL collisions that had been silently
+discarding pages gave 6,717 back.
 
 **The loose gate.** The localisation gate was granting a locale on the strength of its
 family alone, so one measured German keyword, "hotel prag" at 7,600 a month, was by itself
@@ -143,7 +142,12 @@ part that distinguishes five families: relocation, health, banking, taxes and
 cost-of-living all share the surface "move" and the segments "city" and "country". All of
 them resolved to the same path, and exact dedupe kept whichever was generated first with no
 record of the rest. Fixing it recovered 5,573 pages that are genuinely distinct families
-with distinct intents and distinct sources. The same collision was also inflating the
+with distinct intents and distinct sources, and preserving the duplicate rejections rather
+than discarding them then revealed a second collision: two cities of the same name in the
+same country, the United States having several Woodstocks and Japan several Kariyas, which
+recovered 1,144 more. A third, 748 rows in the aggregation URL builder, is quantified and
+recorded in data/atlas/measurements/url-collision-findings-2026-10-01.json and is NOT
+fixed. The same collision was also inflating the
 duplicate-title count, which fell from 9,060 to 22 once the titles carried the topic too.
 
 An earlier version of this section said the gap to one million was closed by a single

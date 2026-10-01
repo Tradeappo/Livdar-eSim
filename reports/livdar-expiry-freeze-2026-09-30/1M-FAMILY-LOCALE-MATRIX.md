@@ -10,41 +10,41 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-restaurant | 1,680 | 644 | 1,123 | 902 |  | 807 | 944 | 498 | 422 | 469 | 277 |
 | places.area-attribute | 2,790 |  | 2,620 |  |  |  |  |  |  | 551 | 236 |
 | places.area-fast_food | 1,421 | 1,100 | 748 | 549 |  | 389 | 330 | 397 | 437 | 423 | 166 |
+| activities.city-things-to-do |  | 3,476 | 215 | 554 | 51 | 149 | 164 | 152 | 57 | 1 | 160 |
 | poi.museum-notable | 764 | 369 | 1,024 | 278 |  | 804 | 341 | 320 | 362 | 299 | 406 |
 | places.city-restaurant | 1,604 | 333 | 555 | 428 |  | 492 | 357 | 508 | 241 | 198 | 193 |
 | places.area-pharmacy | 359 | 507 | 1,044 | 371 |  | 569 | 609 | 449 | 86 | 599 | 202 |
 | places.area-cafe | 1,038 | 959 | 475 | 583 |  | 535 | 452 | 260 | 199 | 206 | 82 |
 | stay.near-venue |  | 2,509 | 602 | 375 |  | 165 | 214 | 290 | 125 | 169 | 240 |
-| activities.city-things-to-do |  | 3,107 | 215 | 543 | 51 | 149 | 164 | 152 | 57 | 1 | 159 |
 | places.area-supermarket | 422 | 242 | 797 | 488 |  | 500 | 727 | 223 | 478 | 408 | 157 |
 | areas.overview | 739 | 510 | 403 | 689 |  | 437 | 526 | 310 | 178 | 298 | 180 |
-| rents.city | 833 | 240 | 867 | 543 | 18 | 133 | 150 | 143 |  | 1 | 668 |
+| rents.city | 881 | 240 | 868 | 554 | 18 | 133 | 150 | 143 |  | 1 | 677 |
 | places.city-fast_food | 1,543 | 465 | 213 | 245 |  | 176 | 132 | 357 | 140 | 142 | 133 |
 | places.city-opening | 1,055 | 260 | 700 | 433 |  | 147 | 232 | 131 | 79 | 175 | 260 |
 | places.area-clinic | 537 | 252 | 538 | 339 |  | 208 | 284 | 277 | 247 | 513 | 176 |
-| events.city-calendar | 833 | 39 | 867 | 543 | 40 | 15 | 2 | 471 | 195 | 16 | 158 |
-| events.city-type | 833 | 39 | 867 | 543 | 40 | 15 | 2 | 471 | 195 | 16 | 158 |
-| weather.city-month |  | 1,107 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
-| relocation.city | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
-| work.city-salaries | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
-| places.city-category | 833 | 39 | 867 | 543 | 40 | 133 | 150 | 143 | 57 | 16 | 158 |
-| property.city-buy | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 1 |  | 101 | 668 |
-| cost-of-living.city | 833 | 2 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
-| health.city | 833 | 2 | 38 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
+| events.city-calendar | 881 | 39 | 868 | 554 | 40 | 15 | 2 | 471 | 195 | 16 | 159 |
+| events.city-type | 881 | 39 | 868 | 554 | 40 | 15 | 2 | 471 | 195 | 16 | 159 |
+| weather.city-month |  | 1,155 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
+| relocation.city | 881 | 240 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
+| work.city-salaries | 881 | 240 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
+| places.city-category | 881 | 39 | 868 | 554 | 40 | 133 | 150 | 143 | 57 | 16 | 159 |
+| property.city-buy | 881 | 240 | 195 | 554 | 40 | 133 | 150 | 1 |  | 101 | 677 |
+| cost-of-living.city | 881 | 2 | 195 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
+| health.city | 881 | 2 | 38 | 554 | 40 | 133 | 150 | 143 | 57 | 101 | 677 |
 | places.city-attribute | 1,448 |  | 740 |  |  |  |  |  |  | 233 | 273 |
 | places.city-pharmacy | 424 | 236 | 369 | 181 | 25 | 289 | 232 | 395 | 54 | 263 | 162 |
 | places.area-bar | 669 | 242 | 248 | 180 |  | 370 | 375 | 299 | 76 | 65 | 77 |
 | places.area-pub | 315 | 624 | 507 | 147 |  | 207 | 339 | 127 | 143 | 79 | 72 |
-| transport.city-getting-around | 125 | 240 | 195 | 543 | 5 | 133 | 150 | 143 |  | 101 | 668 |
+| transport.city-getting-around | 129 | 240 | 195 | 554 | 5 | 133 | 150 | 143 |  | 101 | 677 |
 | places.area-dentist | 397 | 276 | 278 | 285 |  | 103 | 223 | 128 | 222 | 348 | 38 |
 | places.city-cafe | 596 | 456 | 163 | 233 |  | 283 | 168 | 200 | 74 | 71 | 46 |
 | places.city-clinic | 739 | 132 | 255 | 156 | 28 | 111 | 136 | 262 | 117 | 160 | 140 |
-| stay.city-type |  | 193 | 887 | 543 | 40 | 15 | 150 | 143 | 57 | 1 | 158 |
+| stay.city-type |  | 197 | 888 | 554 | 40 | 15 | 150 | 143 | 57 | 1 | 159 |
 | places.city-supermarket | 362 | 77 | 168 | 236 |  | 237 | 230 | 194 | 126 | 129 | 143 |
 | places.area-gym | 542 | 245 | 84 | 105 |  | 126 | 167 | 179 | 169 | 181 | 94 |
 | places.area-school | 318 | 47 | 103 | 51 |  | 148 | 134 | 185 | 289 | 260 | 225 |
 | places.area-childcare | 137 | 120 | 308 | 50 |  | 52 | 175 | 172 | 183 | 361 | 36 |
-| services.city-practical | 125 | 39 | 38 | 119 | 5 | 133 | 150 | 143 | 57 | 101 | 668 |
+| services.city-practical | 129 | 39 | 38 | 120 | 5 | 133 | 150 | 143 | 57 | 101 | 677 |
 | places.city-dentist | 575 | 159 | 141 | 116 | 16 | 63 | 112 | 113 | 102 | 107 | 45 |
 | places.city-school | 392 | 29 | 63 | 57 |  | 94 | 56 | 214 | 120 | 90 | 395 |
 | places.city-gym | 540 | 102 | 44 | 64 |  | 62 | 84 | 159 | 76 | 67 | 73 |
@@ -64,17 +64,17 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-library | 75 | 42 | 121 | 22 |  | 111 | 58 | 90 | 24 | 162 | 13 |
 | places.city-guest_house | 6 | 96 | 85 | 24 |  | 221 | 36 | 49 | 85 | 69 | 27 |
 | places.city-veterinary | 198 | 40 | 38 | 47 | 9 | 41 | 68 | 82 | 29 | 74 | 36 |
-| transport.route-from-market |  | 194 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
+| transport.route-from-market |  | 198 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
 | places.area-veterinary | 92 | 37 | 40 | 51 |  | 46 | 106 | 52 | 21 | 130 | 31 |
-| comparisons.city-vs-home | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
-| cost-of-living.city-vs-market | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
-| education.city-universities | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
-| events.city-window | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
-| sport.city-activity | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
-| work.city-jobs-category | 125 | 39 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
+| comparisons.city-vs-home | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
+| cost-of-living.city-vs-market | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
+| education.city-universities | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
+| events.city-window | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
+| sport.city-activity | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
+| work.city-jobs-category | 129 | 39 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
 | places.city-shopping_mall | 196 | 50 | 34 | 162 | 14 | 4 | 13 | 23 | 12 | 24 | 26 |
 | places.city-hospital | 148 | 60 | 45 | 121 | 22 | 20 | 48 | 26 | 3 | 14 | 44 |
-| safety.city | 125 | 2 | 38 | 119 | 18 | 15 | 30 | 13 | 7 | 16 | 158 |
+| safety.city | 129 | 2 | 38 | 120 | 18 | 15 | 30 | 13 | 7 | 16 | 159 |
 | places.city-university | 167 | 16 | 13 | 130 | 15 | 38 | 13 | 56 | 15 | 23 | 53 |
 | areas.city-index | 72 | 77 | 52 | 57 |  | 47 | 69 | 55 | 24 | 40 | 24 |
 | places.area-theatre | 110 | 28 | 71 | 47 |  | 45 | 37 | 77 | 38 | 13 | 24 |

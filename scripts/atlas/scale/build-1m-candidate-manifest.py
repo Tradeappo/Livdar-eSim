@@ -118,6 +118,17 @@ CITY_BY_ID = {c['id']: c for c in cities}
 # URL. Ambiguous names carry their country; unique names stay clean.
 _name_counts = collections.Counter((c['name'] or '').lower() for c in cities)
 AMBIGUOUS_CITY = {k for k, v in _name_counts.items() if v > 1}
+# The country suffix is not always enough, because a country can hold two cities of the same
+# name: the United States has several Woodstocks and Japan several Kariyas. Those still
+# collapsed onto one slug, and preserving the exact-duplicate rejections is what revealed it,
+# 836 of them in activities.city-things-to-do alone. Where the (name, country) pair itself
+# repeats, the entity id goes on the slug, which is the same remedy the uniqueness_reason
+# needed for the two Barcelonas and for the same reason: a name is not an identity.
+_pair_counts = collections.Counter(((c['name'] or '').lower(), c.get('country') or '')
+                                   for c in cities)
+AMBIGUOUS_CITY_IN_COUNTRY = {k for k, v in _pair_counts.items() if v > 1}
+print(f'  city names shared across countries: {len(AMBIGUOUS_CITY):,}; name and country '
+      f'pairs shared WITHIN one country: {len(AMBIGUOUS_CITY_IN_COUNTRY):,}', file=sys.stderr)
 
 countries = [{'id': k, 'name': (v.get('name') if isinstance(v, dict) else str(v))}
              for k, v in (jload('data/atlas/entities/countries.json').items()
@@ -846,6 +857,8 @@ for f in fams:
             nm = slug(ename)
             if etype == 'city' and (ename or '').lower() in AMBIGUOUS_CITY and ecountry:
                 nm = f"{nm}-{ecountry.lower()}"
+                if ((ename or '').lower(), ecountry) in AMBIGUOUS_CITY_IN_COUNTRY:
+                    nm = f"{nm}-{slug(str(eid))}"
             # The path segment has to identify the FAMILY, not just its last word. Five
             # country families share the surface "move" and the last segment "country":
             # relocation, health, banking, taxes and cost-of-living. All five were resolving
@@ -1149,15 +1162,38 @@ for r in rows:
 print(f'uniqueness and SERP gate: kept {len(kept):,}, rejected {len(rejected):,}', file=sys.stderr)
 rows = kept
 
+generated_total = len(rows) + len(rejected)
 raw_total = len(rows)
-print(f'\nraw candidate combinations: {raw_total:,}', file=sys.stderr)
+print(f'\ngenerated before any gate:   {generated_total:,}', file=sys.stderr)
+print(f'after uniqueness and SERP:   {raw_total:,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- dedupe
-seen = set(); stage1 = []
+# Exact dedupe, and the duplicates are KEPT as rejections rather than dropped. 2,855 rows
+# were being discarded here with no record anywhere, which is the same silent-loss shape as
+# the URL collision found in this pass: a row vanished and nothing said why. A reader could
+# not reconcile the funnel, because generated minus every recorded removal did not reach the
+# final count until these were added.
+seen = {}
+stage1 = []
+exact_dupes = []
 for r in rows:
-    if r['url_pattern'] in seen: continue
-    seen.add(r['url_pattern']); stage1.append(r)
+    first = seen.get(r['url_pattern'])
+    if first is not None:
+        r['rejection_reason'] = (f"REJECTED_DUPLICATE: this URL is already claimed by "
+                                 f"{first['family']} for entity {first.get('entity_id', '')}, "
+                                 f"so the two would be the same page")
+        r['status'] = 'REJECTED_DUPLICATE'
+        exact_dupes.append(r)
+        continue
+    seen[r['url_pattern']] = r
+    stage1.append(r)
 after_exact = len(stage1)
+if exact_dupes:
+    import collections as _c
+    _pairs = _c.Counter((seen[r['url_pattern']]['family'], r['family']) for r in exact_dupes)
+    print(f'exact duplicate URLs rejected and preserved: {len(exact_dupes):,}', file=sys.stderr)
+    for (a, b), n in _pairs.most_common(8):
+        print(f'    {n:>6,}  {a} already claims the URL {b} wanted', file=sys.stderr)
 
 seen = set(); stage2 = []
 for r in stage1:
@@ -1350,14 +1386,15 @@ def strip_long_dashes(rows):
             touched += 1
     return touched
 
-_dash_fixed = strip_long_dashes(stage3) + strip_long_dashes(rejected) + strip_long_dashes(loc_rejected)
+_dash_fixed = (strip_long_dashes(stage3) + strip_long_dashes(rejected)
+              + strip_long_dashes(exact_dupes) + strip_long_dashes(loc_rejected))
 print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- outputs
 os.makedirs(OUT, exist_ok=True)
 # every rejection in one file, whatever stage produced it: hiding the localisation
 # rejections in a separate place would make the funnel unauditable
-rejected = rejected + loc_rejected
+rejected = rejected + exact_dupes + loc_rejected
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
     w.writeheader(); w.writerows(rejected)
@@ -1447,7 +1484,18 @@ with open(OUT + '1M-PUBLICATION-MAPPING.csv', 'w', newline='') as fh:
 
 summary = {
     'generated': NOW_TAG,
+    # raw_candidate_combinations was the count AFTER the uniqueness and SERP gate, not the
+    # raw one, and a report quoting "raw" therefore meant two different things in two places.
+    # Both are present now under names that say which is which; the old key is kept so
+    # nothing reading it breaks, with its real meaning spelled out beside it.
+    'generated_before_any_gate': generated_total,
     'raw_candidate_combinations': raw_total,
+    'raw_candidate_combinations_means': 'the count AFTER the uniqueness and SERP gate',
+    'removed_by_uniqueness_and_serp_gate': generated_total - raw_total,
+    'removed_as_exact_duplicate_urls': len(exact_dupes),
+    'removed_by_localisation_gate': len(loc_rejected),
+    'funnel_reconciles': (generated_total - (generated_total - raw_total)
+                          - len(exact_dupes) - len(loc_rejected)) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
     'after_localization_and_cross_locale_gate': after_localization,

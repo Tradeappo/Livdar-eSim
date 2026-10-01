@@ -1,0 +1,73 @@
+{
+  "measurement": "URL collisions found by preserving rejections instead of dropping them",
+  "date": "2026-10-01",
+  "how_these_were_found": "The cross-artifact checker noticed URLs sitting in both the kept manifest and the rejected file. Then preserving exact-duplicate rejections, which had been discarded with no record, turned an unaccounted 2,855-row hole in the funnel into a list of named collisions. Nothing new was measured to find any of this: the information was already in the pipeline and was being thrown away.",
+  "fixed_in_this_pass": [
+    {
+      "collision": "five families sharing one path",
+      "detail": "relocation, health, banking, taxes and cost-of-living all carry the surface 'move' and the segments 'city' and 'country'. The URL was built from surface plus the last family segment, so the vertical that distinguishes them was dropped and all five resolved to the same path.",
+      "consequence_before_the_fix": "exact dedupe kept whichever was generated first and discarded the rest with no record",
+      "pages_recovered": 5573,
+      "fix": "the topic is added to the segment only where the (surface, segment) pair is claimed by more than one family, computed from the family catalogue so a family added later cannot reintroduce it",
+      "file": "scripts/atlas/scale/build-1m-candidate-manifest.py"
+    },
+    {
+      "collision": "two cities of the same name in the same country",
+      "detail": "the slug already carried a country suffix where a name repeated across countries, but the United States has several Woodstocks and Japan several Kariyas. 1,051 city names are shared across countries and 640 name-and-country pairs are shared WITHIN one country.",
+      "consequence_before_the_fix": "those cities collapsed onto one URL",
+      "pages_recovered": 1144,
+      "fix": "the entity id goes on the slug where the (name, country) pair itself repeats, which is the same remedy the uniqueness_reason needed for the two Barcelonas and for the same reason: a name is not an identity",
+      "file": "scripts/atlas/scale/build-1m-candidate-manifest.py"
+    },
+    {
+      "collision": "the title simulation had the path's defect",
+      "detail": "the same five families share a second segment, so the recovered pages arrived with distinct URLs and identical titles: 'Berlin, DE: city' for both the relocation page and the health page",
+      "effect": "duplicate_title_exact fell from 9,060 to 22 and titles under 15 characters from 664 to 4, numbers that had been understated all along because the colliding URLs were deduped away before the titles could be compared",
+      "file": "scripts/atlas/scale/qa-1m-manifest.py"
+    }
+  ],
+  "found_and_recorded_but_NOT_fixed": {
+    "collision": "the aggregation URL builder is a name-only join",
+    "count": 748,
+    "by_entity_type": {
+      "city_category": 516,
+      "venue": 153,
+      "city_cuisine": 61,
+      "neighbourhood": 6,
+      "area_category": 5,
+      "area_cuisine": 2,
+      "area_opening": 2,
+      "areas_index": 2,
+      "area": 1
+    },
+    "top_families": {
+      "stay.near-venue": 153,
+      "places.city-library": 123,
+      "places.city-cuisine": 61,
+      "places.city-hospital": 60,
+      "places.city-restaurant": 57,
+      "places.city-fast_food": 53
+    },
+    "examples": [
+      "/fr/areas/neighbourhood-category/sainte-marguerite/ and /fr/stay/neighbourhood/sainte-marguerite/ for neighbourhood 2980467",
+      "/en/areas/neighbourhood-category/port-richmond/ for neighbourhood 5132028"
+    ],
+    "why_it_exists": "poi-aggregations.py builds its own URLs with slug(city) and slug(place) and carries no disambiguation of its own. The family-path fix above does not reach it, because it is a second, independent URL builder. Section 12's rule against name-only joins applies to it and it is currently in breach.",
+    "where_the_fix_goes": "scripts/atlas/scale/poi-aggregations.py, mirroring the family path: suffix the country where a name repeats across countries, and the entity id where the (name, country) pair repeats within one. The gazetteer already carries both, so no new source is needed.",
+    "why_it_was_not_done_in_this_pass": "It requires re-running the aggregation stage, which reads 5 million POI, and arriving late in a session with no time to validate the change properly. Shipping an unvalidated change to the URL shape of the area and city pages is a worse risk than leaving a quantified, reproducible finding. The 748 are no longer a silent loss: every one of them sits in the rejected file naming the family that already claimed its path.",
+    "upper_bound_on_the_recovery": 748
+  },
+  "the_general_lesson": "Three of these were invisible while the rows were being dropped rather than recorded, and all three became obvious the moment the removals were preserved and the funnel was made to sum. A filter that discards without a record does not just lose rows, it loses the evidence that it is losing them. The verifier now fails when generated minus every recorded removal does not equal the final count, which is what makes a loss of this kind impossible to carry forward unnoticed.",
+  "title_disambiguation_still_required": {
+    "count": 986,
+    "what_it_is": "Entity names that need a discriminator in the rendered title. This is the SAME finding as the URL collisions, one step downstream: the 1,144 same-name cities recovered by the slug fix now have distinct URLs and identical titles, so duplicate_title_exact rose from 22 to 1,166.",
+    "why_the_url_remedy_does_not_transfer": "The URL can carry an entity id and does. A title cannot: 'Woodstock, US 5132028: things to do' is not copy anyone would publish. A title needs the admin region, 'Woodstock, Vermont' against 'Woodstock, New York'.",
+    "is_the_data_there": "Partly. The city records in data/atlas/entities/cities/ carry admin1 and admin2, and they differ between the colliding cities, so the pages ARE distinguishable in the data. But admin1 is a CODE, for example 18, and the repository holds no code-to-name table, so nothing can render 'Vermont' from it today.",
+    "two_things_are_therefore_needed": [
+      "carry admin1 into the manifest, which is a one-field change to FIELDS and the row builder in build-1m-candidate-manifest.py",
+      "acquire an admin1 code-to-name table for the 11 market countries, which is the actual blocker and is a small, free, well-defined source: the GeoNames admin1CodesASCII file covers it"
+    ],
+    "why_it_was_not_done_in_this_pass": "The second item is a source acquisition, and the standing rule is that a page does not get a figure or a name the repository cannot cite. Rendering an admin1 code as a region name without that table would be the invented data the constraints forbid, and guessing which Woodstock is which would be worse than leaving the collision visible.",
+    "status": "RECORDED, NOT FIXED. The 986 are counted in the QA report rather than hidden, and no page is published from this inventory, so no duplicate title can reach production."
+  }
+}

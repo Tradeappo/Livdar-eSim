@@ -1,12 +1,12 @@
 {
- "manifest_rows": 203623,
- "distinct_urls": 203623,
+ "manifest_rows": 204767,
+ "distinct_urls": 204767,
  "checks": {
   "title_over_65_chars": 130531,
   "meta_over_165_chars": 2004,
   "title_under_15_chars": 4,
-  "duplicate_title_exact": 22,
-  "duplicate_title_same_tokens": 41,
+  "duplicate_title_exact": 1166,
+  "duplicate_title_same_tokens": 1185,
   "superlative_from_the_family_own_intent": 20,
   "uniqueness_reason_shared_with_another_candidate": 22,
   "templates_with_repeated_entities": 0,
@@ -15,7 +15,7 @@
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 76,
+  "entity_names_needing_a_disambiguator_in_the_title": 986,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
@@ -55,6 +55,24 @@
   {
    "kind": "exact_title",
    "market": "de-DE",
+   "title": "Senden, DE: city category",
+   "a": "c_4050ee1d80c2",
+   "b": "c_595b1153e9e3",
+   "url_a": "",
+   "url_b": "/de/areas/city-category/senden-de-2833080/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Senden, DE: city category",
+   "a": "c_4050ee1d80c2",
+   "b": "c_595b1153e9e3",
+   "url_a": "",
+   "url_b": "/de/areas/city-category/senden-de-2833080/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
    "title": "Bürgermeister-Stroof-Haus, Bonn, DE: what to know before you go",
    "a": "c_d4790a272ca8",
    "b": "c_d26b56e44d69",
@@ -71,211 +89,193 @@
    "url_b": "/de/poi/museum/bürgermeister-stroof-haus-q76634430/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Lake Forest, US: city things to do",
-   "a": "c_79a4ee9192a1",
-   "b": "c_93b1895b7c1f",
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Senden, DE: rents city",
+   "a": "c_573a962ff652",
+   "b": "c_24102f1ea479",
    "url_a": "",
-   "url_b": "/en/areas/city-things-to-do/lake-forest-us/"
+   "url_b": "/de/stay/city/senden-de-2833080/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Park Forest, US: city things to do",
-   "a": "c_ad01303081ea",
-   "b": "c_3ece74965756",
+   "market": "de-DE",
+   "title": "Senden, DE: rents city",
+   "a": "c_573a962ff652",
+   "b": "c_24102f1ea479",
    "url_a": "",
-   "url_b": "/en/areas/city-things-to-do/park-forest/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Postal Museum, London, GB: what to know before you go",
-   "a": "c_9322f0a68033",
-   "b": "c_12fe3f632456",
-   "url_a": "",
-   "url_b": "/en/poi/museum/postal-museum-q113261646/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "The Pavilion, GB: near venue",
-   "a": "c_bac209586208",
-   "b": "c_77e7ddcc9e91",
-   "url_a": "",
-   "url_b": "/en/stay/near-venue/the-pavilion/"
+   "url_b": "/de/stay/city/senden-de-2833080/"
   },
   {
    "kind": "exact_title",
-   "market": "ja-JP",
-   "title": "東武博物館, 墨田区, JP: what to know before you go",
-   "a": "c_c26d736e9ca2",
-   "b": "c_d60db9c1a612",
+   "market": "de-DE",
+   "title": "Senden, DE: events city type, dates and what is open",
+   "a": "c_3e3f38e857a1",
+   "b": "c_41bae9c2f739",
    "url_a": "",
-   "url_b": "/ja/poi/museum/東武博物館-n2004025297/"
+   "url_b": "/de/pulse/city-type/senden-de-2833080/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "ja-JP",
-   "title": "東武博物館, 墨田区, JP: what to know before you go",
-   "a": "c_c26d736e9ca2",
-   "b": "c_d60db9c1a612",
+   "market": "de-DE",
+   "title": "Senden, DE: events city type, dates and what is open",
+   "a": "c_3e3f38e857a1",
+   "b": "c_41bae9c2f739",
    "url_a": "",
-   "url_b": "/ja/poi/museum/東武博物館-n2004025297/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "clinic in Vitoria-Gasteiz, ES: city clinic, the full list from open data",
-   "a": "c_d2316ab624cd",
-   "b": "c_077583e9835c",
-   "url_a": "",
-   "url_b": "/es/places/clinic/vitoria-gasteiz/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "dentist in Vitoria-Gasteiz, ES: city dentist, the full list from open data",
-   "a": "c_b72ebaf8d3d0",
-   "b": "c_84910cdaef43",
-   "url_a": "",
-   "url_b": "/es/places/dentist/vitoria-gasteiz/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "pub in Vitoria-Gasteiz, ES: city pub, the full list from open data",
-   "a": "c_2198a8853bf8",
-   "b": "c_389daa0b518b",
-   "url_a": "",
-   "url_b": "/es/places/pub/vitoria-gasteiz/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "restaurant in Vitoria-Gasteiz, ES: city restaurant, the full list from open data",
-   "a": "c_029cdb171851",
-   "b": "c_b4274eb86f48",
-   "url_a": "",
-   "url_b": "/es/places/restaurant/vitoria-gasteiz/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "supermarket in Vitoria-Gasteiz, ES: city supermarket, the full list from open data",
-   "a": "c_ebe28f8ffdad",
-   "b": "c_cc36092a4015",
-   "url_a": "",
-   "url_b": "/es/places/supermarket/vitoria-gasteiz/"
+   "url_b": "/de/pulse/city-type/senden-de-2833080/"
   },
   {
    "kind": "exact_title",
-   "market": "nl-NL",
-   "title": "Het Depot, Wageningen, NL: what to know before you go",
-   "a": "c_18bccd946890",
-   "b": "c_7828074c7f79",
+   "market": "de-DE",
+   "title": "Senden, DE: city calendar, dates and what is open",
+   "a": "c_d9838f2655ae",
+   "b": "c_5e9c432b8ef3",
    "url_a": "",
-   "url_b": "/nl/poi/museum/het-depot-n3014235943/"
+   "url_b": "/de/pulse/city-calendar/senden-de-2833080/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "nl-NL",
-   "title": "Het Depot, Wageningen, NL: what to know before you go",
-   "a": "c_18bccd946890",
-   "b": "c_7828074c7f79",
+   "market": "de-DE",
+   "title": "Senden, DE: city calendar, dates and what is open",
+   "a": "c_d9838f2655ae",
+   "b": "c_5e9c432b8ef3",
    "url_a": "",
-   "url_b": "/nl/poi/museum/het-depot-n3014235943/"
+   "url_b": "/de/pulse/city-calendar/senden-de-2833080/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Senden, DE: stay city type",
+   "a": "c_5cf511a07954",
+   "b": "c_c10dd4458cd7",
+   "url_a": "",
+   "url_b": "/de/stay/city-type/senden-de-2833080/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "cafe in The Bronx, US: city cafe, the full list from open data",
-   "a": "c_fe31e891eaf3",
-   "b": "c_3fee9324c196",
+   "market": "de-DE",
+   "title": "Senden, DE: stay city type",
+   "a": "c_5cf511a07954",
+   "b": "c_c10dd4458cd7",
    "url_a": "",
-   "url_b": "/en/places/cafe/the-bronx/"
+   "url_b": "/de/stay/city-type/senden-de-2833080/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-GB",
+   "title": "Arlington, US: city things to do",
+   "a": "c_c21e93932890",
+   "b": "c_dd1d84869918",
+   "url_a": "",
+   "url_b": "/en/areas/city-things-to-do/arlington-us-4671240/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "clinic in The Bronx, US: city clinic, the full list from open data",
-   "a": "c_3e7ed64caf2f",
-   "b": "c_40b91e0bdc1a",
+   "market": "en-GB",
+   "title": "Arlington, US: city things to do",
+   "a": "c_c21e93932890",
+   "b": "c_dd1d84869918",
    "url_a": "",
-   "url_b": "/en/places/clinic/the-bronx/"
+   "url_b": "/en/areas/city-things-to-do/arlington-us-4671240/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-GB",
+   "title": "Aurora, US: city things to do",
+   "a": "c_9c04da0a6f8b",
+   "b": "c_90218ca13cbc",
+   "url_a": "",
+   "url_b": "/en/areas/city-things-to-do/aurora-us-5412347/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "dentist in The Bronx, US: city dentist, the full list from open data",
-   "a": "c_7567f18b6c4b",
-   "b": "c_ad7358e16c42",
+   "market": "en-GB",
+   "title": "Aurora, US: city things to do",
+   "a": "c_9c04da0a6f8b",
+   "b": "c_90218ca13cbc",
    "url_a": "",
-   "url_b": "/en/places/dentist/the-bronx/"
+   "url_b": "/en/areas/city-things-to-do/aurora-us-5412347/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-GB",
+   "title": "Columbus, US: city things to do",
+   "a": "c_d1e792e927a5",
+   "b": "c_9b2d60a26264",
+   "url_a": "",
+   "url_b": "/en/areas/city-things-to-do/columbus-us-4509177/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "fast food in The Bronx, US: city fast_food, the full list from open data",
-   "a": "c_d0d71bfc8a73",
-   "b": "c_cab46a522668",
+   "market": "en-GB",
+   "title": "Columbus, US: city things to do",
+   "a": "c_d1e792e927a5",
+   "b": "c_9b2d60a26264",
    "url_a": "",
-   "url_b": "/en/places/fast-food/the-bronx/"
+   "url_b": "/en/areas/city-things-to-do/columbus-us-4509177/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-GB",
+   "title": "Glendale, US: city things to do",
+   "a": "c_3509f96ebdd1",
+   "b": "c_703e216cd8c2",
+   "url_a": "",
+   "url_b": "/en/areas/city-things-to-do/glendale-us-5295985/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "railway station in The Bronx, US: city railway_station, the full list from open data",
-   "a": "c_50c642e10028",
-   "b": "c_1b8e863652d2",
+   "market": "en-GB",
+   "title": "Glendale, US: city things to do",
+   "a": "c_3509f96ebdd1",
+   "b": "c_703e216cd8c2",
    "url_a": "",
-   "url_b": "/en/places/railway-station/the-bronx/"
+   "url_b": "/en/areas/city-things-to-do/glendale-us-5295985/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-GB",
+   "title": "Albany, US: city things to do",
+   "a": "c_79720d4b5c12",
+   "b": "c_3eb633164225",
+   "url_a": "",
+   "url_b": "/en/areas/city-things-to-do/albany-us-5710756/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "restaurant in Lake Forest, US: city restaurant, the full list from open data",
-   "a": "c_029eaf8cc742",
-   "b": "c_9cba79420915",
+   "market": "en-GB",
+   "title": "Albany, US: city things to do",
+   "a": "c_79720d4b5c12",
+   "b": "c_3eb633164225",
    "url_a": "",
-   "url_b": "/en/places/restaurant/lake-forest/"
+   "url_b": "/en/areas/city-things-to-do/albany-us-5710756/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-GB",
+   "title": "Albany, US: city things to do",
+   "a": "c_79720d4b5c12",
+   "b": "c_9c3bfe3490e8",
+   "url_a": "",
+   "url_b": "/en/areas/city-things-to-do/albany-us-4179320/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "restaurant in The Bronx, US: city restaurant, the full list from open data",
-   "a": "c_dd56f37a3d9f",
-   "b": "c_5d234ac79fd0",
+   "market": "en-GB",
+   "title": "Albany, US: city things to do",
+   "a": "c_79720d4b5c12",
+   "b": "c_9c3bfe3490e8",
    "url_a": "",
-   "url_b": "/en/places/restaurant/the-bronx/"
+   "url_b": "/en/areas/city-things-to-do/albany-us-4179320/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "school in The Bronx, US: city school, the full list from open data",
-   "a": "c_09b84cdda7c7",
-   "b": "c_248a80a4cf61",
+   "kind": "exact_title",
+   "market": "en-GB",
+   "title": "Apple Valley, US: city things to do",
+   "a": "c_6d9ccc53c529",
+   "b": "c_2588bd57b776",
    "url_a": "",
-   "url_b": "/en/places/school/the-bronx/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "supermarket in The Bronx, US: city supermarket, the full list from open data",
-   "a": "c_d72db5981006",
-   "b": "c_0855ff94736f",
-   "url_a": "",
-   "url_b": "/en/places/supermarket/the-bronx/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "hospital in The Bronx, US: city hospital, the full list from open data",
-   "a": "c_f3c985a1d1fa",
-   "b": "c_3de2b21d38f7",
-   "url_a": "",
-   "url_b": "/en/places/hospital/the-bronx/"
+   "url_b": "/en/areas/city-things-to-do/apple-valley-us-5016494/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -286,116 +286,122 @@
  "contested_intent_owners": {},
  "locale_mismatch_examples": [],
  "entity_names_needing_a_disambiguator": {
-  "('poi.attraction-notable', 'fr-FR', 'jardin des plantes', 'FR')": [
-   "n2063753155",
-   "n9677488144"
+  "('activities.city-things-to-do', 'en-GB', 'dallas', 'US')": [
+   "4684888",
+   "5722064"
   ],
-  "('poi.attraction-notable', 'pl-PL', 'ławeczka chopina', 'PL')": [
-   "n13293462008",
-   "n13293477296",
-   "n13293479732",
-   "n13293529091"
+  "('activities.city-things-to-do', 'en-GB', 'jacksonville', 'US')": [
+   "4116315",
+   "4160021",
+   "4241704",
+   "4473083"
   ],
-  "('poi.gallery-notable', 'en-US', 'gagosian', 'US')": [
-   "n10859974159",
-   "n10873196741"
+  "('activities.city-things-to-do', 'en-GB', 'manhattan', 'US')": [
+   "4274994",
+   "5125771"
   ],
-  "('poi.gallery-notable', 'en-US', 'kasmin gallery', 'US')": [
-   "n10860703829",
-   "n10860703833"
+  "('activities.city-things-to-do', 'ja-JP', 'sendai', 'JP')": [
+   "1852736",
+   "2111149"
   ],
-  "('poi.gallery-notable', 'en-US', 'marianne boesky gallery', 'US')": [
-   "n10859974155",
-   "n10859974156"
+  "('activities.city-things-to-do', 'en-GB', 'arlington', 'US')": [
+   "4671240",
+   "4744709",
+   "4929180",
+   "5785868"
   ],
-  "('poi.gallery-notable', 'en-US', 'matthew marks gallery', 'US')": [
-   "n10861543614",
-   "n10861543615"
+  "('activities.city-things-to-do', 'en-GB', 'aurora', 'US')": [
+   "4883817",
+   "5146233",
+   "5412347"
   ],
-  "('poi.gallery-notable', 'en-US', 'pace gallery', 'US')": [
-   "n10861507198",
-   "n9470785217"
+  "('activities.city-things-to-do', 'en-GB', 'austin', 'US')": [
+   "4671654",
+   "5016884"
   ],
-  "('poi.museum-notable', 'de-DE', 'caricatura', 'DE')": [
-   "n1851762708",
-   "n769153464"
+  "('activities.city-things-to-do', 'en-GB', 'buffalo', 'US')": [
+   "5019588",
+   "5110629"
   ],
-  "('poi.museum-notable', 'de-DE', 'feuerwehrmuseum', 'DE')": [
-   "Q76631832",
-   "n707929405",
-   "n767116789"
+  "('activities.city-things-to-do', 'en-GB', 'cleveland', 'US')": [
+   "4614088",
+   "5150529"
   ],
-  "('poi.museum-notable', 'de-DE', 'heimatmuseum', 'DE')": [
-   "n1082639452",
-   "n1531223506",
-   "n250887769",
-   "n270274191"
+  "('activities.city-things-to-do', 'en-GB', 'columbus', 'US')": [
+   "4188985",
+   "4256038",
+   "4422442",
+   "4509177"
   ],
-  "('poi.museum-notable', 'de-DE', 'münzkabinett', 'DE')": [
-   "Q323169",
-   "n1721721621"
+  "('activities.city-things-to-do', 'en-GB', 'cypress', 'US')": [
+   "4684724",
+   "5341256"
   ],
-  "('poi.museum-notable', 'de-DE', 'ns-dokumentationszentrum', 'DE')": [
-   "Q1961427",
-   "n78605265"
+  "('activities.city-things-to-do', 'en-GB', 'des moines', 'US')": [
+   "4853828",
+   "5792244"
   ],
-  "('poi.museum-notable', 'de-DE', 'rotkreuz-museum', 'DE')": [
-   "n3354056742",
-   "n667068550"
+  "('activities.city-things-to-do', 'en-GB', 'fayetteville', 'US')": [
+   "4110486",
+   "4194474",
+   "4466033"
   ],
-  "('poi.museum-notable', 'de-DE', 'schlossmuseum', 'DE')": [
-   "n1238956832",
-   "n255893339",
-   "n3273230816",
-   "n663417452"
+  "('activities.city-things-to-do', 'en-GB', 'fremont', 'US')": [
+   "5068725",
+   "5155207",
+   "5350734"
   ],
-  "('poi.museum-notable', 'de-DE', 'stadtgalerie', 'DE')": [
-   "Q76636430",
-   "n622354400"
+  "('activities.city-things-to-do', 'en-GB', 'fresno', 'US')": [
+   "4692400",
+   "5350937"
   ],
-  "('poi.museum-notable', 'de-DE', 'stadtmuseum', 'DE')": [
-   "n2431199581",
-   "n2728930615",
-   "n295603345",
-   "n390493343"
+  "('activities.city-things-to-do', 'en-GB', 'glendale', 'US')": [
+   "5295985",
+   "5352423"
   ],
-  "('poi.museum-notable', 'de-DE', 'theatermuseum', 'DE')": [
-   "n3210890800",
-   "n336252050"
+  "('activities.city-things-to-do', 'en-GB', 'henderson', 'US')": [
+   "4294494",
+   "4470566",
+   "5505411"
   ],
-  "('poi.museum-notable', 'en-GB', 'hunterian museum', 'GB')": [
-   "n3349882188",
-   "n600576868"
+  "('activities.city-things-to-do', 'en-GB', 'huntsville', 'US')": [
+   "4068590",
+   "4699540"
   ],
-  "('poi.museum-notable', 'en-GB', 'museum of antiquities', 'GB')": [
-   "Q6940740",
-   "n11901119398"
+  "('activities.city-things-to-do', 'en-GB', 'kansas city', 'US')": [
+   "4273837",
+   "4393217"
   ],
-  "('poi.museum-notable', 'en-US', 'national museum of the american indian', 'US')": [
-   "Q1075141",
-   "n368061337"
+  "('activities.city-things-to-do', 'en-GB', 'lexington', 'US')": [
+   "4297983",
+   "4475773",
+   "4585000",
+   "4941935"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée national de la marine', 'FR')": [
-   "n13727664577",
-   "n5882540291"
+  "('activities.city-things-to-do', 'en-GB', 'lincoln', 'US')": [
+   "5072006",
+   "5366375",
+   "8531960"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée de minéralogie', 'FR')": [
-   "n1426245245",
-   "n6482311825"
+  "('activities.city-things-to-do', 'en-GB', 'long beach', 'US')": [
+   "4434069",
+   "5367929"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée de la marine', 'FR')": [
-   "n1296754169",
-   "n2854735858"
+  "('activities.city-things-to-do', 'en-GB', 'louisville', 'US')": [
+   "4299276",
+   "5429522"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée des arts décoratifs', 'FR')": [
-   "n239825781",
-   "n247584452"
+  "('activities.city-things-to-do', 'en-GB', 'madison', 'US')": [
+   "4074267",
+   "4434663",
+   "4838116",
+   "5100748"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée des beaux-arts', 'FR')": [
-   "n13530619691",
-   "n1445028137",
-   "n239830896",
-   "n371712800"
+  "('activities.city-things-to-do', 'en-GB', 'newark', 'US')": [
+   "4143861",
+   "5101798",
+   "5164466",
+   "5376803"
   ]
  },
  "urls_sharing_a_cannibalization_key_examples": {},
@@ -412,7 +418,7 @@
    ]
   },
   "activities.city-things-to-do|en": {
-   "rows": 3107,
+   "rows": 3476,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -440,7 +446,7 @@
    ]
   },
   "activities.city-things-to-do|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -461,7 +467,7 @@
    ]
   },
   "activities.city-things-to-do|pt": {
-   "rows": 159,
+   "rows": 160,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -651,7 +657,7 @@
    ]
   },
   "comparisons.city-vs-home|en": {
-   "rows": 164,
+   "rows": 168,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -683,7 +689,7 @@
    ]
   },
   "comparisons.city-vs-home|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -707,7 +713,7 @@
    ]
   },
   "comparisons.city-vs-home|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -730,7 +736,7 @@
    ]
   },
   "cost-of-living.city|en": {
-   "rows": 835,
+   "rows": 883,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -758,7 +764,7 @@
    ]
   },
   "cost-of-living.city|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -779,7 +785,7 @@
    ]
   },
   "cost-of-living.city|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -800,7 +806,7 @@
    ]
   },
   "cost-of-living.city-vs-market|en": {
-   "rows": 164,
+   "rows": 168,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
@@ -828,7 +834,7 @@
    ]
   },
   "cost-of-living.city-vs-market|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
@@ -849,7 +855,7 @@
    ]
   },
   "cost-of-living.city-vs-market|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
@@ -1003,7 +1009,7 @@
    ]
   },
   "education.city-universities|en": {
-   "rows": 164,
+   "rows": 168,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -1031,7 +1037,7 @@
    ]
   },
   "education.city-universities|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -1052,7 +1058,7 @@
    ]
   },
   "education.city-universities|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -1066,14 +1072,14 @@
    ]
   },
   "events.city-calendar|de": {
-   "rows": 867,
+   "rows": 868,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
    ]
   },
   "events.city-calendar|en": {
-   "rows": 872,
+   "rows": 920,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1101,7 +1107,7 @@
    ]
   },
   "events.city-calendar|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1122,7 +1128,7 @@
    ]
   },
   "events.city-calendar|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1136,14 +1142,14 @@
    ]
   },
   "events.city-type|de": {
-   "rows": 867,
+   "rows": 868,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-type|en": {
-   "rows": 872,
+   "rows": 920,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1171,7 +1177,7 @@
    ]
   },
   "events.city-type|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1192,7 +1198,7 @@
    ]
   },
   "events.city-type|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1213,7 +1219,7 @@
    ]
   },
   "events.city-window|en": {
-   "rows": 164,
+   "rows": 168,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1241,7 +1247,7 @@
    ]
   },
   "events.city-window|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1262,7 +1268,7 @@
    ]
   },
   "events.city-window|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1283,7 +1289,7 @@
    ]
   },
   "health.city|en": {
-   "rows": 835,
+   "rows": 883,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1311,7 +1317,7 @@
    ]
   },
   "health.city|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1332,7 +1338,7 @@
    ]
   },
   "health.city|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -4671,14 +4677,14 @@
    ]
   },
   "places.city-category|de": {
-   "rows": 867,
+   "rows": 868,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|en": {
-   "rows": 872,
+   "rows": 920,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -4706,7 +4712,7 @@
    ]
   },
   "places.city-category|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -4727,7 +4733,7 @@
    ]
   },
   "places.city-category|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8223,7 +8229,7 @@
    ]
   },
   "property.city-buy|en": {
-   "rows": 1073,
+   "rows": 1121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -8251,7 +8257,7 @@
    ]
   },
   "property.city-buy|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -8265,7 +8271,7 @@
    ]
   },
   "property.city-buy|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -8286,7 +8292,7 @@
    ]
   },
   "relocation.city|en": {
-   "rows": 1073,
+   "rows": 1121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8314,7 +8320,7 @@
    ]
   },
   "relocation.city|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8335,7 +8341,7 @@
    ]
   },
   "relocation.city|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8412,14 +8418,14 @@
    ]
   },
   "rents.city|de": {
-   "rows": 867,
+   "rows": 868,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|en": {
-   "rows": 1073,
+   "rows": 1121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8447,7 +8453,7 @@
    ]
   },
   "rents.city|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8461,7 +8467,7 @@
    ]
   },
   "rents.city|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8545,7 +8551,7 @@
    ]
   },
   "safety.city|en": {
-   "rows": 127,
+   "rows": 131,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -8573,7 +8579,7 @@
    ]
   },
   "safety.city|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -8594,7 +8600,7 @@
    ]
   },
   "safety.city|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -8615,7 +8621,7 @@
    ]
   },
   "services.city-practical|en": {
-   "rows": 164,
+   "rows": 168,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8643,7 +8649,7 @@
    ]
   },
   "services.city-practical|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8664,7 +8670,7 @@
    ]
   },
   "services.city-practical|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8685,7 +8691,7 @@
    ]
   },
   "sport.city-activity|en": {
-   "rows": 164,
+   "rows": 168,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8713,7 +8719,7 @@
    ]
   },
   "sport.city-activity|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8734,7 +8740,7 @@
    ]
   },
   "sport.city-activity|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8748,14 +8754,14 @@
    ]
   },
   "stay.city-type|de": {
-   "rows": 887,
+   "rows": 888,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|en": {
-   "rows": 193,
+   "rows": 197,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8783,7 +8789,7 @@
    ]
   },
   "stay.city-type|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8804,7 +8810,7 @@
    ]
   },
   "stay.city-type|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -8951,7 +8957,7 @@
    ]
   },
   "transport.city-getting-around|en": {
-   "rows": 365,
+   "rows": 369,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -8979,7 +8985,7 @@
    ]
   },
   "transport.city-getting-around|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -8993,7 +8999,7 @@
    ]
   },
   "transport.city-getting-around|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -9014,7 +9020,7 @@
    ]
   },
   "transport.route-from-market|en": {
-   "rows": 194,
+   "rows": 198,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -9042,7 +9048,7 @@
    ]
   },
   "transport.route-from-market|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -9063,7 +9069,7 @@
    ]
   },
   "transport.route-from-market|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -9091,7 +9097,7 @@
    ]
   },
   "weather.city-month|en": {
-   "rows": 1107,
+   "rows": 1155,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -9119,7 +9125,7 @@
    ]
   },
   "weather.city-month|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -9140,7 +9146,7 @@
    ]
   },
   "weather.city-month|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -9161,7 +9167,7 @@
    ]
   },
   "work.city-jobs-category|en": {
-   "rows": 164,
+   "rows": 168,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9189,7 +9195,7 @@
    ]
   },
   "work.city-jobs-category|ja": {
-   "rows": 119,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9210,7 +9216,7 @@
    ]
   },
   "work.city-jobs-category|pt": {
-   "rows": 158,
+   "rows": 159,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9231,7 +9237,7 @@
    ]
   },
   "work.city-salaries|en": {
-   "rows": 1073,
+   "rows": 1121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9259,7 +9265,7 @@
    ]
   },
   "work.city-salaries|ja": {
-   "rows": 543,
+   "rows": 554,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9280,7 +9286,7 @@
    ]
   },
   "work.city-salaries|pt": {
-   "rows": 668,
+   "rows": 677,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9425,7 +9431,7 @@
  "title_length": {
   "min": 13,
   "max": 192,
-  "mean": 66.6
+  "mean": 66.4
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
