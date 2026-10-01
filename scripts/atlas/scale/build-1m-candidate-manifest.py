@@ -387,6 +387,16 @@ def sig(*parts):
 def entity_pool(f):
     """Real entities only, filtered so no empty combination is ever emitted."""
     ent, fid = f['entity'], f['family_id']
+    # city:pair must be tested BEFORE the generic city branch: startswith('city')
+    # swallows it otherwise and a comparison family silently emits single-city URLs
+    # like /en/tools/city-vs-city/aba/, which is not a comparison of anything.
+    if ent == 'city:pair':
+        # Every pair of 200 cities is 19,900 rows of mostly absent demand, and
+        # FAMILY-MASTER already marks this family duplicate_risk HIGH. Capped to the
+        # 40 largest tier-1 cities: 780 ordered-once pairs.
+        top = sorted([c for c in cities if c['tier'] == 1], key=lambda x: -(x['pop'] or 0))[:40]
+        return [('city-pair', f"{a['id']}-{b['id']}", f"{a['name']} vs {b['name']}",
+                 a['country'], a['name'], '', 1) for i, a in enumerate(top) for b in top[i+1:]]
     if ent.startswith('city'):
         tier = 4
         if ':t1' in ent: tier = 1
@@ -434,12 +444,6 @@ def entity_pool(f):
             return [('country-pair', f"{a['id']}-{b['id']}", f"{a['name']} vs {b['name']}",
                      a['id'], '', '', 1) for i, a in enumerate(top) for b in top[i+1:]]
         return [('country', c['id'], c['name'], c['id'], '', '', 1) for c in countries if c['name']]
-    if ent == 'city:pair':
-        # Same guard as country pairs: 200 cities is 19,900 pairs of mostly absent
-        # demand. Capped to the 40 largest tier-1 cities: 780 pairs.
-        top = sorted([c for c in cities if c['tier'] == 1], key=lambda x: -(x['pop'] or 0))[:40]
-        return [('city-pair', f"{a['id']}-{b['id']}", f"{a['name']} vs {b['name']}",
-                 a['country'], a['name'], '', 1) for i, a in enumerate(top) for b in top[i+1:]]
     if ent.startswith('holiday'):
         # holiday-country: one page per holiday per country per year in the window
         return [('holiday', h['id'] + '-' + str(h['year']),
