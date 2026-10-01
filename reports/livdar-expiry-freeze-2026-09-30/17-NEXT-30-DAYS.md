@@ -4,7 +4,7 @@ Sequenced so that the things which depend on a paid tool happen first, and the t
 which need only free tools and time happen after. Nothing here needs Claude or Ahrefs
 except where it says so explicitly.
 
-## Days 1 to 2 — the free instruments, before anything else
+## Days 1 to 2 - the free instruments, before anything else
 
 **1. Set up the GSC API with a scheduled export into the repo.** Every gate in the
 publication controller reads GSC-shaped data. Until this exists, no cohort decision can
@@ -18,7 +18,7 @@ already wired.
 rows and that `reports/ahrefs-export-2026-09-28/` is intact, especially `backlinks/`.
 That folder is the one thing in this repository that cannot be rebuilt.
 
-## Days 3 to 7 — spend whatever keyword-tool access remains
+## Days 3 to 7 - spend whatever keyword-tool access remains
 
 This is the only window where paid or trial access still buys something irreplaceable.
 If Ahrefs units remain (664,936 at the freeze, resetting 2026-10-08) or a trial exists,
@@ -27,7 +27,7 @@ spend it here and nowhere else:
 **4. ~~Measure breadth of the two rules-durable families.~~ DONE before expiry.** Both
 hit the row limit: `jobs.rules-durable` exceeds 400 keywords at 500+ volume in de-DE,
 `rents.rules-durable` exceeds 120 at 300+ in zh-Hant-TW at KD 0 to 13. Both counts are
-floors, not ceilings. **The remaining work is to build them, not to measure them** — and
+floors, not ceilings. **The remaining work is to build them, not to measure them** - and
 both start with a calculator intent (`minijob rechner`, `租屋補助試算`) against the
 already-live `tools.calculator` surface. If any keyword access remains, push the floors
 further by re-running at a lower volume floor with a higher row limit.
@@ -43,19 +43,19 @@ but never counted. This family is 6,342 pages and the highest-CPC one in the pro
 Anything not measured in this window becomes a question that cannot be answered later
 without paying again.
 
-## Days 8 to 14 — the correctness fix that unblocks the best family
+## Days 8 to 14 - the correctness fix that unblocks the best family
 
 **7. Fix the airport distance field.** Data-source gaps 1 and 2. A number is currently
 presented as a measurement that the source does not measure, which trips STOP condition
 7 and holds `transport.airport-to-city` at a cap of 0. Round three measured ~70 airports
-above 200 volume with `hotels near X airport` at KD 0–4 and 70–120 cents CPC — the best
+above 200 volume with `hotels near X airport` at KD 0-4 and 70-120 cents CPC - the best
 monetising profile measured anywhere. This is a data-correctness task, not a purchase.
 
 **8. Lift the cap and build the airport node pages** once the field is right. One page
 per airport per intent, with the taxi/bus/train/how-to variants as secondary keywords on
 the same page, not as separate URLs.
 
-## Days 15 to 21 — the first cohort in months, done by the gates
+## Days 15 to 21 - the first cohort in months, done by the gates
 
 **9. Read the step-1 gate on the live 500.** A clean 28-day GSC window, which only
 exists from 2026-10-26 given the 404 fix landed 2026-09-28. Required: ≥60% indexed in 28
@@ -67,9 +67,9 @@ candidates, preferring the 595 marked SAFE_TO_SCALE, drawn from the validated no
 families in `16-CLAUDE-HANDOFF.md` §7. One batch, one identifier, rollback ready.
 
 **11. If the gate fails, do not publish.** Diagnose against the failing dimension. A
-failed gate is information, not an obstacle — it is the system working.
+failed gate is information, not an obstacle - it is the system working.
 
-## Days 22 to 30 — lifecycle and the loop
+## Days 22 to 30 - lifecycle and the loop
 
 **12. Build the GSC feedback loop** (stage 7 of `13-100M-ARCHITECTURE.md`). Cohort 003's
 readings should lower or raise the score of its family's unpublished tail automatically.

@@ -19,7 +19,7 @@ student and shared-housing feeds, and attraction affiliate inventory.
 | Source-obtainable | 8,948,616 | 49,883,978 |
 | Source-backed | 2,883,978 | 49,883,978 |
 | Demand-supported | 1,656,362 | 1,656,362 |
-| **Indexable** | **64,416** | **claimed 160,416, not supported — see below** |
+| **Indexable** | **64,416** | **claimed 160,416, not supported - see below** |
 | Publishable today | 1,791 | 1,791 |
 
 Demand-supported is identical in both columns, and that is the point: **a feed does not
@@ -52,7 +52,7 @@ Round two's 160,416 was CURRENT 64,416 plus 96,000 of feed-unlocked pages:
 | stay.wg-student-furnished | 9,000 | 73 keywords, ~35 cities, **tail exhausted** | refuted |
 
 Two of the five are hard-capped by an exhausted tail, one is refuted outright, one is
-mostly unpublishable, and only jobs keeps its demand claim — without a measured ceiling.
+mostly unpublishable, and only jobs keeps its demand claim - without a measured ceiling.
 A number built on that cannot be called YES.
 
 One correction to CURRENT as well: `poi.entity-parking` at 3,000 pages is inside the
@@ -62,24 +62,24 @@ model, with this adjustment recorded rather than silently applied.
 
 ## The feeds, ranked by what they are actually worth
 
-Not by page count — by whether the demand behind them is real and winnable.
+Not by page count - by whether the demand behind them is real and winnable.
 
-1. **Rental listings feed — worth it, for revenue not page count.** The German tail
+1. **Rental listings feed - worth it, for revenue not page count.** The German tail
    sits at KD 0 to 3 with 2,300 to 15,000 volume per city, and a DR 43 site already
    takes 20,374 monthly clicks against ImmoScout24 at DR 88. Nothing about ranking
    blocks this. It will not deliver 26,000 pages.
-2. **Jobs feed — strong demand, vertical cuts only.** `minijob {city}` at KD 0 with
+2. **Jobs feed - strong demand, vertical cuts only.** `minijob {city}` at KD 0 with
    6,100 to 21,000 per city, `praca {city}` across Poland at KD 0, `offerte di lavoro
    {city}` across Italy. But the SERP is `LISTING_INVENTORY_REQUIRED_VERTICAL`: it
    works per vertical, not as a general job board, and `olx praca` at 236,000 shows
    what an incumbent aggregator does to a market.
-3. **Attraction affiliate — monetisation only.** Already counted inside CURRENT's
+3. **Attraction affiliate - monetisation only.** Already counted inside CURRENT's
    64,416 as 22,000 pages. It monetises the tickets family; it does not make it rank.
-4. **Licensed event feed — lowest priority.** The durable share of event demand is
+4. **Licensed event feed - lowest priority.** The durable share of event demand is
    small and the rest expires. `events.venue-event` was already measured
    `OPEN_BUT_ECONOMICALLY_DEAD`: everything below position 1 earns 72 clicks on 3,900
    volume.
-5. **Student and shared-housing feeds — do not buy.** The family is ~35 cities.
+5. **Student and shared-housing feeds - do not buy.** The family is ~35 cities.
 
 ## The scenario nobody costed, which may be the best one
 
@@ -101,7 +101,7 @@ Both were measured before the subscription ended, and both hit the row limit:
 
 Combined that is well over 500,000 monthly searches at near-zero difficulty against
 public rules nobody needs to licence. **Neither tail is exhausted**, so both counts are
-floors, not ceilings — the only two families in this freeze whose next measurement is
+floors, not ceilings - the only two families in this freeze whose next measurement is
 likely to revise a number *upward*.
 
 Both also carry a calculator intent (`minijob rechner`, `租屋補助試算`) that maps onto

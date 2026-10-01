@@ -38,7 +38,7 @@ v6 at `reports/livdar-final-research-freeze-2026-09-30/MEASURED-SCALE-ROUND3.jso
 
 ## How breadth was measured in v6
 
-This is the method to reuse, and it does not need Ahrefs specifically — any keyword
+This is the method to reuse, and it does not need Ahrefs specifically - any keyword
 tool with a volume filter and a row limit can do it.
 
 1. Take the family's real query pattern, not its entity list.
@@ -48,8 +48,8 @@ tool with a volume filter and a row limit can do it.
 4. Check for a false ceiling: a suspiciously round number needs a re-run at a lower
    floor. `airport to city centre` returned exactly 100 against a 400 limit; re-run at
    floor 50 it returned 400, proving the 100 was real.
-5. Read the composition, not just the count. Parking hit the row limit — which normally
-   supports a family — but the rows were airport parking and operator brands, so the
+5. Read the composition, not just the count. Parking hit the row limit - which normally
+   supports a family - but the rows were airport parking and operator brands, so the
    family was refuted by what was in it rather than by how much.
 
 The eleven measurements are in `PATTERN-BREADTH-MEASURED.csv`, each with its floor, its

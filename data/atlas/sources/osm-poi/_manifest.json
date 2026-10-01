@@ -1,16 +1,15 @@
 {
- "materialised_poi": 165085,
+ "materialised_poi": 1944704,
  "per_country": {
-  "LU": {
-   "poi": 6513,
-   "complete": false
-  },
-  "NL": {
-   "poi": 158572,
-   "complete": false
-  }
+  "LU": 6513,
+  "NL": 171369,
+  "PT": 103318,
+  "IE": 45290,
+  "ES": 441075,
+  "IT": 522609,
+  "JP": 654530
  },
  "licence": "ODbL 1.0 share-alike, attribution required",
- "method": "OSM regional extract, node-only pass, named entities only",
- "source_mirror": "download.openstreetmap.fr/extracts (Geofabrik is blocked by the environment network policy)"
+ "method": "osmium tags-filter prefilter then python classifier, named entities only",
+ "mirror": "download.openstreetmap.fr/extracts (geofabrik blocked by network policy)"
 }

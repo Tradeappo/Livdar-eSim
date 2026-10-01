@@ -41,7 +41,7 @@ Thresholds vary by the family's SERP archetype, because an OPEN family and an
 inventory-gated family cannot be judged the same way. The archetype for each family is
 in `08-SERP-EVIDENCE.csv`; the score is `serp_score` in the manifest.
 
-### Archetype A — OPEN families (serp_score ≥ 70)
+### Archetype A - OPEN families (serp_score ≥ 70)
 `atlas.city-family-carried-forward`, `activities.city-things-to-do`,
 `places.city-category`, `destinations.city-hub`, `jobs.rules-durable`,
 `rents.rules-durable`, `move.visa-country`, `transport.node-route-and-hotels`
@@ -50,10 +50,10 @@ in `08-SERP-EVIDENCE.csv`; the score is `serp_score` in the manifest.
 |---|---|---|
 | **EXPAND** | ≥70% indexed, ≥8 median impressions, ≥60% of pages with a query | multiply the family by 4× in the next cohort, up to the step cap |
 | **SUCCESS** | ≥60% indexed, ≥5 median impressions, ≥50% with a query | continue at the same rate |
-| **HOLD** | 40–60% indexed, or 2–5 median impressions | publish nothing new in this family; fix data depth or internal linking, re-read at 56 days |
+| **HOLD** | 40-60% indexed, or 2-5 median impressions | publish nothing new in this family; fix data depth or internal linking, re-read at 56 days |
 | **KILL / noindex** | <40% indexed, or <1 median impression, or <20% with a query | noindex the batch, stop the family, record why in the family master |
 
-### Archetype B — inventory or feed-gated families (serp_score 40–69)
+### Archetype B - inventory or feed-gated families (serp_score 40-69)
 `rents.city-listings`, `jobs.role-city-and-category-city`, `property.city-buy`,
 `events.city-*`, `stay.*`
 
@@ -64,19 +64,19 @@ earns its place through freshness rather than authority.
 |---|---|---|
 | **EXPAND** | ≥60% indexed, ≥5 median impressions, ≥45% with a query | expand 2×, and only within the vertical that passed |
 | **SUCCESS** | ≥50% indexed, ≥3 median impressions | continue |
-| **HOLD** | 35–50% indexed | stop expansion; check inventory depth per page first, then content |
+| **HOLD** | 35-50% indexed | stop expansion; check inventory depth per page first, then content |
 | **KILL** | <35% indexed, or <1 median impression | noindex, and do not buy more of that feed |
 
 A family in this archetype that fails is **evidence against the feed purchase**, which
 is the cheapest way to learn it.
 
-### Archetype C — suppressed or locked families (serp_score ≤ 35)
+### Archetype C - suppressed or locked families (serp_score ≤ 35)
 `stay.city-hotels`, `weather.city-best-time`, `events.venue-event`, `route.city-pair`,
 every `poi.*-entity` and `places.*-entity`
 
 These are **already classified as losing** on measured SERP evidence. They sit in the
 manifest as candidates with a low `indexability_score` so the controller passes over
-them, and they should not be published to "test" them — the SERP has already answered.
+them, and they should not be published to "test" them - the SERP has already answered.
 
 If one is published anyway, hold it to Archetype A thresholds. If it clears them, the
 SERP archetype changed and `08-SERP-EVIDENCE.csv` needs a re-sample. That is the only
@@ -84,15 +84,15 @@ condition under which a locked family reopens.
 
 ## The promote / hold / kill mechanics
 
-**Promote** — raise the family's `demand_score` for its whole unpublished tail in the
+**Promote** - raise the family's `demand_score` for its whole unpublished tail in the
 manifest, which raises `publication_priority`, which pulls it into the next cohort
 automatically. That is the feedback loop from `13-100M-ARCHITECTURE.md` stage 7, and
 it is the one piece of the architecture that must be built before cohort 004.
 
-**Hold** — leave the scores alone and publish nothing new in the family. A hold is not
+**Hold** - leave the scores alone and publish nothing new in the family. A hold is not
 a failure; most families will hold at least once.
 
-**Kill** — noindex the published batch per the controller's rollback (410 where there
+**Kill** - noindex the published batch per the controller's rollback (410 where there
 are no inbound links, 301 to the durable parent where there are), set the family's
 unpublished candidates to `status = KILLED_BY_GSC`, and write the reason into
 `04-FAMILY-MASTER.csv`. A killed family must never be silently regenerated: the
@@ -104,7 +104,7 @@ come back.
 These are the controller's, unchanged, and they outrank any family verdict. A manual
 action or a scaled-content notice stops everything regardless of how well individual
 families are performing. See `14-PUBLICATION-CONTROLLER.md` Part A, "Hard STOP
-conditions" — all ten still apply.
+conditions" - all ten still apply.
 
 One addition specific to running at inventory scale: **if three consecutive cohorts
 produce more KILL verdicts than EXPAND verdicts, stop publishing entirely and re-read
@@ -117,13 +117,13 @@ The manifest's priority sort puts `activities.city-things-to-do` at the top and 
 first 5,000 rungs are dominated by it. That is a concentration risk the controller's
 per-family caps already bind, so deliberately mix the early cohorts instead:
 
-1. **Cohort 003 (500 pages)** — split across three archetype-A families in three
+1. **Cohort 003 (500 pages)** - split across three archetype-A families in three
    different languages. The question being asked is "does the template and the internal
    linking work at all", and a single-family cohort cannot answer it.
-2. **Cohort 004 (1,500)** — expand whichever of the three passed, and add the two
+2. **Cohort 004 (1,500)** - expand whichever of the three passed, and add the two
    rules-durable families, which are the highest-demand no-feed families measured
    (`minijob grenze 2026` at 48,000 KD 5, `租屋補助` at 269,000 KD 0).
-3. **Cohort 005 (3,000)** — first archetype-B test, one vertical only, to decide the
+3. **Cohort 005 (3,000)** - first archetype-B test, one vertical only, to decide the
    rental feed on evidence rather than on the 26,000-page estimate that measurement
    already cut.
 

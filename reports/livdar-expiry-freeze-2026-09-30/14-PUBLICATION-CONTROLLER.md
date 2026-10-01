@@ -11,12 +11,12 @@ rollback identity), and the four per-family caps that round three's measurements
 require. Part C records the three places where later measurement changed a Part A
 assumption.
 
-Where Part A and Part B disagree, **Part A wins on gates and STOP conditions** — those
+Where Part A and Part B disagree, **Part A wins on gates and STOP conditions** - those
 were designed against real Google behaviour and nothing since has contradicted them.
 
 ---
 
-# PART A — the existing controller, unchanged
+# PART A - the existing controller, unchanged
 
 # Publication controller
 
@@ -97,13 +97,13 @@ not a last resort, and the batch identifier is what makes it a single operation.
 
 ---
 
-# PART B — the extension
+# PART B - the extension
 
 ## B1. Steps beyond 1M
 
 Part A stops at 1M and records steps 5 to 8 as unreachable. Nothing since has made
 them reachable. These rows exist so the ladder is complete, and each one states the
-condition that would have to be true first — not a plan.
+condition that would have to be true first - not a plan.
 
 | Step | Pages | Indexation | Impressions/page | Duplicate | GSC query coverage | Deindex ratio | Condition that must hold first |
 |---|---|---|---|---|---|---|---|
@@ -165,7 +165,7 @@ regardless of step.
 
 ---
 
-# PART C — where later measurement changed a Part A assumption
+# PART C - where later measurement changed a Part A assumption
 
 Three corrections, each with the evidence. Part A's gates are untouched; these concern
 its figures and one cap.
@@ -174,11 +174,11 @@ its figures and one cap.
 validated universe is 13,975 and the whole publishable-now set is 1,791". The 1,791
 still stands and is still the publishable-now figure. The 13,975 was reconciled in a
 later pass and the current layered figures are in `11-CURRENT-VS-FEED-BACKED.md`:
-demand-supported 1,656,362, indexable today 64,416. Part A's conclusion is unaffected —
-steps 5 to 8 remain unreachable — but the numbers it cites should not be quoted.
+demand-supported 1,656,362, indexable today 64,416. Part A's conclusion is unaffected - 
+steps 5 to 8 remain unreachable - but the numbers it cites should not be quoted.
 
 **C2. `transport.airport-to-city` keeps its cap of 0, and the reason to fix it is now
-much stronger.** Part A caps it at 0 because the distance field is wrong — a number
+much stronger.** Part A caps it at 0 because the distance field is wrong - a number
 presented as a measurement that the source does not measure, which is also STOP
 condition 7. That cap is correct and stays. What changed is the value of fixing it:
 round three measured about 70 airports above 200 volume and 150+ above 50, with
@@ -191,13 +191,13 @@ the highest-return data task on the list.
 three" for 25,000. Neighbourhood breadth is now partly evidenced: the
 `places.city-category` micro-geo axis measured about 60 London neighbourhood queries
 and about 40 near-station queries for a single category. That is not the same as a
-neighbourhood *fact* source — the `areas.neighbourhood-profile` cap of 200 pages on
-four-fields-per-page HIGH_RISK grounds still binds — but the demand half of the
+neighbourhood *fact* source - the `areas.neighbourhood-profile` cap of 200 pages on
+four-fields-per-page HIGH_RISK grounds still binds - but the demand half of the
 requirement is no longer unproven.
 
 ## The one thing that has not changed
 
 Part A's ten STOP conditions are the most valuable paragraph in this freeze. Nothing in
 three subsequent passes has given any reason to soften one of them, and STOP condition
-7 in particular — no number presented as a measurement that the source does not
-actually measure — is the rule that keeps a programmatic site publishable at all.
+7 in particular - no number presented as a measurement that the source does not
+actually measure - is the rule that keeps a programmatic site publishable at all.

@@ -7,7 +7,7 @@ publication ceiling today is 25,000. See `12-SCALE-LADDER.md`.
 What this describes is a **candidate graph** that can hold 100M rows and still only ever
 emit the few thousand that earn publication. The point of building for 100M is not to
 publish 100M. It is that a system which can score 100M candidates and reject 99.97% of
-them is a system that can never accidentally publish a weak page — and that is exactly
+them is a system that can never accidentally publish a weak page - and that is exactly
 the property the ten STOP conditions in `14-PUBLICATION-CONTROLLER.md` are defending.
 
 The raw universe is already 72,567,541 rows (`06-ENTITY-LISTING-UNIVERSE.csv`). The
@@ -79,20 +79,20 @@ re-fetching from a source that may by then have changed or gone away.
 
 The graph holds canonical entities, not source records. Three operations produce it:
 
-**Dedupe** — the same entity arriving from two sources must collapse to one node.
+**Dedupe** - the same entity arriving from two sources must collapse to one node.
 Keyed on geographic proximity plus normalised name plus type, never on name alone
 (dozens of `Hauptbahnhof`), never on coordinates alone (a mall and its cinema share
 them).
 
-**Semantic clustering** — entities that answer the same query cluster together, so one
+**Semantic clustering** - entities that answer the same query cluster together, so one
 page serves the cluster instead of one thin page per member. This is the single most
 important defence against thin content at scale, because it converts a
 million-entity long tail into a few thousand legitimate pages.
 
-**Canonical selection** — one URL per cluster per market, chosen by demand, not by
+**Canonical selection** - one URL per cluster per market, chosen by demand, not by
 alphabet. The keyword master decides: the cluster's canonical is the entity whose
 keyword carries the demand. Cross-market, the rule already established in the dedupe
-ladder holds — the same intent in two markets is two pages, never one, because
+ladder holds - the same intent in two markets is two pages, never one, because
 `kalender 2026` is 333,644 in DE and 146,979 in NL and folding them loses both.
 
 ## 3. Candidate generation
@@ -111,21 +111,21 @@ generates rows that no query wants.
 Blending is how a weak page sneaks through on a strong average. Each score is computed
 and stored independently, and publication requires a floor on **every** one.
 
-**Demand score** — from the keyword master: volume, KD, CPC, traffic potential, SERP
+**Demand score** - from the keyword master: volume, KD, CPC, traffic potential, SERP
 class. A candidate with no measured keyword scores zero and is never publishable,
 however complete its data.
 
-**Indexability score** — from the SERP classification in `08-SERP-EVIDENCE.csv`. This is
+**Indexability score** - from the SERP classification in `08-SERP-EVIDENCE.csv`. This is
 the score that most often vetoes. `BRAND_OWNED_PLUS_SOCIAL`, `AGGREGATOR_LOCKED`,
 `SERP_FEATURE_SUPPRESSED` and `OPEN_BUT_ECONOMICALLY_DEAD` are vetoes regardless of
-volume — a family can have enormous demand and still be unrankable, which is the single
+volume - a family can have enormous demand and still be unrankable, which is the single
 most expensive lesson in this project.
 
-**Quality score** — field completeness, field count, whether the page says anything a
+**Quality score** - field completeness, field count, whether the page says anything a
 competitor page does not. The existing gates are in
 `reports/scale-universe-2026-09-29/QUALITY-GATES.md`.
 
-**Source confidence score** — from `07-DATA-SOURCES.csv`: licence permits publication,
+**Source confidence score** - from `07-DATA-SOURCES.csv`: licence permits publication,
 storage rights permit caching, refresh cadence matches the field's volatility, and the
 row is not low-confidence.
 
@@ -143,7 +143,7 @@ system-level requirements:
   A page whose expiry policy is unknown must not be published.
 - **Expired listing**: `410 Gone` plus sitemap removal where there are no inbound
   links, `301` to the durable parent where there are. Never left `200` with stale
-  content — that is the failure mode that turns a listing site into a spam signal.
+  content - that is the failure mode that turns a listing site into a spam signal.
 - **Durable parent pages never expire.** The page is the query; its contents refresh
   underneath. This is why durable parents are worth more than listings even at lower
   volume.
@@ -151,8 +151,8 @@ system-level requirements:
   field completeness falls below the family floor; the source row's licence or
   publication right changes; zero impressions for 90 days on a page older than 120
   days; the cluster's canonical moves to another URL.
-- **Recurring events roll the year** rather than 410 — `konzerte 2026` becomes
-  `konzerte 2027` — because the query recurs even though the occurrence does not.
+- **Recurring events roll the year** rather than 410 - `konzerte 2026` becomes
+  `konzerte 2027` - because the query recurs even though the occurrence does not.
 
 ## 7. Sitemap sharding, crawl controls, and the GSC feedback loop
 
@@ -178,11 +178,11 @@ loop needs no paid tool, and `15-AHREFS-REPLACEMENT.md` covers the jobs it does 
 
 ## What to build first, if this is ever built
 
-1. **The feedback loop (stage 7)** — it needs no new data source, it works from free
+1. **The feedback loop (stage 7)** - it needs no new data source, it works from free
    GSC data, and without it every cohort decision is blind.
-2. **Scoring as four separate stored scores (stage 4)** — mostly a refactor of what
+2. **Scoring as four separate stored scores (stage 4)** - mostly a refactor of what
    already exists in the quality gates, and it is what makes the controller mechanical
    instead of manual.
-3. **Lifecycle automation (stage 6)** — before any listing family is published, never
+3. **Lifecycle automation (stage 6)** - before any listing family is published, never
    after. A listing site without automated expiry degrades faster than it grows.
 4. Everything else is optimisation.

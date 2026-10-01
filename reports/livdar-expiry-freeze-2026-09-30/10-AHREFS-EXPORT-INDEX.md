@@ -7,7 +7,7 @@ what exists and what would have to be bought back. All paths are relative to
 **Nothing in this list can be regenerated once the subscription ends.** The backlink,
 referring-domain and Brand Radar folders are the ones with no adequate free substitute.
 
-## backlinks/ — irreplaceable
+## backlinks/ - irreplaceable
 | File | Size |
 |---|---|
 | `all-backlinks-top500-by-dr-2026-09-28.json` | 436 KB |
@@ -19,7 +19,7 @@ referring-domain and Brand Radar folders are the ones with no adequate free subs
 | `AUDIT-2026-09-28.md` | 10 KB |
 | `link-intersect-2026-09-28.md`, `new-and-lost-2026-09-28.md`, `anchor-clusters-2026-09-28.tsv`, `growth-timeline-2026-09-28.tsv`, `refdomains-history-2026-07-01-to-2026-09-28.json` | small |
 
-## organic/ — the demand picture for every published page
+## organic/ - the demand picture for every published page
 | File | Size |
 |---|---|
 | `published-page-demand-2026-09-28.json` | 147 KB |
@@ -29,7 +29,7 @@ referring-domain and Brand Radar folders are the ones with no adequate free subs
 | `cohort-candidates-2026-09-28.tsv` | 8 KB |
 | `new-families-2026-09-28.md` | 7 KB |
 
-## production/ — the live-site monitoring baseline
+## production/ - the live-site monitoring baseline
 | File | Size |
 |---|---|
 | `atlas-monitor-2026-09-28.json` / `-09-29.json` | 286 KB each |
@@ -38,7 +38,7 @@ referring-domain and Brand Radar folders are the ones with no adequate free subs
 | `international-2026-09-28.json` | 12 KB |
 | `sitemap-url-counts-2026-09-28.tsv`, `production-verification-after-fix-2026-09-28.json` | small |
 
-## gsc/ — the GSC join, which survives expiry because GSC itself is free
+## gsc/ - the GSC join, which survives expiry because GSC itself is free
 | File | Size |
 |---|---|
 | `gsc-x-ahrefs-joined-2026-09-28.json` | 286 KB |
@@ -48,7 +48,7 @@ referring-domain and Brand Radar folders are the ones with no adequate free subs
 The join is the valuable half: GSC keeps producing impressions and positions for free,
 but the Ahrefs side of this join (volume, KD, traffic potential) does not.
 
-## site-audit/ — the clean baseline
+## site-audit/ - the clean baseline
 Held in `site-audit/`: `CLEAN-BASELINE-2026-09-29.md`, `CLASSIFIED-FINDINGS.md`,
 `all-179-checks-2026-09-28.json` and `-09-29.json`, plus two raw issue crawls.
 **Health score 100, zero errors, 11 of 179 checks non-zero, all low severity.**
@@ -77,4 +77,4 @@ breadth measurements, 14,500 on the nine-market breadth pass, and 7,040 closing 
 breadth of the two rules-durable families rather than leaving them as open questions.
 
 The API key itself is valid to 2036-09-05, so if the subscription is ever reinstated
-the key does not need replacing — only the plan.
+the key does not need replacing - only the plan.

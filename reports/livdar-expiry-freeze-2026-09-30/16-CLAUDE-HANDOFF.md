@@ -22,7 +22,7 @@ anything. Read this file first. Read `01-EXECUTIVE-SUMMARY.md` second.
   severity. Baseline at `reports/ahrefs-export-2026-09-28/site-audit/CLEAN-BASELINE-2026-09-29.md`.
 - GTM, GA4, GSC and Clarity verified in production.
 - The 497 Atlas pages that returned 404 were fixed on 2026-09-28. **No GSC window
-  before that date says anything valid about them** — this matters for every gate
+  before that date says anything valid about them** - this matters for every gate
   reading in the publication controller.
 - Every live page carries a contextual CTA, tracked with the full dimension set.
 - Sitemaps, robots and indexability have passed a regression check. IndexNow and Bing
@@ -45,11 +45,11 @@ sport, services, safety, esim.
 
 These three numbers all appear in the reports and all three are correct in context:
 
-- **64 families** — the original programme scope.
-- **76 families** — the 64 plus 12 the 27-family pass added.
+- **64 families** - the original programme scope.
+- **76 families** - the 64 plus 12 the 27-family pass added.
   `reports/livdar-master-seo-universe-2026-09-30/FAMILY-MASTER.csv` holds all 76 with
   40 columns each, classified per market.
-- **191 families** — the count in the keyword master, because the master also carries
+- **191 families** - the count in the keyword master, because the master also carries
   sub-families and round-three splits (`jobs.rules-durable`, `rents.rules-durable`,
   `jobs.role-city-and-category-city`, and so on). `04-FAMILY-MASTER.csv` is the rollup.
 
@@ -100,21 +100,21 @@ against `praha` 20).
 **To add research**: a new numbered loader block in `master-keywords-final.mjs` with its
 own `source_of_keyword`, then re-run the builder and the rollups. Never a parallel file.
 
-## 7. Validated families — build these
+## 7. Validated families - build these
 
 No feed, no licence, demand measured:
 
 | Family | Evidence |
 |---|---|
 | `atlas.city-family-carried-forward` | breadth exceeded every limit tested, in six languages. Global destination universe. 29,274 pages |
-| `places.city-category` | breadth exhausted at 283 for one category in one market. City + neighbourhood + near-station. 150–800 cents CPC. 6,342 pages |
+| `places.city-category` | breadth exhausted at 283 for one category in one market. City + neighbourhood + near-station. 150-800 cents CPC. 6,342 pages |
 | `jobs.rules-durable` | **new, measured.** Breadth >400 keywords at 500+ in de-DE, limit hit. `minijob grenze 2026` 48,000 KD 5. Rules portion needs no feed; the ~150 `minijob {city}` queries do |
-| `rents.rules-durable` | **new, measured.** Breadth >120 keywords at 300+ in zh-Hant-TW, limit hit, nearly all KD 0–13. `租屋補助` 269,000 KD 0. Sub-intent × year × city × audience × landlord questions. Public rules, no feed |
-| `transport.node-route-and-hotels` | ~70 airports >200 volume, 150+ >50. `hotels near X airport` KD 0–4 at 70–120 cents. **Blocked by a wrong distance field — see §9** |
-| `move.visa-country` | highest CPC measured, 60–350 cents |
+| `rents.rules-durable` | **new, measured.** Breadth >120 keywords at 300+ in zh-Hant-TW, limit hit, nearly all KD 0-13. `租屋補助` 269,000 KD 0. Sub-intent × year × city × audience × landlord questions. Public rules, no feed |
+| `transport.node-route-and-hotels` | ~70 airports >200 volume, 150+ >50. `hotels near X airport` KD 0-4 at 70-120 cents. **Blocked by a wrong distance field - see §9** |
+| `move.visa-country` | highest CPC measured, 60-350 cents |
 | `poi.entity-tickets` | 45 measured entity heads. Select per entity: fails where a reseller owns the query |
 
-## 8. Blocked families — do not build
+## 8. Blocked families - do not build
 
 | Family | Why |
 |---|---|
@@ -132,16 +132,16 @@ No feed, no licence, demand measured:
 Ranked by worth, with the full catalogue in `07-DATA-SOURCES.csv` (58 rows) and the
 scenarios in `11-CURRENT-VS-FEED-BACKED.md`:
 
-1. **Fix the airport distance field** (data-source gaps 1 and 2). Not a feed purchase —
+1. **Fix the airport distance field** (data-source gaps 1 and 2). Not a feed purchase - 
    a correctness fix. It unblocks the best-monetising measured family and it currently
    trips STOP condition 7. **Highest return of anything on this list.**
-2. **Rental listings feed** — for revenue, not page count. German tail at KD 0–3.
-3. **Jobs feed** — vertical cuts only, never a general board.
-4. **Attraction affiliate** — monetisation only; already counted in CURRENT.
-5. **Licensed event feed** — lowest priority.
-6. **Student/shared-housing feeds** — do not buy.
+2. **Rental listings feed** - for revenue, not page count. German tail at KD 0-3.
+3. **Jobs feed** - vertical cuts only, never a general board.
+4. **Attraction affiliate** - monetisation only; already counted in CURRENT.
+5. **Licensed event feed** - lowest priority.
+6. **Student/shared-housing feeds** - do not buy.
 
-## 10. Rank Tracker state — do not change without reason
+## 10. Rank Tracker state - do not change without reason
 
 705 keywords: 500 LIVE_PRIMARY (one per live page), 38 LIVE_SECONDARY, 125 ESIM,
 42 CANDIDATE_HEAD (volume floor 1,000). **Zero cannibalisation groups, zero pages
@@ -155,7 +155,7 @@ tool. **This session did not change it.**
 
 - **GSC**: verified, joined with Ahrefs at
   `reports/ahrefs-export-2026-09-28/gsc/gsc-x-ahrefs-joined-2026-09-28.tsv`. After
-  expiry this becomes the primary instrument — set up the API export first (`15-...`).
+  expiry this becomes the primary instrument - set up the API export first (`15-...`).
 - **Bot Analytics / crawl**: baseline in `reports/ahrefs-export-2026-09-28/production/`
   (`atlas-monitor-*.json`, `internal-links-*.json`, `sitemap-url-status-*.tsv`).
 - **Site Audit**: health 100, zero errors. Both full 179-check snapshots retained.

@@ -1,0 +1,25 @@
+{
+ "poi_loaded": 1944704,
+ "poi_with_city": 1483166,
+ "unattributable": 461538,
+ "city_pairs": 26239,
+ "aggregation_candidates": 12626,
+ "by_shape": {
+  "city_category": 10586,
+  "notable_entity": 2040
+ },
+ "by_market": {
+  "es-ES": 2818,
+  "it-IT": 4164,
+  "ja-JP": 3131,
+  "nl-NL": 2513
+ },
+ "rejections": {
+  "entries_too_thin": 9545,
+  "below_min_count": 69984,
+  "class_not_a_list_intent": 51130,
+  "no_market_for_country": 15350,
+  "entity_not_notable": 35193,
+  "notable_but_data_thin": 7632
+ }
+}

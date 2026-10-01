@@ -25,7 +25,7 @@ and `SERP-WEAKNESS-MAP.md` in the same folder maps where incumbents are thin.
 
 In `reports/ahrefs-export-2026-09-28/livdar/`: `site-explorer-2026-09-28.json`,
 `historical-baseline-2026-09-28.md`, `crawled-pages-2026-09-28.json`. The historical
-baseline is the one that matters most — after expiry there is no way to reconstruct
+baseline is the one that matters most - after expiry there is no way to reconstruct
 what the profile looked like before the scale programme started, and that is the
 before-picture for every future comparison.
 
@@ -34,30 +34,30 @@ before-picture for every future comparison.
 `reports/ahrefs-export-2026-09-28/backlinks/` is the most irreplaceable folder in the
 repository. Ahrefs is the only source here that a free tool substitutes badly for:
 
-- `refdomains-all-time-2026-09-28.json` and `refdomains-audit-2026-09-28.tsv` — the
+- `refdomains-all-time-2026-09-28.json` and `refdomains-audit-2026-09-28.tsv` - the
   full referring-domain set with metrics
-- `all-backlinks-top500-by-dr-2026-09-28.json` — the top 500 links by DR
-- `anchor-clusters-2026-09-28.tsv` — anchor distribution, which is how an over-
+- `all-backlinks-top500-by-dr-2026-09-28.json` - the top 500 links by DR
+- `anchor-clusters-2026-09-28.tsv` - anchor distribution, which is how an over-
   optimisation problem shows up
-- `disavow-candidates-2026-09-28.txt` — the audited disavow list, ready to file
-- `pbn-audit-2026-09-28.json` — the PBN and link-scheme audit
-- `link-intersect-2026-09-28.md` and `new-and-lost-2026-09-28.md` — the gap analysis
+- `disavow-candidates-2026-09-28.txt` - the audited disavow list, ready to file
+- `pbn-audit-2026-09-28.json` - the PBN and link-scheme audit
+- `link-intersect-2026-09-28.md` and `new-and-lost-2026-09-28.md` - the gap analysis
   and the churn
-- `growth-timeline-2026-09-28.tsv`, `refdomains-history-*.json` — the trend
-- `AUDIT-2026-09-28.md` — the conclusions drawn from all of it
+- `growth-timeline-2026-09-28.tsv`, `refdomains-history-*.json` - the trend
+- `AUDIT-2026-09-28.md` - the conclusions drawn from all of it
 
 `link-opportunities/prospects-from-competitor-profiles-2026-09-29.tsv` holds the
 prospect list, built from real competitor profiles rather than a wishlist.
 
 ## Keyword and content gaps
 
-- `content-gap/pl-kalendarzswiat-2026-09-28.tsv` — the PL gap against the leading
+- `content-gap/pl-kalendarzswiat-2026-09-28.tsv` - the PL gap against the leading
   Polish calendar site
-- `organic/published-page-demand-2026-09-28.tsv` and `.json` — demand against every
+- `organic/published-page-demand-2026-09-28.tsv` and `.json` - demand against every
   published page, which is what the LIVE_SECONDARY set was built from
 - `organic/candidate-inventory-FINAL-2026-09-28.tsv`, `cohort-candidates-*.tsv`,
-  `new-families-2026-09-28.md` — the candidate pipeline as Ahrefs saw it
-- `keywords-explorer/research-2026-09-28.tsv` — the Keywords Explorer working set
+  `new-families-2026-09-28.md` - the candidate pipeline as Ahrefs saw it
+- `keywords-explorer/research-2026-09-28.tsv` - the Keywords Explorer working set
 
 ## Brand and AI visibility
 

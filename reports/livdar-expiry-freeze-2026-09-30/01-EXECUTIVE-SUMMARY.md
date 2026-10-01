@@ -53,17 +53,17 @@ Round two classified the whole jobs axis as feed-gated, which buried the fact th
 *regulatory* demand needs no listing inventory at all. Two families of that shape turned
 up, and both were measured before the subscription ended rather than left as questions.
 
-**`jobs.rules-durable` (de-DE)** — breadth **exceeded 400 keywords** at 500+ volume, the
+**`jobs.rules-durable` (de-DE)** - breadth **exceeded 400 keywords** at 500+ volume, the
 row limit, so the tail is still running. The composition splits three ways and only the
 first needs no feed: a large rules set (thresholds by year, holiday entitlement, notice
 periods, health and pension insurance, tax and deductions, hours, minimum wage by year,
-contract templates, age rules, and every benefit-combination question — minijob with
+contract templates, age rules, and every benefit-combination question - minijob with
 unemployment benefit, with parental allowance, as a student, against a midijob), plus
 roughly 150 `minijob {city}` listing queries that do need a feed, plus employer brands
 that are not ours. Heads: `minijob grenze 2026` at 48,000 and KD 5, `minijob grenze`
 43,000 KD 0.
 
-**`rents.rules-durable` (zh-Hant-TW)** — breadth **exceeded 120 keywords** at 300+
+**`rents.rules-durable` (zh-Hant-TW)** - breadth **exceeded 120 keywords** at 300+
 volume, also limit-capped. `租屋補助` (rent subsidy) is **269,000 volume at KD 0**, and
 the family is a complete durable grid, almost all of it KD 0 to 13: sub-intent (check
 status, apply, eligibility, calculate, amount, conditions, payment date, progress,
@@ -75,7 +75,7 @@ else answers well (why won't my landlord allow it, will the landlord find out, w
 landlord be taxed).
 
 Both are built on **public government rules**: no feed, no licence, no inventory. And
-both contain a calculator intent — `minijob rechner` and `租屋補助試算` — which maps
+both contain a calculator intent - `minijob rechner` and `租屋補助試算` - which maps
 directly onto `tools.calculator`, a surface Livdar already runs live with 133 keywords.
 That is the cheapest, highest-certainty work on the entire board.
 
@@ -85,7 +85,7 @@ That is the cheapest, highest-certainty work on the entire board.
 together are 35,616 of the 64,416 indexable pages.
 
 The atlas family is the strongest thing Livdar owns. Its universe is **global, not the
-11 markets** — `things to do in nashville`, `sydney`, `bali`, `tokyo` and `cancun` all
+11 markets** - `things to do in nashville`, `sydney`, `bali`, `tokyo` and `cancun` all
 rank as en-GB demand. In local language it is just as strong and almost entirely at
 KD 0: `cosa vedere a {city}` across Italy, `que ver en {city}` across Spain down to
 Zamora and Teruel, `o que fazer em {city}` across Brazil, `{city}景點` across Taiwan
@@ -93,7 +93,7 @@ where Chiayi alone is 60,000 searches.
 
 `places.city-category` showed *how* it scales: not city alone but city, neighbourhood
 and near-station micro-geo. Coworking alone exhausts at 283 keywords in one market at
-150 to 800 cents CPC — the highest commercial intent measured anywhere in the project.
+150 to 800 cents CPC - the highest commercial intent measured anywhere in the project.
 
 ## What the market pass corrected
 
@@ -105,7 +105,7 @@ before expiry found two badly under-recorded markets:
 - **pt-BR** was on file at 9,900. It reaches 20,000.
 
 Also: `praca {city}` across Poland sits at KD 0 with 10,000 to 29,000 volume per city
-— but `olx praca` at 236,000 warns that KD 0 understates a vertical a classifieds
+ - but `olx praca` at 236,000 warns that KD 0 understates a vertical a classifieds
 incumbent owns. Japan's role-based job queries carry the highest CPC in the set:
 看護師 求人 at 400 cents, 保育士 求人 at 250.
 
@@ -113,7 +113,7 @@ incumbent owns. Japan's role-based job queries carry the highest CPC in the set:
 
 **100,000 pages is not defensible on demand today, and not defensible with feeds
 either.** Round two marked the feed-backed case YES at 100,000 on a 160,416 figure,
-but 96,000 of that leaned on rents, jobs, events, property and WG — and round three
+but 96,000 of that leaned on rents, jobs, events, property and WG - and round three
 refuted or reduced most of them. See `11-CURRENT-VS-FEED-BACKED.md` for the full
 threshold table; nothing above 100,000 is defensible in either scenario.
 
@@ -128,7 +128,7 @@ and 269,000 volume heads, no feed, no licence), the transport airport nodes (KD 
 with 70 to 120 cent CPC on hotel intent), and move.visa-country (highest CPC measured).
 
 Do not buy a jobs, events or rental feed to chase page count. The rental demand is
-real and at KD 0 to 3, so a feed is defensible on *revenue* grounds — but it is not
+real and at KD 0 to 3, so a feed is defensible on *revenue* grounds - but it is not
 what gets the site to 100,000 pages, and this freeze should stop anyone believing it
 will.
 

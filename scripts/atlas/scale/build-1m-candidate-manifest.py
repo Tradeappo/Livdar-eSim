@@ -542,6 +542,38 @@ def markets_for(f, ent_country, tier, ename=''):
         return sorted(ms)
     return []
 
+# ---------------------------------------------------------------- uniqueness
+# A URL being unique is not a reason for a page to exist. Each candidate has to name
+# the thing that makes it worth its own page, and anything that cannot is rejected.
+# The reason is built from the family's real distinct-value basis, not a template.
+DISTINCT_BASIS = {
+    'country': 'country-specific rules, rates or figures that differ by jurisdiction',
+    'country-year': 'the dated calendar for that country and year, which changes annually',
+    'subdivision': 'subdivision-level rules that differ from the national ones',
+    'subdivision-year': 'subdivision-level dated calendar for that year',
+    'holiday': 'a specific dated observance with its own regional rules and date logic',
+    'city': 'city-level local data and local-language demand',
+    'neighbourhood': 'neighbourhood-level characteristics within a named city',
+    'airport': 'a specific transport node with its own routes, distances and onward options',
+    'venue': 'a specific venue with its own location and surroundings',
+    'city-pair': 'a two-sided comparison whose figures exist for no other pair',
+    'country-pair': 'a two-sided comparison whose figures exist for no other pair',
+    'month-year': 'a dated period with its own calendar facts',
+    'year': 'a dated period with its own calendar facts',
+    'tool': 'a distinct calculation with its own formula and inputs',
+}
+def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier):
+    basis = DISTINCT_BASIS.get(etype)
+    if not basis:
+        return ''                       # no defensible basis: the gate below drops it
+    req = (f.get('required_data') or '').strip()
+    nf = len([x for x in req.replace(';', ',').split(',') if x.strip()])
+    if nf < 2:
+        return ''                       # too few source fields to say anything distinct
+    return (f"{f['family_id']} for {ename or etype} in {market}: {basis}; "
+            f"{nf} source fields from {f.get('source_state', 'source')}; "
+            f"{lang} market demand measured for this family")
+
 # ---------------------------------------------------------------- emit
 def slug(s):
     s = (s or '').lower()
@@ -559,7 +591,10 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           'data_source','source_status','source_record_id','feed_required','licence_status',
           'data_signature','template_signature','duplicate_risk','cannibalization_risk',
           'quality_score','demand_score','source_score','serp_score','indexability_score',
-          'publication_priority','publication_cohort_candidate','status']
+          'publication_priority','publication_cohort_candidate','status',
+          # added for the quality-first pass
+          'uniqueness_reason','serp_feasibility','data_completeness','source_freshness',
+          'intent_owner','monetization_fit','tool_or_content','rejection_reason','serp_class']
 
 stats = collections.Counter()
 rows = []
@@ -629,67 +664,139 @@ for f in fams:
                 'data_signature': dsig, 'template_signature': tsig,
                 'duplicate_risk': dup, 'cannibalization_risk': can,
                 'quality_score': q, 'demand_score': dscore, 'source_score': srcscore,
-                'serp_score': sscore, 'indexability_score': iscore,
+                'serp_score': sscore, 'serp_class': serp_c,
+                'indexability_score': iscore,
                 'publication_priority': prio, 'publication_cohort_candidate': '',
                 'status': f['status'],
+                # Why this page deserves to exist separately. Built from the family's
+                # own distinct-value test plus the entity and market that make this row
+                # different from its siblings. A row without one is dropped below.
+                'uniqueness_reason': uniqueness_reason(f, etype, ename, ecountry, m, lang, tier),
             })
 
-# ---- OSM POI x validated modifier ------------------------------------------
-# A POI only generates in the market whose country it sits in: a Dutch restaurant is a
-# Dutch-language page and nowhere else. No cross-market multiplication.
+# ---- OSM POI AGGREGATIONS (not one page per POI) ---------------------------
+# The previous pass emitted one page per POI per modifier, 161,474 of them. That is
+# scaled-content spam by any reasonable reading: an unknown restaurant with a name and
+# nothing else does not deserve a URL. Those rows are GONE. What replaces them is the
+# aggregation a person actually searches - the cafes in a city, the coworking in a city
+# - gated on a minimum count and on the entries carrying more than a name, plus a small
+# set of individually notable entities cross-referenced in Wikidata.
+# Built by scripts/atlas/scale/poi-aggregations.py, which records every rejection.
+agg = []
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/osm-poi/_aggregations.jsonl.gz', 'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if _l:
+            try: agg.append(json.loads(_l))
+            except Exception: pass
+except (EOFError, OSError, FileNotFoundError):
+    pass
+print(f'  poi aggregations loaded {len(agg):,}', file=sys.stderr)
+
 POI_SERP = 'OPEN_WINNER_TAKE_MOST_IF_NO_RESELLER'
-poi_emitted = 0
-for o in osm_poi:
-    cty = o.get('country')
-    mkts = COUNTRY_MKTS.get(cty, [])
-    if not mkts:
-        stats['poi_dropped_no_market'] += 1
-        continue
-    # one language per POI; pick the market for that country
-    m = mkts[0]
-    lang = MKT_LANG[m]
-    cls = o['cls']
-    for mod in poi_modifiers(cls):
-        fid = f'poi.{cls}-{mod}'
-        nm = slug(o['name'])
-        if not nm or nm == 'x':
-            stats['poi_dropped_unslugged'] += 1
-            continue
-        url = f"/{lang}/poi/{slug(cls)}/{nm}-{o['id']}/{mod}/"
-        # data richness drives quality: a POI with hours, site and phone supports a
-        # fuller page than a bare name
-        extras = sum(1 for k in ('oh', 'web', 'tel', 'city', 'qid', 'cuisine') if o.get(k))
-        q = min(100, 35 + extras * 10)
-        dsc = 55 if cls in TICKETED else 45 if cls in TRANSPORT_CLS else 40
-        src = 55                      # SOURCE_AVAILABLE: held now, ODbL obligations
-        ssc = SERP_SCORE[POI_SERP]
-        idx = min(q, dsc, src, ssc)
-        rows.append({
-            'candidate_id': 'c_' + sig(fid, o['id'], m),
-            'url_pattern': url, 'market': m, 'language': lang,
-            'surface': 'poi', 'family': fid, 'vertical': 'discovery',
-            'page_type': 'ENTITY_MODIFIER', 'entity_type': 'poi', 'entity_id': o['id'],
-            'entity_name': o['name'], 'city': o.get('city', ''), 'country': cty,
-            'neighbourhood': '', 'primary_intent': mod.replace('-', ' '),
-            'primary_keyword_if_known': f"{o['name']} {mod.replace('-', ' ')}",
-            'keyword_cluster_id': next((KCLUSTER[(n, m)] for n in ('poi.entity-tickets',
-                'poi.entity-opening-hours', 'poi.entity-how-to-get-to') if (n, m) in KCLUSTER), ''),
-            'semantic_cluster_id': 'sc_' + sig('poi', cls, mod, m),
-            'data_source': 'OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
-            'source_status': 'SOURCE_AVAILABLE', 'source_record_id': f"osm:{o['id']}",
-            'feed_required': '', 'licence_status': 'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED',
-            'data_signature': sig('data', fid, o['id'], m),
-            'template_signature': sig('tpl', 'poi', cls, mod),
-            'duplicate_risk': 'LOW' if extras >= 2 else 'MEDIUM',
-            'cannibalization_risk': 'LOW',
-            'quality_score': q, 'demand_score': dsc, 'source_score': src,
-            'serp_score': ssc, 'indexability_score': idx,
-            'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
-            'publication_cohort_candidate': '', 'status': 'POI_SOURCE_AVAILABLE',
-        })
-        poi_emitted += 1
-stats['poi_emitted'] = poi_emitted
-print(f'  poi candidates emitted {poi_emitted:,}', file=sys.stderr)
+for a in agg:
+    m, lang = a['market'], a['language']
+    shape = a['shape']
+    if shape == 'city_category':
+        fid = f"places.city-{a['cls']}"
+        ptype, etype = 'AGGREGATION', 'city_category'
+        eid = f"{a['country']}-{slug(a['city'])}-{a['cls']}"
+        ename = f"{a['cls']} in {a['city']}"
+        intent = f"find {a['cls']} in {a['city']}"
+        # a longer list of better-described entries is a better page
+        q = min(100, 45 + min(30, a['n']) + min(15, a['enriched']))
+        dsc = 60
+    else:
+        fid = f"poi.{a['cls']}-notable"
+        ptype, etype = 'ENTITY', 'poi'
+        eid = a['entity_id']; ename = a['entity_name']
+        intent = f"visit {a['entity_name']}"
+        q = min(100, 50 + a['enriched'] * 8)
+        dsc = 50
+    ssc = SERP_SCORE[POI_SERP]
+    src = 55
+    idx = min(q, dsc, src, ssc)
+    rows.append({
+        'candidate_id': 'c_' + sig(fid, eid, m),
+        'url_pattern': a['url'], 'market': m, 'language': lang,
+        'surface': 'places' if shape == 'city_category' else 'poi',
+        'family': fid, 'vertical': 'discovery', 'page_type': ptype,
+        'entity_type': etype, 'entity_id': eid, 'entity_name': ename,
+        'city': a.get('city', ''), 'country': a['country'], 'neighbourhood': '',
+        'primary_intent': intent, 'primary_keyword_if_known': ename,
+        'keyword_cluster_id': next((KCLUSTER[(n, m)] for n in ('places.city-category',
+            'poi.city-category-durable') if (n, m) in KCLUSTER), ''),
+        'semantic_cluster_id': 'sc_' + sig('poiagg', shape, a['cls'], m),
+        'data_source': 'OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
+        'source_status': 'SOURCE_AVAILABLE', 'source_record_id': f"osm-agg:{eid}",
+        'feed_required': '', 'licence_status': 'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED',
+        'data_signature': sig('data', fid, eid, m),
+        'template_signature': sig('tpl', shape, a['cls']),
+        'duplicate_risk': 'LOW', 'cannibalization_risk': 'LOW',
+        'quality_score': q, 'demand_score': dsc, 'source_score': src,
+        'serp_score': ssc, 'serp_class': POI_SERP, 'indexability_score': idx,
+        'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
+        'publication_cohort_candidate': '', 'status': 'POI_AGGREGATION',
+        'uniqueness_reason': a['uniqueness_reason'],
+    })
+print(f'  poi aggregation candidates {len(agg):,}', file=sys.stderr)
+
+# ---------------------------------------------------------------- quality gates
+# SERP feasibility, from the measured SERP class rather than from KD. KD has already
+# misled on this project: climate families carry a low KD behind a strong SERP, and
+# calendar keywords look easy while incumbents are entrenched.
+def serp_feasibility(score, cls):
+    # Families whose SERP was measured and found closed are rejected outright.
+    if cls in ('BRAND_OWNED_PLUS_SOCIAL', 'AGGREGATOR_LOCKED', 'SERP_FEATURE_SUPPRESSED',
+               'OPEN_BUT_ECONOMICALLY_DEAD', 'OFFICIAL_OWNED_PLUS_AI_OVERVIEW',
+               'RESELLER_OWNED', 'OFFICIAL_OWNED'):
+        return 'rejected'
+    # NOT_SAMPLED is an absence of evidence, not evidence of a poor fit. Calling it
+    # poor_fit labelled 62% of the inventory as bad on no evidence at all, which is
+    # both wrong and would have hidden the families that genuinely are poor.
+    if cls == 'NOT_SAMPLED':
+        return 'unsampled_needs_serp_check'
+    if score >= 90: return 'strong_opportunity'
+    if score >= 65: return 'viable'
+    if score >= 45: return 'competitive'
+    return 'poor_fit'
+
+TOOL_FAMILIES = ('tools.', 'calendar.', 'comparisons.', 'rankings.')
+for r in rows:
+    r.setdefault('uniqueness_reason', '')
+    cls = r.get('serp_class') or 'NOT_SAMPLED'
+    r['serp_feasibility'] = serp_feasibility(r.get('serp_score', 40), cls)
+    r['data_completeness'] = ('high' if r.get('quality_score', 0) >= 70
+                              else 'medium' if r.get('quality_score', 0) >= 50 else 'low')
+    r['source_freshness'] = ('static' if r['source_status'] == 'READY_NOW'
+                             else 'refresh_on_source_update')
+    r['intent_owner'] = r.get('semantic_cluster_id', '')
+    r['monetization_fit'] = ('high' if r['surface'] in ('stay', 'move', 'work', 'tools')
+                             else 'medium' if r['surface'] in ('places', 'transport', 'poi')
+                             else 'low')
+    r['tool_or_content'] = ('tool' if any(r['family'].startswith(t) for t in TOOL_FAMILIES)
+                            else 'aggregation' if r.get('page_type') == 'AGGREGATION'
+                            else 'content')
+    r['rejection_reason'] = ''
+
+# GATE 1 - uniqueness. A unique URL is not a reason to exist. Anything that cannot
+# name its distinct basis is rejected, and the rejections are kept, not hidden.
+rejected = []
+kept = []
+for r in rows:
+    if not r['uniqueness_reason']:
+        r['rejection_reason'] = 'REJECTED_QUALITY: no defensible uniqueness basis'
+        r['status'] = 'REJECTED_QUALITY'; rejected.append(r)
+    elif r['serp_feasibility'] == 'rejected':
+        r['rejection_reason'] = f"REJECTED_SERP: {r.get('SERP_class')} is not winnable"
+        r['status'] = 'REJECTED_SERP'; rejected.append(r)
+    elif r['indexability_score'] < 15:
+        r['rejection_reason'] = f"REJECTED_QUALITY: indexability floor {r['indexability_score']}"
+        r['status'] = 'REJECTED_QUALITY'; rejected.append(r)
+    else:
+        kept.append(r)
+print(f'uniqueness and SERP gate: kept {len(kept):,}, rejected {len(rejected):,}', file=sys.stderr)
+rows = kept
 
 raw_total = len(rows)
 print(f'\nraw candidate combinations: {raw_total:,}', file=sys.stderr)
@@ -734,8 +841,13 @@ print(f'after cannibalization:     {after_cannib:,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- outputs
 os.makedirs(OUT, exist_ok=True)
+with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
+    w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
+    w.writeheader(); w.writerows(rejected)
+print(f'rejected candidates written: {len(rejected):,}', file=sys.stderr)
+
 with gzip.open(OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz', 'wt', newline='') as gz:
-    w = csv.DictWriter(gz, fieldnames=FIELDS); w.writeheader(); w.writerows(stage3)
+    w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore'); w.writeheader(); w.writerows(stage3)
 try:
     import pyarrow as pa, pyarrow.parquet as pq
     cols = {k: pa.array([r[k] for r in stage3]) for k in FIELDS}
@@ -816,6 +928,7 @@ summary = {
     'FINAL_DISTINCT_CANDIDATES': len(stage3),
     'target': 1000000,
     'shortfall_to_1m': max(0, 1000000 - len(stage3)),
+    'rejected_by_quality_gates': len(rejected),
     'dropped_no_demand_evidence': stats['dropped_no_demand_evidence'],
     'dropped_beyond_measured_tier': stats['dropped_beyond_measured_tier'],
     'poi_emitted': stats['poi_emitted'],

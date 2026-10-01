@@ -39,7 +39,7 @@ need OpenStreetMap, which is dense for exactly those tags and carries the ODbL
 obligation in exchange.
 
 Wikidata is strong for: museums, libraries, hospitals, theatres, beaches, universities,
-stadiums, shopping malls, castles, parks, monuments and archaeological sites — the
+stadiums, shopping malls, castles, parks, monuments and archaeological sites - the
 durable, attraction-shaped POI that `poi.entity-<modifier>` pages are built on.
 
 ## How to finish this measurement

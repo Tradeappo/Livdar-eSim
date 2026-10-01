@@ -93,16 +93,16 @@ strictest model allowed. `12-SCALE-LADDER.md` tracks all six versions.
 This folder consolidates. It does not delete. The passes it draws on remain in place
 and are still the evidence of record:
 
-- `reports/livdar-final-research-freeze-2026-09-30/` — the research freeze: master
+- `reports/livdar-final-research-freeze-2026-09-30/` - the research freeze: master
   keyword builder, family and market rollups, entity and listing universes, source
   matrix, SERP evidence, and the round-three harvest and breadth measurements
-- `reports/livdar-master-seo-universe-2026-09-30/` — the 76-family, 11-market
+- `reports/livdar-master-seo-universe-2026-09-30/` - the 76-family, 11-market
   classification and scale ladders v2 to v5
-- `reports/scale-universe-2026-09-29/` — the entity graph, family catalog,
+- `reports/scale-universe-2026-09-29/` - the entity graph, family catalog,
   publication controller, quality gates, licensing matrix, competitor universe
-- `reports/candidate-universe-2026-09-29/` — the candidate inventory and quality gates
-- `reports/rank-tracker-2026-09-29/` — the Rank Tracker set as configured
-- `reports/ahrefs-export-2026-09-28/` — **every raw Ahrefs export.** Backlinks,
+- `reports/candidate-universe-2026-09-29/` - the candidate inventory and quality gates
+- `reports/rank-tracker-2026-09-29/` - the Rank Tracker set as configured
+- `reports/ahrefs-export-2026-09-28/` - **every raw Ahrefs export.** Backlinks,
   refdomains, anchors, organic keywords, top pages, competitors, content gap, link
   opportunities, Brand Radar, Rank Tracker, SERPs, Site Audit, GSC join. This is the
   folder that becomes irreplaceable when the subscription lapses
@@ -121,7 +121,7 @@ rows, which is the intended ratio.
 Depth per family is driven by **measured tier reach**, not a blanket cap. `CELL-GATE.csv`
 records how deep each family x market cell was actually measured: 64 of 150 cells reach
 TAIL and 5 explicitly count tier 4. Where a cell was measured deeper than the family's
-generic entity spec, the measurement wins — which is why `wohnung mieten cuxhaven` at
+generic entity spec, the measurement wins - which is why `wohnung mieten cuxhaven` at
 2,800 and `praca stargard` at 9,800 are legitimate candidates. 67,210 rows were dropped
 for sitting deeper than their own market's measured depth.
 
@@ -136,22 +136,22 @@ Two structural facts cap it, and both are real rather than conservative choices:
 Four kinds of padding were generated and then removed, which is why the number fell
 from a first pass of 181,571:
 
-- **pair explosions** — every pair of 60 countries and 200 cities was 29,000 rows of
+- **pair explosions** - every pair of 60 countries and 200 cities was 29,000 rows of
   mostly absent comparison demand. Capped to the most-compared entities.
-- **population mistaken for tourism** — tier is computed from population, so Aba and
+- **population mistaken for tourism** - tier is computed from population, so Aba and
   Abidjan counted as tier-2 "destinations" and produced German-language travel pages.
   Cross-language reach is now bounded by measured evidence: the destination cities in
   `CROSS-LANGUAGE-REACH.csv`, cities inside the 11 market countries, and tier-1 cities
   for the two English markets, which round three measured searching globally.
-- **expiring listings** — 47,000,000 job, event and property records exist in the raw
+- **expiring listings** - 47,000,000 job, event and property records exist in the raw
   universe. They contribute **zero** durable candidates, because an individual listing
   expires in weeks and the research already requires 410 on expiry. Feeds unlock the
   durable parent pages already in the manifest, not a page per listing.
-- **year multiplication** — capped at the two years the calendar families already use.
+- **year multiplication** - capped at the two years the calendar families already use.
 
 **The gap to 1M is 846,776, and one acquisition closes it.** OpenStreetMap plus
 Wikidata POI ingestion yields 964,920 source-backed POIs; at one validated practical
-modifier each (tickets, opening hours, how to get to, parking — all measured
+modifier each (tickets, opening hours, how to get to, parking - all measured
 MODIFIER_WORKS) that is 964,920 candidates, a 118,144 surplus over the gap. Bare POI
 entity pages must not be generated: they are `BRAND_OWNED_PLUS_SOCIAL` and unrankable.
 `1M-GAP-TO-TARGET.csv` carries the basis of every figure, and
@@ -161,8 +161,8 @@ implementation requirement for each.
 **Wikidata was measured live on 2026-10-01** and is the better of the two POI sources
 on licence: **CC0, with no share-alike**, against OSM's ODbL. 86,341 entities across 9
 classes in the 11 markets, a floor rather than a total because the endpoint throttles.
-But it is **weak on commercial POI** — `cafe` returned only 921 across all eleven
-markets — so restaurants, cafes, gyms and coworking still require OSM and its ODbL
+But it is **weak on commercial POI** - `cafe` returned only 921 across all eleven
+markets - so restaurants, cafes, gyms and coworking still require OSM and its ODbL
 obligation. Wikidata covers the durable attraction-shaped POI; OSM covers the dense
 commercial tail.
 
