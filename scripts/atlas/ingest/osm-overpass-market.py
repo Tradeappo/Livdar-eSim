@@ -34,7 +34,13 @@ sys.modules['poix'] = poix
 spec.loader.exec_module(poix)
 
 GROUPS = [
-    ('food', '["amenity"~"^(restaurant|cafe|fast_food|bar|pub|nightclub|biergarten)$"]'),
+    # the dense classes go one value per query: asking for all seven at once is what
+    # made the server time out rather than answer
+    ('food_restaurant', '["amenity"="restaurant"]'),
+    ('food_cafe', '["amenity"="cafe"]'),
+    ('food_fast_food', '["amenity"="fast_food"]'),
+    ('food_bar_pub', '["amenity"~"^(bar|pub|biergarten)$"]'),
+    ('food_nightclub', '["amenity"="nightclub"]'),
     ('health', '["amenity"~"^(hospital|clinic|doctors|dentist|pharmacy|veterinary)$"]'),
     ('education', '["amenity"~"^(school|college|university|kindergarten|childcare|library)$"]'),
     ('culture', '["amenity"~"^(theatre|cinema|arts_centre|community_centre|casino)$"]'),
@@ -51,9 +57,24 @@ GROUPS = [
 ]
 
 
-def fetch(sel):
-    q = (f'[out:json][timeout:280];area["ISO3166-1"="{AREA}"][admin_level=2]->.a;'
-         f'(nwr{sel}["name"](area.a););out tags center;')
+# A whole-country query with an area lookup times out on a public instance: the food
+# group returned 504 on the first try. Bounding-box tiles are far cheaper to plan, so the
+# market is cut into tiles and each tag group is fetched tile by tile. The tiles overlap
+# nothing and the union is the country; anything outside the land area simply returns no
+# elements.
+TILES = {
+    'TW': [(21.7, 119.2, 22.8, 121.0), (21.7, 121.0, 22.8, 122.2),
+           (22.8, 119.2, 23.9, 121.0), (22.8, 121.0, 23.9, 122.2),
+           (23.9, 119.2, 24.7, 121.0), (23.9, 121.0, 24.7, 122.2),
+           (24.7, 119.2, 25.5, 121.3), (24.7, 121.3, 25.5, 122.2)],
+}
+
+
+def fetch_tile(sel, bbox):
+    south, west, north, east = bbox
+    q = ('[out:json][timeout:170];\n'
+         f'nwr{sel}["name"]({south},{west},{north},{east});\n'
+         'out tags center;')
     for attempt in range(5):
         ep = ENDPOINTS[attempt % len(ENDPOINTS)]
         try:
@@ -61,11 +82,52 @@ def fetch(sel):
             rq = urllib.request.Request(ep, data=data, headers={
                 'User-Agent': 'LivdarCandidateInventory/1.0 (offline research inventory)'})
             with urllib.request.urlopen(rq, timeout=320) as r:
-                return json.load(r).get('elements', [])
+                body = json.load(r)
+            # Overpass answers a timeout or a load-shedding refusal with HTTP 200 and a
+            # "remark" field. Reading that as an empty result silently lost every
+            # restaurant in Taiwan: the food group reported 0 elements and was marked
+            # done. A remark is a failure and must retry.
+            remark = body.get('remark')
+            if remark:
+                raise RuntimeError(f'overpass remark: {remark[:120]}')
+            return body.get('elements', [])
         except Exception as e:
             print(f'    {ep.split("/")[2]} attempt {attempt + 1}: {e}', flush=True)
-            time.sleep(30 * (attempt + 1))
+            time.sleep(20 * (attempt + 1))
     return None
+
+
+def quarter(bbox):
+    s_, w_, n_, e_ = bbox
+    mlat, mlon = (s_ + n_) / 2, (w_ + e_) / 2
+    return [(s_, w_, mlat, mlon), (s_, mlon, mlat, e_),
+            (mlat, w_, n_, mlon), (mlat, mlon, n_, e_)]
+
+
+def fetch(sel, max_depth=3):
+    """Fetch one tag group across every tile, splitting a tile that will not answer.
+
+    A fixed tile grid cannot work for every tag group at once: restaurants in the Taipei
+    tile are dense enough that the public instance times out, while the same tile answers
+    instantly for hospitals. Rather than pick one grid and lose the dense classes, a tile
+    that fails is quartered and retried, down to max_depth. A tile that still fails at
+    full depth makes the whole group unreachable, so it is left unmarked and retried on
+    the next run rather than being recorded as zero.
+    """
+    out = []
+    queue = [(b, 0) for b in TILES[ISO]]
+    while queue:
+        bbox, depth = queue.pop(0)
+        els = fetch_tile(sel, bbox)
+        if els is None:
+            if depth >= max_depth:
+                return None
+            print(f'    tile {bbox} did not answer, splitting', flush=True)
+            queue.extend((b, depth + 1) for b in quarter(bbox))
+            continue
+        out.extend(els)
+        time.sleep(6)
+    return out
 
 
 def record(el):

@@ -234,6 +234,81 @@ for (iso, y), hs in by_cy.items():
                 'holiday_date': h['date'], 'gives_days': nights, 'derived': True,
                 'source': h['source'], 'confidence': h['confidence']})
 
+# ---- 4b. subdivision-level long weekends and bridge days -------------------
+# Measured with Ahrefs on 2026-10-01: "brückentage" returns 34 keywords above 400 volume
+# and EVERY one is scoped to a German Land and a year - brückentage hessen 2026,
+# brückentage 2026 nrw, brückentage 2026 bayern, brückentage 2027 nrw. The country-level
+# derivation above cannot answer those, because a bridge day differs by Land: the
+# regional holidays each Land keeps change which working days sit next to a weekend.
+# So the same arithmetic is run again per subdivision, over national PLUS the regional
+# observances that subdivision actually keeps.
+regional_by_sub = collections.defaultdict(list)
+for h in regional:
+    for sub in h.get('subdivisions', []):
+        regional_by_sub[(h['country'], sub, h['year'])].append(h)
+
+long_weekends_sub, bridge_days_sub = [], []
+for (iso, sub, y), rhs in regional_by_sub.items():
+    pool = by_cy.get((iso, y), []) + rhs
+    seen = set()
+    for h in pool:
+        try:
+            d = datetime.date.fromisoformat(h['date'])
+        except ValueError:
+            continue
+        wd = d.weekday()
+        if wd == 4:
+            start, end, nights, bridge = d, d + datetime.timedelta(days=2), 3, None
+        elif wd == 0:
+            start, end, nights, bridge = d - datetime.timedelta(days=2), d, 3, None
+        elif wd == 1:
+            start, end, nights, bridge = d - datetime.timedelta(days=3), d, 4, d - datetime.timedelta(days=1)
+        elif wd == 3:
+            start, end, nights, bridge = d, d + datetime.timedelta(days=3), 4, d + datetime.timedelta(days=1)
+        else:
+            continue
+        key = (start.isoformat(), end.isoformat())
+        if key in seen:
+            continue
+        seen.add(key)
+        long_weekends_sub.append({
+            'country': iso, 'subdivision': sub, 'year': y,
+            'start': start.isoformat(), 'end': end.isoformat(), 'days': nights,
+            'anchor_holiday': h['name'], 'anchor_date': h['date'],
+            'bridge_day': bridge.isoformat() if bridge else None,
+            'regional_anchor': h in rhs, 'derived': True,
+            'source': h['source'], 'confidence': h['confidence']})
+        if bridge:
+            bridge_days_sub.append({
+                'country': iso, 'subdivision': sub, 'year': y,
+                'date': bridge.isoformat(), 'weekday': bridge.strftime('%A'),
+                'holiday': h['name'], 'holiday_date': h['date'],
+                'gives_days': nights, 'regional_anchor': h in rhs, 'derived': True,
+                'source': h['source'], 'confidence': h['confidence']})
+
+# One page per subdivision per year listing its bridge days is what the measured
+# keywords ask for, so the per-subdivision summary is the page-level entity.
+bridge_plans = []
+by_sub_year = collections.defaultdict(list)
+for b in bridge_days_sub:
+    by_sub_year[(b['country'], b['subdivision'], b['year'])].append(b)
+for (iso, sub, y), bs in by_sub_year.items():
+    lws = [w for w in long_weekends_sub
+           if w['country'] == iso and w['subdivision'] == sub and w['year'] == y]
+    bridge_plans.append({
+        'country': iso, 'subdivision': sub, 'year': y,
+        'bridge_days': sorted(b['date'] for b in bs),
+        'bridge_day_count': len(bs),
+        'long_weekend_count': len(lws),
+        'max_days_off': max((w['days'] for w in lws), default=0),
+        'regional_anchors': sorted({b['holiday'] for b in bs if b['regional_anchor']}),
+        'derived': True,
+        'derivation': ('national plus the regional observances this subdivision keeps, '
+                       'then the weekday of each to find the single working days that '
+                       'bridge to a weekend'),
+        'confidence': min((b['confidence'] for b in bs), default='')})
+
+
 def ident(prefix, *parts):
     return prefix + ':' + '-'.join(str(p) for p in parts if p is not None)
 
@@ -247,6 +322,12 @@ for h in long_weekends:
     h['id'] = ident('lw', h['country'], h['start'])
 for h in bridge_days:
     h['id'] = ident('bd', h['country'], h['date'])
+for h in long_weekends_sub:
+    h['id'] = ident('lws', h['country'], h['subdivision'], h['start'])
+for h in bridge_days_sub:
+    h['id'] = ident('bds', h['country'], h['subdivision'], h['date'])
+for h in bridge_plans:
+    h['id'] = ident('bplan', h['subdivision'], h['year'])
 
 out = {
     'builtOn': datetime.date.today().isoformat(),
@@ -255,8 +336,14 @@ out = {
     'country_claimed_by': claimed,
     'national': national, 'regional': regional, 'school': school,
     'long_weekends': long_weekends, 'bridge_days': bridge_days,
+    'long_weekends_subdivision': long_weekends_sub,
+    'bridge_days_subdivision': bridge_days_sub,
+    'bridge_plans': bridge_plans,
     'counts': {'national': len(national), 'regional': len(regional), 'school': len(school),
-               'long_weekends': len(long_weekends), 'bridge_days': len(bridge_days)},
+               'long_weekends': len(long_weekends), 'bridge_days': len(bridge_days),
+               'long_weekends_subdivision': len(long_weekends_sub),
+               'bridge_days_subdivision': len(bridge_days_sub),
+               'bridge_plans': len(bridge_plans)},
     'livdar_market_coverage': {
         iso: {'national': sum(1 for h in national if h['country'] == iso),
               'regional': sum(1 for h in regional if h['country'] == iso),

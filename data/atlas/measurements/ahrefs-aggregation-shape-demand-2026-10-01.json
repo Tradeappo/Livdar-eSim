@@ -1,0 +1,97 @@
+{
+ "provider": "Ahrefs Keywords Explorer, matching terms",
+ "capturedOn": "2026-10-01",
+ "method": "keyword-only select with a volume floor, so each row costs 11 units rather than 22. The question asked of each probe was not 'does this pattern have demand' but 'does the demand carry the MODIFIER the shape needs' - a city name, a neighbourhood name, a cuisine, an attribute. A pattern with large national volume and no city-scoped variants cannot support one page per city.",
+ "unitsSpent": 7954,
+ "probes": [
+  {
+   "shape": "city_opening",
+   "market": "en-GB",
+   "keyword": "open on sunday",
+   "volumeFloor": 100,
+   "rows": 195,
+   "verdict": "PATTERN_REAL_BUT_NOT_CITY_SCOPED",
+   "evidence": "195 keywords, but the shape of them is brand ('is john lewis open on easter sunday', 'what time does tesco open on sunday') or 'near me', which is a local-pack query and not a page. Generic class-level national queries exist ('supermarkets open on sunday', 'pharmacies open on sunday', 'post offices open on sunday'). City-qualified variants: none in the top 195.",
+   "consequence": "city_opening is NOT justified per city in this market. Restricted to large cities only, and the rest is recorded as rejected rather than generated."
+  },
+  {
+   "shape": "city_opening",
+   "market": "de-DE",
+   "keyword": "sonntag geöffnet",
+   "volumeFloor": 100,
+   "rows": 41,
+   "verdict": "CITY_SCOPED_DEMAND_CONFIRMED",
+   "evidence": "Fewer keywords than the UK but genuinely city-qualified: 'supermarkt münchen sonntag geöffnet', 'apotheke berlin sonntag geöffnet', 'bäckerei chemnitz sonntag geöffnet', 'bäcker magdeburg sonntag geöffnet', 'friseur münchen sonntag geöffnet', 'bäcker wolfsburg sonntag geöffnet', 'bäckerei bayreuth sonntag geöffnet', 'bäcker zwickau sonntag geöffnet'. Sunday closing is a legal institution in Germany, which is why the query is city-specific there and not in the UK.",
+   "consequence": "the shape is validated for de-DE, and Chemnitz, Magdeburg, Wolfsburg, Bayreuth and Zwickau show it reaches well below the largest cities."
+  },
+  {
+   "shape": "city_opening",
+   "market": "fr-FR",
+   "keyword": "ouvert le dimanche",
+   "volumeFloor": 300,
+   "rows": 35,
+   "verdict": "PATTERN_REAL_BUT_BARELY_CITY_SCOPED",
+   "evidence": "class-level national demand is strong ('supermarché ouvert le dimanche', 'pharmacie ouvert le dimanche', 'restaurant ouvert le dimanche', 'coiffeur ouvert le dimanche', 'tabac ouvert le dimanche') plus 'autour de moi'. Exactly one city-qualified keyword at this floor: 'restaurant rennes ouvert le dimanche'.",
+   "consequence": "large cities only."
+  },
+  {
+   "shape": "city_cuisine and area_cuisine",
+   "market": "en-GB",
+   "keyword": "indian restaurants",
+   "volumeFloor": 100,
+   "rows": 205,
+   "verdict": "VALIDATED_AT_BOTH_CITY_AND_AREA_LEVEL",
+   "evidence": "one cuisine in one market yields 205 keywords above 100 volume, carrying city modifiers (Milton Keynes, Bristol, Newcastle, Liverpool, Leeds, Oxford, Nottingham, Chelmsford, Norwich, Cheltenham, Lincoln, Watford, Coventry, Preston, Bradford, Slough, St Albans, Bath, York, Chester, Southampton, Cambridge) AND neighbourhood modifiers (Mayfair, Soho, Shoreditch, Canary Wharf, Covent Garden, Kings Cross, Tooting, Wembley, Harrow, Hounslow, East Ham, Blackheath, Brick Lane, Battersea Power Station, Central London, London Bridge).",
+   "consequence": "the cuisine axis is the strongest aggregation shape measured, and it reaches mid-size cities (Watford and St Albans are around 80-100k) and named neighbourhoods. Not restricted to the largest cities."
+  },
+  {
+   "shape": "area_category",
+   "market": "de-DE",
+   "keyword": "kreuzberg",
+   "volumeFloor": 200,
+   "rows": 157,
+   "verdict": "VALIDATED_FOR_NAMED_AREAS",
+   "evidence": "category demand at neighbourhood level is dense for a named area: 'friseur kreuzberg', 'cafe kreuzberg', 'bar kreuzberg', 'kreuzberg bars', 'restaurants kreuzberg', 'restaurant kreuzberg', 'kreuzberg restaurants', 'brunch kreuzberg', 'frühstück kreuzberg', 'kreuzberg essen', 'zahnarzt kreuzberg', 'augenarzt kreuzberg', 'hautarzt kreuzberg', 'kinderarzt kreuzberg', 'massage kreuzberg', 'kreuzberg apotheke', 'hostel berlin kreuzberg', 'hotel berlin kreuzberg', 'flohmarkt kreuzberg', 'schwimmbad kreuzberg', 'freibad kreuzberg', 'kreuzberg sehenswürdigkeiten'.",
+   "caution": "Kreuzberg is a famous neighbourhood. This probe validates the SHAPE for named, recognised areas; it says nothing about an unnamed suburb, which is why the area shapes now require the place to carry a polygon, a population, a Wikidata item or a Wikipedia article before any page is generated from it."
+  },
+  {
+   "shape": "city_attribute",
+   "market": "en-GB",
+   "keyword": "vegan restaurants",
+   "volumeFloor": 300,
+   "rows": 12,
+   "verdict": "VALIDATED_FOR_LARGE_CITIES_ONLY",
+   "evidence": "every city-qualified keyword at this floor is a major city: Liverpool, Edinburgh, Glasgow, Birmingham, Bristol, Brighton, Leeds, London, Manchester. No mid-size or small city appears.",
+   "consequence": "attribute pages are gated on city population, unlike cuisine pages."
+  },
+  {
+   "shape": "pulse.bridge-days-subdivision",
+   "market": "de-DE",
+   "keyword": "brückentage",
+   "volumeFloor": 400,
+   "rows": 34,
+   "verdict": "VALIDATED_AT_SUBDIVISION_AND_YEAR",
+   "evidence": "every one of the 34 keywords above 400 volume is scoped to a German Land and a year: brückentage hessen 2026, brückentage berlin 2026, brückentage 2026 rlp, brückentage 2026 thüringen, brückentage 2026 nrw, brückentage 2026 bayern, brückentage 2026 saarland, brückentage 2026 sachsen, brückentage 2026 schleswig holstein, brückentage niedersachsen 2026, brückentage 2027 nrw, brückentage 2027 bayern, plus urlaub 2026 planen brückentage.",
+   "consequence": "the country-level long-weekend family cannot answer these, because which working day bridges to a weekend depends on the regional observances each Land keeps. The derivation was re-run per subdivision over national plus regional holidays, producing 348 bridge plans across 12 countries, 32 of them German (16 Laender x 2 years), and pulse.bridge-days-subdivision was added to FAMILY-MASTER as a measured family."
+  },
+  {
+   "shape": "tools.schengen-calculator",
+   "market": "de-DE",
+   "keyword": "schengen rechner",
+   "volumeFloor": 50,
+   "rows": 1,
+   "verdict": "NOT_VALIDATED_IN_THIS_MARKET",
+   "evidence": "one keyword only at a floor of 50. The German-language demand for the 90/180 rule is not expressed as 'rechner'.",
+   "consequence": "recorded as a rejected tool intent for de-DE rather than built on an assumption. Not evidence about other markets."
+  }
+ ],
+ "ruleDerived": {
+  "city_category": "unchanged, measured in earlier rounds",
+  "city_cuisine": "city population >= 75,000, because Watford and St Albans carry measured cuisine demand",
+  "area_cuisine": "named areas only: the place must carry a polygon, population, Wikidata item or Wikipedia article",
+  "area_category": "same identity requirement as area_cuisine",
+  "city_attribute": "city population >= 200,000",
+  "city_opening": "city population >= 200,000 everywhere, relaxed to 75,000 for de-DE where the measurement shows the query reaching Zwickau and Bayreuth",
+  "area_attribute and area_opening": "the area must carry a Wikidata item or a Wikipedia article, which is a stricter test than for area_category: a modifier page inside an area needs the area itself to be a searched entity"
+ }
+}

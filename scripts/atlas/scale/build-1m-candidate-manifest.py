@@ -105,22 +105,46 @@ for f in sorted(glob.glob(ROOT + 'data/atlas/sources/venues/by-country/*.json'))
                        'cityId': str(v.get('cityId') or ''), 'cityName': v.get('cityName') or '',
                        'types': ','.join(v.get('types') or [])})
 
-# Holiday entities, from the public-holiday store. pulse.named-holiday-date is a
-# VALIDATED, live family with 1,056 measured keywords, so leaving it without an
-# entity pool silently dropped one of the strongest families on the site.
-holidays = []
+# Pulse entities, from the normalised store built by scripts/atlas/ingest/
+# pulse-materialise.py. The old loader read the European-only public-holiday file, which
+# left the US, UK, Japan, Brazil, Canada, Australia and Taiwan - the markets with the
+# most demand behind them - without a single holiday. It also gave every pulse.* family
+# the SAME country-level pool, so the school-holiday and long-weekend families would
+# have generated the named-holiday pages again under different URLs.
+pulse = {}
 try:
-    _hs = jload('data/atlas/sources/events/public-holidays.json').get('store', {})
-    for _iso, _c in _hs.items():
-        for _y, _lst in (_c.get('holidays') or {}).items():
-            for _h in _lst:
-                _nm = (_h.get('names') or {}).get('en') or (list((_h.get('names') or {}).values()) or [''])[0]
-                if not _nm: continue
-                holidays.append({'id': f"{_iso}-{_h.get('date')}", 'name': _nm,
-                                 'country': _iso, 'year': int(_y), 'date': _h.get('date'),
-                                 'everywhere': bool(_h.get('everywhere'))})
+    pulse = jload('data/atlas/sources/events/pulse-entities.json')
 except FileNotFoundError:
-    pass
+    pulse = {}
+
+holidays = [{'id': h['id'], 'name': h['name'], 'country': h['country'],
+             'year': h['year'], 'date': h['date'], 'everywhere': True,
+             'confidence': h.get('confidence', '')}
+            for h in pulse.get('national', [])]
+# a regional observance belongs to the subdivisions that keep it, not to the country
+holidays_regional = [{'id': h['id'], 'name': h['name'], 'country': h['country'],
+                      'year': h['year'], 'date': h['date'],
+                      'subdivisions': h.get('subdivisions', []),
+                      'confidence': h.get('confidence', '')}
+                     for h in pulse.get('regional', []) if h.get('subdivisions')]
+school_holidays = [{'id': h['id'], 'name': h['name'], 'country': h['country'],
+                    'subdivision': h['subdivision'], 'year': h['year'],
+                    'start': h['start'], 'end': h['end'],
+                    'confidence': h.get('confidence', '')}
+                   for h in pulse.get('school', [])]
+# One page per subdivision per year listing its bridge days, which is exactly the shape
+# the measured keywords take (brückentage hessen 2026, brückentage 2026 nrw).
+bridge_plans = [{'id': h['id'], 'country': h['country'], 'subdivision': h['subdivision'],
+                 'year': h['year'], 'bridge_day_count': h['bridge_day_count'],
+                 'long_weekend_count': h['long_weekend_count'],
+                 'max_days_off': h['max_days_off'],
+                 'confidence': h.get('confidence', '')}
+                for h in pulse.get('bridge_plans', [])]
+long_weekends = [{'id': h['id'], 'country': h['country'], 'year': h['year'],
+                  'start': h['start'], 'end': h['end'], 'days': h['days'],
+                  'anchor': h['anchor_holiday'], 'bridge': h.get('bridge_day'),
+                  'confidence': h.get('confidence', '')}
+                 for h in pulse.get('long_weekends', [])]
 
 subdiv = []
 try:
@@ -134,7 +158,10 @@ except FileNotFoundError:
 
 print(f'  cities {len(cities):,}  countries {len(countries)}  neighbourhoods {len(neigh):,} '
       f' airports {len(airports):,}  venues {len(venues):,}  subdivisions {len(subdiv)} '
-      f' holidays {len(holidays):,}', file=sys.stderr)
+      f' holidays {len(holidays):,} regional {len(holidays_regional):,} '
+      f'school {len(school_holidays):,} long weekends {len(long_weekends):,} '
+      f'bridge plans {len(bridge_plans):,}',
+      file=sys.stderr)
 
 # cities that actually have neighbourhoods / venues, so we never emit an empty combo
 CITIES_WITH_NEIGH = {n['cityId'] for n in neigh if n['cityId']}
@@ -378,6 +405,27 @@ SERP_SCORE = {
     'BRAND_OWNED_PLUS_SOCIAL': 5, 'OFFICIAL_OWNED': 10, 'OFFICIAL_OWNED_PLUS_AI_OVERVIEW': 5,
     'RESELLER_OWNED': 10, 'AGGREGATOR_LOCKED': 5, 'SERP_FEATURE_SUPPRESSED': 5,
     'OPEN_BUT_ECONOMICALLY_DEAD': 5,
+    # Archetypes measured on 2026-10-01 for the aggregation shapes, recorded in
+    # 08b-SERP-EVIDENCE-AGGREGATION-SHAPES.csv. Each one is a reading of an actual SERP,
+    # not an assumption carried over from the family it resembles.
+    #
+    # A low-DR page purpose-built for the question wins the top three. The strongest
+    # signal measured: supermarktcheck.de at DR 35 holds position 2 for
+    # "supermarkt münchen sonntag geöffnet" above outlets at DR 56, 63, 73, 74 and 81.
+    'OPEN_SPECIALIST_PAGE_WINS': 85,
+    # Independent editorial lists own the organic results, but a local pack sits above
+    # them. Measured on "restaurants kreuzberg" and "indian restaurants manchester",
+    # where a DR 39 and a DR 60 site rank.
+    'OPEN_LOCAL_PACK_ABOVE_ORGANIC': 70,
+    # The venues themselves plus the big aggregators hold every position and no
+    # independent list ranks at all. Measured on "indian restaurants shoreditch": venue
+    # sites at DR 43 and DR 72 take 1 and 2, then TripAdvisor DR 91 and OpenTable DR 84.
+    # This is why a neighbourhood cuisine page is NOT scored like a city cuisine page.
+    'AGGREGATOR_AND_VENUE_OWNED': 30,
+    # An official or semi-official portal plus aggregators and Wikipedia. Measured on
+    # "musei firenze": firenzemusei.it at DR 44 takes 1, then TripAdvisor, Firenze Card,
+    # Wikipedia and the comune. Not locked, but a new entrant starts behind.
+    'OFFICIAL_PLUS_AGGREGATOR_MIXED': 50,
 }
 SRC_SCORE = {'READY_NOW': 100, 'SOURCE_AVAILABLE': 55, 'FEED_REQUIRED': 30,
              'LICENCE_REQUIRED': 15, 'BLOCKED': 0}
@@ -461,6 +509,13 @@ def entity_pool(f):
                 for v in venues if v['name']]
     if ent == 'subdivision':
         return [('subdivision', s['id'], s['name'], s['country'], '', '', 1) for s in subdiv if s['name']]
+    if ent == 'subdivision-year-bridge':
+        # a bridge-day plan exists only where the subdivision actually has one: a region
+        # whose holidays all fall midweek or on a weekend has no bridge days, and an
+        # empty page for it would be a generated blank
+        return [('bridge-plan', h['id'],
+                 f"{h['subdivision']} {h['year']} bridge days", h['country'], '', '', 1)
+                for h in bridge_plans if h['bridge_day_count'] > 0]
     if ent == 'subdivision-year':
         return [('subdivision-year', f"{s['id']}-{y}", f"{s['name']} {y}", s['country'], '', '', 1)
                 for s in subdiv if s['name'] for y in YEARS]
@@ -479,6 +534,22 @@ def entity_pool(f):
             return [('country-pair', f"{a['id']}-{b['id']}", f"{a['name']} vs {b['name']}",
                      a['id'], '', '', 1) for i, a in enumerate(top) for b in top[i+1:]]
         return [('country', c['id'], c['name'], c['id'], '', '', 1) for c in countries if c['name']]
+    if ent == 'subdivision-year':
+        # school holidays: one page per period per subdivision per year, and ONLY for a
+        # subdivision that actually has school holiday data. Crossing every subdivision
+        # with every year would generate pages with nothing on them.
+        return [('school-holiday', h['id'], f"{h['name']} {h['subdivision']} {h['year']}",
+                 h['country'], '', '', 1) for h in school_holidays]
+    if ent == 'country-year':
+        # long weekends: one page per window, which is a distinct dated thing, not one
+        # page per country repeated per year with the same content
+        return [('long-weekend', h['id'],
+                 f"{h['anchor']} long weekend {h['start']}", h['country'], '', '', 1)
+                for h in long_weekends]
+    if ent == 'holiday' and 'region' in fid:
+        # the regional variant is the observance that is NOT nationwide
+        return [('holiday-regional', h['id'], f"{h['name']} {h['year']}",
+                 h['country'], '', '', 1) for h in holidays_regional]
     if ent.startswith('holiday'):
         # holiday-country: one page per holiday per country per year in the window
         return [('holiday', h['id'] + '-' + str(h['year']),
@@ -552,6 +623,15 @@ DISTINCT_BASIS = {
     'subdivision': 'subdivision-level rules that differ from the national ones',
     'subdivision-year': 'subdivision-level dated calendar for that year',
     'holiday': 'a specific dated observance with its own regional rules and date logic',
+    'holiday-regional': ('an observance kept in named subdivisions and not nationwide, so '
+                         'the date or the fact of it differs inside the country'),
+    'school-holiday': ('a dated school holiday period for one subdivision, which sets '
+                       'when families in that region can actually travel'),
+    'long-weekend': ('one dated window where a public holiday and the weekend join, with '
+                     'the bridge day named where a single working day sits between them'),
+    'bridge-plan': ('the bridge days one subdivision has in one year, which differ from '
+                    'its neighbours because the regional observances each one keeps '
+                    'differ, so the working days that bridge to a weekend differ too'),
     'city': 'city-level local data and local-language demand',
     'neighbourhood': 'neighbourhood-level characteristics within a named city',
     'airport': 'a specific transport node with its own routes, distances and onward options',
@@ -693,53 +773,145 @@ except (EOFError, OSError, FileNotFoundError):
     pass
 print(f'  poi aggregations loaded {len(agg):,}', file=sys.stderr)
 
-POI_SERP = 'OPEN_WINNER_TAKE_MOST_IF_NO_RESELLER'
+# Every aggregation shape used to inherit one assumed archetype. That was an assumption
+# applied to roughly a hundred thousand rows, so each shape was measured instead and
+# carries the archetype its own SERP showed. Shapes not yet sampled keep NOT_SAMPLED,
+# which the feasibility function treats as absence of evidence rather than bad news.
+SHAPE_SERP = {
+    'city_category': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    'city_cuisine': 'OPEN_LOCAL_PACK_ABOVE_ORGANIC',
+    'area_category': 'OPEN_LOCAL_PACK_ABOVE_ORGANIC',
+    'area_cuisine': 'AGGREGATOR_AND_VENUE_OWNED',
+    'city_opening': 'OPEN_SPECIALIST_PAGE_WINS',
+    'area_opening': 'NOT_SAMPLED',
+    'city_attribute': 'NOT_SAMPLED',
+    'area_attribute': 'NOT_SAMPLED',
+    'city_sport': 'NOT_SAMPLED',
+    'area_parent': 'NOT_SAMPLED',
+    'notable_entity': 'NOT_SAMPLED',
+    'wikidata_notable': 'NOT_SAMPLED',
+    'wikidata_city_list': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+}
+
+# Wikidata candidates, built and deduped against OSM by scripts/atlas/scale/
+# wikidata-candidates.py. Wikidata is CC0, so no share-alike, and it is the only source
+# that reached Taiwan before the Overpass route worked. Individual pages come only from
+# visitor-intent classes: the SERP evidence says a named hospital, university or station
+# returns its own site, so those classes become city lists instead.
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/wikidata/_candidates.jsonl.gz', 'rt',
+                        encoding='utf-8'):
+        _l = _l.strip()
+        if _l:
+            try: agg.append(json.loads(_l))
+            except Exception: pass
+except (EOFError, OSError, FileNotFoundError):
+    pass
+print(f'  aggregation + wikidata rows loaded {len(agg):,}', file=sys.stderr)
+
+# Per-shape wiring. demand_score is not a guess: it carries the verdict of the Ahrefs
+# probes recorded in data/atlas/measurements/ahrefs-aggregation-shape-demand-2026-10-01
+# .json, where cuisine measured strongest, area category next for NAMED areas, and the
+# opening-hours shape measured city-scoped only in Germany.
+SHAPE_WIRING = {
+    'city_category':   ('places', 'AGGREGATION', 'city_category', 60),
+    'area_category':   ('places', 'AGGREGATION', 'area_category', 65),
+    'area_parent':     ('areas', 'AGGREGATION', 'area', 60),
+    'city_cuisine':    ('places', 'AGGREGATION', 'city_cuisine', 70),
+    'area_cuisine':    ('places', 'AGGREGATION', 'area_cuisine', 70),
+    'city_attribute':  ('places', 'AGGREGATION', 'city_attribute', 58),
+    'area_attribute':  ('places', 'AGGREGATION', 'area_attribute', 52),
+    'city_opening':    ('places', 'AGGREGATION', 'city_opening', 55),
+    'area_opening':    ('places', 'AGGREGATION', 'area_opening', 48),
+    'city_sport':      ('places', 'AGGREGATION', 'city_sport', 50),
+    'notable_entity':  ('poi', 'ENTITY', 'poi', 50),
+    'wikidata_notable': ('poi', 'ENTITY', 'poi', 45),
+    'wikidata_city_list': ('places', 'AGGREGATION', 'city_category', 50),
+}
+WD_LICENCE = ('Wikidata (CC0 1.0, public domain dedication, no share-alike)', 'CC0_NO_CONDITIONS')
+OSM_LICENCE = ('OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
+               'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED')
+
 for a in agg:
-    m, lang = a['market'], a['language']
-    shape = a['shape']
-    if shape == 'city_category':
-        fid = f"places.city-{a['cls']}"
-        ptype, etype = 'AGGREGATION', 'city_category'
-        eid = f"{a['country']}-{slug(a['city'])}-{a['cls']}"
-        ename = f"{a['cls']} in {a['city']}"
-        intent = f"find {a['cls']} in {a['city']}"
-        # a longer list of better-described entries is a better page
-        q = min(100, 45 + min(30, a['n']) + min(15, a['enriched']))
-        dsc = 60
-    else:
-        fid = f"poi.{a['cls']}-notable"
-        ptype, etype = 'ENTITY', 'poi'
-        eid = a['entity_id']; ename = a['entity_name']
-        intent = f"visit {a['entity_name']}"
+    m, lang, shape = a['market'], a['language'], a['shape']
+    wiring = SHAPE_WIRING.get(shape)
+    if not wiring:
+        stats['aggregation_shape_unwired:' + shape] += 1
+        continue
+    surface, ptype, etype, dsc = wiring
+    cls = a.get('cls', '')
+    modifier = a.get('cuisine') or a.get('attribute') or a.get('opening') or a.get('sport') or ''
+    area = a.get('area', '')
+    is_wd = a.get('source') == 'wikidata'
+
+    if ptype == 'ENTITY':
+        fid = f'poi.{cls}-notable'
+        eid = a['entity_id']
+        ename = a['entity_name']
+        intent = f"visit {ename}"
         q = min(100, 50 + a['enriched'] * 8)
-        dsc = 50
-    ssc = SERP_SCORE[POI_SERP]
-    src = 55
+    else:
+        base = cls or 'area'
+        if shape in ('city_cuisine', 'area_cuisine'):
+            fid = 'places.city-cuisine' if shape == 'city_cuisine' else 'places.area-cuisine'
+        elif shape in ('city_attribute', 'area_attribute'):
+            fid = 'places.city-attribute' if shape == 'city_attribute' else 'places.area-attribute'
+        elif shape in ('city_opening', 'area_opening'):
+            fid = 'places.city-opening' if shape == 'city_opening' else 'places.area-opening'
+        elif shape == 'city_sport':
+            fid = 'places.city-sport'
+        elif shape == 'area_parent':
+            fid = 'areas.overview'
+        elif shape == 'area_category':
+            fid = f'places.area-{base}'
+        else:
+            fid = f'places.city-{base}'
+        parts = [p for p in (a['country'], slug(a.get('city', '')), slug(area), base, modifier) if p]
+        eid = '-'.join(parts)
+        if shape == 'area_parent':
+            ename = f"{area}, {a['city']}"
+            intent = f"what {area} in {a['city']} is like"
+        elif area:
+            ename = f"{modifier + ' ' if modifier else ''}{base} in {area}, {a['city']}"
+            intent = f"find {modifier + ' ' if modifier else ''}{base} in {area}"
+        else:
+            ename = f"{modifier + ' ' if modifier else ''}{base} in {a['city']}"
+            intent = f"find {modifier + ' ' if modifier else ''}{base} in {a['city']}"
+        # a longer list of better-described entries is a better page
+        q = min(100, 45 + min(30, a['n']) + min(15, a.get('enriched', 0)))
+
+    # a proximity-attributed area is a weaker claim than a polygon, and the score says so
+    if a.get('area_method') == 'proximity':
+        q = max(30, q - 10)
+    src = 50 if is_wd else 55
+    serp_cls = SHAPE_SERP.get(shape, 'NOT_SAMPLED')
+    ssc = SERP_SCORE[serp_cls]
     idx = min(q, dsc, src, ssc)
+    lic_name, lic_status = WD_LICENCE if is_wd else OSM_LICENCE
     rows.append({
         'candidate_id': 'c_' + sig(fid, eid, m),
         'url_pattern': a['url'], 'market': m, 'language': lang,
-        'surface': 'places' if shape == 'city_category' else 'poi',
-        'family': fid, 'vertical': 'discovery', 'page_type': ptype,
+        'surface': surface, 'family': fid, 'vertical': 'discovery', 'page_type': ptype,
         'entity_type': etype, 'entity_id': eid, 'entity_name': ename,
-        'city': a.get('city', ''), 'country': a['country'], 'neighbourhood': '',
+        'city': a.get('city', ''), 'country': a['country'], 'neighbourhood': area,
         'primary_intent': intent, 'primary_keyword_if_known': ename,
         'keyword_cluster_id': next((KCLUSTER[(n, m)] for n in ('places.city-category',
             'poi.city-category-durable') if (n, m) in KCLUSTER), ''),
-        'semantic_cluster_id': 'sc_' + sig('poiagg', shape, a['cls'], m),
-        'data_source': 'OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
-        'source_status': 'SOURCE_AVAILABLE', 'source_record_id': f"osm-agg:{eid}",
-        'feed_required': '', 'licence_status': 'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED',
+        'semantic_cluster_id': 'sc_' + sig('poiagg', shape, cls, modifier, m),
+        'data_source': lic_name,
+        'source_status': 'SOURCE_AVAILABLE',
+        'source_record_id': ('wikidata:' if is_wd else 'osm-agg:') + str(eid),
+        'feed_required': '', 'licence_status': lic_status,
         'data_signature': sig('data', fid, eid, m),
-        'template_signature': sig('tpl', shape, a['cls']),
+        'template_signature': sig('tpl', shape, cls, modifier),
         'duplicate_risk': 'LOW', 'cannibalization_risk': 'LOW',
         'quality_score': q, 'demand_score': dsc, 'source_score': src,
-        'serp_score': ssc, 'serp_class': POI_SERP, 'indexability_score': idx,
+        'serp_score': ssc, 'serp_class': serp_cls, 'indexability_score': idx,
         'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
         'publication_cohort_candidate': '', 'status': 'POI_AGGREGATION',
         'uniqueness_reason': a['uniqueness_reason'],
     })
-print(f'  poi aggregation candidates {len(agg):,}', file=sys.stderr)
+print(f'  aggregation candidates emitted {len(agg):,}', file=sys.stderr)
 
 # ---------------------------------------------------------------- quality gates
 # SERP feasibility, from the measured SERP class rather than from KD. KD has already
