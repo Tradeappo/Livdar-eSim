@@ -1,18 +1,20 @@
 {
- "manifest_rows": 198050,
- "distinct_urls": 198050,
+ "manifest_rows": 203623,
+ "distinct_urls": 203623,
  "checks": {
   "title_over_65_chars": 130444,
   "meta_over_165_chars": 2004,
-  "title_under_15_chars": 363,
-  "duplicate_title_exact": 3487,
-  "duplicate_title_same_tokens": 3526,
+  "title_under_15_chars": 664,
+  "duplicate_title_exact": 9060,
+  "duplicate_title_same_tokens": 9099,
   "superlative_from_the_family_own_intent": 20,
   "uniqueness_reason_shared_with_another_candidate": 22,
   "templates_with_repeated_entities": 0,
   "orphan_pages": 59,
+  "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
-  "urls_competing_for_the_same_query_in_one_market": 285,
+  "urls_sharing_a_cannibalization_key": 0,
+  "per_page_target_query_recorded": "NO: see the comment above, a query-level test is not possible from this manifest",
   "locale_mismatch_between_url_and_row": 0,
   "entity_names_needing_a_disambiguator_in_the_title": 76,
   "same_entity_id_under_two_names": 0,
@@ -47,6 +49,7 @@
   "rents.city": 1,
   "stay.city-type": 1
  },
+ "top_level_by_family": {},
  "saturated_templates": [],
  "duplicate_examples": [
   {
@@ -54,9 +57,81 @@
    "market": "de-DE",
    "title": "Berlin, DE: city",
    "a": "c_bc82717cf817",
+   "b": "c_94eaa155b2d5",
+   "url_a": "",
+   "url_b": "/de/move/health-city/berlin/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Berlin, DE: city",
+   "a": "c_bc82717cf817",
+   "b": "c_94eaa155b2d5",
+   "url_a": "",
+   "url_b": "/de/move/health-city/berlin/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Hamburg, DE: city",
+   "a": "c_c6b26f212379",
+   "b": "c_de37dcaff65d",
+   "url_a": "",
+   "url_b": "/de/move/health-city/hamburg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Hamburg, DE: city",
+   "a": "c_c6b26f212379",
+   "b": "c_de37dcaff65d",
+   "url_a": "",
+   "url_b": "/de/move/health-city/hamburg/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Köln, DE: city",
+   "a": "c_93792ec772a5",
+   "b": "c_7c8911cffb4a",
+   "url_a": "",
+   "url_b": "/de/move/health-city/köln/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Köln, DE: city",
+   "a": "c_93792ec772a5",
+   "b": "c_7c8911cffb4a",
+   "url_a": "",
+   "url_b": "/de/move/health-city/köln/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Munich, DE: city",
+   "a": "c_d6e53d489af7",
+   "b": "c_9cc3effe02fd",
+   "url_a": "",
+   "url_b": "/de/move/health-city/munich/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Munich, DE: city",
+   "a": "c_d6e53d489af7",
+   "b": "c_9cc3effe02fd",
+   "url_a": "",
+   "url_b": "/de/move/health-city/munich/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Berlin, DE: city",
+   "a": "c_bc82717cf817",
    "b": "c_df4511f5dd9a",
    "url_a": "",
-   "url_b": "/de/move/city/berlin/"
+   "url_b": "/de/move/relocation-city/berlin/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -65,7 +140,7 @@
    "a": "c_bc82717cf817",
    "b": "c_df4511f5dd9a",
    "url_a": "",
-   "url_b": "/de/move/city/berlin/"
+   "url_b": "/de/move/relocation-city/berlin/"
   },
   {
    "kind": "exact_title",
@@ -74,7 +149,7 @@
    "a": "c_c6b26f212379",
    "b": "c_0c6b4c6872ca",
    "url_a": "",
-   "url_b": "/de/move/city/hamburg/"
+   "url_b": "/de/move/relocation-city/hamburg/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -83,7 +158,7 @@
    "a": "c_c6b26f212379",
    "b": "c_0c6b4c6872ca",
    "url_a": "",
-   "url_b": "/de/move/city/hamburg/"
+   "url_b": "/de/move/relocation-city/hamburg/"
   },
   {
    "kind": "exact_title",
@@ -92,7 +167,7 @@
    "a": "c_93792ec772a5",
    "b": "c_159e970982a3",
    "url_a": "",
-   "url_b": "/de/move/city/köln/"
+   "url_b": "/de/move/relocation-city/köln/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -101,7 +176,7 @@
    "a": "c_93792ec772a5",
    "b": "c_159e970982a3",
    "url_a": "",
-   "url_b": "/de/move/city/köln/"
+   "url_b": "/de/move/relocation-city/köln/"
   },
   {
    "kind": "exact_title",
@@ -110,7 +185,7 @@
    "a": "c_d6e53d489af7",
    "b": "c_cade4f3803b3",
    "url_a": "",
-   "url_b": "/de/move/city/munich/"
+   "url_b": "/de/move/relocation-city/munich/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -119,160 +194,88 @@
    "a": "c_d6e53d489af7",
    "b": "c_cade4f3803b3",
    "url_a": "",
-   "url_b": "/de/move/city/munich/"
+   "url_b": "/de/move/relocation-city/munich/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
    "title": "Aachen, DE: city",
    "a": "c_e8612180762b",
-   "b": "c_c07da4d177b8",
+   "b": "c_6ea08378e548",
    "url_a": "",
-   "url_b": "/de/move/city/aachen/"
+   "url_b": "/de/move/health-city/aachen/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
    "title": "Aachen, DE: city",
    "a": "c_e8612180762b",
-   "b": "c_c07da4d177b8",
+   "b": "c_6ea08378e548",
    "url_a": "",
-   "url_b": "/de/move/city/aachen/"
+   "url_b": "/de/move/health-city/aachen/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
    "title": "Augsburg, DE: city",
    "a": "c_8ec5f0ace863",
-   "b": "c_4ef35074ddd5",
+   "b": "c_2ef61b861f1c",
    "url_a": "",
-   "url_b": "/de/move/city/augsburg/"
+   "url_b": "/de/move/health-city/augsburg/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
    "title": "Augsburg, DE: city",
    "a": "c_8ec5f0ace863",
-   "b": "c_4ef35074ddd5",
+   "b": "c_2ef61b861f1c",
    "url_a": "",
-   "url_b": "/de/move/city/augsburg/"
+   "url_b": "/de/move/health-city/augsburg/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
    "title": "Bielefeld, DE: city",
    "a": "c_9b55f02c31d7",
-   "b": "c_89a5e4774b48",
+   "b": "c_0f43698de6e6",
    "url_a": "",
-   "url_b": "/de/move/city/bielefeld/"
+   "url_b": "/de/move/health-city/bielefeld/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
    "title": "Bielefeld, DE: city",
    "a": "c_9b55f02c31d7",
-   "b": "c_89a5e4774b48",
+   "b": "c_0f43698de6e6",
    "url_a": "",
-   "url_b": "/de/move/city/bielefeld/"
+   "url_b": "/de/move/health-city/bielefeld/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
    "title": "Bochum, DE: city",
    "a": "c_f66808e237e5",
-   "b": "c_59162479cb52",
+   "b": "c_47bc2bb9069d",
    "url_a": "",
-   "url_b": "/de/move/city/bochum/"
+   "url_b": "/de/move/health-city/bochum/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
    "title": "Bochum, DE: city",
    "a": "c_f66808e237e5",
-   "b": "c_59162479cb52",
+   "b": "c_47bc2bb9069d",
    "url_a": "",
-   "url_b": "/de/move/city/bochum/"
+   "url_b": "/de/move/health-city/bochum/"
   },
   {
    "kind": "exact_title",
    "market": "de-DE",
    "title": "Bonn, DE: city",
    "a": "c_c9633509079b",
-   "b": "c_50bdb461b696",
+   "b": "c_db29a73518f8",
    "url_a": "",
-   "url_b": "/de/move/city/bonn/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bonn, DE: city",
-   "a": "c_c9633509079b",
-   "b": "c_50bdb461b696",
-   "url_a": "",
-   "url_b": "/de/move/city/bonn/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Braunschweig, DE: city",
-   "a": "c_9682f3185e78",
-   "b": "c_19afcfa76654",
-   "url_a": "",
-   "url_b": "/de/move/city/braunschweig/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Braunschweig, DE: city",
-   "a": "c_9682f3185e78",
-   "b": "c_19afcfa76654",
-   "url_a": "",
-   "url_b": "/de/move/city/braunschweig/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Bremen, DE: city",
-   "a": "c_d5f134e6be2c",
-   "b": "c_ef675f3cfb58",
-   "url_a": "",
-   "url_b": "/de/move/city/bremen/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bremen, DE: city",
-   "a": "c_d5f134e6be2c",
-   "b": "c_ef675f3cfb58",
-   "url_a": "",
-   "url_b": "/de/move/city/bremen/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Chemnitz, DE: city",
-   "a": "c_36249ef06739",
-   "b": "c_c05bdc565ad4",
-   "url_a": "",
-   "url_b": "/de/move/city/chemnitz/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Chemnitz, DE: city",
-   "a": "c_36249ef06739",
-   "b": "c_c05bdc565ad4",
-   "url_a": "",
-   "url_b": "/de/move/city/chemnitz/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Dortmund, DE: city",
-   "a": "c_1d15f61edd23",
-   "b": "c_59e8642a4250",
-   "url_a": "",
-   "url_b": "/de/move/city/dortmund/"
+   "url_b": "/de/move/health-city/bonn/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -395,156 +398,7 @@
    "n371712800"
   ]
  },
- "urls_competing_for_the_same_query_examples": {
-  "de-DE | amsterdam sehenswürdigkeiten": [
-   "/de/areas/city-things-to-do/aachen/",
-   "/de/areas/city-things-to-do/aalen/",
-   "/de/areas/city-things-to-do/ahlen/",
-   "/de/areas/city-things-to-do/amsterdam-nl/"
-  ],
-  "en-GB | things to do in krakow": [
-   "/en/areas/city-things-to-do/aberdare/",
-   "/en/areas/city-things-to-do/aberdeen-gb/",
-   "/en/areas/city-things-to-do/aberdeen-us/",
-   "/en/areas/city-things-to-do/aberystwyth/"
-  ],
-  "ja-JP | 長野 観光": [
-   "/ja/areas/city-things-to-do/abiko/",
-   "/ja/areas/city-things-to-do/ageo/",
-   "/ja/areas/city-things-to-do/aihara/",
-   "/ja/areas/city-things-to-do/aira/"
-  ],
-  "es-ES | que ver en segovia": [
-   "/es/areas/city-things-to-do/a-coruña/",
-   "/es/areas/city-things-to-do/albacete/",
-   "/es/areas/city-things-to-do/alcalá-de-guadaira/",
-   "/es/areas/city-things-to-do/alcalá-de-henares/"
-  ],
-  "it-IT | cosa vedere a matera": [
-   "/it/areas/city-things-to-do/acerra/",
-   "/it/areas/city-things-to-do/acilia-castel-fusano-ostia-antica/",
-   "/it/areas/city-things-to-do/afragola/",
-   "/it/areas/city-things-to-do/alessandria/"
-  ],
-  "nl-NL | wat te doen in amsterdam": [
-   "/nl/areas/city-things-to-do/alkmaar/",
-   "/nl/areas/city-things-to-do/almelo/",
-   "/nl/areas/city-things-to-do/almere-stad/",
-   "/nl/areas/city-things-to-do/alphen-aan-den-rijn/"
-  ],
-  "en-US | coworking space": [
-   "/en/areas/city-category/abilene/",
-   "/en/areas/city-category/abington/",
-   "/en/areas/city-category/akron/",
-   "/en/areas/city-category/alafaya/"
-  ],
-  "es-ES | coworking": [
-   "/es/areas/city-category/a-coruña/",
-   "/es/areas/city-category/albacete/",
-   "/es/areas/city-category/alcalá-de-guadaira/",
-   "/es/areas/city-category/alcalá-de-henares/"
-  ],
-  "fr-FR | brunch paris": [
-   "/fr/areas/city-category/aix-en-provence/",
-   "/fr/areas/city-category/ajaccio/",
-   "/fr/areas/city-category/albi/",
-   "/fr/areas/city-category/amiens/"
-  ],
-  "ja-JP | コワーキングスペース": [
-   "/ja/areas/city-category/abiko/",
-   "/ja/areas/city-category/ageo/",
-   "/ja/areas/city-category/aihara/",
-   "/ja/areas/city-category/aira/"
-  ],
-  "pt-BR | coworking": [
-   "/pt/areas/city-category/americana/",
-   "/pt/areas/city-category/ananindeua/",
-   "/pt/areas/city-category/anápolis/",
-   "/pt/areas/city-category/aparecida-de-goiânia/"
-  ],
-  "fr-FR | monuments paris": [
-   "/fr/areas/city-things-to-do/aix-en-provence/",
-   "/fr/areas/city-things-to-do/ajaccio/",
-   "/fr/areas/city-things-to-do/albi/",
-   "/fr/areas/city-things-to-do/amiens/"
-  ],
-  "pt-BR | o que fazer em londrina": [
-   "/pt/areas/city-things-to-do/americana/",
-   "/pt/areas/city-things-to-do/ananindeua/",
-   "/pt/areas/city-things-to-do/anápolis/",
-   "/pt/areas/city-things-to-do/aparecida-de-goiânia/"
-  ],
-  "zh-Hant-TW | 花蓮 景點": [
-   "/zh-Hant/areas/city-things-to-do/bade/",
-   "/zh-Hant/areas/city-things-to-do/bangkok/",
-   "/zh-Hant/areas/city-things-to-do/banqiao-tw/",
-   "/zh-Hant/areas/city-things-to-do/busan/"
-  ],
-  "de-DE | museen berlin": [
-   "/de/areas/city-category/aachen/",
-   "/de/areas/city-category/aalen/",
-   "/de/areas/city-category/achern/",
-   "/de/areas/city-category/achim/"
-  ],
-  "en-GB | rooftop bar london": [
-   "/en/areas/city-category/archway/",
-   "/en/areas/city-category/barking/",
-   "/en/areas/city-category/belfast-gb/",
-   "/en/areas/city-category/bexley/"
-  ],
-  "it-IT | coworking": [
-   "/it/areas/city-category/acerra/",
-   "/it/areas/city-category/acilia-castel-fusano-ostia-antica/",
-   "/it/areas/city-category/afragola/",
-   "/it/areas/city-category/alessandria/"
-  ],
-  "pl-PL | restauracje warszawa": [
-   "/pl/areas/city-category/białystok/",
-   "/pl/areas/city-category/bydgoszcz/",
-   "/pl/areas/city-category/częstochowa/",
-   "/pl/areas/city-category/gdańsk/"
-  ],
-  "nl-NL | restaurants amsterdam": [
-   "/nl/areas/city-category/alkmaar/",
-   "/nl/areas/city-category/almelo/",
-   "/nl/areas/city-category/almere-stad/",
-   "/nl/areas/city-category/alphen-aan-den-rijn/"
-  ],
-  "zh-Hant-TW | 花蓮 美食": [
-   "/zh-Hant/areas/city-category/bade/",
-   "/zh-Hant/areas/city-category/banqiao-tw/",
-   "/zh-Hant/areas/city-category/caotun/",
-   "/zh-Hant/areas/city-category/chang-hua/"
-  ],
-  "en-US | things to do in chicago": [
-   "/en/areas/country-hub/united-kingdom/",
-   "/en/areas/country-hub/united-states/"
-  ],
-  "en-GB | university of lincoln": [
-   "/en/move/city-universities/archway/",
-   "/en/move/city-universities/barking/",
-   "/en/move/city-universities/belfast-gb/",
-   "/en/move/city-universities/bexley/"
-  ],
-  "en-US | boise state university": [
-   "/en/move/city-universities/albuquerque/",
-   "/en/move/city-universities/anaheim/",
-   "/en/move/city-universities/anchorage/",
-   "/en/move/city-universities/arlington-us/"
-  ],
-  "de-DE | anmeldung berlin": [
-   "/de/move/city-practical/aachen/",
-   "/de/move/city-practical/augsburg/",
-   "/de/move/city-practical/berlin/",
-   "/de/move/city-practical/bielefeld/"
-  ],
-  "es-ES | salario medio españa": [
-   "/es/move/country-remote-work/spain/",
-   "/es/work/city-salaries/a-coruña/",
-   "/es/work/city-salaries/albacete/",
-   "/es/work/city-salaries/alcalá-de-guadaira/"
-  ]
- },
+ "urls_sharing_a_cannibalization_key_examples": {},
  "entity_collisions_same_id_two_names": {},
  "sourceless_candidate_examples": [],
  "kept_rows_by_localisation_class_that_should_have_been_rejected": {},
@@ -866,6 +720,76 @@
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
+   ]
+  },
+  "cost-of-living.city|de": {
+   "rows": 195,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|en": {
+   "rows": 835,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|es": {
+   "rows": 150,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|fr": {
+   "rows": 143,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|it": {
+   "rows": 133,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|ja": {
+   "rows": 543,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|nl": {
+   "rows": 57,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|pl": {
+   "rows": 101,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|pt": {
+   "rows": 668,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "cost-of-living.city|zh-Hant": {
+   "rows": 40,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "cost-of-living.city-vs-market|de": {
@@ -1349,6 +1273,76 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "health.city|de": {
+   "rows": 38,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|en": {
+   "rows": 835,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|es": {
+   "rows": 150,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|fr": {
+   "rows": 143,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|it": {
+   "rows": 133,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|ja": {
+   "rows": 543,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|nl": {
+   "rows": 57,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|pl": {
+   "rows": 101,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|pt": {
+   "rows": 668,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
+   ]
+  },
+  "health.city|zh-Hant": {
+   "rows": 40,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
    ]
   },
   "neighbourhoods.city-best-for|de": {
@@ -9431,7 +9425,7 @@
  "title_length": {
   "min": 12,
   "max": 192,
-  "mean": 67.2
+  "mean": 65.9
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

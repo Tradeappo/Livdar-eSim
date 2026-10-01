@@ -59,8 +59,17 @@ else
 fi
 
 log "candidate manifest, with every quality gate"
-python3 scripts/atlas/scale/build-1m-candidate-manifest.py > /tmp/pipe_manifest.log 2>&1
-grep -E "uniqueness and SERP gate|after exact|after semantic|FINAL_DISTINCT" /tmp/pipe_manifest.log \
+# This stage is the one every later stage reads. When it failed once, the pipeline carried
+# on and produced a QA report, partitions and a deliverable describing the PREVIOUS
+# manifest, which is worse than producing nothing: every artifact agreed with every other
+# and all of them described data that no longer existed. So a failure here stops the run.
+if ! python3 scripts/atlas/scale/build-1m-candidate-manifest.py > /tmp/pipe_manifest.log 2>&1; then
+  echo "  MANIFEST FAILED, stopping. Nothing downstream is regenerated, so the artifacts on"
+  echo "  disk still describe the previous run rather than a half-built one. Error:"
+  tail -12 /tmp/pipe_manifest.log
+  exit 1
+fi
+grep -E "path segments claimed|uniqueness and SERP gate|after exact|after semantic|FINAL_DISTINCT" /tmp/pipe_manifest.log \
   || tail -5 /tmp/pipe_manifest.log
 
 log "QA: titles, duplicates, uniqueness reasons, orphans, dashes"

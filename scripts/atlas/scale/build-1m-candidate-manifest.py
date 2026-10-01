@@ -772,6 +772,17 @@ def slug(s):
     while '--' in r: r = r.replace('--', '-')
     return r.strip('-') or 'x'
 
+# Which (surface, last segment) pairs more than one family claims. Computed from the family
+# catalogue rather than hard-coded, so a family added later cannot reintroduce the collision
+# without this picking it up.
+_seg_claims = collections.defaultdict(set)
+for _f in fams:
+    _seg_claims[(_f['surface'], slug(_f['family_id'].split('.')[-1]))].add(_f['family_id'])
+AMBIGUOUS_SEGMENT = {k for k, v in _seg_claims.items() if len(v) > 1}
+if AMBIGUOUS_SEGMENT:
+    print(f'path segments claimed by more than one family, disambiguated with the topic: '
+          f'{sorted(AMBIGUOUS_SEGMENT)}', file=sys.stderr)
+
 FIELDS = ['candidate_id','url_pattern','market','language','surface','family','vertical',
           'page_type','entity_type','entity_id','entity_name','city','country','neighbourhood',
           'primary_intent','primary_keyword_if_known','keyword_cluster_id','semantic_cluster_id',
@@ -835,7 +846,21 @@ for f in fams:
             nm = slug(ename)
             if etype == 'city' and (ename or '').lower() in AMBIGUOUS_CITY and ecountry:
                 nm = f"{nm}-{ecountry.lower()}"
-            url = f"/{lang}/{slug(f['surface'])}/{slug(fid.split('.')[-1])}/{nm}/"
+            # The path segment has to identify the FAMILY, not just its last word. Five
+            # country families share the surface "move" and the last segment "country":
+            # relocation, health, banking, taxes and cost-of-living. All five were resolving
+            # to /{lang}/move/country/{country}/, so exact dedupe kept whichever happened to
+            # be generated first and silently discarded the rest with no rejection record.
+            # Only luck hid it: the other four were failing the uniqueness gate anyway, and
+            # the day one of them earned a uniqueness basis, twelve real pages would have
+            # vanished without trace. The cross-artifact check found it by noticing those
+            # URLs sat in both the kept and the rejected file.
+            # The topic is added ONLY where the pair is ambiguous, so every unambiguous URL,
+            # which is every live one, stays byte-identical.
+            seg = slug(fid.split('.')[-1])
+            if (f['surface'], seg) in AMBIGUOUS_SEGMENT:
+                seg = slug(fid.split('.')[0]) + '-' + seg
+            url = f"/{lang}/{slug(f['surface'])}/{seg}/{nm}/"
             dsig = sig('data', fid, eid, m)
             q = max(0, min(100, qbase))
             iscore = min(q, dscore, srcscore, sscore)   # a floor on every score, never blended

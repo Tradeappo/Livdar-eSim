@@ -1,20 +1,20 @@
 {
  "generated": "2026-09-30",
  "raw_candidate_combinations": 251611,
- "after_exact_dedupe": 243183,
- "after_semantic_dedupe": 243183,
- "after_localization_and_cross_locale_gate": 198050,
+ "after_exact_dedupe": 248756,
+ "after_semantic_dedupe": 248756,
+ "after_localization_and_cross_locale_gate": 203623,
  "localization_classes": {
-  "NATIVE_LOCALE": 197827,
+  "NATIVE_LOCALE": 203400,
   "LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION": 44628,
   "VALID_LOCALIZATION": 223,
   "LOCAL_DATA_MISSING": 496,
   "LOCAL_INTENT_MISSING": 9
  },
- "after_cannibalization_filtering": 198050,
- "FINAL_DISTINCT_CANDIDATES": 198050,
+ "after_cannibalization_filtering": 203623,
+ "FINAL_DISTINCT_CANDIDATES": 203623,
  "target": 1000000,
- "shortfall_to_1m": 801950,
+ "shortfall_to_1m": 796377,
  "rejected_by_quality_gates": 116548,
  "dropped_no_demand_evidence": 331,
  "dropped_beyond_measured_tier": 91194,
@@ -31,7 +31,7 @@
   "sport.route"
  ],
  "by_source_status": {
-  "SOURCE_AVAILABLE": 172531,
+  "SOURCE_AVAILABLE": 178104,
   "READY_NOW": 3806,
   "FEED_REQUIRED": 7901,
   "LICENCE_REQUIRED": 13812
@@ -39,7 +39,7 @@
  "by_surface": {
   "areas": 14061,
   "places": 138544,
-  "move": 5922,
+  "move": 11495,
   "transport": 2911,
   "climate": 3137,
   "work": 3681,
@@ -51,20 +51,20 @@
   "sport": 578
  },
  "by_market": {
-  "de-DE": 28152,
-  "en-GB": 23220,
-  "ja-JP": 22166,
-  "es-ES": 14428,
-  "it-IT": 13968,
-  "nl-NL": 8741,
-  "en-US": 46556,
-  "fr-FR": 15231,
-  "pt-BR": 13795,
-  "pl-PL": 11111,
-  "zh-Hant-TW": 682
+  "de-DE": 28385,
+  "en-GB": 23224,
+  "ja-JP": 23252,
+  "es-ES": 14728,
+  "it-IT": 14234,
+  "nl-NL": 8855,
+  "en-US": 48222,
+  "fr-FR": 15517,
+  "pt-BR": 15131,
+  "pl-PL": 11313,
+  "zh-Hant-TW": 762
  },
  "by_entity_type": {
-  "city": 40562,
+  "city": 46135,
   "city_cuisine": 12345,
   "area_category": 51086,
   "city_opening": 3472,
@@ -82,7 +82,7 @@
   "area_cuisine": 16927,
   "venue": 4689
  },
- "distinct_families": 149,
+ "distinct_families": 151,
  "entity_pools_available": {
   "cities": 29183,
   "countries": 249,

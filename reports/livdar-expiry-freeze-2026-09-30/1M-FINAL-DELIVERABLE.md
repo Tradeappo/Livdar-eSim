@@ -4,10 +4,10 @@ Built 2026-10-01. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **233,252**
+- FINAL DISTINCT VALID CANDIDATES: **198,050**
 - target: 1,000,000
-- shortfall: **766,748** (23.3 per cent of target)
-- rejected and kept visible: 71,892
+- shortfall: **801,950** (19.8 per cent of target)
+- rejected and kept visible: 116,548
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 233,748 | same url_pattern |
-| after semantic dedupe | 233,748 | same market, family, template signature and entity |
-| FINAL DISTINCT | 233,252 | what is in the manifest |
+| after exact dedupe | 243,183 | same url_pattern |
+| after semantic dedupe | 243,183 | same market, family, template signature and entity |
+| FINAL DISTINCT | 198,050 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,32 +27,32 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
-| en-US | 46,803 |
-| de-DE | 40,167 |
-| en-GB | 38,066 |
-| ja-JP | 22,714 |
-| fr-FR | 15,770 |
-| es-ES | 15,210 |
-| it-IT | 14,748 |
-| pt-BR | 14,587 |
-| pl-PL | 11,907 |
-| nl-NL | 9,537 |
-| zh-Hant-TW | 3,743 |
+| en-US | 46,556 |
+| de-DE | 28,152 |
+| en-GB | 23,220 |
+| ja-JP | 22,166 |
+| fr-FR | 15,231 |
+| es-ES | 14,428 |
+| it-IT | 13,968 |
+| pt-BR | 13,795 |
+| pl-PL | 11,111 |
+| nl-NL | 8,741 |
+| zh-Hant-TW | 682 |
 
 ### By surface
 
 | surface | candidates |
 | --- | --- |
 | places | 138,544 |
-| areas | 26,819 |
-| stay | 25,586 |
-| move | 10,131 |
+| stay | 14,199 |
+| areas | 14,061 |
 | pulse | 6,936 |
-| poi | 6,911 |
-| climate | 5,633 |
-| tools | 4,097 |
-| transport | 3,795 |
+| poi | 6,912 |
+| move | 5,922 |
 | work | 3,681 |
+| climate | 3,137 |
+| transport | 2,911 |
+| tools | 628 |
 | sport | 578 |
 | safety | 541 |
 
@@ -60,41 +60,41 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | status | candidates |
 | --- | --- |
-| POI_AGGREGATION | 150,242 |
-| MISSING_DATA | 40,088 |
-| BLOCKED_BY_LICENCE | 25,199 |
-| NOT_IMPLEMENTED | 9,830 |
-| EXPERIMENT_ONLY | 7,054 |
-| VALIDATED | 819 |
+| POI_AGGREGATION | 150,243 |
+| MISSING_DATA | 23,368 |
+| BLOCKED_BY_LICENCE | 13,812 |
+| NOT_IMPLEMENTED | 5,999 |
+| EXPERIMENT_ONLY | 4,558 |
+| VALIDATED | 50 |
 | PROMISING | 20 |
 
 ### By source readiness
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 189,250 |
-| LICENCE_REQUIRED | 25,199 |
-| READY_NOW | 10,902 |
+| SOURCE_AVAILABLE | 172,531 |
+| LICENCE_REQUIRED | 13,812 |
 | FEED_REQUIRED | 7,901 |
+| READY_NOW | 3,806 |
 
 ### By SERP feasibility
 
 | serp_feasibility | candidates |
 | --- | --- |
-| unsampled_needs_serp_check | 71,490 |
 | viable | 66,903 |
-| competitive | 51,761 |
-| strong_opportunity | 23,267 |
+| competitive | 51,762 |
+| unsampled_needs_serp_check | 48,798 |
 | poor_fit | 19,831 |
+| strong_opportunity | 10,756 |
 
 ### By licence
 
 | licence_status | candidates |
 | --- | --- |
 | ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 144,463 |
-| OK | 57,811 |
-| LICENCE_REQUIRED | 25,199 |
-| CC0_NO_CONDITIONS | 5,779 |
+| OK | 33,995 |
+| LICENCE_REQUIRED | 13,812 |
+| CC0_NO_CONDITIONS | 5,780 |
 
 ### By demand evidence for the market the page targets
 
@@ -102,77 +102,100 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | market_demand_evidence | candidates |
 | --- | --- |
-| shape_measured_2026_10_01 | 150,242 |
-| measured_in_this_market | 78,393 |
+| shape_measured_2026_10_01 | 150,243 |
+| measured_in_this_market | 43,190 |
 | family_measured_elsewhere | 4,617 |
 
 ### The twenty largest families
 
 | family | candidates |
 | --- | --- |
-| activities.city-things-to-do | 17,109 |
 | places.area-cuisine | 16,927 |
 | places.city-cuisine | 12,345 |
-| stay.city-type | 11,394 |
 | places.area-opening | 9,356 |
 | places.area-restaurant | 7,766 |
-| stay.near-venue | 6,869 |
 | places.area-attribute | 6,197 |
 | places.area-fast_food | 5,960 |
-| weather.city-month | 5,633 |
 | poi.museum-notable | 4,967 |
 | places.city-restaurant | 4,909 |
 | places.area-pharmacy | 4,795 |
 | places.area-cafe | 4,789 |
+| stay.near-venue | 4,689 |
+| activities.city-things-to-do | 4,598 |
 | places.area-supermarket | 4,442 |
 | areas.overview | 4,270 |
 | rents.city | 3,596 |
 | places.city-fast_food | 3,546 |
 | places.city-opening | 3,472 |
 | places.area-clinic | 3,371 |
+| events.city-type | 3,179 |
+| events.city-calendar | 3,179 |
 
 ## 3b. The multilingual breakdown
 
 A second language is not free inventory. Every row whose language is not the language of the country it describes has to show its own reason to exist, and the default answer is no. The table below separates what each market kept from what it was refused and why.
 
-| market | final valid | rejected total | translation only | local intent missing | local data missing | other rejections |
-| --- | --- | --- | --- | --- | --- | --- |
-| en-US | 46,803 | 8,417 | 0 | 0 | 0 | 8,417 |
-| en-GB | 38,066 | 13,791 | 0 | 0 | 0 | 13,791 |
-| de-DE | 40,167 | 9,849 | 0 | 0 | 0 | 9,849 |
-| ja-JP | 22,714 | 5,845 | 0 | 0 | 248 | 5,597 |
-| zh-Hant-TW | 3,743 | 770 | 0 | 0 | 0 | 770 |
-| it-IT | 14,748 | 4,909 | 0 | 0 | 0 | 4,909 |
-| es-ES | 15,210 | 5,035 | 0 | 0 | 0 | 5,035 |
-| fr-FR | 15,770 | 6,428 | 0 | 0 | 248 | 6,180 |
-| nl-NL | 9,537 | 4,830 | 0 | 0 | 0 | 4,830 |
-| pl-PL | 11,907 | 4,871 | 0 | 0 | 0 | 4,871 |
-| pt-BR | 14,587 | 7,147 | 0 | 0 | 0 | 7,147 |
+| market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| en-US | 55,222 | 46,556 | 7,538 | 881 | 0 | 0 | 247 | 0 | 0 |
+| en-GB | 51,872 | 23,220 | 9,881 | 3,916 | 0 | 0 | 14,855 | 0 | 0 |
+| de-DE | 50,050 | 28,152 | 6,474 | 3,386 | 0 | 1 | 12,037 | 0 | 0 |
+| ja-JP | 28,560 | 22,166 | 4,489 | 1,108 | 0 | 1 | 548 | 248 | 0 |
+| zh-Hant-TW | 4,525 | 682 | 690 | 80 | 0 | 1 | 3,072 | 0 | 0 |
+| it-IT | 22,648 | 13,968 | 4,643 | 266 | 0 | 1 | 3,770 | 0 | 0 |
+| es-ES | 23,219 | 14,428 | 4,735 | 300 | 0 | 1 | 3,755 | 0 | 0 |
+| fr-FR | 25,179 | 15,231 | 5,894 | 286 | 0 | 1 | 3,519 | 248 | 0 |
+| nl-NL | 14,368 | 8,741 | 4,716 | 114 | 0 | 1 | 796 | 0 | 0 |
+| pl-PL | 16,779 | 11,111 | 4,669 | 202 | 0 | 1 | 796 | 0 | 0 |
+| pt-BR | 22,176 | 13,795 | 5,793 | 1,354 | 0 | 1 | 1,233 | 0 | 0 |
+| **all 11** | **314,598** | **198,050** | | | | | | | |
+
+Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
 ### Localisation class of every row that survived
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 197,826 |
-| VALID_LOCALIZATION | 35,426 |
+| NATIVE_LOCALE | 197,827 |
+| VALID_LOCALIZATION | 223 |
 
-- flagged LOCAL_SERP_UNVERIFIED: 71,490. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
+- flagged LOCAL_SERP_UNVERIFIED: 48,798. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
 
 ### Top families per market
 
 | market | strongest families |
 | --- | --- |
 | en-US | places.city-cuisine (5,005), places.area-cuisine (4,575), places.area-attribute (2,790), places.area-opening (2,493) |
-| en-GB | activities.city-things-to-do (9,700), stay.near-venue (4,689), weather.city-month (3,603), places.area-cuisine (2,002) |
-| de-DE | stay.city-type (9,209), activities.city-things-to-do (3,112), places.area-attribute (2,620), places.area-opening (2,359) |
+| en-GB | activities.city-things-to-do (3,107), stay.near-venue (2,509), places.area-cuisine (2,002), places.city-cuisine (1,223) |
+| de-DE | places.area-attribute (2,620), places.area-opening (2,359), places.area-cuisine (1,555), places.area-restaurant (1,123) |
 | ja-JP | places.area-cuisine (2,911), places.city-cuisine (1,316), places.area-opening (969), places.area-restaurant (902) |
-| zh-Hant-TW | activities.city-things-to-do (3,112), places.city-category (40), weather.city-month (40), events.city-type (40) |
+| zh-Hant-TW | activities.city-things-to-do (51), places.city-category (40), weather.city-month (40), events.city-type (40) |
 | it-IT | places.area-cuisine (1,389), places.area-restaurant (807), poi.museum-notable (804), places.area-opening (611) |
 | es-ES | places.area-cuisine (1,202), places.area-restaurant (944), places.city-cuisine (752), places.area-supermarket (727) |
 | fr-FR | places.area-cuisine (1,574), places.city-cuisine (1,131), places.city-restaurant (508), places.area-restaurant (498) |
 | nl-NL | places.area-cuisine (529), places.area-supermarket (478), places.area-fast_food (437), places.city-cuisine (423) |
 | pl-PL | places.area-cuisine (790), places.area-pharmacy (599), places.area-opening (560), places.area-attribute (551) |
 | pt-BR | relocation.city (668), weather.city-month (668), rents.city (668), work.city-salaries (668) |
+
+### Where the measured demand actually is, per market
+
+The strongest local keyword measured for each market, in that market own language. These are the roots the localisation gate reads, and in every non-English market the winning root is a word an English page does not contain, which is the difference between a localisation and a translation.
+
+| market | strongest measured local root | monthly volume | what makes it local |
+| --- | --- | --- | --- |
+| fr-FR | salaire brut net | 258,000 | the brut to net conversion as the noun; French users do not search a net salary calculator |
+| es-ES | calculadora sueldo neto | 91,000 | year-stamped variants carry their own demand because the IRPEF tramos change annually |
+| pt-BR | calculo salario liquido | 68,000 | at difficulty 1, against 213,000 traffic potential |
+| ja-JP | tedori keisan | 43,000 | take-home, with bonus take-home a separate utility at 10,000 because Japanese pay includes large semi-annual bonuses |
+| it-IT | calcolo stipendio netto | 42,000 | at difficulty 12, with RAL-anchored and CCNL contract-level queries beneath it that exist in no other market |
+| de-DE | kreditrechner | measured by keyword count, see the measurement file | 34 keywords at or above 500, notably the neutral and ohne anmeldung variants: users looking for a calculator that is not a bank |
+| nl-NL | hypotheek berekenen | measured by keyword count, see the measurement file | 60 keywords at or above 300 that are seven-plus different formulas, not phrasings |
+| pl-PL | o ile wzrosnie rata | measured by keyword count, see the measurement file | a rate-change calculator that exists because Polish mortgages are variable rate; no English page would have found it |
+| zh-Hant-TW | fang dai shi suan | 17,000 | at difficulty 16, with the New Youth Housing government scheme beneath it and amounts counted in units of ten thousand |
+| en-GB | things to do in krakow | 11,000 | the English markets were measured searching globally, not only Europe |
+| en-US | things to do in nashville | measured by keyword count, see the measurement file | same measurement set as en-GB |
+
+Transliterations are used above for the Japanese and Chinese roots so this table renders in any terminal; the measurement files carry the original script.
 
 ## 4. What was materialised in this pass
 
@@ -182,7 +205,7 @@ A second language is not free inventory. Every row whose language is not the lan
 - named places loaded: 431,150, of which 42,511 passed the entity gates
 - POI assigned to an area by polygon containment: 348,588; by documented proximity to a place node: 1,265,443
 - aggregation candidates: 144,820 ({'city_category': 35157, 'area_category': 51091, 'city_cuisine': 12406, 'area_cuisine': 16929, 'city_attribute': 2694, 'area_attribute': 6197, 'city_opening': 3472, 'area_opening': 9358, 'city_sport': 123, 'area_parent': 4271, 'city_areas_hub': 519, 'notable_entity': 2603})
-- Wikidata entities loaded: 105,964, candidates 6,011, deduped against OSM by {'qid': 9207, 'name_and_position': 3294}
+- Wikidata entities loaded: 106,049, candidates 6,012, deduped against OSM by {'qid': 9207, 'name_and_position': 3294}
 - Pulse entities normalised from four providers: {'national': 1081, 'regional': 623, 'school': 1502, 'long_weekends': 687, 'bridge_days': 233, 'long_weekends_subdivision': 3539, 'bridge_days_subdivision': 1052, 'bridge_plans': 348}
 
 ## 5. Every gate that fired, with its count
@@ -245,40 +268,50 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 | gate | rejected |
 | --- | --- |
-| no_parent_city | 35,966 |
-| no_official_website_so_page_would_be_thin | 22,426 |
+| no_parent_city | 36,042 |
+| no_official_website_so_page_would_be_thin | 22,430 |
 | already_in_osm_corpus | 12,501 |
 | list_below_min_count | 7,483 |
-| wikidata_duplicate_qid | 5,854 |
-| no_parent_page_exists_on_the_site | 5,322 |
+| wikidata_duplicate_qid | 5,857 |
+| no_parent_page_exists_on_the_site | 5,323 |
 | list_entries_too_thin | 485 |
 
 ### Manifest gates
 
 | gate | rejected |
 | --- | --- |
-| REJECTED_QUALITY: no defensible uniqueness basis | 59,516 |
-| REJECTED_SERP: None is not winnable | 11,880 |
+| REJECTED_QUALITY: no defensible uniqueness basis | 59,522 |
+| localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 44,628 |
+| REJECTED_SERP: SERP_FEATURE_SUPPRESSED is a measured closed SERP, not winnable | 8,722 |
+| REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 3,171 |
 | localization:LOCAL_DATA_MISSING | 496 |
+| localization:LOCAL_INTENT_MISSING | 9 |
 
 ## 6. QA at scale
 
-- rows checked: 233,252, distinct URLs 233,252
+- rows checked: 198,050, distinct URLs 198,050
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 131,028 |
-| meta_over_165_chars | 2,006 |
-| long_dash_in_source_name_or_derived_text | 47 |
+| title_over_65_chars | 130,444 |
+| meta_over_165_chars | 2,004 |
 | title_under_15_chars | 363 |
 | duplicate_title_exact | 3,487 |
-| duplicate_title_same_tokens | 3,530 |
+| duplicate_title_same_tokens | 3,526 |
 | superlative_from_the_family_own_intent | 20 |
 | uniqueness_reason_shared_with_another_candidate | 22 |
 | templates_with_repeated_entities | 0 |
-| orphan_pages | 47 |
+| orphan_pages | 59 |
+| intent_owners_claimed_by_more_than_one_url | 0 |
+| urls_competing_for_the_same_query_in_one_market | 285 |
+| locale_mismatch_between_url_and_row | 0 |
+| entity_names_needing_a_disambiguator_in_the_title | 76 |
+| same_entity_id_under_two_names | 0 |
+| candidates_with_no_usable_source | 0 |
+| kept_rows_with_a_rejecting_localisation_class | 0 |
+| family_locale_cells_failing_the_usefulness_test | 0 |
 
-- title length: min 12, max 192, mean 62.2
+- title length: min 12, max 192, mean 67.2
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -329,7 +362,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-233,252 candidates survive the gates. The target is 1,000,000.
+198,050 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 
