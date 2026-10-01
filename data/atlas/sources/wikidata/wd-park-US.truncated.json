@@ -1,0 +1,14 @@
+{
+  "class": "park",
+  "country": "US",
+  "rows_in_file": 9992,
+  "true_count_measured_2026_10_01": 56755,
+  "rows_missing": 46763,
+  "meaning": "THIS FILE IS A FLOOR, NOT A TOTAL. It holds 9,992 of 56,755 United States parks.",
+  "how_it_happened": "The old loop paginated by OFFSET. The first page returned the full 10,000, the result cap applied to the underlying set so OFFSET 10000 returned nothing, and the termination test read an empty page as the end of the data. The file then looked complete, which is why it went unnoticed.",
+  "verification": "A COUNT over exactly the population the materialiser paginates (class, country, has coordinates) returned 56,755 on 2026-10-01, against 9,992 rows in this file.",
+  "status": "NOT YET REFETCHED",
+  "why_not": "The band-partitioned refetch is implemented and observed working, but it is rate-limited at Wikimedia rather than by the code: WDQS answers 429 with a one-request-per-minute-per-host outage rule, and the heavy band query also hits the 60 second query timeout, so each band costs minutes. This pair alone needs many bands and did not complete within the session.",
+  "what_to_do": "Re-run scripts/atlas/ingest/wikidata-materialise.py after removing /tmp/wd_marks/park_US.done. The band path splits any band that comes back full or does not answer, so it cannot silently truncate again. Delete this file once the row count approaches the measured count.",
+  "do_not": "Do not quote the row count of this file as the number of United States parks, and do not treat its absence of a note as evidence of completeness: that absence is exactly what hid the problem before."
+}
