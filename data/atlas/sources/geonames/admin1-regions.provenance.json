@@ -1,0 +1,18 @@
+{
+ "source": "GeoNames admin1CodesASCII.txt",
+ "url": "https://download.geonames.org/export/dump/admin1CodesASCII.txt",
+ "licence": "CC BY 4.0, attribution to GeoNames required",
+ "retrieved": "2026-10-01",
+ "rows": 3865,
+ "countries": 228,
+ "rows_in_the_11_market_countries": 229,
+ "fields": [
+  "country",
+  "admin1",
+  "name",
+  "ascii",
+  "geonames_id"
+ ],
+ "why_it_was_acquired": "The city records carry admin1 as a CODE, so nothing could render a region name from them. 986 titles collide because two cities share a name within one country, and a title cannot carry an entity id the way a URL can. This table is what turns admin1 18 into a region a reader recognises, so Woodstock, Vermont and Woodstock, New York can be told apart in copy without inventing anything.",
+ "attribution_required_on_pages_using_it": "GeoNames, CC BY 4.0"
+}

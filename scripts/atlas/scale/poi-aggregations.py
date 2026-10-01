@@ -245,7 +245,7 @@ for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
     for c in lst:
         if c and c.get('lat') is not None and c.get('country'):
             cities.append((c['country'], c.get('name'), float(c['lat']), float(c['lon']),
-                           c.get('population') or 0))
+                           c.get('population') or 0, str(c.get('id') or '')))
 # A gazetteer "city" that sits inside a much larger city is a QUARTER of it, not a city.
 # GeoNames lists Quinze-Vingts with 26,265 people and feature class PPL, and it is the
 # 12th arrondissement of Paris; Natahoyo is a district of Gijon. Left as cities they
@@ -259,7 +259,7 @@ for rec in cities:
 
 SUBAREA_OF = {}
 SUBAREA_POP_CEILING = 35_000      # see the note below
-for (cc, nm, la, lo, pop) in cities:
+for (cc, nm, la, lo, pop, cid) in cities:
     if not nm or pop >= SUBAREA_POP_CEILING:
         # A population ceiling is required, or the test demotes real cities: Yonkers at
         # 200,000 and Newark at 300,000 both sit inside New York's radius and are both
@@ -273,7 +273,7 @@ for (cc, nm, la, lo, pop) in cities:
     best = None
     for dla in (-1, 0, 1):
         for dlo in (-1, 0, 1):
-            for (c2, n2, la2, lo2, p2) in _city_by_cell.get((cc, int(la) + dla, int(lo) + dlo), ()):
+            for (c2, n2, la2, lo2, p2, id2) in _city_by_cell.get((cc, int(la) + dla, int(lo) + dlo), ()):
                 if n2 == nm or p2 < max(50_000, pop * 5):
                     continue
                 d = math.hypot((la2 - la) * 111.0,
@@ -281,29 +281,106 @@ for (cc, nm, la, lo, pop) in cities:
                 if d <= radius_km(p2) and (best is None or p2 > best[1]):
                     best = (n2, p2)
     if best:
-        SUBAREA_OF[(cc, nm)] = best[0]
+        SUBAREA_OF[cid] = best[0]
 
 # POI attribute to real cities only, so a quarter never becomes the parent of an area
 buckets = collections.defaultdict(list)
 for rec in cities:
-    if (rec[0], rec[1]) in SUBAREA_OF:
+    if rec[5] in SUBAREA_OF:
         continue
     buckets[(rec[0], int(rec[2]), int(rec[3]))].append(rec)
 print(f'gazetteer cities: {len(cities):,}; of those {len(SUBAREA_OF):,} sit inside a '
       f'larger city and are treated as its quarters, not as cities', file=sys.stderr)
 
 def nearest_city(country, lat, lon):
-    """Return (name, population) of the nearest city that may claim this point."""
+    """Return (name, population, id) of the nearest city that may claim this point."""
     best = None; bestd = 1e9
     ilat, ilon = int(lat), int(lon)
     for dla in (-1, 0, 1):
         for dlo in (-1, 0, 1):
-            for (cc, nm, cla, clo, pop) in buckets.get((country, ilat + dla, ilon + dlo), ()):
+            for (cc, nm, cla, clo, pop, cid) in buckets.get((country, ilat + dla, ilon + dlo), ()):
                 dla_km = (cla - lat) * 111.0
                 dlo_km = (clo - lon) * 111.0 * math.cos(math.radians(lat))
                 d = math.hypot(dla_km, dlo_km)
                 if d < bestd and d <= radius_km(pop):
-                    bestd = d; best = (nm, pop)
+                    bestd = d; best = (nm, pop, cid)
+    return best
+
+
+# ---- identity, not names ---------------------------------------------------------------
+# The OSM addr:city tag is a STRING, and matching it against the gazetteer by string is a
+# name-only join: every Woodstock in the United States was being merged into one page, and
+# every Kariya in Japan likewise. That is worse than a duplicate URL, because the counts on
+# the page are then the sum of several different towns.
+#
+# Coordinates settle it. Where a tagged name matches more than one city in the country, the
+# nearest candidate to the POI wins, and only when it is close enough to be plausible; a
+# tagged name that matches nothing in the gazetteer falls through to spatial attribution,
+# which was always the path for untagged POI. Nothing is guessed from the name alone.
+BY_NAME = collections.defaultdict(list)
+for (cc, nm, cla, clo, pop, cid) in cities:
+    if nm:
+        BY_NAME[(cc, nm.strip().casefold())].append((cla, clo, pop, cid, nm))
+
+CITY_REC = {}
+for (cc, nm, cla, clo, pop, cid) in cities:
+    if cid:
+        CITY_REC[cid] = {'country': cc, 'name': nm, 'lat': cla, 'lon': clo, 'pop': pop}
+
+name_resolution = collections.Counter()
+
+# The labels and slugs come from the one module both URL builders share, so the manifest and
+# this file cannot disagree about which Woodstock is which.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity                                      # noqa: E402
+GAZ = entity_identity.load_gazetteer()
+CITY_LABEL = {cid: GAZ.label(cid) for cid in GAZ.by_id}
+CITY_COUNTRY = {cid: GAZ.by_id[cid]['country'] for cid in GAZ.by_id}
+CITY_ADMIN1 = {cid: GAZ.by_id[cid]['admin1'] for cid in GAZ.by_id}
+_CITY_SLUGS = None
+
+
+def city_slug(cid):
+    global _CITY_SLUGS
+    if _CITY_SLUGS is None:
+        _CITY_SLUGS = GAZ.slugs(slug)
+    return _CITY_SLUGS.get(str(cid), '')
+
+
+def city_label(cid):
+    return CITY_LABEL.get(str(cid), '')
+
+
+def resolve_tagged_city(country, name, lat, lon):
+    """A tagged city name plus coordinates, to one gazetteer id. '' when it cannot be done."""
+    cands = BY_NAME.get((country, (name or '').strip().casefold()))
+    if not cands:
+        name_resolution['tag_name_not_in_gazetteer'] += 1
+        return ''
+    if len(cands) == 1:
+        name_resolution['tag_name_unique_in_country'] += 1
+        return cands[0][3]
+    if lat is None or lon is None:
+        # several candidates and nothing to choose between them. Guessing would attribute
+        # POI to the wrong town, so the POI is left for the spatial path or dropped.
+        name_resolution['tag_name_ambiguous_and_no_coordinates'] += 1
+        return ''
+    best, bestd = '', 1e9
+    for (cla, clo, pop, cid, _nm) in cands:
+        dla = (cla - float(lat)) * 111.0
+        dlo = (clo - float(lon)) * 111.0 * math.cos(math.radians(float(lat)))
+        d = math.hypot(dla, dlo)
+        if d < bestd:
+            bestd, best = d, cid
+    if not best:
+        return ''
+    pop = CITY_REC.get(best, {}).get('pop', 0)
+    if bestd > max(radius_km(pop), 25.0):
+        # the nearest city of that name is implausibly far away, so the tag is probably not
+        # this gazetteer city at all
+        name_resolution['tag_name_ambiguous_nearest_too_far'] += 1
+        return ''
+    name_resolution['tag_name_ambiguous_resolved_by_coordinates'] += 1
     return best
 
 
@@ -311,7 +388,7 @@ def nearest_city(country, lat, lon):
 # re-running the spatial search. Where a name repeats inside a country the largest wins,
 # which is the one a bare city name in a query means.
 CITY_POP = {}
-for (cc, nm, cla, clo, pop) in cities:
+for (cc, nm, cla, clo, pop, cid) in cities:
     if nm:
         k = (cc, nm)
         if pop > CITY_POP.get(k, -1):
@@ -320,6 +397,14 @@ for (cc, nm, cla, clo, pop) in cities:
 
 def city_pop(country, name):
     return CITY_POP.get((country, name), 0)
+
+
+def city_pop_id(cid):
+    """Population by stable id. The name-keyed lookup above took the LARGEST city of a
+    repeated name, which was the right answer for a bare query and the wrong one for a
+    specific city: it let a small Woodstock inherit a big Woodstock's population and clear a
+    floor it does not reach."""
+    return (CITY_REC.get(str(cid)) or {}).get('pop', 0)
 
 
 # Demand floors measured with Ahrefs on 2026-10-01 and recorded in
@@ -422,9 +507,15 @@ for p in places.values():
         # a neighbourhood that resolves to no city has no hierarchy, so no breadcrumb,
         # no parent and no way to disambiguate its name. Not a page.
         rejects['place_no_parent_city'] += 1; continue
-    city, _cpop = hit
-    p['_city'] = city
-    by_name_in_city[(p['country'], city, name.casefold())] += 1
+    _cname, _cpop, _cid = hit
+    if not _cid:
+        rejects['place_parent_city_has_no_stable_id'] += 1; continue
+    # the parent is the city IDENTITY; _city is the label a reader sees, which may carry the
+    # region where two cities in this country share a name
+    p['_city_id'] = _cid
+    p['_city'] = city_label(_cid)
+    p['_cslug'] = city_slug(_cid)
+    by_name_in_city[(_cid, name.casefold())] += 1
     resolved.append(p)
 
 places_ok = []
@@ -432,7 +523,7 @@ for p in resolved:
     if not area_is_named(p):
         # no polygon, no population, no Wikidata, no Wikipedia: a bare name on a map
         rejects['place_not_a_named_entity'] += 1; continue
-    if by_name_in_city[(p['country'], p['_city'], (p['name'] or '').strip().casefold())] > 1:
+    if by_name_in_city[(p['_city_id'], (p['name'] or '').strip().casefold())] > 1:
         # two different OSM objects with the same name in the same city: ambiguous,
         # and the brief is explicit that an ambiguous neighbourhood gets no page
         rejects['place_ambiguous_duplicate_name_in_city'] += 1; continue
@@ -520,19 +611,25 @@ for o in iter_poi():
         counts['poi_duplicate_across_extracts'] += 1; continue
     seen_poi.add(k)
     lat, lon = o.get('lat'), o.get('lon')
-    city = (o.get('city') or '').strip()
+    tagged = (o.get('city') or '').strip()
     how = 'tag'
-    if not city:
+    cid = ''
+    if tagged:
+        cid = resolve_tagged_city(o['country'], tagged, lat, lon)
+    if not cid:
+        # either untagged, or a tag that could not be resolved to one gazetteer city
         if lat is None or lon is None:
             counts['poi_unattributable'] += 1; continue
         hit = nearest_city(o['country'], float(lat), float(lon))
         how = 'spatial'
         if not hit:
             counts['poi_unattributable'] += 1; continue
-        city = hit[0]
+        cid = hit[2]
+        if not cid:
+            counts['poi_unattributable'] += 1; continue
     counts['attr_' + how] += 1
     rich = bool(o.get('oh') or o.get('web') or o.get('tel'))
-    ck = (o['country'], city, o['cls'])
+    ck = (cid, o['cls'])
     city_n[ck] += 1
     if rich: city_rich[ck] += 1
     if how != 'tag': city_tagonly[ck] = False
@@ -576,8 +673,8 @@ for o in iter_poi():
         for cu in cuisines(o['cuisine']):
             if cu not in CUISINE_OK:
                 continue
-            city_cu[(o['country'], city, cu)] += 1
-            if rich: city_cu_rich[(o['country'], city, cu)] += 1
+            city_cu[(cid, cu)] += 1
+            if rich: city_cu_rich[(cid, cu)] += 1
             if _area_pi is not None:
                 area_cu[(_area_pi, cu)] += 1
                 if rich: area_cu_rich[(_area_pi, cu)] += 1
@@ -585,30 +682,30 @@ for o in iter_poi():
         v = str(attrs.get(an, '')).lower()
         if not v or v not in ok: continue
         if o['cls'] not in ATTR_CLASSES.get(an, ()): continue
-        city_at[(o['country'], city, o['cls'], an)] += 1
-        if rich: city_at_rich[(o['country'], city, o['cls'], an)] += 1
+        city_at[(cid, o['cls'], an)] += 1
+        if rich: city_at_rich[(cid, o['cls'], an)] += 1
         if _area_pi is not None:
             area_at[(_area_pi, o['cls'], an)] += 1
     for mode in open_modes(o.get('oh')):
         if o['cls'] not in OPEN_MODES[mode]: continue
-        city_op[(o['country'], city, o['cls'], mode)] += 1
-        if rich: city_op_rich[(o['country'], city, o['cls'], mode)] += 1
+        city_op[(cid, o['cls'], mode)] += 1
+        if rich: city_op_rich[(cid, o['cls'], mode)] += 1
         if _area_pi is not None:
             area_op[(_area_pi, o['cls'], mode)] += 1
     if o['cls'] in SPORT_CLASSES and attrs.get('sport'):
         for sp in str(attrs['sport']).replace(',', ';').split(';'):
             sp = sp.strip().lower()
             if sp and sp not in VAGUE_SPORT and 2 < len(sp) < 24:
-                city_sp[(o['country'], city, sp)] += 1
+                city_sp[(cid, sp)] += 1
 
     if o['cls'] in NOTABLE_CLASSES and o.get('qid'):
         extras = sum(1 for kk in ('oh','web','tel','city','qid') if o.get(kk))
-        notable.append((o, city, extras))
+        notable.append((o, cid, extras))
 
 print(f"POI read: {counts['poi_read']:,}  attributed tag: {counts['attr_tag']:,} "
       f"spatial: {counts['attr_spatial']:,}  unattributable: {counts['poi_unattributable']:,} "
       f"cross-extract duplicates: {counts['poi_duplicate_across_extracts']:,}", file=sys.stderr)
-print(f'distinct (country, city) class cells: {len(city_n):,}', file=sys.stderr)
+print(f'distinct (city id, class) cells: {len(city_n):,}', file=sys.stderr)
 
 rows = []
 # Which city-level pages were actually accepted. An area page whose parent city page was
@@ -622,7 +719,13 @@ accepted_city_attr = set()
 accepted_city_open = set()
 
 # ---- 1. city x category ----------------------------------------------------
-for (country, city, cls), n in city_n.items():
+for (cid, cls), n in city_n.items():
+    # country, display label and slug all come from the stable id, so two cities of the
+    # same name are two pages and the label tells a reader which is which.
+    country = CITY_COUNTRY.get(cid, '')
+    city = city_label(cid)
+    cslug = city_slug(cid)
+
     mk = COUNTRY_MKT.get(country)
     if not mk:
         rejects['no_market_for_country'] += 1; continue
@@ -632,19 +735,19 @@ for (country, city, cls), n in city_n.items():
         rejects['class_not_a_list_intent'] += 1; continue
     if n < need:
         rejects['below_min_count'] += 1; continue
-    enriched = city_rich[(country, city, cls)]
+    enriched = city_rich[(cid, cls)]
     if enriched < max(2, n // 10):
         rejects['entries_too_thin'] += 1; continue
     rows.append({
-        'shape': 'city_category', 'country': country, 'city': city, 'cls': cls,
+        'shape': 'city_category', 'country': country, 'city': city, 'city_id': cid, 'cls': cls,
         'n': n, 'enriched': enriched, 'market': market, 'language': lang,
-        'url': f'/{lang}/places/{slug(cls)}/{slug(city)}/',
-        'attribution': 'tag' if city_tagonly[(country, city, cls)] else 'mixed_tag_and_spatial',
+        'url': f'/{lang}/places/{slug(cls)}/{cslug}/',
+        'attribution': 'tag' if city_tagonly[(cid, cls)] else 'mixed_tag_and_spatial',
         'uniqueness_reason': (f'{n} distinct named {cls} entities in {city} from OSM, '
             f'{enriched} with hours, website or phone: a list a person searching '
             f'"{cls} in {city}" cannot get from any single venue page'),
     })
-    accepted_city.add((country, city, cls))
+    accepted_city.add((cid, cls))
 
 # ---- 2. area x category ----------------------------------------------------
 for (pi, cls), n in area_n.items():
@@ -655,14 +758,14 @@ for (pi, cls), n in area_n.items():
     need = MIN_FOR_AREA.get(cls)
     if need is None:
         rejects['area_class_not_a_list_intent'] += 1; continue
-    if (p['country'], p['_city'], cls) not in accepted_city:
+    if (p['_city_id'], cls) not in accepted_city:
         rejects['area_parent_city_page_not_accepted'] += 1; continue
     if n < need:
         rejects['area_below_min_count'] += 1; continue
     enriched = area_rich[(pi, cls)]
     if enriched < max(1, n // 10):
         rejects['area_entries_too_thin'] += 1; continue
-    city_total = city_n.get((p['country'], p['_city'], cls), 0)
+    city_total = city_n.get((p['_city_id'], cls), 0)
     if city_total and n >= 0.8 * city_total:
         # the neighbourhood list is the city list: publishing both cannibalises, and
         # the city page is the one with the demand behind it
@@ -671,12 +774,12 @@ for (pi, cls), n in area_n.items():
     basis = ('OSM polygon' if method == 'containment'
              else f"OSM place node, {POINT_RADIUS_KM.get(p['cls'], 1.0)}km radius")
     rows.append({
-        'shape': 'area_category', 'country': p['country'], 'city': p['_city'],
+        'shape': 'area_category', 'country': p['country'], 'city': p['_city'], 'city_id': p['_city_id'],
         'area': p['name'], 'area_id': p['id'], 'area_class': p['cls'],
         'area_method': method, 'cls': cls, 'n': n, 'enriched': enriched,
         'market': market, 'language': lang,
-        'url': f"/{lang}/places/{slug(cls)}/{slug(p['_city'])}/{slug(p['name'])}/",
-        'parent_url': f"/{lang}/places/{slug(cls)}/{slug(p['_city'])}/",
+        'url': f"/{lang}/places/{slug(cls)}/{p['_cslug']}/{slug(p['name'])}/",
+        'parent_url': f"/{lang}/places/{slug(cls)}/{p['_cslug']}/",
         'attribution': method,
         'uniqueness_reason': (f"{n} named {cls} entities inside {p['name']}, a "
             f"{p['cls']} of {p['_city']} ({basis}), against {city_total} in the "
@@ -687,32 +790,38 @@ for (pi, cls), n in area_n.items():
 # These are the strongest aggregation axis OSM supports: "indian restaurants in
 # Manchester" has demand, has a stable answer, and cannot be satisfied by the generic
 # restaurants page. The gate is the count of venues actually tagged with the cuisine.
-for (country, city, cu), n in city_cu.items():
+for (cid, cu), n in city_cu.items():
+    # country, display label and slug all come from the stable id, so two cities of the
+    # same name are two pages and the label tells a reader which is which.
+    country = CITY_COUNTRY.get(cid, '')
+    city = city_label(cid)
+    cslug = city_slug(cid)
+
     mk = COUNTRY_MKT.get(country)
     if not mk:
         rejects['no_market_for_country'] += 1; continue
     market, lang = mk
     if n < MIN_CUISINE_CITY:
         rejects['cuisine_below_min_count'] += 1; continue
-    if city_pop(country, city) < POP_FLOOR_CUISINE:
+    if city_pop_id(cid) < POP_FLOOR_CUISINE:
         rejects['cuisine_city_below_measured_demand_floor'] += 1; continue
-    if (country, city, 'restaurant') not in accepted_city:
+    if (cid, 'restaurant') not in accepted_city:
         # a cuisine page sits under the city's restaurant list, which has its own gates
         rejects['cuisine_parent_restaurant_list_not_accepted'] += 1; continue
-    enriched = city_cu_rich[(country, city, cu)]
+    enriched = city_cu_rich[(cid, cu)]
     if enriched < max(1, n // 10):
         rejects['cuisine_entries_too_thin'] += 1; continue
     rows.append({
-        'shape': 'city_cuisine', 'country': country, 'city': city, 'cls': 'restaurant',
+        'shape': 'city_cuisine', 'country': country, 'city': city, 'city_id': cid, 'cls': 'restaurant',
         'cuisine': cu, 'n': n, 'enriched': enriched, 'market': market, 'language': lang,
-        'url': f'/{lang}/places/food/{slug(cu)}/{slug(city)}/',
-        'parent_url': f'/{lang}/places/restaurant/{slug(city)}/',
+        'url': f'/{lang}/places/food/{slug(cu)}/{cslug}/',
+        'parent_url': f'/{lang}/places/restaurant/{cslug}/',
         'attribution': 'tag',
         'uniqueness_reason': (f'{n} venues in {city} tagged {cu} in OSM, {enriched} with '
             f'hours, website or phone: a cuisine-specific list the generic restaurants '
             f'page cannot answer'),
     })
-    accepted_city_cuisine.add((country, city, cu))
+    accepted_city_cuisine.add((cid, cu))
 
 for (pi, cu), n in area_cu.items():
     p = places_ok[pi]
@@ -721,24 +830,24 @@ for (pi, cu), n in area_cu.items():
     market, lang = mk
     if n < MIN_CUISINE_AREA:
         rejects['area_cuisine_below_min_count'] += 1; continue
-    if (p['country'], p['_city'], cu) not in accepted_city_cuisine:
+    if (p['_city_id'], cu) not in accepted_city_cuisine:
         rejects['area_cuisine_parent_page_not_accepted'] += 1; continue
-    if city_pop(p['country'], p['_city']) < POP_FLOOR_CUISINE:
+    if city_pop_id(p['_city_id']) < POP_FLOOR_CUISINE:
         # the area inherits its city's demand context. Without this the inventory grew
         # more area modifier pages than city ones, and each of them would have had a
         # parent page that the city floor had already rejected: an orphan by design.
         rejects['area_cuisine_city_below_measured_demand_floor'] += 1; continue
-    city_total = city_cu.get((p['country'], p['_city'], cu), 0)
+    city_total = city_cu.get((p['_city_id'], cu), 0)
     if city_total and n >= 0.8 * city_total:
         rejects['area_cuisine_duplicates_city_list'] += 1; continue
     rows.append({
-        'shape': 'area_cuisine', 'country': p['country'], 'city': p['_city'],
+        'shape': 'area_cuisine', 'country': p['country'], 'city': p['_city'], 'city_id': p['_city_id'],
         'area': p['name'], 'area_id': p['id'], 'area_class': p['cls'],
         'area_method': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'cls': 'restaurant', 'cuisine': cu, 'n': n,
         'enriched': area_cu_rich[(pi, cu)], 'market': market, 'language': lang,
-        'url': f"/{lang}/places/food/{slug(cu)}/{slug(p['_city'])}/{slug(p['name'])}/",
-        'parent_url': f"/{lang}/places/food/{slug(cu)}/{slug(p['_city'])}/",
+        'url': f"/{lang}/places/food/{slug(cu)}/{p['_cslug']}/{slug(p['name'])}/",
+        'parent_url': f"/{lang}/places/food/{slug(cu)}/{p['_cslug']}/",
         'attribution': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'uniqueness_reason': (f"{n} venues tagged {cu} inside {p['name']}, a {p['cls']} "
             f"of {p['_city']}, against {city_total} citywide: a neighbourhood cuisine "
@@ -761,36 +870,42 @@ ATTR_LABEL = {'wifi': 'wifi', 'outdoor': 'outdoor seating', 'wheelchair': 'wheel
               'halal': 'halal options', 'kosher': 'kosher options',
               'gluten_free': 'gluten free options', 'dog': 'dogs allowed',
               'drive_through': 'drive through', 'changing_table': 'baby changing'}
-for (country, city, cls, an), n in city_at.items():
+for (cid, cls, an), n in city_at.items():
+    # country, display label and slug all come from the stable id, so two cities of the
+    # same name are two pages and the label tells a reader which is which.
+    country = CITY_COUNTRY.get(cid, '')
+    city = city_label(cid)
+    cslug = city_slug(cid)
+
     mk = COUNTRY_MKT.get(country)
     if not mk:
         rejects['no_market_for_country'] += 1; continue
     market, lang = mk
     if n < MIN_ATTR_CITY:
         rejects['attr_below_min_count'] += 1; continue
-    if city_pop(country, city) < POP_FLOOR_ATTR:
+    if city_pop_id(cid) < POP_FLOOR_ATTR:
         rejects['attr_city_below_measured_demand_floor'] += 1; continue
-    if (country, city, cls) not in accepted_city:
+    if (cid, cls) not in accepted_city:
         # the modifier page hangs off the plain class list, so without it there is nothing
         # on the site linking down to this page
         rejects['attr_parent_city_page_not_accepted'] += 1; continue
-    base = city_n.get((country, city, cls), 0)
+    base = city_n.get((cid, cls), 0)
     if base and n >= 0.9 * base:
         # if nearly every venue in the city has the attribute, the filter tells the
         # reader nothing and the page is the category page again
         rejects['attr_not_discriminating'] += 1; continue
     rows.append({
-        'shape': 'city_attribute', 'country': country, 'city': city, 'cls': cls,
-        'attribute': an, 'n': n, 'enriched': city_at_rich[(country, city, cls, an)],
+        'shape': 'city_attribute', 'country': country, 'city': city, 'city_id': cid, 'cls': cls,
+        'attribute': an, 'n': n, 'enriched': city_at_rich[(cid, cls, an)],
         'market': market, 'language': lang,
-        'url': f'/{lang}/places/{slug(cls)}/{slug(city)}/{slug(an)}/',
-        'parent_url': f'/{lang}/places/{slug(cls)}/{slug(city)}/',
+        'url': f'/{lang}/places/{slug(cls)}/{cslug}/{slug(an)}/',
+        'parent_url': f'/{lang}/places/{slug(cls)}/{cslug}/',
         'attribution': 'tag',
         'uniqueness_reason': (f'{n} of {base} {cls} entities in {city} are tagged '
             f'{ATTR_LABEL.get(an, an)} in OSM: a filter backed by the tag on each '
             f'entity, not an assertion about the city'),
     })
-    accepted_city_attr.add((country, city, cls, an))
+    accepted_city_attr.add((cid, cls, an))
 
 for (pi, cls, an), n in area_at.items():
     p = places_ok[pi]
@@ -799,32 +914,38 @@ for (pi, cls, an), n in area_at.items():
     market, lang = mk
     if n < MIN_ATTR_AREA:
         rejects['area_attr_below_min_count'] += 1; continue
-    if (p['country'], p['_city'], cls, an) not in accepted_city_attr:
+    if (p['_city_id'], cls, an) not in accepted_city_attr:
         rejects['area_attr_parent_page_not_accepted'] += 1; continue
     if not area_is_searched_entity(p):
         rejects['area_attr_area_not_a_searched_entity'] += 1; continue
-    if city_pop(p['country'], p['_city']) < POP_FLOOR_ATTR:
+    if city_pop_id(p['_city_id']) < POP_FLOOR_ATTR:
         rejects['area_attr_city_below_measured_demand_floor'] += 1; continue
     if (p['id'], cls) not in accepted_area_cat:
         rejects['area_attr_parent_area_page_not_accepted'] += 1; continue
-    city_total = city_at.get((p['country'], p['_city'], cls, an), 0)
+    city_total = city_at.get((p['_city_id'], cls, an), 0)
     if city_total and n >= 0.8 * city_total:
         rejects['area_attr_duplicates_city_list'] += 1; continue
     rows.append({
-        'shape': 'area_attribute', 'country': p['country'], 'city': p['_city'],
+        'shape': 'area_attribute', 'country': p['country'], 'city': p['_city'], 'city_id': p['_city_id'],
         'area': p['name'], 'area_id': p['id'], 'area_class': p['cls'],
         'area_method': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'cls': cls, 'attribute': an, 'n': n, 'enriched': n,
         'market': market, 'language': lang,
-        'url': f"/{lang}/places/{slug(cls)}/{slug(p['_city'])}/{slug(p['name'])}/{slug(an)}/",
-        'parent_url': f"/{lang}/places/{slug(cls)}/{slug(p['_city'])}/{slug(p['name'])}/",
+        'url': f"/{lang}/places/{slug(cls)}/{p['_cslug']}/{slug(p['name'])}/{slug(an)}/",
+        'parent_url': f"/{lang}/places/{slug(cls)}/{p['_cslug']}/{slug(p['name'])}/",
         'attribution': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'uniqueness_reason': (f"{n} {cls} entities tagged {ATTR_LABEL.get(an, an)} inside "
             f"{p['name']} ({p['cls']} of {p['_city']}), against {city_total} citywide"),
     })
 
 # ---- 2c-bis. opening hours -------------------------------------------------
-for (country, city, cls, mode), n in city_op.items():
+for (cid, cls, mode), n in city_op.items():
+    # country, display label and slug all come from the stable id, so two cities of the
+    # same name are two pages and the label tells a reader which is which.
+    country = CITY_COUNTRY.get(cid, '')
+    city = city_label(cid)
+    cslug = city_slug(cid)
+
     mk = COUNTRY_MKT.get(country)
     if not mk:
         rejects['no_market_for_country'] += 1; continue
@@ -832,27 +953,27 @@ for (country, city, cls, mode), n in city_op.items():
     if n < MIN_OPEN_CITY[mode]:
         rejects['opening_below_min_count'] += 1; continue
     floor = POP_FLOOR_OPENING_DE if country == 'DE' else POP_FLOOR_OPENING
-    if city_pop(country, city) < floor:
+    if city_pop_id(cid) < floor:
         rejects['opening_city_below_measured_demand_floor'] += 1; continue
-    if (country, city, cls) not in accepted_city:
+    if (cid, cls) not in accepted_city:
         rejects['opening_parent_city_page_not_accepted'] += 1; continue
-    base = city_n.get((country, city, cls), 0)
+    base = city_n.get((cid, cls), 0)
     if base and n >= 0.9 * base:
         # if essentially everything of that kind in the city is open then, the page is
         # the category page under a different title
         rejects['opening_not_discriminating'] += 1; continue
     rows.append({
-        'shape': 'city_opening', 'country': country, 'city': city, 'cls': cls,
-        'opening': mode, 'n': n, 'enriched': city_op_rich[(country, city, cls, mode)],
+        'shape': 'city_opening', 'country': country, 'city': city, 'city_id': cid, 'cls': cls,
+        'opening': mode, 'n': n, 'enriched': city_op_rich[(cid, cls, mode)],
         'market': market, 'language': lang,
-        'url': f'/{lang}/places/{slug(cls)}/{slug(city)}/{slug(mode)}/',
-        'parent_url': f'/{lang}/places/{slug(cls)}/{slug(city)}/',
+        'url': f'/{lang}/places/{slug(cls)}/{cslug}/{slug(mode)}/',
+        'parent_url': f'/{lang}/places/{slug(cls)}/{cslug}/',
         'attribution': 'tag',
         'uniqueness_reason': (f'{n} of {base} {cls} entities in {city} carry an OSM '
             f'opening_hours value that reads as {OPEN_LABEL[mode]}: a time-based answer '
             f'read from each entity own hours, not asserted about the city'),
     })
-    accepted_city_open.add((country, city, cls, mode))
+    accepted_city_open.add((cid, cls, mode))
 
 for (pi, cls, mode), n in area_op.items():
     p = places_ok[pi]
@@ -861,52 +982,58 @@ for (pi, cls, mode), n in area_op.items():
     market, lang = mk
     if n < MIN_OPEN_AREA[mode]:
         rejects['area_opening_below_min_count'] += 1; continue
-    if (p['country'], p['_city'], cls, mode) not in accepted_city_open:
+    if (p['_city_id'], cls, mode) not in accepted_city_open:
         rejects['area_opening_parent_page_not_accepted'] += 1; continue
     if not area_is_searched_entity(p):
         rejects['area_opening_area_not_a_searched_entity'] += 1; continue
     ofloor = POP_FLOOR_OPENING_DE if p['country'] == 'DE' else POP_FLOOR_OPENING
-    if city_pop(p['country'], p['_city']) < ofloor:
+    if city_pop_id(p['_city_id']) < ofloor:
         rejects['area_opening_city_below_measured_demand_floor'] += 1; continue
     if (p['id'], cls) not in accepted_area_cat:
         rejects['area_opening_parent_area_page_not_accepted'] += 1; continue
-    city_total = city_op.get((p['country'], p['_city'], cls, mode), 0)
+    city_total = city_op.get((p['_city_id'], cls, mode), 0)
     if city_total and n >= 0.8 * city_total:
         rejects['area_opening_duplicates_city_list'] += 1; continue
     rows.append({
-        'shape': 'area_opening', 'country': p['country'], 'city': p['_city'],
+        'shape': 'area_opening', 'country': p['country'], 'city': p['_city'], 'city_id': p['_city_id'],
         'area': p['name'], 'area_id': p['id'], 'area_class': p['cls'],
         'area_method': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'cls': cls, 'opening': mode, 'n': n, 'enriched': n,
         'market': market, 'language': lang,
-        'url': f"/{lang}/places/{slug(cls)}/{slug(p['_city'])}/{slug(p['name'])}/{slug(mode)}/",
-        'parent_url': f"/{lang}/places/{slug(cls)}/{slug(p['_city'])}/{slug(p['name'])}/",
+        'url': f"/{lang}/places/{slug(cls)}/{p['_cslug']}/{slug(p['name'])}/{slug(mode)}/",
+        'parent_url': f"/{lang}/places/{slug(cls)}/{p['_cslug']}/{slug(p['name'])}/",
         'attribution': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'uniqueness_reason': (f"{n} {cls} entities {OPEN_LABEL[mode]} inside {p['name']} "
             f"({p['cls']} of {p['_city']}), against {city_total} citywide"),
     })
 
 # ---- 2d. city x sport ------------------------------------------------------
-for (country, city, sp), n in city_sp.items():
+for (cid, sp), n in city_sp.items():
+    # country, display label and slug all come from the stable id, so two cities of the
+    # same name are two pages and the label tells a reader which is which.
+    country = CITY_COUNTRY.get(cid, '')
+    city = city_label(cid)
+    cslug = city_slug(cid)
+
     mk = COUNTRY_MKT.get(country)
     if not mk:
         rejects['no_market_for_country'] += 1; continue
     market, lang = mk
     if n < MIN_SPORT_CITY:
         rejects['sport_below_min_count'] += 1; continue
-    if (country, city, 'sports_centre') not in accepted_city:
+    if (cid, 'sports_centre') not in accepted_city:
         # a sport page sits under the city's sports centre list, which has its own gate
         rejects['sport_parent_city_page_not_accepted'] += 1; continue
     rows.append({
-        'shape': 'city_sport', 'country': country, 'city': city, 'cls': 'sports_facility',
+        'shape': 'city_sport', 'country': country, 'city': city, 'city_id': cid, 'cls': 'sports_facility',
         'sport': sp, 'n': n, 'enriched': n, 'market': market, 'language': lang,
-        'url': f'/{lang}/places/sport/{slug(sp)}/{slug(city)}/',
+        'url': f'/{lang}/places/sport/{slug(sp)}/{cslug}/',
         # slug(), not the raw class key. The city list page for this class lives at
         # slug('sports_centre') which is "sports-centre" with a hyphen, so hardcoding the
         # underscore made every city_sport page declare a parent URL that cannot exist.
         # That was all 37 remaining orphans: the gate above was correct and the string was
         # not, which is why the count looked fine from every angle except the link graph.
-        'parent_url': f"/{lang}/places/{slug('sports_centre')}/{slug(city)}/",
+        'parent_url': f"/{lang}/places/{slug('sports_centre')}/{cslug}/",
         'attribution': 'tag',
         'uniqueness_reason': (f'{n} facilities in {city} tagged for {sp} in OSM: the '
             f'answer to "where can I play {sp} in {city}", which no generic sports '
@@ -924,7 +1051,7 @@ for pi, (total, ncls) in area_breadth.items():
     if ncls >= 4 and total >= 25:
         pp = places_ok[pi]
         if COUNTRY_MKT.get(pp['country']):
-            areas_in_city[(pp['country'], pp['_city'])] += 1
+            areas_in_city[pp['_city_id']] += 1
 
 for pi, (total, ncls) in area_breadth.items():
     p = places_ok[pi]
@@ -933,7 +1060,7 @@ for pi, (total, ncls) in area_breadth.items():
     market, lang = mk
     if ncls < 4 or total < 25:
         rejects['area_parent_too_narrow'] += 1; continue
-    if areas_in_city[(p['country'], p['_city'])] < 3:
+    if areas_in_city[p['_city_id']] < 3:
         # the city areas hub needs three described neighbourhoods to be a list worth
         # reading, so an overview in a city with fewer has no parent to live under. The QA
         # pass found 864 of these: a page that nothing links down to is not reachable.
@@ -945,13 +1072,13 @@ for pi, (total, ncls) in area_breadth.items():
         # name on a map and cannot carry an area overview page
         rejects['area_parent_entity_too_thin'] += 1; continue
     rows.append({
-        'shape': 'area_parent', 'country': p['country'], 'city': p['_city'],
+        'shape': 'area_parent', 'country': p['country'], 'city': p['_city'], 'city_id': p['_city_id'],
         'area': p['name'], 'area_id': p['id'], 'area_class': p['cls'],
         'area_method': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'cls': 'area_overview', 'n': total, 'enriched': ncls,
         'market': market, 'language': lang,
-        'url': f"/{lang}/areas/{slug(p['_city'])}/{slug(p['name'])}/",
-        'parent_url': f"/{lang}/areas/{slug(p['_city'])}/",
+        'url': f"/{lang}/areas/{p['_cslug']}/{slug(p['name'])}/",
+        'parent_url': f"/{lang}/areas/{p['_cslug']}/",
         'attribution': 'containment' if p.get('geometry') == 'polygon' else 'proximity',
         'uniqueness_reason': (f"{p['name']} is a named {p['cls']} of {p['_city']} with "
             f"{total} mapped entities across {ncls} categories and "
@@ -969,17 +1096,20 @@ for pi, (total, ncls) in area_breadth.items():
 areas_by_city = collections.defaultdict(list)
 for r in rows:
     if r['shape'] == 'area_parent':
-        areas_by_city[(r['country'], r['city'])].append(r)
-for (country, city), lst in areas_by_city.items():
+        areas_by_city[(r['country'], r.get('city_id') or r['city'])].append(r)
+for (country, _ckey), lst in areas_by_city.items():
+    city = lst[0]['city']
+    cid = lst[0].get('city_id') or ''
+    cslug = city_slug(cid) if cid else slug(city)
     if len(lst) < 3:
         rejects['areas_hub_too_few_areas'] += 1; continue
     market, lang = COUNTRY_MKT[country]
     named = sum(1 for r in lst if r['area_method'] == 'containment')
     rows.append({
-        'shape': 'city_areas_hub', 'country': country, 'city': city,
+        'shape': 'city_areas_hub', 'country': country, 'city': city, 'city_id': cid,
         'cls': 'areas_index', 'n': len(lst), 'enriched': named,
         'market': market, 'language': lang,
-        'url': f'/{lang}/areas/{slug(city)}/',
+        'url': f'/{lang}/areas/{cslug}/',
         'attribution': 'containment' if named == len(lst) else 'mixed',
         'uniqueness_reason': (f'{len(lst)} named neighbourhoods of {city} that each have '
             f'enough mapped entities to describe, {named} of them with a mapped polygon: '
@@ -993,21 +1123,24 @@ for (country, city), lst in areas_by_city.items():
 # orphans. So the parent is resolved against pages that actually exist: the class list
 # first, then the city areas hub. An entity with neither has no home on the site and is
 # rejected rather than published into nowhere.
-hub_cities = {(r['country'], r['city']) for r in rows if r['shape'] == 'city_areas_hub'}
-for o, city, extras in notable:
+hub_cities = {(r['country'], r.get('city_id') or r['city'])
+              for r in rows if r['shape'] == 'city_areas_hub'}
+for o, _ncid, extras in notable:
+    city = city_label(_ncid)
+    cslug = city_slug(_ncid)
     mk = COUNTRY_MKT.get(o['country'])
     if not mk: continue
     market, lang = mk
     if extras < 3:
         rejects['notable_but_data_thin'] += 1; continue
-    if (o['country'], city, o['cls']) in accepted_city:
-        parent = f"/{lang}/places/{slug(o['cls'])}/{slug(city)}/"
-    elif (o['country'], city) in hub_cities:
-        parent = f'/{lang}/areas/{slug(city)}/'
+    if (_ncid, o['cls']) in accepted_city:
+        parent = f"/{lang}/places/{slug(o['cls'])}/{cslug}/"
+    elif (o['country'], _ncid) in hub_cities:
+        parent = f'/{lang}/areas/{cslug}/'
     else:
         rejects['notable_entity_has_no_parent_page'] += 1; continue
     rows.append({
-        'shape': 'notable_entity', 'country': o['country'], 'city': city,
+        'shape': 'notable_entity', 'city_id': _ncid, 'country': o['country'], 'city': city,
         'parent_url': parent,
         'cls': o['cls'], 'n': 1, 'enriched': extras, 'market': market, 'language': lang,
         'url': f"/{lang}/poi/{slug(o['cls'])}/{slug(o['name'])}-{o['id']}/",

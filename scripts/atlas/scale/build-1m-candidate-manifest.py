@@ -116,6 +116,29 @@ CITY_BY_ID = {c['id']: c for c in cities}
 # 1,168 city names are shared by 2,833 cities (1,123 of them inside the 11 market
 # countries), so a name-only slug silently collapses two different cities onto one
 # URL. Ambiguous names carry their country; unique names stay clean.
+# The slugs and labels come from the shared identity module, so this file and
+# poi-aggregations.py cannot disagree about which Woodstock is which. The module resolves
+# slugs in SLUG SPACE rather than by predicate on the name, because the property a URL needs
+# is that no two cities share a segment, and that is not the same as "the name is
+# unambiguous": Vila-real in Spain and Vila Real in Portugal are different names and one slug.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity                                        # noqa: E402
+GAZ = entity_identity.load_gazetteer()
+CITY_LABELS = {cid: GAZ.label(cid) for cid in GAZ.by_id}
+_city_slugs = None
+
+
+def city_slug(cid):
+    """Resolved lazily: slug() is defined further down this file, and computing the table at
+    import time raised a NameError the first time I wired this in."""
+    global _city_slugs
+    if _city_slugs is None:
+        _city_slugs = GAZ.slugs(slug)
+    return _city_slugs.get(str(cid), '')
+print(f'  identity: {len(GAZ.by_id):,} cities, {len(GAZ.pair_repeats):,} name and country '
+      f'pairs repeating within a country, {len(GAZ.unresolved_labels()):,} whose label cannot '
+      f'be made unique from the data', file=sys.stderr)
+
 _name_counts = collections.Counter((c['name'] or '').lower() for c in cities)
 AMBIGUOUS_CITY = {k for k, v in _name_counts.items() if v > 1}
 # The country suffix is not always enough, because a country can hold two cities of the same
@@ -565,6 +588,44 @@ def fields_for(fid, f):
 def sig(*parts):
     return hashlib.sha1('|'.join(str(p) for p in parts).encode()).hexdigest()[:12]
 
+# ---- a unique slug for every entity, resolved in slug space ----------------------------
+# Cities go through the shared identity module. Everything else used its bare name, so two
+# venues called the same thing in one country produced one path and exact dedupe discarded
+# the second: 153 of the 748 duplicate-URL rejections were venues. The resolution is the same
+# shape as the module's, applied per entity type, and it qualifies only what collides:
+# country first, then the entity id, which is always unique.
+def _resolve_entity_slugs():
+    groups = collections.defaultdict(list)       # (etype, slug) -> [(eid, country)]
+    def add(etype, eid, name, country):
+        if not eid or not name: return
+        groups[(etype, slug(name))].append((str(eid), country or ''))
+    for n in neigh:
+        if n.get('name'): add('neighbourhood', n['id'], n['name'], n.get('country'))
+    for a in airports:
+        if a.get('name') and a.get('id'): add('airport', a['id'], a['name'], a.get('country'))
+    for v in venues:
+        if v.get('name'): add('venue', v['id'], v['name'], v.get('country'))
+    for sv in subdiv:
+        if sv.get('name'): add('subdivision', sv['id'], sv['name'], sv.get('country'))
+    out = {}
+    for (etype, base), members in groups.items():
+        if len(members) == 1:
+            out[(etype, members[0][0])] = base
+            continue
+        # collides on the bare name: try the country, then fall back to the id
+        by_country = collections.Counter(c for _e, c in members)
+        for eid, country in members:
+            if country and by_country[country] == 1:
+                out[(etype, eid)] = f'{base}-{country.lower()}'
+            else:
+                out[(etype, eid)] = f'{base}-{slug(eid)}'
+    return out
+
+
+ENTITY_SLUG = _resolve_entity_slugs()
+print(f'  entity slugs resolved for {len(ENTITY_SLUG):,} non-city entities', file=sys.stderr)
+
+
 def entity_pool(f):
     """Real entities only, filtered so no empty combination is ever emitted."""
     ent, fid = f['entity'], f['family_id']
@@ -854,11 +915,14 @@ for f in fams:
             if dscore == 0:
                 stats['dropped_no_demand_evidence'] += 1
                 continue                      # no keyword evidence anywhere: not a candidate
-            nm = slug(ename)
-            if etype == 'city' and (ename or '').lower() in AMBIGUOUS_CITY and ecountry:
-                nm = f"{nm}-{ecountry.lower()}"
-                if ((ename or '').lower(), ecountry) in AMBIGUOUS_CITY_IN_COUNTRY:
-                    nm = f"{nm}-{slug(str(eid))}"
+            # The entity segment has to identify the ENTITY. For a city that is the shared
+            # identity module, which resolves in slug space and agrees with the aggregation
+            # builder. For every other type it is ENTITY_SLUG, resolved the same way: the
+            # earlier code disambiguated cities only, so 153 venues of the same name were
+            # still collapsing onto one path and being discarded by exact dedupe.
+            nm = city_slug(eid) if etype == 'city' else ENTITY_SLUG.get((etype, str(eid)), '')
+            if not nm:
+                nm = slug(ename)
             # The path segment has to identify the FAMILY, not just its last word. Five
             # country families share the surface "move" and the last segment "country":
             # relocation, health, banking, taxes and cost-of-living. All five were resolving

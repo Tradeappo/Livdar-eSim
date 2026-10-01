@@ -1,0 +1,229 @@
+#!/usr/bin/env python3
+"""
+Stable identity for places, and the labels and slugs derived from it.
+
+Two URL builders in this pipeline independently slugged city and place names, and both
+collided, because a name is not an identity. The gazetteer holds 1,051 city names shared
+across countries and 640 name-and-country pairs shared WITHIN one country: the United States
+has several Woodstocks, Japan several Kariyas. Keying on the name did not only produce
+duplicate URLs, it MERGED their POI into one page, which is the name-only join the brief
+forbids.
+
+This module is the single place that answers three questions, so the two builders cannot
+answer them differently:
+
+    city_key(cid)    an identity that is unique by construction, for use as a dict key
+    city_label(cid)  what a reader should see, qualified with the region ONLY when the bare
+                     name would be ambiguous inside its country
+    city_slug(cid)   a unique path segment, qualified with the country only when the name is
+                     shared across countries that serve the same language
+
+The region names come from GeoNames admin1CodesASCII (CC BY 4.0), materialised at
+data/atlas/sources/geonames/admin1-regions.jsonl.gz. Before that table existed the city
+records carried admin1 as a bare code, so nothing could render a region a reader recognises,
+and the honest options were an entity id in the title or no fix at all.
+
+Where even the region does not separate two cities, the label says so rather than guessing:
+Great Britain has four admin1 regions, so two English towns of the same name both resolve to
+England. Those keep a stable id in the SLUG, which must be unique, and are reported by
+`unresolved_labels()` rather than given a region they do not have.
+"""
+import glob, gzip, json, os
+
+ROOT = '/home/user/Livdar-eSim/'
+
+
+def _load_admin1():
+    out = {}
+    out_ascii = {}
+    p = ROOT + 'data/atlas/sources/geonames/admin1-regions.jsonl.gz'
+    if not os.path.exists(p):
+        return out
+    with gzip.open(p, 'rt', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line: continue
+            try: r = json.loads(line)
+            except Exception: continue
+            out[(r['country'], str(r['admin1']))] = r['name']
+            out_ascii[(r['country'], str(r['admin1']))] = r.get('ascii') or r['name']
+    return out, out_ascii
+
+
+ADMIN1_NAME, ADMIN1_ASCII = _load_admin1()
+
+
+def region_name(country, admin1):
+    """The human-readable region, or '' when the table does not cover it."""
+    if not country or admin1 in (None, ''):
+        return ''
+    return ADMIN1_NAME.get((country, str(admin1)), '')
+
+
+def region_ascii(country, admin1):
+    """The same region without diacritics, for slugs. Hyogo, not Hyōgo."""
+    if not country or admin1 in (None, ''):
+        return ''
+    return ADMIN1_ASCII.get((country, str(admin1)), '')
+
+
+class Gazetteer:
+    """Every city, indexed by its stable GeoNames id, with the ambiguity sets precomputed."""
+
+    def __init__(self, records):
+        # records: iterable of dicts with id, name, country, admin1, admin2, population
+        self.by_id = {}
+        for c in records:
+            cid = str(c.get('id') or '')
+            if not cid or not c.get('name'):
+                continue
+            self.by_id[cid] = {
+                'id': cid, 'name': c['name'], 'country': c.get('country') or '',
+                'admin1': str(c.get('admin1') or ''), 'admin2': str(c.get('admin2') or ''),
+                'population': c.get('population') or 0,
+            }
+        # a name shared by more than one country
+        name_countries = {}
+        # a (name, country) pair shared by more than one city
+        pair_ids = {}
+        # a (name, country, admin1) triple shared by more than one city: the region does not
+        # separate them, so nothing in the label can
+        triple_ids = {}
+        for c in self.by_id.values():
+            low = c['name'].lower()
+            name_countries.setdefault(low, set()).add(c['country'])
+            pair_ids.setdefault((low, c['country']), []).append(c['id'])
+            triple_ids.setdefault((low, c['country'], c['admin1']), []).append(c['id'])
+        self.name_in_many_countries = {n for n, cs in name_countries.items() if len(cs) > 1}
+        self.pair_repeats = {k for k, v in pair_ids.items() if len(v) > 1}
+        self.triple_repeats = {k for k, v in triple_ids.items() if len(v) > 1}
+        self._slug_cache = {}
+
+    # ---- identity ---------------------------------------------------------------
+    def key(self, cid):
+        """Unique by construction: the gazetteer id itself."""
+        return str(cid)
+
+    def get(self, cid):
+        return self.by_id.get(str(cid))
+
+    # ---- labels -----------------------------------------------------------------
+    def label(self, cid):
+        """What a reader sees. The region is added only when the bare name is ambiguous."""
+        c = self.by_id.get(str(cid))
+        if not c:
+            return ''
+        low = c['name'].lower()
+        if (low, c['country']) not in self.pair_repeats:
+            return c['name']                       # unambiguous inside its country
+        reg = region_name(c['country'], c['admin1'])
+        if reg and (low, c['country'], c['admin1']) not in self.triple_repeats:
+            return f"{c['name']}, {reg}"
+        # the region does not separate them either. Do not invent one.
+        return c['name']
+
+    def label_is_ambiguous(self, cid):
+        """True when the label still does not identify the city uniquely."""
+        c = self.by_id.get(str(cid))
+        if not c:
+            return False
+        low = c['name'].lower()
+        if (low, c['country']) not in self.pair_repeats:
+            return False
+        reg = region_name(c['country'], c['admin1'])
+        return not (reg and (low, c['country'], c['admin1']) not in self.triple_repeats)
+
+    def unresolved_labels(self):
+        """Cities whose label cannot be made unique from the data available."""
+        return [cid for cid in self.by_id if self.label_is_ambiguous(cid)]
+
+    # ---- slugs ------------------------------------------------------------------
+    # Resolved by construction rather than by predicate, because the property a URL needs is
+    # that no two cities share a slug, and that is not the same as "the name is unambiguous".
+    # Keying ambiguity on the lowercase name left 7 clashes that only appear in slug space:
+    # Jing'an and Jing'an differ by which apostrophe character they use, Vila-real in Spain
+    # and Vila Real in Portugal differ by a hyphen, Saint Paul in Minnesota and Saint-Paul on
+    # Reunion likewise. None of those pairs is an ambiguous NAME; every one of them is the
+    # same SLUG. So the slug is built, the collisions are found, and only the colliding ones
+    # are qualified, one level at a time until nothing collides.
+    def _resolve_slugs(self, slugify):
+        cand = {cid: slugify(c['name']) for cid, c in self.by_id.items()}
+        for level in ('country', 'region', 'id'):
+            groups = {}
+            for cid, sl in cand.items():
+                groups.setdefault(sl, []).append(cid)
+            clashing = [ids for sl, ids in groups.items() if len(ids) > 1]
+            if not clashing:
+                break
+            for ids in clashing:
+                for cid in ids:
+                    c = self.by_id[cid]
+                    if level == 'country':
+                        extra = c['country'].lower()
+                    elif level == 'region':
+                        extra = slugify(region_ascii(c['country'], c['admin1']))
+                    else:
+                        extra = slugify(c['id'])
+                    if extra:
+                        cand[cid] = cand[cid] + '-' + extra
+        return cand
+
+    def slugs(self, slugify):
+        """Every city's unique slug, computed once and cached per slugify function."""
+        key = id(slugify)
+        if key not in self._slug_cache:
+            self._slug_cache[key] = self._resolve_slugs(slugify)
+        return self._slug_cache[key]
+
+    def slug(self, cid, slugify):
+        """A unique path segment. Never ambiguous, because a URL cannot afford to be."""
+        return self.slugs(slugify).get(str(cid), '')
+
+
+def load_gazetteer():
+    """Every city shard, with the fields identity needs."""
+    recs = []
+    for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
+        try:
+            d = json.load(open(f, encoding='utf-8'))
+        except Exception:
+            continue
+        lst = d if isinstance(d, list) else (d.get('cities') or list(d.values())[0])
+        for c in lst:
+            if c and c.get('name') and c.get('country'):
+                recs.append(c)
+    return Gazetteer(recs)
+
+
+if __name__ == '__main__':
+    def _slug(s):
+        out = ''.join(ch if ch.isalnum() else '-' for ch in (s or '').lower())
+        while '--' in out: out = out.replace('--', '-')
+        return out.strip('-')
+
+    g = load_gazetteer()
+    print(f'cities: {len(g.by_id):,}')
+    print(f'names shared across countries: {len(g.name_in_many_countries):,}')
+    print(f'name+country pairs that repeat: {len(g.pair_repeats):,}')
+    print(f'name+country+admin1 triples that repeat: {len(g.triple_repeats):,}')
+    unres = g.unresolved_labels()
+    print(f'cities whose LABEL cannot be made unique from the data: {len(unres):,}')
+    # every slug must be unique, which is the property a URL depends on
+    seen = {}
+    clashes = 0
+    for cid in g.by_id:
+        s = g.slug(cid, _slug)
+        if s in seen:
+            clashes += 1
+            if clashes <= 5:
+                a, b = g.by_id[seen[s]], g.by_id[cid]
+                print(f'  SLUG CLASH {s}: {a["name"]}/{a["country"]}/{a["admin1"]} '
+                      f'vs {b["name"]}/{b["country"]}/{b["admin1"]}')
+        seen[s] = cid
+    print(f'slug clashes across the whole gazetteer: {clashes:,}')
+    for nm in ('Woodstock', 'Kariya', 'Barcelona'):
+        ids = [c['id'] for c in g.by_id.values() if c['name'] == nm]
+        for cid in ids[:4]:
+            c = g.by_id[cid]
+            print(f'  {nm} {c["country"]}/{c["admin1"]}: label={g.label(cid)!r} '
+                  f'slug={g.slug(cid, _slug)!r}')
