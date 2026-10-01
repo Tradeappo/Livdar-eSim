@@ -222,17 +222,37 @@ with gzip.GzipFile(OUT, 'wb', compresslevel=6, mtime=0) as gz:
 # lost, but their titles were identical and a reader could not tell which list they were looking at.
 # The class is what separates them and it is a fact rather than a discriminator invented for the
 # purpose, so the label carries it wherever the name repeats.
-_pname = collections.defaultdict(set)
+# Two parent polygons can carry one name, and sometimes one CLASS as well. Saechsische Schweiz is
+# a protected area twice over under different protection designations, and Arnsberger Wald is a
+# forest and a nature park. Three answers in order, each from the data:
+#   the class separates them            -> the label carries it
+#   the class does not, the size does   -> keep the one holding more features, reject the rest
+# Their URLs always differed by the OSM id so no page was ever lost to a collision, but two lists
+# titled the same way are two pages a reader cannot tell apart, which is the thing the gate is for.
+_pgroup = collections.defaultdict(list)
 for _r in rows:
-    _pname[(_r['language'], _r['feature'], slug(_r['parent_name']))].add(_r['parent_id'])
-_qualified = 0
-for _r in rows:
-    if len(_pname[(_r['language'], _r['feature'], slug(_r['parent_name']))]) > 1:
-        _r['parent_name'] = f"{_r['parent_name']} ({_r['parent_cls'].replace('_', ' ')})"
-        _qualified += 1
-if _qualified:
-    print(f'region lists whose parent name repeats, so the label carries its class: '
-          f'{_qualified:,}', file=sys.stderr)
+    _pgroup[(_r['language'], _r['feature'], slug(_r['parent_name']))].append(_r)
+_qualified, _dropped_dupe = 0, []
+for _k, _g in _pgroup.items():
+    if len(_g) < 2:
+        continue
+    _classes = [r['parent_cls'] for r in _g]
+    if len(set(_classes)) == len(_g):
+        for _r in _g:
+            _r['parent_name'] = f"{_r['parent_name']} ({_r['parent_cls'].replace('_', ' ')})"
+            _qualified += 1
+        continue
+    _keep = max(_g, key=lambda r: (r['n'], r.get('parent_km2') or 0))
+    for _r in _g:
+        if _r is not _keep:
+            _dropped_dupe.append(_r)
+if _dropped_dupe:
+    _ids = {id(r) for r in _dropped_dupe}
+    rows = [r for r in rows if id(r) not in _ids]
+    rejects['parent_name_and_class_both_repeat_so_it_is_one_place_mapped_twice'] += len(_dropped_dupe)
+if _qualified or _dropped_dupe:
+    print(f'region lists whose parent name repeats: {_qualified:,} given the class in the label, '
+          f'{len(_dropped_dupe):,} dropped as one place mapped twice', file=sys.stderr)
 
 print(f'outdoor candidates: {len(rows):,}', file=sys.stderr)
 print(f"  by feature: {dict(collections.Counter(r['feature'] for r in rows))}", file=sys.stderr)
@@ -242,4 +262,8 @@ print(f"  by market: {dict(collections.Counter(r['market'] for r in rows))}", fi
 print('  rejections, every one counted:', file=sys.stderr)
 for k, v in rejects.most_common():
     print(f'    {v:>8,}  {k}', file=sys.stderr)
-print(f'\nwritten {OUT}', file=sys.stderr)
+with gzip.open(OUT + '.tmp', 'wt', encoding='utf-8') as _fh:
+    for _r in rows:
+        _fh.write(json.dumps(_r, ensure_ascii=False) + '\n')
+os.replace(OUT + '.tmp', OUT)
+print(f'\nwritten {OUT} with {len(rows):,} rows', file=sys.stderr)

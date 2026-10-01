@@ -69,7 +69,7 @@ def compute_shared_subjects(all_rows):
     import collections as _c
     fams = _c.defaultdict(set)
     for r in all_rows:
-        if r.get('entity_type') in ('poi', 'venue'):
+        if r.get('entity_type') in ('poi', 'venue', 'outdoor_feature'):
             fams[subject_key(r)].add(r.get('family'))
     return {k for k, v in fams.items() if len(v) > 1}
 
@@ -195,7 +195,16 @@ def title_for(r):
         fam_label = fam.split('.', 1)[0].replace('-', ' ') + ' ' + fam_label
 
     if r['page_type'] == 'ENTITY':
-        return f"{name}{', ' + where if where else ''}: what to know before you go"
+        # An outdoor feature's CLASS goes in the title. Grotenburg is a peak and also a ruined
+        # castle at the same spot in Kreis Lippe; Turmberg, Kandel, Wachsenburg and a dozen more
+        # are the same. The same-name gate keys on the class, so both survive correctly as two
+        # pages about two things, and without the class in the title they were two pages with one
+        # title. The class is a fact the row already carries.
+        cls_h = (r.get('entity_type') == 'outdoor_feature'
+                 and (r['family'].split('.', 1)[-1]).replace('_', ' ') or '')
+        tail = f'what to know about this {cls_h} before you go' if cls_h \
+            else 'what to know before you go'
+        return f"{name}{', ' + where if where else ''}: {tail}"
     if fam == 'areas.city-index':
         return f"Neighbourhoods of {where}: which area suits you"
     if fam == 'areas.overview':

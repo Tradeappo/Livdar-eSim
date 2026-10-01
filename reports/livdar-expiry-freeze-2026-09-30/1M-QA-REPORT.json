@@ -1,20 +1,20 @@
 {
- "manifest_rows": 226472,
- "distinct_urls": 226472,
+ "manifest_rows": 253988,
+ "distinct_urls": 253988,
  "checks": {
-  "meta_over_165_chars": 30322,
-  "title_over_65_chars": 138992,
+  "meta_over_165_chars": 53701,
+  "title_over_65_chars": 165472,
   "duplicate_title_exact": 0,
   "duplicate_title_same_tokens": 2,
   "superlative_from_the_family_own_intent": 60,
   "uniqueness_reason_shared_with_another_candidate": 98,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 61,
+  "orphan_pages": 65,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 133,
+  "entity_names_needing_a_disambiguator_in_the_title": 1655,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
@@ -22,9 +22,9 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 0,
+  "duplicate_h1_within_a_market": 2,
   "declared_parent_is_not_a_valid_parent": 0,
-  "declared_parent_is_valid_but_not_a_path_prefix": 20033,
+  "declared_parent_is_valid_but_not_a_path_prefix": 31634,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
@@ -50,9 +50,10 @@
   "places.city-parking": 1,
   "places.city-aquarium": 1,
   "places.city-nature_reserve": 1,
-  "property.city-buy": 1,
-  "rents.city": 1,
-  "stay.city-type": 1
+  "outdoors.caravan_site": 1,
+  "outdoors.climbing_crag": 1,
+  "outdoors.hot_spring": 1,
+  "outdoors.natural_arch": 1
  },
  "top_level_by_family": {},
  "saturated_templates": [],
@@ -100,104 +101,102 @@
    "4560691",
    "5132028"
   ],
-  "('rents.neighbourhood', 'fr-FR', 'sainte-marguerite', 'FR')": [
-   "12808662",
-   "2980467"
+  "('outdoors.aqueduct', 'it-IT', 'acqua paola', 'IT')": [
+   "w311015921",
+   "w311018804"
   ],
-  "('poi.attraction-notable', 'fr-FR', 'jardin des plantes', 'FR')": [
-   "n2063753155",
-   "n9677488144"
+  "('outdoors.aqueduct', 'it-IT', 'acquedotto felice', 'IT')": [
+   "w1000800331",
+   "w801351287",
+   "w842260575"
   ],
-  "('poi.attraction-notable', 'pl-PL', 'ławeczka chopina', 'PL')": [
-   "n13293462008",
-   "n13293477296",
-   "n13293479732"
+  "('outdoors.aqueduct', 'it-IT', 'acquedotto mediceo', 'IT')": [
+   "w156890433",
+   "w156890436"
   ],
-  "('poi.museum-notable', 'de-DE', 'caricatura', 'DE')": [
-   "n1851762708",
-   "n769153464"
+  "('outdoors.archaeological_site', 'de-DE', 'alte burg', 'DE')": [
+   "n2673417843",
+   "n4379187629"
   ],
-  "('poi.museum-notable', 'de-DE', 'feuerwehrmuseum', 'DE')": [
-   "Q76631832",
-   "n707929405",
-   "n767116789"
+  "('outdoors.archaeological_site', 'de-DE', 'alte schanze', 'DE')": [
+   "n2622265150",
+   "w806173433"
   ],
-  "('poi.museum-notable', 'de-DE', 'heimatmuseum', 'DE')": [
-   "n1082639452",
-   "n1531223506",
-   "n250887769",
-   "n270274191"
+  "('outdoors.archaeological_site', 'de-DE', 'burgstall', 'DE')": [
+   "n316556066",
+   "w833593389"
   ],
-  "('poi.museum-notable', 'de-DE', 'münzkabinett', 'DE')": [
-   "Q323169",
-   "n1721721621"
+  "('outdoors.archaeological_site', 'de-DE', 'burgstall stetten', 'DE')": [
+   "n11269904732",
+   "n5867062757"
   ],
-  "('poi.museum-notable', 'de-DE', 'ns-dokumentationszentrum', 'DE')": [
-   "Q1961427",
-   "n78605265"
+  "('outdoors.archaeological_site', 'de-DE', 'freilichtmuseum römerbad', 'DE')": [
+   "w40439022",
+   "w69730809"
   ],
-  "('poi.museum-notable', 'de-DE', 'rotkreuz-museum', 'DE')": [
-   "n3354056742",
-   "n667068550"
+  "('outdoors.archaeological_site', 'de-DE', 'keltenschanze', 'DE')": [
+   "w1203315183",
+   "w1253217188",
+   "w243561274",
+   "w57840749"
   ],
-  "('poi.museum-notable', 'de-DE', 'schlossmuseum', 'DE')": [
-   "n1238956832",
-   "n255893339",
-   "n3273230816",
-   "n663417452"
+  "('outdoors.archaeological_site', 'de-DE', 'langer stein', 'DE')": [
+   "n2516816787",
+   "n2653841720",
+   "n677525126"
   ],
-  "('poi.museum-notable', 'de-DE', 'stadtgalerie', 'DE')": [
-   "Q76636430",
-   "n622354400"
+  "('outdoors.archaeological_site', 'de-DE', 'ringwall', 'DE')": [
+   "n3074707345",
+   "w938828940"
   ],
-  "('poi.museum-notable', 'de-DE', 'stadtmuseum', 'DE')": [
-   "n2431199581",
-   "n2728930615",
-   "n295603345",
-   "n390493343"
+  "('outdoors.archaeological_site', 'de-DE', 'römerkastell', 'DE')": [
+   "w25397079",
+   "w30983550"
   ],
-  "('poi.museum-notable', 'de-DE', 'theatermuseum', 'DE')": [
-   "n3210890800",
-   "n336252050"
+  "('outdoors.archaeological_site', 'de-DE', 'römische villa', 'DE')": [
+   "n1230833830",
+   "n4200508938"
   ],
-  "('poi.museum-notable', 'en-GB', 'hunterian museum', 'GB')": [
-   "n3349882188",
-   "n600576868"
+  "('outdoors.archaeological_site', 'de-DE', 'viereckschanze', 'DE')": [
+   "n11154724227",
+   "n12163745511",
+   "w58733376"
   ],
-  "('poi.museum-notable', 'en-GB', 'museum of antiquities', 'GB')": [
-   "Q6940740",
-   "n11901119398"
+  "('outdoors.archaeological_site', 'de-DE', 'wallburg', 'DE')": [
+   "n440355609",
+   "w397448875"
   ],
-  "('poi.museum-notable', 'en-US', 'national museum of the american indian', 'US')": [
-   "Q1075141",
-   "n368061337"
+  "('outdoors.archaeological_site', 'it-IT', 'anfiteatro romano', 'IT')": [
+   "w123306838",
+   "w22718564",
+   "w25380983",
+   "w421122318"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée national de la marine', 'FR')": [
-   "n13727664577",
-   "n5882540291"
+  "('outdoors.archaeological_site', 'it-IT', 'foro romano', 'IT')": [
+   "w201768189",
+   "w39800124"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée de minéralogie', 'FR')": [
-   "n1426245245",
-   "n6482311825"
+  "('outdoors.archaeological_site', 'it-IT', 'teatro romano', 'IT')": [
+   "w39320713",
+   "w431847387",
+   "w583750317",
+   "w58840028"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée de la marine', 'FR')": [
-   "Q23719005",
-   "n1296754169",
-   "n2854735858"
+  "('outdoors.archaeological_site', 'it-IT', 'terme romane', 'IT')": [
+   "w233970180",
+   "w497612392"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée des arts décoratifs', 'FR')": [
-   "n239825781",
-   "n247584452"
+  "('outdoors.archaeological_site', 'it-IT', 'terme suburbane', 'IT')": [
+   "n2029586594",
+   "w311208578"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée des beaux-arts', 'FR')": [
-   "n13530619691",
-   "n1445028137",
-   "n239830896",
-   "n371712800"
+  "('outdoors.archaeological_site', 'it-IT', 'via flaminia militare', 'IT')": [
+   "n1944619934",
+   "n5037214801"
   ],
-  "('poi.museum-notable', 'fr-FR', 'musée du chocolat', 'FR')": [
-   "Q93929598",
-   "n1209893702"
+  "('outdoors.archaeological_site', 'it-IT', 'villa romana', 'IT')": [
+   "w261755833",
+   "w281889436"
   ]
  },
  "urls_sharing_a_cannibalization_key_examples": {},
@@ -206,7 +205,16 @@
  "kept_rows_by_localisation_class_that_should_have_been_rejected": {},
  "duplicate_slug_examples": {},
  "duplicate_meta_examples": {},
- "duplicate_h1_examples": {},
+ "duplicate_h1_examples": {
+  "Roter Berg, Erfurt": [
+   "/de/areas/erfurt/roter-berg/",
+   "/de/outdoors/peak/roter-berg-n255022676/"
+  ],
+  "Porta a Lucca, Pisa": [
+   "/it/areas/pisa/porta-a-lucca/",
+   "/it/outdoors/city-gate/porta-a-lucca-n1960219675/"
+  ]
+ },
  "invalid_hierarchy_examples": [],
  "usefulness_test_failures": {},
  "usefulness_test_by_family_and_locale": {
@@ -1345,6 +1353,412 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; neighbourhood-facts-verified, a named source with provenance"
+   ]
+  },
+  "outdoors.aqueduct|de": {
+   "rows": 5,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.aqueduct|it": {
+   "rows": 15,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.archaeological_site|de": {
+   "rows": 745,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.archaeological_site|it": {
+   "rows": 639,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.beach|de": {
+   "rows": 5,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.beach|it": {
+   "rows": 22,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.beach-in-region|it": {
+   "rows": 20,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.beach_resort|it": {
+   "rows": 3,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.camp_site|de": {
+   "rows": 99,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.camp_site|it": {
+   "rows": 5,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.camp_site-in-region|de": {
+   "rows": 12,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.camp_site-in-region|it": {
+   "rows": 33,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.caravan_site|de": {
+   "rows": 6,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.caravan_site|it": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.castle|de": {
+   "rows": 2130,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.castle|it": {
+   "rows": 559,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.castle-in-region|de": {
+   "rows": 89,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.castle-in-region|it": {
+   "rows": 65,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.cave|de": {
+   "rows": 216,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.cave|it": {
+   "rows": 111,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.city_gate|de": {
+   "rows": 138,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.city_gate|it": {
+   "rows": 72,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.climbing_crag|de": {
+   "rows": 6,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.climbing_crag|it": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.fort|de": {
+   "rows": 22,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.fort|it": {
+   "rows": 87,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.geyser|de": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.hot_spring|it": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.lighthouse|de": {
+   "rows": 81,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.lighthouse|it": {
+   "rows": 31,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.monument|de": {
+   "rows": 94,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.monument|it": {
+   "rows": 191,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.mountain_hut|de": {
+   "rows": 93,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.mountain_hut|it": {
+   "rows": 493,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.mountain_pass|de": {
+   "rows": 148,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.mountain_pass|it": {
+   "rows": 536,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.natural_arch|it": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.observatory|de": {
+   "rows": 76,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.observatory|it": {
+   "rows": 19,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.peak|de": {
+   "rows": 12423,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.peak|it": {
+   "rows": 4918,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.peak-in-region|de": {
+   "rows": 448,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.ruins|de": {
+   "rows": 265,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.ruins|it": {
+   "rows": 190,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.tower|de": {
+   "rows": 924,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.tower|it": {
+   "rows": 257,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.viewpoint|de": {
+   "rows": 156,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.viewpoint|it": {
+   "rows": 12,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.viewpoint-in-region|de": {
+   "rows": 391,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.volcano|de": {
+   "rows": 29,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.volcano|it": {
+   "rows": 12,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.waterfall|de": {
+   "rows": 36,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.waterfall|it": {
+   "rows": 33,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.watermill|de": {
+   "rows": 136,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.watermill|it": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.wilderness_hut|de": {
+   "rows": 29,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.wilderness_hut|it": {
+   "rows": 89,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.windmill|de": {
+   "rows": 203,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "places.area-arts_centre|de": {
@@ -7803,6 +8217,20 @@
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
+  "poi.bridge-notable|en": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.bridge-notable|nl": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
   "poi.castle-notable|de": {
    "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -7916,7 +8344,7 @@
    ]
   },
   "poi.monument-notable|en": {
-   "rows": 9,
+   "rows": 11,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -7931,6 +8359,13 @@
   },
   "poi.monument-notable|it": {
    "rows": 7,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.monument-notable|ja": {
+   "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -8071,6 +8506,55 @@
   },
   "poi.park-notable|pt": {
    "rows": 8,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.public_square-notable|de": {
+   "rows": 49,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.public_square-notable|en": {
+   "rows": 16,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.public_square-notable|fr": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.public_square-notable|it": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.public_square-notable|ja": {
+   "rows": 6,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.public_square-notable|nl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.public_square-notable|pt": {
+   "rows": 3,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -9418,8 +9902,8 @@
  "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
   "min": 16,
-  "max": 192,
-  "mean": 66.6
+  "max": 208,
+  "mean": 69.4
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

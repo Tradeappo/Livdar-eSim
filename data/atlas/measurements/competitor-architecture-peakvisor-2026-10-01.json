@@ -1,0 +1,32 @@
+{
+ "measuredOn": "2026-10-01",
+ "unitsSpent": 625,
+ "why": "Section 8 asks for programmatic competitor mining: find sites with very large page counts on structured data, read their architecture, and judge whether Livdar can build a better legitimate equivalent. PeakVisor is the direct comparison for the outdoor feature layer built in this pass, so it is the one worth spending units on rather than a general sweep.",
+ "what_their_architecture_is": {
+  "url_patterns_observed": [
+   "/peak/<name>.html            a page per named summit",
+   "/range/<name>.html           a page per mountain range",
+   "/adm/<name>.html             a page per administrative area: a US state, a county",
+   "/poi/<name>.html             a page per other feature, including huts and stations",
+   "/hiking-map?peak=<name>      a map view, parameterised"
+  ],
+  "verdict": "This is the same model this pass built, arrived at independently: an entity page per feature, an aggregation page per containment parent, and an aggregation page per administrative area. Livdar's equivalents are /xx/outdoors/<class>/<name>-<id>/ and /xx/outdoors/<class>s/<parent>-<id>/."
+ },
+ "what_it_validates": {
+  "the_admin_area_outdoor_page_earns_traffic": "adm/utah.html takes 354 visits a month on 'utah mountains' at 6,900, adm/texas.html 255 on 'texas mountains' at 2,900, adm/kentucky.html 221 on 'does kentucky have mountains', adm/west-virginia.html 271 across 31 keywords, and adm/freestone-county.html 222 at COUNTY level. This is direct evidence for the 1,395 region and county cells measured in the German layer, which I had been careful to call a separate family rather than administrative noise.",
+  "the_range_page_is_a_hub": "range/appalachian-mountains.html holds 252 keywords and 1,205 visits; range/eastern-ghats.html 59 keywords and 459 visits. A containment parent page accumulates keywords in a way a single feature page does not.",
+  "the_feature_page_is_a_long_tail_entity_page": "rifugio-torre-di-pisa 1,828 visits from ONE keyword at 4,500 searches; garden-of-the-gods 854 from 2; gunung-pueh 591 from 1. One or two keywords each, large volumes at the head, which is the power law measured directly on German peaks: Zugspitze 63,000 at difficulty 0 down to Berchtesgadener Hochthron at 100."
+ },
+ "what_it_bounds": {
+  "site_metrics": {"organic_keywords": 15503, "keywords_in_positions_1_to_3": 3616,
+                   "organic_traffic_per_month": 46676, "traffic_value_usd_per_month": 10127},
+  "reading": "A global peak and range database, built out and ranking, draws about 46,700 visits a month. That is a real family and a moderate ceiling, not an enormous one. It is worth saying plainly: building 120,000 outdoor feature pages does not imply 120,000 visits, and the honest expectation for this family is tens of thousands of monthly visits at maturity, concentrated in the head. The family earns its place on usefulness and on breadth of coverage rather than on traffic per page."
+ },
+ "where_livdar_can_be_better_legitimately": [
+  "monthly climate normals per feature's nearest town, which PeakVisor does not carry and which answers the question a visitor actually has next",
+  "the local-language name, which the OSM re-read captured for 3,440 German features and which PeakVisor's single-language pages do not use",
+  "containment parents from polygons rather than a range hierarchy alone, so a peak page can say it is inside a named nature reserve AND a county AND a protected area",
+  "a measured demand gate per class per market, which is why Livdar refuses Italian peak lists at 10 searches while building German ones at 700"
+ ],
+ "what_was_not_copied": "No content, no page text, no data. What was taken is the observation that a per-feature page and a per-administrative-area page both rank, which is architecture rather than content."
+}

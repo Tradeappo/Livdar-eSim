@@ -1,62 +1,62 @@
 {
  "source": "LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz",
- "rows": 226472,
+ "rows": 253988,
  "partitions": {
   "market": {
    "de-DE": {
     "path": "data/atlas/candidates/market=de-DE/candidates.jsonl.gz",
-    "rows": 37149,
-    "content_sha1": "0c7bdd620b210f2a"
+    "rows": 56205,
+    "content_sha1": "11c86b2276eba8ae"
    },
    "en-GB": {
     "path": "data/atlas/candidates/market=en-GB/candidates.jsonl.gz",
-    "rows": 27670,
-    "content_sha1": "8995e51927f5923e"
+    "rows": 27674,
+    "content_sha1": "c69e3d56d57a977b"
    },
    "en-US": {
     "path": "data/atlas/candidates/market=en-US/candidates.jsonl.gz",
-    "rows": 49269,
-    "content_sha1": "2ac72db38452fa3d"
+    "rows": 49285,
+    "content_sha1": "6d66d35ec1909132"
    },
    "es-ES": {
     "path": "data/atlas/candidates/market=es-ES/candidates.jsonl.gz",
     "rows": 15520,
-    "content_sha1": "bdc742fcb4ab6551"
+    "content_sha1": "ba4ddd9e8772a9db"
    },
    "fr-FR": {
     "path": "data/atlas/candidates/market=fr-FR/candidates.jsonl.gz",
-    "rows": 18380,
-    "content_sha1": "ec4bad7a7d5281b0"
+    "rows": 18382,
+    "content_sha1": "27f0ef3398748537"
    },
    "it-IT": {
     "path": "data/atlas/candidates/market=it-IT/candidates.jsonl.gz",
-    "rows": 15268,
-    "content_sha1": "5219e288c73e397b"
+    "rows": 23690,
+    "content_sha1": "e00266f6cfb94332"
    },
    "ja-JP": {
     "path": "data/atlas/candidates/market=ja-JP/candidates.jsonl.gz",
-    "rows": 25143,
-    "content_sha1": "9df85bb8c24ef075"
+    "rows": 25150,
+    "content_sha1": "e6617f11829acc80"
    },
    "nl-NL": {
     "path": "data/atlas/candidates/market=nl-NL/candidates.jsonl.gz",
-    "rows": 9702,
-    "content_sha1": "19a5ce753ee8fa8f"
+    "rows": 9708,
+    "content_sha1": "be2701aa0a1d61f0"
    },
    "pl-PL": {
     "path": "data/atlas/candidates/market=pl-PL/candidates.jsonl.gz",
     "rows": 11905,
-    "content_sha1": "16c9302a8f396772"
+    "content_sha1": "6de50e35749813c5"
    },
    "pt-BR": {
     "path": "data/atlas/candidates/market=pt-BR/candidates.jsonl.gz",
-    "rows": 15668,
-    "content_sha1": "b11eeb2e54635d88"
+    "rows": 15671,
+    "content_sha1": "d4ebd579a666d046"
    },
    "zh-Hant-TW": {
     "path": "data/atlas/candidates/market=zh-Hant-TW/candidates.jsonl.gz",
     "rows": 798,
-    "content_sha1": "ad5eca6f1186eb33"
+    "content_sha1": "4c47e6e6bb11208a"
    }
   },
   "family": {
@@ -88,7 +88,7 @@
    "cost-of-living.city": {
     "path": "data/atlas/candidates/family=cost-of-living.city/candidates.jsonl.gz",
     "rows": 2967,
-    "content_sha1": "ee799466717cd8d5"
+    "content_sha1": "7a5334991298e98f"
    },
    "cost-of-living.city-vs-market": {
     "path": "data/atlas/candidates/family=cost-of-living.city-vs-market/candidates.jsonl.gz",
@@ -103,7 +103,7 @@
    "education.city-schools": {
     "path": "data/atlas/candidates/family=education.city-schools/candidates.jsonl.gz",
     "rows": 259,
-    "content_sha1": "a492e8afee844d5d"
+    "content_sha1": "76a09eddb5573678"
    },
    "education.city-universities": {
     "path": "data/atlas/candidates/family=education.city-universities/candidates.jsonl.gz",
@@ -113,7 +113,7 @@
    "events.city-calendar": {
     "path": "data/atlas/candidates/family=events.city-calendar/candidates.jsonl.gz",
     "rows": 5924,
-    "content_sha1": "805654cd262c003f"
+    "content_sha1": "a6539023ada7eeea"
    },
    "events.city-type": {
     "path": "data/atlas/candidates/family=events.city-type/candidates.jsonl.gz",
@@ -123,7 +123,7 @@
    "events.city-window": {
     "path": "data/atlas/candidates/family=events.city-window/candidates.jsonl.gz",
     "rows": 741,
-    "content_sha1": "4fdd1978fe5a1541"
+    "content_sha1": "f6cd907747d12e0d"
    },
    "health.city": {
     "path": "data/atlas/candidates/family=health.city/candidates.jsonl.gz",
@@ -144,6 +144,171 @@
     "path": "data/atlas/candidates/family=neighbourhoods.guide/candidates.jsonl.gz",
     "rows": 825,
     "content_sha1": "4d7cb2ab8593d9e5"
+   },
+   "outdoors.aqueduct": {
+    "path": "data/atlas/candidates/family=outdoors.aqueduct/candidates.jsonl.gz",
+    "rows": 20,
+    "content_sha1": "4a1f6cf3929d99cf"
+   },
+   "outdoors.archaeological_site": {
+    "path": "data/atlas/candidates/family=outdoors.archaeological_site/candidates.jsonl.gz",
+    "rows": 1384,
+    "content_sha1": "21dcc24bdcf45046"
+   },
+   "outdoors.beach": {
+    "path": "data/atlas/candidates/family=outdoors.beach/candidates.jsonl.gz",
+    "rows": 27,
+    "content_sha1": "a54b8dc2b043e3ac"
+   },
+   "outdoors.beach-in-region": {
+    "path": "data/atlas/candidates/family=outdoors.beach-in-region/candidates.jsonl.gz",
+    "rows": 20,
+    "content_sha1": "b850e406e66bad57"
+   },
+   "outdoors.beach_resort": {
+    "path": "data/atlas/candidates/family=outdoors.beach_resort/candidates.jsonl.gz",
+    "rows": 3,
+    "content_sha1": "9f91aa0ea22daee9"
+   },
+   "outdoors.camp_site": {
+    "path": "data/atlas/candidates/family=outdoors.camp_site/candidates.jsonl.gz",
+    "rows": 104,
+    "content_sha1": "7451ae91cdacbe79"
+   },
+   "outdoors.camp_site-in-region": {
+    "path": "data/atlas/candidates/family=outdoors.camp_site-in-region/candidates.jsonl.gz",
+    "rows": 45,
+    "content_sha1": "080520b64cd9259b"
+   },
+   "outdoors.caravan_site": {
+    "path": "data/atlas/candidates/family=outdoors.caravan_site/candidates.jsonl.gz",
+    "rows": 7,
+    "content_sha1": "17f6f79ebc2f5d75"
+   },
+   "outdoors.castle": {
+    "path": "data/atlas/candidates/family=outdoors.castle/candidates.jsonl.gz",
+    "rows": 2689,
+    "content_sha1": "0f8d39da3f416677"
+   },
+   "outdoors.castle-in-region": {
+    "path": "data/atlas/candidates/family=outdoors.castle-in-region/candidates.jsonl.gz",
+    "rows": 154,
+    "content_sha1": "8c679d446c56bc35"
+   },
+   "outdoors.cave": {
+    "path": "data/atlas/candidates/family=outdoors.cave/candidates.jsonl.gz",
+    "rows": 327,
+    "content_sha1": "22692cddc26233f1"
+   },
+   "outdoors.city_gate": {
+    "path": "data/atlas/candidates/family=outdoors.city_gate/candidates.jsonl.gz",
+    "rows": 210,
+    "content_sha1": "eb21ec10f21c8e4e"
+   },
+   "outdoors.climbing_crag": {
+    "path": "data/atlas/candidates/family=outdoors.climbing_crag/candidates.jsonl.gz",
+    "rows": 7,
+    "content_sha1": "abb686135650c02d"
+   },
+   "outdoors.fort": {
+    "path": "data/atlas/candidates/family=outdoors.fort/candidates.jsonl.gz",
+    "rows": 109,
+    "content_sha1": "f13dfbf0e4a45238"
+   },
+   "outdoors.geyser": {
+    "path": "data/atlas/candidates/family=outdoors.geyser/candidates.jsonl.gz",
+    "rows": 2,
+    "content_sha1": "c2dcb99afceb8f25"
+   },
+   "outdoors.hot_spring": {
+    "path": "data/atlas/candidates/family=outdoors.hot_spring/candidates.jsonl.gz",
+    "rows": 1,
+    "content_sha1": "efa5824db212621e"
+   },
+   "outdoors.lighthouse": {
+    "path": "data/atlas/candidates/family=outdoors.lighthouse/candidates.jsonl.gz",
+    "rows": 112,
+    "content_sha1": "1c937326444a9b34"
+   },
+   "outdoors.monument": {
+    "path": "data/atlas/candidates/family=outdoors.monument/candidates.jsonl.gz",
+    "rows": 285,
+    "content_sha1": "888a51c738da8b74"
+   },
+   "outdoors.mountain_hut": {
+    "path": "data/atlas/candidates/family=outdoors.mountain_hut/candidates.jsonl.gz",
+    "rows": 586,
+    "content_sha1": "2f8afb8e28b83065"
+   },
+   "outdoors.mountain_pass": {
+    "path": "data/atlas/candidates/family=outdoors.mountain_pass/candidates.jsonl.gz",
+    "rows": 684,
+    "content_sha1": "933beec1fff08bb0"
+   },
+   "outdoors.natural_arch": {
+    "path": "data/atlas/candidates/family=outdoors.natural_arch/candidates.jsonl.gz",
+    "rows": 1,
+    "content_sha1": "e4290ab7d5932633"
+   },
+   "outdoors.observatory": {
+    "path": "data/atlas/candidates/family=outdoors.observatory/candidates.jsonl.gz",
+    "rows": 95,
+    "content_sha1": "1b38b065c7d12063"
+   },
+   "outdoors.peak": {
+    "path": "data/atlas/candidates/family=outdoors.peak/candidates.jsonl.gz",
+    "rows": 17341,
+    "content_sha1": "7258b9384dceffdf"
+   },
+   "outdoors.peak-in-region": {
+    "path": "data/atlas/candidates/family=outdoors.peak-in-region/candidates.jsonl.gz",
+    "rows": 448,
+    "content_sha1": "afdac1d20265b245"
+   },
+   "outdoors.ruins": {
+    "path": "data/atlas/candidates/family=outdoors.ruins/candidates.jsonl.gz",
+    "rows": 455,
+    "content_sha1": "ab6ecd19a5a17d47"
+   },
+   "outdoors.tower": {
+    "path": "data/atlas/candidates/family=outdoors.tower/candidates.jsonl.gz",
+    "rows": 1181,
+    "content_sha1": "bd40696eb61cd7fd"
+   },
+   "outdoors.viewpoint": {
+    "path": "data/atlas/candidates/family=outdoors.viewpoint/candidates.jsonl.gz",
+    "rows": 168,
+    "content_sha1": "93aa880e1e90268c"
+   },
+   "outdoors.viewpoint-in-region": {
+    "path": "data/atlas/candidates/family=outdoors.viewpoint-in-region/candidates.jsonl.gz",
+    "rows": 391,
+    "content_sha1": "c1c2df2ffae727f7"
+   },
+   "outdoors.volcano": {
+    "path": "data/atlas/candidates/family=outdoors.volcano/candidates.jsonl.gz",
+    "rows": 41,
+    "content_sha1": "a445d95cf06ea541"
+   },
+   "outdoors.waterfall": {
+    "path": "data/atlas/candidates/family=outdoors.waterfall/candidates.jsonl.gz",
+    "rows": 69,
+    "content_sha1": "1cc0df0ae344b668"
+   },
+   "outdoors.watermill": {
+    "path": "data/atlas/candidates/family=outdoors.watermill/candidates.jsonl.gz",
+    "rows": 140,
+    "content_sha1": "beedb63da7fd07d8"
+   },
+   "outdoors.wilderness_hut": {
+    "path": "data/atlas/candidates/family=outdoors.wilderness_hut/candidates.jsonl.gz",
+    "rows": 118,
+    "content_sha1": "06ebe9a022a3aa30"
+   },
+   "outdoors.windmill": {
+    "path": "data/atlas/candidates/family=outdoors.windmill/candidates.jsonl.gz",
+    "rows": 203,
+    "content_sha1": "192510fc7e005b5c"
    },
    "places.area-arts_centre": {
     "path": "data/atlas/candidates/family=places.area-arts_centre/candidates.jsonl.gz",
@@ -573,7 +738,7 @@
    "places.city-restaurant": {
     "path": "data/atlas/candidates/family=places.city-restaurant/candidates.jsonl.gz",
     "rows": 5920,
-    "content_sha1": "4ae053659905e564"
+    "content_sha1": "02c7440394d24873"
    },
    "places.city-school": {
     "path": "data/atlas/candidates/family=places.city-school/candidates.jsonl.gz",
@@ -583,7 +748,7 @@
    "places.city-shopping_mall": {
     "path": "data/atlas/candidates/family=places.city-shopping_mall/candidates.jsonl.gz",
     "rows": 544,
-    "content_sha1": "102245fa893b4b42"
+    "content_sha1": "feba2eb2811aa2c0"
    },
    "places.city-sport": {
     "path": "data/atlas/candidates/family=places.city-sport/candidates.jsonl.gz",
@@ -680,6 +845,11 @@
     "rows": 120,
     "content_sha1": "32724fa22c4dab38"
    },
+   "poi.bridge-notable": {
+    "path": "data/atlas/candidates/family=poi.bridge-notable/candidates.jsonl.gz",
+    "rows": 6,
+    "content_sha1": "89b478942af0efb7"
+   },
    "poi.castle-notable": {
     "path": "data/atlas/candidates/family=poi.castle-notable/candidates.jsonl.gz",
     "rows": 46,
@@ -692,8 +862,8 @@
    },
    "poi.monument-notable": {
     "path": "data/atlas/candidates/family=poi.monument-notable/candidates.jsonl.gz",
-    "rows": 93,
-    "content_sha1": "77256c56ba1aab87"
+    "rows": 96,
+    "content_sha1": "b27f423d13ca5385"
    },
    "poi.museum-notable": {
     "path": "data/atlas/candidates/family=poi.museum-notable/candidates.jsonl.gz",
@@ -709,6 +879,11 @@
     "path": "data/atlas/candidates/family=poi.park-notable/candidates.jsonl.gz",
     "rows": 325,
     "content_sha1": "5f446053f3475117"
+   },
+   "poi.public_square-notable": {
+    "path": "data/atlas/candidates/family=poi.public_square-notable/candidates.jsonl.gz",
+    "rows": 80,
+    "content_sha1": "3cb0d47529c387c6"
    },
    "poi.stadium-notable": {
     "path": "data/atlas/candidates/family=poi.stadium-notable/candidates.jsonl.gz",
@@ -738,12 +913,12 @@
    "property.city-buy": {
     "path": "data/atlas/candidates/family=property.city-buy/candidates.jsonl.gz",
     "rows": 2989,
-    "content_sha1": "d9191a0a8a3d1a48"
+    "content_sha1": "28cfdcac1453cd70"
    },
    "relocation.city": {
     "path": "data/atlas/candidates/family=relocation.city/candidates.jsonl.gz",
     "rows": 3221,
-    "content_sha1": "989fbfba926199c6"
+    "content_sha1": "72e847a573f8baa4"
    },
    "relocation.country": {
     "path": "data/atlas/candidates/family=relocation.country/candidates.jsonl.gz",
@@ -763,17 +938,17 @@
    "safety.city": {
     "path": "data/atlas/candidates/family=safety.city/candidates.jsonl.gz",
     "rows": 654,
-    "content_sha1": "a88204df3b83fe2e"
+    "content_sha1": "efe2b85bc93d157f"
    },
    "services.city-practical": {
     "path": "data/atlas/candidates/family=services.city-practical/candidates.jsonl.gz",
     "rows": 1593,
-    "content_sha1": "30a17dad2b256506"
+    "content_sha1": "026d27347fd8278e"
    },
    "sport.city-activity": {
     "path": "data/atlas/candidates/family=sport.city-activity/candidates.jsonl.gz",
     "rows": 690,
-    "content_sha1": "6bb09eb35ca0eecc"
+    "content_sha1": "97ad79e9ca118c3a"
    },
    "stay.city-type": {
     "path": "data/atlas/candidates/family=stay.city-type/candidates.jsonl.gz",
@@ -793,12 +968,12 @@
    "transport.city-getting-around": {
     "path": "data/atlas/candidates/family=transport.city-getting-around/candidates.jsonl.gz",
     "rows": 2343,
-    "content_sha1": "be5cb7ef50f54b58"
+    "content_sha1": "8f2ce60e7e891b82"
    },
    "transport.route-from-market": {
     "path": "data/atlas/candidates/family=transport.route-from-market/candidates.jsonl.gz",
     "rows": 721,
-    "content_sha1": "3ac813497944e060"
+    "content_sha1": "a4632cd1a1c63099"
    },
    "visas.country-work-permit": {
     "path": "data/atlas/candidates/family=visas.country-work-permit/candidates.jsonl.gz",
@@ -813,12 +988,12 @@
    "work.city-jobs-category": {
     "path": "data/atlas/candidates/family=work.city-jobs-category/candidates.jsonl.gz",
     "rows": 731,
-    "content_sha1": "8c7c11b6e583ab0b"
+    "content_sha1": "6083c866734a3e8f"
    },
    "work.city-salaries": {
     "path": "data/atlas/candidates/family=work.city-salaries/candidates.jsonl.gz",
     "rows": 3190,
-    "content_sha1": "159620dca96abada"
+    "content_sha1": "94f124fde1ab10c7"
    }
   },
   "surface": {
@@ -835,37 +1010,42 @@
    "move": {
     "path": "data/atlas/candidates/surface=move/candidates.jsonl.gz",
     "rows": 12327,
-    "content_sha1": "96fae4b38c822a6b"
+    "content_sha1": "52db627d28fb08d6"
+   },
+   "outdoors": {
+    "path": "data/atlas/candidates/surface=outdoors/candidates.jsonl.gz",
+    "rows": 27427,
+    "content_sha1": "f1f3153f83a32f79"
    },
    "places": {
     "path": "data/atlas/candidates/surface=places/candidates.jsonl.gz",
     "rows": 144775,
-    "content_sha1": "17b8ca5ba32dc872"
+    "content_sha1": "69d18e5ec5c0a38a"
    },
    "poi": {
     "path": "data/atlas/candidates/surface=poi/candidates.jsonl.gz",
-    "rows": 6893,
-    "content_sha1": "d87645daf787a2bc"
+    "rows": 6982,
+    "content_sha1": "5b2e62e1fbec322c"
    },
    "pulse": {
     "path": "data/atlas/candidates/surface=pulse/candidates.jsonl.gz",
     "rows": 12589,
-    "content_sha1": "27ae85e1a1774538"
+    "content_sha1": "33b997897f2c3e00"
    },
    "safety": {
     "path": "data/atlas/candidates/surface=safety/candidates.jsonl.gz",
     "rows": 654,
-    "content_sha1": "a88204df3b83fe2e"
+    "content_sha1": "efe2b85bc93d157f"
    },
    "sport": {
     "path": "data/atlas/candidates/surface=sport/candidates.jsonl.gz",
     "rows": 690,
-    "content_sha1": "6bb09eb35ca0eecc"
+    "content_sha1": "97ad79e9ca118c3a"
    },
    "stay": {
     "path": "data/atlas/candidates/surface=stay/candidates.jsonl.gz",
     "rows": 17603,
-    "content_sha1": "8d7a6969e354f79a"
+    "content_sha1": "358c5b0ba52ce0e8"
    },
    "tools": {
     "path": "data/atlas/candidates/surface=tools/candidates.jsonl.gz",
@@ -875,64 +1055,64 @@
    "transport": {
     "path": "data/atlas/candidates/surface=transport/candidates.jsonl.gz",
     "rows": 3064,
-    "content_sha1": "e2c8fabbfdf8dca4"
+    "content_sha1": "226f573f0673d08c"
    },
    "work": {
     "path": "data/atlas/candidates/surface=work/candidates.jsonl.gz",
     "rows": 3921,
-    "content_sha1": "80805346439554f0"
+    "content_sha1": "3ec6fef27695b726"
    }
   },
   "language": {
    "de": {
     "path": "data/atlas/candidates/language=de/candidates.jsonl.gz",
-    "rows": 37149,
-    "content_sha1": "0c7bdd620b210f2a"
+    "rows": 56205,
+    "content_sha1": "11c86b2276eba8ae"
    },
    "en": {
     "path": "data/atlas/candidates/language=en/candidates.jsonl.gz",
-    "rows": 76939,
-    "content_sha1": "9a6a4ae2acf603e4"
+    "rows": 76959,
+    "content_sha1": "3c16e9bb63c8083e"
    },
    "es": {
     "path": "data/atlas/candidates/language=es/candidates.jsonl.gz",
     "rows": 15520,
-    "content_sha1": "bdc742fcb4ab6551"
+    "content_sha1": "ba4ddd9e8772a9db"
    },
    "fr": {
     "path": "data/atlas/candidates/language=fr/candidates.jsonl.gz",
-    "rows": 18380,
-    "content_sha1": "ec4bad7a7d5281b0"
+    "rows": 18382,
+    "content_sha1": "27f0ef3398748537"
    },
    "it": {
     "path": "data/atlas/candidates/language=it/candidates.jsonl.gz",
-    "rows": 15268,
-    "content_sha1": "5219e288c73e397b"
+    "rows": 23690,
+    "content_sha1": "e00266f6cfb94332"
    },
    "ja": {
     "path": "data/atlas/candidates/language=ja/candidates.jsonl.gz",
-    "rows": 25143,
-    "content_sha1": "9df85bb8c24ef075"
+    "rows": 25150,
+    "content_sha1": "e6617f11829acc80"
    },
    "nl": {
     "path": "data/atlas/candidates/language=nl/candidates.jsonl.gz",
-    "rows": 9702,
-    "content_sha1": "19a5ce753ee8fa8f"
+    "rows": 9708,
+    "content_sha1": "be2701aa0a1d61f0"
    },
    "pl": {
     "path": "data/atlas/candidates/language=pl/candidates.jsonl.gz",
     "rows": 11905,
-    "content_sha1": "16c9302a8f396772"
+    "content_sha1": "6de50e35749813c5"
    },
    "pt": {
     "path": "data/atlas/candidates/language=pt/candidates.jsonl.gz",
-    "rows": 15668,
-    "content_sha1": "b11eeb2e54635d88"
+    "rows": 15671,
+    "content_sha1": "d4ebd579a666d046"
    },
    "zh-Hant": {
     "path": "data/atlas/candidates/language=zh-Hant/candidates.jsonl.gz",
     "rows": 798,
-    "content_sha1": "ad5eca6f1186eb33"
+    "content_sha1": "4c47e6e6bb11208a"
    }
   }
  },

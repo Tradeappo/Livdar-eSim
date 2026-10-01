@@ -260,18 +260,36 @@ _disamb, _dropped = 0, []
 for k, group in _key.items():
     if len(group) < 2:
         continue
-    for r in group:
-        facts = r['facts']
-        tag = ''
-        for f in facts:
-            if 'above sea level' in f or f.endswith('m deep') or f.endswith('m high')                     or f.endswith('m long') or f.startswith('dated to'):
-                tag = f.replace(' above sea level', '')
-                break
-        if tag:
-            r['entity_name'] = f"{r['entity_name']} ({tag})"
+    # The fact has to DISCRIMINATE, not merely exist. Two castles called Haus Katz in one county
+    # both carry "dated to 1706", so appending it to both produced the same title twice and the
+    # first version of this counted that as solved. The candidate facts are compared across the
+    # group and the first slot that differs for every member wins. Where no fact separates them,
+    # the best-sourced one is kept and the rest are dropped, because two pages headed by the same
+    # words about the same thing is the failure this gate exists to prevent.
+    def _candidates(r):
+        out = []
+        for f in r['facts']:
+            if ('above sea level' in f or f.endswith('m deep') or f.endswith('m high')
+                    or f.endswith('m long') or f.startswith('dated to')
+                    or f.startswith('a prominence') or f.startswith('a capacity')):
+                out.append(f.replace(' above sea level', ''))
+        return out
+    cands = [_candidates(r) for r in group]
+    chosen = None
+    for slot in range(4):
+        vals = [(c[slot] if len(c) > slot else None) for c in cands]
+        if all(v is not None for v in vals) and len(set(vals)) == len(vals):
+            chosen = slot
+            break
+    if chosen is not None:
+        for r, c in zip(group, cands):
+            r['entity_name'] = f"{r['entity_name']} ({c[chosen]})"
             _disamb += 1
-        else:
-            _dropped.append(r)
+    else:
+        keep = max(group, key=lambda r: r['enriched'])
+        for r in group:
+            if r is not keep:
+                _dropped.append(r)
 if _dropped:
     _drop_ids = {id(r) for r in _dropped}
     rows = [r for r in rows if id(r) not in _drop_ids]

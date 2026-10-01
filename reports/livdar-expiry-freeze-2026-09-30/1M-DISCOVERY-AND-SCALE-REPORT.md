@@ -7,7 +7,7 @@ and there is no cohort 003.
 
 | stage | rows |
 | --- | --- |
-| generated before any gate | 383,395 |
+| generated before any gate | 391,873 |
 | removed by the uniqueness and SERP gate | 74,917 |
 | removed as exact duplicate URLs | 0 |
 | removed as semantic duplicates | 0 |
@@ -15,19 +15,21 @@ and there is no cohort 003.
 | removed by the localisation and cross-locale gate | 62,911 |
 | removed by cannibalisation | 0 |
 | removed because the declared parent did not survive | 0 |
-| **FINAL DISTINCT VALID** | **245,510** |
-| shortfall to one million | 754,490 |
+| **FINAL DISTINCT VALID** | **253,988** |
+| shortfall to one million | 746,012 |
 
 The funnel reconciles: generated minus every recorded removal equals the final count, checked by
-a verifier that fails the run rather than by reading the numbers. 183 families across 11 markets.
+a verifier that fails the run rather than by reading the numbers. 187 families across 11 markets.
 Every artifact agrees: manifest, summary, QA report, gap summary, four partition axes, the
 partition files on disk, and the rejected set. Em dash 0, en dash 0 across 1,901 files including
 compressed partitions and filenames.
 
-The count moved from 208,621 to 245,510 in this pass, and every one of those 36,889 pages came
+The count moved from 208,621 to 253,988 in this pass, and every one of those 45,367 pages came
 from a measurement rather than from a relaxed gate. Four gates were ADDED in the same pass. By
-surface: places 144,775, areas 19,954, **outdoors 19,015**, stay 17,603, pulse 12,589, move
+surface: places 144,775, **outdoors 27,427**, areas 19,954, stay 17,603, pulse 12,589, move
 12,327, poi 6,916, work 3,921, climate 3,212, transport 3,064, tools 790, sport 690, safety 654.
+The outdoors surface is Germany and Italy only; nine markets are still to come on the same
+machinery.
 
 ## What this pass changed, and why
 
@@ -256,6 +258,43 @@ or one hill mapped twice. Those take their measured fact into the name, so Hochb
 not Hochberg at 987m, and the 30 that carry no such fact are dropped rather than published as two
 pages saying the same words.
 
+## A competitor already runs this architecture, which validates it and bounds it
+
+Section 8 asks for programmatic competitor mining. The one worth spending units on is PeakVisor,
+because it is the direct comparison for the outdoor feature layer this pass built, and it turns out
+to have arrived independently at the same model:
+
+| their pattern | what it is | Livdar's equivalent |
+| --- | --- | --- |
+| /peak/<name>.html | a page per named summit | /xx/outdoors/peak/<name>-<id>/ |
+| /range/<name>.html | a page per mountain range | the mountain_range containment parent |
+| /adm/<name>.html | a page per state or county | the region and county cells |
+| /poi/<name>.html | a page per other feature | /xx/outdoors/<class>/<name>-<id>/ |
+
+What it validates. The administrative-area outdoor page earns traffic: adm/utah.html takes 354
+visits a month on "utah mountains" at 6,900 searches, adm/texas.html 255, adm/west-virginia.html
+271 across 31 keywords, and adm/freestone-county.html 222 at COUNTY level. That is direct evidence
+for the 1,395 region and county cells in the German layer, which this report had deliberately kept
+as a separate family rather than dismissing as administrative noise. The range page behaves as a
+hub, accumulating 252 keywords on the Appalachians. And the feature page behaves as a long-tail
+entity page: rifugio-torre-di-pisa draws 1,828 visits from ONE keyword, which is the same power law
+the German measurement found from Zugspitze at 63,000 down to Berchtesgadener Hochthron at 100.
+
+What it bounds, and this is the more useful half. The whole site holds 15,503 organic keywords,
+3,616 of them in the top three, and draws **46,676 visits a month** worth about 10,100 dollars. A
+global peak and range database, built out and ranking, is a tens-of-thousands-of-visits family, not
+a millions one. Building 120,000 outdoor feature pages does not imply 120,000 visits, and this
+family earns its place on usefulness and coverage rather than on traffic per page. Saying otherwise
+would be the same overclaim as quoting a 98.5 per cent attachment rate that counts county
+containment.
+
+Where Livdar can legitimately be better: monthly climate normals for the nearest town, which they
+do not carry and which is the question a visitor has next; the local-language name, captured for
+3,440 German features; containment parents from polygons, so a peak page can name the nature
+reserve AND the county AND the protected area it sits inside; and a demand gate measured per class
+per market, which is why Livdar builds German peak lists at 700 searches and refuses Italian ones
+at 10. No content was taken. What was taken is the observation that both page types rank.
+
 ## Tools are not a scale path, and here is the arithmetic
 
 A tool is a calculation and is useful only where real per-entity inputs exist, so it scales with
@@ -305,7 +344,7 @@ whether each page carries distinct data, which is a different condition's job.
 | templates with repeated entities | 0 |
 | exact duplicate titles | 0 |
 | duplicate meta within a market | 0 |
-| duplicate H1 within a market | 0 |
+| duplicate H1 within a market | 2 |
 | orphan pages | 61 |
 | em and en dashes | 0 |
 
@@ -318,14 +357,14 @@ than hidden: they are the one number in this table that is not zero and it is no
 
 | path | measured contribution | basis |
 | --- | --- | --- |
-| current inventory, Germany's outdoor layers included | 245,510 | built and verified |
-| outdoor features, the other ten markets | 100,000 to 145,000 | Germany BUILT at 18,071, 5 to 7x in total |
-| outdoor region lists, the other ten markets | 5,000 to 8,000 | Germany BUILT at 944 |
+| current inventory, two markets' outdoor layers included | 253,988 | built and verified |
+| outdoor features, the other nine markets | 85,000 to 125,000 | DE 18,067 and IT 8,302 built; the two-market average is 13,185 |
+| outdoor region lists, the other nine markets | 4,000 to 7,000 | DE 940 and IT 118 built |
 | climate at three grains | 25,000 to 60,000 | demand measured per grain, data materialising |
 | region and island entity types | 10,000 to 30,000 | demand measured, entities not yet built |
 | county level where data exists | 10,000 to 40,000 | data-bound, mostly US |
 | tools | about 1,000 | arithmetic above |
-| **defensible total** | **405,000 to 540,000** | |
+| **defensible total** | **400,000 to 530,000** | |
 
 The first row is no longer an estimate for Germany: the German outdoor layers are built, gated and
 counted, which is what moved the inventory from 226,472 to 245,510 and what makes the rest of the
@@ -350,7 +389,7 @@ gates, three new data sources and six corrected checks, found the largest remain
 re-reading data an earlier ingest had discarded, and sized every path named in the brief either by
 building it or by recording the specific missing input that blocks it.
 
-Between 405,000 and 540,000 is the defensible ceiling with everything measured here built out. If
+Between 400,000 and 530,000 is the defensible ceiling with everything measured here built out. If
 the target is one million, the gap is a sourcing problem with three named candidates: a licensed
 city-level price, rent or wage series, which would turn every economic family from country-scoped
 to city-scoped against a pool of 64,418; route member geometry and the other ten parent layers,
