@@ -111,7 +111,7 @@ and are still the evidence of record:
 
 **The authoritative number is in `1M-FINAL-DELIVERABLE.md`, which is generated from the
 files rather than written by hand, so it cannot drift from the inventory.** Read that
-first. The figure as this was last written was **204,767 FINAL DISTINCT** out of 323,026 generated, with every rejection kept visible and carrying a reason, and it moves when
+first. The figure as this was last written was **208,621 FINAL DISTINCT** out of 326,400 generated, with every rejection kept visible and carrying a reason, and it moves when
 a market finishes ingesting, because the whole chain is one command:
 `scripts/atlas/scale/run-1m-pipeline.sh` (add `--from-manifest` to reuse the aggregation and
 Wikidata files when only a gate or a report has changed). The step before the report is
@@ -119,7 +119,7 @@ Wikidata files when only a gate or a report has changed). The step before the re
 the gap summary, the four partition axes and the rejected set do not all carry the same
 count.
 
-**The number moved from 233,646 to 204,767 in the pass of 2026-10-01, and the shape of that
+**The number moved from 233,646 to 208,621 over the two passes of 2026-10-01, and the shape of that
 move is the main result.** Two opposite corrections happened in the same pass: a gate that
 was too loose removed about 46,100 rows, and three URL collisions that had been silently
 discarding pages gave 6,717 back.
