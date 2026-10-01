@@ -1,128 +1,172 @@
 #!/usr/bin/env python3
 """
-What closes the gap between the generated candidate inventory and 1,000,000.
+What stands between the generated inventory and 1,000,000, computed from what was
+actually measured rather than asserted.
 
-Every number here is arithmetic over entity counts already measured and recorded in
-this repository. Nothing is invented, and where a figure is an extrapolation from a
-measured average it says so in the row.
+An earlier version of this file led with a single row: source-backed POI times one
+validated modifier, 964,920 candidates, "this single source closes the whole gap on its
+own". That plan has been withdrawn. One page per POI is scaled-content spam, the SERP for
+a named venue belongs to the venue, and the 161,474 rows it produced were deleted. A gap
+analysis that still promised it would have been the most misleading file in the folder.
+
+What replaces it is arithmetic over yields this pass actually produced: candidates per
+ingested market, per Wikidata class, per place polygon. Where a figure is an extrapolation
+from a measured average the row says so, and where the honest answer is that nothing
+closes the gap without removing a gate, the row names the gate.
 """
-import json, csv, collections
+import json, csv, glob, gzip, collections, os, io
 
-OUT = '/home/user/Livdar-eSim/reports/livdar-expiry-freeze-2026-09-30/'
+ROOT = '/home/user/Livdar-eSim/'
+OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
+TARGET = 1_000_000
+
 S = json.load(open(OUT + '1M-SUMMARY.json'))
 built = S['FINAL_DISTINCT_CANDIDATES']
-gap = 1_000_000 - built
+gap = TARGET - built
+poi_gate = json.load(open(OUT + '1M-POI-AGGREGATION-GATE.json'))
+try:
+    wd_gate = json.load(open(OUT + '1M-WIKIDATA-GATE.json'))
+except FileNotFoundError:
+    wd_gate = {}
 
-# measured entity figures, from SCALE-FINAL.json and ENTITY-UNIVERSE-BY-AXIS.csv
-POI_RAW_VERIFIED_OSM = 25_567_541
-POI_OBTAINABLE_11_MARKETS = 3_216_399
-POI_SOURCE_BACKED = 964_920
-NEIGH_HELD = 1_403
-NEIGH_CITIES_HELD = 39
-CITIES_T1_T2 = 560 + 2_391
-VENUES_HELD = 9_438
-VENUE_COUNTRIES = 16
-LISTING_RECORDS = 47_000_000
+MARKET_COUNTRIES = ['US', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'BR', 'GB', 'JP', 'TW']
+poi_files = {os.path.basename(p) for p in glob.glob(ROOT + 'data/atlas/sources/osm-poi/poi-*.jsonl.gz')}
+ingested = set()
+for f in poi_files:
+    iso = f.replace('poi-', '').split('.')[0].split('-')[0]
+    if iso in MARKET_COUNTRIES:
+        ingested.add(iso)
+missing = [c for c in MARKET_COUNTRIES if c not in ingested]
 
-# validated POI modifiers, from ENTITY-MODIFIER-RESEARCH.csv verdicts
-POI_MODIFIERS_VALIDATED = ['tickets', 'opening hours', 'how to get to', 'parking', 'restaurants near']
+agg_by_market = poi_gate.get('by_market', {})
+agg_total = poi_gate.get('aggregation_candidates', 0)
+per_market = agg_total / max(1, len(agg_by_market))
+
+wd_classes_done = len({os.path.basename(p).split('-')[1]
+                       for p in glob.glob(ROOT + 'data/atlas/sources/wikidata/wd-*.jsonl.gz')})
+WD_CLASSES_TOTAL = 24
+wd_candidates = wd_gate.get('candidates', 0)
 
 rows = []
-def add(source, family_or_axis, basis, unlocks, status, note):
-    rows.append({'acquisition': source, 'family_or_axis': family_or_axis,
-                 'basis_of_the_number': basis, 'candidates_unlocked': unlocks,
-                 'source_status_after': status, 'note': note})
 
-# 0 -- Wikidata POI, MEASURED LIVE against the SPARQL endpoint this session.
-#      This matters more than the OSM figure below because the licence is CC0: no
-#      share-alike obligation, unlike ODbL. Counts are instances with wdt:P17 in one
-#      of the 11 market countries.
-try:
-    WD = json.load(open('/tmp/wd_class_counts.json'))
-except Exception:
-    WD = {}
-wd_total = sum(WD.values())
-if WD:
-    add('Wikidata POI ingestion (CC0, measured live)', 'poi.<class>-<modifier>',
-        'LIVE SPARQL counts in the 11 market countries: ' +
-        ', '.join(f'{k} {v:,}' for k, v in sorted(WD.items(), key=lambda x: -x[1])),
-        wd_total, 'READY_NOW once ingested',
-        'CC0 1.0: no share-alike, no legal attribution requirement, which makes it '
-        'strictly easier to publish than OSM. VERIFIED REACHABLE from the Livdar '
-        'container, but the endpoint hard-throttles bulk extraction (about six '
-        'counting queries then sustained 429s), so ingestion must use the JSON dump '
-        'or a multi-day paginated crawler. Wikidata is strong on museums, libraries, '
-        'hospitals, theatres, beaches, universities and stadiums, and WEAK on '
-        'commercial POI: cafe returned only 921 across all 11 markets, so '
-        'restaurants, cafes, gyms and coworking still need OSM.')
 
-# 1 -- POI x validated modifier. The only source large enough to reach 1M.
-add('OpenStreetMap + Wikidata POI ingestion', 'poi.entity-<modifier>',
-    f'{POI_SOURCE_BACKED:,} source-backed POI x 1 validated modifier',
-    POI_SOURCE_BACKED, 'READY_NOW once ingested',
-    'ODbL 1.0 share-alike, attribution mandatory. Bare POI entity pages are '
-    'BRAND_OWNED_PLUS_SOCIAL and must NOT be generated; only entity-plus-practical-'
-    'modifier pages are rankable (tickets, opening hours, how to get to, parking), '
-    'each gated per entity because a reseller owns some queries. This single source '
-    'closes the whole gap on its own.')
-add('OpenStreetMap + Wikidata POI ingestion (full 11-market obtainable set)',
-    'poi.entity-<modifier>',
-    f'{POI_OBTAINABLE_11_MARKETS:,} obtainable POI x 1 modifier',
-    POI_OBTAINABLE_11_MARKETS, 'SOURCE_AVAILABLE',
-    'The ceiling rather than the plan. Far beyond 1M and far beyond what demand '
-    'supports, so it is bounded by the publication controller, not by the source.')
+def add(path, basis, unlocks, status, note):
+    rows.append({'closure_path': path, 'basis_of_the_number': basis,
+                 'candidates_unlocked': unlocks, 'status': status, 'note': note})
 
-# 2 -- neighbourhood expansion, extrapolated from the measured average
-per_city = NEIGH_HELD / NEIGH_CITIES_HELD
-neigh_projected = int(per_city * CITIES_T1_T2)
-add('OSM neighbourhood polygons for tier 1 and 2 cities',
-    'neighbourhoods.* and places.neighbourhood-category and rents.neighbourhood',
-    f'EXTRAPOLATION: {NEIGH_HELD:,} neighbourhoods across {NEIGH_CITIES_HELD} cities '
-    f'= {per_city:.1f} per city, applied to {CITIES_T1_T2:,} tier 1+2 cities',
-    neigh_projected, 'SOURCE_AVAILABLE',
-    'Extrapolated from a measured average, not a counted set. The demand half is '
-    'evidenced: places.city-category measured about 60 London neighbourhood queries '
-    'and about 40 near-station queries for one category alone. The facts half is '
-    'still capped at 200 pages by the controller on four-fields-per-page grounds.')
 
-# 3 -- venue expansion
-add('Wikidata venue coverage for the remaining markets', 'stay.near-venue and events.venue',
-    f'{VENUES_HELD:,} venues held across {VENUE_COUNTRIES} countries; the 11 target '
-    f'markets are only partly covered',
-    VENUES_HELD, 'SOURCE_AVAILABLE',
-    'Doubling coverage roughly doubles the venue families. Small next to POI.')
+add('Finish OSM ingestion for every market',
+    f'MEASURED: {agg_total:,} aggregation candidates from {len(agg_by_market)} markets '
+    f'with candidates, so {per_market:,.0f} per market. Markets still missing: '
+    f'{", ".join(missing) if missing else "none"}',
+    int(per_market * len(missing)),
+    'IN PROGRESS' if missing else 'DONE',
+    'An extrapolation from a measured per-market average, not a counted set. Markets '
+    'differ: Britain yields more cuisine pages because 13.2 per cent of its POI carry a '
+    'cuisine tag against 7.4 per cent in Spain, and Taiwan arrives through Overpass '
+    'rather than a country extract so its coverage is partial by construction.')
 
-# 4 -- listing feeds, which explicitly do NOT count toward a durable inventory
-add('Jobs / events / rental / property listing feeds',
-    'jobs.* events.* rents.* property.* individual listings',
-    f'{LISTING_RECORDS:,} listing records exist in the raw universe',
-    0, 'FEED_REQUIRED but NOT durable candidates',
-    'DELIBERATELY ZERO. An individual vacancy, event occurrence or property listing '
-    'expires in 2 to 8 weeks and the research already requires 410 plus sitemap '
-    'removal on expiry. Counting 47M expiring records as candidate pages would be '
-    'the padding this brief forbids. Feeds unlock the DURABLE PARENT pages already '
-    'in the manifest (role x city, category x city), not a page per listing.')
+add('Complete the Wikidata materialisation',
+    f'MEASURED: {wd_candidates:,} candidates from {wd_classes_done} of '
+    f'{WD_CLASSES_TOTAL} classes',
+    int(wd_candidates * (WD_CLASSES_TOTAL / max(1, wd_classes_done)) - wd_candidates)
+    if wd_classes_done else 0,
+    'IN PROGRESS',
+    'CC0, so no share-alike obligation, unlike OSM ODbL. Scaled from the classes already '
+    'materialised, which is optimistic: museums and libraries are Wikidata strengths and '
+    'the remaining classes are thinner. Individual pages are emitted only for '
+    'visitor-intent classes, because the SERP for a named hospital, university or station '
+    'belongs to that institution.')
 
-with open(OUT + '1M-GAP-TO-TARGET.csv', 'w', newline='') as fh:
-    w = csv.DictWriter(fh, fieldnames=['acquisition', 'family_or_axis', 'basis_of_the_number',
-                                       'candidates_unlocked', 'source_status_after', 'note'])
-    w.writeheader(); w.writerows(rows)
+poly = poi_gate.get('place_geometries_containment', 0)
+prox = poi_gate.get('place_geometries_proximity', 0)
+add('Polygon place layers for the markets that only have place nodes',
+    f'MEASURED: {poly:,} areas have a polygon against {prox:,} with only a point, so '
+    f'{100 * poly / max(1, poly + prox):.0f} per cent containment coverage',
+    0,
+    'IN PROGRESS',
+    'This adds QUALITY, not count: it converts proximity attribution into containment, '
+    'which is a stronger claim and scores ten points higher. It may ADMIT a few areas '
+    'that a radius missed and REJECT others a radius wrongly claimed, so the net count '
+    'effect is recorded as zero rather than guessed.')
 
+add('Attribute capture for the markets extracted before it existed',
+    'MEASURED: city_attribute produced 3 candidates, because only markets ingested after '
+    'the attribute tags were captured carry them. Spain, Italy, Netherlands, Japan, '
+    'Britain and France were extracted before',
+    0,
+    'REQUIRES RE-EXTRACTION',
+    'Re-downloading six country extracts to add wifi, outdoor seating, diet and '
+    'wheelchair tags. The demand is measured and narrow: every city in the measured '
+    '"vegan restaurants" set is a major city, so the yield is bounded by the 200,000 '
+    'population floor and will be in the low thousands, not the tens of thousands.')
+
+add('Jobs, events, rental and property listing feeds',
+    '47,000,000 listing records exist in the raw universe',
+    0,
+    'FEED_REQUIRED but NOT durable candidates',
+    'DELIBERATELY ZERO, unchanged. An individual vacancy, event occurrence or property '
+    'listing expires in two to eight weeks and the research already requires a 410 plus '
+    'sitemap removal on expiry. Counting them would be the padding this brief forbids. '
+    'Feeds unlock the DURABLE PARENT pages already in the manifest, not a page per '
+    'listing.')
+
+# the honest part: what each gate costs, so removing one is a deliberate decision
+GATES = [
+    ('place_not_a_named_entity',
+     'an area must carry a polygon, population, Wikidata item or Wikipedia article',
+     'the Kreuzberg probe validated neighbourhood demand for a FAMOUS area and says '
+     'nothing about an unnamed suburb'),
+    ('exclusive area assignment',
+     'a POI belongs to exactly one area, the most specific polygon or the nearest place node',
+     'letting every covering extent claim it produced four times as many area pages, '
+     'which would have been near-duplicate lists of the same venues'),
+    ('city population floors',
+     'attribute and opening pages need 200,000 population, cuisine needs 75,000',
+     'every measured keyword for the attribute shapes named a large city; cuisine '
+     'demand reaches Watford and St Albans, so its floor is lower'),
+    ('area_parent_city_page_not_accepted',
+     'an area page requires its parent city page to have been accepted',
+     'otherwise it is an orphan by construction, which the QA pass found 3,870 of'),
+    ('cuisine corpus floor',
+     'a cuisine must be common enough across the whole corpus to be a category',
+     '"pancake" passed the per-city floor on three venues in one Paris quarter'),
+    ('WD_LIST_ONLY classes',
+     'no individual page for a hospital, university, library, station, mall or cemetery',
+     'the SERP for a named institution returns its own site and social profiles'),
+]
+rej = poi_gate.get('rejections', {})
+for name, what, why in GATES:
+    add(f'REMOVE THE GATE: {name}', what, rej.get(name, 'not counted separately'),
+        'NOT RECOMMENDED',
+        f'Why it exists: {why}. Listed so that removing it is a deliberate decision with '
+        'the evidence in view, and reversible if a later measurement disagrees.')
+
+buf = io.StringIO()
+cols = ['closure_path', 'basis_of_the_number', 'candidates_unlocked', 'status', 'note']
+w = csv.DictWriter(buf, fieldnames=cols, extrasaction='ignore')
+w.writeheader()
+for r in rows:
+    w.writerow(r)
+# built in memory and written once: a DictWriter that raises part way through leaves a
+# truncated file, which is how the acquisition pack once lost nine of its ten rows
+open(OUT + '1M-GAP-TO-TARGET.csv', 'w', newline='').write(buf.getvalue())
+
+closable = sum(r['candidates_unlocked'] for r in rows
+               if isinstance(r['candidates_unlocked'], int)
+               and not r['closure_path'].startswith('REMOVE THE GATE'))
 summary = {
-    'built_from_entities_on_disk': built,
-    'wikidata_poi_measured_live_11_markets': wd_total,
-    'wikidata_classes_measured': len(WD),
-    'wikidata_licence': 'CC0 1.0, no share-alike',
-    'target': 1_000_000,
-    'gap': gap,
-    'closes_the_gap_alone': 'OpenStreetMap + Wikidata POI ingestion',
-    'poi_source_backed_x_one_modifier': POI_SOURCE_BACKED,
-    'surplus_over_gap_from_poi_alone': POI_SOURCE_BACKED - gap,
-    'neighbourhood_expansion_projected': neigh_projected,
-    'venue_expansion': VENUES_HELD,
-    'listing_feeds_contribute_to_durable_inventory': 0,
-    'reaches_1m': built + POI_SOURCE_BACKED + neigh_projected >= 1_000_000,
-    'total_with_all_three_acquisitions': built + POI_SOURCE_BACKED + neigh_projected + VENUES_HELD,
+    'built': built, 'target': TARGET, 'gap': gap,
+    'closable_without_removing_a_gate': closable,
+    'projected_total_if_every_in_progress_path_completes': built + closable,
+    'still_short_after_that': max(0, TARGET - (built + closable)),
+    'markets_ingested': sorted(ingested), 'markets_missing': missing,
+    'wikidata_classes_done': wd_classes_done, 'wikidata_classes_total': WD_CLASSES_TOTAL,
+    'verdict': ('The measured closure paths do not reach one million. Finishing every '
+                'ingest and every Wikidata class is worth doing on its own terms and is '
+                'in progress, but the arithmetic says the remainder would have to come '
+                'from removing a quality gate, and each gate is listed with the '
+                'measurement that put it there.'),
 }
-with open(OUT + '1M-GAP-SUMMARY.json', 'w') as fh: json.dump(summary, fh, indent=1)
+json.dump(summary, open(OUT + '1M-GAP-SUMMARY.json', 'w'), indent=1)
 print(json.dumps(summary, indent=1))

@@ -1,16 +1,25 @@
 {
- "built_from_entities_on_disk": 297988,
- "wikidata_poi_measured_live_11_markets": 92941,
- "wikidata_classes_measured": 13,
- "wikidata_licence": "CC0 1.0, no share-alike",
+ "built": 164656,
  "target": 1000000,
- "gap": 702012,
- "closes_the_gap_alone": "OpenStreetMap + Wikidata POI ingestion",
- "poi_source_backed_x_one_modifier": 964920,
- "surplus_over_gap_from_poi_alone": 262908,
- "neighbourhood_expansion_projected": 106160,
- "venue_expansion": 9438,
- "listing_feeds_contribute_to_durable_inventory": 0,
- "reaches_1m": true,
- "total_with_all_three_acquisitions": 1378506
+ "gap": 835344,
+ "closable_without_removing_a_gate": 22461,
+ "projected_total_if_every_in_progress_path_completes": 187117,
+ "still_short_after_that": 812883,
+ "markets_ingested": [
+  "BR",
+  "DE",
+  "ES",
+  "FR",
+  "GB",
+  "IT",
+  "JP",
+  "NL",
+  "PL",
+  "TW",
+  "US"
+ ],
+ "markets_missing": [],
+ "wikidata_classes_done": 6,
+ "wikidata_classes_total": 24,
+ "verdict": "The measured closure paths do not reach one million. Finishing every ingest and every Wikidata class is worth doing on its own terms and is in progress, but the arithmetic says the remainder would have to come from removing a quality gate, and each gate is listed with the measurement that put it there."
 }
