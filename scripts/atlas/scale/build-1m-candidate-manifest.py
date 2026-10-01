@@ -847,9 +847,13 @@ SHAPE_SERP = {
     'area_opening': 'NOT_SAMPLED',
     'city_attribute': 'NOT_SAMPLED',
     'area_attribute': 'NOT_SAMPLED',
-    'city_sport': 'NOT_SAMPLED',
-    'city_areas_hub': 'NOT_SAMPLED',
-    'area_parent': 'NOT_SAMPLED',
+    # measured on "tennis courts london": the governing body and booking platforms hold
+    # the head, a DR 10 guide ranks at 6, and a local pack sits above all of it
+    'city_sport': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    'city_areas_hub': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    # measured on "stadtteile berlin übersicht": the official city portal and Wikipedia
+    # hold the top, but a DR 0 and a DR 6 site rank at 5 and 6, so authority is not the gate
+    'area_parent': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'notable_entity': 'NOT_SAMPLED',
     'wikidata_notable': 'NOT_SAMPLED',
     'wikidata_city_list': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',

@@ -148,8 +148,14 @@ for r in rows:
         if any(d in (r.get(field) or '') for d in LONG_DASHES):
             issues['long_dash_in_rendered_string'] += 1
             if len(dash_hits) < 25:
+                # the offending character is named rather than reproduced: a report whose
+                # job is to find long dashes must not itself contain one, or it fails the
+                # very check it exists to run
+                v = (r.get(field) or '')[:140]
+                for d in LONG_DASHES:
+                    v = v.replace(d, f'<U+{ord(d):04X}>')
                 dash_hits.append({'candidate_id': r['candidate_id'], 'field': field,
-                                  'value': (r.get(field) or '')[:140]})
+                                  'value': v})
     for field in ('entity_name', 'uniqueness_reason', 'primary_intent'):
         if any(d in (r.get(field) or '') for d in LONG_DASHES):
             issues['long_dash_in_source_name_or_derived_text'] += 1

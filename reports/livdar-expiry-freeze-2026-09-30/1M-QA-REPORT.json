@@ -2,12 +2,13 @@
  "manifest_rows": 164656,
  "distinct_urls": 164656,
  "checks": {
-  "title_under_15_chars": 61185,
-  "title_over_65_chars": 46610,
+  "title_over_65_chars": 35330,
+  "title_under_15_chars": 17132,
   "meta_over_165_chars": 1399,
-  "long_dash": 232,
-  "duplicate_title_exact": 42805,
-  "duplicate_title_same_tokens": 42829,
+  "long_dash_in_source_name_or_derived_text": 39,
+  "duplicate_title_exact": 25580,
+  "duplicate_title_same_tokens": 25599,
+  "uniqueness_reason_shared_with_another_candidate": 348,
   "templates_with_repeated_entities": 0,
   "orphan_pages": 3870
  },
@@ -43,360 +44,365 @@
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Barcelona",
+   "title": "Berlin, DE",
+   "a": "c_c0366ecba3d2",
+   "b": "c_6634ff54ffd1",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/berlin/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Berlin, DE",
+   "a": "c_c0366ecba3d2",
+   "b": "c_6634ff54ffd1",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/berlin/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Hamburg, DE",
+   "a": "c_97bc748da489",
+   "b": "c_d9c683027ba2",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/hamburg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Hamburg, DE",
+   "a": "c_97bc748da489",
+   "b": "c_d9c683027ba2",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/hamburg/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Köln, DE",
+   "a": "c_12f05925e4dd",
+   "b": "c_259279d73d54",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/köln/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Köln, DE",
+   "a": "c_12f05925e4dd",
+   "b": "c_259279d73d54",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/köln/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Munich, DE",
+   "a": "c_245c17b114d5",
+   "b": "c_b6746c808c72",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/munich/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Munich, DE",
+   "a": "c_245c17b114d5",
+   "b": "c_b6746c808c72",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/munich/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Berlin, DE",
+   "a": "c_c0366ecba3d2",
+   "b": "c_8701be1a1725",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/berlin/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Berlin, DE",
+   "a": "c_c0366ecba3d2",
+   "b": "c_8701be1a1725",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/berlin/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Hamburg, DE",
+   "a": "c_97bc748da489",
+   "b": "c_11e07252806c",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/hamburg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Hamburg, DE",
+   "a": "c_97bc748da489",
+   "b": "c_11e07252806c",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/hamburg/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Köln, DE",
+   "a": "c_12f05925e4dd",
+   "b": "c_23e333e8c2cf",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/köln/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Köln, DE",
+   "a": "c_12f05925e4dd",
+   "b": "c_23e333e8c2cf",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/köln/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Munich, DE",
+   "a": "c_245c17b114d5",
+   "b": "c_e4aa11669b96",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/munich/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Munich, DE",
+   "a": "c_245c17b114d5",
+   "b": "c_e4aa11669b96",
+   "url_a": "",
+   "url_b": "/de/transport/city-getting-around/munich/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Aachen, DE",
+   "a": "c_a25fd67c8428",
+   "b": "c_d3941419d436",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/aachen/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Aachen, DE",
+   "a": "c_a25fd67c8428",
+   "b": "c_d3941419d436",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/aachen/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Augsburg, DE",
+   "a": "c_56fc21604c03",
+   "b": "c_74b64ce86aa8",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/augsburg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Augsburg, DE",
+   "a": "c_56fc21604c03",
+   "b": "c_74b64ce86aa8",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/augsburg/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Bielefeld, DE",
+   "a": "c_09839a27fa37",
+   "b": "c_f6d3a0a83284",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/bielefeld/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bielefeld, DE",
+   "a": "c_09839a27fa37",
+   "b": "c_f6d3a0a83284",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/bielefeld/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Bochum, DE",
+   "a": "c_0ac4ffc1cccf",
+   "b": "c_43b1d0fcf9de",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/bochum/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bochum, DE",
+   "a": "c_0ac4ffc1cccf",
+   "b": "c_43b1d0fcf9de",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/bochum/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "de-DE",
+   "title": "Bonn, DE",
+   "a": "c_9e45d296289e",
+   "b": "c_24d60f26c0f5",
+   "url_a": "",
+   "url_b": "/de/move/city-practical/bonn/"
+  }
+ ],
+ "shared_uniqueness_reason_by_family": {
+  "activities.city-things-to-do": 171,
+  "stay.city-type": 128,
+  "weather.city-month": 40,
+  "transport.route-from-market": 4,
+  "poi.attraction-notable": 2,
+  "poi.museum-notable": 2,
+  "poi.gallery-notable": 1
+ },
+ "shared_uniqueness_reason_examples": [
+  {
+   "market": "en-GB",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Hyderabad in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en ",
+   "a": "c_d425da6f39ce",
+   "b": "c_05c6cd5eea08",
+   "url_b": "/en/areas/city-things-to-do/hyderabad-pk/"
+  },
+  {
+   "market": "de-DE",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Barcelona in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ",
    "a": "c_15e8985cf0c0",
    "b": "c_f7ddbdf77e99",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/barcelona-ve/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Barcelona",
-   "a": "c_15e8985cf0c0",
-   "b": "c_f7ddbdf77e99",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/barcelona-ve/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Valencia",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Valencia in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de m",
    "a": "c_c7df5b0c890b",
    "b": "c_ecf5d5d3336e",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/valencia-es/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Valencia",
-   "a": "c_c7df5b0c890b",
-   "b": "c_ecf5d5d3336e",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/valencia-es/"
+   "market": "en-GB",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Barcelona in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en ",
+   "a": "c_49632f9ad59c",
+   "b": "c_766ada7f8be7",
+   "url_b": "/en/areas/city-things-to-do/barcelona-ve/"
   },
   {
-   "kind": "exact_title",
+   "market": "en-GB",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Córdoba in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en ma",
+   "a": "c_e2e3d781ce0a",
+   "b": "c_cfc427871b73",
+   "url_b": "/en/areas/city-things-to-do/córdoba-es/"
+  },
+  {
+   "market": "en-GB",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Valencia in en-GB: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; en m",
+   "a": "c_859389cb2b85",
+   "b": "c_e3e51c29ca31",
+   "url_b": "/en/areas/city-things-to-do/valencia-es/"
+  },
+  {
    "market": "de-DE",
-   "title": "Birmingham",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Birmingham in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de",
    "a": "c_42b15efa45cd",
    "b": "c_ec3e5800cc5f",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/birmingham-us/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Birmingham",
-   "a": "c_42b15efa45cd",
-   "b": "c_ec3e5800cc5f",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/birmingham-us/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Brentwood",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Brentwood in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ",
    "a": "c_1863b177626b",
    "b": "c_6dd8eb120a27",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/brentwood-gb/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Brentwood",
-   "a": "c_1863b177626b",
-   "b": "c_6dd8eb120a27",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/brentwood-gb/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Bristol",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Bristol in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
    "a": "c_b9ce6153dff4",
    "b": "c_a354329dee52",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/bristol-us/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bristol",
-   "a": "c_b9ce6153dff4",
-   "b": "c_a354329dee52",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/bristol-us/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Cambridge",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Cambridge in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ",
    "a": "c_54c525da0c9b",
    "b": "c_cc67c551f9d4",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/cambridge-gb/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Cambridge",
-   "a": "c_54c525da0c9b",
-   "b": "c_cc67c551f9d4",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/cambridge-gb/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Chino",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Chino in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de mark",
    "a": "c_e63c7589deac",
    "b": "c_78ff967f1437",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/chino-jp/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Chino",
-   "a": "c_e63c7589deac",
-   "b": "c_78ff967f1437",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/chino-jp/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Cáceres",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Cáceres in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
    "a": "c_e8a301109edf",
    "b": "c_413985c6f498",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/cáceres-es/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Cáceres",
-   "a": "c_e8a301109edf",
-   "b": "c_413985c6f498",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/cáceres-es/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Granada",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Granada in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
    "a": "c_7cc5026f9c63",
    "b": "c_fe37594aa91f",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/granada-ni/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Granada",
-   "a": "c_7cc5026f9c63",
-   "b": "c_fe37594aa91f",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/granada-ni/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Granada",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Granada in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de ma",
    "a": "c_7cc5026f9c63",
    "b": "c_6bff19a84497",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/granada-co/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Granada",
-   "a": "c_7cc5026f9c63",
-   "b": "c_6bff19a84497",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/granada-co/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Hamilton",
+   "family": "activities.city-things-to-do",
+   "reason": "activities.city-things-to-do for Hamilton in de-DE: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; de m",
    "a": "c_6fc2d5d9fdec",
    "b": "c_e6a5743602e3",
-   "url_a": "",
    "url_b": "/de/areas/city-things-to-do/hamilton-us/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Hamilton",
-   "a": "c_6fc2d5d9fdec",
-   "b": "c_e6a5743602e3",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/hamilton-us/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Kettering",
-   "a": "c_2aafabb7535e",
-   "b": "c_2cc833d7a0fc",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/kettering-gb/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Kettering",
-   "a": "c_2aafabb7535e",
-   "b": "c_2cc833d7a0fc",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/kettering-gb/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Lincoln",
-   "a": "c_77a158248dfa",
-   "b": "c_4d31ae0c56ff",
-   "url_a": "",
-   "url_b": "/de/areas/city-things-to-do/lincoln-gb/"
   }
  ],
- "long_dash_examples": [
-  {
-   "candidate_id": "c_848da1861843",
-   "field": "_title",
-   "value": "MIC – Museo dell'Illustrazione Contemporanea, Grottammare: what to know before you go"
-  },
-  {
-   "candidate_id": "c_848da1861843",
-   "field": "_meta",
-   "value": "MIC – Museo dell'Illustrazione Contemporanea: location, hours where published, and how to get there."
-  },
-  {
-   "candidate_id": "c_848da1861843",
-   "field": "_h1",
-   "value": "MIC – Museo dell'Illustrazione Contemporanea"
-  },
-  {
-   "candidate_id": "c_848da1861843",
-   "field": "primary_intent",
-   "value": "visit MIC – Museo dell'Illustrazione Contemporanea"
-  },
-  {
-   "candidate_id": "c_848da1861843",
-   "field": "entity_name",
-   "value": "MIC – Museo dell'Illustrazione Contemporanea"
-  },
-  {
-   "candidate_id": "c_fb25c8a119eb",
-   "field": "_title",
-   "value": "Historisches Museum Basel – Musikmuseum, Basel: what to know before you go"
-  },
-  {
-   "candidate_id": "c_fb25c8a119eb",
-   "field": "_meta",
-   "value": "Historisches Museum Basel – Musikmuseum: location, hours where published, and how to get there."
-  },
-  {
-   "candidate_id": "c_fb25c8a119eb",
-   "field": "_h1",
-   "value": "Historisches Museum Basel – Musikmuseum"
-  },
-  {
-   "candidate_id": "c_fb25c8a119eb",
-   "field": "primary_intent",
-   "value": "visit Historisches Museum Basel – Musikmuseum"
-  },
-  {
-   "candidate_id": "c_fb25c8a119eb",
-   "field": "entity_name",
-   "value": "Historisches Museum Basel – Musikmuseum"
-  },
-  {
-   "candidate_id": "c_b0b8e717b0bd",
-   "field": "_title",
-   "value": "Alice – Museum für Kinder, Berlin: what to know before you go"
-  },
-  {
-   "candidate_id": "c_b0b8e717b0bd",
-   "field": "_meta",
-   "value": "Alice – Museum für Kinder: location, hours where published, and how to get there."
-  },
-  {
-   "candidate_id": "c_b0b8e717b0bd",
-   "field": "_h1",
-   "value": "Alice – Museum für Kinder"
-  },
-  {
-   "candidate_id": "c_b0b8e717b0bd",
-   "field": "uniqueness_reason",
-   "value": "Alice – Museum für Kinder is a museum in Berlin with Wikidata item Q1741851, coordinates and an official website, and is NOT in the OSM corp"
-  },
-  {
-   "candidate_id": "c_b0b8e717b0bd",
-   "field": "primary_intent",
-   "value": "visit Alice – Museum für Kinder"
-  },
-  {
-   "candidate_id": "c_b0b8e717b0bd",
-   "field": "entity_name",
-   "value": "Alice – Museum für Kinder"
-  },
-  {
-   "candidate_id": "c_538e897e0a88",
-   "field": "_title",
-   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst, Wittlich: what to know before you go"
-  },
-  {
-   "candidate_id": "c_538e897e0a88",
-   "field": "_meta",
-   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst: location, hours where published, and how to get there."
-  },
-  {
-   "candidate_id": "c_538e897e0a88",
-   "field": "_h1",
-   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst"
-  },
-  {
-   "candidate_id": "c_538e897e0a88",
-   "field": "uniqueness_reason",
-   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst is a museum in Wittlich with Wikidata item Q439518, coordinates and an official website"
-  },
-  {
-   "candidate_id": "c_538e897e0a88",
-   "field": "primary_intent",
-   "value": "visit Altes Rathaus – Städtische Galerie für moderne Kunst"
-  },
-  {
-   "candidate_id": "c_538e897e0a88",
-   "field": "entity_name",
-   "value": "Altes Rathaus – Städtische Galerie für moderne Kunst"
-  },
-  {
-   "candidate_id": "c_ea2fc87caae0",
-   "field": "_title",
-   "value": "Aquazoo – Löbbecke Museum, Düsseldorf: what to know before you go"
-  },
-  {
-   "candidate_id": "c_ea2fc87caae0",
-   "field": "_meta",
-   "value": "Aquazoo – Löbbecke Museum: location, hours where published, and how to get there."
-  },
-  {
-   "candidate_id": "c_ea2fc87caae0",
-   "field": "_h1",
-   "value": "Aquazoo – Löbbecke Museum"
-  }
- ],
+ "long_dash_examples": [],
  "title_length": {
-  "min": 2,
-  "max": 188,
-  "mean": 39.1
+  "min": 6,
+  "max": 192,
+  "mean": 48.2
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
