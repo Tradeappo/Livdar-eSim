@@ -4,9 +4,9 @@ Built 2026-10-01. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **233,568**
+- FINAL DISTINCT VALID CANDIDATES: **233,646**
 - target: 1,000,000
-- shortfall: **766,432** (23.4 per cent of target)
+- shortfall: **766,354** (23.4 per cent of target)
 - rejected and kept visible: 71,396
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 233,568 | same url_pattern |
-| after semantic dedupe | 233,568 | same market, family, template signature and entity |
-| FINAL DISTINCT | 233,568 | what is in the manifest |
+| after exact dedupe | 233,646 | same url_pattern |
+| after semantic dedupe | 233,646 | same market, family, template signature and entity |
+| FINAL DISTINCT | 233,646 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -32,11 +32,11 @@ The target was not reached. The rest of this report is about why, which of the g
 | en-GB | 38,044 |
 | ja-JP | 22,895 |
 | fr-FR | 16,017 |
-| es-ES | 15,172 |
-| it-IT | 14,725 |
+| es-ES | 15,210 |
+| it-IT | 14,748 |
 | pt-BR | 14,579 |
 | pl-PL | 11,904 |
-| nl-NL | 9,520 |
+| nl-NL | 9,537 |
 | zh-Hant-TW | 3,743 |
 
 ### By surface
@@ -48,7 +48,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | stay | 25,586 |
 | move | 10,627 |
 | pulse | 6,936 |
-| poi | 6,731 |
+| poi | 6,809 |
 | climate | 5,633 |
 | tools | 4,097 |
 | transport | 3,795 |
@@ -60,7 +60,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | status | candidates |
 | --- | --- |
-| POI_AGGREGATION | 150,062 |
+| POI_AGGREGATION | 150,140 |
 | MISSING_DATA | 40,584 |
 | BLOCKED_BY_LICENCE | 25,199 |
 | NOT_IMPLEMENTED | 9,830 |
@@ -72,7 +72,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 189,566 |
+| SOURCE_AVAILABLE | 189,644 |
 | LICENCE_REQUIRED | 25,199 |
 | READY_NOW | 10,902 |
 | FEED_REQUIRED | 7,901 |
@@ -83,7 +83,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- |
 | unsampled_needs_serp_check | 71,986 |
 | viable | 66,903 |
-| competitive | 51,581 |
+| competitive | 51,659 |
 | strong_opportunity | 23,267 |
 | poor_fit | 19,831 |
 
@@ -94,7 +94,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 144,463 |
 | OK | 58,307 |
 | LICENCE_REQUIRED | 25,199 |
-| CC0_NO_CONDITIONS | 5,599 |
+| CC0_NO_CONDITIONS | 5,677 |
 
 ### By demand evidence for the market the page targets
 
@@ -102,7 +102,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | market_demand_evidence | candidates |
 | --- | --- |
-| shape_measured_2026_10_01 | 150,062 |
+| shape_measured_2026_10_01 | 150,140 |
 | measured_in_this_market | 78,889 |
 | family_measured_elsewhere | 4,617 |
 
@@ -139,7 +139,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 - named places loaded: 431,150, of which 42,511 passed the entity gates
 - POI assigned to an area by polygon containment: 348,588; by documented proximity to a place node: 1,265,443
 - aggregation candidates: 144,820 ({'city_category': 35157, 'area_category': 51091, 'city_cuisine': 12406, 'area_cuisine': 16929, 'city_attribute': 2694, 'area_attribute': 6197, 'city_opening': 3472, 'area_opening': 9358, 'city_sport': 123, 'area_parent': 4271, 'city_areas_hub': 519, 'notable_entity': 2603})
-- Wikidata entities loaded: 93,489, candidates 5,831, deduped against OSM by {'qid': 9134, 'name_and_position': 3131}
+- Wikidata entities loaded: 95,553, candidates 5,909, deduped against OSM by {'qid': 9143, 'name_and_position': 3180}
 - Pulse entities normalised from four providers: {'national': 1081, 'regional': 623, 'school': 1502, 'long_weekends': 687, 'bridge_days': 233, 'long_weekends_subdivision': 3539, 'bridge_days_subdivision': 1052, 'bridge_plans': 348}
 
 ## 5. Every gate that fired, with its count
@@ -202,12 +202,12 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 | gate | rejected |
 | --- | --- |
-| no_parent_city | 29,821 |
-| no_official_website_so_page_would_be_thin | 17,030 |
-| already_in_osm_corpus | 12,265 |
+| no_parent_city | 30,146 |
+| no_official_website_so_page_would_be_thin | 18,513 |
+| already_in_osm_corpus | 12,323 |
 | list_below_min_count | 7,483 |
-| wikidata_duplicate_qid | 5,616 |
-| no_parent_page_exists_on_the_site | 5,038 |
+| wikidata_duplicate_qid | 5,701 |
+| no_parent_page_exists_on_the_site | 5,073 |
 | list_entries_too_thin | 486 |
 
 ### Manifest gates
@@ -219,11 +219,11 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 ## 6. QA at scale
 
-- rows checked: 233,568, distinct URLs 233,568
+- rows checked: 233,646, distinct URLs 233,646
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 130,993 |
+| title_over_65_chars | 131,018 |
 | meta_over_165_chars | 2,006 |
 | long_dash_in_source_name_or_derived_text | 47 |
 | title_under_15_chars | 363 |
@@ -232,7 +232,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | superlative_from_the_family_own_intent | 20 |
 | uniqueness_reason_shared_with_another_candidate | 22 |
 | templates_with_repeated_entities | 0 |
-| orphan_pages | 82 |
+| orphan_pages | 45 |
 
 - title length: min 12, max 192, mean 62.1
 
@@ -285,7 +285,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-233,568 candidates survive the gates. The target is 1,000,000.
+233,646 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 
