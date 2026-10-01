@@ -61,6 +61,24 @@ def norm_tokens(s):
     return tuple(sorted(w for w in t.split() if w and w not in STOP))
 
 
+# Which families share a second segment, so the segment alone cannot title them. Derived
+# from the manifest rather than listed, so a family added later is covered without an edit.
+AMBIGUOUS_FAM_LABEL = set()
+
+
+def _compute_ambiguous_labels(all_rows):
+    seg = collections.defaultdict(set)
+    for r in all_rows:
+        f = r.get('family', '')
+        if '.' in f:
+            seg[f.split('.', 1)[1]].add(f)
+    out = set()
+    for _k, v in seg.items():
+        if len(v) > 1:
+            out |= v
+    return out
+
+
 def title_for(r):
     """The title this candidate would render, from its own fields.
 
@@ -79,7 +97,15 @@ def title_for(r):
     # which is a defect in the simulation rather than in the inventory: the two pages are
     # genuinely different and a real title set would say so. The family's own second
     # segment is what distinguishes them.
+    # ...and where the second segment does not distinguish either, the topic does. Five
+    # families share the second segment "city" and five share "country": relocation, health,
+    # banking, taxes and cost-of-living. Their URLs were colliding too, which was fixed in
+    # the generator, and 5,573 pages came back as a result. Those pages arrived with
+    # distinct URLs and identical titles, "Berlin, DE: city" for both the relocation page
+    # and the health page, so the label needs the same treatment the path got.
     fam_label = (fam.split('.', 1)[1] if '.' in fam else fam).replace('-', ' ')
+    if fam in AMBIGUOUS_FAM_LABEL:
+        fam_label = fam.split('.', 1)[0].replace('-', ' ') + ' ' + fam_label
 
     if r['page_type'] == 'ENTITY':
         return f"{name}{', ' + where if where else ''}: what to know before you go"
@@ -132,6 +158,12 @@ with gzip.open(MANIFEST, 'rt', encoding='utf-8', newline='') as f:
     for r in csv.DictReader(f):
         rows.append(r)
 print(f'manifest rows: {len(rows):,}', file=sys.stderr)
+
+# Must run before any title is simulated, because the label depends on it.
+AMBIGUOUS_FAM_LABEL = _compute_ambiguous_labels(rows)
+if AMBIGUOUS_FAM_LABEL:
+    print(f'families whose second segment does not distinguish them, so the title carries '
+          f'the topic too: {len(AMBIGUOUS_FAM_LABEL)}', file=sys.stderr)
 
 issues = collections.Counter()
 dash_hits = []
@@ -351,7 +383,14 @@ for r in rows:
     cannib[k].add(r['url_pattern'])
 same_intent = {str(k): sorted(v)[:4] for k, v in cannib.items() if len(v) > 1}
 issues['urls_sharing_a_cannibalization_key'] = len(same_intent)
-issues['per_page_target_query_recorded'] = 'NO: see the comment above, a query-level test is not possible from this manifest'
+# NOT in issues: that dict is a contract of counts, and the deliverable formats every value
+# in it as a number. Putting a sentence there crashed the report with "Cannot specify ','
+# with 's'", after every other artifact had already been written and agreed. A note belongs
+# beside the counts, not among them.
+query_test_note = ('A per-page target query is not recorded in the manifest, so a '
+                   'query-level competition test cannot be run from it. The three keyword '
+                   'fields it does carry are family-level: they name the measurement that '
+                   'proved the family in a market, not the page target.')
 
 # 5b. locale mismatch. The language in the URL prefix has to be the language the row says
 # it is in. A page served at /de/ while the row calls itself Italian is a mislabelled page
@@ -457,6 +496,7 @@ summary = {
     'manifest_rows': len(rows),
     'distinct_urls': len(urls),
     'checks': dict(issues),
+    'query_level_competition_test': query_test_note,
     'orphans_by_family': dict(orphans.most_common(25)),
     'top_level_by_family': dict(top_level.most_common(25)),
     'saturated_templates': saturated[:25],

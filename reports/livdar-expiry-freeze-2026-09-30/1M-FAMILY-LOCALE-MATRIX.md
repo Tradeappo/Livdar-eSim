@@ -29,6 +29,8 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | work.city-salaries | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
 | places.city-category | 833 | 39 | 867 | 543 | 40 | 133 | 150 | 143 | 57 | 16 | 158 |
 | property.city-buy | 833 | 240 | 195 | 543 | 40 | 133 | 150 | 1 |  | 101 | 668 |
+| cost-of-living.city | 833 | 2 | 195 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
+| health.city | 833 | 2 | 38 | 543 | 40 | 133 | 150 | 143 | 57 | 101 | 668 |
 | places.city-attribute | 1,448 |  | 740 |  |  |  |  |  |  | 233 | 273 |
 | places.city-pharmacy | 424 | 236 | 369 | 181 | 25 | 289 | 232 | 395 | 54 | 263 | 162 |
 | places.area-bar | 669 | 242 | 248 | 180 |  | 370 | 375 | 299 | 76 | 65 | 77 |

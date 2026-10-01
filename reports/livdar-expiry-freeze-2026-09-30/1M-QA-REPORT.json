@@ -2,11 +2,11 @@
  "manifest_rows": 203623,
  "distinct_urls": 203623,
  "checks": {
-  "title_over_65_chars": 130444,
+  "title_over_65_chars": 130531,
   "meta_over_165_chars": 2004,
-  "title_under_15_chars": 664,
-  "duplicate_title_exact": 9060,
-  "duplicate_title_same_tokens": 9099,
+  "title_under_15_chars": 4,
+  "duplicate_title_exact": 22,
+  "duplicate_title_same_tokens": 41,
   "superlative_from_the_family_own_intent": 20,
   "uniqueness_reason_shared_with_another_candidate": 22,
   "templates_with_repeated_entities": 0,
@@ -14,7 +14,6 @@
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
-  "per_page_target_query_recorded": "NO: see the comment above, a query-level test is not possible from this manifest",
   "locale_mismatch_between_url_and_row": 0,
   "entity_names_needing_a_disambiguator_in_the_title": 76,
   "same_entity_id_under_two_names": 0,
@@ -22,6 +21,7 @@
   "kept_rows_with_a_rejecting_localisation_class": 0,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
+ "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
  "orphans_by_family": {
   "destinations.country-hub": 9,
   "taxes.country-remote-work": 7,
@@ -55,227 +55,227 @@
   {
    "kind": "exact_title",
    "market": "de-DE",
-   "title": "Berlin, DE: city",
-   "a": "c_bc82717cf817",
-   "b": "c_94eaa155b2d5",
+   "title": "Bürgermeister-Stroof-Haus, Bonn, DE: what to know before you go",
+   "a": "c_d4790a272ca8",
+   "b": "c_d26b56e44d69",
    "url_a": "",
-   "url_b": "/de/move/health-city/berlin/"
+   "url_b": "/de/poi/museum/bürgermeister-stroof-haus-q76634430/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Berlin, DE: city",
-   "a": "c_bc82717cf817",
-   "b": "c_94eaa155b2d5",
+   "title": "Bürgermeister-Stroof-Haus, Bonn, DE: what to know before you go",
+   "a": "c_d4790a272ca8",
+   "b": "c_d26b56e44d69",
    "url_a": "",
-   "url_b": "/de/move/health-city/berlin/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Hamburg, DE: city",
-   "a": "c_c6b26f212379",
-   "b": "c_de37dcaff65d",
-   "url_a": "",
-   "url_b": "/de/move/health-city/hamburg/"
+   "url_b": "/de/poi/museum/bürgermeister-stroof-haus-q76634430/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Hamburg, DE: city",
-   "a": "c_c6b26f212379",
-   "b": "c_de37dcaff65d",
+   "market": "en-GB",
+   "title": "Lake Forest, US: city things to do",
+   "a": "c_79a4ee9192a1",
+   "b": "c_93b1895b7c1f",
    "url_a": "",
-   "url_b": "/de/move/health-city/hamburg/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Köln, DE: city",
-   "a": "c_93792ec772a5",
-   "b": "c_7c8911cffb4a",
-   "url_a": "",
-   "url_b": "/de/move/health-city/köln/"
+   "url_b": "/en/areas/city-things-to-do/lake-forest-us/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Köln, DE: city",
-   "a": "c_93792ec772a5",
-   "b": "c_7c8911cffb4a",
+   "market": "en-GB",
+   "title": "Park Forest, US: city things to do",
+   "a": "c_ad01303081ea",
+   "b": "c_3ece74965756",
    "url_a": "",
-   "url_b": "/de/move/health-city/köln/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Munich, DE: city",
-   "a": "c_d6e53d489af7",
-   "b": "c_9cc3effe02fd",
-   "url_a": "",
-   "url_b": "/de/move/health-city/munich/"
+   "url_b": "/en/areas/city-things-to-do/park-forest/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Munich, DE: city",
-   "a": "c_d6e53d489af7",
-   "b": "c_9cc3effe02fd",
+   "market": "en-GB",
+   "title": "Postal Museum, London, GB: what to know before you go",
+   "a": "c_9322f0a68033",
+   "b": "c_12fe3f632456",
    "url_a": "",
-   "url_b": "/de/move/health-city/munich/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Berlin, DE: city",
-   "a": "c_bc82717cf817",
-   "b": "c_df4511f5dd9a",
-   "url_a": "",
-   "url_b": "/de/move/relocation-city/berlin/"
+   "url_b": "/en/poi/museum/postal-museum-q113261646/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Berlin, DE: city",
-   "a": "c_bc82717cf817",
-   "b": "c_df4511f5dd9a",
+   "market": "en-GB",
+   "title": "The Pavilion, GB: near venue",
+   "a": "c_bac209586208",
+   "b": "c_77e7ddcc9e91",
    "url_a": "",
-   "url_b": "/de/move/relocation-city/berlin/"
+   "url_b": "/en/stay/near-venue/the-pavilion/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Hamburg, DE: city",
-   "a": "c_c6b26f212379",
-   "b": "c_0c6b4c6872ca",
+   "market": "ja-JP",
+   "title": "東武博物館, 墨田区, JP: what to know before you go",
+   "a": "c_c26d736e9ca2",
+   "b": "c_d60db9c1a612",
    "url_a": "",
-   "url_b": "/de/move/relocation-city/hamburg/"
+   "url_b": "/ja/poi/museum/東武博物館-n2004025297/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Hamburg, DE: city",
-   "a": "c_c6b26f212379",
-   "b": "c_0c6b4c6872ca",
+   "market": "ja-JP",
+   "title": "東武博物館, 墨田区, JP: what to know before you go",
+   "a": "c_c26d736e9ca2",
+   "b": "c_d60db9c1a612",
    "url_a": "",
-   "url_b": "/de/move/relocation-city/hamburg/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Köln, DE: city",
-   "a": "c_93792ec772a5",
-   "b": "c_159e970982a3",
-   "url_a": "",
-   "url_b": "/de/move/relocation-city/köln/"
+   "url_b": "/ja/poi/museum/東武博物館-n2004025297/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Köln, DE: city",
-   "a": "c_93792ec772a5",
-   "b": "c_159e970982a3",
+   "market": "es-ES",
+   "title": "clinic in Vitoria-Gasteiz, ES: city clinic, the full list from open data",
+   "a": "c_d2316ab624cd",
+   "b": "c_077583e9835c",
    "url_a": "",
-   "url_b": "/de/move/relocation-city/köln/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Munich, DE: city",
-   "a": "c_d6e53d489af7",
-   "b": "c_cade4f3803b3",
-   "url_a": "",
-   "url_b": "/de/move/relocation-city/munich/"
+   "url_b": "/es/places/clinic/vitoria-gasteiz/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Munich, DE: city",
-   "a": "c_d6e53d489af7",
-   "b": "c_cade4f3803b3",
+   "market": "es-ES",
+   "title": "dentist in Vitoria-Gasteiz, ES: city dentist, the full list from open data",
+   "a": "c_b72ebaf8d3d0",
+   "b": "c_84910cdaef43",
    "url_a": "",
-   "url_b": "/de/move/relocation-city/munich/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Aachen, DE: city",
-   "a": "c_e8612180762b",
-   "b": "c_6ea08378e548",
-   "url_a": "",
-   "url_b": "/de/move/health-city/aachen/"
+   "url_b": "/es/places/dentist/vitoria-gasteiz/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Aachen, DE: city",
-   "a": "c_e8612180762b",
-   "b": "c_6ea08378e548",
+   "market": "es-ES",
+   "title": "pub in Vitoria-Gasteiz, ES: city pub, the full list from open data",
+   "a": "c_2198a8853bf8",
+   "b": "c_389daa0b518b",
    "url_a": "",
-   "url_b": "/de/move/health-city/aachen/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Augsburg, DE: city",
-   "a": "c_8ec5f0ace863",
-   "b": "c_2ef61b861f1c",
-   "url_a": "",
-   "url_b": "/de/move/health-city/augsburg/"
+   "url_b": "/es/places/pub/vitoria-gasteiz/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Augsburg, DE: city",
-   "a": "c_8ec5f0ace863",
-   "b": "c_2ef61b861f1c",
+   "market": "es-ES",
+   "title": "restaurant in Vitoria-Gasteiz, ES: city restaurant, the full list from open data",
+   "a": "c_029cdb171851",
+   "b": "c_b4274eb86f48",
    "url_a": "",
-   "url_b": "/de/move/health-city/augsburg/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Bielefeld, DE: city",
-   "a": "c_9b55f02c31d7",
-   "b": "c_0f43698de6e6",
-   "url_a": "",
-   "url_b": "/de/move/health-city/bielefeld/"
+   "url_b": "/es/places/restaurant/vitoria-gasteiz/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bielefeld, DE: city",
-   "a": "c_9b55f02c31d7",
-   "b": "c_0f43698de6e6",
+   "market": "es-ES",
+   "title": "supermarket in Vitoria-Gasteiz, ES: city supermarket, the full list from open data",
+   "a": "c_ebe28f8ffdad",
+   "b": "c_cc36092a4015",
    "url_a": "",
-   "url_b": "/de/move/health-city/bielefeld/"
+   "url_b": "/es/places/supermarket/vitoria-gasteiz/"
   },
   {
    "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Bochum, DE: city",
-   "a": "c_f66808e237e5",
-   "b": "c_47bc2bb9069d",
+   "market": "nl-NL",
+   "title": "Het Depot, Wageningen, NL: what to know before you go",
+   "a": "c_18bccd946890",
+   "b": "c_7828074c7f79",
    "url_a": "",
-   "url_b": "/de/move/health-city/bochum/"
+   "url_b": "/nl/poi/museum/het-depot-n3014235943/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bochum, DE: city",
-   "a": "c_f66808e237e5",
-   "b": "c_47bc2bb9069d",
+   "market": "nl-NL",
+   "title": "Het Depot, Wageningen, NL: what to know before you go",
+   "a": "c_18bccd946890",
+   "b": "c_7828074c7f79",
    "url_a": "",
-   "url_b": "/de/move/health-city/bochum/"
+   "url_b": "/nl/poi/museum/het-depot-n3014235943/"
   },
   {
-   "kind": "exact_title",
-   "market": "de-DE",
-   "title": "Bonn, DE: city",
-   "a": "c_c9633509079b",
-   "b": "c_db29a73518f8",
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "cafe in The Bronx, US: city cafe, the full list from open data",
+   "a": "c_fe31e891eaf3",
+   "b": "c_3fee9324c196",
    "url_a": "",
-   "url_b": "/de/move/health-city/bonn/"
+   "url_b": "/en/places/cafe/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "clinic in The Bronx, US: city clinic, the full list from open data",
+   "a": "c_3e7ed64caf2f",
+   "b": "c_40b91e0bdc1a",
+   "url_a": "",
+   "url_b": "/en/places/clinic/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "dentist in The Bronx, US: city dentist, the full list from open data",
+   "a": "c_7567f18b6c4b",
+   "b": "c_ad7358e16c42",
+   "url_a": "",
+   "url_b": "/en/places/dentist/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "fast food in The Bronx, US: city fast_food, the full list from open data",
+   "a": "c_d0d71bfc8a73",
+   "b": "c_cab46a522668",
+   "url_a": "",
+   "url_b": "/en/places/fast-food/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "railway station in The Bronx, US: city railway_station, the full list from open data",
+   "a": "c_50c642e10028",
+   "b": "c_1b8e863652d2",
+   "url_a": "",
+   "url_b": "/en/places/railway-station/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "restaurant in Lake Forest, US: city restaurant, the full list from open data",
+   "a": "c_029eaf8cc742",
+   "b": "c_9cba79420915",
+   "url_a": "",
+   "url_b": "/en/places/restaurant/lake-forest/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "restaurant in The Bronx, US: city restaurant, the full list from open data",
+   "a": "c_dd56f37a3d9f",
+   "b": "c_5d234ac79fd0",
+   "url_a": "",
+   "url_b": "/en/places/restaurant/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "school in The Bronx, US: city school, the full list from open data",
+   "a": "c_09b84cdda7c7",
+   "b": "c_248a80a4cf61",
+   "url_a": "",
+   "url_b": "/en/places/school/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "supermarket in The Bronx, US: city supermarket, the full list from open data",
+   "a": "c_d72db5981006",
+   "b": "c_0855ff94736f",
+   "url_a": "",
+   "url_b": "/en/places/supermarket/the-bronx/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-US",
+   "title": "hospital in The Bronx, US: city hospital, the full list from open data",
+   "a": "c_f3c985a1d1fa",
+   "b": "c_3de2b21d38f7",
+   "url_a": "",
+   "url_b": "/en/places/hospital/the-bronx/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -9423,9 +9423,9 @@
  },
  "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
-  "min": 12,
+  "min": 13,
   "max": 192,
-  "mean": 65.9
+  "mean": 66.6
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

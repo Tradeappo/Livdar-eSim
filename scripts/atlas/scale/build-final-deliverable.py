@@ -333,8 +333,15 @@ if qa:
     A('| check | count |')
     A('| --- | --- |')
     for k, v in (qa.get('checks') or {}).items():
-        A(f'| {k} | {v:,} |')
+        # The checks dict is a contract of counts, but render defensively anyway: this report
+        # is the LAST stage, so a formatting error here loses the report after every other
+        # artifact has already been written and verified to agree, which is the most
+        # expensive possible place to fail.
+        A(f'| {k} | {v:,} |' if isinstance(v, (int, float)) else f'| {k} | {v} |')
     A('')
+    if qa.get('query_level_competition_test'):
+        A(f"- {qa['query_level_competition_test']}")
+        A('')
     A(f"- title length: min {qa.get('title_length', {}).get('min')}, max "
       f"{qa.get('title_length', {}).get('max')}, mean "
       f"{qa.get('title_length', {}).get('mean')}")

@@ -4,9 +4,9 @@ Built 2026-10-01. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **198,050**
+- FINAL DISTINCT VALID CANDIDATES: **203,623**
 - target: 1,000,000
-- shortfall: **801,950** (19.8 per cent of target)
+- shortfall: **796,377** (20.4 per cent of target)
 - rejected and kept visible: 116,548
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 243,183 | same url_pattern |
-| after semantic dedupe | 243,183 | same market, family, template signature and entity |
-| FINAL DISTINCT | 198,050 | what is in the manifest |
+| after exact dedupe | 248,756 | same url_pattern |
+| after semantic dedupe | 248,756 | same market, family, template signature and entity |
+| FINAL DISTINCT | 203,623 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,17 +27,17 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
-| en-US | 46,556 |
-| de-DE | 28,152 |
-| en-GB | 23,220 |
-| ja-JP | 22,166 |
-| fr-FR | 15,231 |
-| es-ES | 14,428 |
-| it-IT | 13,968 |
-| pt-BR | 13,795 |
-| pl-PL | 11,111 |
-| nl-NL | 8,741 |
-| zh-Hant-TW | 682 |
+| en-US | 48,222 |
+| de-DE | 28,385 |
+| ja-JP | 23,252 |
+| en-GB | 23,224 |
+| fr-FR | 15,517 |
+| pt-BR | 15,131 |
+| es-ES | 14,728 |
+| it-IT | 14,234 |
+| pl-PL | 11,313 |
+| nl-NL | 8,855 |
+| zh-Hant-TW | 762 |
 
 ### By surface
 
@@ -46,9 +46,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | places | 138,544 |
 | stay | 14,199 |
 | areas | 14,061 |
+| move | 11,495 |
 | pulse | 6,936 |
 | poi | 6,912 |
-| move | 5,922 |
 | work | 3,681 |
 | climate | 3,137 |
 | transport | 2,911 |
@@ -61,7 +61,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | status | candidates |
 | --- | --- |
 | POI_AGGREGATION | 150,243 |
-| MISSING_DATA | 23,368 |
+| MISSING_DATA | 28,941 |
 | BLOCKED_BY_LICENCE | 13,812 |
 | NOT_IMPLEMENTED | 5,999 |
 | EXPERIMENT_ONLY | 4,558 |
@@ -72,7 +72,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 172,531 |
+| SOURCE_AVAILABLE | 178,104 |
 | LICENCE_REQUIRED | 13,812 |
 | FEED_REQUIRED | 7,901 |
 | READY_NOW | 3,806 |
@@ -82,8 +82,8 @@ The target was not reached. The rest of this report is about why, which of the g
 | serp_feasibility | candidates |
 | --- | --- |
 | viable | 66,903 |
+| unsampled_needs_serp_check | 54,371 |
 | competitive | 51,762 |
-| unsampled_needs_serp_check | 48,798 |
 | poor_fit | 19,831 |
 | strong_opportunity | 10,756 |
 
@@ -92,7 +92,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | licence_status | candidates |
 | --- | --- |
 | ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 144,463 |
-| OK | 33,995 |
+| OK | 39,568 |
 | LICENCE_REQUIRED | 13,812 |
 | CC0_NO_CONDITIONS | 5,780 |
 
@@ -103,8 +103,8 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | market_demand_evidence | candidates |
 | --- | --- |
 | shape_measured_2026_10_01 | 150,243 |
-| measured_in_this_market | 43,190 |
-| family_measured_elsewhere | 4,617 |
+| measured_in_this_market | 48,723 |
+| family_measured_elsewhere | 4,657 |
 
 ### The twenty largest families
 
@@ -137,18 +137,18 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 55,222 | 46,556 | 7,538 | 881 | 0 | 0 | 247 | 0 | 0 |
-| en-GB | 51,872 | 23,220 | 9,881 | 3,916 | 0 | 0 | 14,855 | 0 | 0 |
-| de-DE | 50,050 | 28,152 | 6,474 | 3,386 | 0 | 1 | 12,037 | 0 | 0 |
-| ja-JP | 28,560 | 22,166 | 4,489 | 1,108 | 0 | 1 | 548 | 248 | 0 |
-| zh-Hant-TW | 4,525 | 682 | 690 | 80 | 0 | 1 | 3,072 | 0 | 0 |
-| it-IT | 22,648 | 13,968 | 4,643 | 266 | 0 | 1 | 3,770 | 0 | 0 |
-| es-ES | 23,219 | 14,428 | 4,735 | 300 | 0 | 1 | 3,755 | 0 | 0 |
-| fr-FR | 25,179 | 15,231 | 5,894 | 286 | 0 | 1 | 3,519 | 248 | 0 |
-| nl-NL | 14,368 | 8,741 | 4,716 | 114 | 0 | 1 | 796 | 0 | 0 |
-| pl-PL | 16,779 | 11,111 | 4,669 | 202 | 0 | 1 | 796 | 0 | 0 |
-| pt-BR | 22,176 | 13,795 | 5,793 | 1,354 | 0 | 1 | 1,233 | 0 | 0 |
-| **all 11** | **314,598** | **198,050** | | | | | | | |
+| en-US | 56,888 | 48,222 | 7,538 | 881 | 0 | 0 | 247 | 0 | 0 |
+| en-GB | 51,876 | 23,224 | 9,881 | 3,916 | 0 | 0 | 14,855 | 0 | 0 |
+| de-DE | 50,283 | 28,385 | 6,474 | 3,386 | 0 | 1 | 12,037 | 0 | 0 |
+| ja-JP | 29,646 | 23,252 | 4,489 | 1,108 | 0 | 1 | 548 | 248 | 0 |
+| zh-Hant-TW | 4,605 | 762 | 690 | 80 | 0 | 1 | 3,072 | 0 | 0 |
+| it-IT | 22,914 | 14,234 | 4,643 | 266 | 0 | 1 | 3,770 | 0 | 0 |
+| es-ES | 23,519 | 14,728 | 4,735 | 300 | 0 | 1 | 3,755 | 0 | 0 |
+| fr-FR | 25,465 | 15,517 | 5,894 | 286 | 0 | 1 | 3,519 | 248 | 0 |
+| nl-NL | 14,482 | 8,855 | 4,716 | 114 | 0 | 1 | 796 | 0 | 0 |
+| pl-PL | 16,981 | 11,313 | 4,669 | 202 | 0 | 1 | 796 | 0 | 0 |
+| pt-BR | 23,512 | 15,131 | 5,793 | 1,354 | 0 | 1 | 1,233 | 0 | 0 |
+| **all 11** | **320,171** | **203,623** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -156,10 +156,10 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 197,827 |
+| NATIVE_LOCALE | 203,400 |
 | VALID_LOCALIZATION | 223 |
 
-- flagged LOCAL_SERP_UNVERIFIED: 48,798. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
+- flagged LOCAL_SERP_UNVERIFIED: 54,371. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
 
 ### Top families per market
 
@@ -169,13 +169,13 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 | en-GB | activities.city-things-to-do (3,107), stay.near-venue (2,509), places.area-cuisine (2,002), places.city-cuisine (1,223) |
 | de-DE | places.area-attribute (2,620), places.area-opening (2,359), places.area-cuisine (1,555), places.area-restaurant (1,123) |
 | ja-JP | places.area-cuisine (2,911), places.city-cuisine (1,316), places.area-opening (969), places.area-restaurant (902) |
-| zh-Hant-TW | activities.city-things-to-do (51), places.city-category (40), weather.city-month (40), events.city-type (40) |
+| zh-Hant-TW | activities.city-things-to-do (51), places.city-category (40), weather.city-month (40), health.city (40) |
 | it-IT | places.area-cuisine (1,389), places.area-restaurant (807), poi.museum-notable (804), places.area-opening (611) |
 | es-ES | places.area-cuisine (1,202), places.area-restaurant (944), places.city-cuisine (752), places.area-supermarket (727) |
 | fr-FR | places.area-cuisine (1,574), places.city-cuisine (1,131), places.city-restaurant (508), places.area-restaurant (498) |
 | nl-NL | places.area-cuisine (529), places.area-supermarket (478), places.area-fast_food (437), places.city-cuisine (423) |
 | pl-PL | places.area-cuisine (790), places.area-pharmacy (599), places.area-opening (560), places.area-attribute (551) |
-| pt-BR | relocation.city (668), weather.city-month (668), rents.city (668), work.city-salaries (668) |
+| pt-BR | cost-of-living.city (668), relocation.city (668), weather.city-month (668), rents.city (668) |
 
 ### Where the measured demand actually is, per market
 
@@ -289,21 +289,22 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 ## 6. QA at scale
 
-- rows checked: 198,050, distinct URLs 198,050
+- rows checked: 203,623, distinct URLs 203,623
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 130,444 |
+| title_over_65_chars | 130,531 |
 | meta_over_165_chars | 2,004 |
-| title_under_15_chars | 363 |
-| duplicate_title_exact | 3,487 |
-| duplicate_title_same_tokens | 3,526 |
+| title_under_15_chars | 4 |
+| duplicate_title_exact | 22 |
+| duplicate_title_same_tokens | 41 |
 | superlative_from_the_family_own_intent | 20 |
 | uniqueness_reason_shared_with_another_candidate | 22 |
 | templates_with_repeated_entities | 0 |
 | orphan_pages | 59 |
+| top_level_pages_whose_parent_is_the_locale_home | 0 |
 | intent_owners_claimed_by_more_than_one_url | 0 |
-| urls_competing_for_the_same_query_in_one_market | 285 |
+| urls_sharing_a_cannibalization_key | 0 |
 | locale_mismatch_between_url_and_row | 0 |
 | entity_names_needing_a_disambiguator_in_the_title | 76 |
 | same_entity_id_under_two_names | 0 |
@@ -311,7 +312,9 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | kept_rows_with_a_rejecting_localisation_class | 0 |
 | family_locale_cells_failing_the_usefulness_test | 0 |
 
-- title length: min 12, max 192, mean 67.2
+- A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
+
+- title length: min 13, max 192, mean 66.6
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -362,7 +365,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-198,050 candidates survive the gates. The target is 1,000,000.
+203,623 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

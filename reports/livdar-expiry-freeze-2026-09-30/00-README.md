@@ -111,7 +111,7 @@ and are still the evidence of record:
 
 **The authoritative number is in `1M-FINAL-DELIVERABLE.md`, which is generated from the
 files rather than written by hand, so it cannot drift from the inventory.** Read that
-first. The figure as this was last written was **198,050 FINAL DISTINCT** out of 251,611
+first. The figure as this was last written was **203,623 FINAL DISTINCT** out of 251,611
 raw combinations, with every rejection kept visible and carrying a reason, and it moves when
 a market finishes ingesting, because the whole chain is one command:
 `scripts/atlas/scale/run-1m-pipeline.sh` (add `--from-manifest` to reuse the aggregation and
@@ -120,8 +120,12 @@ Wikidata files when only a gate or a report has changed). The step before the re
 the gap summary, the four partition axes and the rejected set do not all carry the same
 count.
 
-**The number went DOWN in the pass of 2026-10-01, from 233,646, and that is the main result
-rather than a setback.** The localisation gate was granting a locale on the strength of its
+**The number moved from 233,646 to 203,623 in the pass of 2026-10-01, and the shape of that
+move is the main result.** Two opposite corrections happened in the same pass: a gate that
+was too loose removed about 44,600 rows, and a URL collision that had been silently
+discarding pages gave 5,573 back.
+
+**The loose gate.** The localisation gate was granting a locale on the strength of its
 family alone, so one measured German keyword, "hotel prag" at 7,600 a month, was by itself
 licensing 8,342 German hotel pages for destinations nobody in Germany was ever measured
 searching for. Made destination-aware, and given the 59 outbound measurements that existed in
@@ -131,6 +135,16 @@ other 44,628 are preserved as LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION, each naming
 demand it has and the destination demand it lacks. Measured cross-language reach covers about
 100 destination and market pairs; it does not cover thousands of cities, and extending it to
 them is the geographic form of the city-name swapping this inventory is built to avoid.
+
+**The silent loss.** The cross-artifact check, added in the same pass and run for the first
+time, found twelve URLs sitting in both the kept manifest and the rejected file. The cause
+was a path built from the surface plus the last segment of the family id, which drops the
+part that distinguishes five families: relocation, health, banking, taxes and
+cost-of-living all share the surface "move" and the segments "city" and "country". All of
+them resolved to the same path, and exact dedupe kept whichever was generated first with no
+record of the rest. Fixing it recovered 5,573 pages that are genuinely distinct families
+with distinct intents and distinct sources. The same collision was also inflating the
+duplicate-title count, which fell from 9,060 to 22 once the titles carried the topic too.
 
 An earlier version of this section said the gap to one million was closed by a single
 acquisition: ingest OSM and Wikidata POI, give each POI one practical modifier, and that
