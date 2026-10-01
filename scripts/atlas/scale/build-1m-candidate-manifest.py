@@ -85,8 +85,18 @@ for c in cities:
     if c.get('lat') is None or c.get('lon') is None: continue
     _cell[(c['country'], int(c['lat']), int(c['lon']))].append(c)
 SUBAREA_CITY_IDS = set()
+SUBAREA_POP_CEILING = 35_000
 for c in cities:
     if c.get('lat') is None or c.get('lon') is None or not c.get('name'): continue
+    # A population ceiling is required, or the test demotes real cities: Yonkers at
+    # 200,000 and Newark at 300,000 both sit inside New York's radius and are both less
+    # than a fifth of its size, and both are cities people search by name. The places this
+    # is meant to catch are small: Quinze-Vingts 26,265, Natahoyo 20,000. The ceiling is
+    # 35,000 rather than 50,000 because Newark, California, at 45,336, was being demoted as
+    # a quarter of Fremont, and it is an incorporated city. This heuristic cannot tell an
+    # incorporated suburb from a city quarter, so the ceiling sits where the measured false
+    # positives stop.
+    if (c['pop'] or 0) >= SUBAREA_POP_CEILING: continue
     la, lo, pop = float(c['lat']), float(c['lon']), c['pop'] or 0
     for dla in (-1, 0, 1):
         for dlo in (-1, 0, 1):

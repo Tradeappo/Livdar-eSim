@@ -202,8 +202,17 @@ for rec in cities:
     _city_by_cell[(rec[0], int(rec[2]), int(rec[3]))].append(rec)
 
 SUBAREA_OF = {}
+SUBAREA_POP_CEILING = 35_000      # see the note below
 for (cc, nm, la, lo, pop) in cities:
-    if not nm:
+    if not nm or pop >= SUBAREA_POP_CEILING:
+        # A population ceiling is required, or the test demotes real cities: Yonkers at
+        # 200,000 and Newark at 300,000 both sit inside New York's radius and are both
+        # less than a fifth of its size, and both are cities people search by name. The
+        # places this is meant to catch are small: Quinze-Vingts 26,265, Natahoyo 20,000,
+        # Franconia Virginia 18,245. The ceiling is 35,000 rather than 50,000 because Newark,
+        # California, at 45,336, was being demoted as a quarter of Fremont, and it is an
+        # incorporated city. This heuristic cannot tell an incorporated suburb from a city
+        # quarter, so the ceiling is set where the measured false positives stop.
         continue
     best = None
     for dla in (-1, 0, 1):
