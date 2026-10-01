@@ -2,7 +2,7 @@
  "provider": "Ahrefs Keywords Explorer, matching terms",
  "capturedOn": "2026-10-01",
  "method": "keyword-only select with a volume floor, so each row costs 11 units rather than 22. The question asked of each probe was not 'does this pattern have demand' but 'does the demand carry the MODIFIER the shape needs' - a city name, a neighbourhood name, a cuisine, an attribute. A pattern with large national volume and no city-scoped variants cannot support one page per city.",
- "unitsSpent": 9400,
+ "unitsSpent": 9906,
  "probes": [
   {
    "shape": "city_opening",
@@ -154,5 +154,17 @@
   "city_attribute": "city population >= 200,000",
   "city_opening": "city population >= 200,000 everywhere, relaxed to 75,000 for de-DE where the measurement shows the query reaching Zwickau and Bayreuth",
   "area_attribute and area_opening": "the area must carry a Wikidata item or a Wikipedia article, which is a stricter test than for area_category: a modifier page inside an area needs the area itself to be a searched entity"
+ },
+ "serpSamples": {
+  "file": "reports/livdar-expiry-freeze-2026-09-30/08b-SERP-EVIDENCE-AGGREGATION-SHAPES.csv",
+  "count": 9,
+  "archetypes_added": [
+   "OPEN_SPECIALIST_PAGE_WINS",
+   "OPEN_LOCAL_PACK_ABOVE_ORGANIC",
+   "AGGREGATOR_AND_VENUE_OWNED",
+   "OFFICIAL_PLUS_AGGREGATOR_MIXED",
+   "ENTITY_OWNED_PLUS_WIKIPEDIA_DIRECTORIES_BELOW"
+  ],
+  "note": "Nine SERPs replaced one assumed archetype that had been applied to roughly a hundred thousand rows. The single most useful competitive find: for a named museum, localgroningen.nl at DR 20 ranks at position 6 on the URL pattern /nl/poi/museum-stoomgemaal-winschoten, which is the same shape Livdar generates. A low authority directory page does rank for a named visitor entity, below the operator and Wikipedia."
  }
 }

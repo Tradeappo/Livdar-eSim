@@ -479,6 +479,12 @@ SERP_SCORE = {
     # "musei firenze": firenzemusei.it at DR 44 takes 1, then TripAdvisor, Firenze Card,
     # Wikipedia and the comune. Not locked, but a new entrant starts behind.
     'OFFICIAL_PLUS_AGGREGATOR_MIXED': 50,
+    # The entity's own site and Wikipedia hold the top, and third-party directories rank
+    # below them. Measured on "stoomgemaal winschoten": the operator at DR 18 takes 1,
+    # Wikipedia DR 97 takes 2, then a DR 28 and a DR 20 directory at 5 and 6 - one of them
+    # on the same /poi/museum-... URL pattern Livdar generates. Winnable at 5 to 8, which
+    # is worth something and is not a top-three opportunity.
+    'ENTITY_OWNED_PLUS_WIKIPEDIA_DIRECTORIES_BELOW': 45,
 }
 SRC_SCORE = {'READY_NOW': 100, 'SOURCE_AVAILABLE': 55, 'FEED_REQUIRED': 30,
              'LICENCE_REQUIRED': 15, 'BLOCKED': 0}
@@ -878,8 +884,8 @@ SHAPE_SERP = {
     # measured on "stadtteile berlin übersicht": the official city portal and Wikipedia
     # hold the top, but a DR 0 and a DR 6 site rank at 5 and 6, so authority is not the gate
     'area_parent': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
-    'notable_entity': 'NOT_SAMPLED',
-    'wikidata_notable': 'NOT_SAMPLED',
+    'notable_entity': 'ENTITY_OWNED_PLUS_WIKIPEDIA_DIRECTORIES_BELOW',
+    'wikidata_notable': 'ENTITY_OWNED_PLUS_WIKIPEDIA_DIRECTORIES_BELOW',
     'wikidata_city_list': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
 }
 
