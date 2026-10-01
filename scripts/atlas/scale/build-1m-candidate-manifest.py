@@ -622,8 +622,19 @@ def _resolve_entity_slugs():
     return out
 
 
-ENTITY_SLUG = _resolve_entity_slugs()
-print(f'  entity slugs resolved for {len(ENTITY_SLUG):,} non-city entities', file=sys.stderr)
+# Lazy, because slug() is defined further down this file. This is the third time I have
+# written a module-level call above the helper it needs, so the pattern is worth naming: in
+# this file, anything that calls slug() has to be deferred until it is actually used.
+_entity_slug_cache = None
+
+
+def entity_slug(etype, eid):
+    global _entity_slug_cache
+    if _entity_slug_cache is None:
+        _entity_slug_cache = _resolve_entity_slugs()
+        print(f'  entity slugs resolved for {len(_entity_slug_cache):,} non-city entities',
+              file=sys.stderr)
+    return _entity_slug_cache.get((etype, str(eid)), '')
 
 
 def entity_pool(f):
@@ -920,7 +931,7 @@ for f in fams:
             # builder. For every other type it is ENTITY_SLUG, resolved the same way: the
             # earlier code disambiguated cities only, so 153 venues of the same name were
             # still collapsing onto one path and being discarded by exact dedupe.
-            nm = city_slug(eid) if etype == 'city' else ENTITY_SLUG.get((etype, str(eid)), '')
+            nm = city_slug(eid) if etype == 'city' else entity_slug(etype, eid)
             if not nm:
                 nm = slug(ename)
             # The path segment has to identify the FAMILY, not just its last word. Five
