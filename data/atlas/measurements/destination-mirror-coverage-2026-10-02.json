@@ -1,0 +1,165 @@
+{
+ "measured_on": "2026-10-02",
+ "question": "Which of the destination countries the demand measurement named can actually be downloaded from here?",
+ "method": "Probed download.openstreetmap.fr by listing every continent directory rather than guessing paths, because that mirror answers a missing file with an HTML 404 body under HTTP 200 and a HEAD probe therefore reports every path as present. Then probed four alternative mirrors.",
+ "reachable": {
+  "TR": {
+   "region_path": "europe/turkey",
+   "extract_mb": 683
+  },
+  "AT": {
+   "region_path": "europe/austria",
+   "extract_mb": 923
+  },
+  "CH": {
+   "region_path": "europe/switzerland",
+   "extract_mb": 648
+  },
+  "PT": {
+   "region_path": "europe/portugal",
+   "extract_mb": 454
+  },
+  "MA": {
+   "region_path": "africa/morocco",
+   "extract_mb": 263
+  },
+  "EG": {
+   "region_path": "africa/egypt",
+   "extract_mb": 194
+  },
+  "AE": {
+   "region_path": "asia/united_arab_emirates",
+   "extract_mb": 83
+  },
+  "KH": {
+   "region_path": "asia/cambodia",
+   "extract_mb": 44
+  },
+  "MY": {
+   "region_path": "asia/malaysia",
+   "extract_mb": 248
+  },
+  "IE": {
+   "region_path": "europe/ireland",
+   "extract_mb": 355
+  },
+  "PH": {
+   "region_path": "asia/philippines",
+   "extract_mb": 667
+  },
+  "MX": {
+   "region_path": "north-america/mexico",
+   "extract_mb": 721
+  },
+  "CZ": {
+   "region_path": "europe/czech_republic",
+   "extract_mb": 1036
+  },
+  "SG": {
+   "region_path": "asia/singapore",
+   "extract_mb": null
+  },
+  "TN": {
+   "region_path": "africa/tunisia",
+   "extract_mb": null
+  },
+  "DK": {
+   "region_path": "europe/denmark",
+   "extract_mb": 519
+  },
+  "BE": {
+   "region_path": "europe/belgium",
+   "extract_mb": 782
+  },
+  "SE": {
+   "region_path": "europe/sweden",
+   "extract_mb": 886
+  },
+  "ID": {
+   "region_path": "asia/indonesia",
+   "extract_mb": 1894
+  },
+  "IN": {
+   "region_path": "asia/india",
+   "extract_mb": 1879
+  },
+  "NO": {
+   "region_path": "europe/norway",
+   "extract_mb": 1360
+  },
+  "AU": {
+   "region_path": "oceania/australia",
+   "extract_mb": 1015
+  },
+  "ZA": {
+   "region_path": "africa/south_africa",
+   "extract_mb": null
+  },
+  "CN": {
+   "region_path": "asia/china",
+   "extract_mb": null
+  },
+  "AR": {
+   "region_path": "south-america/argentina",
+   "extract_mb": null
+  },
+  "CL": {
+   "region_path": "south-america/chile",
+   "extract_mb": null
+  },
+  "KE": {
+   "region_path": "africa/kenya",
+   "extract_mb": null
+  },
+  "CR": {
+   "region_path": "central-america/costa_rica",
+   "extract_mb": 42
+  },
+  "DO": {
+   "region_path": "central-america/dominican_republic",
+   "extract_mb": null
+  },
+  "FI": {
+   "region_path": "europe/finland",
+   "extract_mb": null
+  },
+  "UA": {
+   "region_path": "europe/ukraine",
+   "extract_mb": null
+  },
+  "SK": {
+   "region_path": "europe/slovakia",
+   "extract_mb": null
+  },
+  "CA": {
+   "region_path": "north-america/canada",
+   "extract_mb": 6382
+  }
+ },
+ "reachable_count": 33,
+ "not_carried_by_this_mirror": {
+  "GR": "esim grecia 250 it, esim greece 600 en-US, griechenland inseln 4,400 de, santorini spiagge 2,200 it, meteora 26,000 en-US and 4,500 it, santorini beaches 2,500 en-US",
+  "HR": "plitvicer seen 18,000 de, plitvice lakes 7,700 en-US, dubrovnik sehenswuerdigkeiten 1,500 de, kroatien inseln 800 de, isole croazia 500 it",
+  "TH": "esim thailand 6,400 de and 1,400 en-US and 1,600 ja and 1,200 it, chiang mai 1,200 de and 4,400 ja, phuket beaches 1,200 en-US",
+  "VN": "esim vietnam 1,900 de and 1,400 ja and 1,300 en-US, ha long bay 31,000 en-US and 16,000 ja, hanoi 8,100 ja and 1,100 de",
+  "KR": "esim 15,000 ja, seoul 3,200 ja and 800 en-US, jeju 19,000 ja",
+  "AL": "saranda 26,000 it, spiagge albania 2,000 it, esim albania 3,400 it",
+  "IS": "reykjavik 1,000 de, iceland waterfalls 2,600 en-US, cascate islanda 500 it, esim iceland 600 en-US",
+  "SI": "lago di bled 7,100 it, esim slovenia 50 it with 900 global",
+  "HU": "measured in the earlier cross-language round (praga and vienna phrasings), not in this one",
+  "ME": "kotor 5,400 it, esim montenegro 250 it with 6,700 global",
+  "MT": "spiagge malta 1,000 it, valletta cosa vedere 70 it, esim malta 100 it with 1,800 global",
+  "PE": "machu picchu 230,000 en-US, the single largest volume measured anywhere in this project, esim peru 700 en-US at $3.00 CPC",
+  "CO": "cartagena beaches 1,700 en-US, esim colombia 800 en-US at $2.00 CPC",
+  "NZ": "milford sound 15,000 en-US, esim new zealand 600 en-US at $3.00 CPC"
+ },
+ "not_carried_count": 14,
+ "alternatives_tested": {
+  "download.geofabrik.de": "carries all 14, but every request through the agent proxy is reset mid-exchange: recentRelayFailures reports ws_closed_mid_exchange after 7s with 39 bytes received. Not a remote refusal, a tunnel that does not survive this host.",
+  "osm.download.movisda.io": "404 on country paths; it serves interactive region selections, not fixed country files",
+  "ftp.spline.de/pub/openstreetmap/pbf": "the whole planet only, about 80GB, against a 23GB writable allowance",
+  "ftpmirror.your.org/pub/openstreetmap/pbf": "planet torrents only",
+  "free.nchc.org.tw/osm.planet": "empty index"
+ },
+ "the_honest_position": "Thirty-three destination countries are reachable now and none of them has a single page today, so nothing is blocked on the fourteen that are not. The fourteen are recorded here with what each is worth rather than left to be rediscovered, and two of them are large: Peru holds machu picchu at 230,000 in en-US, the biggest volume measured anywhere in this project, and Greece and Croatia together hold six measured entities across three languages. The route for them is the Overpass API, which this repository already calls in scripts/atlas/ingest/osm-overpass-market.py: Overpass answers per-layer queries against a country area and needs no full extract, at the cost of tiling the query to stay inside its runtime limit. That is work, not a wall, and it is not started because the reachable thirty-three come first."
+}

@@ -1,0 +1,1955 @@
+{
+ "measured_on": "2026-10-02",
+ "tool": "Ahrefs Keywords Explorer, keywords-explorer-overview",
+ "units_spent": 6225,
+ "question": "The inventory holds 253,988 pages and 99.97 per cent of them are about the same eleven countries the eleven searcher markets live in. For a travel-connectivity product that is backwards: the commercial moment is a person in one country about to travel to another. This asks whether the four largest markets search for places OUTSIDE their own country, and how much.",
+ "method": "Four searcher markets, each asked only about places that are not in its own country. Two kinds of keyword in every block: the connectivity intent on a destination (esim <country>), and the travel-information intent on a named entity or a country-level list that matches a family the pipeline already builds (beaches, hiking, neighbourhoods, things to see). No keyword was invented from a template: each is a phrasing a speaker of that language uses.",
+ "result": {
+  "keywords_tested": 193,
+  "keywords_with_volume": 192,
+  "keywords_at_zero": [
+   "zermatt escursioni"
+  ],
+  "strongest_entity_per_market": {
+   "de-DE": "hallstatt 42,000 at KD 0, zell am see 29,000, kappadokien 27,000, plitvicer seen 18,000",
+   "it-IT": "cappadocia 58,000, saranda 26,000, monte fuji 14,000, chefchaouen 13,000, pamukkale 13,000",
+   "ja-JP": "カッパドキア 71,000, セブ島 65,000, タージマハル 25,000, アンコールワット 22,000",
+   "en-US": "machu picchu 230,000, taj mahal 173,000, banff national park 141,000, mount fuji 85,000"
+  },
+  "highest_cpc_observed_cents": 300
+ },
+ "reading": "192 of 193 keywords carry volume, and the single zero is a bad Italian phrasing (zermatt escursioni) rather than an absent audience: esim svizzera in the same block returns 1,400. In every one of the four markets the strongest entity measured is in a country the pipeline has no pages for at all. German searchers want Hallstatt (42,000) more than almost anything measured inside Germany; Japanese searchers want Cappadocia (71,000) and Cebu (65,000); the Italian market wants Saranda in Albania (26,000), a country with zero rows today. The eSIM intent sits on the same axis and carries the commercial value: esim turkey at $2.50 CPC in en-US, esim tuerkei 13,000 in de-DE.",
+ "what_this_does_NOT_license": "It does not license letting every city in a measured country inherit every market. That is the Aba, Nigeria error already recorded in markets_for(): a country having demand is not evidence that an arbitrary town inside it does. The bound this measurement supports is narrower and is stated in the plan: a place in a new destination country earns a market only when the country carries measured demand in that language AND the entity itself carries an independent mark in that language, which is a Wikipedia sitelink or an OSM name:<lang> tag. The entity-level demand above is measured; the per-entity extension of it is a labelled proxy, never presented as measured volume.",
+ "rows": [
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim tuerkei",
+   "volume": 13000,
+   "difficulty": 0,
+   "cpc_cents": 140,
+   "global_volume": 17000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "tuerkei straende",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 250
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "kappadokien",
+   "volume": 27000,
+   "difficulty": 1,
+   "cpc_cents": 25,
+   "global_volume": 38000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "antalya sehenswuerdigkeiten",
+   "volume": 1800,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "global_volume": 3300
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim thailand",
+   "volume": 6400,
+   "difficulty": 0,
+   "cpc_cents": 120,
+   "global_volume": 28000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "thailand straende",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "global_volume": 600
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "phuket straende",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 1000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "chiang mai sehenswuerdigkeiten",
+   "volume": 1200,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "global_volume": 2400
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim griechenland",
+   "volume": 300,
+   "difficulty": null,
+   "cpc_cents": 130,
+   "global_volume": 600
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "griechenland inseln",
+   "volume": 4400,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 6100
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "santorini straende",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "global_volume": 500
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "kreta wandern",
+   "volume": 900,
+   "difficulty": 40,
+   "cpc_cents": 15,
+   "global_volume": 1200
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim portugal",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 170,
+   "global_volume": 7100
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "algarve straende",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "global_volume": 450
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "lissabon viertel",
+   "volume": 60,
+   "difficulty": 0,
+   "cpc_cents": 60,
+   "global_volume": 90
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "madeira wandern",
+   "volume": 2800,
+   "difficulty": 1,
+   "cpc_cents": 30,
+   "global_volume": 4200
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim kroatien",
+   "volume": 150,
+   "difficulty": null,
+   "cpc_cents": 90,
+   "global_volume": 400
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "kroatien inseln",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 35,
+   "global_volume": 1300
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "dubrovnik sehenswuerdigkeiten",
+   "volume": 1500,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 3200
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "plitvicer seen",
+   "volume": 18000,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 30000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim oesterreich",
+   "volume": 200,
+   "difficulty": 3,
+   "cpc_cents": 150,
+   "global_volume": 1100
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "oesterreich wandern",
+   "volume": 900,
+   "difficulty": 1,
+   "cpc_cents": 50,
+   "global_volume": 1100
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "hallstatt",
+   "volume": 42000,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 274000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "zell am see",
+   "volume": 29000,
+   "difficulty": 0,
+   "cpc_cents": 35,
+   "global_volume": 109000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim schweiz",
+   "volume": 5000,
+   "difficulty": 1,
+   "cpc_cents": 160,
+   "global_volume": 7900
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "schweiz wandern",
+   "volume": 800,
+   "difficulty": 2,
+   "cpc_cents": 30,
+   "global_volume": 1000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "zermatt wandern",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "global_volume": 450
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "luzern sehenswuerdigkeiten",
+   "volume": 1800,
+   "difficulty": 1,
+   "cpc_cents": 25,
+   "global_volume": 3800
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim mexiko",
+   "volume": 1100,
+   "difficulty": 0,
+   "cpc_cents": 170,
+   "global_volume": 1700
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "tulum straende",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "global_volume": 80
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "mexico city viertel",
+   "volume": 10,
+   "difficulty": null,
+   "cpc_cents": null,
+   "global_volume": 10
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim bali",
+   "volume": 900,
+   "difficulty": 0,
+   "cpc_cents": 130,
+   "global_volume": 11000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "bali straende",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "global_volume": 800
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "ubud sehenswuerdigkeiten",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "global_volume": 1000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim vietnam",
+   "volume": 1900,
+   "difficulty": 0,
+   "cpc_cents": 100,
+   "global_volume": 17000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "hanoi sehenswuerdigkeiten",
+   "volume": 1100,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "global_volume": 2400
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "ha long bucht",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc_cents": 35,
+   "global_volume": 1000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim marokko",
+   "volume": 2800,
+   "difficulty": 0,
+   "cpc_cents": 150,
+   "global_volume": 6600
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "marrakesch viertel",
+   "volume": 10,
+   "difficulty": null,
+   "cpc_cents": null,
+   "global_volume": 20
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "chefchaouen",
+   "volume": 5600,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 159000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim aegypten",
+   "volume": 7700,
+   "difficulty": 0,
+   "cpc_cents": 150,
+   "global_volume": 9600
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "hurghada straende",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc_cents": 35,
+   "global_volume": 90
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "luxor sehenswuerdigkeiten",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "global_volume": 1400
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim dubai",
+   "volume": 1700,
+   "difficulty": 0,
+   "cpc_cents": 190,
+   "global_volume": 15000
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "dubai straende",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 250
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "abu dhabi sehenswuerdigkeiten",
+   "volume": 2500,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "global_volume": 3900
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "esim island",
+   "volume": 40,
+   "difficulty": null,
+   "cpc_cents": 70,
+   "global_volume": 150
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "island wasserfaelle",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 300
+  },
+  {
+   "ahrefs_country": "de",
+   "searcher_market": "de-DE",
+   "language": "de",
+   "keyword": "reykjavik sehenswuerdigkeiten",
+   "volume": 1000,
+   "difficulty": 1,
+   "cpc_cents": 7,
+   "global_volume": 2100
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim egitto",
+   "volume": 5400,
+   "difficulty": 0,
+   "cpc_cents": 110,
+   "global_volume": 6100
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "spiagge albania",
+   "volume": 2000,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "global_volume": 2100
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "spiagge grecia",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "global_volume": 500
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "kyoto cosa vedere",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "global_volume": 1300
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "valletta cosa vedere",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "global_volume": 150
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "new york quartieri",
+   "volume": 1500,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "global_volume": 1600
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim albania",
+   "volume": 3400,
+   "difficulty": 0,
+   "cpc_cents": 140,
+   "global_volume": 13000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "sharm el sheikh spiagge",
+   "volume": 80,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "global_volume": 90
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim portogallo",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "global_volume": 250
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim malta",
+   "volume": 100,
+   "difficulty": null,
+   "cpc_cents": 80,
+   "global_volume": 1800
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "meteora",
+   "volume": 4500,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 140000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "pamukkale",
+   "volume": 13000,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "global_volume": 363000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "cascate islanda",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 600
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "isole croazia",
+   "volume": 500,
+   "difficulty": 1,
+   "cpc_cents": 30,
+   "global_volume": 600
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim croazia",
+   "volume": 150,
+   "difficulty": null,
+   "cpc_cents": 60,
+   "global_volume": 200
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim giappone",
+   "volume": 2500,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "global_volume": 3100
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim montenegro",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 130,
+   "global_volume": 6700
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "spiagge algarve",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "global_volume": 400
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "parco nazionale plitvice",
+   "volume": 90,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 100
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim islanda",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "global_volume": 150
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim turchia",
+   "volume": 2700,
+   "difficulty": 0,
+   "cpc_cents": 130,
+   "global_volume": 3300
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim marocco",
+   "volume": 2200,
+   "difficulty": 0,
+   "cpc_cents": 100,
+   "global_volume": 3000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim grecia",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 100,
+   "global_volume": 800
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "spiagge malta",
+   "volume": 1000,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "global_volume": 1300
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "madeira trekking",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 1100
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "saranda",
+   "volume": 26000,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 94000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "spiagge phuket",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "global_volume": 350
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "kotor",
+   "volume": 5400,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "global_volume": 163000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "tulum spiagge",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 250
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim svizzera",
+   "volume": 1400,
+   "difficulty": 0,
+   "cpc_cents": 110,
+   "global_volume": 1900
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "marrakech cosa vedere",
+   "volume": 2600,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "global_volume": 3200
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "zermatt escursioni",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "global_volume": 0
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "chefchaouen",
+   "volume": 13000,
+   "difficulty": 1,
+   "cpc_cents": 15,
+   "global_volume": 159000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim slovenia",
+   "volume": 50,
+   "difficulty": null,
+   "cpc_cents": null,
+   "global_volume": 900
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim austria",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "global_volume": 2500
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim tunisia",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc_cents": 140,
+   "global_volume": 3300
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim messico",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc_cents": 120,
+   "global_volume": 700
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim thailandia",
+   "volume": 1200,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "global_volume": 1400
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim indonesia",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc_cents": 120,
+   "global_volume": 13000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "lago di bled",
+   "volume": 7100,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "global_volume": 8000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim stati uniti",
+   "volume": 900,
+   "difficulty": 0,
+   "cpc_cents": 120,
+   "global_volume": 1000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "bali spiagge",
+   "volume": 1700,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "global_volume": 1800
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "fiordi norvegia",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 800
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "monte fuji",
+   "volume": 14000,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "global_volume": 82000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "cappadocia",
+   "volume": 58000,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "global_volume": 379000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "esim norvegia",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 60,
+   "global_volume": 200
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "hallstatt",
+   "volume": 6300,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "global_volume": 274000
+  },
+  {
+   "ahrefs_country": "it",
+   "searcher_market": "it-IT",
+   "language": "it",
+   "keyword": "santorini spiagge",
+   "volume": 2200,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "global_volume": 2500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "タージマハル",
+   "volume": 25000,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "global_volume": 27000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "バリ島 ビーチ",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "global_volume": 500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim フランス",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "global_volume": 450
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ローマ 観光",
+   "volume": 2800,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "global_volume": 4000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim トルコ",
+   "volume": 200,
+   "difficulty": null,
+   "cpc_cents": 110,
+   "global_volume": 250
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim イタリア",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "global_volume": 500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim スイス",
+   "volume": 200,
+   "difficulty": null,
+   "cpc_cents": 100,
+   "global_volume": 200
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim オーストラリア",
+   "volume": 1300,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "global_volume": 1500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim エジプト",
+   "volume": 200,
+   "difficulty": null,
+   "cpc_cents": 90,
+   "global_volume": 200
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim フィリピン",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "global_volume": 900
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim オーストリア",
+   "volume": 100,
+   "difficulty": null,
+   "cpc_cents": 80,
+   "global_volume": 100
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim モロッコ",
+   "volume": 50,
+   "difficulty": null,
+   "cpc_cents": null,
+   "global_volume": 60
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim シンガポール",
+   "volume": 800,
+   "difficulty": 12,
+   "cpc_cents": 80,
+   "global_volume": 900
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim 韓国",
+   "volume": 15000,
+   "difficulty": 0,
+   "cpc_cents": 60,
+   "global_volume": 16000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim カンボジア",
+   "volume": 200,
+   "difficulty": null,
+   "cpc_cents": 90,
+   "global_volume": 200
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "パリ 観光",
+   "volume": 4200,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "global_volume": 5300
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "アンコールワット",
+   "volume": 22000,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "global_volume": 23000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ツェルマット",
+   "volume": 2200,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 2700
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ミュンヘン 観光",
+   "volume": 2700,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "global_volume": 4500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim アイスランド",
+   "volume": 80,
+   "difficulty": null,
+   "cpc_cents": null,
+   "global_volume": 80
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "チェンマイ 観光",
+   "volume": 4400,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "global_volume": 5400
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim 台湾",
+   "volume": 2200,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "global_volume": 2400
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim ニュージーランド",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "global_volume": 350
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim タイ",
+   "volume": 1600,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "global_volume": 1800
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "台北 観光",
+   "volume": 7200,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "global_volume": 9100
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim スペイン",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "global_volume": 450
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "セブ島",
+   "volume": 65000,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 67000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ワイキキビーチ",
+   "volume": 5100,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 5500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "九份",
+   "volume": 17000,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "global_volume": 49000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ハノイ 観光",
+   "volume": 8100,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "global_volume": 9500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim マレーシア",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc_cents": 50,
+   "global_volume": 500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ロンドン 観光",
+   "volume": 4500,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "global_volume": 6400
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "カッパドキア",
+   "volume": 71000,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "global_volume": 74000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "バルセロナ 観光",
+   "volume": 5900,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "global_volume": 7900
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim グアム",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "global_volume": 500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ハロン湾",
+   "volume": 16000,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 18000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "クアラルンプール 観光",
+   "volume": 100,
+   "difficulty": 1,
+   "cpc_cents": null,
+   "global_volume": 1800
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "プーケット ビーチ",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "global_volume": 450
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim イギリス",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc_cents": 100,
+   "global_volume": 400
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim ハワイ",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "global_volume": 900
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim インド",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "global_volume": 300
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim ドイツ",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 100,
+   "global_volume": 350
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "シドニー 観光",
+   "volume": 5700,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "global_volume": 6900
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ソウル 観光",
+   "volume": 3200,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "global_volume": 4800
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "ハルシュタット",
+   "volume": 2500,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "global_volume": 3400
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim インドネシア",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "global_volume": 500
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "湟州島",
+   "volume": 19000,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "global_volume": 19000
+  },
+  {
+   "ahrefs_country": "jp",
+   "searcher_market": "ja-JP",
+   "language": "ja",
+   "keyword": "esim ベトナム",
+   "volume": 1400,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "global_volume": 1500
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "tulum beaches",
+   "volume": 700,
+   "difficulty": 2,
+   "cpc_cents": 45,
+   "global_volume": 1400
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim australia",
+   "volume": 1700,
+   "difficulty": 29,
+   "cpc_cents": 250,
+   "global_volume": 29000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "kyoto temples",
+   "volume": 2300,
+   "difficulty": 4,
+   "cpc_cents": 4,
+   "global_volume": 7100
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "milford sound",
+   "volume": 15000,
+   "difficulty": 39,
+   "cpc_cents": 50,
+   "global_volume": 94000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim colombia",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 200,
+   "global_volume": 7600
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim new zealand",
+   "volume": 600,
+   "difficulty": 10,
+   "cpc_cents": 300,
+   "global_volume": 6600
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "machu picchu",
+   "volume": 230000,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "global_volume": 915000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim india",
+   "volume": 900,
+   "difficulty": 0,
+   "cpc_cents": 180,
+   "global_volume": 9600
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "cartagena beaches",
+   "volume": 1700,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "global_volume": 3300
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "madeira hiking",
+   "volume": 1300,
+   "difficulty": 1,
+   "cpc_cents": 80,
+   "global_volume": 8300
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "taj mahal",
+   "volume": 173000,
+   "difficulty": 77,
+   "cpc_cents": 3,
+   "global_volume": 863000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim iceland",
+   "volume": 600,
+   "difficulty": 1,
+   "cpc_cents": 200,
+   "global_volume": 1700
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "bali beaches",
+   "volume": 2500,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "global_volume": 9900
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim switzerland",
+   "volume": 600,
+   "difficulty": 6,
+   "cpc_cents": 250,
+   "global_volume": 5000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim ireland",
+   "volume": 800,
+   "difficulty": 1,
+   "cpc_cents": 250,
+   "global_volume": 5600
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "chefchaouen",
+   "volume": 10000,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "global_volume": 159000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim croatia",
+   "volume": 300,
+   "difficulty": 2,
+   "cpc_cents": 200,
+   "global_volume": 1500
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "meteora",
+   "volume": 26000,
+   "difficulty": 69,
+   "cpc_cents": 15,
+   "global_volume": 140000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "algarve beaches",
+   "volume": 800,
+   "difficulty": 24,
+   "cpc_cents": 45,
+   "global_volume": 3100
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim vietnam",
+   "volume": 1300,
+   "difficulty": 6,
+   "cpc_cents": 180,
+   "global_volume": 17000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim mexico",
+   "volume": 1900,
+   "difficulty": 11,
+   "cpc_cents": 250,
+   "global_volume": 15000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "cliffs of moher",
+   "volume": 48000,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "global_volume": 147000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim canada",
+   "volume": 1900,
+   "difficulty": 0,
+   "cpc_cents": 250,
+   "global_volume": 23000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "manuel antonio national park",
+   "volume": 8000,
+   "difficulty": 44,
+   "cpc_cents": 30,
+   "global_volume": 21000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "ha long bay",
+   "volume": 31000,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "global_volume": 139000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "luxor attractions",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "global_volume": 300
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim greece",
+   "volume": 600,
+   "difficulty": 7,
+   "cpc_cents": 190,
+   "global_volume": 4800
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim japan",
+   "volume": 7100,
+   "difficulty": 34,
+   "cpc_cents": 180,
+   "global_volume": 38000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim costa rica",
+   "volume": 1000,
+   "difficulty": 3,
+   "cpc_cents": 190,
+   "global_volume": 7200
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "phuket beaches",
+   "volume": 1200,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "global_volume": 5900
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim peru",
+   "volume": 700,
+   "difficulty": 6,
+   "cpc_cents": 300,
+   "global_volume": 5700
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim philippines",
+   "volume": 1200,
+   "difficulty": 0,
+   "cpc_cents": 130,
+   "global_volume": 10000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "plitvice lakes",
+   "volume": 7700,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "global_volume": 41000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "iceland waterfalls",
+   "volume": 2600,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "global_volume": 8000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "banff national park",
+   "volume": 141000,
+   "difficulty": 69,
+   "cpc_cents": 40,
+   "global_volume": 216000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "great barrier reef",
+   "volume": 64000,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "global_volume": 216000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "santorini beaches",
+   "volume": 2500,
+   "difficulty": 0,
+   "cpc_cents": 9,
+   "global_volume": 9400
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "seoul attractions",
+   "volume": 800,
+   "difficulty": 9,
+   "cpc_cents": 3,
+   "global_volume": 2900
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim turkey",
+   "volume": 1400,
+   "difficulty": 0,
+   "cpc_cents": 250,
+   "global_volume": 19000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim south korea",
+   "volume": 500,
+   "difficulty": 17,
+   "cpc_cents": 200,
+   "global_volume": 3500
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "cappadocia",
+   "volume": 68000,
+   "difficulty": 56,
+   "cpc_cents": 45,
+   "global_volume": 379000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "mount fuji",
+   "volume": 85000,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "global_volume": 295000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim thailand",
+   "volume": 1400,
+   "difficulty": 0,
+   "cpc_cents": 140,
+   "global_volume": 28000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim morocco",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 250,
+   "global_volume": 8700
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim egypt",
+   "volume": 700,
+   "difficulty": 15,
+   "cpc_cents": 250,
+   "global_volume": 9700
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim portugal",
+   "volume": 900,
+   "difficulty": 3,
+   "cpc_cents": 200,
+   "global_volume": 7100
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "esim indonesia",
+   "volume": 800,
+   "difficulty": 30,
+   "cpc_cents": 250,
+   "global_volume": 13000
+  },
+  {
+   "ahrefs_country": "us",
+   "searcher_market": "en-US",
+   "language": "en",
+   "keyword": "zermatt hiking",
+   "volume": 200,
+   "difficulty": 1,
+   "cpc_cents": 9,
+   "global_volume": 600
+  }
+ ]
+}

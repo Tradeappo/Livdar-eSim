@@ -78,7 +78,7 @@ if [ ! -f "$FILT" ]; then
 fi
 
 echo "[$(date +%T)] [$ISO] extracting features with their attributes"
-if python3 scripts/atlas/ingest/osm-outdoor-extract.py "$FILT" "$ISO" "$DONE.tmp"; then
+if python3 scripts/atlas/ingest/osm-outdoor-extract.py "$FILT" "${COUNTRY:-$ISO}" "$DONE.tmp"; then
   # Verify the OUTPUT before freeing anything. Exiting 0 is not the same as having worked: a
   # bad geometry call once produced a German parent layer with zero polygons, the script exited
   # 0, deleted a 5.9GB extract, and the bug cost a re-download. The thing this layer exists for

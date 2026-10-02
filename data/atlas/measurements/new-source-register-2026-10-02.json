@@ -1,0 +1,104 @@
+{
+ "measuredOn": "2026-10-02",
+ "purpose": "Brief section 5 in the shape it asks for: licence, scope, countries, row count, usable families, freshness, join keys and expected net valid pages, per source, for the sources probed TODAY in search of the next 500,000 to 750,000 valid pages. Every reachability figure here is an HTTP response seen in this container, not a recollection.",
+ "sources": [
+  {
+   "name": "National Heritage List for England (NHLE)",
+   "publisher": "Historic England",
+   "endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer/0",
+   "status": "HTTP 200, no key, paged at 2,000 records",
+   "licence": "Open Government Licence v3.0",
+   "attribution": "Contains Historic England data licensed under the Open Government Licence v3.0. Contains Ordnance Survey data (c) Crown copyright and database right.",
+   "countries": ["GB"],
+   "rows": 379685,
+   "row_detail": {"grade_I": 9341, "grade_II_star": 22125, "grade_II": 348219},
+   "fields": "official list entry number, name, grade, list date, coordinates, link to the official entry",
+   "freshness": "live service, refreshes as the register changes",
+   "join_keys": "coordinates to the containment parent layer and to the city gazetteer; the list entry number is the stable id",
+   "usable_families": [
+    "heritage.listed-in-place, an aggregation per place with the count, the grade split, the oldest listing and the named entries",
+    "heritage.listed-building, an entity page for Grade I and Grade II* ONLY"
+   ],
+   "expected_net_valid_pages": "31,466 entity pages plus roughly 8,000 to 12,000 aggregation pages, so 40,000 to 44,000",
+   "refused": "a page for each of the 348,219 Grade II entries. Most are ordinary houses, terraces, milestones and telephone boxes; a page each would be thin and would read as a doorway, which is the thing this project exists to avoid.",
+   "status_today": "MATERIALISING"
+  },
+  {
+   "name": "Rijksmonumenten and other Dutch cultural heritage",
+   "publisher": "Rijksdienst voor het Cultureel Erfgoed (RCE)",
+   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+   "status": "HTTP 200, SPARQL, no key. A COUNT over ceo:Rijksmonument returned 163,266.",
+   "licence": "RCE open data, CC0 for the register with attribution requested",
+   "countries": ["NL"],
+   "rows": 163266,
+   "fields": "monument number, name or designation, address, municipality, function, protection date, coordinates where published",
+   "freshness": "live SPARQL over the current register",
+   "join_keys": "municipality and coordinates to the gazetteer and the parent layer",
+   "usable_families": [
+    "heritage.listed-in-place for the 342 Dutch municipalities and the neighbourhood layer",
+    "heritage.monument for monuments that carry a NAME rather than only an address, and a function that is a destination: church, castle, mill, fort, country house, lighthouse"
+   ],
+   "expected_net_valid_pages": "20,000 to 30,000, bounded by the named and destination-shaped subset rather than by the register size",
+   "status_today": "CONFIRMED REACHABLE, not yet materialised"
+  },
+  {
+   "name": "Research Organization Registry (ROR)",
+   "endpoint": "https://api.ror.org/organizations",
+   "status": "HTTP 200, no key",
+   "licence": "CC0",
+   "countries": "global",
+   "rows": "about 115,000 organisations; a query for universities alone returns 14,415",
+   "usable_families": ["education.universities-in-city", "education.universities-in-region", "education.research-institutions-in-city"],
+   "expected_net_valid_pages": "aggregation only, roughly 3,000 to 6,000. An individual institution page competes with that institution's own site, which the SERP evidence in this project already showed for hospitals and universities, so no individual pages.",
+   "status_today": "CONFIRMED REACHABLE, aggregation value only"
+  },
+  {
+   "name": "Rejestr zabytkow and Pomniki historii",
+   "publisher": "Narodowy Instytut Dziedzictwa, via dane.gov.pl",
+   "endpoint": "https://api.dane.gov.pl/1.4/datasets?q=zabytk",
+   "status": "HTTP 200. The portal lists the monument register, the archaeological register and the Pomniki historii as separate datasets, published as files rather than as a query API.",
+   "licence": "Polish public information, open",
+   "countries": ["PL"],
+   "usable_families": ["heritage.listed-in-place for Polish gminas and cities", "heritage.monument for the Pomniki historii tier"],
+   "expected_net_valid_pages": "to be measured once the resource files are read; the Pomniki historii tier is about 130 sites and the full register is tens of thousands",
+   "status_today": "REACHABLE, per-resource work needed"
+  },
+  {
+   "name": "GeoNames cities1000",
+   "endpoint": "https://download.geonames.org/export/dump/cities1000.zip",
+   "status": "HTTP 200, 11.1 MB",
+   "licence": "CC BY 4.0",
+   "countries": "global",
+   "rows": "about 150,000 settlements, against the 64,418 of cities5000 now in the gazetteer",
+   "usable_families": "every city family, gated as now on measured demand and on minimum POI counts per cell",
+   "expected_net_valid_pages": "unknown until the aggregation is run against it. The cities5000 step added 32,703 cities and yielded 2,449 more aggregation candidates, because most new cities are small and fail the minimum counts. cities1000 adds smaller places still, so the yield per city will be lower again and the honest expectation is low thousands rather than tens of thousands.",
+   "status_today": "DOWNLOADED, deprioritised on that arithmetic"
+  },
+  {
+   "name": "EEA DiscoData and the EEA spatial catalogue",
+   "endpoints": ["https://discodata.eea.europa.eu/sql", "https://sdi.eea.europa.eu/catalogue"],
+   "status": "DiscoData answers HTTP 200 but refuses system tables, so the table names have to be known in advance and the ones tried were wrong. The spatial catalogue returned HTTP 500.",
+   "wanted_for": "Natura 2000 sites, about 27,000 across the EU with official names, areas, habitats and species, and the Bathing Water Directive register, about 22,000 bathing waters with annual water quality classifications",
+   "countries": ["DE", "FR", "IT", "ES", "NL", "PL"],
+   "expected_net_valid_pages": "30,000 to 50,000 if both land: a bathing water page carries an official annual classification, which is distinct data per beach per year, and a Natura 2000 page carries habitat and species lists",
+   "status_today": "BLOCKED ON TABLE DISCOVERY, not on access. Recorded so the next pass does not retest the route and conclude the data does not exist."
+  },
+  {
+   "name": "data.culture.gouv.fr (Merimee and POP, French monuments historiques)",
+   "status": "HTTP 301 then a response the Opendatasoft v2.1 parser rejected, so the dataset path is not what was tried",
+   "countries": ["FR"],
+   "rows": "about 45,000 monuments historiques",
+   "status_today": "REACHABLE BUT PATH UNRESOLVED"
+  },
+  {
+   "name": "OSM route relations already in hand",
+   "status": "ON DISK. 70,975 named route relations in the German extract and 18,984 in the Italian, captured by the outdoor pass and held as parents because the extract carries no member geometry.",
+   "licence": "ODbL 1.0, share-alike, attribution required",
+   "countries": "every market as its extract is processed",
+   "usable_families": ["outdoors.trail, an entity page per named long distance route with its length, ascent, waymarking network and the features along it"],
+   "expected_net_valid_pages": "60,000 to 120,000 across eleven markets, bounded by the share of routes carrying a name AND a network tag AND a length rather than by the raw count",
+   "blocker": "member geometry. The tags-filter keeps the relation but not the ways it is built from, so a route has no length and no path yet. This is the single largest unbuilt path in hand and it needs an extract pass that resolves relation members.",
+   "status_today": "HIGHEST PRIORITY UNBUILT"
+  }
+ ]
+}

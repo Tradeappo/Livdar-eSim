@@ -1079,7 +1079,8 @@ print(f'  poi aggregations loaded {len(agg):,}', file=sys.stderr)
 # than on a measured keyword, which the uniqueness reason on every row says in those words.
 _outdoor_before = len(agg)
 for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz',
-             ROOT + 'data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz',
+             ROOT + 'data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1121,6 +1122,12 @@ SHAPE_SERP = {
     # 19,000 at 0, brocken 15,000 at 0, externsteine 12,000 at 0. The head of this family is
     # wide open. The tail is 100 and below, which is a publication-ordering fact.
     'outdoor_feature': 'OPEN_SPECIALIST_PAGE_WINS',
+    # measured on eighteen named trails across two languages in
+    # ahrefs-heritage-and-trail-demand-2026-10-02.json: every one carried volume and
+    # fourteen sat at a keyword difficulty of 0 to 5. Nothing else measured in this
+    # project came back that clean, which is why this is the one outdoor shape whose
+    # demand score rests on a measurement of its own family rather than on a proxy.
+    'trail': 'OPEN_SPECIALIST_PAGE_WINS',
 }
 
 # Wikidata candidates, built and deduped against OSM by scripts/atlas/scale/
@@ -1163,6 +1170,11 @@ SHAPE_WIRING = {
     # than a keyword and the score should not pretend otherwise.
     'outdoor_region_feature': ('outdoors', 'AGGREGATION', 'outdoor_region', 55),
     'outdoor_feature': ('outdoors', 'ENTITY', 'outdoor_feature', 45),
+    # 55, above the 45 the feature pages carry, because this family's demand was measured
+    # directly and theirs was inferred from an encyclopedia article. Not higher than 55,
+    # because the eighteen measured routes are a sample and the volume for an individual
+    # route is not claimed anywhere on the row.
+    'trail': ('outdoors', 'ENTITY', 'trail', 55),
 }
 WD_LICENCE = ('Wikidata (CC0 1.0, public domain dedication, no share-alike)', 'CC0_NO_CONDITIONS')
 OSM_LICENCE = ('OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
@@ -1199,11 +1211,21 @@ for a in agg:
     # the skeletons already read for one. Two peaks called Hochberg near one town are two real
     # mountains and must not be collapsed; what they need is a title that says which polygon each
     # sits in, and the parent is the only honest answer the data holds.
-    if shape in ('outdoor_feature', 'outdoor_region_feature'):
+    if shape in ('outdoor_feature', 'outdoor_region_feature', 'trail'):
         area = a.get('parent_name', '')
     is_wd = a.get('source') == 'wikidata'
 
-    if shape == 'outdoor_feature':
+    if shape == 'trail':
+        # One family per route type, so a hiking path and a canoe route get separate
+        # acceptance verdicts rather than one trails bucket that hides a weak half.
+        fid = f"outdoors.{a.get('route_type', 'hiking')}-trail"
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = f"walk or ride {ename}: how long it is and where it goes"
+        # the measured length and the waymarking are the two facts a reader comes for,
+        # and enriched counts the independent marks the route carries
+        q = min(100, 50 + a['enriched'] * 6)
+    elif shape == 'outdoor_feature':
         # A named outdoor feature. The family is its class, so peaks and castles are separate
         # families with separate acceptance verdicts rather than one outdoors bucket.
         fid = f'outdoors.{cls}'

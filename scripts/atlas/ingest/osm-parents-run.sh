@@ -85,7 +85,7 @@ if [ ! -f "$FILT" ]; then
 fi
 
 echo "[$(date +%T)] [$ISO] extracting named parents with geometry"
-if python3 scripts/atlas/ingest/osm-parents-extract.py "$FILT" "$ISO" "$DONE.tmp"; then
+if python3 scripts/atlas/ingest/osm-parents-extract.py "$FILT" "${COUNTRY:-$ISO}" "$DONE.tmp"; then
   # Verify the OUTPUT before freeing the input. Exiting 0 is not the same as having worked: a
   # from_wkb call with a bogus argument raised, the exception was swallowed into an unprinted
   # counter, and a whole German run produced 155,255 parents of which ZERO were polygons.

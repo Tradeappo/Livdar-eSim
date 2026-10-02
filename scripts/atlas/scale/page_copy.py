@@ -69,7 +69,7 @@ def compute_shared_subjects(all_rows):
     import collections as _c
     fams = _c.defaultdict(set)
     for r in all_rows:
-        if r.get('entity_type') in ('poi', 'venue', 'outdoor_feature'):
+        if r.get('entity_type') in ('poi', 'venue', 'outdoor_feature', 'trail'):
             fams[subject_key(r)].add(r.get('family'))
     return {k for k, v in fams.items() if len(v) > 1}
 
@@ -105,7 +105,7 @@ def place_phrase(r):
     module resolved, which already holds a region where the bare name repeats.
     """
     city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
-    if r.get('entity_type') in ('neighbourhood', 'outdoor_feature') and area:
+    if r.get('entity_type') in ('neighbourhood', 'outdoor_feature', 'trail') and area:
         return f'{area}, {city}' if city and city != area else (city or area)
     if city and country and country not in city:
         return f'{city}, {country}'
@@ -168,13 +168,19 @@ def title_for(r):
     # features apart: Hochberg in the Naturpark Altmuehltal is not Hochberg in the Schwarzwald.
     if r.get('entity_type') == 'outdoor_feature' and area:
         where = f"{area}, {city}" if city else area
+    # A trail is not AT a place, it runs through them, so its locator is the geography it
+    # was found inside plus the country: naming the single nearest town as though the route
+    # were there would be wrong for a 361km route, and that is the longest in the Dutch
+    # layer alone.
+    if r.get('entity_type') == 'trail':
+        where = f"{area}, {country}" if area and country else (area or country or where)
     # A venue, a POI or a NEIGHBOURHOOD is qualified by its CITY, not just its country. There
     # are two Alte Opers in Germany, in Frankfurt and in Erfurt, and two E-Werks, and titling
     # both "Alte Oper, DE: near venue" reported 111 duplicate titles that were the skeleton's
     # fault: the pages are legitimately two, the title just refused to say which city. The same
     # is true one level down, where Sainte-Marguerite is a quarter of Paris and also of
     # Marseille, and all three French neighbourhood families titled both the same way.
-    if (r.get('entity_type') in ('poi', 'venue', 'neighbourhood', 'outdoor_feature')
+    if (r.get('entity_type') in ('poi', 'venue', 'neighbourhood', 'outdoor_feature', 'trail')
             and where and where not in name):
         qualified = f"{name}, {where}"
     else:
@@ -200,8 +206,9 @@ def title_for(r):
         # are the same. The same-name gate keys on the class, so both survive correctly as two
         # pages about two things, and without the class in the title they were two pages with one
         # title. The class is a fact the row already carries.
-        cls_h = (r.get('entity_type') == 'outdoor_feature'
-                 and (r['family'].split('.', 1)[-1]).replace('_', ' ') or '')
+        cls_h = (r.get('entity_type') in ('outdoor_feature', 'trail')
+                 and (r['family'].split('.', 1)[-1]).replace('_', ' ').replace('-', ' ')
+                 or '')
         tail = f'what to know about this {cls_h} before you go' if cls_h \
             else 'what to know before you go'
         return f"{name}{', ' + where if where else ''}: {tail}"

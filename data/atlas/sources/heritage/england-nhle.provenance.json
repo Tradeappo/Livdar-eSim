@@ -1,0 +1,25 @@
+{
+ "source": "National Heritage List for England (NHLE)",
+ "publisher": "Historic England",
+ "endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer/0/query",
+ "licence": "Open Government Licence v3.0",
+ "attribution": "Contains Historic England data licensed under the Open Government Licence v3.0. Contains Ordnance Survey data (c) Crown copyright and database right.",
+ "capturedOn": "2026-10-02",
+ "rows": 379685,
+ "service_total": 379685,
+ "fields": [
+  "id (official list entry number)",
+  "name",
+  "grade",
+  "listed_year",
+  "lat",
+  "lon",
+  "official_url"
+ ],
+ "grades": {
+  "I": 9341,
+  "II*": 22125,
+  "II": 348219
+ },
+ "intended_use": "Aggregation per place with the count, the grade split, the oldest listing and the named entries. Individual pages ONLY for Grade I and Grade II*, which are 31,466 of the 379,685: a page for each of the 348,219 Grade II entries would be thin and would read as a doorway, which this project refuses."
+}

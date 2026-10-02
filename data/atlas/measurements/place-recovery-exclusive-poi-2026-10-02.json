@@ -1,0 +1,26 @@
+{
+ "measured_on": "2026-10-02",
+ "question": "Of the 334,319 places that fail area_is_named() - no polygon, no population tag, no Wikidata item, no Wikipedia article - how many hold enough named POI to carry a page that is not thin?",
+ "first_answer_and_why_it_was_wrong": {
+  "what_it_said": "Counting named POI within each place radius: 232,721 places with at least 3, 168,453 with at least 10, 128,216 with at least 20, 78,507 with at least 50. The densest were Republique, Bastille, Opera and Faubourg Saint-Denis, which are plainly real places.",
+  "the_defect": "Neighbourhood radii overlap, so one POI was counted for every place whose radius reached it. Bastille and Faubourg Saint-Antoine share a boundary and the same restaurants were counted for both. That is not a measure of what each place holds, it is a measure of how much the radii overlap, and building pages on it would have produced two pages listing the same POI. It is the same error as nearest-centroid attribution, one level down."
+ },
+ "second_answer": {
+  "method": "Every named POI is assigned to EXACTLY ONE place. Containment beats proximity and the smallest containing polygon beats a larger one, because a POI in Kreuzberg is in Kreuzberg and not in the borough above it. Where no polygon contains it, the POI goes to the nearest point-place whose radius reaches it, ranked by distance over radius so a POI 300m from a city_block beats one 1.5km from a suburb.",
+  "places_indexed": 370139,
+  "named_poi_read": 5012698,
+  "assigned_to_exactly_one_place": 2551035,
+  "share_assigned": "50.9 per cent",
+  "places_by_exclusive_poi_floor": {
+   "3": 107246,
+   "5": 77200,
+   "10": 46356,
+   "20": 25495,
+   "50": 10083
+  },
+  "recoverable_at_20": 16129
+ },
+ "the_correction": "128,216 becomes 16,129. The first figure was eight times too high and the whole of that difference was overlap: places counting POI that belong to a neighbour. 16,129 is the number of places that today fail the named-entity test AND hold twenty or more named POI that no other place can claim. Those are worth pages and the exclusivity is what makes them safe to build, because no two of them can list the same POI and so no two can carry the same content. The larger figure is recorded here rather than deleted, because it was quoted as a result before it was checked and the difference between the two is the finding.",
+ "what_it_is_worth": "Roughly 16,000 places, at one to two locales each, so 16,000 to 32,000 valid pages. Real, and about four per cent of the gap to one million rather than the seventeen per cent the first figure implied. It does not change the shape of the plan; it changes which lever is the big one.",
+ "output": "data/atlas/sources/places/poi-density.jsonl.gz, 184,488 rows"
+}

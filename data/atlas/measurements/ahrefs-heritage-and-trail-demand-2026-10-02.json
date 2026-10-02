@@ -1,0 +1,41 @@
+{
+ "measuredOn": "2026-10-02",
+ "unitsSpent": 528,
+ "why": "Two candidate paths for the next 500,000 pages were tested on demand BEFORE any page was designed for them. One failed and one is the strongest signal in the project. Both results are recorded, because the failure is the more useful of the two: it stops 40,000 pages being built on an assumption.",
+ "heritage_registers_FAILED_as_a_page_axis": {
+  "measured_gb": {
+   "grade ii listed building": {"volume": 500, "kd": 39, "parent_topic": "grade 2 listed building"},
+   "grade 1 listed buildings": {"volume": 350, "kd": 53, "parent_topic": "grade 1 listed"},
+   "listed buildings near me": {"volume": 90, "kd": 39, "parent_topic": "listed building register"},
+   "listed buildings in bath": {"volume": 40},
+   "listed buildings in york": {"volume": 0},
+   "rijksmonumenten amsterdam": {"volume": 0}
+  },
+  "reading": "The place-scoped heritage list has NO demand. York, the most listed city in England outside London, returns zero for 'listed buildings in york'. Amsterdam returns zero in Dutch. The only volume is on the CONCEPT: what a Grade II listing means, 500 searches, and what Grade I means, 350. Those are two explainer pages, not a page per place.",
+  "consequence": "The aggregation estimate of 8,000 to 12,000 pages from the English register is WITHDRAWN. So is the equivalent Dutch estimate. The 379,685 entries were fetched before this was measured, which is the wrong order and is said plainly rather than hidden: the fetch cost four minutes and the measurement saved building 40,000 pages nobody searches for.",
+  "what_the_register_is_actually_worth": "An ENRICHMENT source, not a page axis. A Grade I listed church already has a page in this inventory from OSM or Wikidata; the register adds the official grade, the year it was listed and a link to the official entry, which strengthens the unique content contract on pages that already exist. 379,685 entries joined by coordinate to the existing entity layer is a real improvement to data_completeness and costs no new URLs.",
+  "status": "KEPT AS ENRICHMENT, REJECTED AS A PAGE FAMILY"
+ },
+ "named_trails_VALIDATED_and_the_strongest_signal_measured": {
+  "measured_de": {
+   "malerweg": {"volume": 6600, "kd": 3}, "moselsteig": {"volume": 5600, "kd": 1},
+   "rheinsteig": {"volume": 5400, "kd": 0}, "heidschnuckenweg": {"volume": 4700, "kd": 0},
+   "rothaarsteig": {"volume": 4600, "kd": 0}, "eifelsteig": {"volume": 1900, "kd": 4},
+   "harzer hexenstieg": {"volume": 1700, "kd": 5}, "lechweg": {"volume": 1600, "kd": 4},
+   "altmuehltal panoramaweg": {"volume": 1200, "kd": 0}, "goldsteig": {"volume": 350, "kd": 5}
+  },
+  "measured_it": {
+   "sentiero degli dei": {"volume": 14000, "kd": 1}, "via francigena": {"volume": 10000, "kd": 29},
+   "sentiero azzurro": {"volume": 800, "kd": 0}, "alta via 1": {"volume": 600, "kd": 0},
+   "cammino di san benedetto": {"volume": 600, "kd": 43},
+   "alta via delle dolomiti": {"volume": 400, "kd": 0},
+   "cammino materano": {"volume": 350, "kd": 0},
+   "via degli dei bologna firenze": {"volume": 40, "kd": 0}
+  },
+  "reading": "Eighteen named trails tested across two languages and EVERY ONE has volume, with a keyword difficulty of 0 to 5 for fourteen of them. Nothing else measured in this project comes back that clean, not the peaks, not the cuisine lists, not the climate months. A named long distance route is a thing people search for by name and almost nobody has built a good page for.",
+  "why_it_was_not_built_until_now": "A route relation carries no geometry of its own; its shape lives in its member ways. The outdoor pass captured 70,975 German routes and 18,984 Italian ones and could measure none of them, because the tag filter kept the relation and omitted the ways. Holding a route with no length is holding a name, and a name is what this project refuses to build a page from.",
+  "what_is_being_built": "A two pass read of a route layer that keeps referenced members: pass one takes every named route of a walking, cycling, piste, horse or canoe type with its tags and member way ids; pass two measures every member way from node locations and hands the length back. Length is the SUM of member lengths, not a bounding box estimate, and a route whose members are under 60 per cent present in the extract is DROPPED rather than reported at a partial length, because a 240km trail shown as 40km is worse than no page.",
+  "expected_net_valid_pages": "60,000 to 120,000 across eleven markets, bounded by the share of routes carrying a name AND a waymarking network AND a measurable length rather than by the raw relation count",
+  "status": "BUILDING. The extractor and runner are written; the Netherlands is the proof case and France is downloading."
+ }
+}
