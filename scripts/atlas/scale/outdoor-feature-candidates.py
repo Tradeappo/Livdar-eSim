@@ -71,18 +71,14 @@ LANG_MKT = {'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'e
 
 
 def feature_marks(o):
-    """The languages this feature itself carries a name or an article in."""
-    local = {str(k).lower() for k in (o.get('local_names') or o.get('names') or {})}
-    wp = o.get('wikipedia') or ''
-    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
-    out = {}
-    for lang in LANG_MKT:
-        zh = lang == 'zh-Hant'
-        if wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical')):
-            out[lang] = f'its own {lang} Wikipedia article'
-        elif lang in local or (zh and {'zh', 'zh-hant', 'zh-tw'} & local):
-            out[lang] = f'a name:{lang} tag, the name {lang} speakers use for it'
-    return out
+    """The languages this feature itself carries a name or an article in.
+
+    One shared implementation in entity_identity, because five builders asking this same question
+    five ways is how two of them end up disagreeing about what counts as evidence. It reads the
+    Wikidata sitelink index first, which is the mark with real coverage: the OSM wikipedia tag and
+    name:xx together left 19,550 of 37,437 feature candidates with no mark in any language.
+    """
+    return {L: why for L, why in entity_identity.marks_for(o).items() if L in LANG_MKT}
 
 COUNTRY_MKT = {
     'US': ('en-US', 'en'), 'GB': ('en-GB', 'en'), 'DE': ('de-DE', 'de'),
@@ -356,10 +352,8 @@ for r in rows:
     langs = DEST_LANG.get(iso) or {}
     if not langs:
         continue
-    local = {str(k).lower() for k in (r.get('local_names') or r.get('names') or {})}
-    wp = r.get('wikipedia') or ''
-    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
-    if not local and not wl:
+    fmk = feature_marks(r)
+    if not fmk:
         _fs['feature_carries_no_name_or_article_in_any_language'] += 1
         continue
     for lang, ev in langs.items():
@@ -368,14 +362,10 @@ for r in rows:
         mkt = LANG_MKT.get(lang)
         if not mkt:
             continue
-        zh = lang == 'zh-Hant'
-        article = wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical'))
-        named = lang in local or (zh and bool({'zh', 'zh-hant', 'zh-tw'} & local))
-        if not (article or named):
+        mark = fmk.get(lang)
+        if not mark:
             _fs['no_mark_in_this_language'] += 1
             continue
-        mark = (f'its own {lang} Wikipedia article' if article
-                else f'a name:{lang} tag, the name {lang} speakers use for it')
         r2 = dict(r)
         r2['market'], r2['language'] = mkt, lang
         if r.get('url') and r.get('language'):

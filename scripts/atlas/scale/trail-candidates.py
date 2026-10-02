@@ -90,20 +90,15 @@ def markets_for_route(iso, t):
     home = COUNTRY_MKT.get(iso)
     if home:
         out.append((home[0], home[1], 'home'))
-    wp = (t.get('wikipedia') or '')
-    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
-    local = {k.lower() for k in (t.get('local_names') or {})}
+    # the shared mark loader: the Wikidata sitelink index, then the OSM wikipedia tag, then name:xx
+    marks = entity_identity.marks_for(t)
     for lang, ev in (DEST_LANG.get(iso) or {}).items():
         mkt = LANG_MKT.get(lang)
         if not mkt or (home and home[1] == lang):
             continue
-        zh = lang == 'zh-Hant'
-        has_article = wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical'))
-        has_name = lang in local or (zh and ({'zh', 'zh-hant', 'zh-tw'} & local))
-        if not (has_article or has_name):
+        mark = marks.get(lang)
+        if not mark:
             continue
-        mark = ('its own ' + lang + ' Wikipedia article' if has_article
-                else 'a name:' + lang + ' tag, which is the name ' + lang + ' speakers use for it')
         out.append((mkt, lang, f'destination:{ev[0]:,}/{ev[1]:,}:{mark}'))
     return out
 NETWORK_REACH = {'iwn': 'international', 'nwn': 'national', 'rwn': 'regional', 'lwn': 'local',

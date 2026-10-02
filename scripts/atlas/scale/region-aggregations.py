@@ -112,23 +112,21 @@ def markets_for_parent(country, p):
     home = COUNTRY_MKT.get(country)
     if home:
         out.append((home[0], home[1], 'the home market of this region'))
-    wp = (p.get('wikipedia') or '')
-    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
-    local = {k.lower() for k in (p.get('local_names') or {})}
+    # the shared mark loader, so this builder and the four others agree on what counts as
+    # evidence: the Wikidata sitelink index first, then the OSM wikipedia tag, then name:xx
+    marks = entity_identity.marks_for(p)
     for lang, ev in (DEST_LANG.get(country) or {}).items():
         mkt = LANG_MKT.get(lang)
         if not mkt or (home and home[1] == lang):
             continue
-        zh = lang == 'zh-Hant'
-        article = wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical'))
-        named = lang in local or (zh and bool({'zh', 'zh-hant', 'zh-tw'} & local))
-        if not (article or named):
+        mark = marks.get(lang)
+        if not mark:
             continue
-        mark = (f'its own {lang} Wikipedia article' if article else f'a name:{lang} tag')
         out.append((mkt, lang,
-                    f'{country} carries measured {lang} demand ("{ev[0]:,}" connectivity and '
-                    f'"{ev[1]:,}" information volume) and this region carries {mark}, which is a '
-                    f'proxy for {lang} interest and not a measured volume for this page'))
+                    f'{country} carries measured {lang} demand ({ev[0]:,} on the connectivity '
+                    f'keyword and {ev[1]:,} on the travel-information keyword) and this region '
+                    f'carries {mark}, which is a proxy for {lang} interest and not a measured '
+                    f'volume for this page'))
     return out
 
 

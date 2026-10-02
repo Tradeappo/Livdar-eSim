@@ -1196,6 +1196,11 @@ for o, _ncid, extras in notable:
         'cls': o['cls'], 'n': 1, 'enriched': extras, 'market': market, 'language': lang,
         'url': f"/{lang}/poi/{slug(o['cls'])}/{slug(o['name'])}-{o['id']}/",
         'entity_name': o['name'], 'entity_id': o['id'], 'attribution': 'tag',
+        # Carried so the destination fan-out can ask for the ENTITY's own language mark rather
+        # than settling for its city's. A page about one museum in Antalya needs evidence about
+        # that museum, not about Antalya: the city mark is the right anchor for a LIST of museums
+        # and too weak for a page about a single building.
+        'qid': o.get('qid'), 'wikipedia': o.get('wikipedia'), 'names': o.get('names'),
         'uniqueness_reason': (f"notable {o['cls']} cross-referenced in Wikidata (QID "
             f"{o.get('qid')}) with {extras} source fields: a practical page for a "
             f"specific visited entity, not a generated stub"),
@@ -1263,15 +1268,14 @@ try:
 except (EOFError, OSError, FileNotFoundError):
     pass
 
-# the AREA mark, read off the place records this file already loaded
-AREA_MARK = collections.defaultdict(set)
+# The AREA mark, through the one shared loader in entity_identity so this builder and the four
+# others agree on what counts as evidence. It reads the Wikidata sitelink index first, then the OSM
+# wikipedia tag, then name:xx.
+AREA_MARK = {}
 for _p in places.values():
-    _k = (_p.get('country'), _p.get('id'))
-    _wp = _p.get('wikipedia') or ''
-    if ':' in _wp:
-        AREA_MARK[_k].add(_wp.split(':', 1)[0].strip().lower())
-    for _lk in (_p.get('names') or _p.get('local_names') or {}):
-        AREA_MARK[_k].add(str(_lk).lower())
+    _m = entity_identity.marks_for(_p)
+    if _m:
+        AREA_MARK[(_p.get('country'), _p.get('id'))] = _m
 print(f'cities carrying a per-language mark: {len(CITY_MARK):,}; '
       f'areas carrying one: {len(AREA_MARK):,}', file=sys.stderr)
 
@@ -1286,19 +1290,25 @@ for r in rows:
     if not marks:
         _fan_stats['no_city_mark_in_any_language'] += 1
         continue
-    is_area = str(r.get('shape', '')).startswith('area_')
-    amk = AREA_MARK.get((cc, r.get('area_id'))) if is_area else None
+    shape = str(r.get('shape', ''))
+    is_area = shape.startswith('area_')
+    is_entity = shape == 'notable_entity'
+    amk = AREA_MARK.get((cc, r.get('area_id'))) or {} if is_area else {}
+    emk = entity_identity.marks_for(r) if is_entity else {}
     for lang, ev in langs.items():
         if lang == r.get('language') or lang not in marks:
             continue
         mkt = LANG_MKT.get(lang)
         if not mkt:
             continue
-        if is_area:
-            zh = lang == 'zh-Hant'
-            if not amk or not (lang in amk or (zh and {'zh', 'zh-hant', 'zh-tw'} & amk)):
-                _fan_stats['area_itself_carries_no_mark_in_this_language'] += 1
-                continue
+        if is_area and lang not in amk:
+            _fan_stats['area_itself_carries_no_mark_in_this_language'] += 1
+            continue
+        if is_entity and lang not in emk:
+            # One museum is not one city. A page about a single building needs evidence about that
+            # building, and the city mark that carries a LIST of museums is too weak for it.
+            _fan_stats['entity_itself_carries_no_mark_in_this_language'] += 1
+            continue
         r2 = dict(r)
         r2['market'], r2['language'] = mkt, lang
         r2['url'] = '/' + lang + r['url'][len(r['language']) + 1:]

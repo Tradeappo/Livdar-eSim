@@ -417,3 +417,70 @@ if __name__ == '__main__':
             c = g.by_id[cid]
             print(f'  {nm} {c["country"]}/{c["admin1"]}: label={g.label(cid)!r} '
                   f'slug={g.slug(cid, _slug)!r}')
+
+
+# ---- the per-entity, per-language mark the destination axis needs ------------------------------
+# One loader for every builder, in the module that already owns identity, because five builders
+# asking the same question five ways is how two of them end up disagreeing about what counts as
+# evidence. The answer is a dict of {wikidata id: {language: why it counts}}.
+#
+# Three mark sources, in order of coverage rather than strength:
+#   a Wikipedia article in that language   entity-sitelinks.jsonl.gz, fetched per Wikidata id
+#   the OSM wikipedia tag                  carries one language in its prefix
+#   an OSM name:xx tag                     the name speakers of that language use
+#
+# Every one of the three is a PROXY for interest. None of them is a measured search volume, and a
+# row that rests on one has to say so in its own words.
+_ENTITY_MARKS = None
+
+
+def entity_marks(root='/home/user/Livdar-eSim/'):
+    """{qid: {lang: reason}} from the Wikidata sitelink index, loaded once per process."""
+    global _ENTITY_MARKS
+    if _ENTITY_MARKS is not None:
+        return _ENTITY_MARKS
+    import gzip as _gz, json as _js
+    out = {}
+    try:
+        with _gz.open(root + 'data/atlas/sources/wikidata/entity-sitelinks.jsonl.gz',
+                      'rt', encoding='utf-8') as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    r = _js.loads(line)
+                except Exception:
+                    continue
+                langs = r.get('wikipedia_languages') or {}
+                if langs:
+                    out[r['qid']] = {l: f'its own {l} Wikipedia article' for l in langs}
+    except (EOFError, OSError, FileNotFoundError):
+        pass
+    _ENTITY_MARKS = out
+    return out
+
+
+def marks_for(o, root='/home/user/Livdar-eSim/'):
+    """Every language this entity carries a mark in, with the reason, from all three sources."""
+    out = {}
+    q = o.get('qid')
+    if q:
+        out.update(entity_marks(root).get(str(q), {}))
+    wp = o.get('wikipedia') or ''
+    if ':' in wp:
+        wl = wp.split(':', 1)[0].strip().lower()
+        if wl and wl not in out:
+            out[wl] = f'its own {wl} Wikipedia article, from the OpenStreetMap wikipedia tag'
+    for k in (o.get('local_names') or o.get('names') or {}):
+        k = str(k).lower()
+        if k and k not in out:
+            out[k] = f'a name:{k} tag, the name {k} speakers use for it'
+    # zhwiki is one Wikipedia for both Chinese scripts and OSM uses several zh variants, so a
+    # Traditional Chinese page accepts any of them as its mark and the row says which.
+    if 'zh-Hant' not in out:
+        for alias in ('zh', 'zh-hant', 'zh-tw', 'zh-yue', 'zh-classical'):
+            if alias in out:
+                out['zh-Hant'] = out[alias]
+                break
+    return out
