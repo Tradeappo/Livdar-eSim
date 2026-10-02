@@ -34,7 +34,7 @@ Reads  data/atlas/sources/osm-trails/trails-*.jsonl.gz
        data/atlas/sources/osm-parents/parents-*.jsonl.gz
 Writes data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz
 """
-import collections, glob, gzip, json, math, os, sys
+import collections, glob, gzip, json, math, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import entity_identity                                            # noqa: E402
 from shapely.geometry import Point, shape                          # noqa: E402
@@ -53,6 +53,59 @@ COUNTRY_MKT = {
     'JP': ('ja-JP', 'ja'), 'TW': ('zh-Hant-TW', 'zh-Hant'),
 }
 MIN_KM = 5.0
+
+# ---- the destination axis, for routes outside the eleven market countries ---------------------
+# A route in Turkey had no market at all and was simply rejected: 268 of them on the first run.
+# That is the same blind spot the city families had, and the fix is the same two-part evidence.
+# Half one is the country-by-language table derived from the 2026-10-02 keyword measurement; half
+# two has to be something the ROUTE itself carries, and a route has no GeoNames id to look up. It
+# does carry its own wikipedia tag, whose prefix IS a language: a route tagged
+# wikipedia=de:Lykischer_Weg has a German encyclopedia article written about it, which is
+# evidence that German speakers look it up. That is a PROXY for interest and the uniqueness
+# reason on every such row says so.
+DEST_LANG = {}
+try:
+    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
+                         'destination-demand-by-country-language-2026-10-02.json'))
+    for _v in _dt['table'].values():
+        if _v.get('qualifies'):
+            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
+                _v['max_connectivity_volume'], _v['max_information_volume'])
+except (FileNotFoundError, KeyError, ValueError):
+    pass
+LANG_MKT = {l: m for m, (l) in {}.items()} if False else {
+    'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'es-ES',
+    'nl': 'nl-NL', 'pl': 'pl-PL', 'pt': 'pt-BR', 'ja': 'ja-JP', 'zh-Hant': 'zh-Hant-TW',
+}
+
+
+def markets_for_route(iso, t):
+    """Every (market, language) this route earns, home market first.
+
+    A route in a market country earns that market outright, as before. On top of that, any
+    language in which its own country carries measured demand AND the route carries a Wikipedia
+    article earns that language's market too.
+    """
+    out = []
+    home = COUNTRY_MKT.get(iso)
+    if home:
+        out.append((home[0], home[1], 'home'))
+    wp = (t.get('wikipedia') or '')
+    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
+    local = {k.lower() for k in (t.get('local_names') or {})}
+    for lang, ev in (DEST_LANG.get(iso) or {}).items():
+        mkt = LANG_MKT.get(lang)
+        if not mkt or (home and home[1] == lang):
+            continue
+        zh = lang == 'zh-Hant'
+        has_article = wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical'))
+        has_name = lang in local or (zh and ({'zh', 'zh-hant', 'zh-tw'} & local))
+        if not (has_article or has_name):
+            continue
+        mark = ('its own ' + lang + ' Wikipedia article' if has_article
+                else 'a name:' + lang + ' tag, which is the name ' + lang + ' speakers use for it')
+        out.append((mkt, lang, f'destination:{ev[0]:,}/{ev[1]:,}:{mark}'))
+    return out
 NETWORK_REACH = {'iwn': 'international', 'nwn': 'national', 'rwn': 'regional', 'lwn': 'local',
                  'icn': 'international cycle', 'ncn': 'national cycle', 'rcn': 'regional cycle',
                  'lcn': 'local cycle'}
@@ -126,11 +179,11 @@ for f in sorted(glob.glob(TRAILS + 'trails-*.jsonl.gz')):
         except Exception:
             continue
         iso = t.get('country')
-        mk = COUNTRY_MKT.get(iso)
-        if not mk:
-            rejects['no_market_for_country'] += 1
+        mkts = markets_for_route(iso, t)
+        if not mkts:
+            rejects['no_market_and_no_destination_evidence_for_country'] += 1
             continue
-        market, lang = mk
+        market, lang, why = mkts[0]
         km = t.get('length_km') or 0
         if km < MIN_KM:
             rejects['shorter_than_five_km_so_not_a_destination'] += 1
@@ -223,7 +276,125 @@ for f in sorted(glob.glob(TRAILS + 'trails-*.jsonl.gz')):
                 f"one of which had volume at a difficulty of 0 to 5; the volume for THIS route "
                 f"was not measured and none is claimed."),
             'no_superlative': True,
+            'market_reason': why,
         })
+        # Fan out to any further market the destination evidence allows. Each copy is a different
+        # LANGUAGE and therefore a different URL and a different page; the facts are the same
+        # facts because they are facts about one route, and the skeleton that renders them is
+        # language-scoped. A copy is never made for a language this route has no mark in.
+        for (m2, l2, why2) in mkts[1:]:
+            r2 = dict(rows[-1])
+            r2['market'], r2['language'], r2['market_reason'] = m2, l2, why2
+            r2['url'] = f"/{l2}/outdoors/trail/{sl}-{t['id']}/"
+            r2['uniqueness_reason'] = (
+                r2['uniqueness_reason'].rstrip('.') +
+                f". This page is served to {m2} because {iso} carries measured {l2} demand and "
+                f"this route carries {why2.split(':', 3)[-1]}, which is a proxy for {l2} "
+                f"interest in it and not a measured volume for this page.")
+            rows.append(r2)
+
+# ---- numbered stages collapse into the route they are stages OF -------------------------------
+# Measured on the Dutch layer: 680 of 4,333 candidates were one numbered stage of a long-distance
+# route. Westerborkpad alone had 29, Zuiderzeepad 26, Airbornepad Market Garden 27. Twenty-nine
+# pages titled "Westerborkpad - 00" through "Westerborkpad - 28" would be twenty-nine pages
+# saying almost exactly the same thing, which is the thin content and the near-duplication this
+# brief forbids outright.
+#
+# Dropping them would be the easy answer and it would throw away a good page. A walker searching
+# Westerborkpad wants the route: how long it is in total, how many waymarked stages it comes in,
+# which towns it passes. Every one of those facts is the SUM of the stages, so collapsing the
+# series into one row is aggregation of real data, not invention, and it turns twenty-nine bad
+# pages into one that is better than any of them.
+#
+# Where the full route also exists as its own relation, that row is kept and gains the stage
+# count; where it does not, one row is synthesised for the series and says in its own facts that
+# its length is the sum of its mapped stages.
+STAGE = re.compile(r'(?i)\s*[-,:\u2013(]?\s*\b(etappe|tappe|tappa|stage|stap|deel|dag|'
+                   r'section|abschnitt|part|teil|route|etapa|etape)\b\.?\s*0*(\d+)\w*\)?\s*$')
+BARE_NUM = re.compile(r'\s*[-,:(]\s*0*(\d+)\s*\)?\s*$')
+
+
+def stage_stem(name):
+    """The route a numbered stage belongs to, or None when the name is not a stage."""
+    st = STAGE.sub('', name)
+    if st == name:
+        st = BARE_NUM.sub('', name)
+    st = st.strip(' -,:(\u2013')
+    return st if st != name.strip() and len(st) > 3 else None
+
+
+series = collections.defaultdict(list)
+for r in rows:
+    st = stage_stem(r['entity_name'])
+    if st:
+        series[(r['language'], r['country'], st)].append(r)
+# three or more siblings is a series. Two could easily be two unrelated routes whose names happen
+# to end in a number, and guessing wrong would merge two real places into one page.
+series = {k: v for k, v in series.items() if len(v) >= 3}
+if series:
+    by_name = {(r['language'], r['country'], r['entity_name'].strip()): r for r in rows}
+    collapsed, synthesised, absorbed = [], 0, 0
+    for (lang, iso, stem), members in series.items():
+        total = sum(m['length_km'] for m in members)
+        towns, seen_t = [], set()
+        through, seen_p = [], set()
+        for m in sorted(members, key=lambda x: x['entity_name']):
+            for t in m['towns']:
+                if t['id'] not in seen_t: seen_t.add(t['id']); towns.append(t)
+            for p in m['through']:
+                if p['name'] not in seen_p: seen_p.add(p['name']); through.append(p)
+        rtype = collections.Counter(m['route_type'] for m in members).most_common(1)[0][0]
+        net = collections.Counter(m['network'] for m in members if m['network']).most_common(1)
+        reach = collections.Counter(m['network_reach'] for m in members
+                                    if m['network_reach']).most_common(1)
+        stage_fact = (f"waymarked in {len(members)} stages totalling {total:,.0f}km, "
+                      f"measured by summing the mapped member ways of every stage")
+        whole = by_name.get((lang, iso, stem))
+        if whole is not None:
+            # the full route is mapped in its own right: keep it and let it carry the stages
+            whole['facts'] = [whole['facts'][0], stage_fact] + whole['facts'][1:]
+            whole['enriched'] = len(whole['facts'])
+            whole['stage_count'] = len(members)
+            whole['uniqueness_reason'] = (
+                whole['uniqueness_reason'].rstrip('.') +
+                f". It is {stage_fact}, and those stage relations are deliberately NOT given "
+                f"pages of their own: {len(members)} pages differing only by a stage number "
+                f"would be near duplicates of each other.")
+            collapsed.extend(members); absorbed += 1
+            continue
+        base = max(members, key=lambda m: m['length_km'])
+        sl = slug(stem)
+        row = dict(base)
+        row.update({
+            'entity_name': stem, 'length_km': round(total, 2), 'n': len(members),
+            'route_type': rtype,
+            'network': (net[0][0] if net else None),
+            'network_reach': (reach[0][0] if reach else None),
+            'url': f"/{lang}/outdoors/trail/{sl}-{base['entity_id']}/",
+            'towns': towns, 'through': [{'name': p['name'], 'cls': p['cls']} for p in through],
+            'stage_count': len(members),
+            'built_from': 'the numbered stages of this route, summed',
+        })
+        row['facts'] = [f"{total:,.0f}km in total", stage_fact] + [
+            f for f in base['facts'] if 'km measured' not in f][:3]
+        row['enriched'] = len(row['facts'])
+        row['uniqueness_reason'] = (
+            f"{stem} is a named {ROUTE_WORD.get(rtype, 'route')} in {iso} mapped as "
+            f"{len(members)} waymarked stages and {stage_fact}. The stages are deliberately NOT "
+            f"given pages of their own, because {len(members)} pages differing only by a stage "
+            f"number would be near duplicates of each other; this one page carries the whole "
+            f"route, which is what a walker searching the name is looking for. The demand for "
+            f"this FAMILY was measured on eighteen named trails across two languages, every one "
+            f"of which had volume at a difficulty of 0 to 5; the volume for THIS route was not "
+            f"measured and none is claimed.")
+        rows.append(row)
+        collapsed.extend(members); synthesised += 1
+    ids = {id(r) for r in collapsed}
+    rows = [r for r in rows if id(r) not in ids]
+    rejects['numbered_stages_collapsed_into_the_whole_route'] += len(collapsed)
+    print(f'  stage series found: {len(series)}; stage rows collapsed: {len(collapsed):,}; '
+          f'absorbed into an existing whole-route row: {absorbed}; '
+          f'whole-route rows synthesised: {synthesised}', file=sys.stderr)
 
 # one page per name per market: two routes of one name in one country cannot be told apart
 key = collections.defaultdict(list)

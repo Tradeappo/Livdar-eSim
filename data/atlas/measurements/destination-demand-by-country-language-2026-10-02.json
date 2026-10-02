@@ -1,0 +1,2295 @@
+{
+ "derived_on": "2026-10-02",
+ "derived_from": "destination-axis-demand-2026-10-02.json",
+ "rule": "A destination country earns a language only when BOTH a connectivity keyword and a travel-information keyword carry volume in it. One alone is not enough: a market can want a SIM for a country without searching for its beaches, and it can search an encyclopedia entity with no travel intent at all.",
+ "and_this_is_only_half_the_gate": "Qualifying here lets a country be considered for a language. It does NOT let an arbitrary place inside that country earn a page, which is the Aba, Nigeria error markets_for() already records. The second half is a per-entity mark in the same language, which is a GeoNames alternate name in that language, read from altnames-by-language.jsonl.gz. Both halves are required and the row says so.",
+ "pairs_tested": 82,
+ "pairs_qualifying": 73,
+ "qualifying_pairs": [
+  "AE|de",
+  "AL|it",
+  "AT|de",
+  "AT|it",
+  "AT|ja",
+  "AU|en",
+  "AU|ja",
+  "CA|en",
+  "CH|de",
+  "CH|en",
+  "CH|ja",
+  "CO|en",
+  "CR|en",
+  "DE|ja",
+  "EG|de",
+  "EG|en",
+  "EG|it",
+  "ES|ja",
+  "FR|ja",
+  "GB|ja",
+  "GR|de",
+  "GR|en",
+  "GR|it",
+  "HR|de",
+  "HR|en",
+  "HR|it",
+  "ID|de",
+  "ID|en",
+  "ID|it",
+  "ID|ja",
+  "IE|en",
+  "IN|en",
+  "IN|ja",
+  "IS|de",
+  "IS|en",
+  "IS|it",
+  "IT|ja",
+  "JP|en",
+  "JP|it",
+  "KH|ja",
+  "KR|en",
+  "KR|ja",
+  "MA|de",
+  "MA|en",
+  "MA|it",
+  "ME|it",
+  "MT|it",
+  "MX|de",
+  "MX|en",
+  "MX|it",
+  "MY|ja",
+  "NO|it",
+  "NZ|en",
+  "PE|en",
+  "PH|ja",
+  "PT|de",
+  "PT|en",
+  "PT|it",
+  "SI|it",
+  "TH|de",
+  "TH|en",
+  "TH|it",
+  "TH|ja",
+  "TR|de",
+  "TR|en",
+  "TR|it",
+  "TR|ja",
+  "TW|ja",
+  "US|it",
+  "US|ja",
+  "VN|de",
+  "VN|en",
+  "VN|ja"
+ ],
+ "unmapped_keywords": [],
+ "table": {
+  "AE|de": {
+   "destination_country": "AE",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim dubai",
+     1700,
+     0,
+     190
+    ]
+   ],
+   "information_keywords": [
+    [
+     "dubai straende",
+     150,
+     0,
+     25
+    ],
+    [
+     "abu dhabi sehenswuerdigkeiten",
+     2500,
+     0,
+     30
+    ]
+   ],
+   "max_connectivity_volume": 1700,
+   "max_information_volume": 2500,
+   "max_cpc_cents": 190
+  },
+  "AL|it": {
+   "destination_country": "AL",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim albania",
+     3400,
+     0,
+     140
+    ]
+   ],
+   "information_keywords": [
+    [
+     "spiagge albania",
+     2000,
+     0,
+     5
+    ],
+    [
+     "saranda",
+     26000,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 3400,
+   "max_information_volume": 26000,
+   "max_cpc_cents": 140
+  },
+  "AT|de": {
+   "destination_country": "AT",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim oesterreich",
+     200,
+     3,
+     150
+    ]
+   ],
+   "information_keywords": [
+    [
+     "oesterreich wandern",
+     900,
+     1,
+     50
+    ],
+    [
+     "hallstatt",
+     42000,
+     0,
+     25
+    ],
+    [
+     "zell am see",
+     29000,
+     0,
+     35
+    ]
+   ],
+   "max_connectivity_volume": 200,
+   "max_information_volume": 42000,
+   "max_cpc_cents": 150
+  },
+  "AT|it": {
+   "destination_country": "AT",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim austria",
+     100,
+     0,
+     40
+    ]
+   ],
+   "information_keywords": [
+    [
+     "hallstatt",
+     6300,
+     0,
+     30
+    ]
+   ],
+   "max_connectivity_volume": 100,
+   "max_information_volume": 6300,
+   "max_cpc_cents": 40
+  },
+  "AT|ja": {
+   "destination_country": "AT",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim オーストリア",
+     100,
+     null,
+     80
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ハルシュタット",
+     2500,
+     0,
+     20
+    ]
+   ],
+   "max_connectivity_volume": 100,
+   "max_information_volume": 2500,
+   "max_cpc_cents": 80
+  },
+  "AU|en": {
+   "destination_country": "AU",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim australia",
+     1700,
+     29,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "great barrier reef",
+     64000,
+     0,
+     25
+    ]
+   ],
+   "max_connectivity_volume": 1700,
+   "max_information_volume": 64000,
+   "max_cpc_cents": 250
+  },
+  "AU|ja": {
+   "destination_country": "AU",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim オーストラリア",
+     1300,
+     0,
+     80
+    ]
+   ],
+   "information_keywords": [
+    [
+     "シドニー 観光",
+     5700,
+     0,
+     6
+    ]
+   ],
+   "max_connectivity_volume": 1300,
+   "max_information_volume": 5700,
+   "max_cpc_cents": 80
+  },
+  "CA|en": {
+   "destination_country": "CA",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim canada",
+     1900,
+     0,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "banff national park",
+     141000,
+     69,
+     40
+    ]
+   ],
+   "max_connectivity_volume": 1900,
+   "max_information_volume": 141000,
+   "max_cpc_cents": 250
+  },
+  "CH|de": {
+   "destination_country": "CH",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim schweiz",
+     5000,
+     1,
+     160
+    ]
+   ],
+   "information_keywords": [
+    [
+     "schweiz wandern",
+     800,
+     2,
+     30
+    ],
+    [
+     "zermatt wandern",
+     150,
+     0,
+     6
+    ],
+    [
+     "luzern sehenswuerdigkeiten",
+     1800,
+     1,
+     25
+    ]
+   ],
+   "max_connectivity_volume": 5000,
+   "max_information_volume": 1800,
+   "max_cpc_cents": 160
+  },
+  "CH|en": {
+   "destination_country": "CH",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim switzerland",
+     600,
+     6,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "zermatt hiking",
+     200,
+     1,
+     9
+    ]
+   ],
+   "max_connectivity_volume": 600,
+   "max_information_volume": 200,
+   "max_cpc_cents": 250
+  },
+  "CH|it": {
+   "destination_country": "CH",
+   "language": "it",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim svizzera",
+     1400,
+     0,
+     110
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 1400,
+   "max_information_volume": 0,
+   "max_cpc_cents": 110
+  },
+  "CH|ja": {
+   "destination_country": "CH",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim スイス",
+     200,
+     null,
+     100
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ツェルマット",
+     2200,
+     0,
+     25
+    ]
+   ],
+   "max_connectivity_volume": 200,
+   "max_information_volume": 2200,
+   "max_cpc_cents": 100
+  },
+  "CO|en": {
+   "destination_country": "CO",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim colombia",
+     800,
+     0,
+     200
+    ]
+   ],
+   "information_keywords": [
+    [
+     "cartagena beaches",
+     1700,
+     0,
+     40
+    ]
+   ],
+   "max_connectivity_volume": 800,
+   "max_information_volume": 1700,
+   "max_cpc_cents": 200
+  },
+  "CR|en": {
+   "destination_country": "CR",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim costa rica",
+     1000,
+     3,
+     190
+    ]
+   ],
+   "information_keywords": [
+    [
+     "manuel antonio national park",
+     8000,
+     44,
+     30
+    ]
+   ],
+   "max_connectivity_volume": 1000,
+   "max_information_volume": 8000,
+   "max_cpc_cents": 190
+  },
+  "DE|ja": {
+   "destination_country": "DE",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim ドイツ",
+     300,
+     0,
+     100
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ミュンヘン 観光",
+     2700,
+     0,
+     10
+    ]
+   ],
+   "max_connectivity_volume": 300,
+   "max_information_volume": 2700,
+   "max_cpc_cents": 100
+  },
+  "EG|de": {
+   "destination_country": "EG",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim aegypten",
+     7700,
+     0,
+     150
+    ]
+   ],
+   "information_keywords": [
+    [
+     "hurghada straende",
+     70,
+     0,
+     35
+    ],
+    [
+     "luxor sehenswuerdigkeiten",
+     600,
+     0,
+     30
+    ]
+   ],
+   "max_connectivity_volume": 7700,
+   "max_information_volume": 600,
+   "max_cpc_cents": 150
+  },
+  "EG|en": {
+   "destination_country": "EG",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim egypt",
+     700,
+     15,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "luxor attractions",
+     150,
+     0,
+     7
+    ]
+   ],
+   "max_connectivity_volume": 700,
+   "max_information_volume": 150,
+   "max_cpc_cents": 250
+  },
+  "EG|it": {
+   "destination_country": "EG",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim egitto",
+     5400,
+     0,
+     110
+    ]
+   ],
+   "information_keywords": [
+    [
+     "sharm el sheikh spiagge",
+     80,
+     0,
+     4
+    ]
+   ],
+   "max_connectivity_volume": 5400,
+   "max_information_volume": 80,
+   "max_cpc_cents": 110
+  },
+  "EG|ja": {
+   "destination_country": "EG",
+   "language": "ja",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim エジプト",
+     200,
+     null,
+     90
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 200,
+   "max_information_volume": 0,
+   "max_cpc_cents": 90
+  },
+  "ES|ja": {
+   "destination_country": "ES",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim スペイン",
+     300,
+     0,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "バルセロナ 観光",
+     5900,
+     0,
+     4
+    ]
+   ],
+   "max_connectivity_volume": 300,
+   "max_information_volume": 5900,
+   "max_cpc_cents": 90
+  },
+  "FR|ja": {
+   "destination_country": "FR",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim フランス",
+     350,
+     0,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "パリ 観光",
+     4200,
+     0,
+     5
+    ]
+   ],
+   "max_connectivity_volume": 350,
+   "max_information_volume": 4200,
+   "max_cpc_cents": 90
+  },
+  "GB|ja": {
+   "destination_country": "GB",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim イギリス",
+     350,
+     0,
+     100
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ロンドン 観光",
+     4500,
+     0,
+     2
+    ]
+   ],
+   "max_connectivity_volume": 350,
+   "max_information_volume": 4500,
+   "max_cpc_cents": 100
+  },
+  "GR|de": {
+   "destination_country": "GR",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim griechenland",
+     300,
+     null,
+     130
+    ]
+   ],
+   "information_keywords": [
+    [
+     "griechenland inseln",
+     4400,
+     0,
+     25
+    ],
+    [
+     "santorini straende",
+     250,
+     0,
+     20
+    ],
+    [
+     "kreta wandern",
+     900,
+     40,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 300,
+   "max_information_volume": 4400,
+   "max_cpc_cents": 130
+  },
+  "GR|en": {
+   "destination_country": "GR",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim greece",
+     600,
+     7,
+     190
+    ]
+   ],
+   "information_keywords": [
+    [
+     "meteora",
+     26000,
+     69,
+     15
+    ],
+    [
+     "santorini beaches",
+     2500,
+     0,
+     9
+    ]
+   ],
+   "max_connectivity_volume": 600,
+   "max_information_volume": 26000,
+   "max_cpc_cents": 190
+  },
+  "GR|it": {
+   "destination_country": "GR",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim grecia",
+     250,
+     0,
+     100
+    ]
+   ],
+   "information_keywords": [
+    [
+     "spiagge grecia",
+     500,
+     0,
+     10
+    ],
+    [
+     "meteora",
+     4500,
+     0,
+     15
+    ],
+    [
+     "santorini spiagge",
+     2200,
+     0,
+     8
+    ]
+   ],
+   "max_connectivity_volume": 250,
+   "max_information_volume": 4500,
+   "max_cpc_cents": 100
+  },
+  "GU|ja": {
+   "destination_country": "GU",
+   "language": "ja",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim グアム",
+     500,
+     0,
+     70
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 500,
+   "max_information_volume": 0,
+   "max_cpc_cents": 70
+  },
+  "HR|de": {
+   "destination_country": "HR",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim kroatien",
+     150,
+     null,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "kroatien inseln",
+     800,
+     0,
+     35
+    ],
+    [
+     "dubrovnik sehenswuerdigkeiten",
+     1500,
+     0,
+     15
+    ],
+    [
+     "plitvicer seen",
+     18000,
+     0,
+     25
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 18000,
+   "max_cpc_cents": 90
+  },
+  "HR|en": {
+   "destination_country": "HR",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim croatia",
+     300,
+     2,
+     200
+    ]
+   ],
+   "information_keywords": [
+    [
+     "plitvice lakes",
+     7700,
+     0,
+     70
+    ]
+   ],
+   "max_connectivity_volume": 300,
+   "max_information_volume": 7700,
+   "max_cpc_cents": 200
+  },
+  "HR|it": {
+   "destination_country": "HR",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim croazia",
+     150,
+     null,
+     60
+    ]
+   ],
+   "information_keywords": [
+    [
+     "isole croazia",
+     500,
+     1,
+     30
+    ],
+    [
+     "parco nazionale plitvice",
+     90,
+     0,
+     25
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 500,
+   "max_cpc_cents": 60
+  },
+  "ID|de": {
+   "destination_country": "ID",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim bali",
+     900,
+     0,
+     130
+    ]
+   ],
+   "information_keywords": [
+    [
+     "bali straende",
+     500,
+     0,
+     6
+    ],
+    [
+     "ubud sehenswuerdigkeiten",
+     400,
+     0,
+     5
+    ]
+   ],
+   "max_connectivity_volume": 900,
+   "max_information_volume": 500,
+   "max_cpc_cents": 130
+  },
+  "ID|en": {
+   "destination_country": "ID",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim indonesia",
+     800,
+     30,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "bali beaches",
+     2500,
+     0,
+     10
+    ]
+   ],
+   "max_connectivity_volume": 800,
+   "max_information_volume": 2500,
+   "max_cpc_cents": 250
+  },
+  "ID|it": {
+   "destination_country": "ID",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim indonesia",
+     600,
+     0,
+     120
+    ]
+   ],
+   "information_keywords": [
+    [
+     "bali spiagge",
+     1700,
+     0,
+     7
+    ]
+   ],
+   "max_connectivity_volume": 600,
+   "max_information_volume": 1700,
+   "max_cpc_cents": 120
+  },
+  "ID|ja": {
+   "destination_country": "ID",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim インドネシア",
+     450,
+     0,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "バリ島 ビーチ",
+     500,
+     0,
+     5
+    ]
+   ],
+   "max_connectivity_volume": 450,
+   "max_information_volume": 500,
+   "max_cpc_cents": 90
+  },
+  "IE|en": {
+   "destination_country": "IE",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim ireland",
+     800,
+     1,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "cliffs of moher",
+     48000,
+     0,
+     30
+    ]
+   ],
+   "max_connectivity_volume": 800,
+   "max_information_volume": 48000,
+   "max_cpc_cents": 250
+  },
+  "IN|en": {
+   "destination_country": "IN",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim india",
+     900,
+     0,
+     180
+    ]
+   ],
+   "information_keywords": [
+    [
+     "taj mahal",
+     173000,
+     77,
+     3
+    ]
+   ],
+   "max_connectivity_volume": 900,
+   "max_information_volume": 173000,
+   "max_cpc_cents": 180
+  },
+  "IN|ja": {
+   "destination_country": "IN",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim インド",
+     250,
+     0,
+     80
+    ]
+   ],
+   "information_keywords": [
+    [
+     "タージマハル",
+     25000,
+     0,
+     5
+    ]
+   ],
+   "max_connectivity_volume": 250,
+   "max_information_volume": 25000,
+   "max_cpc_cents": 80
+  },
+  "IS|de": {
+   "destination_country": "IS",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim island",
+     40,
+     null,
+     70
+    ]
+   ],
+   "information_keywords": [
+    [
+     "island wasserfaelle",
+     150,
+     0,
+     15
+    ],
+    [
+     "reykjavik sehenswuerdigkeiten",
+     1000,
+     1,
+     7
+    ]
+   ],
+   "max_connectivity_volume": 40,
+   "max_information_volume": 1000,
+   "max_cpc_cents": 70
+  },
+  "IS|en": {
+   "destination_country": "IS",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim iceland",
+     600,
+     1,
+     200
+    ]
+   ],
+   "information_keywords": [
+    [
+     "iceland waterfalls",
+     2600,
+     0,
+     3
+    ]
+   ],
+   "max_connectivity_volume": 600,
+   "max_information_volume": 2600,
+   "max_cpc_cents": 200
+  },
+  "IS|it": {
+   "destination_country": "IS",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim islanda",
+     150,
+     0,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "cascate islanda",
+     500,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 500,
+   "max_cpc_cents": 90
+  },
+  "IS|ja": {
+   "destination_country": "IS",
+   "language": "ja",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim アイスランド",
+     80,
+     null,
+     null
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 80,
+   "max_information_volume": 0,
+   "max_cpc_cents": 0
+  },
+  "IT|ja": {
+   "destination_country": "IT",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim イタリア",
+     450,
+     0,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ローマ 観光",
+     2800,
+     0,
+     10
+    ]
+   ],
+   "max_connectivity_volume": 450,
+   "max_information_volume": 2800,
+   "max_cpc_cents": 90
+  },
+  "JP|en": {
+   "destination_country": "JP",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim japan",
+     7100,
+     34,
+     180
+    ]
+   ],
+   "information_keywords": [
+    [
+     "kyoto temples",
+     2300,
+     4,
+     4
+    ],
+    [
+     "mount fuji",
+     85000,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 7100,
+   "max_information_volume": 85000,
+   "max_cpc_cents": 180
+  },
+  "JP|it": {
+   "destination_country": "JP",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim giappone",
+     2500,
+     0,
+     80
+    ]
+   ],
+   "information_keywords": [
+    [
+     "kyoto cosa vedere",
+     800,
+     0,
+     8
+    ],
+    [
+     "monte fuji",
+     14000,
+     0,
+     20
+    ]
+   ],
+   "max_connectivity_volume": 2500,
+   "max_information_volume": 14000,
+   "max_cpc_cents": 80
+  },
+  "KH|ja": {
+   "destination_country": "KH",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim カンボジア",
+     200,
+     null,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "アンコールワット",
+     22000,
+     0,
+     5
+    ]
+   ],
+   "max_connectivity_volume": 200,
+   "max_information_volume": 22000,
+   "max_cpc_cents": 90
+  },
+  "KR|en": {
+   "destination_country": "KR",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim south korea",
+     500,
+     17,
+     200
+    ]
+   ],
+   "information_keywords": [
+    [
+     "seoul attractions",
+     800,
+     9,
+     3
+    ]
+   ],
+   "max_connectivity_volume": 500,
+   "max_information_volume": 800,
+   "max_cpc_cents": 200
+  },
+  "KR|ja": {
+   "destination_country": "KR",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim 韓国",
+     15000,
+     0,
+     60
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ソウル 観光",
+     3200,
+     0,
+     6
+    ],
+    [
+     "湟州島",
+     19000,
+     0,
+     6
+    ]
+   ],
+   "max_connectivity_volume": 15000,
+   "max_information_volume": 19000,
+   "max_cpc_cents": 60
+  },
+  "MA|de": {
+   "destination_country": "MA",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim marokko",
+     2800,
+     0,
+     150
+    ]
+   ],
+   "information_keywords": [
+    [
+     "marrakesch viertel",
+     10,
+     null,
+     null
+    ],
+    [
+     "chefchaouen",
+     5600,
+     0,
+     25
+    ]
+   ],
+   "max_connectivity_volume": 2800,
+   "max_information_volume": 5600,
+   "max_cpc_cents": 150
+  },
+  "MA|en": {
+   "destination_country": "MA",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim morocco",
+     800,
+     0,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "chefchaouen",
+     10000,
+     0,
+     70
+    ]
+   ],
+   "max_connectivity_volume": 800,
+   "max_information_volume": 10000,
+   "max_cpc_cents": 250
+  },
+  "MA|it": {
+   "destination_country": "MA",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim marocco",
+     2200,
+     0,
+     100
+    ]
+   ],
+   "information_keywords": [
+    [
+     "marrakech cosa vedere",
+     2600,
+     0,
+     2
+    ],
+    [
+     "chefchaouen",
+     13000,
+     1,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 2200,
+   "max_information_volume": 13000,
+   "max_cpc_cents": 100
+  },
+  "MA|ja": {
+   "destination_country": "MA",
+   "language": "ja",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim モロッコ",
+     50,
+     null,
+     null
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 50,
+   "max_information_volume": 0,
+   "max_cpc_cents": 0
+  },
+  "ME|it": {
+   "destination_country": "ME",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim montenegro",
+     250,
+     0,
+     130
+    ]
+   ],
+   "information_keywords": [
+    [
+     "kotor",
+     5400,
+     0,
+     7
+    ]
+   ],
+   "max_connectivity_volume": 250,
+   "max_information_volume": 5400,
+   "max_cpc_cents": 130
+  },
+  "MT|it": {
+   "destination_country": "MT",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim malta",
+     100,
+     null,
+     80
+    ]
+   ],
+   "information_keywords": [
+    [
+     "valletta cosa vedere",
+     70,
+     0,
+     1
+    ],
+    [
+     "spiagge malta",
+     1000,
+     0,
+     7
+    ]
+   ],
+   "max_connectivity_volume": 100,
+   "max_information_volume": 1000,
+   "max_cpc_cents": 80
+  },
+  "MX|de": {
+   "destination_country": "MX",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim mexiko",
+     1100,
+     0,
+     170
+    ]
+   ],
+   "information_keywords": [
+    [
+     "tulum straende",
+     50,
+     0,
+     30
+    ],
+    [
+     "mexico city viertel",
+     10,
+     null,
+     null
+    ]
+   ],
+   "max_connectivity_volume": 1100,
+   "max_information_volume": 50,
+   "max_cpc_cents": 170
+  },
+  "MX|en": {
+   "destination_country": "MX",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim mexico",
+     1900,
+     11,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "tulum beaches",
+     700,
+     2,
+     45
+    ]
+   ],
+   "max_connectivity_volume": 1900,
+   "max_information_volume": 700,
+   "max_cpc_cents": 250
+  },
+  "MX|it": {
+   "destination_country": "MX",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim messico",
+     600,
+     0,
+     120
+    ]
+   ],
+   "information_keywords": [
+    [
+     "tulum spiagge",
+     200,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 600,
+   "max_information_volume": 200,
+   "max_cpc_cents": 120
+  },
+  "MY|ja": {
+   "destination_country": "MY",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim マレーシア",
+     450,
+     0,
+     50
+    ]
+   ],
+   "information_keywords": [
+    [
+     "クアラルンプール 観光",
+     100,
+     1,
+     null
+    ]
+   ],
+   "max_connectivity_volume": 450,
+   "max_information_volume": 100,
+   "max_cpc_cents": 50
+  },
+  "NO|it": {
+   "destination_country": "NO",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim norvegia",
+     150,
+     0,
+     60
+    ]
+   ],
+   "information_keywords": [
+    [
+     "fiordi norvegia",
+     800,
+     0,
+     25
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 800,
+   "max_cpc_cents": 60
+  },
+  "NZ|en": {
+   "destination_country": "NZ",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim new zealand",
+     600,
+     10,
+     300
+    ]
+   ],
+   "information_keywords": [
+    [
+     "milford sound",
+     15000,
+     39,
+     50
+    ]
+   ],
+   "max_connectivity_volume": 600,
+   "max_information_volume": 15000,
+   "max_cpc_cents": 300
+  },
+  "NZ|ja": {
+   "destination_country": "NZ",
+   "language": "ja",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim ニュージーランド",
+     300,
+     0,
+     80
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 300,
+   "max_information_volume": 0,
+   "max_cpc_cents": 80
+  },
+  "PE|en": {
+   "destination_country": "PE",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim peru",
+     700,
+     6,
+     300
+    ]
+   ],
+   "information_keywords": [
+    [
+     "machu picchu",
+     230000,
+     0,
+     80
+    ]
+   ],
+   "max_connectivity_volume": 700,
+   "max_information_volume": 230000,
+   "max_cpc_cents": 300
+  },
+  "PH|en": {
+   "destination_country": "PH",
+   "language": "en",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim philippines",
+     1200,
+     0,
+     130
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 1200,
+   "max_information_volume": 0,
+   "max_cpc_cents": 130
+  },
+  "PH|ja": {
+   "destination_country": "PH",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim フィリピン",
+     700,
+     0,
+     70
+    ]
+   ],
+   "information_keywords": [
+    [
+     "セブ島",
+     65000,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 700,
+   "max_information_volume": 65000,
+   "max_cpc_cents": 70
+  },
+  "PT|de": {
+   "destination_country": "PT",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim portugal",
+     250,
+     0,
+     170
+    ]
+   ],
+   "information_keywords": [
+    [
+     "algarve straende",
+     300,
+     0,
+     8
+    ],
+    [
+     "lissabon viertel",
+     60,
+     0,
+     60
+    ],
+    [
+     "madeira wandern",
+     2800,
+     1,
+     30
+    ]
+   ],
+   "max_connectivity_volume": 250,
+   "max_information_volume": 2800,
+   "max_cpc_cents": 170
+  },
+  "PT|en": {
+   "destination_country": "PT",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim portugal",
+     900,
+     3,
+     200
+    ]
+   ],
+   "information_keywords": [
+    [
+     "madeira hiking",
+     1300,
+     1,
+     80
+    ],
+    [
+     "algarve beaches",
+     800,
+     24,
+     45
+    ]
+   ],
+   "max_connectivity_volume": 900,
+   "max_information_volume": 1300,
+   "max_cpc_cents": 200
+  },
+  "PT|it": {
+   "destination_country": "PT",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim portogallo",
+     150,
+     0,
+     70
+    ]
+   ],
+   "information_keywords": [
+    [
+     "spiagge algarve",
+     300,
+     0,
+     4
+    ],
+    [
+     "madeira trekking",
+     500,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 500,
+   "max_cpc_cents": 70
+  },
+  "SG|ja": {
+   "destination_country": "SG",
+   "language": "ja",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim シンガポール",
+     800,
+     12,
+     80
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 800,
+   "max_information_volume": 0,
+   "max_cpc_cents": 80
+  },
+  "SI|it": {
+   "destination_country": "SI",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim slovenia",
+     50,
+     null,
+     null
+    ]
+   ],
+   "information_keywords": [
+    [
+     "lago di bled",
+     7100,
+     0,
+     20
+    ]
+   ],
+   "max_connectivity_volume": 50,
+   "max_information_volume": 7100,
+   "max_cpc_cents": 20
+  },
+  "TH|de": {
+   "destination_country": "TH",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim thailand",
+     6400,
+     0,
+     120
+    ]
+   ],
+   "information_keywords": [
+    [
+     "thailand straende",
+     400,
+     0,
+     20
+    ],
+    [
+     "phuket straende",
+     600,
+     0,
+     25
+    ],
+    [
+     "chiang mai sehenswuerdigkeiten",
+     1200,
+     0,
+     8
+    ]
+   ],
+   "max_connectivity_volume": 6400,
+   "max_information_volume": 1200,
+   "max_cpc_cents": 120
+  },
+  "TH|en": {
+   "destination_country": "TH",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim thailand",
+     1400,
+     0,
+     140
+    ]
+   ],
+   "information_keywords": [
+    [
+     "phuket beaches",
+     1200,
+     0,
+     40
+    ]
+   ],
+   "max_connectivity_volume": 1400,
+   "max_information_volume": 1200,
+   "max_cpc_cents": 140
+  },
+  "TH|it": {
+   "destination_country": "TH",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim thailandia",
+     1200,
+     0,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "spiagge phuket",
+     250,
+     0,
+     4
+    ]
+   ],
+   "max_connectivity_volume": 1200,
+   "max_information_volume": 250,
+   "max_cpc_cents": 90
+  },
+  "TH|ja": {
+   "destination_country": "TH",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim タイ",
+     1600,
+     0,
+     80
+    ]
+   ],
+   "information_keywords": [
+    [
+     "チェンマイ 観光",
+     4400,
+     0,
+     7
+    ],
+    [
+     "プーケット ビーチ",
+     350,
+     0,
+     6
+    ]
+   ],
+   "max_connectivity_volume": 1600,
+   "max_information_volume": 4400,
+   "max_cpc_cents": 80
+  },
+  "TN|it": {
+   "destination_country": "TN",
+   "language": "it",
+   "qualifies": false,
+   "why_not": "no travel-information keyword with volume",
+   "connectivity_keywords": [
+    [
+     "esim tunisia",
+     700,
+     0,
+     140
+    ]
+   ],
+   "information_keywords": [],
+   "max_connectivity_volume": 700,
+   "max_information_volume": 0,
+   "max_cpc_cents": 140
+  },
+  "TR|de": {
+   "destination_country": "TR",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim tuerkei",
+     13000,
+     0,
+     140
+    ]
+   ],
+   "information_keywords": [
+    [
+     "tuerkei straende",
+     150,
+     0,
+     25
+    ],
+    [
+     "kappadokien",
+     27000,
+     1,
+     25
+    ],
+    [
+     "antalya sehenswuerdigkeiten",
+     1800,
+     0,
+     7
+    ]
+   ],
+   "max_connectivity_volume": 13000,
+   "max_information_volume": 27000,
+   "max_cpc_cents": 140
+  },
+  "TR|en": {
+   "destination_country": "TR",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim turkey",
+     1400,
+     0,
+     250
+    ]
+   ],
+   "information_keywords": [
+    [
+     "cappadocia",
+     68000,
+     56,
+     45
+    ]
+   ],
+   "max_connectivity_volume": 1400,
+   "max_information_volume": 68000,
+   "max_cpc_cents": 250
+  },
+  "TR|it": {
+   "destination_country": "TR",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim turchia",
+     2700,
+     0,
+     130
+    ]
+   ],
+   "information_keywords": [
+    [
+     "pamukkale",
+     13000,
+     0,
+     10
+    ],
+    [
+     "cappadocia",
+     58000,
+     0,
+     8
+    ]
+   ],
+   "max_connectivity_volume": 2700,
+   "max_information_volume": 58000,
+   "max_cpc_cents": 130
+  },
+  "TR|ja": {
+   "destination_country": "TR",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim トルコ",
+     200,
+     null,
+     110
+    ]
+   ],
+   "information_keywords": [
+    [
+     "カッパドキア",
+     71000,
+     0,
+     6
+    ]
+   ],
+   "max_connectivity_volume": 200,
+   "max_information_volume": 71000,
+   "max_cpc_cents": 110
+  },
+  "TW|ja": {
+   "destination_country": "TW",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim 台湾",
+     2200,
+     0,
+     80
+    ]
+   ],
+   "information_keywords": [
+    [
+     "台北 観光",
+     7200,
+     0,
+     8
+    ],
+    [
+     "九份",
+     17000,
+     0,
+     7
+    ]
+   ],
+   "max_connectivity_volume": 2200,
+   "max_information_volume": 17000,
+   "max_cpc_cents": 80
+  },
+  "US|it": {
+   "destination_country": "US",
+   "language": "it",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim stati uniti",
+     900,
+     0,
+     120
+    ]
+   ],
+   "information_keywords": [
+    [
+     "new york quartieri",
+     1500,
+     0,
+     2
+    ]
+   ],
+   "max_connectivity_volume": 900,
+   "max_information_volume": 1500,
+   "max_cpc_cents": 120
+  },
+  "US|ja": {
+   "destination_country": "US",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim ハワイ",
+     800,
+     0,
+     90
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ワイキキビーチ",
+     5100,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 800,
+   "max_information_volume": 5100,
+   "max_cpc_cents": 90
+  },
+  "VN|de": {
+   "destination_country": "VN",
+   "language": "de",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim vietnam",
+     1900,
+     0,
+     100
+    ]
+   ],
+   "information_keywords": [
+    [
+     "hanoi sehenswuerdigkeiten",
+     1100,
+     0,
+     2
+    ],
+    [
+     "ha long bucht",
+     700,
+     0,
+     35
+    ]
+   ],
+   "max_connectivity_volume": 1900,
+   "max_information_volume": 1100,
+   "max_cpc_cents": 100
+  },
+  "VN|en": {
+   "destination_country": "VN",
+   "language": "en",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim vietnam",
+     1300,
+     6,
+     180
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ha long bay",
+     31000,
+     0,
+     40
+    ]
+   ],
+   "max_connectivity_volume": 1300,
+   "max_information_volume": 31000,
+   "max_cpc_cents": 180
+  },
+  "VN|ja": {
+   "destination_country": "VN",
+   "language": "ja",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "esim ベトナム",
+     1400,
+     0,
+     70
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ハノイ 観光",
+     8100,
+     0,
+     3
+    ],
+    [
+     "ハロン湾",
+     16000,
+     0,
+     15
+    ]
+   ],
+   "max_connectivity_volume": 1400,
+   "max_information_volume": 16000,
+   "max_cpc_cents": 70
+  }
+ }
+}

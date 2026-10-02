@@ -41,6 +41,11 @@ KEEP_TAGS = ('name', 'ref', 'network', 'route', 'operator', 'symbol', 'osmc:symb
              'ascent', 'descent', 'roundtrip', 'from', 'to', 'via', 'website', 'wikidata',
              'wikipedia', 'description', 'sac_scale', 'mtb:scale', 'piste:difficulty', 'colour',
              'state', 'trail_visibility', 'surface')
+# Every name:xx as well, which the outdoor extractor already keeps and this one did not. It is
+# the per-entity language mark the destination axis needs: a Turkish route tagged
+# name:de=Lykischer Weg has a German name because German speakers refer to it, and the wikipedia
+# tag alone was far too sparse to stand in for that. Measured on the first Dutch and Turkish
+# pass: the wikipedia tag earned 19 extra pages out of 248 rejected Turkish routes.
 
 
 def num(v):
@@ -89,6 +94,9 @@ class Routes(osmium.SimpleHandler):
             'id': 'r' + str(r.id), 'kind': 'trail', 'country': ISO, 'cls': 'trail',
             'name': name, 'route': rt,
             'qid': t.get('wikidata'), 'wikipedia': t.get('wikipedia'),
+            'local_names': {k[5:]: v for k, v in t.items()
+                            if k.startswith('name:') and len(k) <= 12
+                            and v and len(v) < 120},
             'attr': attrs,
             'member_ways': len(members),
             '_lat': [], '_lon': [], '_len_km': 0.0, '_ways_seen': 0,

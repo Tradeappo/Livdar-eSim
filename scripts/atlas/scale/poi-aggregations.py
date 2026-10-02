@@ -415,6 +415,42 @@ POP_FLOOR_OPENING = 200_000
 POP_FLOOR_OPENING_DE = 75_000    # the German measurement reaches Zwickau and Bayreuth
 
 
+# ---- the exclusive POI density mark ----------------------------------------------------------
+# Measured 2026-10-02 by scripts/atlas/scale/place-poi-density.py: of 334,319 places failing
+# area_is_named(), 16,129 hold twenty or more named POI that NO OTHER PLACE can claim. The
+# densest are Republique, Bastille, Opera and Faubourg Saint-Denis, Paris neighbourhoods any
+# reader would call real places, rejected only because OSM carries them as a bare node.
+#
+# The exclusivity is what makes this safe rather than the count. An earlier version of the same
+# measurement counted POI within each place's radius and reported 128,216, eight times too many,
+# because neighbourhood radii overlap and the same restaurants were counted for Bastille and for
+# its neighbour. Pages built on that would have duplicated each other's content. Under exclusive
+# assignment every named POI belongs to exactly one place, so no two pages built from this file
+# can list the same POI, and the distinctness is a property of the data rather than a check
+# bolted on afterwards.
+DENSITY_FLOOR = 20
+_density = {}
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/places/poi-density.jsonl.gz', 'rt',
+                        encoding='utf-8'):
+        _l = _l.strip()
+        if not _l: continue
+        try: _r = json.loads(_l)
+        except Exception: continue
+        if (_r.get('exclusive_named_poi') or 0) >= DENSITY_FLOOR:
+            _density[(_r.get('country'), _r.get('place_id'))] = _r['exclusive_named_poi']
+except (EOFError, OSError, FileNotFoundError, NameError):
+    pass
+if _density:
+    print(f'places carrying the exclusive-POI density mark at {DENSITY_FLOOR} or more: '
+          f'{len(_density):,}', file=sys.stderr)
+
+
+def area_has_density_mark(p):
+    """Does this place hold enough EXCLUSIVE named POI to carry a page on its own?"""
+    return (p.get('country'), p.get('id')) in _density
+
+
 def area_is_named(p):
     """Is this place a recognised, searched entity rather than a name on a map?
 
@@ -521,9 +557,14 @@ for p in places.values():
 
 places_ok = []
 for p in resolved:
-    if not area_is_named(p):
-        # no polygon, no population, no Wikidata, no Wikipedia: a bare name on a map
+    if not area_is_named(p) and not area_has_density_mark(p):
+        # no polygon, no population, no Wikidata, no Wikipedia, and fewer than twenty named
+        # POI it can call its own: a bare name on a map
         rejects['place_not_a_named_entity'] += 1; continue
+    if not area_is_named(p):
+        # recovered on density alone. Recorded on the place so the candidate rows built from it
+        # can say which evidence they rest on rather than leaving a reader to assume a polygon.
+        p['_recovered_on_density'] = _density[(p.get('country'), p.get('id'))]
     if by_name_in_city[(p['_city_id'], slug((p['name'] or '').strip()))] > 1:
         # two different OSM objects with the same name in the same city: ambiguous,
         # and the brief is explicit that an ambiguous neighbourhood gets no page

@@ -65,7 +65,8 @@ if [ ! -f "$FILT" ]; then
   if osmium tags-filter -O -f pbf -o "$FILT.tmp" "$PBF" \
       leisure=nature_reserve,park,garden,marina \
       boundary=protected_area,national_park,aboriginal_lands \
-      place=island,islet,archipelago \
+      place=island,islet,archipelago,region,sea \
+      region:type \
       natural=water,bay,peninsula,beach,wood,mountain_range \
       landuse=forest,winter_sports \
       aeroway=aerodrome amenity=university \

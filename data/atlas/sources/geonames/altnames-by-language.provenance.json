@@ -1,0 +1,26 @@
+{
+ "source": "GeoNames alternateNamesV2",
+ "url": "https://download.geonames.org/export/dump/alternateNamesV2.zip",
+ "licence": "CC BY 4.0",
+ "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+ "attribution_required": true,
+ "attribution": "GeoNames, https://www.geonames.org/",
+ "share_alike": false,
+ "fetched_on": "2026-10-02",
+ "rows_in_source": 19219174,
+ "languages_kept": [
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "ja",
+  "nl",
+  "pl",
+  "pt",
+  "zh"
+ ],
+ "places_matched": 32894,
+ "why": "A per-entity, per-language mark for the destination axis. A German alternate name for a Turkish city is evidence that German has its own name for it, which is a PROXY for German-language interest and is never presented as measured volume.",
+ "known_limit": "GeoNames uses one code \"zh\" with no script split, so Traditional and Simplified Chinese cannot be told apart in this file and a zh row is treated as evidence for zh-Hant only in combination with the Taiwanese market demand measured separately."
+}

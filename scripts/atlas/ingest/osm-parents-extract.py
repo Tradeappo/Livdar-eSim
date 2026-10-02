@@ -44,6 +44,13 @@ PARENT_TAGS = {
     ('place', 'island'): 'island',
     ('place', 'islet'): 'island',
     ('place', 'archipelago'): 'archipelago',
+    # place=region is the tag OSM uses for a NAMED geographic or tourist region that is
+    # not an administrative unit, and it was missing. Measured 2026-10-02: the strongest
+    # region keywords in German are exactly these, not the administrative ones. Allgaeu
+    # 2,100 and Schwarzwald 1,900 for sehenswuerdigkeiten, Schwarzwald 1,800 for wandern,
+    # against Bayern at 1,600, and Allgaeu is not a Bundesland, a Landkreis or a park. It
+    # was in no class this filter accepted, so it was in no page the pipeline could build.
+    ('place', 'region'): 'region',
     ('natural', 'bay'): 'bay',
     ('natural', 'peninsula'): 'peninsula',
     ('natural', 'beach'): 'beach_area',
@@ -86,6 +93,11 @@ def parent_class(t):
         return 'lake' if (t.get('water') in WATER_OK) else None
     if t.get('natural') == 'mountain_range' or t.get('region:type') == 'mountain_area':
         return 'mountain_range'
+    # region:type carries the rest: natural_area for a named landscape, and anything else
+    # a mapper thought was a region. Only when the object also has a name, which the
+    # extractor already requires of every parent.
+    if t.get('region:type'):
+        return 'region'
     for (k, v), cls in PARENT_TAGS.items():
         if t.get(k) == v:
             return cls

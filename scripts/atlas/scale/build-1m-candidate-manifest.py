@@ -441,6 +441,96 @@ try:
 except FileNotFoundError:
     pass
 
+# ---- the destination axis -------------------------------------------------------------------
+# Measured 2026-10-02: 192 of 193 keywords across de-DE, it-IT, ja-JP and en-US carry volume, and
+# in every one of the four markets the strongest entity sits in a country with no pages at all.
+# 99.97 per cent of what this file built on 2026-10-01 was about the same eleven countries the
+# eleven markets live in, which is backwards for a travel-connectivity product.
+#
+# Widening it is NOT a relaxation. markets_for() already asks for evidence rather than for a
+# country list, and the Aba, Nigeria case recorded there is exactly the mistake to avoid: a
+# country having demand is not evidence that an arbitrary town inside it does. So the gate has
+# two halves and needs both.
+#
+#   half one, the country:  a destination country earns a language only when BOTH a
+#                           connectivity keyword and a travel-information keyword carry volume
+#                           in it, derived in destination-demand-table.py
+#   half two, the entity:   the place itself must carry a mark in that same language, which is
+#                           a GeoNames alternate name in it or a Wikipedia article in it
+#
+# The second half is a PROXY for interest, never a measurement of volume, and every row that
+# rests on it says so in its own uniqueness reason.
+DEST_LANG = {}
+try:
+    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
+                         'destination-demand-by-country-language-2026-10-02.json'))
+    for _v in _dt['table'].values():
+        if _v.get('qualifies'):
+            DEST_LANG[(_v['destination_country'], _v['language'])] = (
+                _v['max_connectivity_volume'], _v['max_information_volume'],
+                (_v['connectivity_keywords'] or [['', 0]])[0][0],
+                (_v['information_keywords'] or [['', 0]])[0][0])
+    print(f'  destination country-language pairs with measured demand: {len(DEST_LANG):,}',
+          file=sys.stderr)
+except (FileNotFoundError, KeyError, ValueError):
+    pass
+
+# city id -> {language: how the mark was earned}
+CITY_LANG_MARK = collections.defaultdict(dict)
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/altnames-by-language.jsonl.gz',
+                        'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if not _l: continue
+        _r = json.loads(_l)
+        for _lang, _v in (_r.get('names') or {}).items():
+            # a historic name is not what a searcher types today and a colloquial one cannot
+            # title a page, so neither counts as the mark
+            if _v.get('historic') or _v.get('colloquial'): continue
+            CITY_LANG_MARK[str(_r['geonameid'])][_lang] = 'a GeoNames alternate name'
+except (EOFError, OSError, FileNotFoundError):
+    pass
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/city-sitelinks.jsonl.gz',
+                        'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if not _l: continue
+        _r = json.loads(_l)
+        for _lang in (_r.get('wikipedia_languages') or {}):
+            _d = CITY_LANG_MARK[str(_r['geonameid'])]
+            _d[_lang] = ('a Wikipedia article' if _lang not in _d
+                         else 'a GeoNames alternate name and a Wikipedia article')
+except (EOFError, OSError, FileNotFoundError):
+    pass
+if CITY_LANG_MARK:
+    _mc = collections.Counter()
+    for _d in CITY_LANG_MARK.values():
+        for _lang in _d: _mc[_lang] += 1
+    print(f'  cities carrying a per-language mark: {len(CITY_LANG_MARK):,} '
+          f'({dict(_mc.most_common())})', file=sys.stderr)
+
+
+def destination_markets(ent_country, eid):
+    """Markets a place in a non-home country earns, with both halves of the evidence.
+
+    Returns {market: reason}. Empty when either half is missing, which is the whole point:
+    a country with demand and a place with no mark in that language earns nothing.
+    """
+    marks = CITY_LANG_MARK.get(str(eid)) or {}
+    if not marks:
+        return {}
+    out = {}
+    for _m, _c, _l in MARKETS:
+        ev = DEST_LANG.get((ent_country, _l))
+        if not ev or _l not in marks:
+            continue
+        cv, iv, ck, ik = ev
+        out[_m] = (f'{ent_country} carries measured {_l} demand ("{ck}" {cv:,} and '
+                   f'"{ik}" {iv:,}) and this place carries {marks[_l]} in {_l}, '
+                   f'which is a proxy for interest and not a measured volume for this page')
+    return out
+
+
 # The destination harvest, resolved to gazetteer ids. CROSS-LANGUAGE-REACH.csv is frozen evidence
 # from an earlier pass covering roughly 333 destinations and 59 outbound pairs, and the
 # localisation gate was rejecting 46,120 rows for want of evidence that had simply never been
@@ -779,7 +869,7 @@ def entity_pool(f):
         return [('tool', fid.split('.')[-1], fid.split('.')[-1], '', '', '', 1)]
     return []   # event-series, route:named, poi:gated, ranking:list have no entity store yet
 
-def markets_for(f, ent_country, tier, ename=''):
+def markets_for(f, ent_country, tier, ename='', eid=''):
     fid, scope = f['family_id'], SCOPE[f['family_id']]
     if scope == LOCAL:
         return COUNTRY_MKTS.get(ent_country, [])
@@ -821,7 +911,12 @@ def markets_for(f, ent_country, tier, ename=''):
             xl |= {'en-GB', 'en-US'}
         if measured_destination and not xl:
             xl = {'en-GB', 'en-US'}
-        return sorted(set(home) | set(xl))
+        # The destination axis, added 2026-10-02. Everything above is the 2026-10-01 evidence
+        # and is untouched; this is a SECOND, narrower evidence class that reaches places the
+        # first one never covered, and it grants a market only when the country carries measured
+        # demand in that market's language AND this place carries a mark in the same language.
+        # It can only add markets, never remove one, so no row that existed yesterday is lost.
+        return sorted(set(home) | set(xl) | set(destination_markets(ent_country, eid)))
     if scope == RESEARCHED:
         names = set(kw_names(fid))
         ms = {m for (ff, m) in cell_kw if ff in names}
@@ -951,7 +1046,7 @@ for f in fams:
     qbase = min(100, 40 + nfields * 8) - RISK_PENALTY.get(dup, 10)
     tsig = sig('tpl', fid, f['entity'], f['intent'])
     for (etype, eid, ename, ecountry, ecity, eneigh, tier) in pool:
-        cand_markets = markets_for(f, ecountry, tier, ename)
+        cand_markets = markets_for(f, ecountry, tier, ename, eid)
         # collapse markets that share a language, keeping the one with real evidence
         by_lang = {}
         for m in cand_markets:
@@ -1549,6 +1644,12 @@ def dest_evidence(r, top_kw):
                     f'this page is written and served in')
     if MKT_COUNTRY.get(r['market']) == dest_country:
         return f'{dest_country} is the home country of {r["market"]}'
+    # The destination axis. Both halves are named in the reason, and the proxy half says in
+    # words that it is a proxy, because a reader of this file has to be able to tell a measured
+    # volume from an inferred interest without going to another file to find out.
+    _dm = destination_markets(dest_country, r.get('entity_id', ''))
+    if r['market'] in _dm:
+        return _dm[r['market']]
     return ''
 
 loc_counts = collections.Counter()
