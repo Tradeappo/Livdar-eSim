@@ -1,10 +1,12 @@
 surface,family,candidates,READY_NOW,SOURCE_AVAILABLE,FEED_REQUIRED,LICENCE_REQUIRED,avg_publication_priority,avg_indexability_score
 places,places.area-cuisine,17594,0,17594,0,0,42.0,30.0
 outdoors,outdoors.peak,17341,0,17341,0,0,51.0,45.0
+areas,activities.city-things-to-do,16266,0,16266,0,0,68.3,55.0
 places,places.city-cuisine,13011,0,13011,0,0,61.6,54.7
 places,places.area-opening,9613,0,9613,0,0,42.4,40.0
-areas,activities.city-things-to-do,8887,0,8887,0,0,67.3,55.0
+climate,weather.city-month,8312,8312,0,0,0,50.1,38.4
 places,places.area-restaurant,8054,0,8054,0,0,57.9,50.7
+stay,stay.city-type,7786,0,0,0,7786,34.0,15.0
 places,places.area-attribute,6344,0,6344,0,0,43.6,40.0
 places,places.area-fast_food,6059,0,6059,0,0,56.4,48.1
 pulse,events.city-type,5924,0,0,0,5924,39.5,15.0
@@ -19,11 +21,9 @@ areas,places.city-category,4577,0,4577,0,0,58.5,41.0
 places,places.area-supermarket,4499,0,4499,0,0,54.2,44.1
 areas,areas.overview,4269,0,4269,0,0,53.0,50.0
 places,places.city-fast_food,3902,0,3902,0,0,53.0,50.0
-stay,stay.city-type,3801,0,0,0,3801,32.6,15.0
 places,places.city-opening,3732,0,3732,0,0,59.4,54.9
 places,places.area-clinic,3464,0,3464,0,0,54.5,44.5
 move,relocation.city,3221,0,3221,0,0,39.1,36.2
-climate,weather.city-month,3212,3212,0,0,0,49.6,39.0
 work,work.city-salaries,3190,0,3190,0,0,32.4,29.1
 stay,property.city-buy,2989,0,0,2989,0,30.7,25.1
 move,cost-of-living.city,2967,0,2967,0,0,36.6,34.4
@@ -31,6 +31,7 @@ move,health.city,2811,0,2811,0,0,31.9,29.9
 places,places.city-pharmacy,2784,0,2784,0,0,53.0,50.0
 places,places.city-attribute,2755,0,2755,0,0,45.4,40.0
 places,places.area-bar,2739,0,2739,0,0,55.6,46.5
+outdoors,outdoors.hiking-trail,2718,0,2718,0,0,59.5,55.0
 places,places.area-pub,2703,0,2703,0,0,54.9,45.2
 outdoors,outdoors.castle,2689,0,2689,0,0,51.0,45.0
 places,places.city-cafe,2448,0,2448,0,0,53.0,50.0
@@ -46,6 +47,7 @@ move,services.city-practical,1593,0,1593,0,0,29.6,25.4
 places,places.city-school,1587,0,1587,0,0,53.0,50.0
 outdoors,outdoors.archaeological_site,1384,0,1384,0,0,51.0,45.0
 places,places.city-bar,1372,0,1372,0,0,53.0,50.0
+transport,transport.route-from-market,1352,1352,0,0,0,42.1,33.6
 places,places.city-gym,1282,0,1282,0,0,53.0,50.0
 places,places.city-pub,1241,0,1241,0,0,53.0,50.0
 outdoors,outdoors.tower,1181,0,1181,0,0,51.0,45.0
@@ -65,7 +67,6 @@ pulse,events.city-window,741,0,0,0,741,26.2,15.0
 tools,comparisons.city-vs-home,740,0,740,0,0,43.2,37.6
 move,cost-of-living.city-vs-market,740,0,740,0,0,43.2,37.6
 work,work.city-jobs-category,731,0,0,731,0,40.4,28.4
-transport,transport.route-from-market,721,721,0,0,0,33.2,28.0
 move,education.city-universities,709,0,709,0,0,41.2,36.3
 places,places.city-guest_house,698,0,698,0,0,53.0,50.0
 sport,sport.city-activity,690,0,690,0,0,29.6,27.7
@@ -90,14 +91,18 @@ places,places.area-gallery,397,0,397,0,0,54.0,43.6
 outdoors,outdoors.viewpoint-in-region,391,0,391,0,0,58.9,53.9
 places,places.area-nightclub,364,0,364,0,0,54.2,43.9
 places,places.area-parking,364,0,364,0,0,54.4,44.4
+outdoors,outdoors.bicycle-trail,352,0,352,0,0,59.5,55.0
 places,places.city-arts_centre,348,0,348,0,0,52.9,49.8
 places,places.city-attraction,345,0,345,0,0,53.0,50.0
 places,places.city-college,345,0,345,0,0,52.9,49.8
 outdoors,outdoors.cave,327,0,327,0,0,51.0,45.0
 poi,poi.park-notable,325,0,325,0,0,45.0,45.0
 places,places.city-gallery,323,0,323,0,0,53.0,50.0
+outdoors,outdoors.foot-trail,317,0,317,0,0,59.5,55.0
+destinations,destinations.region-what-to-see,287,0,287,0,0,65.5,55.0
 outdoors,outdoors.monument,285,0,285,0,0,51.0,45.0
 places,places.area-arts_centre,276,0,276,0,0,53.5,42.6
+outdoors,outdoors.mtb-trail,274,0,274,0,0,59.5,55.0
 places,places.area-college,273,0,273,0,0,54.1,43.8
 move,education.city-schools,259,0,259,0,0,29.7,27.5
 places,places.city-nightclub,249,0,249,0,0,53.0,50.0
@@ -122,6 +127,7 @@ poi,poi.attraction-notable,152,0,152,0,0,46.5,45.0
 places,places.area-market,150,0,150,0,0,52.5,40.9
 outdoors,outdoors.watermill,140,0,140,0,0,51.0,45.0
 places,places.city-sport,129,0,129,0,0,50.0,50.0
+destinations,destinations.region-cities,120,0,120,0,0,56.0,50.0
 poi,poi.botanical_garden-notable,120,0,120,0,0,45.0,45.0
 outdoors,outdoors.wilderness_hut,118,0,118,0,0,51.0,45.0
 outdoors,outdoors.lighthouse,112,0,112,0,0,51.0,45.0
@@ -132,6 +138,7 @@ places,places.area-hospital,102,0,102,0,0,52.6,41.1
 poi,poi.monument-notable,96,0,96,0,0,45.0,45.0
 outdoors,outdoors.observatory,95,0,95,0,0,51.0,45.0
 poi,poi.archaeological_site-notable,89,0,89,0,0,45.3,45.0
+climate,climate.region-when-to-go,84,0,84,0,0,46.0,40.0
 poi,poi.public_square-notable,80,0,80,0,0,45.0,45.0
 outdoors,outdoors.waterfall,69,0,69,0,0,51.0,45.0
 places,places.city-camp_site,63,0,63,0,0,53.0,50.0
@@ -143,6 +150,7 @@ poi,poi.castle-notable,46,0,46,0,0,45.1,45.0
 outdoors,outdoors.camp_site-in-region,45,0,45,0,0,58.2,52.7
 places,places.city-viewpoint,44,0,44,0,0,53.0,50.0
 outdoors,outdoors.volcano,41,0,41,0,0,51.0,45.0
+outdoors,outdoors.canoe-trail,30,0,30,0,0,59.5,55.0
 places,places.area-viewpoint,29,0,29,0,0,52.1,40.1
 outdoors,outdoors.beach,27,0,27,0,0,51.0,45.0
 places,places.area-mall,26,0,26,0,0,53.5,42.7
@@ -164,6 +172,7 @@ places,places.city-golf_course,10,0,10,0,0,52.7,49.4
 places,places.city-water_park,10,0,10,0,0,52.6,49.2
 places,places.city-castle,9,0,9,0,0,52.7,49.4
 places,places.city-swimming_pool,8,0,8,0,0,53.0,50.0
+outdoors,outdoors.horse-trail,7,0,7,0,0,59.5,55.0
 outdoors,outdoors.caravan_site,7,0,7,0,0,51.0,45.0
 outdoors,outdoors.climbing_crag,7,0,7,0,0,51.0,45.0
 poi,poi.aquarium-notable,7,0,7,0,0,46.5,45.0
@@ -176,10 +185,13 @@ outdoors,outdoors.beach_resort,3,0,3,0,0,51.0,45.0
 poi,poi.stadium-notable,3,0,3,0,0,46.5,45.0
 poi,poi.zoo-notable,3,0,3,0,0,46.5,45.0
 poi,poi.beach-notable,3,0,3,0,0,45.0,45.0
+outdoors,outdoors.inline_skates-trail,2,0,2,0,0,59.5,55.0
+outdoors,outdoors.running-trail,2,0,2,0,0,59.5,55.0
 move,visas.country-work-permit,2,0,2,0,0,58.0,40.0
 places,places.area-theme_park,2,0,2,0,0,54.8,45.0
 outdoors,outdoors.geyser,2,0,2,0,0,51.0,45.0
 poi,poi.national_park-notable,2,0,2,0,0,45.0,45.0
+outdoors,outdoors.walking-trail,1,0,1,0,0,59.5,55.0
 places,places.area-swimming_pool,1,0,1,0,0,56.4,48.0
 places,places.area-beach,1,0,1,0,0,51.5,39.0
 places,places.area-water_park,1,0,1,0,0,51.5,39.0

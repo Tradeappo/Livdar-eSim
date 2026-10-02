@@ -1,11 +1,11 @@
 {
- "manifest_rows": 253988,
- "distinct_urls": 253988,
+ "manifest_rows": 275277,
+ "distinct_urls": 275277,
  "checks": {
-  "meta_over_165_chars": 53701,
-  "title_over_65_chars": 165472,
+  "meta_over_165_chars": 57890,
+  "title_over_65_chars": 169397,
   "duplicate_title_exact": 0,
-  "duplicate_title_same_tokens": 2,
+  "duplicate_title_same_tokens": 8,
   "superlative_from_the_family_own_intent": 60,
   "uniqueness_reason_shared_with_another_candidate": 98,
   "templates_with_repeated_entities": 0,
@@ -24,7 +24,7 @@
   "duplicate_meta_within_a_market": 0,
   "duplicate_h1_within_a_market": 2,
   "declared_parent_is_not_a_valid_parent": 0,
-  "declared_parent_is_valid_but_not_a_path_prefix": 31634,
+  "declared_parent_is_valid_but_not_a_path_prefix": 32075,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
@@ -58,6 +58,60 @@
  "top_level_by_family": {},
  "saturated_templates": [],
  "duplicate_examples": [
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "nl-NL",
+   "title": "Bus transfer Afsluitdijk West-Oost, Wieringen, NL: what to know about this foot trail before you go",
+   "a": "c_6fe48885a18f",
+   "b": "c_3f49fcb686ca",
+   "url_a": "",
+   "url_b": "/nl/outdoors/trail/bus-transfer-afsluitdijk-west-oost-r9792223/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "nl-NL",
+   "title": "Nederlands Kustpad Afsluitdijk met Bus transfer West-Oost, Wieringen, NL: what to know about this hiking trail",
+   "a": "c_b3bb5b6323e4",
+   "b": "c_ebf16ad99e19",
+   "url_a": "",
+   "url_b": "/nl/outdoors/trail/nederlands-kustpad-afsluitdijk-met-bus-transfer-west-oost-r13634255/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "nl-NL",
+   "title": "MTB-Verbindingsroute Sleen-Noordbargerbos, Drenthe, NL: what to know about this mtb trail before you go",
+   "a": "c_9e714a30033b",
+   "b": "c_4ec677a775d9",
+   "url_a": "",
+   "url_b": "/nl/outdoors/trail/mtb-verbindingsroute-sleen-noordbargerbos-r17298098/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "nl-NL",
+   "title": "MTB-Verbindingsroute Valtherbos-Sleen, Valtherbos, NL: what to know about this mtb trail before you go",
+   "a": "c_5733653a048b",
+   "b": "c_00cd8d38f41d",
+   "url_a": "",
+   "url_b": "/nl/outdoors/trail/mtb-verbindingsroute-valtherbos-sleen-r17298113/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "nl-NL",
+   "title": "MTB-verbindingsroute Stegeren-Ommen, Landgoed Junne, NL: what to know about this mtb trail before you go",
+   "a": "c_31c4d4a7d2fe",
+   "b": "c_f9bc80fd90c9",
+   "url_a": "",
+   "url_b": "/nl/outdoors/trail/mtb-verbindingsroute-stegeren-ommen-r13347564/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "nl-NL",
+   "title": "Verbinding Lussen Ruurlo -> Lochem (MTB Achterhoek), Gelderland, NL: what to know about this mtb trail before ",
+   "a": "c_f7687ccdb1c8",
+   "b": "c_3d6b16d75861",
+   "url_a": "",
+   "url_b": "/nl/outdoors/trail/verbinding-lussen-ruurlo-lochem-mtb-achterhoek-r11966059/"
+  },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "pl-PL",
@@ -219,14 +273,14 @@
  "usefulness_test_failures": {},
  "usefulness_test_by_family_and_locale": {
   "activities.city-things-to-do|de": {
-   "rows": 270,
+   "rows": 771,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|en": {
-   "rows": 7283,
+   "rows": 11312,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -247,14 +301,14 @@
    ]
   },
   "activities.city-things-to-do|it": {
-   "rows": 161,
+   "rows": 1030,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|ja": {
-   "rows": 553,
+   "rows": 2533,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -429,6 +483,13 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "climate.region-when-to-go|de": {
+   "rows": 84,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
@@ -744,6 +805,41 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; ourairports, a named source with provenance"
+   ]
+  },
+  "destinations.region-cities|de": {
+   "rows": 64,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "destinations.region-cities|fr": {
+   "rows": 26,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "destinations.region-cities|it": {
+   "rows": 30,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "destinations.region-what-to-see|de": {
+   "rows": 116,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "destinations.region-what-to-see|it": {
+   "rows": 171,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "education.city-schools|de": {
@@ -1411,6 +1507,13 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "outdoors.bicycle-trail|nl": {
+   "rows": 352,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
   "outdoors.camp_site|de": {
    "rows": 99,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -1434,6 +1537,13 @@
   },
   "outdoors.camp_site-in-region|it": {
    "rows": 33,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.canoe-trail|nl": {
+   "rows": 30,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1523,6 +1633,13 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "outdoors.foot-trail|nl": {
+   "rows": 317,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
   "outdoors.fort|de": {
    "rows": 22,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -1544,8 +1661,29 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "outdoors.hiking-trail|nl": {
+   "rows": 2718,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.horse-trail|nl": {
+   "rows": 7,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
   "outdoors.hot_spring|it": {
    "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.inline_skates-trail|nl": {
+   "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1607,6 +1745,13 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "outdoors.mtb-trail|nl": {
+   "rows": 274,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
   "outdoors.natural_arch|it": {
    "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -1663,6 +1808,13 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "outdoors.running-trail|nl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
   "outdoors.tower|de": {
    "rows": 924,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -1707,6 +1859,13 @@
   },
   "outdoors.volcano|it": {
    "rows": 12,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "outdoors.walking-trail|nl": {
+   "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -9226,14 +9385,14 @@
    ]
   },
   "stay.city-type|de": {
-   "rows": 2486,
+   "rows": 3607,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|en": {
-   "rows": 197,
+   "rows": 824,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9254,14 +9413,14 @@
    ]
   },
   "stay.city-type|it": {
-   "rows": 15,
+   "rows": 272,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|ja": {
-   "rows": 553,
+   "rows": 2533,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -9492,7 +9651,7 @@
    ]
   },
   "transport.route-from-market|en": {
-   "rows": 201,
+   "rows": 832,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -9562,14 +9721,14 @@
    ]
   },
   "weather.city-month|de": {
-   "rows": 195,
+   "rows": 710,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
    ]
   },
   "weather.city-month|en": {
-   "rows": 1155,
+   "rows": 2885,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -9590,14 +9749,14 @@
    ]
   },
   "weather.city-month|it": {
-   "rows": 133,
+   "rows": 1008,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
    ]
   },
   "weather.city-month|ja": {
-   "rows": 553,
+   "rows": 2533,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -9903,7 +10062,7 @@
  "title_length": {
   "min": 16,
   "max": 208,
-  "mean": 69.4
+  "mean": 67.8
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
