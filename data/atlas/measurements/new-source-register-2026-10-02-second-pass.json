@@ -1,0 +1,320 @@
+{
+ "measured_on": "2026-10-02",
+ "supersedes": "new-source-register-2026-10-02.json, which is kept and is still correct about what it probed",
+ "purpose": "Brief section 5, second pass, after the first pass found the destination axis. Every source here is one this container actually fetched today, with the licence, the row count that came back, the families it opens and the pages it is expected to yield. Where a number is projected rather than counted the entry says PROJECTED and says what it is projected from.",
+ "the_correction_this_pass_makes_to_the_first": "The first pass listed the National Heritage List for England as MATERIALISING with 40,000 to 44,000 expected pages. 379,685 entries were fetched. Then the demand was measured and it is ZERO for the place-aggregation shape, which is the half that carried most of that estimate. The fetch happened before the measurement, which is the wrong order, and the estimate is withdrawn. The register is kept as an ENRICHMENT source: a Grade I listing is a real fact to put on a page about a place, and it is not a page of its own. Netherlands, Poland and France are not fetched and will not be until a demand measurement says to.",
+ "sources": [
+  {
+   "name": "GeoNames alternateNamesV2",
+   "publisher": "GeoNames",
+   "licence": "CC BY 4.0, attribution required, no share-alike",
+   "attribution": "GeoNames, https://www.geonames.org/",
+   "endpoint": "https://download.geonames.org/export/dump/alternateNamesV2.zip",
+   "status": "HTTP 200, 195MB, no key",
+   "countries": "all 245 in the gazetteer",
+   "rows_in_source": 19219174,
+   "rows_kept": 139256,
+   "what_it_is": "the same alternate names cities5000 already carries, WITH an ISO language code on each one plus the isPreferredName, isShortName, isColloquial and isHistoric flags. The store’s own alt list has no language on it, so \"Antalya\" and \"aslamyh\" looked identical to it and it could not answer the one question the destination axis asks.",
+   "join_keys": "geonameid, directly against the city and region stores",
+   "counted_result": {
+    "cities_with_a_name_in_any_livdar_language": 32894,
+    "per_language": {
+     "en": 21672,
+     "zh": 17569,
+     "fr": 13814,
+     "de": 13652,
+     "ja": 13328,
+     "es": 11068,
+     "pt": 11023,
+     "nl": 10659,
+     "pl": 10159,
+     "it": 8844
+    }
+   },
+   "families_opened": "none on its own. It is half two of the destination gate, per entity and per language.",
+   "expected_net_valid_pages": "5,399 city-by-language combinations in destination countries pass both halves on this mark alone, COUNTED not projected. That is the honest ceiling of the exonym route and it is why the sitelink route below exists: exonyms exist for Florence and not for Ordu, which is a fact about exonyms and not about who searches.",
+   "status_today": "MATERIALISED"
+  },
+  {
+   "name": "Wikidata sitelinks for every gazetteer city, joined through the GeoNames wkdt rows",
+   "publisher": "Wikidata, joined to GeoNames",
+   "licence": "Wikidata CC0 1.0 public domain dedication; GeoNames CC BY 4.0 for the join key",
+   "endpoint": "https://www.wikidata.org/w/api.php?action=wbgetentities, 50 items per call",
+   "status": "HTTP 200. A run of HTTP 429 cut the first pass at batch 367; it now paces at one call a second and waits 30s and up on a 429.",
+   "what_it_is": "alternateNamesV2 carries rows whose isolanguage is the literal string \"wkdt\", holding the Wikidata item id for that GeoNames id. That gives the QID with no SPARQL and no rate limit, and the QID gives every Wikipedia sitelink through the action API. The join was on disk and unread.",
+   "countries": "all 245",
+   "rows_so_far": 18242,
+   "counted_result": {
+    "cities_with_an_article_per_language": {
+     "en": 13426,
+     "fr": 10902,
+     "it": 10642,
+     "es": 10578,
+     "pl": 10531,
+     "de": 9611,
+     "zh": 9340,
+     "nl": 9219,
+     "pt": 8250,
+     "ja": 4003
+    }
+   },
+   "families_opened": "none on its own. Half two of the destination gate, with roughly three times the coverage of the exonym mark.",
+   "expected_net_valid_pages": "PROJECTED. 18,242 cities fetched of roughly 45,000 carrying a QID. At the coverage observed so far the completed fetch gives on the order of 25,000 to 32,000 city-by-language combinations with both halves of the evidence, against 5,399 on exonyms alone. Each combination carries the city-level family set, which in the 11 market countries averages roughly eleven pages per city-market pair, so the order is 100,000 to 200,000 pages. Projected from the existing per-city family count, NOT counted, and it will be counted when the manifest rebuilds.",
+   "status_today": "MATERIALISING, resumable, checkpointing every 50 batches"
+  },
+  {
+   "name": "OpenStreetMap route relations WITH their member way geometry",
+   "publisher": "OpenStreetMap contributors",
+   "licence": "ODbL 1.0, share-alike, attribution required",
+   "what_it_is": "the trail layer. The earlier POI pass captured route relations with no geometry, because osmium tags-filter was called with -R, which drops the members. Without -R the members come too and a route can be MEASURED: 89,959 captured routes could not be, and now they can.",
+   "countries": "every country in the capture queue, 43 of them",
+   "counted_result": {
+    "NL": {
+     "named_routes_of_a_wanted_type": 7638,
+     "with_a_measured_length": 6663,
+     "carrying_wikidata": 1003,
+     "with_a_tagged_distance_to_check_against": 3860,
+     "candidates_after_gating": 3722,
+     "stage_rows_collapsed_into_whole_routes": 680
+    },
+    "TR": {
+     "candidates": 0,
+     "why": "248 rejected for no market and no destination evidence, pending the local_names capture added today"
+    }
+   },
+   "families_opened": "outdoors.hiking-trail, outdoors.bicycle-trail, outdoors.foot-trail, outdoors.mtb-trail, outdoors.canoe-trail and the rest, one family per route type",
+   "demand": "measured on eighteen named trails across two languages: every one carried volume and fourteen sat at difficulty 0 to 5. Nothing else measured in this project came back that clean.",
+   "expected_net_valid_pages": "PROJECTED 60,000 to 200,000 across 43 countries. The Netherlands is small and flat and gave 3,722 for one locale; Germany, France, Italy, Spain, Austria and Switzerland each hold several times the route mileage. Projected from one country, which is one country, and the range is wide for that reason.",
+   "status_today": "MATERIALISING through the capture queue"
+  },
+  {
+   "name": "OpenStreetMap place=region and region:type",
+   "publisher": "OpenStreetMap contributors",
+   "licence": "ODbL 1.0",
+   "what_it_is": "the tag OSM uses for a NAMED geographic or tourist region that is not an administrative unit. It was missing from the parents filter, so Allgaeu, Cinque Terre, Chianti and Sauerland were in no class the pipeline accepted and therefore in no page it could build, while the three strongest German region keywords measured are exactly those: allgaeu sehenswuerdigkeiten 2,100 and schwarzwald 1,900 against bayern 1,600.",
+   "countries": "every country in the queue from GB onward; DE, IT, NL, TR and FR were filtered before the fix and need their parents pass re-run",
+   "families_opened": "destinations.region-what-to-see, destinations.region-cities, climate.region-when-to-go, and a wider entity set for the existing outdoors.<class>-in-region family",
+   "expected_net_valid_pages": "PROJECTED 25,000 to 50,000. First run on the four countries whose parents exist gave 467 rows from 4,127 region polygons, held down by only 129 place=region polygons existing before the fix and by the floors: 1,821 regions hold fewer than five towns and 1,473 fewer than ten named places. Counties are refused outright, 1,490 of them, on a measurement of zero.",
+   "status_today": "FILTER FIXED, awaiting the queue and a re-capture of five countries"
+  },
+  {
+   "name": "NASA POWER monthly climatology, 2001 to 2020",
+   "publisher": "NASA Langley Research Center POWER project",
+   "licence": "public domain, no restriction, attribution requested",
+   "countries": "global, 209 country files written so far",
+   "counted_result": {
+    "cities_with_normals": 47742,
+    "cities_in_the_store": 64418
+   },
+   "families_opened": "climate.city, climate.region-when-to-go, and the climate half of the region pages",
+   "caution": "T2M_MAX is the single highest temperature in the whole record for that month, not the mean daily high: Berlin June reads 37.74C. A page saying the warmest month is 38 degrees would be wrong in a way a reader finds out on arrival. The series used is T2M, the monthly mean; the extreme is carried separately and labelled a record.",
+   "expected_net_valid_pages": "PROJECTED 20,000 to 40,000, bounded by the destination evidence per city rather than by the normals, which are global",
+   "status_today": "MATERIALISING, 17,000 cities left at 3.6 a second"
+  },
+  {
+   "name": "Exclusive POI density per place, derived from the OSM POI and place layers",
+   "publisher": "derived in this repository",
+   "licence": "ODbL 1.0 inherited",
+   "what_it_is": "every named POI assigned to EXACTLY ONE place, containment beating proximity and the smallest containing polygon beating a larger one. 5,012,698 named POI read, 2,551,035 assigned.",
+   "counted_result": {
+    "places_with_20_or_more_exclusive_named_poi": 25495,
+    "of_those_failing_area_is_named_today": 16129
+   },
+   "families_opened": "the existing neighbourhood and area families, for places that carry no polygon, no population, no Wikidata item and no Wikipedia article",
+   "the_correction": "the first version of this measurement counted POI within each place radius and reported 128,216. Neighbourhood radii overlap, so the same restaurants were counted for Bastille and for its neighbour. 128,216 became 16,129 and every bit of the difference was overlap.",
+   "expected_net_valid_pages": "16,000 to 32,000, COUNTED at the entity level and projected only on the locale count",
+   "status_today": "MATERIALISED and wired into the place gate"
+  },
+  {
+   "name": "National Heritage List for England",
+   "publisher": "Historic England",
+   "licence": "Open Government Licence v3.0",
+   "counted_result": {
+    "entries_fetched": 379685,
+    "grade_I": 9341,
+    "grade_II_star": 22125,
+    "grade_II": 348219
+   },
+   "reclassified": "ENRICHMENT, not a page family",
+   "why": "the place-aggregation shape measured ZERO. The fetch happened before the measurement, which is the wrong order, and the 40,000 to 44,000 estimate in the first register is withdrawn. A Grade I listing is a real fact for a page about a place; it is not a page.",
+   "status_today": "FETCHED, held as enrichment"
+  },
+  {
+   "name": "The fourteen countries this mirror does not carry",
+   "countries": [
+    "GR",
+    "HR",
+    "TH",
+    "VN",
+    "KR",
+    "AL",
+    "IS",
+    "SI",
+    "HU",
+    "ME",
+    "MT",
+    "PE",
+    "CO",
+    "NZ"
+   ],
+   "what_they_are_worth": "machu picchu 230,000 in en-US, the largest volume measured anywhere in this project; esim 15,000 and jeju 19,000 in ja-JP for Korea; saranda 26,000 in it-IT for Albania; plitvicer seen 18,000 in de-DE for Croatia; meteora 26,000 in en-US for Greece; ha long bay 31,000 for Vietnam.",
+   "why_not_yet": "download.openstreetmap.fr carries 29 European countries and not these; download.geofabrik.de carries all of them and every request through this container’s proxy is reset mid-exchange, which the proxy status confirms is a tunnel failure rather than a remote refusal; the other three mirrors tested hold the whole planet only, about 80GB against a 23GB allowance.",
+   "the_route": "the Overpass API, which this repository already calls in osm-overpass-market.py. Overpass answers per-layer queries against a country area and needs no full extract, at the cost of tiling the query to stay inside its runtime limit. Work, not a wall, and not started because the reachable 33 come first.",
+   "expected_net_valid_pages": "PROJECTED 60,000 to 120,000, at the per-country yield the reachable countries are producing",
+   "status_today": "NOT STARTED, recorded with what each one is worth"
+  }
+ ],
+ "where_this_leaves_the_arithmetic": {
+  "counted_today": 253988,
+  "paths_with_a_counted_entity_level_number": {
+   "exclusive_poi_density_recovery": "16,129 places",
+   "destination_cities_on_exonyms_alone": "5,399 city-by-language combinations",
+   "dutch_trails": "3,722 candidates for one locale from one small country"
+  },
+  "paths_projected": {
+   "trails_across_43_countries": "60,000 to 200,000",
+   "destination_cities_on_sitelinks": "100,000 to 200,000",
+   "outdoor_features_across_43_countries": "PROJECTED 150,000 to 250,000 candidates, from DE 18,067 and IT 8,302 against TR 20,765 raw features, which says Germany is the best mapped country on earth for this and a destination country will yield less",
+   "places_and_poi_aggregations_for_33_new_destination_countries": "100,000 to 160,000",
+   "region_families": "25,000 to 50,000",
+   "climate": "20,000 to 40,000",
+   "the_fourteen_unreachable_countries": "60,000 to 120,000"
+  },
+  "the_honest_statement": "Adding the counted and the projected gives a range whose midpoint is near one million and whose low end is near 700,000. That is a very different position from the 2026-10-01 verdict that the measured closure paths do not reach one million, and the difference is not a relaxed gate: it is the destination axis, which was never examined, plus three region families, plus a trail layer that could not be measured until osmium was called without -R. Every number above that is projected says so, and the projections will be replaced by counts as the capture queue finishes. Nothing here licenses publishing anything."
+ },
+ "first_pass_kept_verbatim": {
+  "measuredOn": "2026-10-02",
+  "purpose": "Brief section 5 in the shape it asks for: licence, scope, countries, row count, usable families, freshness, join keys and expected net valid pages, per source, for the sources probed TODAY in search of the next 500,000 to 750,000 valid pages. Every reachability figure here is an HTTP response seen in this container, not a recollection.",
+  "sources": [
+   {
+    "name": "National Heritage List for England (NHLE)",
+    "publisher": "Historic England",
+    "endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer/0",
+    "status": "HTTP 200, no key, paged at 2,000 records",
+    "licence": "Open Government Licence v3.0",
+    "attribution": "Contains Historic England data licensed under the Open Government Licence v3.0. Contains Ordnance Survey data (c) Crown copyright and database right.",
+    "countries": [
+     "GB"
+    ],
+    "rows": 379685,
+    "row_detail": {
+     "grade_I": 9341,
+     "grade_II_star": 22125,
+     "grade_II": 348219
+    },
+    "fields": "official list entry number, name, grade, list date, coordinates, link to the official entry",
+    "freshness": "live service, refreshes as the register changes",
+    "join_keys": "coordinates to the containment parent layer and to the city gazetteer; the list entry number is the stable id",
+    "usable_families": [
+     "heritage.listed-in-place, an aggregation per place with the count, the grade split, the oldest listing and the named entries",
+     "heritage.listed-building, an entity page for Grade I and Grade II* ONLY"
+    ],
+    "expected_net_valid_pages": "31,466 entity pages plus roughly 8,000 to 12,000 aggregation pages, so 40,000 to 44,000",
+    "refused": "a page for each of the 348,219 Grade II entries. Most are ordinary houses, terraces, milestones and telephone boxes; a page each would be thin and would read as a doorway, which is the thing this project exists to avoid.",
+    "status_today": "MATERIALISING"
+   },
+   {
+    "name": "Rijksmonumenten and other Dutch cultural heritage",
+    "publisher": "Rijksdienst voor het Cultureel Erfgoed (RCE)",
+    "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+    "status": "HTTP 200, SPARQL, no key. A COUNT over ceo:Rijksmonument returned 163,266.",
+    "licence": "RCE open data, CC0 for the register with attribution requested",
+    "countries": [
+     "NL"
+    ],
+    "rows": 163266,
+    "fields": "monument number, name or designation, address, municipality, function, protection date, coordinates where published",
+    "freshness": "live SPARQL over the current register",
+    "join_keys": "municipality and coordinates to the gazetteer and the parent layer",
+    "usable_families": [
+     "heritage.listed-in-place for the 342 Dutch municipalities and the neighbourhood layer",
+     "heritage.monument for monuments that carry a NAME rather than only an address, and a function that is a destination: church, castle, mill, fort, country house, lighthouse"
+    ],
+    "expected_net_valid_pages": "20,000 to 30,000, bounded by the named and destination-shaped subset rather than by the register size",
+    "status_today": "CONFIRMED REACHABLE, not yet materialised"
+   },
+   {
+    "name": "Research Organization Registry (ROR)",
+    "endpoint": "https://api.ror.org/organizations",
+    "status": "HTTP 200, no key",
+    "licence": "CC0",
+    "countries": "global",
+    "rows": "about 115,000 organisations; a query for universities alone returns 14,415",
+    "usable_families": [
+     "education.universities-in-city",
+     "education.universities-in-region",
+     "education.research-institutions-in-city"
+    ],
+    "expected_net_valid_pages": "aggregation only, roughly 3,000 to 6,000. An individual institution page competes with that institution's own site, which the SERP evidence in this project already showed for hospitals and universities, so no individual pages.",
+    "status_today": "CONFIRMED REACHABLE, aggregation value only"
+   },
+   {
+    "name": "Rejestr zabytkow and Pomniki historii",
+    "publisher": "Narodowy Instytut Dziedzictwa, via dane.gov.pl",
+    "endpoint": "https://api.dane.gov.pl/1.4/datasets?q=zabytk",
+    "status": "HTTP 200. The portal lists the monument register, the archaeological register and the Pomniki historii as separate datasets, published as files rather than as a query API.",
+    "licence": "Polish public information, open",
+    "countries": [
+     "PL"
+    ],
+    "usable_families": [
+     "heritage.listed-in-place for Polish gminas and cities",
+     "heritage.monument for the Pomniki historii tier"
+    ],
+    "expected_net_valid_pages": "to be measured once the resource files are read; the Pomniki historii tier is about 130 sites and the full register is tens of thousands",
+    "status_today": "REACHABLE, per-resource work needed"
+   },
+   {
+    "name": "GeoNames cities1000",
+    "endpoint": "https://download.geonames.org/export/dump/cities1000.zip",
+    "status": "HTTP 200, 11.1 MB",
+    "licence": "CC BY 4.0",
+    "countries": "global",
+    "rows": "about 150,000 settlements, against the 64,418 of cities5000 now in the gazetteer",
+    "usable_families": "every city family, gated as now on measured demand and on minimum POI counts per cell",
+    "expected_net_valid_pages": "unknown until the aggregation is run against it. The cities5000 step added 32,703 cities and yielded 2,449 more aggregation candidates, because most new cities are small and fail the minimum counts. cities1000 adds smaller places still, so the yield per city will be lower again and the honest expectation is low thousands rather than tens of thousands.",
+    "status_today": "DOWNLOADED, deprioritised on that arithmetic"
+   },
+   {
+    "name": "EEA DiscoData and the EEA spatial catalogue",
+    "endpoints": [
+     "https://discodata.eea.europa.eu/sql",
+     "https://sdi.eea.europa.eu/catalogue"
+    ],
+    "status": "DiscoData answers HTTP 200 but refuses system tables, so the table names have to be known in advance and the ones tried were wrong. The spatial catalogue returned HTTP 500.",
+    "wanted_for": "Natura 2000 sites, about 27,000 across the EU with official names, areas, habitats and species, and the Bathing Water Directive register, about 22,000 bathing waters with annual water quality classifications",
+    "countries": [
+     "DE",
+     "FR",
+     "IT",
+     "ES",
+     "NL",
+     "PL"
+    ],
+    "expected_net_valid_pages": "30,000 to 50,000 if both land: a bathing water page carries an official annual classification, which is distinct data per beach per year, and a Natura 2000 page carries habitat and species lists",
+    "status_today": "BLOCKED ON TABLE DISCOVERY, not on access. Recorded so the next pass does not retest the route and conclude the data does not exist."
+   },
+   {
+    "name": "data.culture.gouv.fr (Merimee and POP, French monuments historiques)",
+    "status": "HTTP 301 then a response the Opendatasoft v2.1 parser rejected, so the dataset path is not what was tried",
+    "countries": [
+     "FR"
+    ],
+    "rows": "about 45,000 monuments historiques",
+    "status_today": "REACHABLE BUT PATH UNRESOLVED"
+   },
+   {
+    "name": "OSM route relations already in hand",
+    "status": "ON DISK. 70,975 named route relations in the German extract and 18,984 in the Italian, captured by the outdoor pass and held as parents because the extract carries no member geometry.",
+    "licence": "ODbL 1.0, share-alike, attribution required",
+    "countries": "every market as its extract is processed",
+    "usable_families": [
+     "outdoors.trail, an entity page per named long distance route with its length, ascent, waymarking network and the features along it"
+    ],
+    "expected_net_valid_pages": "60,000 to 120,000 across eleven markets, bounded by the share of routes carrying a name AND a network tag AND a length rather than by the raw count",
+    "blocker": "member geometry. The tags-filter keeps the relation but not the ways it is built from, so a route has no length and no path yet. This is the single largest unbuilt path in hand and it needs an extract pass that resolves relation members.",
+    "status_today": "HIGHEST PRIORITY UNBUILT"
+   }
+  ]
+ }
+}
