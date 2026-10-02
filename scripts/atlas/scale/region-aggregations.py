@@ -132,6 +132,26 @@ def markets_for_parent(country, p):
     return out
 
 
+# ---- the country hub, which is what a region page hangs under ---------------------------------
+# Read out of the file that WROTE those URLs rather than reconstructed from parts, which is the
+# same discipline the Wikidata and outdoor parents use and for the same reason: a URL rebuilt from
+# a name and a pattern drifts from the URL the other file emitted, and then 421 pages declare a
+# parent that does not exist. That is exactly what the first run of this file did.
+HUB = {}
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/candidates/family=destinations.country-hub/'
+                        'candidates.jsonl.gz', 'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if not _l:
+            continue
+        _r = json.loads(_l)
+        _u = _r.get('url_pattern') or _r.get('url') or ''
+        if _u:
+            HUB[(_r.get('country'), _r.get('language'))] = _u
+except (EOFError, OSError, FileNotFoundError):
+    pass
+print(f'country hub pages available as parents: {len(HUB):,}', file=sys.stderr)
+
 # ---- parents ----------------------------------------------------------------------------------
 regions = []
 for f in sorted(glob.glob(PARENTS + 'parents-*.jsonl.gz')):
@@ -280,12 +300,23 @@ for i, p in enumerate(regions):
     pid = slug(p['id'])
 
     for (market, lang, why) in mkts:
+        # The what-to-see page is the region's own page and the other two hang under it, so its
+        # eligibility is decided BEFORE either of them is written. Where it is not eligible the
+        # other two hang under the country hub instead, and where there is no country hub either
+        # they are not written at all rather than written as orphans.
+        hub = HUB.get((country, lang), '')
+        own = f'/{lang}/destinations/region/{sl}-{pid}/'
+        wts_ok = (('things_to_do', market) in cells and npoi >= MIN_POI
+                  and len([k for k, v in classes.items() if v >= 2]) >= MIN_POI_CLASSES)
+        under = own if wts_ok else hub
         # ---- what to see ---------------------------------------------------------------------
         if ('things_to_do', market) in cells:
             if npoi < MIN_POI:
                 rejects['what_to_see_below_ten_named_poi'] += 1
             elif len([k for k, v in classes.items() if v >= 2]) < MIN_POI_CLASSES:
                 rejects['what_to_see_too_few_distinct_classes'] += 1
+            elif not hub:
+                rejects['no_country_hub_page_to_hang_this_region_under'] += 1
             else:
                 c = cells[('things_to_do', market)]
                 rows.append({
@@ -297,7 +328,7 @@ for i, p in enumerate(regions):
                     'class_mix': dict(classes.most_common(20)),
                     'examples': poi_ex.get(i, [])[:20],
                     'cities_inside': len(cs),
-                    'url': f'/{lang}/destinations/region/{sl}-{pid}/what-to-see/',
+                    'url': own, 'parent_url': hub,
                     'attribution': 'containment', 'market_reason': why,
                     'qid': p.get('qid'), 'wikipedia': p.get('wikipedia'),
                     'count_answer': (
@@ -317,6 +348,8 @@ for i, p in enumerate(regions):
         if ('cities', market) in cells:
             if len(cs) < MIN_CITIES:
                 rejects['cities_below_five_inside_the_region'] += 1
+            elif not under:
+                rejects['no_parent_page_to_hang_this_region_list_under'] += 1
             else:
                 c = cells[('cities', market)]
                 withpop = [x for x in cs if (x.get('population') or 0) > 0]
@@ -329,7 +362,7 @@ for i, p in enumerate(regions):
                     'cities': [{'name': x['name'], 'id': x['id'],
                                 'population': x.get('population'),
                                 'elevation': x.get('elevation')} for x in cs[:60]],
-                    'url': f'/{lang}/destinations/region/{sl}-{pid}/cities/',
+                    'url': own + 'cities/', 'parent_url': under,
                     'attribution': 'containment', 'market_reason': why,
                     'qid': p.get('qid'), 'wikipedia': p.get('wikipedia'),
                     'count_answer': (
@@ -349,6 +382,8 @@ for i, p in enumerate(regions):
         if ('best_time', market) in cells:
             if len(clim) < MIN_CLIMATE_CITIES:
                 rejects['best_time_below_three_cities_with_normals'] += 1
+            elif not under:
+                rejects['no_parent_page_to_hang_this_region_climate_under'] += 1
             else:
                 tmean = month_series(clim, 'T2M')
                 rec_hi = month_series(clim, 'T2M_MAX')
@@ -375,7 +410,7 @@ for i, p in enumerate(regions):
                     'record_high_c': rec_hi, 'record_low_c': rec_lo,
                     'warmest_month': MONTHS[warm], 'coolest_month': MONTHS[cool],
                     'wettest_month': (MONTHS[wet] if wet is not None else None),
-                    'url': f'/{lang}/climate/region/{sl}-{pid}/when-to-go/',
+                    'url': own + 'when-to-go/', 'parent_url': under,
                     'attribution': 'containment', 'market_reason': why,
                     'qid': p.get('qid'), 'wikipedia': p.get('wikipedia'),
                     'count_answer': (

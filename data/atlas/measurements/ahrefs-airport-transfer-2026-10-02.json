@@ -1,0 +1,208 @@
+{
+ "measured_on": "2026-10-02",
+ "question": "3,244 airports sit in the entity pool and the whole inventory holds ELEVEN rows sourced from them. For a travel-connectivity product the arrival moment is the connectivity moment, so this looked like an obvious unexploited family. Is the low count a gap or is it correct?",
+ "rows": {
+  "en-US": [
+   [
+    "dublin airport to city center",
+    800,
+    0
+   ],
+   [
+    "cancun airport to tulum",
+    700,
+    0
+   ],
+   [
+    "lisbon airport to city center",
+    400,
+    3
+   ],
+   [
+    "rome airport to city center",
+    350,
+    7
+   ],
+   [
+    "barcelona airport to city center",
+    350,
+    0
+   ],
+   [
+    "athens airport to city center",
+    300,
+    3
+   ],
+   [
+    "istanbul airport to city center",
+    250,
+    3
+   ],
+   [
+    "paris airport to city center",
+    150,
+    0
+   ],
+   [
+    "milan airport to city center",
+    100,
+    0
+   ],
+   [
+    "bali airport to ubud",
+    100,
+    0
+   ],
+   [
+    "reykjavik airport to city center",
+    90,
+    6
+   ],
+   [
+    "seoul airport to city center",
+    50,
+    11
+   ],
+   [
+    "bangkok airport to city center",
+    40,
+    0
+   ],
+   [
+    "venice airport to city center",
+    40,
+    9
+   ],
+   [
+    "marrakech airport to city center",
+    30,
+    null
+   ],
+   [
+    "cairo airport to city center",
+    20,
+    1
+   ],
+   [
+    "wifi at istanbul airport",
+    20,
+    0
+   ],
+   [
+    "dubai airport to city center",
+    10,
+    null
+   ],
+   [
+    "tokyo airport to city center",
+    10,
+    null
+   ],
+   [
+    "antalya airport to city center",
+    0,
+    null
+   ],
+   [
+    "sim card at bangkok airport",
+    0,
+    null
+   ],
+   [
+    "sim card at istanbul airport",
+    0,
+    null
+   ],
+   [
+    "esim at airport",
+    0,
+    null
+   ]
+  ],
+  "de-DE": [
+   [
+    "flughafen antalya transfer",
+    100,
+    0
+   ],
+   [
+    "vom flughafen rom in die stadt",
+    100,
+    null
+   ],
+   [
+    "vom flughafen barcelona in die stadt",
+    90,
+    0
+   ],
+   [
+    "flughafen antalya nach side",
+    60,
+    0
+   ],
+   [
+    "wlan flughafen istanbul",
+    30,
+    null
+   ],
+   [
+    "flughafen hurghada transfer",
+    20,
+    null
+   ],
+   [
+    "flughafen rom ins zentrum",
+    10,
+    null
+   ],
+   [
+    "flughafen lissabon ins zentrum",
+    10,
+    0
+   ],
+   [
+    "flughafen marrakesch transfer",
+    10,
+    null
+   ],
+   [
+    "flughafen wien ins zentrum",
+    10,
+    null
+   ],
+   [
+    "flughafen barcelona ins zentrum",
+    10,
+    null
+   ],
+   [
+    "flughafen reykjavik transfer",
+    0,
+    null
+   ],
+   [
+    "flughafen mailand ins zentrum",
+    0,
+    null
+   ],
+   [
+    "flughafen istanbul ins zentrum",
+    0,
+    null
+   ],
+   [
+    "flughafen athen ins zentrum",
+    0,
+    null
+   ],
+   [
+    "flughafen paris ins zentrum",
+    0,
+    null
+   ]
+  ]
+ },
+ "the_finding": "The low count is CORRECT. In English the family is a narrow head: dublin airport to city center 800, cancun airport to tulum 700, lisbon 400, rome 350, barcelona 350, athens 300, istanbul 250, and then it falls away fast, with antalya at 0 and tokyo and dubai at 10. In German the phrasing does not exist at all: flughafen istanbul ins zentrum 0, flughafen athen ins zentrum 0, flughafen paris ins zentrum 0, and the best German result in the whole set is flughafen antalya transfer at 100. So roughly forty to sixty airports worldwide carry demand in English and almost none in German. That is a family worth a few hundred pages, not tens of thousands, and eleven rows today is an undercount of a small thing rather than a missed lever.",
+ "the_commercially_interesting_zero": "sim card at istanbul airport 0, sim card at bangkok airport 0, esim at airport 0, wifi at istanbul airport 20, wlan flughafen istanbul 30. The airport SIM query does not exist at scale, which is worth knowing for a company selling eSIMs: the demand sits on the COUNTRY (esim tuerkei 13,000, esim thailand 6,400) and not on the airport. People buy before they fly, and the page that catches them is the destination page, not the terminal page.",
+ "decision": "not built as a scale family. The forty to sixty airports with English demand are worth adding to the transport surface on their own merits and are not a path to the remaining gap. Recorded so the 3,244 figure does not look like an opportunity to the next pass."
+}

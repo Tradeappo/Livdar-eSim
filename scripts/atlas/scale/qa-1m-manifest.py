@@ -154,7 +154,15 @@ SUPERLATIVES = {'best', 'top', 'safest', 'cheapest', 'greatest', 'ultimate', 'pe
 superlative_examples = []
 family_superlatives = collections.Counter()
 for r in rows:
-    own = (r['entity_name'] or '').casefold()
+    # Every place field the skeletons read, not just the entity name. The first version of this
+    # check excluded entity_name alone and then reported four invented superlatives on Dutch trail
+    # pages: "Airbornepad Market Garden, Nieuwe Heide, Best". Best is the town the route runs
+    # through, so it arrives in the title through the CITY field, and the template invented nothing.
+    # The rule is unchanged, a superlative counts only when the template added it; what was wrong
+    # was the list of places a word can legitimately come from.
+    own = ' '.join(str(r.get(k) or '') for k in
+                   ('entity_name', 'city', 'neighbourhood', 'country', 'parent_name',
+                    'region', 'admin1')).casefold()
     fam_words = {w for w in r['family'].replace('.', ' ').replace('-', ' ').split()}
     for field in ('_title', '_meta', '_h1'):
         words = {w.strip('.:,()').casefold()
