@@ -27,9 +27,30 @@ CLASSES = [('Q33506','museum'),('Q7075','library'),('Q16917','hospital'),
            ('Q41253','movie_theater'),('Q194195','amusement_park'),('Q1007870','art_gallery'),
            ('Q55488','railway_station'),('Q1248784','airport'),('Q39614','cemetery')]
 COUNTRIES = [('Q30','US'),('Q183','DE'),('Q142','FR'),('Q38','IT'),('Q29','ES'),
-             ('Q55','NL'),('Q36','PL'),('Q155','BR'),('Q145','GB'),('Q17','JP'),('Q865','TW')]
+             ('Q55','NL'),('Q36','PL'),('Q155','BR'),('Q145','GB'),('Q17','JP'),('Q865','TW'),
+             # The fourteen destination countries this container cannot reach by any OSM route.
+             # download.openstreetmap.fr does not carry them, download.geofabrik.de and every
+             # Overpass endpoint tested are reset mid-exchange by the network policy, and the three
+             # other mirrors hold the whole planet only. Wikidata IS reachable, it is CC0 with no
+             # share-alike, and it carries beaches, peaks, castles, lakes and national parks with
+             # coordinates, which is most of what the outdoor families are built from. So the
+             # blocked countries get an entity layer from a different source rather than no layer.
+             #
+             # What each one is worth, measured 2026-10-02: machu picchu 230,000 in en-US, the
+             # largest volume anywhere in this project; jeju 19,000 and esim korea 15,000 in ja-JP;
+             # ha long bay 31,000 in en-US; saranda 26,000 in it-IT; meteora 26,000 in en-US;
+             # plitvicer seen 18,000 in de-DE; kotor 5,400 and lago di bled 7,100 in it-IT.
+             ('Q41','GR'),('Q224','HR'),('Q869','TH'),('Q881','VN'),('Q884','KR'),
+             ('Q222','AL'),('Q189','IS'),('Q215','SI'),('Q28','HU'),('Q236','ME'),
+             ('Q233','MT'),('Q419','PE'),('Q739','CO'),('Q664','NZ')]
+# The label language asked of Wikidata. For a market country it is that market's own language. For
+# a destination country it is ENGLISH, deliberately: the page will be written in a market language
+# and the destination axis supplies the per-entity language mark separately, so asking Wikidata for
+# Greek labels on Greek beaches would fetch the one language no Livdar market reads.
 LANG = {'US':'en','GB':'en','DE':'de','FR':'fr','IT':'it','ES':'es','NL':'nl',
-        'PL':'pl','BR':'pt','JP':'ja','TW':'zh-hant'}
+        'PL':'pl','BR':'pt','JP':'ja','TW':'zh-hant',
+        'GR':'en','HR':'en','TH':'en','VN':'en','KR':'en','AL':'en','IS':'en','SI':'en',
+        'HU':'en','ME':'en','MT':'en','PE':'en','CO':'en','NZ':'en'}
 
 # VERIFIED 2026-10-01: the result cap is real and it did truncate.
 # The earlier pass left this as an open question because WDQS was in an active outage. It
