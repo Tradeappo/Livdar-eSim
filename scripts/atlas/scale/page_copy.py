@@ -123,6 +123,17 @@ def subject(r):
     name = undash(r['entity_name'] or r['entity_id'])
     place = place_phrase(r)
     fam = r['family']
+    # The three region families. Each asks a different question about one named geography, and the
+    # generic skeleton would title all three "Toscana, IT: region what to see" and so on, which
+    # reads as a machine label rather than as a page. The region's own class is a fact the row
+    # carries, and saying "the region of Tuscany" against "the national park of Dolomiti
+    # Bellunesi" is what keeps two pages about two different kinds of place apart.
+    if fam == 'destinations.region-what-to-see':
+        return f'What to see in {name}'
+    if fam == 'destinations.region-cities':
+        return f'The towns and cities of {name}'
+    if fam == 'climate.region-when-to-go':
+        return f'When to go to {name}'
     if fam == 'areas.city-index':
         return f'Neighbourhoods of {undash(r["city"])}'
     # the aggregation shapes already carry the subject in the name, and "AGGREGATION" is the
@@ -212,6 +223,15 @@ def title_for(r):
         tail = f'what to know about this {cls_h} before you go' if cls_h \
             else 'what to know before you go'
         return f"{name}{', ' + where if where else ''}: {tail}"
+    if fam == 'destinations.region-what-to-see':
+        return f'What to see in {name}{", " + country if country and country not in name else ""}'
+    if fam == 'destinations.region-cities':
+        return (f'The towns and cities of {name}'
+                f'{", " + country if country and country not in name else ""}')
+    if fam == 'climate.region-when-to-go':
+        return (f'When to go to {name}'
+                f'{", " + country if country and country not in name else ""}'
+                f': temperature and rainfall month by month')
     if fam == 'areas.city-index':
         return f"Neighbourhoods of {where}: which area suits you"
     if fam == 'areas.overview':

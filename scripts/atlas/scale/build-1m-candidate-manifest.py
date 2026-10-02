@@ -1175,7 +1175,8 @@ print(f'  poi aggregations loaded {len(agg):,}', file=sys.stderr)
 _outdoor_before = len(agg)
 for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz',
              ROOT + 'data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz',
-             ROOT + 'data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz',
+             ROOT + 'data/atlas/sources/osm-parents/_region-aggregations.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1223,6 +1224,13 @@ SHAPE_SERP = {
     # project came back that clean, which is why this is the one outdoor shape whose
     # demand score rests on a measurement of its own family rather than on a proxy.
     'trail': 'OPEN_SPECIALIST_PAGE_WINS',
+    # The region shapes share the SERP class the region LIST shape was measured on, because
+    # that is the same page type one level up: an enumeration inside a named geography,
+    # where a DR 1 site held position 6. Not separately sampled, and NOT_SAMPLED would
+    # understate what is already known about this exact format.
+    'region_what_to_see': 'OPEN_SPECIALIST_PAGE_WINS',
+    'region_cities': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    'region_best_time': 'NOT_SAMPLED',
 }
 
 # Wikidata candidates, built and deduped against OSM by scripts/atlas/scale/
@@ -1270,6 +1278,14 @@ SHAPE_WIRING = {
     # because the eighteen measured routes are a sample and the volume for an individual
     # route is not claimed anywhere on the row.
     'trail': ('outdoors', 'ENTITY', 'trail', 55),
+    # Measured 2026-10-02 in ahrefs-region-families-2026-10-02.json. The scores are the
+    # measured ceilings, not a guess: kyoto 78,000 for what-to-see, cidades de minas gerais
+    # 12,000 for the city list, best time to visit tuscany 700 for when-to-go. The when-to-go
+    # score is lowest of the three because its measurement is the smallest AND it is refused
+    # outright in Italian, French and Portuguese.
+    'region_what_to_see': ('destinations', 'AGGREGATION', 'region', 75),
+    'region_cities': ('destinations', 'AGGREGATION', 'region', 70),
+    'region_best_time': ('climate', 'AGGREGATION', 'region', 60),
 }
 WD_LICENCE = ('Wikidata (CC0 1.0, public domain dedication, no share-alike)', 'CC0_NO_CONDITIONS')
 OSM_LICENCE = ('OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
@@ -1310,7 +1326,19 @@ for a in agg:
         area = a.get('parent_name', '')
     is_wd = a.get('source') == 'wikidata'
 
-    if shape == 'trail':
+    if shape.startswith('region_'):
+        # The three region families, each a different question about one named geography.
+        fid = {'region_what_to_see': 'destinations.region-what-to-see',
+               'region_cities': 'destinations.region-cities',
+               'region_best_time': 'climate.region-when-to-go'}[shape]
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = {'region_what_to_see': f"see what there is to visit in {ename}",
+                  'region_cities': f"find the towns and cities of {ename}",
+                  'region_best_time': f"decide when to go to {ename}"}[shape]
+        # n is the count the page answers with: named places, cities, or stations
+        q = min(100, 50 + min(25, a['n']) * 2)
+    elif shape == 'trail':
         # One family per route type, so a hiking path and a canoe route get separate
         # acceptance verdicts rather than one trails bucket that hides a weak half.
         fid = f"outdoors.{a.get('route_type', 'hiking')}-trail"

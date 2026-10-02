@@ -1,0 +1,26 @@
+{
+ "source": "GeoNames alternateNamesV2 wkdt rows joined to the Wikidata action API",
+ "licences": [
+  "GeoNames CC BY 4.0, attribution required",
+  "Wikidata CC0 1.0, public domain dedication"
+ ],
+ "attribution": "GeoNames, https://www.geonames.org/ and Wikidata, https://www.wikidata.org/",
+ "fetched_on": "2026-10-02",
+ "cities_in_store": 64418,
+ "cities_with_a_wikidata_item": 19744,
+ "cities_fetched": 18242,
+ "cities_with_an_article_per_language": {
+  "en": 13426,
+  "fr": 10902,
+  "it": 10642,
+  "es": 10578,
+  "pl": 10531,
+  "de": 9611,
+  "zh": 9340,
+  "nl": 9219,
+  "pt": 8250,
+  "ja": 4003
+ },
+ "why": "The per-entity, per-language mark the destination axis needs. A German Wikipedia article about a Turkish city is evidence that German speakers look that city up. It is a PROXY for interest and is never presented as measured search volume.",
+ "known_limit": "zhwiki is one Wikipedia for Traditional and Simplified Chinese and this file cannot split them."
+}

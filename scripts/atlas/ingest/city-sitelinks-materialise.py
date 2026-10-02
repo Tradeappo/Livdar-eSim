@@ -71,6 +71,14 @@ print(f'to fetch: {len(by_qid):,} items in {len(batches):,} batches of 50', file
 sitefilter = '|'.join(WIKIS)
 t0 = time.time()
 new = 0
+def _flush():
+    with gzip.open(OUT + '.tmp', 'wt', encoding='utf-8') as w:
+        for gid in sorted(done):
+            w.write(json.dumps(done[gid], ensure_ascii=False) + '\n')
+    os.replace(OUT + '.tmp', OUT)
+
+
+
 for bi, batch in enumerate(batches):
     params = {'action': 'wbgetentities', 'ids': '|'.join(batch), 'props': 'sitelinks',
               'sitefilter': sitefilter, 'format': 'json'}
@@ -83,11 +91,16 @@ for bi, batch in enumerate(batches):
                 data = json.loads(r.read().decode('utf-8'))
             break
         except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
+            # 429 is the server asking for less, so it gets a real wait rather than the two
+            # seconds a transport error gets. The first run was cut off at batch 367 by a run of
+            # 429s that five two-second retries could not clear, and it still wrote the 18,242
+            # cities it had, which is why this resumes instead of starting over.
+            is429 = isinstance(e, urllib.error.HTTPError) and e.code == 429
             if attempt == 4:
                 print(f'  batch {bi} failed after 5 attempts: {e}', file=sys.stderr)
                 data = None
             else:
-                time.sleep(2 ** attempt)
+                time.sleep((30 * (attempt + 1)) if is429 else (2 ** attempt))
     if not data:
         continue
     for qid, ent in (data.get('entities') or {}).items():
@@ -101,16 +114,19 @@ for bi, batch in enumerate(batches):
         done[gid] = {'geonameid': gid, 'qid': qid, 'country': city_ids.get(gid),
                      'wikipedia_languages': langs}
         new += 1
+    # A deliberate pace. 50 items a call at one call a second is 3,000 items a minute from a
+    # service that asked for less, and the whole job is under half an hour at this rate anyway.
+    time.sleep(1.0)
     if (bi + 1) % 50 == 0:
         el = time.time() - t0
         print(f'  {bi+1:,}/{len(batches):,} batches, {new:,} cities, '
               f'{el/60:.1f} min, {(len(batches)-bi-1)*el/max(bi+1,1)/60:.0f} min left',
               file=sys.stderr, flush=True)
+        # checkpoint, because the first run spent twenty minutes of API calls and would have
+        # lost all of it to a container restart
+        _flush()
 
-with gzip.open(OUT + '.tmp', 'wt', encoding='utf-8') as w:
-    for gid in sorted(done):
-        w.write(json.dumps(done[gid], ensure_ascii=False) + '\n')
-os.replace(OUT + '.tmp', OUT)
+_flush()
 
 per_lang = collections.Counter()
 for r in done.values():
