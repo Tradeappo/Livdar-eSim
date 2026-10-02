@@ -1,0 +1,2144 @@
+{
+ "measured_on": "2026-10-02",
+ "tool": "Ahrefs Keywords Explorer, keywords-explorer-overview",
+ "units_spent": 4742,
+ "question": "No family in this pipeline builds a page for a REGION, yet 3,865 admin1 regions and 47,643 admin2 counties sit in the gazetteer unused, and the parent polygon layer holds thousands more named geographies. Which region-scoped shapes have demand, in which market, and at which level of the hierarchy?",
+ "floor": 100,
+ "the_two_findings_that_decide_the_build": [
+  "REGIONS YES, COUNTIES NO. Every county-level keyword tested is at or near zero: landkreis miesbach sehenswuerdigkeiten 0, provinz florenz 0, provinz siena 10, siena province 20, things to do in county kerry 30, bezirke tirol 10. Against andalusien sehenswuerdigkeiten 2,200, allgaeu 2,100, umbria cosa vedere 7,800. So 3,865 admin1 regions are in play and 47,643 admin2 counties are not, and that is 48,000 pages NOT built because the measurement said not to rather than because nobody looked.",
+  "THE AXIS FLIPS BY LANGUAGE. German, Italian, French and English search both their own regions and foreign ones. Japanese and Brazilian Portuguese search almost only their own, and the volumes are the largest in the project: kyoto 78,000, hokkaido 44,000, okinawa 41,000, nagano 35,000, shikoku 23,000, cidades de minas gerais 12,000, cidades de santa catarina 7,300, praias de santa catarina 6,800. A single gate keyed on \"region demand\" would have been wrong in both directions."
+ ],
+ "per_language_refusals_that_matter": {
+  "es-ES things_to_do": "REFUSED. que ver en andalucia 30, que ver en cataluna 30, que ver en toscana 20, que ver en la provenza 0. Spanish does not use this shape at region level, and the same market wants pueblos de galicia at 1,400 and playas de galicia at 1,000. The cities and beach shapes pass in Spanish and the things-to-do shape does not.",
+  "it-IT best_time": "REFUSED. toscana quando andare 0, sicilia quando andare 30.",
+  "fr-FR best_time": "REFUSED. bretagne quand partir 10, toscane quand partir 20.",
+  "pt-BR best_time": "REFUSED. melhor epoca para visitar o algarve 0.",
+  "de-DE best_time domestic": "bayern beste reisezeit 0 and bayern klima 0, while the same shape for FOREIGN regions passes: andalusien 250, bretagne 200, toskana 150. A German does not ask when to visit Bavaria.",
+  "pl-PL and ja-JP and pt-BR foreign regions": "REFUSED at 30 to 70. atrakcje bawarii 30, atrakcje toskanii 50, toscana observed at 150 in Japanese, cidades do algarve 30."
+ },
+ "cells": {
+  "beach_list|de-DE": {
+   "passes": true,
+   "top_keyword": "andalusien straende",
+   "top_volume": 400,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 3,
+   "keywords_at_or_above_floor": 3
+  },
+  "beach_list|en-US": {
+   "passes": true,
+   "top_keyword": "sardinia beaches",
+   "top_volume": 2600,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 9,
+   "keywords_at_or_above_floor": 7
+  },
+  "beach_list|es-ES": {
+   "passes": true,
+   "top_keyword": "playas de galicia",
+   "top_volume": 1000,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 2
+  },
+  "beach_list|fr-FR": {
+   "passes": true,
+   "top_keyword": "plages de bretagne",
+   "top_volume": 100,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 1
+  },
+  "beach_list|it-IT": {
+   "passes": true,
+   "top_keyword": "spiagge della sardegna",
+   "top_volume": 300,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "beach_list|ja-JP": {
+   "passes": true,
+   "top_keyword": "沖縄 ビーチ",
+   "top_volume": 1500,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "beach_list|pl-PL": {
+   "passes": false,
+   "top_keyword": "plaze na pomorzu",
+   "top_volume": 0,
+   "top_difficulty": null,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 0
+  },
+  "beach_list|pt-BR": {
+   "passes": true,
+   "top_keyword": "praias de santa catarina",
+   "top_volume": 6800,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 3,
+   "keywords_at_or_above_floor": 3
+  },
+  "best_time|de-DE": {
+   "passes": true,
+   "top_keyword": "andalusien beste reisezeit",
+   "top_volume": 250,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 8,
+   "keywords_at_or_above_floor": 5
+  },
+  "best_time|en-US": {
+   "passes": true,
+   "top_keyword": "best time to visit tuscany",
+   "top_volume": 700,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 3,
+   "keywords_at_or_above_floor": 2
+  },
+  "best_time|fr-FR": {
+   "passes": false,
+   "top_keyword": "toscane quand partir",
+   "top_volume": 20,
+   "top_difficulty": null,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 0
+  },
+  "best_time|it-IT": {
+   "passes": false,
+   "top_keyword": "sicilia quando andare",
+   "top_volume": 30,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 0
+  },
+  "best_time|ja-JP": {
+   "passes": true,
+   "top_keyword": "北海道 ベストシーズン",
+   "top_volume": 700,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "best_time|pt-BR": {
+   "passes": false,
+   "top_keyword": "melhor epoca para visitar o algarve",
+   "top_volume": 0,
+   "top_difficulty": null,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 0
+  },
+  "castle_list|fr-FR": {
+   "passes": true,
+   "top_keyword": "chateaux de la loire",
+   "top_volume": 2900,
+   "top_difficulty": 29,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "castle_list|it-IT": {
+   "passes": false,
+   "top_keyword": "castelli della toscana",
+   "top_volume": 20,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 0
+  },
+  "castle_list|pl-PL": {
+   "passes": true,
+   "top_keyword": "zamki na dolnym slasku",
+   "top_volume": 500,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "cities|de-DE": {
+   "passes": true,
+   "top_keyword": "bayern staedte",
+   "top_volume": 500,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 5,
+   "keywords_at_or_above_floor": 4
+  },
+  "cities|en-US": {
+   "passes": true,
+   "top_keyword": "cinque terre towns",
+   "top_volume": 2700,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 7,
+   "keywords_at_or_above_floor": 6
+  },
+  "cities|es-ES": {
+   "passes": true,
+   "top_keyword": "pueblos de galicia",
+   "top_volume": 1400,
+   "top_difficulty": 53,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 5,
+   "keywords_at_or_above_floor": 4
+  },
+  "cities|fr-FR": {
+   "passes": true,
+   "top_keyword": "villes de bretagne",
+   "top_volume": 350,
+   "top_difficulty": 1,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 4,
+   "keywords_at_or_above_floor": 4
+  },
+  "cities|it-IT": {
+   "passes": true,
+   "top_keyword": "citta della toscana",
+   "top_volume": 300,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 3,
+   "keywords_at_or_above_floor": 3
+  },
+  "cities|ja-JP": {
+   "passes": true,
+   "top_keyword": "北海道 都市",
+   "top_volume": 200,
+   "top_difficulty": null,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 1
+  },
+  "cities|pl-PL": {
+   "passes": true,
+   "top_keyword": "miasta dolnego slaska",
+   "top_volume": 200,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 2
+  },
+  "cities|pt-BR": {
+   "passes": true,
+   "top_keyword": "cidades de minas gerais",
+   "top_volume": 12000,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 5,
+   "keywords_at_or_above_floor": 3
+  },
+  "county_things_to_do|de-DE": {
+   "passes": false,
+   "top_keyword": "landkreis garmisch-partenkirchen",
+   "top_volume": 80,
+   "top_difficulty": 12,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 5,
+   "keywords_at_or_above_floor": 0
+  },
+  "county_things_to_do|en-US": {
+   "passes": false,
+   "top_keyword": "things to do in county kerry",
+   "top_volume": 30,
+   "top_difficulty": 1,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 0
+  },
+  "lake_list|de-DE": {
+   "passes": true,
+   "top_keyword": "bayern seen",
+   "top_volume": 1100,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "lake_list|es-ES": {
+   "passes": false,
+   "top_keyword": "lagos de baviera",
+   "top_volume": 10,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 0
+  },
+  "lake_list|fr-FR": {
+   "passes": false,
+   "top_keyword": "lacs de savoie",
+   "top_volume": 80,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 0
+  },
+  "lake_list|it-IT": {
+   "passes": true,
+   "top_keyword": "laghi della lombardia",
+   "top_volume": 300,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "lake_list|ja-JP": {
+   "passes": true,
+   "top_keyword": "北海道 湖",
+   "top_volume": 2200,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "lake_list|pl-PL": {
+   "passes": true,
+   "top_keyword": "jeziora na mazurach",
+   "top_volume": 600,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  },
+  "region_index|de-DE": {
+   "passes": true,
+   "top_keyword": "kantone schweiz",
+   "top_volume": 3800,
+   "top_difficulty": 31,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 2
+  },
+  "things_to_do|de-DE": {
+   "passes": true,
+   "top_keyword": "andalusien sehenswuerdigkeiten",
+   "top_volume": 2200,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 7,
+   "keywords_at_or_above_floor": 7
+  },
+  "things_to_do|en-US": {
+   "passes": true,
+   "top_keyword": "things to do in tuscany",
+   "top_volume": 1600,
+   "top_difficulty": 36,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 10,
+   "keywords_at_or_above_floor": 6
+  },
+  "things_to_do|es-ES": {
+   "passes": true,
+   "top_keyword": "que ver en galicia",
+   "top_volume": 250,
+   "top_difficulty": 2,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 7,
+   "keywords_at_or_above_floor": 2
+  },
+  "things_to_do|fr-FR": {
+   "passes": true,
+   "top_keyword": "que faire en bretagne",
+   "top_volume": 2200,
+   "top_difficulty": 2,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 5,
+   "keywords_at_or_above_floor": 5
+  },
+  "things_to_do|it-IT": {
+   "passes": true,
+   "top_keyword": "umbria cosa vedere",
+   "top_volume": 7800,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 8,
+   "keywords_at_or_above_floor": 8
+  },
+  "things_to_do|ja-JP": {
+   "passes": true,
+   "top_keyword": "京都 観光",
+   "top_volume": 78000,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 11,
+   "keywords_at_or_above_floor": 10
+  },
+  "things_to_do|pl-PL": {
+   "passes": true,
+   "top_keyword": "atrakcje dolnego slaska",
+   "top_volume": 900,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 10,
+   "keywords_at_or_above_floor": 4
+  },
+  "things_to_do|pt-BR": {
+   "passes": true,
+   "top_keyword": "o que fazer em minas gerais",
+   "top_volume": 1500,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 6,
+   "keywords_at_or_above_floor": 4
+  },
+  "trails|de-DE": {
+   "passes": true,
+   "top_keyword": "schwarzwald wandern",
+   "top_volume": 1800,
+   "top_difficulty": 7,
+   "works_domestically": true,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 6,
+   "keywords_at_or_above_floor": 5
+  },
+  "trails|en-US": {
+   "passes": true,
+   "top_keyword": "patagonia hiking",
+   "top_volume": 1600,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": true,
+   "keywords_tested": 6,
+   "keywords_at_or_above_floor": 3
+  },
+  "trails|es-ES": {
+   "passes": false,
+   "top_keyword": "rutas de senderismo en galicia",
+   "top_volume": 80,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 0
+  },
+  "trails|fr-FR": {
+   "passes": true,
+   "top_keyword": "randonnee en bretagne",
+   "top_volume": 200,
+   "top_difficulty": 5,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 2
+  },
+  "trails|it-IT": {
+   "passes": true,
+   "top_keyword": "trekking in toscana",
+   "top_volume": 150,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 1
+  },
+  "trails|ja-JP": {
+   "passes": true,
+   "top_keyword": "長野 ハイキング",
+   "top_volume": 200,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 2,
+   "keywords_at_or_above_floor": 1
+  },
+  "trails|pl-PL": {
+   "passes": true,
+   "top_keyword": "szlaki w tatrach",
+   "top_volume": 2000,
+   "top_difficulty": 2,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 3,
+   "keywords_at_or_above_floor": 3
+  },
+  "trails|pt-BR": {
+   "passes": false,
+   "top_keyword": "trilhas em minas gerais",
+   "top_volume": 50,
+   "top_difficulty": 0,
+   "works_domestically": false,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 0
+  },
+  "waterfall_list|pt-BR": {
+   "passes": true,
+   "top_keyword": "cachoeiras em minas gerais",
+   "top_volume": 900,
+   "top_difficulty": 0,
+   "works_domestically": true,
+   "works_for_foreign_regions": false,
+   "keywords_tested": 1,
+   "keywords_at_or_above_floor": 1
+  }
+ },
+ "rows": [
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bayern sehenswuerdigkeiten",
+   "volume": 1600,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "allgaeu sehenswuerdigkeiten",
+   "volume": 2100,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "schwarzwald sehenswuerdigkeiten",
+   "volume": 1900,
+   "difficulty": 3,
+   "cpc_cents": 6,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "andalusien sehenswuerdigkeiten",
+   "volume": 2200,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bretagne sehenswuerdigkeiten",
+   "volume": 2000,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "toskana sehenswuerdigkeiten",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "provence sehenswuerdigkeiten",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bayern staedte",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "toskana staedte",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "andalusien staedte",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bretagne staedte",
+   "volume": 80,
+   "difficulty": 1,
+   "cpc_cents": 25,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "provence staedte",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "regionen bayern",
+   "volume": 300,
+   "difficulty": 2,
+   "cpc_cents": 20,
+   "family": "region_index",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "kantone schweiz",
+   "volume": 3800,
+   "difficulty": 31,
+   "cpc_cents": 4,
+   "family": "region_index",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "andalusien beste reisezeit",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bretagne beste reisezeit",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 60,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "toskana beste reisezeit",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "provence beste reisezeit",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bayern beste reisezeit",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "schwarzwald wandern",
+   "volume": 1800,
+   "difficulty": 7,
+   "cpc_cents": 15,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "allgaeu wandern",
+   "volume": 1400,
+   "difficulty": 52,
+   "cpc_cents": 20,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bayern wandern",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "toskana wandern",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "andalusien wandern",
+   "volume": 200,
+   "difficulty": 21,
+   "cpc_cents": 25,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "provence wandern",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bayern seen",
+   "volume": 1100,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "family": "lake_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "toskana straende",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "andalusien straende",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bretagne straende",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bayern klima",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "toskana klima",
+   "volume": 90,
+   "difficulty": 1,
+   "cpc_cents": 3,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "andalusien klima",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 9,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "landkreis miesbach sehenswuerdigkeiten",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "county_things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "landkreis garmisch-partenkirchen",
+   "volume": 80,
+   "difficulty": 12,
+   "cpc_cents": null,
+   "family": "county_things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "provinz florenz",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "county_things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "provinz siena",
+   "volume": 10,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "family": "county_things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "de-DE",
+   "keyword": "bezirke tirol",
+   "volume": 10,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "county_things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "things to do in tuscany",
+   "volume": 1600,
+   "difficulty": 36,
+   "cpc_cents": 20,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "things to do in cornwall",
+   "volume": 700,
+   "difficulty": 4,
+   "cpc_cents": 4,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "things to do in puglia",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "things to do in normandy",
+   "volume": 500,
+   "difficulty": 3,
+   "cpc_cents": 9,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "things to do in umbria",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "tuscany attractions",
+   "volume": 150,
+   "difficulty": 8,
+   "cpc_cents": 20,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "dolomites attractions",
+   "volume": 60,
+   "difficulty": null,
+   "cpc_cents": 50,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "provence attractions",
+   "volume": 30,
+   "difficulty": null,
+   "cpc_cents": 20,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "bavaria attractions",
+   "volume": 20,
+   "difficulty": 0,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "cinque terre towns",
+   "volume": 2700,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "amalfi coast towns",
+   "volume": 1100,
+   "difficulty": 5,
+   "cpc_cents": 4,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "cities in tuscany",
+   "volume": 500,
+   "difficulty": 2,
+   "cpc_cents": 7,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "algarve towns",
+   "volume": 150,
+   "difficulty": 44,
+   "cpc_cents": 20,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "cities in bavaria",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "alsace villages",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "towns in provence",
+   "volume": 60,
+   "difficulty": 0,
+   "cpc_cents": 0,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "best time to visit tuscany",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "best time to visit provence",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "best time to visit andalusia",
+   "volume": 40,
+   "difficulty": 0,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "patagonia hiking",
+   "volume": 1600,
+   "difficulty": 0,
+   "cpc_cents": 110,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "hiking in dolomites",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 100,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "black forest hiking",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "lake district hiking",
+   "volume": 90,
+   "difficulty": 0,
+   "cpc_cents": 60,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "bernese oberland hiking",
+   "volume": 40,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "tyrol hiking",
+   "volume": 20,
+   "difficulty": null,
+   "cpc_cents": 100,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "sardinia beaches",
+   "volume": 2600,
+   "difficulty": 0,
+   "cpc_cents": 45,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "sicily beaches",
+   "volume": 1400,
+   "difficulty": 0,
+   "cpc_cents": 45,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "crete beaches",
+   "volume": 1100,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "puglia beaches",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc_cents": 35,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "corsica beaches",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc_cents": 35,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "costa brava beaches",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "costa del sol beaches",
+   "volume": 200,
+   "difficulty": 1,
+   "cpc_cents": 45,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "andalusia beaches",
+   "volume": 70,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "beaches in algarve",
+   "volume": 40,
+   "difficulty": 0,
+   "cpc_cents": 0,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "siena province",
+   "volume": 20,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "county_things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "things to do in county kerry",
+   "volume": 30,
+   "difficulty": 1,
+   "cpc_cents": 15,
+   "family": "county_things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "en-US",
+   "keyword": "scottish highlands attractions",
+   "volume": 10,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "umbria cosa vedere",
+   "volume": 7800,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "toscana cosa vedere",
+   "volume": 3600,
+   "difficulty": 0,
+   "cpc_cents": 9,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "puglia cosa vedere",
+   "volume": 3000,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "andalusia cosa vedere",
+   "volume": 2000,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "sicilia cosa vedere",
+   "volume": 1800,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "provenza cosa vedere",
+   "volume": 1000,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "bretagna cosa vedere",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "baviera cosa vedere",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "citta della toscana",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "paesi della toscana",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "borghi della toscana",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "toscana quando andare",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "sicilia quando andare",
+   "volume": 30,
+   "difficulty": 0,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "trekking in toscana",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "sentieri in trentino",
+   "volume": 40,
+   "difficulty": 4,
+   "cpc_cents": 8,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "laghi della lombardia",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "family": "lake_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "spiagge della sardegna",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "it-IT",
+   "keyword": "castelli della toscana",
+   "volume": 20,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "castle_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "que faire en bretagne",
+   "volume": 2200,
+   "difficulty": 2,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "que faire en normandie",
+   "volume": 1200,
+   "difficulty": 2,
+   "cpc_cents": 4,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "que faire en toscane",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "que faire en provence",
+   "volume": 450,
+   "difficulty": 37,
+   "cpc_cents": 2,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "que faire en andalousie",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "villes de bretagne",
+   "volume": 350,
+   "difficulty": 1,
+   "cpc_cents": 20,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "villages du luberon",
+   "volume": 200,
+   "difficulty": 2,
+   "cpc_cents": 6,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "villes de toscane",
+   "volume": 150,
+   "difficulty": 1,
+   "cpc_cents": 25,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "villes de provence",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 90,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "bretagne quand partir",
+   "volume": 10,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "toscane quand partir",
+   "volume": 20,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "randonnee en bretagne",
+   "volume": 200,
+   "difficulty": 5,
+   "cpc_cents": 10,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "randonnee dans les alpes",
+   "volume": 150,
+   "difficulty": 47,
+   "cpc_cents": 15,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "chateaux de la loire",
+   "volume": 2900,
+   "difficulty": 29,
+   "cpc_cents": 8,
+   "family": "castle_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "plages de bretagne",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "plages de corse",
+   "volume": 80,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "fr-FR",
+   "keyword": "lacs de savoie",
+   "volume": 80,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "lake_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "que ver en andalucia",
+   "volume": 30,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "que ver en galicia",
+   "volume": 250,
+   "difficulty": 2,
+   "cpc_cents": 9,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "que ver en cataluna",
+   "volume": 30,
+   "difficulty": 0,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "que ver en cerdena",
+   "volume": 100,
+   "difficulty": 1,
+   "cpc_cents": 9,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "que ver en baviera",
+   "volume": 60,
+   "difficulty": 0,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "que ver en toscana",
+   "volume": 20,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "que ver en la provenza",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "pueblos de galicia",
+   "volume": 1400,
+   "difficulty": 53,
+   "cpc_cents": 15,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "pueblos de cataluna",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "pueblos de andalucia",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "ciudades de andalucia",
+   "volume": 150,
+   "difficulty": 19,
+   "cpc_cents": null,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "ciudades de toscana",
+   "volume": 10,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "playas de galicia",
+   "volume": 1000,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "playas de andalucia",
+   "volume": 100,
+   "difficulty": 1,
+   "cpc_cents": 20,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "rutas de senderismo en galicia",
+   "volume": 80,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "senderismo en andalucia",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "es-ES",
+   "keyword": "lagos de baviera",
+   "volume": 10,
+   "difficulty": 0,
+   "cpc_cents": null,
+   "family": "lake_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "szlaki w tatrach",
+   "volume": 2000,
+   "difficulty": 2,
+   "cpc_cents": 5,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "atrakcje dolnego slaska",
+   "volume": 900,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "szlaki w bieszczadach",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "atrakcje podkarpacia",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "jeziora na mazurach",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "lake_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "zamki na dolnym slasku",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "family": "castle_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "szlaki w karkonoszach",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "miasta dolnego slaska",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 80,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "miasta malopolski",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": null,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "co zwiedzic w malopolsce",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "atrakcje malopolski",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "co zwiedzic w toskanii",
+   "volume": 70,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "co warto zobaczyc na mazurach",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "co zwiedzic w andaluzji",
+   "volume": 50,
+   "difficulty": null,
+   "cpc_cents": 2,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "atrakcje toskanii",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "atrakcje bawarii",
+   "volume": 30,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "plaze na pomorzu",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pl-PL",
+   "keyword": "co zwiedzic w prowansji",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "京都 観光",
+   "volume": 78000,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "北海道 観光",
+   "volume": 44000,
+   "difficulty": 14,
+   "cpc_cents": 3,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "沖縄 観光",
+   "volume": 41000,
+   "difficulty": 33,
+   "cpc_cents": 2,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "長野 観光",
+   "volume": 35000,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "四国 観光",
+   "volume": 23000,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "九州 観光",
+   "volume": 13000,
+   "difficulty": 1,
+   "cpc_cents": 6,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "東北 観光",
+   "volume": 6600,
+   "difficulty": 4,
+   "cpc_cents": 5,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "アンダルシア 観光",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "トスカーナ 観光",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "プロヴァンス 観光",
+   "volume": 150,
+   "difficulty": null,
+   "cpc_cents": 15,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "バイエルン 観光",
+   "volume": 40,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "北海道 都市",
+   "volume": 200,
+   "difficulty": null,
+   "cpc_cents": 3,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "トスカーナ 都市",
+   "volume": 20,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "北海道 ベストシーズン",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "family": "best_time",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "北海道 湖",
+   "volume": 2200,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "family": "lake_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "沖縄 ビーチ",
+   "volume": 1500,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "長野 ハイキング",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "ja-JP",
+   "keyword": "ドロミテ トレッキング",
+   "volume": 30,
+   "difficulty": null,
+   "cpc_cents": 15,
+   "family": "trails",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "cidades de minas gerais",
+   "volume": 12000,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "cidades de santa catarina",
+   "volume": 7300,
+   "difficulty": 1,
+   "cpc_cents": 2,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "praias de santa catarina",
+   "volume": 6800,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "praias da bahia",
+   "volume": 3700,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "family": "beach_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "o que fazer em minas gerais",
+   "volume": 1500,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "cachoeiras em minas gerais",
+   "volume": 900,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "family": "waterfall_list",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "o que fazer na bahia",
+   "volume": 500,
+   "difficulty": 1,
+   "cpc_cents": 7,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "cidades da serra gaucha",
+   "volume": 400,
+   "difficulty": 8,
+   "cpc_cents": 2,
+   "family": "cities",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "o que fazer na toscana",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "o que fazer na serra gaucha",
+   "volume": 100,
+   "difficulty": 3,
+   "cpc_cents": 6,
+   "family": "things_to_do",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "praias do algarve",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "family": "beach_list",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "trilhas em minas gerais",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "family": "trails",
+   "scope": "domestic"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "o que fazer no algarve",
+   "volume": 50,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "cidades do algarve",
+   "volume": 30,
+   "difficulty": 0,
+   "cpc_cents": 2,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "o que fazer na madeira",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "things_to_do",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "aldeias do alentejo",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "cities",
+   "scope": "foreign"
+  },
+  {
+   "searcher_market": "pt-BR",
+   "keyword": "melhor epoca para visitar o algarve",
+   "volume": 0,
+   "difficulty": null,
+   "cpc_cents": null,
+   "family": "best_time",
+   "scope": "foreign"
+  }
+ ]
+}

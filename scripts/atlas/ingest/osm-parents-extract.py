@@ -123,6 +123,11 @@ class Parents(osmium.SimpleHandler):
             'kind': 'parent', 'country': ISO, 'name': name, 'cls': cls,
             'qid': t.get('wikidata'),
             'wikipedia': t.get('wikipedia'),
+            # Every name:xx. It is the per-entity language mark the destination axis needs: a
+            # region tagged name:de=Andalusien is a region German speakers have a word for, and
+            # the wikipedia tag alone is far too sparse to stand in for that.
+            'local_names': {k[5:]: v for k, v in t.items()
+                            if k.startswith('name:') and len(k) <= 12 and v and len(v) < 120},
             'admin_level': t.get('admin_level'),
             'iso_code': t.get('ISO3166-2') or t.get('ref:nuts'),
             'protect_class': t.get('protect_class'),

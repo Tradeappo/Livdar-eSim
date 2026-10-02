@@ -102,13 +102,100 @@ FEATURE_DEMAND['lake']['measured_in'].append('it-IT')
 FEATURE_DEMAND['lake']['root_it'] = 'laghi in'
 FEATURE_DEMAND['beach']['measured_in'].append('it-IT')
 FEATURE_DEMAND['beach']['root_it'] = 'spiagge in'
+
+# Measured 2026-10-02 in the seven markets this family had never been asked about, recorded in
+# ahrefs-region-families-2026-10-02.json. Until today every one of them was refused for want of a
+# MEASUREMENT rather than for want of demand, which is the failure this project has now made
+# twice, and the numbers are not small: praias de santa catarina 6,800 in pt-BR is larger than
+# anything this family measured in German.
+#
+# Each line below is one keyword that cleared the 100 a month floor. The refusals are kept out and
+# are listed in the measurement file with their numbers, because a market absent from this list
+# should be absent for a reason a reader can check: plaze na pomorzu 0 in Polish, lagos de baviera
+# 10 in Spanish, lacs de savoie 80 in French, castelli della toscana 20 in Italian.
+_NEW = {
+    'beach': [('pt-BR', 'praias de', 6800), ('en-US', 'beaches in', 2600),
+              ('de-DE', 'straende', 400),
+              ('ja-JP', 'ビーチ', 1500), ('es-ES', 'playas de', 1000),
+              ('fr-FR', 'plages de', 100)],
+    'lake': [('ja-JP', '湖', 2200), ('pl-PL', 'jeziora na', 600)],
+    'castle': [('fr-FR', 'chateaux de', 2900), ('pl-PL', 'zamki na', 500)],
+    'trail': [('pl-PL', 'szlaki w', 2000), ('en-US', 'hiking in', 1600),
+              ('fr-FR', 'randonnee en', 200), ('ja-JP', 'ハイキング', 200),
+              ('it-IT', 'trekking in', 150)],
+}
+for _ft, _adds in _NEW.items():
+    _d = FEATURE_DEMAND[_ft]
+    for _mkt, _root, _vol in _adds:
+        if _mkt not in _d['measured_in']:
+            _d['measured_in'].append(_mkt)
+        _d['root_' + _mkt.split('-')[0]] = _root
+        _d['volume'] = max(_d['volume'], _vol)
+
+# The waterfall family was keyed 'waterfall_it' because Italian was the only market it had been
+# measured in. It now has two, so the key is the feature and the markets are the markets, which is
+# how every other entry in this table already works. cascate in trentino 100 in it-IT and
+# cachoeiras em minas gerais 900 in pt-BR.
+FEATURE_DEMAND['waterfall'] = dict(FEATURE_DEMAND.pop('waterfall_it'))
+FEATURE_DEMAND['waterfall']['measured_in'] = ['it-IT', 'pt-BR']
+FEATURE_DEMAND['waterfall']['root_pt'] = 'cachoeiras em'
+FEATURE_DEMAND['waterfall']['volume'] = 900
 # The POI classes that count as each feature type
 FEATURE_CLASSES = {
     'lake': {'lake'}, 'beach': {'beach'}, 'peak': {'peak'}, 'viewpoint': {'viewpoint'},
     'castle': {'castle', 'fort'}, 'camp_site': {'camp_site', 'caravan_site'},
     'cave': {'cave', 'cave_entrance'}, 'trail': {'trail_route'},
-    'waterfall_it': {'waterfall'}, 'mountain_hut': {'mountain_hut', 'wilderness_hut'},
+    'waterfall': {'waterfall'}, 'mountain_hut': {'mountain_hut', 'wilderness_hut'},
 }
+
+# ---- a region list for a market whose country this is NOT --------------------------------------
+# Measured 2026-10-02: andalusien straende 400, toskana straende 300 and bretagne straende 100 are
+# all German pages about SPANISH, ITALIAN and FRENCH regions, and andalusien sehenswuerdigkeiten at
+# 2,200 beats every domestic German region keyword tested. Until now this file granted exactly one
+# market per region, the home market of its country, so every one of those pages was impossible.
+#
+# Two halves of evidence again, the same two the city families use. Half one is the country by
+# language table. Half two must be carried by the REGION itself, and a parent polygon carries its
+# own wikipedia tag, whose prefix is a language: a region tagged wikipedia=de:Andalusien has a
+# German encyclopedia article, which is evidence German speakers look it up. A proxy for interest,
+# never a measured volume, and the row says so.
+DEST_LANG = {}
+try:
+    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
+                         'destination-demand-by-country-language-2026-10-02.json'))
+    for _v in _dt['table'].values():
+        if _v.get('qualifies'):
+            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
+                _v['max_connectivity_volume'], _v['max_information_volume'])
+except (FileNotFoundError, KeyError, ValueError):
+    pass
+LANG_MKT = {'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'es-ES',
+            'nl': 'nl-NL', 'pl': 'pl-PL', 'pt': 'pt-BR', 'ja': 'ja-JP', 'zh-Hant': 'zh-Hant-TW'}
+
+
+def markets_for_parent(country, p):
+    """Every (market, language, why) this region earns. Home market first."""
+    out = []
+    home = COUNTRY_MKT.get(country)
+    if home:
+        out.append((home[0], home[1], 'home'))
+    wp = (p.get('wikipedia') or '')
+    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
+    local = {k.lower() for k in (p.get('local_names') or {})}
+    for lang, ev in (DEST_LANG.get(country) or {}).items():
+        mkt = LANG_MKT.get(lang)
+        if not mkt or (home and home[1] == lang):
+            continue
+        zh = lang == 'zh-Hant'
+        article = wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical'))
+        named = lang in local or (zh and bool({'zh', 'zh-hant', 'zh-tw'} & local))
+        if not (article or named):
+            continue
+        mark = (f'its own {lang} Wikipedia article' if article
+                else f'a name:{lang} tag, the name {lang} speakers use for it')
+        out.append((mkt, lang, f'destination:{ev[0]:,}/{ev[1]:,}:{mark}'))
+    return out
+
 
 # A list needs enough entries to be a list. Three is the floor every other shape in this
 # pipeline uses for the same reason: a list of one is not a list, and a list of two is a
@@ -168,9 +255,9 @@ for key, counts in sorted(per.items()):
     if not p:
         rejects['parent_not_in_the_parent_layer'] += 1; continue
     mk = COUNTRY_MKT.get(country)
-    if not mk:
-        rejects['no_market_for_country'] += 1; continue
-    market, lang = mk
+    mkts = markets_for_parent(country, p)
+    if not mkts:
+        rejects['no_market_and_no_destination_evidence_for_country'] += 1; continue
     if p['cls'] not in PARENT_OK:
         rejects['parent_class_not_a_place_a_reader_knows'] += 1; continue
     if p.get('geometry') != 'polygon':
@@ -180,11 +267,15 @@ for key, counts in sorted(per.items()):
     if (p.get('km2') or 0) < MIN_PARENT_KM2:
         rejects['parent_too_small_to_be_a_place'] += 1; continue
     for ft, n in counts.items():
-        if n < MIN_FEATURES:
-            rejects[f'below_min_features_{ft}'] += 1; continue
-        dem = FEATURE_DEMAND.get(ft)
-        if not dem:
-            rejects[f'feature_has_no_measured_list_demand_{ft}'] += 1; continue
+      if n < MIN_FEATURES:
+        rejects[f'below_min_features_{ft}'] += 1; continue
+      dem = FEATURE_DEMAND.get(ft)
+      if not dem:
+        rejects[f'feature_has_no_measured_list_demand_{ft}'] += 1; continue
+      # One pass per market this region earns. The feature count and the examples are facts about
+      # the region and are the same in every language; what differs is the language the page is
+      # written in and whether that market has MEASURED demand for this list shape.
+      for (market, lang, why) in mkts:
         if market not in dem['measured_in']:
             # the family is proven in another market and not in this one. Recorded, not
             # generated: this is the same rule the localisation gate applies.
