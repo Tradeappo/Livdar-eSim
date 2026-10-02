@@ -1,0 +1,169 @@
+{
+ "measured_on": "2026-10-02",
+ "question": "After the destination axis opened the city pool from roughly 31,715 to 56,317, the single largest gate in the funnel became dropped_beyond_measured_tier at 233,233 rows. The cap says a city deeper than the tier a family-by-market cell was measured to reach is not a candidate in that market. The question is whether the new per-entity language mark, a Wikipedia article or a GeoNames alternate name in the page language, is evidence enough to stand in for that cap.",
+ "why_it_had_to_be_measured_rather_than_argued": "There is a plausible argument that it should: a tier is a population rank and a German Wikipedia article about a Turkish town is entity-level evidence, which is stronger than a proxy. There is an equally plausible argument that it should not. Arguing it either way would have been self-justification, and the brief forbids relaxing a gate, so the only honest route was to sample the cities the cap drops and ask Ahrefs what they are worth.",
+ "sample": "14 cities per language drawn at random from the 5,987 city-by-language combinations that are tier 3 or deeper, sit in a destination country whose language qualifies, and carry the per-entity mark. The sample is what the gate would admit, not a selection of likely winners: it ran from Udon Thani at 130,531 people and Estoril the resort down to Kurttepe at 6,978 and Vuzenica at 1,580.",
+ "rows": {
+  "de-DE": [
+   [
+    "voesendorf sehenswuerdigkeiten",
+    0
+   ],
+   [
+    "huatulco sehenswuerdigkeiten",
+    0
+   ],
+   [
+    "tlaxco",
+    0
+   ],
+   [
+    "san martin hidalgo",
+    0
+   ],
+   [
+    "santa maria huatulco",
+    0
+   ],
+   [
+    "kurttepe",
+    0
+   ],
+   [
+    "pinarbasi",
+    10
+   ],
+   [
+    "felipe carrillo puerto",
+    20
+   ],
+   [
+    "amnat charoen",
+    20
+   ],
+   [
+    "palmela portugal",
+    20
+   ],
+   [
+    "chanthaburi sehenswuerdigkeiten",
+    20
+   ],
+   [
+    "ptolemaida",
+    40
+   ],
+   [
+    "phatthalung",
+    50
+   ],
+   [
+    "udon thani sehenswuerdigkeiten",
+    50
+   ],
+   [
+    "povoa de varzim",
+    60
+   ],
+   [
+    "chanthaburi",
+    350
+   ],
+   [
+    "udon thani",
+    500
+   ],
+   [
+    "ptuj",
+    700
+   ],
+   [
+    "yozgat",
+    1600
+   ],
+   [
+    "estoril",
+    2000
+   ]
+  ],
+  "it-IT": [
+   [
+    "arta cosa vedere",
+    0
+   ],
+   [
+    "chortiatis",
+    0
+   ],
+   [
+    "ilion grecia",
+    0
+   ],
+   [
+    "agios ioannis rentis",
+    0
+   ],
+   [
+    "vuzenica",
+    0
+   ],
+   [
+    "ptolemaida",
+    10
+   ],
+   [
+    "ptuj cosa vedere",
+    10
+   ],
+   [
+    "ocosingo",
+    10
+   ],
+   [
+    "gornja radgona",
+    10
+   ],
+   [
+    "forde norvegia",
+    30
+   ],
+   [
+    "estoril cosa vedere",
+    30
+   ],
+   [
+    "polygyros",
+    30
+   ],
+   [
+    "yozgat",
+    50
+   ],
+   [
+    "arta grecia",
+    150
+   ],
+   [
+    "bohinjska bistrica",
+    150
+   ],
+   [
+    "ptuj",
+    400
+   ],
+   [
+    "izmit",
+    500
+   ],
+   [
+    "estoril",
+    2300
+   ]
+  ]
+ },
+ "the_finding": "THE CAP STANDS. The family phrasing is dead at this depth, which is the thing that matters, because the page the pipeline would build is the family page and not the bare name. voesendorf sehenswuerdigkeiten 0, huatulco sehenswuerdigkeiten 0, arta cosa vedere 0, chanthaburi sehenswuerdigkeiten 20, ptuj cosa vedere 10, udon thani sehenswuerdigkeiten 50. The clearest case is Estoril: the bare name is 2,000 in German and 2,300 in Italian, and \"estoril cosa vedere\" is 30. A name with volume is not a page intent, and the SERP for a bare town name is an encyclopedia entry.",
+ "what_this_closes": "233,233 rows stay rejected and the rejection now rests on a measurement rather than on an inherited proxy. That is the largest single lever examined today and it does not open. Recording it matters more than the number it would have added, because the next pass would otherwise look at dropped_beyond_measured_tier, see 233,233, and spend a day on it.",
+ "the_one_refinement_still_open": "A minority of the sample does carry real volume: estoril 2,000 and 2,300, yozgat 1,600, ptuj 700 and 400, udon thani 500, izmit 500, chanthaburi 350. Population does not separate them from the zeros, Ptuj at 17,984 against Vilankurichi at 24,235. What plausibly separates them is being a place with things in it, which the pipeline can measure as POI richness.",
+ "and_why_that_refinement_could_not_be_tested_today": "It was attempted and the attempt returned zero named POI within 10km for all 28 cities, INCLUDING Estoril and Udon Thani. That is not a finding, it is an absence: every city in the sample sits in a destination country, and the POI layer exists only for the eleven market countries so far. Reporting those zeros as evidence of thinness would have been the same mistake this project has already made more than once today, where a comparison against the wrong field produced a confident wrong answer. The test is deferred until the capture queue has written POI for Turkey, Greece, Slovenia, Thailand, Portugal, Mexico, Norway and Austria, at which point it is a free measurement.",
+ "what_was_NOT_done": "the cap was not widened, no gate was relaxed, and no row was admitted on the strength of an argument."
+}
