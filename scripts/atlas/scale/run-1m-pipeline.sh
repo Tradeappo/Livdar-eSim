@@ -17,7 +17,23 @@
 #            scripts/atlas/ingest/osm-run-place-layers.sh                named places with polygons
 #   generate this script
 #
-# Usage: run-1m-pipeline.sh [--skip-places|--from-manifest]
+# The order of the generate stages is not arbitrary and is not alphabetical:
+#   poi-parent-assign      must precede everything that asks what is inside a geography
+#   place-poi-density      must precede poi-aggregations, whose place gate reads its output
+#   outdoor-feature-*      before outdoor-aggregations, which lists what the features pass
+#   region-aggregations    after parent-assign, and it also reads the cities and the climate
+#   trail-candidates       after the parents exist, for the containment parent on each route
+#   wikidata-candidates    after poi-aggregations, because its parents are the city lists that
+#                          aggregation accepted
+#   the manifest           last of the generate stages, and a failure here stops the run
+#
+# Usage: run-1m-pipeline.sh [--skip-places|--from-aggregations|--from-manifest]
+#
+# --from-aggregations keeps the POI aggregation and the density file already on disk and runs
+# everything after them. Those two stages read five million POI and take about half an hour
+# between them, and nothing in the outdoor, region, trail or Wikidata stages feeds back into
+# them, so when a GEOGRAPHIC layer has landed but the POI corpus has not changed this skips
+# the half hour and produces the same inputs. It refuses to run if either file is missing.
 #
 # --from-manifest starts at the manifest and reuses the aggregation and Wikidata candidate
 # files already on disk. Those two stages read 5 million POI and take about nine minutes,
@@ -31,7 +47,7 @@ log() { echo "[$(date +%T)] == $*"; }
 
 MODE="${1:-}"
 
-if [ "$MODE" != "--from-manifest" ]; then
+if [ "$MODE" != "--from-manifest" ] && [ "$MODE" != "--from-aggregations" ]; then
 if [ "$MODE" != "--skip-places" ]; then
   log "place layers (named neighbourhoods with polygons where OSM has them)"
   ./scripts/atlas/ingest/osm-run-place-layers.sh || echo "  place layers: partial"
@@ -41,15 +57,58 @@ log "normalise holidays into one Pulse vocabulary"
 python3 scripts/atlas/ingest/pulse-materialise.py > /tmp/pipe_pulse.log 2>&1 \
   && tail -3 /tmp/pipe_pulse.log || echo "  pulse: FAILED, see /tmp/pipe_pulse.log"
 
+log "POI to containment parent, so every later stage can ask what is INSIDE a geography"
+python3 scripts/atlas/scale/poi-parent-assign.py > /tmp/pipe_assign.log 2>&1 \
+  && tail -4 /tmp/pipe_assign.log || echo "  parent assignment: see /tmp/pipe_assign.log"
+
+log "exclusive POI density per place, which decides which unnamed places are real"
+# Every named POI to EXACTLY ONE place. This has to run BEFORE poi-aggregations, because the
+# place gate reads its output to recover places that carry no polygon, no population, no Wikidata
+# item and no Wikipedia article but do hold twenty or more named POI nothing else can claim.
+python3 scripts/atlas/scale/place-poi-density.py > /tmp/pipe_density.log 2>&1 \
+  && grep -E "EXCLUSIVE|recoverable|written" /tmp/pipe_density.log \
+  || echo "  density: see /tmp/pipe_density.log"
+
 log "POI aggregations (city and area shapes, gated on measured demand)"
 python3 scripts/atlas/scale/poi-aggregations.py > /tmp/pipe_agg.log 2>&1
 grep -E "^(POI read|aggregation candidates|  by shape)" /tmp/pipe_agg.log || tail -3 /tmp/pipe_agg.log
+
+else
+  if [ "$MODE" = "--from-aggregations" ]; then
+    log "resuming after the POI aggregation; its output and the density file on disk are reused"
+    for need in data/atlas/sources/osm-poi/_aggregations.jsonl.gz \
+                data/atlas/sources/places/poi-density.jsonl.gz; do
+      [ -f "$need" ] || { echo "  MISSING $need, cannot resume; run without --from-aggregations"; exit 1; }
+      echo "  reusing $need  ($(stat -c '%y' "$need" | cut -d. -f1))"
+    done
+    log "POI to containment parent, refreshed because a new parent layer changes every answer"
+    python3 scripts/atlas/scale/poi-parent-assign.py > /tmp/pipe_assign.log 2>&1 \
+      && tail -4 /tmp/pipe_assign.log || echo "  parent assignment: see /tmp/pipe_assign.log"
+  fi
+fi
+
+if [ "$MODE" != "--from-manifest" ]; then
+log "outdoor feature candidates: peaks, lakes, beaches and the rest, with their own attributes"
+python3 scripts/atlas/scale/outdoor-feature-candidates.py > /tmp/pipe_feat.log 2>&1 \
+  && tail -6 /tmp/pipe_feat.log || echo "  features: see /tmp/pipe_feat.log"
+
+log "outdoor region lists: one feature class inside one named geography, containment only"
+python3 scripts/atlas/scale/outdoor-aggregations.py > /tmp/pipe_outagg.log 2>&1 \
+  && tail -8 /tmp/pipe_outagg.log || echo "  outdoor lists: see /tmp/pipe_outagg.log"
+
+log "region families: what to see, the towns, and when to go"
+python3 scripts/atlas/scale/region-aggregations.py > /tmp/pipe_region.log 2>&1 \
+  && tail -10 /tmp/pipe_region.log || echo "  regions: see /tmp/pipe_region.log"
+
+log "trail candidates, measured from route member geometry"
+python3 scripts/atlas/scale/trail-candidates.py > /tmp/pipe_trail.log 2>&1 \
+  && tail -10 /tmp/pipe_trail.log || echo "  trails: see /tmp/pipe_trail.log"
 
 log "Wikidata candidates, deduped against the OSM corpus"
 python3 scripts/atlas/scale/wikidata-candidates.py > /tmp/pipe_wd.log 2>&1
 grep -E "^(Wikidata candidates|  by shape)" /tmp/pipe_wd.log || tail -3 /tmp/pipe_wd.log
 
-else
+elif [ "$MODE" = "--from-manifest" ]; then
   log "resuming at the manifest; the aggregation file on disk is reused"
   need=data/atlas/sources/osm-poi/_aggregations.jsonl.gz
   [ -f "$need" ] || { echo "  MISSING $need, cannot resume; run without --from-manifest"; exit 1; }
@@ -103,7 +162,14 @@ log "do the artifacts agree with each other"
 python3 scripts/atlas/scale/verify-artifacts-agree.py 2>&1 | tail -14 \
   || echo "  ARTIFACTS DISAGREE: see the lines above; the report below is not trustworthy"
 
+log "family acceptance test: ten conditions and the content contract, per family"
+python3 scripts/atlas/scale/family-acceptance-test.py > /tmp/pipe_accept.log 2>&1 \
+  && tail -12 /tmp/pipe_accept.log || echo "  acceptance: see /tmp/pipe_accept.log"
+
 log "final deliverable report"
 python3 scripts/atlas/scale/build-final-deliverable.py 2>&1 | tail -3
+
+log "the report in the shape the brief asks for, generated from the artifacts"
+python3 scripts/atlas/scale/final-brief-report.py 2>&1 | tail -4
 
 log "pipeline complete"
