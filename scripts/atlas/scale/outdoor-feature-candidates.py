@@ -49,6 +49,41 @@ PARENTS = ROOT + 'data/atlas/sources/osm-parents/'
 OUT = OUTD + '_feature-candidates.jsonl.gz'
 slug = entity_identity.slugify
 
+# ---- the destination axis ---------------------------------------------------------------------
+# A named peak in Turkey had no market at all and was simply rejected. The fix is the two halves of
+# evidence the city families use, and a feature is unusually well placed to carry half two itself:
+# the outdoor extract keeps the wikipedia tag and every name:xx from the start, so a mountain
+# tagged name:de has a German name because German speakers refer to it. Measured in the Turkish
+# layer: of the first 5,000 features, 1,477 carry a Wikidata item, 542 carry a name:xx and 249
+# carry a Wikipedia article.
+DEST_LANG = {}
+try:
+    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
+                         'destination-demand-by-country-language-2026-10-02.json'))
+    for _v in _dt['table'].values():
+        if _v.get('qualifies'):
+            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
+                _v['max_connectivity_volume'], _v['max_information_volume'])
+except (FileNotFoundError, KeyError, ValueError):
+    pass
+LANG_MKT = {'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'es-ES',
+            'nl': 'nl-NL', 'pl': 'pl-PL', 'pt': 'pt-BR', 'ja': 'ja-JP', 'zh-Hant': 'zh-Hant-TW'}
+
+
+def feature_marks(o):
+    """The languages this feature itself carries a name or an article in."""
+    local = {str(k).lower() for k in (o.get('local_names') or o.get('names') or {})}
+    wp = o.get('wikipedia') or ''
+    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
+    out = {}
+    for lang in LANG_MKT:
+        zh = lang == 'zh-Hant'
+        if wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical')):
+            out[lang] = f'its own {lang} Wikipedia article'
+        elif lang in local or (zh and {'zh', 'zh-hant', 'zh-tw'} & local):
+            out[lang] = f'a name:{lang} tag, the name {lang} speakers use for it'
+    return out
+
 COUNTRY_MKT = {
     'US': ('en-US', 'en'), 'GB': ('en-GB', 'en'), 'DE': ('de-DE', 'de'),
     'FR': ('fr-FR', 'fr'), 'IT': ('it-IT', 'it'), 'ES': ('es-ES', 'es'),
@@ -150,10 +185,21 @@ for f in sorted(glob.glob(OUTD + 'outdoor-*.jsonl.gz')):
             rejects['no_parent_layer_for_this_country'] += 1
             continue
         mk = COUNTRY_MKT.get(iso)
-        if not mk:
-            rejects['no_market_for_country'] += 1
-            continue
-        market, lang = mk
+        if mk:
+            market, lang = mk
+        else:
+            # No home market, so the BASE row is written in the destination language this feature
+            # has the strongest evidence for, and the fan-out below adds any others. Writing a row
+            # with no market at all is what produced the earlier "no_market_for_country" rejections
+            # for every Turkish peak.
+            _dl = DEST_LANG.get(iso) or {}
+            _mk = feature_marks(o)
+            _cand = sorted(((_dl[L][1], L) for L in _dl if L in _mk), reverse=True)
+            if not _cand:
+                rejects['no_market_and_no_destination_evidence_for_this_feature'] += 1
+                continue
+            lang = _cand[0][1]
+            market = LANG_MKT[lang]
         attr = o.get('attr') or {}
         notable = bool(o.get('qid') or o.get('wikipedia'))
         measurable = [k for k in MEASURABLE if k in attr]
@@ -297,6 +343,59 @@ if _dropped:
 print(f'\nfeatures given a measured discriminator in the name: {_disamb:,}', file=sys.stderr)
 print(f'features dropped because nothing in the data separated them: {len(_dropped):,}',
       file=sys.stderr)
+
+# ---- fan out to the markets the destination evidence allows ------------------------------------
+# Done once over the finished rows rather than inside the emit loop, for the same reason the POI
+# aggregation does it that way: one place to get right instead of several. A copy is made only
+# where the FEATURE ITSELF carries a name or an article in that language, so the page is about
+# something that language already has a word for, which is the difference between a destination
+# page and a translated clone.
+_fan, _fs = [], collections.Counter()
+for r in rows:
+    iso = r.get('country')
+    langs = DEST_LANG.get(iso) or {}
+    if not langs:
+        continue
+    local = {str(k).lower() for k in (r.get('local_names') or r.get('names') or {})}
+    wp = r.get('wikipedia') or ''
+    wl = wp.split(':', 1)[0].strip().lower() if ':' in wp else ''
+    if not local and not wl:
+        _fs['feature_carries_no_name_or_article_in_any_language'] += 1
+        continue
+    for lang, ev in langs.items():
+        if lang == r.get('language'):
+            continue
+        mkt = LANG_MKT.get(lang)
+        if not mkt:
+            continue
+        zh = lang == 'zh-Hant'
+        article = wl == lang or (zh and wl in ('zh', 'zh-yue', 'zh-classical'))
+        named = lang in local or (zh and bool({'zh', 'zh-hant', 'zh-tw'} & local))
+        if not (article or named):
+            _fs['no_mark_in_this_language'] += 1
+            continue
+        mark = (f'its own {lang} Wikipedia article' if article
+                else f'a name:{lang} tag, the name {lang} speakers use for it')
+        r2 = dict(r)
+        r2['market'], r2['language'] = mkt, lang
+        if r.get('url') and r.get('language'):
+            r2['url'] = '/' + lang + r['url'][len(r['language']) + 1:]
+        r2['market_reason'] = (f'{iso} carries measured {lang} demand ({ev[0]:,} connectivity, '
+                               f'{ev[1]:,} information) and this feature carries {mark}')
+        r2['uniqueness_reason'] = (
+            str(r.get('uniqueness_reason') or '').rstrip('.') +
+            f'. This page is served to {mkt} because {iso} carries measured {lang} demand and '
+            f'this feature carries {mark}, which is a proxy for {lang} interest in it and not a '
+            f'measured volume for this page')
+        _fan.append(r2)
+        _fs['copied:' + mkt] += 1
+if _fan:
+    rows.extend(_fan)
+    print(f'destination fan-out: {len(_fan):,} feature pages added', file=sys.stderr)
+for _k, _v in _fs.most_common():
+    print(f'    {_k:52} {_v:>10,}', file=sys.stderr)
+    if not _k.startswith('copied:'):
+        rejects['destination_fanout_' + _k] += _v
 
 print(f'\noutdoor feature candidates: {len(rows):,}', file=sys.stderr)
 print('  by class:', dict(collections.Counter(r['cls'] for r in rows).most_common(14)),

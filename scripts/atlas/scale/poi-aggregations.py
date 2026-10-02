@@ -1202,6 +1202,129 @@ for o, _ncid, extras in notable:
     })
 rejects['entity_not_notable'] += counts['poi_read'] - len(notable)
 
+# ---- the destination axis, applied once to every shape -----------------------------------------
+# Eleven places in this file ask COUNTRY_MKT for a market and reject the row when there is none,
+# which is why a Turkish museum list had nowhere to go. Patching eleven call sites would have been
+# eleven chances to get one of them wrong, so the fan-out happens here instead, once, over every
+# row that was already emitted: the home market row is untouched and copies are appended for the
+# markets the evidence allows.
+#
+# Every shape in this file carries a city_id, so the city is the evidence anchor, and that is also
+# where the measured keywords actually sat: antalya sehenswuerdigkeiten 1,800, luxor
+# sehenswuerdigkeiten 600, abu dhabi sehenswuerdigkeiten 2,500. The rule has three parts and all
+# three are required:
+#
+#   1 the row's country carries measured demand in the page language, both a connectivity keyword
+#     and a travel-information keyword above the floor
+#   2 the CITY carries a mark in that language: a GeoNames alternate name or a Wikipedia article
+#   3 for an area_* shape the AREA carries a mark too, because the page is about the
+#     neighbourhood and not the city, and the neighbourhood-level measurement is weak where it was
+#     taken at all: marrakesch viertel 10, mexico city viertel 10, lissabon viertel 60. A city
+#     mark is not evidence for a page one level below the city.
+#
+# What this is NOT: a translation. A copy is made only where the place itself carries a name or an
+# article in that language, so the page is about something that language already has words for.
+# The mark is a PROXY for interest and the uniqueness reason on every copy says so.
+DEST_LANG = {}
+try:
+    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
+                         'destination-demand-by-country-language-2026-10-02.json'))
+    for _v in _dt['table'].values():
+        if _v.get('qualifies'):
+            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
+                _v['max_connectivity_volume'], _v['max_information_volume'])
+except (FileNotFoundError, KeyError, ValueError):
+    pass
+LANG_MKT = {'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'es-ES',
+            'nl': 'nl-NL', 'pl': 'pl-PL', 'pt': 'pt-BR', 'ja': 'ja-JP', 'zh-Hant': 'zh-Hant-TW'}
+
+CITY_MARK = collections.defaultdict(dict)
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/altnames-by-language.jsonl.gz',
+                        'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if not _l: continue
+        _r = json.loads(_l)
+        for _lang, _v in (_r.get('names') or {}).items():
+            if _v.get('historic') or _v.get('colloquial'): continue
+            CITY_MARK[str(_r['geonameid'])][_lang] = 'a GeoNames alternate name'
+except (EOFError, OSError, FileNotFoundError):
+    pass
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/city-sitelinks.jsonl.gz',
+                        'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if not _l: continue
+        _r = json.loads(_l)
+        for _lang in (_r.get('wikipedia_languages') or {}):
+            _d = CITY_MARK[str(_r['geonameid'])]
+            _d[_lang] = ('a GeoNames alternate name and a Wikipedia article'
+                         if _lang in _d else 'a Wikipedia article')
+except (EOFError, OSError, FileNotFoundError):
+    pass
+
+# the AREA mark, read off the place records this file already loaded
+AREA_MARK = collections.defaultdict(set)
+for _p in places.values():
+    _k = (_p.get('country'), _p.get('id'))
+    _wp = _p.get('wikipedia') or ''
+    if ':' in _wp:
+        AREA_MARK[_k].add(_wp.split(':', 1)[0].strip().lower())
+    for _lk in (_p.get('names') or _p.get('local_names') or {}):
+        AREA_MARK[_k].add(str(_lk).lower())
+print(f'cities carrying a per-language mark: {len(CITY_MARK):,}; '
+      f'areas carrying one: {len(AREA_MARK):,}', file=sys.stderr)
+
+_fan = []
+_fan_stats = collections.Counter()
+for r in rows:
+    cc = r.get('country')
+    langs = DEST_LANG.get(cc) or {}
+    if not langs:
+        continue
+    marks = CITY_MARK.get(str(r.get('city_id') or '')) or {}
+    if not marks:
+        _fan_stats['no_city_mark_in_any_language'] += 1
+        continue
+    is_area = str(r.get('shape', '')).startswith('area_')
+    amk = AREA_MARK.get((cc, r.get('area_id'))) if is_area else None
+    for lang, ev in langs.items():
+        if lang == r.get('language') or lang not in marks:
+            continue
+        mkt = LANG_MKT.get(lang)
+        if not mkt:
+            continue
+        if is_area:
+            zh = lang == 'zh-Hant'
+            if not amk or not (lang in amk or (zh and {'zh', 'zh-hant', 'zh-tw'} & amk)):
+                _fan_stats['area_itself_carries_no_mark_in_this_language'] += 1
+                continue
+        r2 = dict(r)
+        r2['market'], r2['language'] = mkt, lang
+        r2['url'] = '/' + lang + r['url'][len(r['language']) + 1:]
+        r2['market_reason'] = (
+            f'{cc} carries measured {lang} demand ({ev[0]:,} on the connectivity keyword and '
+            f'{ev[1]:,} on the travel-information keyword) and {r.get("city")} carries '
+            f'{marks[lang]} in {lang}')
+        r2['uniqueness_reason'] = (
+            r['uniqueness_reason'].rstrip('.') +
+            f'. This page is served to {mkt} because {cc} carries measured {lang} demand and '
+            f'{r.get("city")} carries {marks[lang]} in {lang}, which is a proxy for {lang} '
+            f'interest in it and not a measured volume for this page')
+        _fan.append(r2)
+        _fan_stats['copied:' + mkt] += 1
+if _fan:
+    rows.extend(_fan)
+    print(f'destination fan-out: {len(_fan):,} rows added for markets the evidence allows',
+          file=sys.stderr)
+    for _k, _v in _fan_stats.most_common():
+        print(f'    {_k:48} {_v:>10,}', file=sys.stderr)
+        if not _k.startswith('copied:'):
+            rejects['destination_fanout_' + _k] += _v
+else:
+    for _k, _v in _fan_stats.most_common():
+        rejects['destination_fanout_' + _k] += _v
+
 print(f'\naggregation candidates: {len(rows):,}', file=sys.stderr)
 print('  by shape:', dict(collections.Counter(r['shape'] for r in rows)), file=sys.stderr)
 print('  by market:', dict(collections.Counter(r['market'] for r in rows).most_common()), file=sys.stderr)

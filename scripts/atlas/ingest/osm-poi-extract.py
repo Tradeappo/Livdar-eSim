@@ -109,8 +109,18 @@ class POI(osmium.SimpleHandler):
         for k_src, k_dst in (('addr:city', 'city'), ('website', 'web'),
                              ('opening_hours', 'oh'), ('phone', 'tel'),
                              ('wikidata', 'qid'), ('cuisine', 'cuisine'),
-                             ('addr:postcode', 'pc'), ('operator', 'op')):
+                             ('addr:postcode', 'pc'), ('operator', 'op'),
+                             ('wikipedia', 'wikipedia')):
             if t.get(k_src): rec[k_dst] = t[k_src][:120]
+        # Every name:xx. Until now this pass kept no language-bearing tag at all, which was
+        # invisible while every POI sat in a market country whose language was already known from
+        # the country. Opening the destination axis made it the binding gap: a Turkish museum needs
+        # a mark in the page's language before a German page about it is anything but a translated
+        # clone, and the wikipedia tag plus name:de are the two marks OSM actually carries. The
+        # outdoor pass has kept these from the start and the POI pass did not.
+        ln = {k[5:]: str(v)[:120] for k, v in t.items()
+              if k.startswith('name:') and len(k) <= 12 and v and len(str(v)) < 120}
+        if ln: rec['names'] = ln
         # Attributes a person actually filters on. These are what let a modifier page
         # ("cafes with wifi in Berlin", "restaurants with outdoor seating in Lyon") be
         # backed by data instead of asserted: the page exists only where enough
