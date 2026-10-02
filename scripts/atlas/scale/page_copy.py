@@ -69,14 +69,23 @@ def compute_shared_subjects(all_rows):
     import collections as _c
     fams = _c.defaultdict(set)
     for r in all_rows:
-        # Neighbourhoods are in this index even though their own subject never reads it, because
-        # the collision that matters runs ACROSS entity types: Roter Berg is a neighbourhood of
+        # The collision that matters runs ACROSS entity types: Roter Berg is a neighbourhood of
         # Erfurt and also a peak beside it, and Porta a Lucca is a quarter of Pisa and also its
         # city gate. Both pages are legitimate and both were titled "Roter Berg, Erfurt". Marking
         # the key as shared is what makes the FEATURE page carry its class, which is the fact that
         # tells the two apart.
         if r.get('entity_type') in ('poi', 'venue', 'outdoor_feature', 'trail', 'neighbourhood'):
             fams[subject_key(r)].add(r.get('family'))
+        # An area page carries entity_type "area" and an entity_name that ALREADY reads
+        # "Roter Berg, Erfurt", so its own subject_key slugs to roter-berg-erfurt and never meets
+        # the feature's roter-berg. Keying it on the NEIGHBOURHOOD field instead is what makes the
+        # two meet. A first attempt at this fix added "neighbourhood" to the list above and changed
+        # nothing, because that is not the type these rows carry: the type string was assumed
+        # rather than read, which is the same mistake as comparing against the wrong field.
+        elif r.get('neighbourhood') and r.get('entity_type') == 'area':
+            fams[(r.get('market', ''), (r.get('city') or '').casefold(),
+                  re.sub(r'[^0-9a-z]+', '-', (r['neighbourhood']).lower()).strip('-')
+                  )].add(r.get('family'))
     return {k for k, v in fams.items() if len(v) > 1}
 
 
