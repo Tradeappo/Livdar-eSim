@@ -5,7 +5,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | family | en-US | en-GB | de-DE | ja-JP | zh-Hant-TW | it-IT | es-ES | fr-FR | nl-NL | pl-PL | pt-BR |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | places.area-cuisine | 5,181 | 2,128 | 1,591 | 4,089 |  | 1,725 | 1,236 | 2,214 | 628 | 867 | 582 |
-| outdoors.peak |  |  | 12,407 |  |  | 4,878 |  | 3,112 | 112 |  |  |
+| outdoors.peak |  |  | 12,423 |  |  | 4,918 |  | 3,161 | 119 |  |  |
 | activities.city-things-to-do |  | 11,332 | 772 | 2,544 | 51 | 1,039 | 185 | 162 | 57 | 1 | 164 |
 | places.area-restaurant | 2,440 | 890 | 1,697 | 2,943 |  | 1,492 | 1,486 | 1,854 | 559 | 775 | 664 |
 | places.city-cuisine | 4,894 | 1,250 | 1,044 | 1,822 |  | 643 | 780 | 1,135 | 476 | 506 | 473 |
@@ -19,7 +19,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-opening | 2,418 | 519 | 1,786 | 388 |  | 511 | 490 | 375 | 393 | 386 | 129 |
 | events.city-calendar | 882 | 39 | 2,405 | 553 | 40 | 15 | 2 | 1,456 | 357 | 16 | 159 |
 | events.city-type | 882 | 39 | 2,405 | 553 | 40 | 15 | 2 | 1,456 | 357 | 16 | 159 |
-| outdoors.castle |  |  | 2,125 |  |  | 559 |  | 3,663 | 259 |  |  |
+| outdoors.castle |  |  | 2,130 |  |  | 559 |  | 3,666 | 261 |  |  |
 | places.city-restaurant | 1,918 | 347 | 635 | 436 |  | 690 | 452 | 771 | 255 | 211 | 205 |
 | places.area-clinic | 721 | 302 | 717 | 817 |  | 291 | 389 | 675 | 322 | 772 | 327 |
 | rents.city | 882 | 240 | 2,405 | 553 | 18 | 133 | 150 | 143 |  | 1 | 677 |
@@ -38,7 +38,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | property.city-buy | 883 | 240 | 195 | 553 | 40 | 133 | 150 | 1 |  | 117 | 677 |
 | places.city-pharmacy | 379 | 240 | 365 | 199 | 31 | 330 | 257 | 474 | 59 | 292 | 158 |
 | cost-of-living.city | 883 | 2 | 195 | 553 | 40 | 144 | 150 | 143 | 57 | 101 | 699 |
-| poi.museum-notable | 320 | 216 | 438 | 237 |  | 515 | 146 | 221 | 323 | 299 | 397 |
+| poi.museum-notable | 320 | 216 | 446 | 237 |  | 515 | 146 | 222 | 323 | 306 | 397 |
 | health.city | 882 | 2 | 38 | 553 | 40 | 144 | 158 | 143 | 57 | 117 | 677 |
 | places.city-attribute | 1,448 |  | 769 |  | 5 |  |  |  |  | 249 | 284 |
 | places.area-school | 339 | 53 | 123 | 91 |  | 218 | 157 | 521 | 360 | 354 | 435 |
@@ -49,18 +49,18 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-childcare | 148 | 128 | 409 | 145 |  | 79 | 218 | 323 | 226 | 472 | 61 |
 | places.city-supermarket | 338 | 80 | 172 | 263 |  | 252 | 246 | 192 | 138 | 138 | 145 |
 | outdoors.mtb-trail |  |  |  |  |  |  |  | 1,847 | 274 |  |  |
-| outdoors.archaeological_site |  |  | 742 |  |  | 639 |  | 454 | 46 |  |  |
+| outdoors.archaeological_site |  |  | 745 |  |  | 639 |  | 454 | 49 |  |  |
 | services.city-practical | 130 | 39 | 38 | 120 | 5 | 133 | 150 | 143 | 57 | 101 | 677 |
 | places.city-school | 382 | 28 | 64 | 66 |  | 94 | 58 | 296 | 120 | 96 | 383 |
 | places.city-dentist | 598 | 158 | 145 | 112 | 19 | 75 | 119 | 118 | 99 | 108 | 46 |
+| transport.route-from-market |  | 832 | 71 | 120 | 18 | 29 | 48 | 24 | 15 | 23 | 172 |
 | outdoors.tower |  |  | 924 |  |  | 257 |  | 168 | 59 |  |  |
-| transport.route-from-market |  | 832 | 71 | 109 | 18 | 28 | 48 | 23 | 14 | 23 | 172 |
 | places.city-bar | 281 | 97 | 74 | 97 |  | 267 | 169 | 283 | 27 | 29 | 48 |
 | places.city-gym | 541 | 105 | 45 | 71 |  | 64 | 86 | 151 | 75 | 70 | 74 |
 | places.city-pub | 114 | 386 | 154 | 119 |  | 83 | 149 | 80 | 60 | 46 | 50 |
-| outdoors.mountain_pass |  |  | 148 |  |  | 521 |  | 498 |  |  |  |
+| outdoors.mountain_pass |  |  | 148 |  |  | 536 |  | 513 |  |  |  |
 | places.city-museum | 201 | 79 | 134 | 126 |  | 193 | 82 | 117 | 107 | 57 | 28 |
-| destinations.region-what-to-see | 196 | 118 | 115 | 98 |  | 170 | 153 | 114 |  | 107 | 52 |
+| destinations.region-what-to-see | 196 | 118 | 116 | 98 |  | 171 | 155 | 117 |  | 108 | 52 |
 | places.city-department_store | 778 | 56 | 63 | 11 |  | 19 | 11 | 10 | 63 | 9 | 29 |
 | places.area-museum | 136 | 55 | 118 | 147 |  | 195 | 82 | 100 | 86 | 71 | 28 |
 | places.area-sports_centre | 92 | 50 | 133 | 25 |  | 77 | 54 | 150 | 280 | 62 | 33 |
@@ -80,9 +80,9 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-veterinary | 100 | 29 | 41 | 72 |  | 53 | 114 | 85 | 28 | 142 | 45 |
 | sport.city-activity | 131 | 39 | 71 | 120 | 18 | 29 | 48 | 24 | 15 | 23 | 172 |
 | places.area-guest_house | 6 | 84 | 54 | 32 |  | 325 | 62 | 34 | 43 | 84 | 22 |
+| outdoors.mountain_hut |  |  | 93 |  |  | 493 |  | 164 |  |  |  |
 | outdoors.foot-trail |  |  |  |  |  |  |  | 415 | 317 |  |  |
-| outdoors.mountain_hut |  |  | 93 |  |  | 483 |  | 154 |  |  |  |
-| outdoors.ruins |  |  | 264 |  |  | 190 |  | 246 | 23 |  |  |
+| outdoors.ruins |  |  | 265 |  |  | 190 |  | 247 | 23 |  |  |
 | safety.city | 132 | 2 | 71 | 120 | 18 | 29 | 48 | 24 | 15 | 23 | 172 |
 | places.city-guest_house | 2 | 82 | 83 | 29 |  | 237 | 40 | 61 | 81 | 51 | 32 |
 | places.city-veterinary | 179 | 45 | 40 | 47 | 9 | 43 | 75 | 86 | 37 | 78 | 38 |
@@ -117,11 +117,11 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | destinations.region-cities | 23 | 9 | 64 | 59 |  | 30 | 21 | 26 |  | 18 | 36 |
 | education.city-schools | 20 | 3 | 61 | 12 | 5 | 27 | 37 | 22 | 13 | 20 | 39 |
 | places.area-attraction | 43 | 21 | 38 | 28 |  | 28 | 24 | 18 | 12 | 43 | 8 |
-| outdoors.watermill |  |  | 135 |  |  | 4 |  | 58 | 62 |  |  |
+| outdoors.watermill |  |  | 136 |  |  | 4 |  | 58 | 63 |  |  |
+| outdoors.lighthouse |  |  | 81 |  |  | 31 |  | 121 | 20 |  |  |
 | places.city-parking | 18 | 10 | 54 | 29 |  | 16 | 35 | 47 | 21 | 1 | 13 |
 | places.city-nightclub | 49 | 21 | 41 | 14 |  | 16 | 32 | 34 | 10 | 21 | 11 |
 | places.city-hostel | 12 | 10 | 10 | 28 |  | 20 | 67 | 12 | 7 | 39 | 32 |
-| outdoors.lighthouse |  |  | 80 |  |  | 30 |  | 120 | 19 |  |  |
 | places.city-railway_station | 44 | 9 | 12 | 57 |  | 37 | 19 | 11 | 19 |  | 10 |
 | outdoors.viewpoint |  |  | 156 |  |  | 12 |  | 45 | 17 |  |  |
 | outdoors.piste-trail |  |  |  |  |  |  |  | 228 |  |  |  |
@@ -138,13 +138,13 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | outdoors.volcano |  |  | 29 |  |  | 12 |  | 112 |  |  |  |
 | poi.attraction-notable | 18 | 38 | 26 | 11 |  | 11 | 5 | 20 | 6 | 8 | 2 |
 | poi.theatre-notable | 21 |  | 2 | 3 |  | 6 | 2 | 27 | 33 | 11 | 32 |
+| outdoors.wilderness_hut |  |  | 29 |  |  | 89 |  | 16 |  |  |  |
 | places.city-sport | 58 |  | 37 |  |  |  |  |  |  | 18 | 16 |
-| outdoors.wilderness_hut |  |  | 29 |  |  | 86 |  | 13 |  |  |  |
 | outdoors.camp_site |  |  | 99 |  |  | 5 |  | 11 | 4 |  |  |
 | outdoors.observatory |  |  | 76 |  |  | 19 |  | 13 | 8 |  |  |
 | outdoors.horse-trail |  |  |  |  |  |  |  | 105 | 7 |  |  |
+| outdoors.waterfall |  |  | 36 |  |  | 33 |  | 41 |  |  |  |
 | poi.gallery-notable | 44 | 27 | 8 | 1 |  | 8 | 2 | 4 | 4 | 9 |  |
-| outdoors.waterfall |  |  | 36 |  |  | 31 |  | 39 |  |  |  |
 | comparisons.city-vs-city |  | 11 |  | 15 |  |  |  |  |  |  | 24 |
 | places.area-marina | 4 |  | 60 |  |  | 2 |  | 2 | 9 | 1 |  |
 | places.city-camp_site | 16 | 10 |  | 3 |  | 1 |  | 3 | 21 | 3 | 6 |

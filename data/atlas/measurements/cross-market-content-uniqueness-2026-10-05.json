@@ -1,0 +1,71 @@
+{
+ "measured_on": "2026-10-05",
+ "from": "run 6 of the 1M pipeline, /tmp/pipe_manifest.log of 13:3x, not from any earlier log",
+ "the_question": "URL uniqueness is not content uniqueness. How many pages in this inventory say the same thing as another page, and what stops them?",
+ "funnel": {
+  "raw_after_uniqueness_and_serp_gate": 470129,
+  "removed_by_localisation_gate": 125780,
+  "after_localisation_gate": 344290,
+  "removed_by_cross_market_content_uniqueness_gate": 0,
+  "after_cross_market_gate": 344290,
+  "after_cannibalisation": 344290,
+  "removed_by_the_parent_check": 3443,
+  "FINAL_DISTINCT_CANDIDATES": 340847,
+  "funnel_reconciles": true
+ },
+ "the_headline_answer": "327,273 of the 344,290 rows reaching the cross-market gate, 95.1 per cent, are the ONLY page in the entire inventory for their (family, entity, intent). They have no sibling in any market or any language to duplicate. That is a far stronger statement than \"every URL is unique\" and it is the one the brief was asking for.",
+ "the_17_017_that_do_have_a_sibling": {
+  "own_measured_demand_and_two_or_more_market_facts": 11731,
+  "native_language_of_the_subject_and_own_measured_demand_and_two_or_more_market_facts": 3436,
+  "native_language_of_the_subject_and_own_measured_demand": 988,
+  "own_measured_demand_only": 366,
+  "native_language_of_the_subject_only": 272,
+  "native_language_of_the_subject_and_two_or_more_market_facts": 224,
+  "total": 17017
+ },
+ "sibling_relationships": {
+  "inside_one_language": 0,
+  "across_languages": 28384,
+  "reading": "ZERO same-language sibling relationships. Same-language content duplication is structurally absent, measured rather than assumed, and the gate prints this number on every run rather than trusting the invariant."
+ },
+ "the_same_language_checks_the_brief_names": {
+  "en-GB vs en-US": {
+   "shared_entity_and_intent_groups": 0,
+   "reading": "no (family, entity) is claimed by both markets, so there is nothing to resolve"
+  },
+  "en-US vs en-AU": "NOT YET TESTABLE: en-AU is measured and its layers are captured but it is not in MARKETS, so no row carries it. The check appears automatically the run after it is admitted.",
+  "en-GB vs en-AU": "NOT YET TESTABLE, same reason.",
+  "es-ES vs es-MX": "NOT YET TESTABLE, same reason."
+ },
+ "why_the_gate_rejected_ZERO_and_why_that_is_not_a_clean_bill_of_health": "The cross-market gate sits DOWNSTREAM of the localisation gate, which removed 125,780 rows first: 61,869 as TRANSLATION_ONLY and 62,406 as LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION. Those are the translated clones, and they never reach the new gate. What survives localisation is 325,931 NATIVE_LOCALE plus 18,359 VALID_LOCALIZATION, and VALID_LOCALIZATION already REQUIRES measured demand in that market plus destination evidence, which is exactly what the cross-market gate asks for. So the gate is currently NON-BINDING: it asks for evidence an upstream gate already demanded. That is worth stating plainly rather than reporting zero rejections as a result.\n\nIt still earns its place for three reasons. It enforces the SAME-LANGUAGE rule, which the localisation gate does not check at all, because localisation keys on language and cannot see two markets inside one. It writes five auditable fields on every row so the claim can be checked without taking anyone word for it. And it binds the moment en-AU and es-MX are admitted, because those are second markets in languages that already have one.",
+ "the_two_flaws_in_the_gate_found_by_running_it": {
+  "a_non_difference_counted_as_a_difference": "locale_facts emitted \"July averages within a degree of Berlin\" and the gate counted it as the second KIND of market fact. 17,125 rows, 18.6 per cent of every row carrying a fact, had nothing else: the German page about Prague said \"about 300km from Berlin\" and then two sentences confirming Prague weather is like Berlin weather. That is the absence of a difference written as a fact, and it let through the exact \"one distance, one temperature\" bundle the brief rules out. Fixed in entity_identity, which now emits nothing for a gap under 1.5 degrees, and in the gate counter, which skips the phrase so an older row cannot earn a pass on it.",
+  "the_native_page_had_no_way_to_justify_itself": "With the non-differences gone, the en-GB page about Birmingham carries only a distance from London, and the gate would have rejected it against a Japanese sibling. A page written in the language of the country it describes is the PRIMARY page for that entity and owes no market-specific fact to exist. NATIVE_LANGUAGE_OF_THE_SUBJECT is now a differentiator, and deliberately NOT available to same-language siblings: an en-US and an en-GB page about Birmingham are both native and would still have to differentiate."
+ },
+ "the_demand_differentiator_audited": "OWN_MEASURED_DEMAND could have been the next loophole, since two keywords in two languages differ as strings automatically. Audited: all 16,521 rows citing it carry a local_volume at or above 100, the same floor used everywhere else in this project, and 15,187 of them are at or above 1,000. None sits below the floor. So it is not functioning as a free pass.",
+ "per_market": {
+  "de-DE": 58612,
+  "en-US": 51476,
+  "fr-FR": 49334,
+  "ja-JP": 37062,
+  "en-GB": 36387,
+  "it-IT": 28206,
+  "pt-BR": 17533,
+  "es-ES": 17214,
+  "nl-NL": 15418,
+  "tr-TR": 15013,
+  "pl-PL": 13554,
+  "zh-Hant-TW": 800,
+  "note": "from run 5; run 6 adds 238 rows kept on the native differentiator"
+ },
+ "locale_facts_coverage": {
+  "rows_carrying_at_least_one": 91863,
+  "share": "27.0 per cent",
+  "was": "0 of 302,063 before this work, because the field was set only by the aggregation builder and the main family loop never set it"
+ },
+ "against_the_target": {
+  "final_distinct_valid": 340847,
+  "target": 1000000,
+  "reading": "340,847 of 1,000,000. The gap is not closed and the honest statement of why is that the destination axis is capped by captured countries: 19 countries have OSM layers on disk out of 43 queued, and the markets that would multiply fastest, ko-KR and id-ID, are the two the SERP readings refused."
+ }
+}

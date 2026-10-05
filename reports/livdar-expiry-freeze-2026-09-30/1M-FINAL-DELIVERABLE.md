@@ -4,10 +4,10 @@ Built 2026-10-05. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **340,609**
+- FINAL DISTINCT VALID CANDIDATES: **340,847**
 - target: 1,000,000
-- shortfall: **659,391** (34.1 per cent of target)
-- rejected and kept visible: 226,374
+- shortfall: **659,153** (34.1 per cent of target)
+- rejected and kept visible: 226,136
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -19,7 +19,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
 | after exact dedupe | 470,128 | same url_pattern |
 | after semantic dedupe | 470,128 | same market, family, template signature and entity |
-| FINAL DISTINCT | 340,609 | what is in the manifest |
+| FINAL DISTINCT | 340,847 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,17 +27,17 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
-| de-DE | 58,612 |
+| de-DE | 58,648 |
 | en-US | 51,476 |
-| fr-FR | 49,334 |
-| ja-JP | 37,062 |
+| fr-FR | 49,423 |
+| ja-JP | 37,073 |
 | en-GB | 36,387 |
-| it-IT | 28,206 |
+| it-IT | 28,279 |
 | pt-BR | 17,533 |
-| es-ES | 17,214 |
-| nl-NL | 15,418 |
-| tr-TR | 15,013 |
-| pl-PL | 13,554 |
+| es-ES | 17,216 |
+| nl-NL | 15,433 |
+| tr-TR | 15,017 |
+| pl-PL | 13,562 |
 | zh-Hant-TW | 800 |
 
 ### By surface
@@ -45,16 +45,16 @@ The target was not reached. The rest of this report is about why, which of the g
 | surface | candidates |
 | --- | --- |
 | places | 180,415 |
-| outdoors | 57,110 |
+| outdoors | 57,306 |
 | areas | 28,274 |
 | stay | 23,137 |
 | pulse | 14,165 |
 | move | 13,221 |
-| climate | 8,718 |
+| climate | 8,720 |
 | work | 4,174 |
-| transport | 3,932 |
-| poi | 3,696 |
-| destinations | 1,409 |
+| transport | 3,948 |
+| poi | 3,712 |
+| destinations | 1,417 |
 | tools | 886 |
 | sport | 754 |
 | safety | 718 |
@@ -63,11 +63,11 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | status | candidates |
 | --- | --- |
-| POI_AGGREGATION | 246,601 |
+| POI_AGGREGATION | 246,821 |
 | MISSING_DATA | 46,526 |
 | BLOCKED_BY_LICENCE | 27,908 |
-| EXPERIMENT_ONLY | 10,120 |
-| NOT_IMPLEMENTED | 9,352 |
+| EXPERIMENT_ONLY | 10,122 |
+| NOT_IMPLEMENTED | 9,368 |
 | VALIDATED | 82 |
 | PROMISING | 20 |
 
@@ -75,18 +75,18 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 292,497 |
+| SOURCE_AVAILABLE | 292,717 |
 | LICENCE_REQUIRED | 27,908 |
 | FEED_REQUIRED | 10,189 |
-| READY_NOW | 10,015 |
+| READY_NOW | 10,033 |
 
 ### By SERP feasibility
 
 | serp_feasibility | candidates |
 | --- | --- |
-| viable | 161,462 |
-| unsampled_needs_serp_check | 71,833 |
-| competitive | 53,834 |
+| viable | 161,666 |
+| unsampled_needs_serp_check | 71,851 |
+| competitive | 53,850 |
 | strong_opportunity | 29,478 |
 | poor_fit | 24,002 |
 
@@ -94,8 +94,8 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | licence_status | candidates |
 | --- | --- |
-| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 243,699 |
-| OK | 66,100 |
+| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 243,919 |
+| OK | 66,118 |
 | LICENCE_REQUIRED | 27,908 |
 | CC0_NO_CONDITIONS | 2,902 |
 
@@ -105,16 +105,16 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | market_demand_evidence | candidates |
 | --- | --- |
-| shape_measured_2026_10_01 | 246,601 |
+| shape_measured_2026_10_01 | 246,821 |
 | measured_in_this_market | 86,970 |
-| family_measured_elsewhere | 7,038 |
+| family_measured_elsewhere | 7,056 |
 
 ### The twenty largest families
 
 | family | candidates |
 | --- | --- |
 | places.area-cuisine | 20,824 |
-| outdoors.peak | 20,509 |
+| outdoors.peak | 20,621 |
 | activities.city-things-to-do | 17,465 |
 | places.area-restaurant | 14,800 |
 | places.city-cuisine | 13,352 |
@@ -122,13 +122,13 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | places.area-pharmacy | 10,598 |
 | places.area-fast_food | 9,962 |
 | stay.city-type | 8,957 |
-| weather.city-month | 8,521 |
+| weather.city-month | 8,523 |
 | places.area-supermarket | 8,235 |
 | places.area-cafe | 8,016 |
 | places.area-opening | 7,580 |
 | events.city-type | 6,680 |
 | events.city-calendar | 6,680 |
-| outdoors.castle | 6,606 |
+| outdoors.castle | 6,616 |
 | places.city-restaurant | 6,022 |
 | places.area-clinic | 5,484 |
 | rents.city | 5,391 |
@@ -142,16 +142,16 @@ A second language is not free inventory. Every row whose language is not the lan
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | en-US | 67,740 | 51,476 | 9,036 | 882 | 5,148 | 209 | 247 | 0 | 742 |
 | en-GB | 76,240 | 36,387 | 12,691 | 5,321 | 0 | 0 | 21,561 | 0 | 280 |
-| de-DE | 96,920 | 58,612 | 9,619 | 4,012 | 1,008 | 257 | 22,556 | 0 | 856 |
-| ja-JP | 86,113 | 37,062 | 10,483 | 3,097 | 34,055 | 318 | 548 | 248 | 302 |
+| de-DE | 96,920 | 58,648 | 9,619 | 4,012 | 1,008 | 257 | 22,556 | 0 | 820 |
+| ja-JP | 86,113 | 37,073 | 10,483 | 3,097 | 34,055 | 318 | 548 | 248 | 291 |
 | zh-Hant-TW | 4,939 | 800 | 690 | 80 | 0 | 1 | 3,368 | 0 | 0 |
-| it-IT | 55,051 | 28,206 | 7,354 | 1,162 | 14,244 | 109 | 3,377 | 0 | 599 |
-| es-ES | 26,753 | 17,214 | 4,791 | 308 | 0 | 1 | 4,030 | 0 | 409 |
-| fr-FR | 60,879 | 49,334 | 6,927 | 286 | 0 | 1 | 3,804 | 248 | 279 |
-| nl-NL | 21,382 | 15,418 | 4,878 | 114 | 0 | 1 | 796 | 0 | 175 |
-| pl-PL | 19,502 | 13,554 | 4,893 | 218 | 0 | 1 | 796 | 0 | 40 |
+| it-IT | 55,051 | 28,279 | 7,354 | 1,162 | 14,244 | 109 | 3,377 | 0 | 526 |
+| es-ES | 26,753 | 17,216 | 4,791 | 308 | 0 | 1 | 4,030 | 0 | 407 |
+| fr-FR | 60,879 | 49,423 | 6,927 | 286 | 0 | 1 | 3,804 | 248 | 190 |
+| nl-NL | 21,382 | 15,433 | 4,878 | 114 | 0 | 1 | 796 | 0 | 160 |
+| pl-PL | 19,502 | 13,562 | 4,893 | 218 | 0 | 1 | 796 | 0 | 32 |
 | pt-BR | 26,123 | 17,533 | 5,881 | 1,354 | 0 | 1 | 1,323 | 0 | 31 |
-| **all 11** | **541,642** | **325,596** | | | | | | | |
+| **all 11** | **541,642** | **325,830** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -159,10 +159,10 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 322,250 |
+| NATIVE_LOCALE | 322,488 |
 | VALID_LOCALIZATION | 18,359 |
 
-- flagged LOCAL_SERP_UNVERIFIED: 71,833. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
+- flagged LOCAL_SERP_UNVERIFIED: 71,851. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
 
 ### Top families per market
 
@@ -170,12 +170,12 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 | --- | --- |
 | en-US | places.area-cuisine (5,181), places.city-cuisine (4,894), places.area-attribute (2,605), places.area-restaurant (2,440) |
 | en-GB | activities.city-things-to-do (11,332), weather.city-month (2,886), stay.near-venue (2,582), places.area-cuisine (2,128) |
-| de-DE | outdoors.peak (12,407), stay.city-type (3,609), places.city-category (2,405), rents.city (2,405) |
+| de-DE | outdoors.peak (12,423), stay.city-type (3,609), places.city-category (2,405), rents.city (2,405) |
 | ja-JP | places.area-cuisine (4,089), places.area-restaurant (2,943), activities.city-things-to-do (2,544), weather.city-month (2,544) |
 | zh-Hant-TW | activities.city-things-to-do (51), places.city-category (40), weather.city-month (40), health.city (40) |
-| it-IT | outdoors.peak (4,878), places.area-cuisine (1,725), places.area-restaurant (1,492), activities.city-things-to-do (1,039) |
+| it-IT | outdoors.peak (4,918), places.area-cuisine (1,725), places.area-restaurant (1,492), activities.city-things-to-do (1,039) |
 | es-ES | places.area-restaurant (1,486), places.area-cuisine (1,236), places.area-supermarket (1,049), places.area-pharmacy (961) |
-| fr-FR | outdoors.hiking-trail (9,255), outdoors.castle (3,663), outdoors.bicycle-trail (3,185), outdoors.peak (3,112) |
+| fr-FR | outdoors.hiking-trail (9,255), outdoors.castle (3,666), outdoors.bicycle-trail (3,185), outdoors.peak (3,161) |
 | nl-NL | outdoors.hiking-trail (2,718), outdoors.windmill (656), places.area-cuisine (628), places.area-supermarket (605) |
 | pl-PL | places.area-pharmacy (1,075), places.area-cuisine (867), places.area-restaurant (775), places.area-clinic (772) |
 | pt-BR | cost-of-living.city (699), relocation.city (699), weather.city-month (677), rents.city (677) |
@@ -203,12 +203,12 @@ Transliterations are used above for the Japanese and Chinese roots so this table
 ## 4. What was materialised in this pass
 
 - OSM POI files on disk: 19 (poi-AU.jsonl.gz, poi-BR.jsonl.gz, poi-DE.jsonl.gz, poi-ES.jsonl.gz, poi-FR.jsonl.gz, poi-GB.jsonl.gz, poi-ID.jsonl.gz, poi-IT.jsonl.gz, poi-JP.jsonl.gz, poi-LU.jsonl.gz, poi-MX.jsonl.gz, poi-NL.jsonl.gz, poi-PL.jsonl.gz, poi-TR.jsonl.gz, poi-TW-health.jsonl.gz, poi-US-us-midwest.jsonl.gz, poi-US-us-northeast.jsonl.gz, poi-US-us-south.jsonl.gz, poi-US-us-west.jsonl.gz)
-- OSM place files with geometry: 26 (places-AU.jsonl.gz, places-BR.jsonl.gz, places-DE.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-MX.jsonl.gz, places-NL.jsonl.gz, places-PL.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-germany.jsonl.gz, places-italy.jsonl.gz, places-luxembourg.jsonl.gz, places-netherlands.jsonl.gz, places-pl_JP.jsonl.gz, places-poland.jsonl.gz, places-spain.jsonl.gz, places-united_kingdom.jsonl.gz, places-us-south.jsonl.gz, places-us-west.jsonl.gz)
+- OSM place files with geometry: 27 (places-AU.jsonl.gz, places-BR.jsonl.gz, places-DE.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-MX.jsonl.gz, places-NL.jsonl.gz, places-PL.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-northeast.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-germany.jsonl.gz, places-italy.jsonl.gz, places-luxembourg.jsonl.gz, places-netherlands.jsonl.gz, places-pl_JP.jsonl.gz, places-poland.jsonl.gz, places-spain.jsonl.gz, places-united_kingdom.jsonl.gz, places-us-south.jsonl.gz, places-us-west.jsonl.gz)
 - POI read: 5,687,344, of which 1,202,937 carried an addr:city tag and 3,119,955 were attributed spatially against the 31,715-city gazetteer; 1,363,715 fell outside every city radius and were dropped
 - named places loaded: 499,034, of which 81,409 passed the entity gates
 - POI assigned to an area by polygon containment: 405,666; by documented proximity to a place node: 2,187,778
 - aggregation candidates: 246,239 ({'city_category': 71599, 'area_category': 86018, 'city_cuisine': 30628, 'area_cuisine': 20856, 'city_attribute': 7382, 'area_attribute': 5118, 'city_opening': 9368, 'area_opening': 7598, 'city_sport': 315, 'area_parent': 3761, 'city_areas_hub': 878, 'notable_entity': 2718})
-- Wikidata entities loaded: 195,299, candidates 5,969, deduped against OSM by {'qid': 13907, 'name_and_position': 4980}
+- Wikidata entities loaded: 195,328, candidates 5,969, deduped against OSM by {'qid': 13907, 'name_and_position': 4980}
 - Pulse entities normalised from four providers: {'national': 1081, 'regional': 623, 'school': 1502, 'long_weekends': 687, 'bridge_days': 233, 'long_weekends_subdivision': 3539, 'bridge_days_subdivision': 1052, 'bridge_plans': 348}
 
 ## 5. Every gate that fired, with its count
@@ -285,7 +285,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | list_below_min_count | 12,297 |
 | wikidata_duplicate_qid | 8,408 |
 | no_parent_page_exists_on_the_site | 8,121 |
-| no_market_for_country | 4,832 |
+| no_market_for_country | 4,861 |
 | list_entries_too_thin | 932 |
 | list_already_published_from_the_osm_corpus | 212 |
 
@@ -302,12 +302,9 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | localization:LOCAL_DATA_MISSING | 496 |
 | REJECTED_QUALITY: indexability floor 10 | 419 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/berlin-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 96 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with fr-FR and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.5. A different market id is not a reason for a separate page. | 88 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with it-IT and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.5. A different market id is not a reason for a separate page. | 72 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/aachen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 48 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/florence-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 42 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 40 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with de-DE and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.5. A different market id is not a reason for a separate page. | 36 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 33 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/hamburg-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 30 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/madrid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 27 |
@@ -325,7 +322,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/sapporo/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/dallas-us-texas/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with nl-NL and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.5. A different market id is not a reason for a separate page. | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/chicago/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/park/madrid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/amsterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
@@ -347,7 +343,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/nagoya/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/new-york-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/milan-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with en-GB and carries only one kind of market fact (temperature). shared section ratio 1.0, shared fact ratio 0.333, semantic similarity 0.167. A different market id is not a reason for a separate page. | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/new-york-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/london-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/kyoto/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
@@ -370,7 +365,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/munster-de-north-rhine-westphalia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/philadelphia-us-pennsylvania/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/portland-us-oregon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with pl-PL and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.5. A different market id is not a reason for a separate page. | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/malaga-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/rotterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/genoa-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
@@ -446,7 +440,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/dessau/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/erlangen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/reutlingen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with en-GB and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.25. A different market id is not a reason for a separate page. | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/theatre/fukuoka/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/pittsburgh/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/morioka/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
@@ -677,7 +670,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_SAME_NAME_IN_CITY: /en/poi/gallery/gagosian-n10859974159/ is already the poi page for an entity named Gagosian in Hoboken, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/de-doelen-q128795837/ is already the stay page for an entity named De Doelen in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
 | REJECTED_SAME_NAME_IN_CITY: /nl/stay/near-venue/de-doelen-q128795837/ is already the stay page for an entity named De Doelen in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with es-ES and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.5. A different market id is not a reason for a separate page. | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/esplugues-de-llobregat/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/fujisawa/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/ayase/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -998,8 +990,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/saalbau-essen-q61435369/ is already the stay page for an entity named Saalbau Essen in Essen, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /de/stay/near-venue/kurhaus-wiesbaden-q16054321/ is already the stay page for an entity named Kurhaus Wiesbaden in Wiesbaden, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/kurhaus-wiesbaden-q16054321/ is already the stay page for an entity named Kurhaus Wiesbaden in Wiesbaden, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with de-DE, en-GB, it-IT, ja-JP and carries NO market-specific fact at all. shared section ratio 1.0, shared fact ratio 1.0, semantic similarity 0.25. A different market id is not a reason for a separate page. | 1 |
-| REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: it shares the template, the intent, the entity and the source data with en-GB, it-IT and carries only one kind of market fact (temperature). shared section ratio 1.0, shared fact ratio 0.333, semantic similarity 0.167. A different market id is not a reason for a separate page. | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/bordeaux/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/aihara/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/inagi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1492,17 +1482,17 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 ## 6. QA at scale
 
-- rows checked: 340,609, distinct URLs 340,609
+- rows checked: 340,847, distinct URLs 340,847
 
 | check | count |
 | --- | --- |
-| meta_over_165_chars | 95,397 |
-| title_over_65_chars | 228,460 |
+| meta_over_165_chars | 95,595 |
+| title_over_65_chars | 228,660 |
 | duplicate_title_exact | 0 |
 | duplicate_title_same_tokens | 27 |
 | superlative_from_the_family_own_intent | 60 |
-| destination_rows | 41,875 |
-| destination_rows_with_no_locale_specific_fact | 8,240 |
+| destination_rows | 41,879 |
+| destination_rows_with_no_locale_specific_fact | 8,552 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
 | orphan_pages | 73 |
@@ -1510,7 +1500,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | intent_owners_claimed_by_more_than_one_url | 0 |
 | urls_sharing_a_cannibalization_key | 0 |
 | locale_mismatch_between_url_and_row | 0 |
-| entity_names_needing_a_disambiguator_in_the_title | 1,884 |
+| entity_names_needing_a_disambiguator_in_the_title | 1,889 |
 | same_entity_id_under_two_names | 0 |
 | candidates_with_no_usable_source | 0 |
 | kept_rows_with_a_rejecting_localisation_class | 0 |
@@ -1520,7 +1510,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | duplicate_meta_within_a_market | 0 |
 | duplicate_h1_within_a_market | 0 |
 | declared_parent_is_not_a_valid_parent | 0 |
-| declared_parent_is_valid_but_not_a_path_prefix | 33,556 |
+| declared_parent_is_valid_but_not_a_path_prefix | 33,582 |
 | family_locale_cells_failing_the_usefulness_test | 0 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
@@ -1576,7 +1566,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-340,609 candidates survive the gates. The target is 1,000,000.
+340,847 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

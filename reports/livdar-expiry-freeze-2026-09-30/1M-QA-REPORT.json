@@ -1,14 +1,14 @@
 {
- "manifest_rows": 340609,
- "distinct_urls": 340609,
+ "manifest_rows": 340847,
+ "distinct_urls": 340847,
  "checks": {
-  "meta_over_165_chars": 95397,
-  "title_over_65_chars": 228460,
+  "meta_over_165_chars": 95595,
+  "title_over_65_chars": 228660,
   "duplicate_title_exact": 0,
   "duplicate_title_same_tokens": 27,
   "superlative_from_the_family_own_intent": 60,
-  "destination_rows": 41875,
-  "destination_rows_with_no_locale_specific_fact": 8240,
+  "destination_rows": 41879,
+  "destination_rows_with_no_locale_specific_fact": 8552,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
   "orphan_pages": 73,
@@ -16,7 +16,7 @@
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 1884,
+  "entity_names_needing_a_disambiguator_in_the_title": 1889,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
@@ -26,7 +26,7 @@
   "duplicate_meta_within_a_market": 0,
   "duplicate_h1_within_a_market": 0,
   "declared_parent_is_not_a_valid_parent": 0,
-  "declared_parent_is_valid_but_not_a_path_prefix": 33556,
+  "declared_parent_is_valid_but_not_a_path_prefix": 33582,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
@@ -1080,7 +1080,7 @@
    ]
   },
   "destinations.region-what-to-see|de": {
-   "rows": 115,
+   "rows": 116,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1094,21 +1094,21 @@
    ]
   },
   "destinations.region-what-to-see|es": {
-   "rows": 153,
+   "rows": 155,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "destinations.region-what-to-see|fr": {
-   "rows": 114,
+   "rows": 117,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "destinations.region-what-to-see|it": {
-   "rows": 170,
+   "rows": 171,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1122,7 +1122,7 @@
    ]
   },
   "destinations.region-what-to-see|pl": {
-   "rows": 107,
+   "rows": 108,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1808,7 +1808,7 @@
    ]
   },
   "outdoors.archaeological_site|de": {
-   "rows": 742,
+   "rows": 745,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1829,7 +1829,7 @@
    ]
   },
   "outdoors.archaeological_site|nl": {
-   "rows": 46,
+   "rows": 49,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1990,14 +1990,14 @@
    ]
   },
   "outdoors.castle|de": {
-   "rows": 2125,
+   "rows": 2130,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.castle|fr": {
-   "rows": 3663,
+   "rows": 3666,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2011,7 +2011,7 @@
    ]
   },
   "outdoors.castle|nl": {
-   "rows": 259,
+   "rows": 261,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2221,28 +2221,28 @@
    ]
   },
   "outdoors.lighthouse|de": {
-   "rows": 80,
+   "rows": 81,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.lighthouse|fr": {
-   "rows": 120,
+   "rows": 121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.lighthouse|it": {
-   "rows": 30,
+   "rows": 31,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.lighthouse|nl": {
-   "rows": 19,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2284,14 +2284,14 @@
    ]
   },
   "outdoors.mountain_hut|fr": {
-   "rows": 154,
+   "rows": 164,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.mountain_hut|it": {
-   "rows": 483,
+   "rows": 493,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2305,14 +2305,14 @@
    ]
   },
   "outdoors.mountain_pass|fr": {
-   "rows": 498,
+   "rows": 513,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.mountain_pass|it": {
-   "rows": 521,
+   "rows": 536,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2375,28 +2375,28 @@
    ]
   },
   "outdoors.peak|de": {
-   "rows": 12407,
+   "rows": 12423,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|fr": {
-   "rows": 3112,
+   "rows": 3161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|it": {
-   "rows": 4878,
+   "rows": 4918,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|nl": {
-   "rows": 112,
+   "rows": 119,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2417,14 +2417,14 @@
    ]
   },
   "outdoors.ruins|de": {
-   "rows": 264,
+   "rows": 265,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.ruins|fr": {
-   "rows": 246,
+   "rows": 247,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2571,21 +2571,21 @@
    ]
   },
   "outdoors.waterfall|fr": {
-   "rows": 39,
+   "rows": 41,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.waterfall|it": {
-   "rows": 31,
+   "rows": 33,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.watermill|de": {
-   "rows": 135,
+   "rows": 136,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2606,7 +2606,7 @@
    ]
   },
   "outdoors.watermill|nl": {
-   "rows": 62,
+   "rows": 63,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2620,14 +2620,14 @@
    ]
   },
   "outdoors.wilderness_hut|fr": {
-   "rows": 13,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.wilderness_hut|it": {
-   "rows": 86,
+   "rows": 89,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -9944,7 +9944,7 @@
    ]
   },
   "poi.museum-notable|de": {
-   "rows": 438,
+   "rows": 446,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -9965,7 +9965,7 @@
    ]
   },
   "poi.museum-notable|fr": {
-   "rows": 221,
+   "rows": 222,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -9993,7 +9993,7 @@
    ]
   },
   "poi.museum-notable|pl": {
-   "rows": 299,
+   "rows": 306,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -11085,28 +11085,28 @@
    ]
   },
   "transport.route-from-market|fr": {
-   "rows": 23,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|it": {
-   "rows": 28,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|ja": {
-   "rows": 109,
+   "rows": 120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|nl": {
-   "rows": 14,
+   "rows": 15,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -11127,7 +11127,7 @@
    ]
   },
   "transport.route-from-market|tr": {
-   "rows": 62,
+   "rows": 64,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -11211,7 +11211,7 @@
    ]
   },
   "weather.city-month|tr": {
-   "rows": 187,
+   "rows": 189,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -11431,6 +11431,118 @@
    "url": "/tr/areas/city-things-to-do/istanbul/"
   },
   {
+   "candidate_id": "c_0f177ee8e3ae",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/atasehir/"
+  },
+  {
+   "candidate_id": "c_7a7573347fd2",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/bahcelievler/"
+  },
+  {
+   "candidate_id": "c_66e86dc7bac2",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/bagcilar/"
+  },
+  {
+   "candidate_id": "c_6de8267cca75",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/esenler/"
+  },
+  {
+   "candidate_id": "c_c3fa41f04cc8",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/fatih/"
+  },
+  {
+   "candidate_id": "c_36b08e25da8c",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/kucukcekmece/"
+  },
+  {
+   "candidate_id": "c_6e0e0fac26f1",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/maltepe/"
+  },
+  {
+   "candidate_id": "c_4d1c50341170",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/sancaktepe/"
+  },
+  {
+   "candidate_id": "c_4bd9a2add2a1",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/sultangazi/"
+  },
+  {
+   "candidate_id": "c_4c4fbaa2abde",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/umraniye/"
+  },
+  {
+   "candidate_id": "c_27142c97774e",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/zeytinburnu/"
+  },
+  {
+   "candidate_id": "c_7fb12239058e",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/uskudar/"
+  },
+  {
+   "candidate_id": "c_f1a434b30bab",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/sisli/"
+  },
+  {
+   "candidate_id": "c_c262a687b563",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/basaksehir/"
+  },
+  {
+   "candidate_id": "c_d1de85934585",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/uskumrukoy/"
+  },
+  {
+   "candidate_id": "c_64d024eb8231",
+   "market": "tr-TR",
+   "country": "TR",
+   "family": "activities.city-things-to-do",
+   "url": "/tr/areas/city-things-to-do/zekeriya/"
+  },
+  {
    "candidate_id": "c_cc0537a43512",
    "market": "tr-TR",
    "country": "TR",
@@ -11450,118 +11562,6 @@
    "country": "TR",
    "family": "places.city-cuisine",
    "url": "/tr/places/food/breakfast/istanbul/"
-  },
-  {
-   "candidate_id": "c_6408347e1ecb",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/breakfast/uskudar/"
-  },
-  {
-   "candidate_id": "c_36654f6cddf2",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/breakfast/i-zmir/"
-  },
-  {
-   "candidate_id": "c_dc75b30951ba",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/breakfast/sisli/"
-  },
-  {
-   "candidate_id": "c_f21c89a17471",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/adana/"
-  },
-  {
-   "candidate_id": "c_bb7567dff4ef",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/adapazari/"
-  },
-  {
-   "candidate_id": "c_1b46883b622d",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/alanya/"
-  },
-  {
-   "candidate_id": "c_739df32328ed",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/ankara/"
-  },
-  {
-   "candidate_id": "c_727f06b8ea1e",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/antakya/"
-  },
-  {
-   "candidate_id": "c_2fc34f69f839",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/antalya/"
-  },
-  {
-   "candidate_id": "c_71d790e676b9",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/atasehir/"
-  },
-  {
-   "candidate_id": "c_5475c3529fdb",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/balikesir/"
-  },
-  {
-   "candidate_id": "c_9daee5f5f058",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/basaksehir/"
-  },
-  {
-   "candidate_id": "c_b83fd07676ef",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/bornova/"
-  },
-  {
-   "candidate_id": "c_75e73289cd46",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/bursa/"
-  },
-  {
-   "candidate_id": "c_8760f23fa1e8",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/denizli/"
-  },
-  {
-   "candidate_id": "c_3a631f0fea2c",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "places.city-cuisine",
-   "url": "/tr/places/food/burger/edirne/"
   }
  ],
  "superlative_examples": [],
