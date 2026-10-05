@@ -1072,7 +1072,12 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           # January and July temperature gap. Carried as a field rather than left inside the
           # uniqueness reason so a checker can read it without sniffing prose, which is how six
           # false findings were produced in an earlier pass.
-          'locale_facts']
+          'locale_facts',
+          # The cross-market content uniqueness fields. URL uniqueness is not content
+          # uniqueness, and these five are what let a reader check the difference without
+          # taking anyone's word for it.
+          'cross_market_uniqueness_reason', 'information_gain_vs_same_language_markets',
+          'shared_fact_ratio', 'shared_section_ratio', 'semantic_similarity_score']
 
 stats = collections.Counter()
 rows = []
@@ -1147,7 +1152,11 @@ for f in fams:
             if (f['surface'], seg) in AMBIGUOUS_SEGMENT:
                 seg = slug(fid.split('.')[0]) + '-' + seg
             url = f"/{lang}/{slug(f['surface'])}/{seg}/{nm}/"
-            dsig = sig('data', fid, eid, m)
+            # Market-FREE on purpose. It was sig('data', fid, eid, m), which could never
+            # match across markets, so the one question it exists to answer - is this the
+            # same underlying source data - could never be answered yes. The data a page
+            # draws on does not depend on who is reading it.
+            dsig = sig('data', fid, eid)
             q = max(0, min(100, qbase))
             iscore = min(q, dscore, srcscore, sscore)   # a floor on every score, never blended
             # demand_score already distinguishes a cell measured in THIS market from a
@@ -1164,6 +1173,16 @@ for f in fams:
             kc = next((KCLUSTER[(n, m)] for n in kw_names(fid) if (n, m) in KCLUSTER), '')
             pk = cell[0][0] if cell else ''
             prio = round(iscore * 0.55 + dscore * 0.3 + sscore * 0.15, 1)
+            # The facts computed for THIS market, which are the whole of what makes two pages
+            # about one entity in two markets different pages. This was missing: locale_facts
+            # was in FIELDS and was set only by the aggregation row builder, so 0 of 302,063
+            # rows in the 2026-10-02 manifest carried one and the no-translated-clones rule
+            # was protecting nothing. The locator is the city id where the entity IS a city and
+            # the city field otherwise, resolved through the gazetteer in entity_identity.
+            _lf_city = (str(eid) if etype == 'city'
+                        else GAZ.city_id_for(ecity, ecountry))
+            _lf = entity_identity.locale_facts_for_row(
+                m, {'city_id': _lf_city, 'country': ecountry or ''}) if _lf_city else []
             rows.append({
                 'candidate_id': 'c_' + sig(fid, eid, m),
                 'url_pattern': url, 'market': m, 'language': lang,
@@ -1187,7 +1206,7 @@ for f in fams:
                 'licence_status': 'LICENCE_REQUIRED' if ss == 'LICENCE_REQUIRED' else 'OK',
                 'data_signature': dsig, 'template_signature': tsig,
                 'duplicate_risk': dup, 'cannibalization_risk': can,
-                'market_demand_evidence': dev,
+                'market_demand_evidence': dev, 'locale_facts': ' | '.join(_lf),
                 'quality_score': q, 'demand_score': dscore, 'source_score': srcscore,
                 'serp_score': sscore, 'serp_class': serp_c,
                 'indexability_score': iscore,
@@ -1477,7 +1496,7 @@ for a in agg:
         'source_status': 'SOURCE_AVAILABLE',
         'source_record_id': ('wikidata:' if is_wd else 'osm-agg:') + str(eid),
         'feed_required': '', 'licence_status': lic_status,
-        'data_signature': sig('data', fid, eid, m),
+        'data_signature': sig('data', fid, eid),   # market-free, see the main loop
         'template_signature': sig('tpl', shape, cls, modifier),
         'duplicate_risk': 'LOW', 'cannibalization_risk': 'LOW',
         'market_demand_evidence': 'shape_measured_2026_10_01',
@@ -1812,6 +1831,276 @@ for k, v in loc_counts.most_common():
     print(f'    {k:24} {v:>9,}', file=sys.stderr)
 stage2 = stage2b
 
+# ---- the HARD cross-market content uniqueness gate -------------------------------------------
+# URL uniqueness is NOT content uniqueness, and until this gate existed the inventory leaned on
+# the wrong one. The argument it leaned on was true and insufficient: every URL belongs to
+# exactly one market, distinct URLs per language equals rows per language exactly, so no two
+# rows can claim one URL. That says nothing about whether two pages at two different URLs say
+# the same thing.
+#
+# Measured on the 2026-10-02 manifest before this gate was written, which is what the gate was
+# written in response to:
+#   6,256 (family, entity) groups held more than one row, 11,727 pairs in all
+#   100.0 per cent of those pairs shared a template signature
+#   100.0 per cent shared a primary intent
+#   0.0 per cent shared a data signature, which sounds reassuring and is a BUG: the signature
+#       was sig('data', family, entity, MARKET), so it could never match across markets and
+#       could never answer the question "is this the same underlying source data". It is now
+#       market-free and answers it.
+#   0 of 302,063 rows carried a locale fact at all, so the computed per-market fact that was
+#       supposed to make a destination copy something other than a translation was reaching
+#       NOTHING. It existed in four builders and died before the manifest.
+# Same entity, same intent, same sections, same source data, no market-specific fact. That is a
+# translated clone by any definition, and 11,727 pairs of them were inside the gate count.
+#
+# Measured at the same time, and the one piece of good news: ZERO groups held two rows in ONE
+# language. Same-language duplication of a (family, entity) is structurally absent today. The
+# gate still tests it on every run and prints the number rather than trusting the invariant,
+# because en-AU is being added to a language that already has two markets and a builder change
+# could break it silently.
+#
+# How a row earns the right to exist beside a same-language or cross-language sibling. At least
+# ONE of these, and the reason names which:
+#   OWN_MEASURED_DEMAND      this row has its own measured local keyword with volume, and it is
+#                            a different keyword from the sibling's
+#   TWO_OR_MORE_MARKET_FACTS two or more facts computed for THIS market: the great-circle
+#                            distance from its origin city, the January gap, the July gap
+#   MARKET_REGULATION        a fact that differs by market because the rule does
+#   MARKET_PRICING           a price or cost that differs by market
+#   DIFFERENT_INTENT         the primary intent is genuinely different, not a rewording
+#   DIFFERENT_ENTITY_SCOPE   the page is about a different set of entities
+# A SINGLE distance, or a SINGLE temperature, or the market name, or the origin city, or
+# reworded prose is NOT enough on its own. That is the explicit instruction and it is the reason
+# TWO_OR_MORE_MARKET_FACTS asks for two: one computed number under an otherwise identical page
+# is template variation wearing a fact as a hat.
+#
+# Same-language pairs are held to a harder version: being in a different language is itself a
+# reason for a reader to need the page, so a cross-language pair may pass on TWO_OR_MORE_MARKET_FACTS
+# alone. A same-language pair may not, because an en-AU reader and an en-GB reader read the same
+# words; it must hold OWN_MEASURED_DEMAND, MARKET_REGULATION, MARKET_PRICING, DIFFERENT_INTENT
+# or DIFFERENT_ENTITY_SCOPE.
+XM_SHARED_SLOTS = {}        # (family) -> how many content slots the family's template fills
+
+
+def _xm_slots(fid):
+    """How many content slots this family's page carries, the same for every row of it.
+
+    Counted from the family master's own declared data fields rather than guessed: the sections,
+    tables and lists a page of this family renders all come from the template plus the entity's
+    source data, and both are identical for two rows about the same entity. So this number is
+    the SHARED part of any two such pages, and the market-specific facts are the whole of the
+    unshared part. A family with no declared fields is given 1 rather than 0, because every page
+    renders at least its own subject.
+    """
+    if fid in XM_SHARED_SLOTS:
+        return XM_SHARED_SLOTS[fid]
+    n = 1
+    for f in fams:
+        if f['family_id'] == fid:
+            fields = (f.get('required_data') or '') + ',' + (f.get('distinct_value_test') or '')
+            n = max(1, len([x for x in fields.split(',') if x.strip()]))
+            break
+    XM_SHARED_SLOTS[fid] = n
+    return n
+
+
+def _xm_facts(r):
+    """The facts this row carries that its siblings about the same entity do NOT."""
+    out = []
+    for x in (r.get('locale_facts') or '').split('|'):
+        x = x.strip()
+        if x:
+            out.append(x)
+    return out
+
+
+def _xm_fact_kinds(facts):
+    """Which KINDS of market fact these are, so one distance can be told from a distance and
+    two temperature gaps. A kind counted twice is still one kind."""
+    kinds = set()
+    for f in facts:
+        low = f.lower()
+        if 'straight line' in low or 'km from' in low:
+            kinds.add('distance')
+        elif 'averages' in low:
+            kinds.add('temperature')
+        else:
+            kinds.add('other')
+    return kinds
+
+
+xm_rejected = []
+stage2c = []
+xm_counts = collections.Counter()
+xm_pairs_same_language = 0
+xm_pairs_cross_language = 0
+# same intent + same entity is the group inside which two pages compete to say the same thing
+xm_group = collections.defaultdict(list)
+for r in stage2:
+    xm_group[(r['family'], r['entity_type'], r['entity_id'])].append(r)
+
+SAME_LANG_OK = {'OWN_MEASURED_DEMAND', 'MARKET_REGULATION', 'MARKET_PRICING',
+                'DIFFERENT_INTENT', 'DIFFERENT_ENTITY_SCOPE'}
+
+for key, group in xm_group.items():
+    fid = key[0]
+    slots = _xm_slots(fid)
+    by_lang = collections.defaultdict(list)
+    for r in group:
+        by_lang[r['language']].append(r)
+    for r in group:
+        facts = _xm_facts(r)
+        kinds = _xm_fact_kinds(facts)
+        siblings = [s for s in group if s is not r]
+        same_lang_siblings = [s for s in by_lang[r['language']] if s is not r]
+        # the five measures the brief asks for, on every candidate, sibling or not
+        shared = slots
+        total = slots + len(facts)
+        r['shared_fact_ratio'] = round(shared / total, 3) if total else 1.0
+        r['shared_section_ratio'] = 1.0 if siblings and all(
+            s['template_signature'] == r['template_signature'] for s in siblings) else (
+            0.0 if not siblings else round(sum(
+                1 for s in siblings if s['template_signature'] == r['template_signature']
+            ) / len(siblings), 3))
+        # semantic similarity to the most similar sibling: the template and the intent and the
+        # entity are shared by construction inside a group, so what is left is the fact set
+        if siblings:
+            best_sim = 0.0
+            for s in siblings:
+                sf = set(_xm_facts(s))
+                mf = set(facts)
+                union = sf | mf
+                jac = (len(sf & mf) / len(union)) if union else 1.0
+                sim = round((slots + jac * max(len(sf), len(mf))) /
+                            (slots + max(1, len(union))), 3)
+                best_sim = max(best_sim, sim)
+            r['semantic_similarity_score'] = best_sim
+        else:
+            r['semantic_similarity_score'] = 0.0
+
+        earned = set()
+        kw = (r.get('local_keyword') or '').strip()
+        try:
+            vol = int(r.get('local_volume') or 0)
+        except (TypeError, ValueError):
+            vol = 0
+        if kw and vol > 0 and all((s.get('local_keyword') or '').strip() != kw
+                                  for s in siblings):
+            earned.add('OWN_MEASURED_DEMAND')
+        if len(kinds) >= 2:
+            earned.add('TWO_OR_MORE_MARKET_FACTS')
+        if any(s['primary_intent'] != r['primary_intent'] for s in siblings):
+            earned.add('DIFFERENT_INTENT')
+        if not siblings:
+            earned.add('ONLY_PAGE_FOR_THIS_ENTITY_AND_INTENT')
+
+        if same_lang_siblings:
+            xm_pairs_same_language += len(same_lang_siblings)
+        if siblings and not same_lang_siblings:
+            xm_pairs_cross_language += len(siblings)
+
+        # the verdict
+        if not siblings:
+            r['cross_market_uniqueness_reason'] = (
+                f"the only page in the inventory for {fid} on this entity, in any market or "
+                f"language, so there is nothing for it to duplicate")
+            r['information_gain_vs_same_language_markets'] = (
+                'no same-language market holds this entity and intent, so the whole page is gain')
+            xm_counts['kept_only_page_for_entity_and_intent'] += 1
+            stage2c.append(r)
+            continue
+
+        usable = earned & SAME_LANG_OK if same_lang_siblings else earned
+        if not usable:
+            others = ', '.join(sorted({s['market'] for s in siblings}))
+            why_not = ('it is in the SAME LANGUAGE as ' + others +
+                       ', so being a different market is not a reason a reader needs it, and '
+                       'it holds none of the market-specific differences that would be'
+                       ) if same_lang_siblings else (
+                       'it shares the template, the intent, the entity and the source data with '
+                       + others + ' and carries ' +
+                       (f'only one kind of market fact ({", ".join(sorted(kinds))})'
+                        if kinds else 'NO market-specific fact at all'))
+            r['cross_market_uniqueness_reason'] = ''
+            r['information_gain_vs_same_language_markets'] = 'NONE MEASURED'
+            r['rejection_reason'] = (
+                f"REJECTED_CROSS_MARKET_CONTENT_DUPLICATE: {why_not}. shared section ratio "
+                f"{r['shared_section_ratio']}, shared fact ratio {r['shared_fact_ratio']}, "
+                f"semantic similarity {r['semantic_similarity_score']}. A different market id "
+                f"is not a reason for a separate page.")
+            r['status'] = 'REJECTED_CROSS_MARKET_CONTENT_DUPLICATE'
+            xm_counts['rejected_same_language_no_market_difference'
+                      if same_lang_siblings else
+                      'rejected_cross_language_no_market_specific_fact'] += 1
+            xm_rejected.append(r)
+            continue
+
+        r['cross_market_uniqueness_reason'] = (
+            'earns a separate page beside ' + ', '.join(sorted({s['market'] for s in siblings}))
+            + ' on: ' + ', '.join(sorted(usable))
+            + (f'. Market facts computed for {r["market"]}: ' + '; '.join(facts) if facts else '')
+            + f". Shared section ratio {r['shared_section_ratio']}, shared fact ratio "
+              f"{r['shared_fact_ratio']}, semantic similarity "
+              f"{r['semantic_similarity_score']}.")
+        if same_lang_siblings:
+            r['information_gain_vs_same_language_markets'] = (
+                'against ' + ', '.join(sorted({s['market'] for s in same_lang_siblings}))
+                + ' in the same language: ' + ', '.join(sorted(usable)))
+        else:
+            r['information_gain_vs_same_language_markets'] = (
+                'no same-language market holds this entity and intent; the siblings are in '
+                + ', '.join(sorted({s['language'] for s in siblings})))
+        xm_counts['kept_' + '_and_'.join(sorted(usable)).lower()] += 1
+        stage2c.append(r)
+
+after_cross_market = len(stage2c)
+print(f'cross-market content uniqueness gate: kept {after_cross_market:,}, '
+      f'rejected {len(xm_rejected):,}', file=sys.stderr)
+print(f'    (family, entity, intent) groups holding more than one row: '
+      f'{sum(1 for g in xm_group.values() if len(g) > 1):,}', file=sys.stderr)
+print(f'    sibling relationships inside one language: {xm_pairs_same_language:,}',
+      file=sys.stderr)
+print(f'    sibling relationships across languages:   {xm_pairs_cross_language:,}',
+      file=sys.stderr)
+for k, v in xm_counts.most_common():
+    print(f'    {k:56} {v:>9,}', file=sys.stderr)
+
+# The explicit same-language market comparisons the brief names, reported whether they are
+# empty or not. An empty table is the result, not the absence of one.
+XM_SAME_LANGUAGE_REPORT = {}
+_lang_markets = collections.defaultdict(set)
+for _m, _c, _l in MARKETS:
+    _lang_markets[_l].add(_m)
+for _l, _ms in sorted(_lang_markets.items()):
+    if len(_ms) < 2:
+        continue
+    _ms = sorted(_ms)
+    for _i in range(len(_ms)):
+        for _j in range(_i + 1, len(_ms)):
+            _a, _b = _ms[_i], _ms[_j]
+            _shared = []
+            for _k, _g in xm_group.items():
+                _mk = {_r['market'] for _r in _g}
+                if _a in _mk and _b in _mk:
+                    _shared.append(_k)
+            XM_SAME_LANGUAGE_REPORT[f'{_a} vs {_b}'] = {
+                'language': _l,
+                'entity_and_intent_groups_both_markets_claim': len(_shared),
+                'examples': [list(x) for x in _shared[:5]],
+                'reading': ('no (family, entity) is claimed by both markets, so there is no '
+                            'same-language content duplication between them to resolve'
+                            if not _shared else
+                            f'{len(_shared)} groups are claimed by both and each row in them had '
+                            f'to earn its place on a market-specific difference, not on its '
+                            f'market id'),
+            }
+for _pair, _v in XM_SAME_LANGUAGE_REPORT.items():
+    print(f'    same-language check {_pair:24} '
+          f'{_v["entity_and_intent_groups_both_markets_claim"]:>7,} shared groups',
+          file=sys.stderr)
+
+stage2 = stage2c
+
 # cannibalisation: two families targeting the same intent on the same entity in the
 # same market. Keep the higher publication_priority, flag the loser out.
 # The loser is KEPT as a rejection. It was being dropped with only a flag set on the
@@ -1916,6 +2205,7 @@ for i, r in enumerate(stage3):
 print(f'after exact dedupe:        {after_exact:,}', file=sys.stderr)
 print(f'after semantic dedupe:     {after_semantic:,}', file=sys.stderr)
 print(f'after localisation gate:   {after_localization:,}', file=sys.stderr)
+print(f'after cross-market gate:   {after_cross_market:,}', file=sys.stderr)
 print(f'after cannibalization:     {after_cannib:,}', file=sys.stderr)
 print(f'after the parent check:    {after_parent:,}', file=sys.stderr)
 
@@ -1946,6 +2236,7 @@ def strip_long_dashes(rows):
 
 _dash_fixed = (strip_long_dashes(stage3) + strip_long_dashes(rejected)
               + strip_long_dashes(exact_dupes) + strip_long_dashes(loc_rejected)
+              + strip_long_dashes(xm_rejected)
               + strip_long_dashes(cannib_rejected)
               + strip_long_dashes(semantic_dupes))
 print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,}', file=sys.stderr)
@@ -1955,6 +2246,7 @@ os.makedirs(OUT, exist_ok=True)
 # every rejection in one file, whatever stage produced it: hiding the localisation
 # rejections in a separate place would make the funnel unauditable
 rejected = (rejected + exact_dupes + semantic_dupes + name_dupes + loc_rejected
+            + xm_rejected
             + cannib_rejected + orphan_rejected)
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
@@ -2055,13 +2347,15 @@ summary = {
     'removed_by_uniqueness_and_serp_gate': generated_total - raw_total,
     'removed_as_exact_duplicate_urls': len(exact_dupes),
     'removed_by_localisation_gate': len(loc_rejected),
+    'removed_by_cross_market_content_uniqueness_gate': len(xm_rejected),
+    'cross_market_same_language_checks': XM_SAME_LANGUAGE_REPORT,
     'removed_as_semantic_duplicates': len(semantic_dupes),
     'removed_by_cannibalisation': len(cannib_rejected),
     'removed_as_the_same_name_in_the_same_city': len(name_dupes),
     'removed_because_the_declared_parent_did_not_survive': len(orphan_rejected),
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
                           - len(exact_dupes) - len(semantic_dupes) - len(name_dupes)
-                          - len(loc_rejected) - len(cannib_rejected)
+                          - len(loc_rejected) - len(xm_rejected) - len(cannib_rejected)
                           - len(orphan_rejected)) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,

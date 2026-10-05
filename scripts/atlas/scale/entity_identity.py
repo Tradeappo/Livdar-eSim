@@ -208,6 +208,21 @@ class Gazetteer:
         self.quad_repeats = {k for k, v in quad_ids.items() if len(v) > 1}
         self._near_cache = {}
         self._grid = None
+        # name -> id, for the callers that hold a city NAME and need its coordinates. The
+        # manifest's entity pool yields a city name rather than a city id for every non-city
+        # entity type, so without this the locale facts could be computed for cities and for
+        # nothing else, which is how they ended up on zero rows. Where a (name, country) pair
+        # repeats the most populous wins: a page that says "Berlin, DE" means the large one,
+        # and the ambiguity sets above are what tell a caller the choice was made.
+        self._by_pair = {}
+        for c in sorted(self.by_id.values(), key=lambda x: -int(x.get('population') or 0)):
+            self._by_pair.setdefault((c['name'].lower(), c['country']), c['id'])
+
+    def city_id_for(self, name, country):
+        """The id of the city with this name in this country, most populous where it repeats."""
+        if not name:
+            return ''
+        return self._by_pair.get((str(name).strip().lower(), (country or '').strip()), '')
 
     # ---- the discriminator of last resort --------------------------------------
     # Two towns called Ebersbach sit in Saxony with admin2 empty in GeoNames, so neither the
@@ -433,8 +448,26 @@ def dest_lang_with_keywords():
     return out
 
 
+_GAZ = None
+
+
 def load_gazetteer():
-    """Every city shard, with the fields identity needs."""
+    """Every city shard, with the fields identity needs. Loaded ONCE per process.
+
+    It was uncached, and row_point() calls it for every row that carries a city id. Measured
+    2026-10-05: 1.77 seconds per call, so the destination fan-out over roughly 400,000 rows
+    across twelve markets would have spent 2,364 HOURS rebuilding the same 64,418-city index.
+    The aggregation stage ran for 62 minutes without emitting a row before this was found, and
+    it was not going to finish: the log said "cities carrying a per-language mark" and then
+    nothing, which looked like a slow loop and was a loop that could not complete.
+
+    Every other expensive loader in this module already had its singleton - entity_marks,
+    _normals, parent_points - and this one was missed, which is the shape of the problem this
+    file keeps having: the pattern is right and one call site does not follow it.
+    """
+    global _GAZ
+    if _GAZ is not None:
+        return _GAZ
     recs = []
     for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
         try:
@@ -445,7 +478,8 @@ def load_gazetteer():
         for c in lst:
             if c and c.get('name') and c.get('country'):
                 recs.append(c)
-    return Gazetteer(recs)
+    _GAZ = Gazetteer(recs)
+    return _GAZ
 
 
 if __name__ == '__main__':
