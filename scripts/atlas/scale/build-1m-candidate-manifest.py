@@ -23,6 +23,16 @@ delete real demand.
 """
 import json, glob, gzip, csv, hashlib, collections, os, sys, math
 
+# entity_identity is imported HERE, at the top, because things near the top of this file now
+# read from it. It used to be imported two thirds of the way down, next to its first use, and
+# when the market list moved into it the assignment at line 43 ran eighty lines before the
+# import and the whole manifest stage died with NameError: name 'entity_identity' is not
+# defined. The pipeline caught it correctly - a manifest failure stops the run rather than
+# letting the later stages describe a manifest that was never rebuilt - but the mistake was
+# mine and the fix is to import a module before reading it, not to move the reader.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity                                        # noqa: E402
+
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
 YEARS = [2026, 2027]          # the only year multiplication allowed
@@ -118,9 +128,7 @@ CITY_BY_ID = {c['id']: c for c in cities}
 # slugs in SLUG SPACE rather than by predicate on the name, because the property a URL needs
 # is that no two cities share a segment, and that is not the same as "the name is
 # unambiguous": Vila-real in Spain and Vila Real in Portugal are different names and one slug.
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import entity_identity                                        # noqa: E402
-GAZ = entity_identity.load_gazetteer()
+GAZ = entity_identity.load_gazetteer()   # imported at the top of this file
 CITY_LABELS = {cid: GAZ.label(cid) for cid in GAZ.by_id}
 _city_slugs = None
 
