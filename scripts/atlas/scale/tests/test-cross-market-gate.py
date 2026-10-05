@@ -20,6 +20,8 @@ def fact_kinds(facts):
     k = set()
     for f in facts:
         low = f.lower()
+        if 'within a degree' in low:
+            continue        # the absence of a difference is not a kind of difference
         if 'straight line' in low or 'km from' in low:
             k.add('distance')
         elif 'averages' in low:
@@ -29,10 +31,13 @@ def fact_kinds(facts):
     return k
 
 
-def decide(facts, own_keyword, different_intent, same_language_sibling, has_sibling=True):
+def decide(facts, own_keyword, different_intent, same_language_sibling, has_sibling=True,
+           native=False):
     earned = set()
     if own_keyword:
         earned.add('OWN_MEASURED_DEMAND')
+    if native:
+        earned.add('NATIVE_LANGUAGE_OF_THE_SUBJECT')
     if len(fact_kinds(facts)) >= 2:
         earned.add('TWO_OR_MORE_MARKET_FACTS')
     if different_intent:
@@ -46,6 +51,8 @@ def decide(facts, own_keyword, different_intent, same_language_sibling, has_sibl
 D = 'about 1,700km from Istanbul in a straight line'
 T1 = 'July averages 5 degrees cooler than Istanbul'
 T2 = 'January averages 7 degrees cooler than Istanbul'
+
+VAC = 'July averages within a degree of Berlin'
 
 CASES = [
     ('only page for this entity and intent',         [],         0, 0, 0, False, 'KEEP_ONLY_PAGE'),
@@ -61,6 +68,18 @@ CASES = [
     ('cross language, distance AND temperature',     [D, T1],    0, 0, 0, True,  'KEEP:TWO_OR_MORE_MARKET_FACTS'),
     ('cross language, the real three-fact row',      [D, T1, T2], 0, 0, 0, True, 'KEEP:TWO_OR_MORE_MARKET_FACTS'),
 ]
+# the two cases added after the first run exposed them
+CASES += [
+    ('cross language, distance plus a NON-difference', [D, VAC],  0, 0, 0, True, 'REJECT'),
+    ('a NON-difference on its own',                    [VAC],     0, 0, 0, True, 'REJECT'),
+]
+NATIVE_CASES = [
+    ('native page, distance only, foreign sibling',    [D],       0, 0, 0, True,
+     'KEEP:NATIVE_LANGUAGE_OF_THE_SUBJECT'),
+    ('native page, no fact at all, foreign sibling',   [],        0, 0, 0, True,
+     'KEEP:NATIVE_LANGUAGE_OF_THE_SUBJECT'),
+    ('native page, SAME-language sibling, no fact',    [],        0, 0, 1, True, 'REJECT'),
+]
 
 if __name__ == '__main__':
     failed = 0
@@ -69,7 +88,13 @@ if __name__ == '__main__':
         ok = got == expect
         failed += not ok
         print(f'  {"PASS" if ok else "FAIL"}  {name:46} -> {got}')
-    print(f'\n{len(CASES) - failed} of {len(CASES)} cases behave as specified')
+    for name, facts, kw, di, sl, sib, expect in NATIVE_CASES:
+        got = decide(facts, kw, di, sl, sib, native=True)
+        ok = got == expect
+        failed += not ok
+        print(f'  {"PASS" if ok else "FAIL"}  {name:46} -> {got}')
+    total = len(CASES) + len(NATIVE_CASES)
+    print(f'\n{total - failed} of {total} cases behave as specified')
     if failed:
         print('\nThe gate in build-1m-candidate-manifest.py and this table have diverged. '
               'One of them is wrong and the run should not be trusted until they agree.')

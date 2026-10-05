@@ -1,20 +1,20 @@
 {
  "measuredOn": "2026-10-01",
- "families": 204,
- "pages": 302063,
+ "families": 203,
+ "pages": 340609,
  "verdicts": {
-  "ACCEPTED": 170,
-  "ACCEPTED_WITH_AN_UNKNOWN": 34
+  "ACCEPTED": 168,
+  "ACCEPTED_WITH_AN_UNKNOWN": 35
  },
  "pages_by_verdict": {
-  "ACCEPTED": 228126,
-  "ACCEPTED_WITH_AN_UNKNOWN": 73937
+  "ACCEPTED": 260207,
+  "ACCEPTED_WITH_AN_UNKNOWN": 80402
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
  "by_family": {
   "activities.city-things-to-do": {
-   "pages": 16266,
+   "pages": 17465,
    "markets": [
     "de-DE",
     "en-GB",
@@ -25,6 +25,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -43,10 +44,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 16266,
+    "unique_fact_count": 17465,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 12654,
-    "template_ratio": 16266.0,
+    "distinct_entity_count": 13235,
+    "template_ratio": 17465.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0035,
@@ -56,163 +57,7 @@
    "every_page_is_low_completeness": false
   },
   "areas.city-index": {
-   "pages": 520,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 520,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 520,
-    "template_ratio": 520.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named neighbourhoods of Atlanta, Georgia that each have enough mapped entities to describe, 0 of them with a mapped polygon: the index a person comparing areas of Atlanta, Georgia needs, and the parent every area page links up to"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "areas.overview": {
-   "pages": 4269,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 4269,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 4269,
-    "template_ratio": 4269.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0067,
-    "near_duplicate_worst_language": "pl",
-    "information_gain_reason": "10e Arrondissement is a named suburb of Paris 10 Entrepôt with 595 mapped entities across 20 categories and a mapped place node, population 83543, Wikidata Q163948: an area overview that no single category list and no city page covers"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "climate.region-when-to-go": {
-   "pages": 84,
-   "markets": [
-    "de-DE"
-   ],
-   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [
-    "7_serp_sampled"
-   ],
-   "contract": {
-    "unique_fact_count": 84,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 84,
-    "template_ratio": 84.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "a twelve-month mean temperature and rainfall normal for Angeln, computed from the NASA POWER daily record for the 4 places inside its polygon and not from one station with a region's name on it. The station count is stated on the page because an average of three is not an average of thirty."
-   },
-   "every_page_is_low_completeness": false
-  },
-  "comparisons.city-vs-city": {
-   "pages": 50,
-   "markets": [
-    "en-GB",
-    "ja-JP",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [
-    "7_serp_sampled"
-   ],
-   "contract": {
-    "unique_fact_count": 50,
-    "unique_data_point_count": 12,
-    "distinct_entity_count": 50,
-    "template_ratio": 50.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "comparisons.city-vs-city for London vs Bengaluru (GB) in en-GB: a two-sided comparison whose figures exist for no other pair; 2 source fields from HELD; en market demand measured for this family"
-   },
-   "every_page_is_low_completeness": true
-  },
-  "comparisons.city-vs-home": {
-   "pages": 740,
+   "pages": 417,
    "markets": [
     "de-DE",
     "en-GB",
@@ -224,12 +69,129 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "zh-Hant-TW"
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 417,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 417,
+    "template_ratio": 417.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 named neighbourhoods of Augsburg that each have enough mapped entities to describe, 0 of them with a mapped polygon: the index a person comparing areas of Augsburg needs, and the parent every area page links up to"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "areas.overview": {
+   "pages": 3357,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 3357,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 3357,
+    "template_ratio": 3357.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0019,
+    "near_duplicate_worst_language": "en",
+    "information_gain_reason": "100. Yıl is a named suburb of Bandırma with 59 mapped entities across 6 categories and a mapped place node, population 11316, Wikidata Q31193923: an area overview that no single category list and no city page covers"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "climate.region-when-to-go": {
+   "pages": 197,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "ja-JP"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (18 of 740 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [
+    "7_serp_sampled"
+   ],
+   "contract": {
+    "unique_fact_count": 197,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 197,
+    "template_ratio": 197.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "a twelve-month mean temperature and rainfall normal for Alba / Scotland, computed from the NASA POWER daily record for the 187 places inside its polygon and not from one station with a region's name on it. The station count is stated on the page because an average of three is not an average of thirty."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "comparisons.city-vs-city": {
+   "pages": 82,
+   "markets": [
+    "en-GB",
+    "ja-JP",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "UNKNOWN (32 of 82 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -245,10 +207,57 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 740,
+    "unique_fact_count": 82,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 740,
-    "template_ratio": 740.0,
+    "distinct_entity_count": 82,
+    "template_ratio": 82.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "comparisons.city-vs-city for Istanbul vs Bengaluru (TR) in tr-TR: a two-sided comparison whose figures exist for no other pair; 2 source fields from HELD; tr market demand measured for this family"
+   },
+   "every_page_is_low_completeness": true
+  },
+  "comparisons.city-vs-home": {
+   "pages": 804,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR",
+    "zh-Hant-TW"
+   ],
+   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "UNKNOWN (82 of 804 pages rest on demand measured for this family in another market, not this one)",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [
+    "2_measured_demand",
+    "7_serp_sampled"
+   ],
+   "contract": {
+    "unique_fact_count": 804,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 804,
+    "template_ratio": 804.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -258,7 +267,7 @@
    "every_page_is_low_completeness": false
   },
   "cost-of-living.city": {
-   "pages": 2967,
+   "pages": 3156,
    "markets": [
     "de-DE",
     "en-GB",
@@ -270,12 +279,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (40 of 2967 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (229 of 3156 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -291,10 +301,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2967,
+    "unique_fact_count": 3156,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2967,
-    "template_ratio": 2967.0,
+    "distinct_entity_count": 3156,
+    "template_ratio": 3156.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0045,
@@ -304,7 +314,7 @@
    "every_page_is_low_completeness": true
   },
   "cost-of-living.city-vs-market": {
-   "pages": 740,
+   "pages": 804,
    "markets": [
     "de-DE",
     "en-GB",
@@ -316,12 +326,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (18 of 740 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (82 of 804 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -337,10 +348,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 740,
+    "unique_fact_count": 804,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 740,
-    "template_ratio": 740.0,
+    "distinct_entity_count": 804,
+    "template_ratio": 804.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -350,7 +361,7 @@
    "every_page_is_low_completeness": false
   },
   "destinations.country-hub": {
-   "pages": 11,
+   "pages": 12,
    "markets": [
     "de-DE",
     "en-US",
@@ -361,12 +372,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (2 of 11 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (3 of 12 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -382,10 +394,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 11,
+    "unique_fact_count": 12,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 11,
-    "template_ratio": 11.0,
+    "distinct_entity_count": 12,
+    "template_ratio": 12.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -395,11 +407,17 @@
    "every_page_is_low_completeness": false
   },
   "destinations.region-cities": {
-   "pages": 120,
+   "pages": 286,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -417,24 +435,30 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 120,
+    "unique_fact_count": 286,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 120,
-    "template_ratio": 120.0,
+    "distinct_entity_count": 286,
+    "template_ratio": 286.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "the 1,527 cities and towns inside Penisola italiana, each one inside its polygon rather than near its centre, with the population and elevation GeoNames publishes for each. The set is different for every region by construction, because a city is in one polygon or it is not."
+    "information_gain_reason": "the 1,205 cities and towns inside 本州, each one inside its polygon rather than near its centre, with the population and elevation GeoNames publishes for each. The set is different for every region by construction, because a city is in one polygon or it is not."
    },
    "every_page_is_low_completeness": false
   },
   "destinations.region-what-to-see": {
-   "pages": 404,
+   "pages": 1123,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -452,20 +476,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 404,
+    "unique_fact_count": 1123,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 403,
-    "template_ratio": 404.0,
+    "distinct_entity_count": 1123,
+    "template_ratio": 1123.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "1,189 named places inside Parc naturel régional de Millevaches en Limousin, a protected area, broken down across 9 kinds and each attached by containment within its polygon rather than by distance to its centre. No single place page carries the breakdown or the count."
+    "near_duplicate_token_score": 0.0408,
+    "near_duplicate_worst_language": "ja",
+    "information_gain_reason": "1,040 named places inside Mallorca, a island, broken down across 11 kinds and each attached by containment within its polygon rather than by distance to its centre. No single place page carries the breakdown or the count."
    },
    "every_page_is_low_completeness": false
   },
   "education.city-schools": {
-   "pages": 259,
+   "pages": 269,
    "markets": [
     "de-DE",
     "en-GB",
@@ -477,12 +501,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (120 of 259 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (130 of 269 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -498,10 +523,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 259,
+    "unique_fact_count": 269,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 259,
-    "template_ratio": 259.0,
+    "distinct_entity_count": 269,
+    "template_ratio": 269.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -511,7 +536,7 @@
    "every_page_is_low_completeness": false
   },
   "education.city-universities": {
-   "pages": 709,
+   "pages": 773,
    "markets": [
     "de-DE",
     "en-GB",
@@ -523,12 +548,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
+    "2_measured_demand": "UNKNOWN (64 of 773 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -540,13 +566,14 @@
    },
    "failed": [],
    "unknown": [
+    "2_measured_demand",
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 709,
+    "unique_fact_count": 773,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 709,
-    "template_ratio": 709.0,
+    "distinct_entity_count": 773,
+    "template_ratio": 773.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -556,7 +583,7 @@
    "every_page_is_low_completeness": false
   },
   "events.city-calendar": {
-   "pages": 5924,
+   "pages": 6680,
    "markets": [
     "de-DE",
     "en-GB",
@@ -568,6 +595,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
@@ -588,10 +616,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 5924,
+    "unique_fact_count": 6680,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 5924,
-    "template_ratio": 5924.0,
+    "distinct_entity_count": 6680,
+    "template_ratio": 6680.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0043,
@@ -601,7 +629,7 @@
    "every_page_is_low_completeness": false
   },
   "events.city-type": {
-   "pages": 5924,
+   "pages": 6680,
    "markets": [
     "de-DE",
     "en-GB",
@@ -613,6 +641,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -631,10 +660,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 5924,
+    "unique_fact_count": 6680,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 5924,
-    "template_ratio": 5924.0,
+    "distinct_entity_count": 6680,
+    "template_ratio": 6680.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0043,
@@ -644,7 +673,7 @@
    "every_page_is_low_completeness": true
   },
   "events.city-window": {
-   "pages": 741,
+   "pages": 805,
    "markets": [
     "de-DE",
     "en-GB",
@@ -656,12 +685,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (310 of 741 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (374 of 805 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -677,10 +707,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 741,
+    "unique_fact_count": 805,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 741,
-    "template_ratio": 741.0,
+    "distinct_entity_count": 805,
+    "template_ratio": 805.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -690,7 +720,7 @@
    "every_page_is_low_completeness": true
   },
   "health.city": {
-   "pages": 2811,
+   "pages": 3000,
    "markets": [
     "de-DE",
     "en-GB",
@@ -702,12 +732,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
+    "2_measured_demand": "UNKNOWN (189 of 3000 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -719,13 +750,14 @@
    },
    "failed": [],
    "unknown": [
+    "2_measured_demand",
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2811,
+    "unique_fact_count": 3000,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2811,
-    "template_ratio": 2811.0,
+    "distinct_entity_count": 3000,
+    "template_ratio": 3000.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0045,
@@ -854,7 +886,7 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 823,
+    "unique_fact_count": 825,
     "unique_data_point_count": 12,
     "distinct_entity_count": 825,
     "template_ratio": 825.0,
@@ -862,7 +894,7 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0157,
     "near_duplicate_worst_language": "de",
-    "information_gain_reason": "neighbourhoods.guide for Abrantes (ES) in es-ES: neighbourhood-level characteristics within a named city; 2 source fields from HELD_PARTIAL; es market demand measured for this family"
+    "information_gain_reason": "neighbourhoods.guide for Abrantes (Madrid, ES) in es-ES: neighbourhood-level characteristics within a named city; 2 source fields from HELD_PARTIAL; es market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
@@ -902,7 +934,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.archaeological_site": {
-   "pages": 1887,
+   "pages": 1881,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -925,10 +957,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1887,
+    "unique_fact_count": 1881,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1884,
-    "template_ratio": 1887.0,
+    "distinct_entity_count": 1881,
+    "template_ratio": 1881.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1248,7 +1280,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.castle": {
-   "pages": 6616,
+   "pages": 6606,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -1271,10 +1303,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 6616,
+    "unique_fact_count": 6606,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 6611,
-    "template_ratio": 6616.0,
+    "distinct_entity_count": 6606,
+    "template_ratio": 6606.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1665,7 +1697,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.lighthouse": {
-   "pages": 253,
+   "pages": 249,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -1688,10 +1720,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 253,
+    "unique_fact_count": 249,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 251,
-    "template_ratio": 253.0,
+    "distinct_entity_count": 249,
+    "template_ratio": 249.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1737,7 +1769,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.mountain_hut": {
-   "pages": 750,
+   "pages": 730,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -1759,10 +1791,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 750,
+    "unique_fact_count": 730,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 740,
-    "template_ratio": 750.0,
+    "distinct_entity_count": 730,
+    "template_ratio": 730.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1772,7 +1804,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.mountain_pass": {
-   "pages": 1197,
+   "pages": 1167,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -1794,10 +1826,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1197,
+    "unique_fact_count": 1167,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1182,
-    "template_ratio": 1197.0,
+    "distinct_entity_count": 1167,
+    "template_ratio": 1167.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1911,7 +1943,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.peak": {
-   "pages": 20621,
+   "pages": 20509,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -1934,13 +1966,13 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 20621,
+    "unique_fact_count": 20509,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 20565,
-    "template_ratio": 20621.0,
+    "distinct_entity_count": 20509,
+    "template_ratio": 20509.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.002,
+    "near_duplicate_token_score": 0.0021,
     "near_duplicate_worst_language": "it",
     "information_gain_reason": "2. Pfrontener Berg is a named peak in DE recorded in OpenStreetMap with 2 measured attributes (1352m above sea level, a prominence of 38m), inside Landkreis Ostallgäu, a county, 1.2km from Pfronten. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
@@ -2013,7 +2045,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.ruins": {
-   "pages": 725,
+   "pages": 723,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -2036,10 +2068,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 725,
+    "unique_fact_count": 723,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 724,
-    "template_ratio": 725.0,
+    "distinct_entity_count": 723,
+    "template_ratio": 723.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2290,7 +2322,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.waterfall": {
-   "pages": 110,
+   "pages": 106,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -2312,10 +2344,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 110,
+    "unique_fact_count": 106,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 108,
-    "template_ratio": 110.0,
+    "distinct_entity_count": 106,
+    "template_ratio": 106.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2325,7 +2357,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.watermill": {
-   "pages": 261,
+   "pages": 259,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -2348,10 +2380,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 261,
+    "unique_fact_count": 259,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 260,
-    "template_ratio": 261.0,
+    "distinct_entity_count": 259,
+    "template_ratio": 259.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2361,7 +2393,7 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.wilderness_hut": {
-   "pages": 134,
+   "pages": 128,
    "markets": [
     "de-DE",
     "fr-FR",
@@ -2383,10 +2415,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 134,
+    "unique_fact_count": 128,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 131,
-    "template_ratio": 134.0,
+    "distinct_entity_count": 128,
+    "template_ratio": 128.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2430,174 +2462,10 @@
    },
    "every_page_is_low_completeness": false
   },
-  "places.area-arts_centre": {
-   "pages": 276,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 276,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 276,
-    "template_ratio": 276.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "11 named arts_centre entities inside L'Écusson, a suburb of Montpellier (OSM place node, 1.8km radius), against 16 in the whole city: a neighbourhood-level list that the city page cannot answer"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.area-attraction": {
-   "pages": 222,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 222,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 222,
-    "template_ratio": 222.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named attraction entities inside Bordeaux, Port de la Lune, a quarter of Bordeaux (OSM polygon), against 15 in the whole city: a neighbourhood-level list that the city page cannot answer"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.area-attribute": {
-   "pages": 6344,
-   "markets": [
-    "de-DE",
-    "en-US",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [
-    "7_serp_sampled"
-   ],
-   "contract": {
-    "unique_fact_count": 6344,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 6344,
-    "template_ratio": 140.98,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0007,
-    "near_duplicate_worst_language": "en",
-    "information_gain_reason": "10 bar entities tagged outdoor seating inside Downtown (suburb of Milwaukee), against 32 citywide"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.area-bar": {
-   "pages": 2739,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 2739,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 2739,
-    "template_ratio": 2739.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0079,
-    "near_duplicate_worst_language": "de",
-    "information_gain_reason": "10 named bar entities inside Am Wasserturm, a neighbourhood of Mönchengladbach (OSM place node, 1.0km radius), against 16 in the whole city: a neighbourhood-level list that the city page cannot answer"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.area-beach": {
+  "places.area-aquarium": {
    "pages": 1,
    "markets": [
-    "pl-PL"
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2623,12 +2491,12 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "2 named beach entities inside Brzeźno, a suburb of Gdańsk (OSM place node, 1.8km radius), against 4 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "2 named aquarium entities inside Kocatepe, a suburb of Esenler (OSM place node, 1.8km radius), against 3 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": true
   },
-  "places.area-cafe": {
-   "pages": 4895,
+  "places.area-arts_centre": {
+   "pages": 304,
    "markets": [
     "de-DE",
     "en-GB",
@@ -2636,10 +2504,10 @@
     "es-ES",
     "fr-FR",
     "it-IT",
-    "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2657,22 +2525,147 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4895,
+    "unique_fact_count": 304,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4895,
-    "template_ratio": 4895.0,
+    "distinct_entity_count": 304,
+    "template_ratio": 304.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0093,
-    "near_duplicate_worst_language": "pl",
-    "information_gain_reason": "10 named cafe entities inside Acqua dei Corsari, a suburb of Palermo (OSM place node, 1.8km radius), against 219 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "11 named arts_centre entities inside Nadodrze, a suburb of Wrocław (OSM place node, 1.8km radius), against 22 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
-  "places.area-camp_site": {
-   "pages": 4,
+  "places.area-attraction": {
+   "pages": 268,
    "markets": [
+    "de-DE",
+    "en-GB",
     "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 268,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 268,
+    "template_ratio": 268.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 named attraction entities inside Bordeaux, Port de la Lune, a quarter of Bordeaux (OSM polygon), against 15 in the whole city: a neighbourhood-level list that the city page cannot answer"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.area-attribute": {
+   "pages": 5113,
+   "markets": [
+    "de-DE",
+    "en-US",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [
+    "7_serp_sampled"
+   ],
+   "contract": {
+    "unique_fact_count": 5113,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 5113,
+    "template_ratio": 113.62,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0008,
+    "near_duplicate_worst_language": "en",
+    "information_gain_reason": "10 bar entities tagged outdoor seating inside Downtown (suburb of Milwaukee), against 32 citywide"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.area-bar": {
+   "pages": 4189,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 4189,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 4189,
+    "template_ratio": 4189.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0061,
+    "near_duplicate_worst_language": "de",
+    "information_gain_reason": "10 named bar entities inside 6th Avenue, a neighbourhood of Tacoma (OSM place node, 1.0km radius), against 39 in the whole city: a neighbourhood-level list that the city page cannot answer"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.area-beach": {
+   "pages": 3,
+   "markets": [
+    "es-ES",
     "pl-PL"
    ],
    "verdict": "ACCEPTED",
@@ -2691,20 +2684,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4,
+    "unique_fact_count": 3,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4,
-    "template_ratio": 4.0,
+    "distinct_entity_count": 3,
+    "template_ratio": 3.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "2 named camp_site entities inside Skyline, a neighbourhood of Monterey (OSM polygon), against 3 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "2 named beach entities inside Brzeźno, a suburb of Gdańsk (OSM place node, 1.8km radius), against 4 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": true
   },
-  "places.area-childcare": {
-   "pages": 1635,
+  "places.area-cafe": {
+   "pages": 8016,
    "markets": [
     "de-DE",
     "en-GB",
@@ -2715,7 +2708,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2733,10 +2727,122 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1635,
+    "unique_fact_count": 8016,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1635,
-    "template_ratio": 1635.0,
+    "distinct_entity_count": 8016,
+    "template_ratio": 8016.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0021,
+    "near_duplicate_worst_language": "it",
+    "information_gain_reason": "10 named cafe entities inside 28 de Febrero, a neighbourhood of Tarifa (OSM place node, 1.0km radius), against 63 in the whole city: a neighbourhood-level list that the city page cannot answer"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.area-camp_site": {
+   "pages": 7,
+   "markets": [
+    "en-US",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 7,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 7,
+    "template_ratio": 7.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "2 named camp_site entities inside Andifli, a suburb of Kaş (OSM place node, 1.8km radius), against 3 in the whole city: a neighbourhood-level list that the city page cannot answer"
+   },
+   "every_page_is_low_completeness": true
+  },
+  "places.area-castle": {
+   "pages": 1,
+   "markets": [
+    "ja-JP"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS (a single page cannot be similar to itself)",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 1,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 1,
+    "template_ratio": 1.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "2 named castle entities inside 大街道三丁目, a neighbourhood of Matsuyama (OSM place node, 1.0km radius), against 5 in the whole city: a neighbourhood-level list that the city page cannot answer"
+   },
+   "every_page_is_low_completeness": true
+  },
+  "places.area-childcare": {
+   "pages": 2226,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 2226,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 2226,
+    "template_ratio": 2226.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2746,7 +2852,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-cinema": {
-   "pages": 185,
+   "pages": 196,
    "markets": [
     "de-DE",
     "en-GB",
@@ -2757,7 +2863,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2775,10 +2882,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 185,
+    "unique_fact_count": 196,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 185,
-    "template_ratio": 185.0,
+    "distinct_entity_count": 196,
+    "template_ratio": 196.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2788,7 +2895,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-clinic": {
-   "pages": 3464,
+   "pages": 5484,
    "markets": [
     "de-DE",
     "en-GB",
@@ -2799,7 +2906,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2817,20 +2925,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3464,
+    "unique_fact_count": 5484,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3464,
-    "template_ratio": 3464.0,
+    "distinct_entity_count": 5484,
+    "template_ratio": 5484.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0073,
+    "near_duplicate_token_score": 0.0084,
     "near_duplicate_worst_language": "de",
-    "information_gain_reason": "10 named clinic entities inside Allentown, a neighbourhood of Buffalo, New York (OSM place node, 1.0km radius), against 43 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named clinic entities inside A Choupana, a suburb of Santiago de Compostela (OSM place node, 1.8km radius), against 29 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-college": {
-   "pages": 273,
+   "pages": 366,
    "markets": [
     "de-DE",
     "en-GB",
@@ -2841,7 +2949,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2859,20 +2968,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 273,
+    "unique_fact_count": 366,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 273,
-    "template_ratio": 273.0,
+    "distinct_entity_count": 366,
+    "template_ratio": 366.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "11 named college entities inside 2e Arrondissement, a suburb of Lyon (OSM place node, 1.8km radius), against 76 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "13 named college entities inside Beaulieu, a neighbourhood of Nantes (OSM place node, 1.0km radius), against 55 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-coworking": {
-   "pages": 153,
+   "pages": 171,
    "markets": [
     "en-GB",
     "en-US",
@@ -2882,7 +2991,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2900,10 +3010,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 153,
+    "unique_fact_count": 171,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 153,
-    "template_ratio": 153.0,
+    "distinct_entity_count": 171,
+    "template_ratio": 171.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2913,7 +3023,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-cuisine": {
-   "pages": 17594,
+   "pages": 20824,
    "markets": [
     "de-DE",
     "en-GB",
@@ -2924,7 +3034,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2942,10 +3053,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 17594,
+    "unique_fact_count": 20824,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 17594,
-    "template_ratio": 195.49,
+    "distinct_entity_count": 20824,
+    "template_ratio": 223.91,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0025,
@@ -2955,7 +3066,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-dentist": {
-   "pages": 2356,
+   "pages": 3552,
    "markets": [
     "de-DE",
     "en-GB",
@@ -2966,7 +3077,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2984,10 +3096,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2356,
+    "unique_fact_count": 3552,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2356,
-    "template_ratio": 2356.0,
+    "distinct_entity_count": 3552,
+    "template_ratio": 3552.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2997,7 +3109,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-department_store": {
-   "pages": 241,
+   "pages": 345,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3008,7 +3120,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3026,20 +3139,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 241,
+    "unique_fact_count": 345,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 241,
-    "template_ratio": 241.0,
+    "distinct_entity_count": 345,
+    "template_ratio": 345.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "16 named department_store entities inside Menino Jesus, a suburb of Santa Maria, Rio Grande do Sul (OSM place node, 1.8km radius), against 39 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "17 named department_store entities inside Suadiye, a suburb of Ataşehir (OSM place node, 1.8km radius), against 69 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-fast_food": {
-   "pages": 6059,
+   "pages": 9962,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3050,7 +3163,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3068,20 +3182,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 6059,
+    "unique_fact_count": 9962,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 6059,
-    "template_ratio": 6059.0,
+    "distinct_entity_count": 9962,
+    "template_ratio": 9962.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0047,
-    "near_duplicate_worst_language": "pl",
-    "information_gain_reason": "10 named fast_food entities inside Agra do Orzán, a suburb of A Coruña (OSM place node, 1.8km radius), against 83 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "near_duplicate_token_score": 0.0038,
+    "near_duplicate_worst_language": "de",
+    "information_gain_reason": "10 named fast_food entities inside 2e Arrondissement, a suburb of Paris 09 Opéra (OSM place node, 1.8km radius), against 231 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-gallery": {
-   "pages": 397,
+   "pages": 440,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3110,10 +3224,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 397,
+    "unique_fact_count": 440,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 397,
-    "template_ratio": 397.0,
+    "distinct_entity_count": 440,
+    "template_ratio": 440.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3123,7 +3237,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-garden": {
-   "pages": 12,
+   "pages": 15,
    "markets": [
     "en-GB",
     "en-US",
@@ -3145,20 +3259,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 12,
+    "unique_fact_count": 15,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 12,
-    "template_ratio": 12.0,
+    "distinct_entity_count": 15,
+    "template_ratio": 15.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "12 named garden entities inside Richmond District, a suburb of San Francisco (OSM place node, 1.8km radius), against 27 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named garden entities inside Inner Sunset, a quarter of San Francisco (OSM place node, 1.3km radius), against 27 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-guest_house": {
-   "pages": 497,
+   "pages": 752,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3169,7 +3283,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3187,10 +3302,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 497,
+    "unique_fact_count": 752,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 497,
-    "template_ratio": 497.0,
+    "distinct_entity_count": 752,
+    "template_ratio": 752.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3200,7 +3315,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-gym": {
-   "pages": 1921,
+   "pages": 2552,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3211,7 +3326,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3229,20 +3345,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1921,
+    "unique_fact_count": 2552,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1921,
-    "template_ratio": 1921.0,
+    "distinct_entity_count": 2552,
+    "template_ratio": 2552.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named gym entities inside 6e Arrondissement, a suburb of Villeurbanne (OSM place node, 1.8km radius), against 21 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named gym entities inside Bushwick, a quarter of Brooklyn, New York (OSM place node, 1.3km radius), against 147 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-hospital": {
-   "pages": 102,
+   "pages": 170,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3253,7 +3369,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3271,20 +3388,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 102,
+    "unique_fact_count": 170,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 102,
-    "template_ratio": 102.0,
+    "distinct_entity_count": 170,
+    "template_ratio": 170.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "2 named hospital entities inside Auteuil, a suburb of Paris 16 Passy (OSM place node, 1.8km radius), against 3 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "2 named hospital entities inside Aldeota, a suburb of Fortaleza (OSM polygon), against 16 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-hostel": {
-   "pages": 246,
+   "pages": 324,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3295,7 +3412,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3313,10 +3431,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 246,
+    "unique_fact_count": 324,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 246,
-    "template_ratio": 246.0,
+    "distinct_entity_count": 324,
+    "template_ratio": 324.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3326,7 +3444,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-library": {
-   "pages": 764,
+   "pages": 905,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3337,7 +3455,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3355,10 +3474,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 764,
+    "unique_fact_count": 905,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 764,
-    "template_ratio": 764.0,
+    "distinct_entity_count": 905,
+    "template_ratio": 905.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3368,7 +3487,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-mall": {
-   "pages": 26,
+   "pages": 36,
    "markets": [
     "en-US",
     "es-ES",
@@ -3376,7 +3495,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3394,20 +3514,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 26,
+    "unique_fact_count": 36,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 26,
-    "template_ratio": 26.0,
+    "distinct_entity_count": 36,
+    "template_ratio": 36.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "11 named mall entities inside Pari, a suburb of São Paulo (OSM place node, 1.8km radius), against 90 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named mall entities inside Abdurrahmangazi, a suburb of Sultanbeyli (OSM place node, 1.8km radius), against 54 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-marina": {
-   "pages": 56,
+   "pages": 78,
    "markets": [
     "de-DE",
     "en-US",
@@ -3432,10 +3552,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 56,
+    "unique_fact_count": 78,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 56,
-    "template_ratio": 56.0,
+    "distinct_entity_count": 78,
+    "template_ratio": 78.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3445,7 +3565,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-market": {
-   "pages": 150,
+   "pages": 184,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3453,8 +3573,10 @@
     "es-ES",
     "fr-FR",
     "it-IT",
+    "ja-JP",
     "nl-NL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3472,10 +3594,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 150,
+    "unique_fact_count": 184,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 150,
-    "template_ratio": 150.0,
+    "distinct_entity_count": 184,
+    "template_ratio": 184.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3485,7 +3607,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-museum": {
-   "pages": 790,
+   "pages": 1041,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3496,7 +3618,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3514,13 +3637,13 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 790,
+    "unique_fact_count": 1041,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 790,
-    "template_ratio": 790.0,
+    "distinct_entity_count": 1041,
+    "template_ratio": 1041.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0351,
+    "near_duplicate_token_score": 0.0282,
     "near_duplicate_worst_language": "pl",
     "information_gain_reason": "10 named museum entities inside Burgwallen-Oude Zijde, a quarter of Amsterdam (OSM polygon), against 74 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
@@ -3560,7 +3683,7 @@
    "every_page_is_low_completeness": true
   },
   "places.area-nightclub": {
-   "pages": 364,
+   "pages": 405,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3571,7 +3694,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3589,20 +3713,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 364,
+    "unique_fact_count": 405,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 364,
-    "template_ratio": 364.0,
+    "distinct_entity_count": 405,
+    "template_ratio": 405.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named nightclub entities inside Bixiga, a suburb of São Paulo (OSM place node, 1.8km radius), against 39 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named nightclub entities inside Centrum, a neighbourhood of Łódź (OSM place node, 1.0km radius), against 14 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-opening": {
-   "pages": 9613,
+   "pages": 7580,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3613,7 +3737,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
@@ -3633,27 +3758,29 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 9613,
+    "unique_fact_count": 7580,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 9613,
-    "template_ratio": 436.95,
+    "distinct_entity_count": 7580,
+    "template_ratio": 344.55,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0034,
+    "near_duplicate_token_score": 0.0045,
     "near_duplicate_worst_language": "de",
-    "information_gain_reason": "10 bar entities open late inside Altstadt (suburb of Munich), against 87 citywide"
+    "information_gain_reason": "10 bar entities open late inside 1er Arrondissement (suburb of Lyon), against 149 citywide"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-park": {
-   "pages": 11,
+   "pages": 21,
    "markets": [
     "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
     "ja-JP",
-    "pt-BR"
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3671,10 +3798,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 11,
+    "unique_fact_count": 21,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 11,
-    "template_ratio": 11.0,
+    "distinct_entity_count": 21,
+    "template_ratio": 21.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3684,7 +3811,7 @@
    "every_page_is_low_completeness": true
   },
   "places.area-parking": {
-   "pages": 364,
+   "pages": 480,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3695,7 +3822,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3713,20 +3841,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 364,
+    "unique_fact_count": 480,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 364,
-    "template_ratio": 364.0,
+    "distinct_entity_count": 480,
+    "template_ratio": 480.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0274,
+    "near_duplicate_token_score": 0.0235,
     "near_duplicate_worst_language": "de",
     "information_gain_reason": "10 named parking entities inside Botafogo, a suburb of Botafogo (OSM place node, 1.8km radius), against 14 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-pharmacy": {
-   "pages": 4893,
+   "pages": 10598,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3737,7 +3865,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3755,20 +3884,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4893,
+    "unique_fact_count": 10598,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4893,
-    "template_ratio": 4893.0,
+    "distinct_entity_count": 10598,
+    "template_ratio": 10598.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0076,
+    "near_duplicate_token_score": 0.0056,
     "near_duplicate_worst_language": "de",
-    "information_gain_reason": "10 named pharmacy entities inside Agra do Orzán, a suburb of A Coruña (OSM place node, 1.8km radius), against 93 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named pharmacy entities inside A Madalena, a suburb of Ferrol (OSM place node, 1.8km radius), against 35 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-pub": {
-   "pages": 2703,
+   "pages": 4044,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3779,7 +3908,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3797,20 +3927,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2703,
+    "unique_fact_count": 4044,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2703,
-    "template_ratio": 2703.0,
+    "distinct_entity_count": 4044,
+    "template_ratio": 4044.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0021,
+    "near_duplicate_token_score": 0.0015,
     "near_duplicate_worst_language": "en",
-    "information_gain_reason": "10 named pub entities inside Altstadt, a suburb of Flensburg (OSM place node, 1.8km radius), against 19 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named pub entities inside Aldrington, a suburb of Hove (OSM place node, 1.8km radius), against 28 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-railway_station": {
-   "pages": 425,
+   "pages": 480,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3820,7 +3950,8 @@
     "it-IT",
     "ja-JP",
     "nl-NL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3838,10 +3969,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 425,
+    "unique_fact_count": 480,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 425,
-    "template_ratio": 425.0,
+    "distinct_entity_count": 480,
+    "template_ratio": 480.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3851,7 +3982,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-restaurant": {
-   "pages": 8054,
+   "pages": 14800,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3880,20 +4011,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 8054,
+    "unique_fact_count": 14800,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 8054,
-    "template_ratio": 8054.0,
+    "distinct_entity_count": 14800,
+    "template_ratio": 14800.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0073,
-    "near_duplicate_worst_language": "it",
-    "information_gain_reason": "10 named restaurant entities inside 9e Arrondissement, a suburb of Caluire-et-Cuire (OSM place node, 1.8km radius), against 226 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "near_duplicate_token_score": 0.0071,
+    "near_duplicate_worst_language": "de",
+    "information_gain_reason": "10 named restaurant entities inside Above Bar, a quarter of Southampton (OSM place node, 1.3km radius), against 101 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-school": {
-   "pages": 1813,
+   "pages": 2752,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3904,7 +4035,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3922,20 +4054,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1813,
+    "unique_fact_count": 2752,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1813,
-    "template_ratio": 1813.0,
+    "distinct_entity_count": 2752,
+    "template_ratio": 2752.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named school entities inside 3e Arrondissement, a suburb of Lyon (OSM place node, 1.8km radius), against 167 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named school entities inside 6e Arrondissement, a suburb of Villeurbanne (OSM place node, 1.8km radius), against 72 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-sports_centre": {
-   "pages": 809,
+   "pages": 960,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3946,7 +4078,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -3964,20 +4097,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 809,
+    "unique_fact_count": 960,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 809,
-    "template_ratio": 809.0,
+    "distinct_entity_count": 960,
+    "template_ratio": 960.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named sports_centre entities inside Grange aux Belles, a neighbourhood of Paris 19 Buttes-Chaumont (OSM place node, 1.0km radius), against 14 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named sports_centre entities inside Nieuw-West, a suburb of Amsterdam (OSM polygon), against 94 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-supermarket": {
-   "pages": 4499,
+   "pages": 8235,
    "markets": [
     "de-DE",
     "en-GB",
@@ -3988,7 +4121,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4006,15 +4140,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4499,
+    "unique_fact_count": 8235,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4499,
-    "template_ratio": 4499.0,
+    "distinct_entity_count": 8235,
+    "template_ratio": 8235.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.004,
-    "near_duplicate_worst_language": "it",
-    "information_gain_reason": "10 named supermarket entities inside 16e Arrondissement, a suburb of Paris 16 Passy (OSM place node, 1.8km radius), against 18 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "near_duplicate_token_score": 0.0036,
+    "near_duplicate_worst_language": "de",
+    "information_gain_reason": "10 named supermarket entities inside Acquasanta, a neighbourhood of Palermo (OSM place node, 1.0km radius), against 130 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
@@ -4052,7 +4186,7 @@
    "every_page_is_low_completeness": true
   },
   "places.area-theatre": {
-   "pages": 519,
+   "pages": 556,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4063,7 +4197,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4081,20 +4216,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 519,
+    "unique_fact_count": 556,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 519,
-    "template_ratio": 519.0,
+    "distinct_entity_count": 556,
+    "template_ratio": 556.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named theatre entities inside L'Écusson, a suburb of Montpellier (OSM place node, 1.8km radius), against 14 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "11 named theatre entities inside South End, a suburb of Boston, Massachusetts (OSM place node, 1.8km radius), against 39 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-theme_park": {
-   "pages": 2,
+   "pages": 3,
    "markets": [
     "pl-PL"
    ],
@@ -4114,10 +4249,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2,
+    "unique_fact_count": 3,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2,
-    "template_ratio": 2.0,
+    "distinct_entity_count": 3,
+    "template_ratio": 3.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4127,7 +4262,7 @@
    "every_page_is_low_completeness": true
   },
   "places.area-university": {
-   "pages": 164,
+   "pages": 202,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4138,7 +4273,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4156,20 +4292,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 164,
+    "unique_fact_count": 202,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 164,
-    "template_ratio": 164.0,
+    "distinct_entity_count": 202,
+    "template_ratio": 202.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named university entities inside Montmuzard, a suburb of Dijon (OSM place node, 1.8km radius), against 15 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named university entities inside Centro storico, a suburb of Macerata (OSM place node, 1.8km radius), against 14 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-veterinary": {
-   "pages": 633,
+   "pages": 754,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4180,7 +4316,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4198,10 +4335,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 633,
+    "unique_fact_count": 754,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 633,
-    "template_ratio": 633.0,
+    "distinct_entity_count": 754,
+    "template_ratio": 754.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4211,12 +4348,12 @@
    "every_page_is_low_completeness": false
   },
   "places.area-viewpoint": {
-   "pages": 29,
+   "pages": 28,
    "markets": [
     "de-DE",
-    "en-GB",
     "en-US",
     "es-ES",
+    "fr-FR",
     "it-IT",
     "ja-JP",
     "nl-NL",
@@ -4238,15 +4375,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 29,
+    "unique_fact_count": 28,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 29,
-    "template_ratio": 29.0,
+    "distinct_entity_count": 28,
+    "template_ratio": 28.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "2 named viewpoint entities inside Aldgate, a quarter of Islington (OSM place node, 1.3km radius), against 3 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "2 named viewpoint entities inside Aniołki, a suburb of Gdańsk (OSM place node, 1.8km radius), against 47 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
@@ -4284,11 +4421,12 @@
    "every_page_is_low_completeness": true
   },
   "places.city-aquarium": {
-   "pages": 5,
+   "pages": 6,
    "markets": [
     "en-GB",
     "en-US",
-    "es-ES"
+    "es-ES",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4306,19 +4444,62 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 5,
+    "unique_fact_count": 6,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 5,
-    "template_ratio": 5.0,
+    "distinct_entity_count": 6,
+    "template_ratio": 6.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
     "information_gain_reason": "2 distinct named aquarium entities in Arroyomolinos from OSM, 2 with hours, website or phone: a list a person searching \"aquarium in Arroyomolinos\" cannot get from any single venue page"
    },
-   "every_page_is_low_completeness": true
+   "every_page_is_low_completeness": false
   },
   "places.city-arts_centre": {
+   "pages": 350,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 350,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 350,
+    "template_ratio": 350.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 distinct named arts_centre entities in Aubervilliers from OSM, 6 with hours, website or phone: a list a person searching \"arts_centre in Aubervilliers\" cannot get from any single venue page"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.city-attraction": {
    "pages": 348,
    "markets": [
     "de-DE",
@@ -4330,7 +4511,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4356,59 +4538,18 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 distinct named arts_centre entities in Aubervilliers from OSM, 6 with hours, website or phone: a list a person searching \"arts_centre in Aubervilliers\" cannot get from any single venue page"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.city-attraction": {
-   "pages": 345,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 345,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 345,
-    "template_ratio": 345.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
     "information_gain_reason": "10 distinct named attraction entities in Alicante from OSM, 5 with hours, website or phone: a list a person searching \"attraction in Alicante\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-attribute": {
-   "pages": 2755,
+   "pages": 2982,
    "markets": [
     "de-DE",
     "en-US",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
@@ -4429,10 +4570,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2755,
+    "unique_fact_count": 2982,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2755,
-    "template_ratio": 59.89,
+    "distinct_entity_count": 2982,
+    "template_ratio": 64.83,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4442,7 +4583,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-bar": {
-   "pages": 1372,
+   "pages": 1389,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4453,7 +4594,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4471,10 +4613,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1372,
+    "unique_fact_count": 1389,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1372,
-    "template_ratio": 1372.0,
+    "distinct_entity_count": 1389,
+    "template_ratio": 1389.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4520,7 +4662,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-cafe": {
-   "pages": 2448,
+   "pages": 2521,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4531,7 +4673,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4549,10 +4692,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2448,
+    "unique_fact_count": 2521,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2448,
-    "template_ratio": 2448.0,
+    "distinct_entity_count": 2521,
+    "template_ratio": 2521.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4562,7 +4705,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-camp_site": {
-   "pages": 63,
+   "pages": 69,
    "markets": [
     "en-GB",
     "en-US",
@@ -4571,7 +4714,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4589,10 +4733,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 63,
+    "unique_fact_count": 69,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 63,
-    "template_ratio": 63.0,
+    "distinct_entity_count": 69,
+    "template_ratio": 69.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4639,7 +4783,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-category": {
-   "pages": 4577,
+   "pages": 5333,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4651,6 +4795,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -4669,10 +4814,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4577,
+    "unique_fact_count": 5333,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 4577,
-    "template_ratio": 4577.0,
+    "distinct_entity_count": 5333,
+    "template_ratio": 5333.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0043,
@@ -4682,7 +4827,7 @@
    "every_page_is_low_completeness": true
   },
   "places.city-childcare": {
-   "pages": 847,
+   "pages": 856,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4693,7 +4838,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4711,10 +4857,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 847,
+    "unique_fact_count": 856,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 847,
-    "template_ratio": 847.0,
+    "distinct_entity_count": 856,
+    "template_ratio": 856.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4724,7 +4870,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-cinema": {
-   "pages": 426,
+   "pages": 432,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4735,7 +4881,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -4753,10 +4900,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 426,
+    "unique_fact_count": 432,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 426,
-    "template_ratio": 426.0,
+    "distinct_entity_count": 432,
+    "template_ratio": 432.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4766,7 +4913,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-clinic": {
-   "pages": 2394,
+   "pages": 2442,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4778,6 +4925,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -4796,10 +4944,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2394,
+    "unique_fact_count": 2442,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2394,
-    "template_ratio": 2394.0,
+    "distinct_entity_count": 2442,
+    "template_ratio": 2442.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4809,133 +4957,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-college": {
-   "pages": 345,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 345,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 345,
-    "template_ratio": 345.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 distinct named college entities in Berkeley, California from OSM, 5 with hours, website or phone: a list a person searching \"college in Berkeley, California\" cannot get from any single venue page"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.city-coworking": {
-   "pages": 155,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 155,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 155,
-    "template_ratio": 155.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 distinct named coworking entities in Atlanta, Georgia from OSM, 8 with hours, website or phone: a list a person searching \"coworking in Atlanta, Georgia\" cannot get from any single venue page"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.city-cuisine": {
-   "pages": 13011,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 13011,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 13011,
-    "template_ratio": 139.9,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 venues in 's-Hertogenbosch tagged coffee_shop in OSM, 9 with hours, website or phone: a cuisine-specific list the generic restaurants page cannot answer"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.city-dentist": {
-   "pages": 1597,
+   "pages": 346,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4947,6 +4969,136 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 346,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 346,
+    "template_ratio": 346.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 distinct named college entities in Berkeley, California from OSM, 5 with hours, website or phone: a list a person searching \"college in Berkeley, California\" cannot get from any single venue page"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.city-coworking": {
+   "pages": 157,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 157,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 157,
+    "template_ratio": 157.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 distinct named coworking entities in Atlanta, Georgia from OSM, 8 with hours, website or phone: a list a person searching \"coworking in Atlanta, Georgia\" cannot get from any single venue page"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.city-cuisine": {
+   "pages": 13352,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 13352,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 13352,
+    "template_ratio": 142.04,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 venues in 's-Hertogenbosch tagged coffee_shop in OSM, 9 with hours, website or phone: a cuisine-specific list the generic restaurants page cannot answer"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.city-dentist": {
+   "pages": 1630,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -4965,10 +5117,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1597,
+    "unique_fact_count": 1630,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1597,
-    "template_ratio": 1597.0,
+    "distinct_entity_count": 1630,
+    "template_ratio": 1630.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4978,7 +5130,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-department_store": {
-   "pages": 1049,
+   "pages": 1072,
    "markets": [
     "de-DE",
     "en-GB",
@@ -4989,7 +5141,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5007,20 +5160,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1049,
+    "unique_fact_count": 1072,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1049,
-    "template_ratio": 1049.0,
+    "distinct_entity_count": 1072,
+    "template_ratio": 1072.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0024,
     "near_duplicate_worst_language": "en",
-    "information_gain_reason": "10 distinct named department_store entities in Brandon, Florida from OSM, 6 with hours, website or phone: a list a person searching \"department_store in Brandon, Florida\" cannot get from any single venue page"
+    "information_gain_reason": "10 distinct named department_store entities in Adapazarı from OSM, 3 with hours, website or phone: a list a person searching \"department_store in Adapazarı\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-fast_food": {
-   "pages": 3902,
+   "pages": 3960,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5031,7 +5184,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5049,10 +5203,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3902,
+    "unique_fact_count": 3960,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3902,
-    "template_ratio": 3902.0,
+    "distinct_entity_count": 3960,
+    "template_ratio": 3960.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0044,
@@ -5176,7 +5330,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-guest_house": {
-   "pages": 698,
+   "pages": 709,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5187,7 +5341,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5205,10 +5360,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 698,
+    "unique_fact_count": 709,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 698,
-    "template_ratio": 698.0,
+    "distinct_entity_count": 709,
+    "template_ratio": 709.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5218,7 +5373,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-gym": {
-   "pages": 1282,
+   "pages": 1304,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5229,7 +5384,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5247,10 +5403,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1282,
+    "unique_fact_count": 1304,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1282,
-    "template_ratio": 1282.0,
+    "distinct_entity_count": 1304,
+    "template_ratio": 1304.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5260,7 +5416,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-hospital": {
-   "pages": 507,
+   "pages": 532,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5272,6 +5428,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -5290,10 +5447,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 507,
+    "unique_fact_count": 532,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 507,
-    "template_ratio": 253.5,
+    "distinct_entity_count": 532,
+    "template_ratio": 266.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0116,
@@ -5303,7 +5460,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-hostel": {
-   "pages": 237,
+   "pages": 250,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5314,7 +5471,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5332,10 +5490,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 237,
+    "unique_fact_count": 250,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 237,
-    "template_ratio": 237.0,
+    "distinct_entity_count": 250,
+    "template_ratio": 250.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5345,7 +5503,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-library": {
-   "pages": 920,
+   "pages": 935,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5357,6 +5515,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -5375,10 +5534,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 920,
+    "unique_fact_count": 935,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 920,
-    "template_ratio": 460.0,
+    "distinct_entity_count": 935,
+    "template_ratio": 467.5,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5388,7 +5547,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-mall": {
-   "pages": 58,
+   "pages": 64,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5398,7 +5557,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5416,10 +5576,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 58,
+    "unique_fact_count": 64,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 58,
-    "template_ratio": 58.0,
+    "distinct_entity_count": 64,
+    "template_ratio": 64.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5470,7 +5630,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-market": {
-   "pages": 479,
+   "pages": 488,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5481,7 +5641,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5499,10 +5660,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 479,
+    "unique_fact_count": 488,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 479,
-    "template_ratio": 479.0,
+    "distinct_entity_count": 488,
+    "template_ratio": 488.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5554,7 +5715,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-museum": {
-   "pages": 1124,
+   "pages": 1137,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5565,7 +5726,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5583,10 +5745,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1124,
+    "unique_fact_count": 1137,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1124,
-    "template_ratio": 1124.0,
+    "distinct_entity_count": 1137,
+    "template_ratio": 1137.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5631,7 +5793,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-nightclub": {
-   "pages": 249,
+   "pages": 251,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5642,7 +5804,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5660,10 +5823,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 249,
+    "unique_fact_count": 251,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 249,
-    "template_ratio": 249.0,
+    "distinct_entity_count": 251,
+    "template_ratio": 251.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5673,7 +5836,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-opening": {
-   "pages": 3732,
+   "pages": 3965,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5685,6 +5848,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -5703,10 +5867,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3732,
+    "unique_fact_count": 3965,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3732,
-    "template_ratio": 155.5,
+    "distinct_entity_count": 3965,
+    "template_ratio": 165.21,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5716,7 +5880,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-park": {
-   "pages": 57,
+   "pages": 63,
    "markets": [
     "en-GB",
     "en-US",
@@ -5725,7 +5889,8 @@
     "it-IT",
     "ja-JP",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5743,10 +5908,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 57,
+    "unique_fact_count": 63,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 57,
-    "template_ratio": 57.0,
+    "distinct_entity_count": 63,
+    "template_ratio": 63.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5756,49 +5921,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-parking": {
-   "pages": 244,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 244,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 244,
-    "template_ratio": 244.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 distinct named parking entities in Alkmaar from OSM, 4 with hours, website or phone: a list a person searching \"parking in Alkmaar\" cannot get from any single venue page"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "places.city-pharmacy": {
-   "pages": 2784,
+   "pages": 253,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5810,6 +5933,50 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 253,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 253,
+    "template_ratio": 253.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 distinct named parking entities in Alkmaar from OSM, 4 with hours, website or phone: a list a person searching \"parking in Alkmaar\" cannot get from any single venue page"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "places.city-pharmacy": {
+   "pages": 3170,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -5828,10 +5995,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2784,
+    "unique_fact_count": 3170,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2784,
-    "template_ratio": 2784.0,
+    "distinct_entity_count": 3170,
+    "template_ratio": 3170.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5841,7 +6008,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-pub": {
-   "pages": 1241,
+   "pages": 1250,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5852,7 +6019,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5870,10 +6038,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1241,
+    "unique_fact_count": 1250,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1241,
-    "template_ratio": 1241.0,
+    "distinct_entity_count": 1250,
+    "template_ratio": 1250.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5883,7 +6051,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-railway_station": {
-   "pages": 218,
+   "pages": 231,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5893,7 +6061,8 @@
     "it-IT",
     "ja-JP",
     "nl-NL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5911,10 +6080,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 218,
+    "unique_fact_count": 231,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 218,
-    "template_ratio": 218.0,
+    "distinct_entity_count": 231,
+    "template_ratio": 231.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5924,7 +6093,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-restaurant": {
-   "pages": 5920,
+   "pages": 6022,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5935,7 +6104,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5953,10 +6123,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 5920,
+    "unique_fact_count": 6022,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 5920,
-    "template_ratio": 5920.0,
+    "distinct_entity_count": 6022,
+    "template_ratio": 6022.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0026,
@@ -5966,7 +6136,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-school": {
-   "pages": 1587,
+   "pages": 1631,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5977,7 +6147,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -5995,10 +6166,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1587,
+    "unique_fact_count": 1631,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1587,
-    "template_ratio": 1587.0,
+    "distinct_entity_count": 1631,
+    "template_ratio": 1631.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6051,12 +6222,13 @@
    "every_page_is_low_completeness": false
   },
   "places.city-sport": {
-   "pages": 129,
+   "pages": 132,
    "markets": [
     "de-DE",
     "en-US",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -6074,10 +6246,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 129,
+    "unique_fact_count": 132,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 129,
-    "template_ratio": 3.79,
+    "distinct_entity_count": 132,
+    "template_ratio": 3.88,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6087,7 +6259,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-sports_centre": {
-   "pages": 914,
+   "pages": 924,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6098,7 +6270,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -6116,10 +6289,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 914,
+    "unique_fact_count": 924,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 914,
-    "template_ratio": 914.0,
+    "distinct_entity_count": 924,
+    "template_ratio": 924.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6172,7 +6345,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-supermarket": {
-   "pages": 1964,
+   "pages": 2166,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6183,7 +6356,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -6201,10 +6375,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1964,
+    "unique_fact_count": 2166,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1964,
-    "template_ratio": 1964.0,
+    "distinct_entity_count": 2166,
+    "template_ratio": 2166.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6251,7 +6425,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-theatre": {
-   "pages": 450,
+   "pages": 456,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6262,7 +6436,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -6280,10 +6455,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 450,
+    "unique_fact_count": 456,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 450,
-    "template_ratio": 450.0,
+    "distinct_entity_count": 456,
+    "template_ratio": 456.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6293,7 +6468,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-theme_park": {
-   "pages": 21,
+   "pages": 22,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6302,7 +6477,8 @@
     "it-IT",
     "ja-JP",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -6320,10 +6496,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 21,
+    "unique_fact_count": 22,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 21,
-    "template_ratio": 21.0,
+    "distinct_entity_count": 22,
+    "template_ratio": 22.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6333,7 +6509,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-university": {
-   "pages": 528,
+   "pages": 535,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6345,6 +6521,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -6363,10 +6540,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 528,
+    "unique_fact_count": 535,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 528,
-    "template_ratio": 264.0,
+    "distinct_entity_count": 535,
+    "template_ratio": 267.5,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.011,
@@ -6376,7 +6553,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-veterinary": {
-   "pages": 677,
+   "pages": 700,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6388,6 +6565,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED",
@@ -6406,10 +6584,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 677,
+    "unique_fact_count": 700,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 677,
-    "template_ratio": 677.0,
+    "distinct_entity_count": 700,
+    "template_ratio": 700.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6564,7 +6742,7 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 823,
+    "unique_fact_count": 825,
     "unique_data_point_count": 12,
     "distinct_entity_count": 825,
     "template_ratio": 825.0,
@@ -6572,20 +6750,16 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0157,
     "near_duplicate_worst_language": "de",
-    "information_gain_reason": "places.neighbourhood-category for Abrantes (ES) in es-ES: neighbourhood-level characteristics within a named city; 2 source fields from HELD_PARTIAL; es market demand measured for this family"
+    "information_gain_reason": "places.neighbourhood-category for Abrantes (Madrid, ES) in es-ES: neighbourhood-level characteristics within a named city; 2 source fields from HELD_PARTIAL; es market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
   "poi.amusement_park-notable": {
-   "pages": 35,
+   "pages": 6,
    "markets": [
-    "de-DE",
     "en-GB",
     "en-US",
-    "es-ES",
-    "fr-FR",
     "nl-NL",
-    "pl-PL",
     "pt-BR"
    ],
    "verdict": "ACCEPTED",
@@ -6604,10 +6778,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 35,
+    "unique_fact_count": 6,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 35,
-    "template_ratio": 35.0,
+    "distinct_entity_count": 6,
+    "template_ratio": 6.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6654,12 +6828,11 @@
    "every_page_is_low_completeness": false
   },
   "poi.archaeological_site-notable": {
-   "pages": 89,
+   "pages": 19,
    "markets": [
     "de-DE",
     "en-GB",
     "en-US",
-    "es-ES",
     "it-IT",
     "ja-JP",
     "pt-BR"
@@ -6680,25 +6853,24 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 89,
+    "unique_fact_count": 19,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 89,
-    "template_ratio": 44.5,
+    "distinct_entity_count": 19,
+    "template_ratio": 9.5,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Alcázar de los Reyes Cristianos is a archaeological site in Córdoba with Wikidata item Q212625, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+    "information_gain_reason": "Pátio do Colégio is a archaeological site in São Paulo with Wikidata item Q2914788, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
    "every_page_is_low_completeness": false
   },
   "poi.art_museum-notable": {
-   "pages": 244,
+   "pages": 44,
    "markets": [
     "en-GB",
     "es-ES",
     "ja-JP",
-    "nl-NL",
     "pt-BR"
    ],
    "verdict": "ACCEPTED",
@@ -6717,10 +6889,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 244,
+    "unique_fact_count": 44,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 244,
-    "template_ratio": 244.0,
+    "distinct_entity_count": 44,
+    "template_ratio": 44.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6730,7 +6902,7 @@
    "every_page_is_low_completeness": false
   },
   "poi.attraction-notable": {
-   "pages": 152,
+   "pages": 147,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6741,7 +6913,8 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR"
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -6759,10 +6932,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 150,
+    "unique_fact_count": 145,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 152,
-    "template_ratio": 152.0,
+    "distinct_entity_count": 147,
+    "template_ratio": 147.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6771,47 +6944,11 @@
    },
    "every_page_is_low_completeness": false
   },
-  "poi.beach-notable": {
-   "pages": 3,
-   "markets": [
-    "de-DE",
-    "ja-JP"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 3,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 3,
-    "template_ratio": 3.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Neckarstrand an der Stadthalle Heidelberg is a beach in Heidelberg with Wikidata item Q131415121, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
-   },
-   "every_page_is_low_completeness": false
-  },
   "poi.botanical_garden-notable": {
-   "pages": 120,
+   "pages": 16,
    "markets": [
-    "de-DE",
     "en-GB",
     "en-US",
-    "fr-FR",
     "it-IT",
     "ja-JP",
     "pl-PL",
@@ -6833,58 +6970,22 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 120,
+    "unique_fact_count": 16,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 120,
-    "template_ratio": 120.0,
+    "distinct_entity_count": 16,
+    "template_ratio": 16.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Alter Botanischer Garten is a botanical garden in Hamburg with Wikidata item Q11679872, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "poi.bridge-notable": {
-   "pages": 6,
-   "markets": [
-    "en-US",
-    "nl-NL"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 6,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 6,
-    "template_ratio": 6.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "DieKwakel is a bridge in Amsterdam with Wikidata item Q134585095, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+    "information_gain_reason": "Bartholdi Park is a botanical garden in Downtown DC with Wikidata item Q20708737, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
    "every_page_is_low_completeness": false
   },
   "poi.castle-notable": {
-   "pages": 46,
+   "pages": 9,
    "markets": [
     "de-DE",
-    "en-GB",
-    "es-ES",
     "it-IT",
     "ja-JP",
     "nl-NL",
@@ -6906,20 +7007,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 46,
+    "unique_fact_count": 9,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 46,
-    "template_ratio": 23.0,
+    "distinct_entity_count": 9,
+    "template_ratio": 4.5,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Burg Frankenberg is a castle in Aachen with Wikidata item Q1011767, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+    "information_gain_reason": "Castello Estense is a castle in Ferrara with Wikidata item Q1048836, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
    "every_page_is_low_completeness": false
   },
   "poi.gallery-notable": {
-   "pages": 110,
+   "pages": 107,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6947,10 +7048,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 109,
+    "unique_fact_count": 106,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 110,
-    "template_ratio": 110.0,
+    "distinct_entity_count": 107,
+    "template_ratio": 107.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6960,56 +7061,9 @@
    "every_page_is_low_completeness": false
   },
   "poi.monument-notable": {
-   "pages": 96,
+   "pages": 4,
    "markets": [
-    "de-DE",
-    "en-GB",
     "en-US",
-    "es-ES",
-    "it-IT",
-    "ja-JP",
-    "nl-NL"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 96,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 96,
-    "template_ratio": 96.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Alcazaba y Murallas del Cerro de San Cristóbal is a monument in Almería with Wikidata item Q24024872, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "poi.museum-notable": {
-   "pages": 4934,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
     "pt-BR"
    ],
    "verdict": "ACCEPTED",
@@ -7028,13 +7082,56 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4924,
+    "unique_fact_count": 4,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4926,
-    "template_ratio": 2467.0,
+    "distinct_entity_count": 4,
+    "template_ratio": 4.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.002,
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Columbus Circle is a monument in Manhattan, New York with Wikidata item Q109968, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "poi.museum-notable": {
+   "pages": 3137,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 3135,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 3137,
+    "template_ratio": 1568.5,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0037,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "'t Kiekhuus is a museum in Wolvega with Wikidata item Q17517652, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
@@ -7075,13 +7172,11 @@
    "every_page_is_low_completeness": false
   },
   "poi.park-notable": {
-   "pages": 325,
+   "pages": 37,
    "markets": [
-    "de-DE",
     "en-GB",
     "en-US",
     "es-ES",
-    "it-IT",
     "ja-JP",
     "nl-NL",
     "pl-PL",
@@ -7103,28 +7198,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 325,
+    "unique_fact_count": 37,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 325,
-    "template_ratio": 325.0,
+    "distinct_entity_count": 37,
+    "template_ratio": 37.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Abbott Park is a park in Chicago with Wikidata item Q34630551, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+    "information_gain_reason": "Baisley Pond Park is a park in Queens with Wikidata item Q16869000, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
    "every_page_is_low_completeness": false
   },
   "poi.public_square-notable": {
-   "pages": 80,
+   "pages": 6,
    "markets": [
-    "de-DE",
-    "en-GB",
     "en-US",
-    "fr-FR",
-    "it-IT",
     "ja-JP",
-    "nl-NL",
     "pt-BR"
    ],
    "verdict": "ACCEPTED",
@@ -7143,15 +7233,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 80,
+    "unique_fact_count": 6,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 80,
-    "template_ratio": 80.0,
+    "distinct_entity_count": 6,
+    "template_ratio": 6.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "AachenMünchener-Platz is a public square in Aachen with Wikidata item Q127506119, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+    "information_gain_reason": "Corona Plaza is a public square in Queens with Wikidata item Q105612164, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
    "every_page_is_low_completeness": false
   },
@@ -7190,7 +7280,7 @@
    "every_page_is_low_completeness": false
   },
   "poi.theatre-notable": {
-   "pages": 712,
+   "pages": 137,
    "markets": [
     "de-DE",
     "en-US",
@@ -7218,20 +7308,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 712,
+    "unique_fact_count": 137,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 712,
-    "template_ratio": 712.0,
+    "distinct_entity_count": 137,
+    "template_ratio": 137.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "44 Union Square is a theatre in New York City with Wikidata item Q76576300, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+    "information_gain_reason": "Afastheater is a theatre in Leusden with Wikidata item Q135526767, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
    "every_page_is_low_completeness": false
   },
   "poi.theme_park-notable": {
-   "pages": 13,
+   "pages": 12,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7255,48 +7345,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 13,
+    "unique_fact_count": 12,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 13,
-    "template_ratio": 13.0,
+    "distinct_entity_count": 12,
+    "template_ratio": 12.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
     "information_gain_reason": "notable theme_park cross-referenced in Wikidata (QID Q10854719) with 4 source fields: a practical page for a specific visited entity, not a generated stub"
-   },
-   "every_page_is_low_completeness": false
-  },
-  "poi.water_park-notable": {
-   "pages": 1,
-   "markets": [
-    "fr-FR"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS (a single page cannot be similar to itself)",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 1,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 1,
-    "template_ratio": 1.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "notable water_park cross-referenced in Wikidata (QID Q118531294) with 3 source fields: a practical page for a specific visited entity, not a generated stub"
    },
    "every_page_is_low_completeness": false
   },
@@ -7336,7 +7393,7 @@
    "every_page_is_low_completeness": false
   },
   "property.city-buy": {
-   "pages": 2989,
+   "pages": 3178,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7347,12 +7404,13 @@
     "ja-JP",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (960 of 2989 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (1149 of 3178 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7367,10 +7425,10 @@
     "2_measured_demand"
    ],
    "contract": {
-    "unique_fact_count": 2989,
+    "unique_fact_count": 3178,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2989,
-    "template_ratio": 2989.0,
+    "distinct_entity_count": 3178,
+    "template_ratio": 3178.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -7380,7 +7438,7 @@
    "every_page_is_low_completeness": false
   },
   "relocation.city": {
-   "pages": 3221,
+   "pages": 3410,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7392,12 +7450,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (40 of 3221 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (229 of 3410 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7413,10 +7472,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3221,
+    "unique_fact_count": 3410,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3221,
-    "template_ratio": 3221.0,
+    "distinct_entity_count": 3410,
+    "template_ratio": 3410.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -7469,7 +7528,7 @@
    "every_page_is_low_completeness": false
   },
   "rents.city": {
-   "pages": 5202,
+   "pages": 5391,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7480,12 +7539,13 @@
     "ja-JP",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
-   "verdict": "ACCEPTED",
+   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
+    "2_measured_demand": "UNKNOWN (189 of 5391 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7496,12 +7556,14 @@
     "10_honest_localisation": "PASS"
    },
    "failed": [],
-   "unknown": [],
+   "unknown": [
+    "2_measured_demand"
+   ],
    "contract": {
-    "unique_fact_count": 5202,
+    "unique_fact_count": 5391,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 5202,
-    "template_ratio": 5202.0,
+    "distinct_entity_count": 5391,
+    "template_ratio": 5391.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -7542,7 +7604,7 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 823,
+    "unique_fact_count": 825,
     "unique_data_point_count": 12,
     "distinct_entity_count": 825,
     "template_ratio": 825.0,
@@ -7550,12 +7612,12 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0157,
     "near_duplicate_worst_language": "de",
-    "information_gain_reason": "rents.neighbourhood for Abrantes (ES) in es-ES: neighbourhood-level characteristics within a named city; 2 source fields from MISSING_ACQUIRABLE; es market demand measured for this family"
+    "information_gain_reason": "rents.neighbourhood for Abrantes (Madrid, ES) in es-ES: neighbourhood-level characteristics within a named city; 2 source fields from MISSING_ACQUIRABLE; es market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
   "safety.city": {
-   "pages": 654,
+   "pages": 718,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7567,12 +7629,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (387 of 654 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (451 of 718 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7588,10 +7651,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 654,
+    "unique_fact_count": 718,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 654,
-    "template_ratio": 654.0,
+    "distinct_entity_count": 718,
+    "template_ratio": 718.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7601,7 +7664,7 @@
    "every_page_is_low_completeness": false
   },
   "services.city-practical": {
-   "pages": 1593,
+   "pages": 1782,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7613,12 +7676,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (960 of 1593 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (1149 of 1782 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7634,10 +7698,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 1593,
+    "unique_fact_count": 1782,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1593,
-    "template_ratio": 1593.0,
+    "distinct_entity_count": 1782,
+    "template_ratio": 1782.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7647,7 +7711,7 @@
    "every_page_is_low_completeness": true
   },
   "sport.city-activity": {
-   "pages": 690,
+   "pages": 754,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7659,12 +7723,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (426 of 690 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (490 of 754 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7680,10 +7745,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 690,
+    "unique_fact_count": 754,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 690,
-    "template_ratio": 690.0,
+    "distinct_entity_count": 754,
+    "template_ratio": 754.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7693,7 +7758,7 @@
    "every_page_is_low_completeness": true
   },
   "stay.city-type": {
-   "pages": 7786,
+   "pages": 8957,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7704,6 +7769,7 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
@@ -7724,10 +7790,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 7786,
+    "unique_fact_count": 8957,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 6247,
-    "template_ratio": 7786.0,
+    "distinct_entity_count": 6920,
+    "template_ratio": 8957.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0008,
@@ -7767,7 +7833,7 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 4699,
+    "unique_fact_count": 4786,
     "unique_data_point_count": 12,
     "distinct_entity_count": 4786,
     "template_ratio": 4786.0,
@@ -7775,7 +7841,7 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0033,
     "near_duplicate_worst_language": "de",
-    "information_gain_reason": "stay.near-venue for 10 Włoska Street in Prudnik (PL) in pl-PL: a specific venue with its own location and surroundings; 2 source fields from HELD_PARTIAL; pl market demand measured for this family"
+    "information_gain_reason": "stay.near-venue for 10 Włoska Street in Prudnik (Prudnik, PL) in pl-PL: a specific venue with its own location and surroundings; 2 source fields from HELD_PARTIAL; pl market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
@@ -7823,7 +7889,7 @@
    "every_page_is_low_completeness": false
   },
   "transport.city-getting-around": {
-   "pages": 2343,
+   "pages": 2532,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7834,12 +7900,13 @@
     "ja-JP",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (960 of 2343 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (960 of 2532 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7855,10 +7922,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2343,
+    "unique_fact_count": 2532,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2343,
-    "template_ratio": 2343.0,
+    "distinct_entity_count": 2532,
+    "template_ratio": 2532.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7868,7 +7935,7 @@
    "every_page_is_low_completeness": false
   },
   "transport.route-from-market": {
-   "pages": 1352,
+   "pages": 1400,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7879,12 +7946,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (520 of 1352 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (568 of 1400 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7900,10 +7968,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 1352,
+    "unique_fact_count": 1400,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 1238,
-    "template_ratio": 1352.0,
+    "distinct_entity_count": 1262,
+    "template_ratio": 1400.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7948,7 +8016,7 @@
    "every_page_is_low_completeness": false
   },
   "weather.city-month": {
-   "pages": 8312,
+   "pages": 8521,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7959,12 +8027,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
+    "2_measured_demand": "UNKNOWN (187 of 8521 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7976,13 +8045,14 @@
    },
    "failed": [],
    "unknown": [
+    "2_measured_demand",
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 8312,
+    "unique_fact_count": 8521,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 4826,
-    "template_ratio": 8312.0,
+    "distinct_entity_count": 4896,
+    "template_ratio": 8521.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0014,
@@ -7992,7 +8062,7 @@
    "every_page_is_low_completeness": false
   },
   "work.city-jobs-category": {
-   "pages": 731,
+   "pages": 795,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8004,12 +8074,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (188 of 731 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (252 of 795 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8025,10 +8096,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 731,
+    "unique_fact_count": 795,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 731,
-    "template_ratio": 731.0,
+    "distinct_entity_count": 795,
+    "template_ratio": 795.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8038,7 +8109,7 @@
    "every_page_is_low_completeness": true
   },
   "work.city-salaries": {
-   "pages": 3190,
+   "pages": 3379,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8050,12 +8121,13 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
+    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (40 of 3190 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (229 of 3379 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8071,10 +8143,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3190,
+    "unique_fact_count": 3379,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3190,
-    "template_ratio": 3190.0,
+    "distinct_entity_count": 3379,
+    "template_ratio": 3379.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,

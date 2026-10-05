@@ -1928,6 +1928,11 @@ def _xm_fact_kinds(facts):
     kinds = set()
     for f in facts:
         low = f.lower()
+        if 'within a degree' in low:
+            # the ABSENCE of a difference, not a kind of difference. entity_identity no longer
+            # emits this, and this branch stays so a row carried over from an older build
+            # cannot earn a pass on it.
+            continue
         if 'straight line' in low or 'km from' in low:
             kinds.add('distance')
         elif 'averages' in low:
@@ -1999,6 +2004,18 @@ for key, group in xm_group.items():
             earned.add('TWO_OR_MORE_MARKET_FACTS')
         if any(s['primary_intent'] != r['primary_intent'] for s in siblings):
             earned.add('DIFFERENT_INTENT')
+        # A page written in the language of the country it describes is the PRIMARY page for
+        # that entity and owes no market-specific fact to justify existing beside a
+        # foreign-language sibling. The Turkish page about Berlin has to earn its place against
+        # the German one; the German one is simply the native page. Without this the gate
+        # rejected the native side the moment the vacuous temperature statements stopped
+        # counting, because the German page about a German city carries only a distance from
+        # Berlin. Deliberately NOT in SAME_LANG_OK: two rows in one language can both be
+        # native for one entity (NATIVE_LOCALE keys on the country's language, so an en-US and
+        # an en-GB page about Birmingham are both native), and when that day comes they must
+        # still differentiate on something a reader can use.
+        if r.get('localization_class') == 'NATIVE_LOCALE':
+            earned.add('NATIVE_LANGUAGE_OF_THE_SUBJECT')
         if not siblings:
             earned.add('ONLY_PAGE_FOR_THIS_ENTITY_AND_INTENT')
 

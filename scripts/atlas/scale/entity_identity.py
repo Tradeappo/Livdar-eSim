@@ -694,8 +694,16 @@ def locale_facts(market, lat, lon, dest_city_id=None, root='/home/user/Livdar-eS
                     if abs(d) >= 1.5:
                         out.append(f'{_MONTH[mi]} averages {abs(d):.0f} degrees '
                                    f'{"warmer" if d > 0 else "cooler"} than {name}')
-                    else:
-                        out.append(f'{_MONTH[mi]} averages within a degree of {name}')
+                    # A gap under 1.5 degrees emits NOTHING. It used to emit "July averages
+                    # within a degree of Berlin", which is the ABSENCE of a difference written
+                    # as though it were a fact, and 17,125 rows were carrying nothing else:
+                    # the German page about Prague said "about 300km from Berlin" and then two
+                    # sentences confirming Prague's weather is like Berlin's. Worse, the
+                    # cross-market gate counted that as the second KIND of market fact and let
+                    # the row through, which is precisely the "one distance, one temperature"
+                    # bundle the brief rules out. A page that cannot say how a place differs
+                    # from the reader's own city should not pretend to; it has to earn its
+                    # place some other way, and the gate now makes it.
     return out
 
 
