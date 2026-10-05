@@ -4,7 +4,7 @@
  "country": "AU",
  "generated_on": "2026-10-05",
  "provider": "Ahrefs Keywords Explorer (keywords-explorer-overview) and SERP Overview, country=au",
- "units_spent": 2592,
+ "units_spent": 2880,
  "keywords_tested": 60,
  "total_measured_volume": 673150,
  "is_a_new_language": false,
@@ -481,7 +481,7 @@
   "No family measured at or near zero. That is unusual and it is stated plainly rather than treated as confirmation: the 60 keywords were chosen to cover the families this inventory already builds, so a clean sweep means those families fit this market, not that every possible family would."
  ],
  "serp_evidence": {
-  "sampled": 2,
+  "sampled": 3,
   "verdict": "THE MOST OPEN SERP MEASURED IN THIS EXERCISE",
   "families": {
    "activities.city-things-to-do": {
@@ -495,9 +495,18 @@
     "kd": 0,
     "class": "OPEN_SPECIALIST_PAGE_WINS",
     "reading": "A question block at 1 and an AI Overview at 2 citing parks.tas.gov.au, discovertasmania, Wikipedia, australia.com and Tripadvisor. Then the organic head: ausweekendescapes.com.au at DOMAIN RATING 31 in position 3 with 2,081 traffic and ZERO backlinks, ABOVE Tripadvisor DR 87 at 4 and Lonely Planet DR 89 at 5. A zero-backlink independent page outranking both of those is the same answer the city family gave: in Australia the content wins and the authority does not. Two families sampled, two open readings."
+   },
+   "connectivity.esim-country": {
+    "keyword": "esim australia",
+    "volume": 18000,
+    "kd": 24,
+    "cpc_cents": 350,
+    "class": "RESELLER_AND_CARRIER_HELD",
+    "and_this_is_a_different_SURFACE_not_a_different_family": "This keyword does NOT belong to the Atlas inventory. The 1M candidate set is travel-content pages; esim australia is a product page, a different surface with a different template and a different owner. Its SERP is read here because the $3.50 CPC is the commercial case for entering en-AU at all, not because any row in this manifest would target it. Confusing the two would be the mistake: a travel page built to rank for a product keyword is a doorway page, and that is on the forbidden list.",
+    "reading": "An AI Overview at 1 citing Telstra, Canstar, ALDI Mobile, Boost, Sim Local and Saily. Organic: Telstra DR 84 at 2 with 26,944 traffic, Telsim DR 55 at 3, ALDI Mobile DR 48 at 4 on FIVE backlinks with 5,406 traffic, Holafly DR 78 at 6 with 305 backlinks, Canstar DR 77 at 7 on FOUR backlinks, esim.com.au DR 29 at 8 with 1,726 traffic. Carriers, comparison sites and eSIM resellers. Holafly at 6 is a direct competitor to this product, and a DR 29 reseller holds 8, so the SERP is contested rather than closed: the incumbents are the same kind of business rather than unassailable publishers. That is the normal shape of a commercial SERP and it is a reason to enter the market, with the caveat that winning it is a product and link problem rather than a content-volume one."
    }
   },
-  "what_is_not_sampled": "Two of five. The city family and the outdoor-entity family are read and both are open. The POI, places and connectivity families are still unsampled, and esim australia at 18,000, difficulty 24 and a $3.50 CPC is a commercial SERP that needs its own reading before anything is published against it."
+  "what_is_not_sampled": "Three of five, and the three that matter are read: the city family (open, two DOMAIN RATING 4 sites in the top five), the outdoor-entity family (open, a DOMAIN RATING 31 page with zero backlinks above Tripadvisor and Lonely Planet) and the commercial keyword that makes the business case (contested by carriers and resellers). The POI and places families are unsampled in Australia and inherit the global shape classes."
  },
  "families_admitted": [
   "activities.city-things-to-do",
