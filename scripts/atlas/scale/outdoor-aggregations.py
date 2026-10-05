@@ -276,6 +276,13 @@ for key, counts in sorted(per.items()):
       # the region and are the same in every language; what differs is the language the page is
       # written in and whether that market has MEASURED demand for this list shape.
       for (market, lang, why) in mkts:
+        # A list page served to a market whose country this is NOT has to say something to that
+        # market the home page did not. The facts are computed from the region's own coordinates
+        # and that market's origin city, so they differ for every market by construction.
+        lf = ([] if why == 'home'
+              else entity_identity.locale_facts_for_row(market, dict(p, parent_id=pid)))
+        if why != 'home' and not lf:
+            rejects['no_locale_specific_fact_could_be_computed'] += 1; continue
         if market not in dem['measured_in']:
             # the family is proven in another market and not in this one. Recorded, not
             # generated: this is the same rule the localisation gate applies.
@@ -286,6 +293,7 @@ for key, counts in sorted(per.items()):
             'language': lang, 'parent_id': pid, 'parent_name': p['name'],
             'parent_cls': p['cls'], 'parent_km2': p.get('km2'),
             'feature': ft, 'n': n, 'poi_in_parent': rich[key],
+            'market_reason': why, 'locale_facts': lf,
             'url': f"/{lang}/outdoors/{slug(ft)}s/{slug(p['name'])}-{slug(pid)}/",
             'attribution': 'containment',
             'examples': ex,

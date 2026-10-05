@@ -180,6 +180,41 @@ for r in rows:
                                              'field': field, 'words': sorted(invented),
                                              'value': (r.get(field) or '')[:120]})
 
+# ---- 2a2. a destination copy must carry a fact computed for ITS market ---------
+# The destination axis lets one place earn several markets on two halves of evidence: the country
+# carries measured demand in the page language, and the entity carries a name or an article in it.
+# Neither says the copy is WORTH existing. A German and an Italian page carrying the same facts in
+# different words is a translated clone whatever evidence let it through, and the brief forbids
+# those outright.
+#
+# So every row served to a market whose country this is NOT has to carry at least one fact computed
+# for that market: the distance from its own origin city, or the January and July temperature gap
+# against it. Those are different numbers for every market by construction, which is the point.
+# The builders refuse to emit a copy without one; this check is the independent confirmation, and
+# it reads the locale_facts FIELD rather than sniffing the uniqueness reason for a phrase, because
+# sniffing prose is how six false findings were produced in an earlier pass.
+HOME_OF = {'en-US': 'US', 'en-GB': 'GB', 'de-DE': 'DE', 'fr-FR': 'FR', 'it-IT': 'IT',
+           'es-ES': 'ES', 'nl-NL': 'NL', 'pl-PL': 'PL', 'pt-BR': 'BR', 'ja-JP': 'JP',
+           'zh-Hant-TW': 'TW'}
+no_locale_fact = []
+dest_rows = 0
+for r in rows:
+    cc = (r.get('country') or '').strip()
+    if not cc or HOME_OF.get(r.get('market')) == cc:
+        continue              # a page about its own market's country is not a destination copy
+    dest_rows += 1
+    if not (r.get('locale_facts') or '').strip():
+        if len(no_locale_fact) < 20:
+            no_locale_fact.append({'candidate_id': r.get('candidate_id'),
+                                   'market': r.get('market'), 'country': cc,
+                                   'family': r.get('family'), 'url': r.get('url_pattern')})
+issues['destination_rows'] = dest_rows
+issues['destination_rows_with_no_locale_specific_fact'] = sum(
+    1 for r in rows
+    if (r.get('country') or '').strip()
+    and HOME_OF.get(r.get('market')) != (r.get('country') or '').strip()
+    and not (r.get('locale_facts') or '').strip())
+
 # ---- 2b. uniqueness_reason must actually distinguish --------------------------
 # The brief requires a uniqueness_reason per candidate. A reason that two candidates
 # share does not justify either of them: Barcelona ES and Barcelona VE both read
@@ -545,6 +580,7 @@ summary = {
     'usefulness_test_by_family_and_locale': useful_by_cell,
     'shared_uniqueness_reason_examples': reason_examples,
     'long_dash_examples': dash_hits,
+    'destination_rows_with_no_locale_specific_fact_examples': no_locale_fact,
     'superlative_examples': superlative_examples,
     'families_whose_own_name_claims_a_superlative': dict(family_superlatives.most_common(10)),
     'families_needing_a_documented_ranking_methodology': (

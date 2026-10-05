@@ -1309,9 +1309,19 @@ for r in rows:
             # building, and the city mark that carries a LIST of museums is too weak for it.
             _fan_stats['entity_itself_carries_no_mark_in_this_language'] += 1
             continue
+        # A copy needs something to SAY to this locale that the original did not already say, or
+        # it is a translation however good the evidence that let it through. The facts are computed
+        # per market: Antalya is 2,200km from Berlin and 9,100km from Tokyo and eight degrees
+        # warmer than Berlin in July, and those are three different pages worth of difference. A
+        # row that cannot state one does not get a copy.
+        lf = entity_identity.locale_facts_for_row(mkt, r)
+        if not lf:
+            _fan_stats['no_locale_specific_fact_could_be_computed'] += 1
+            continue
         r2 = dict(r)
         r2['market'], r2['language'] = mkt, lang
         r2['url'] = '/' + lang + r['url'][len(r['language']) + 1:]
+        r2['locale_facts'] = lf
         r2['market_reason'] = (
             f'{cc} carries measured {lang} demand ({ev[0]:,} on the connectivity keyword and '
             f'{ev[1]:,} on the travel-information keyword) and {r.get("city")} carries '
@@ -1320,7 +1330,8 @@ for r in rows:
             r['uniqueness_reason'].rstrip('.') +
             f'. This page is served to {mkt} because {cc} carries measured {lang} demand and '
             f'{r.get("city")} carries {marks[lang]} in {lang}, which is a proxy for {lang} '
-            f'interest in it and not a measured volume for this page')
+            f'interest in it and not a measured volume for this page. For this market it is '
+            + ' and '.join(lf) + '.')
         _fan.append(r2)
         _fan_stats['copied:' + mkt] += 1
 if _fan:

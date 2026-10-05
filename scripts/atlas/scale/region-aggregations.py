@@ -298,6 +298,13 @@ for i, p in enumerate(regions):
     pid = slug(p['id'])
 
     for (market, lang, why) in mkts:
+        # Same requirement as every other shape: a copy served to a market whose country this is
+        # not has to carry at least one fact computed for THAT market, or it is a translation.
+        lf = ([] if why.startswith('the home market')
+              else entity_identity.locale_facts_for_row(market, dict(p, parent_id=p['id'])))
+        if not why.startswith('the home market') and not lf:
+            rejects['no_locale_specific_fact_could_be_computed'] += 1
+            continue
         # The what-to-see page is the region's own page and the other two hang under it, so its
         # eligibility is decided BEFORE either of them is written. Where it is not eligible the
         # other two hang under the country hub instead, and where there is no country hub either
@@ -327,7 +334,7 @@ for i, p in enumerate(regions):
                     'examples': poi_ex.get(i, [])[:20],
                     'cities_inside': len(cs),
                     'url': own, 'parent_url': hub,
-                    'attribution': 'containment', 'market_reason': why,
+                    'attribution': 'containment', 'market_reason': why, 'locale_facts': lf,
                     'qid': p.get('qid'), 'wikipedia': p.get('wikipedia'),
                     'count_answer': (
                         f'{npoi:,} named places across {len(classes)} kinds are mapped inside '
@@ -361,7 +368,7 @@ for i, p in enumerate(regions):
                                 'population': x.get('population'),
                                 'elevation': x.get('elevation')} for x in cs[:60]],
                     'url': own + 'cities/', 'parent_url': under,
-                    'attribution': 'containment', 'market_reason': why,
+                    'attribution': 'containment', 'market_reason': why, 'locale_facts': lf,
                     'qid': p.get('qid'), 'wikipedia': p.get('wikipedia'),
                     'count_answer': (
                         f'{len(cs):,} cities and towns of 5,000 people or more sit inside '
@@ -409,7 +416,7 @@ for i, p in enumerate(regions):
                     'warmest_month': MONTHS[warm], 'coolest_month': MONTHS[cool],
                     'wettest_month': (MONTHS[wet] if wet is not None else None),
                     'url': own + 'when-to-go/', 'parent_url': under,
-                    'attribution': 'containment', 'market_reason': why,
+                    'attribution': 'containment', 'market_reason': why, 'locale_facts': lf,
                     'qid': p.get('qid'), 'wikipedia': p.get('wikipedia'),
                     'count_answer': (
                         f'averaged over {len(clim)} places inside {name}, the warmest month is '

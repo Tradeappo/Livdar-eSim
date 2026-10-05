@@ -278,14 +278,20 @@ for f in sorted(glob.glob(TRAILS + 'trails-*.jsonl.gz')):
         # facts because they are facts about one route, and the skeleton that renders them is
         # language-scoped. A copy is never made for a language this route has no mark in.
         for (m2, l2, why2) in mkts[1:]:
+            lf = entity_identity.locale_facts_for_row(m2, rows[-1])
+            if not lf:
+                rejects['no_locale_specific_fact_could_be_computed'] += 1
+                continue
             r2 = dict(rows[-1])
             r2['market'], r2['language'], r2['market_reason'] = m2, l2, why2
+            r2['locale_facts'] = lf
             r2['url'] = f"/{l2}/outdoors/trail/{sl}-{t['id']}/"
             r2['uniqueness_reason'] = (
                 r2['uniqueness_reason'].rstrip('.') +
                 f". This page is served to {m2} because {iso} carries measured {l2} demand and "
                 f"this route carries {why2.split(':', 3)[-1]}, which is a proxy for {l2} "
-                f"interest in it and not a measured volume for this page.")
+                f"interest in it and not a measured volume for this page. For this market it is "
+                + ' and '.join(lf) + '.')
             rows.append(r2)
 
 # ---- numbered stages collapse into the route they are stages OF -------------------------------

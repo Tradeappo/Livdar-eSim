@@ -529,23 +529,25 @@ def _normals(root='/home/user/Livdar-eSim/'):
     global _NORMALS
     if _NORMALS is not None:
         return _NORMALS
-    import glob as _g, json as _js
+    import glob as _g, re as _re
+    # Only the two months a traveller compares, and only the mean temperature, pulled out with a
+    # regex rather than by parsing each record's seven variables across twelve months. The same
+    # reason as parent_points: this is a lookup table, not a dataset to hold.
+    _CID = _re.compile(r'"city_id":\s*"([^"]+)"')
+    _JAN = _re.compile(r'"JAN":\s*\{[^}]*?"T2M":\s*(-?[0-9.]+)')
+    _JUL = _re.compile(r'"JUL":\s*\{[^}]*?"T2M":\s*(-?[0-9.]+)')
     out = {}
     for f in sorted(_g.glob(root + 'data/atlas/sources/climate/power/power-*.jsonl')):
         try:
             with open(f, encoding='utf-8') as fh:
                 for line in fh:
-                    line = line.strip()
-                    if not line:
+                    mc = _CID.search(line)
+                    if not mc:
                         continue
-                    try:
-                        r = _js.loads(line)
-                    except Exception:
-                        continue
-                    cid = r.get('city_id')
-                    ms = r.get('months') or {}
-                    if cid and ms:
-                        out[str(cid)] = {k: (v or {}).get('T2M') for k, v in ms.items()}
+                    mj, ml = _JAN.search(line), _JUL.search(line)
+                    out[mc.group(1)] = {
+                        'JAN': float(mj.group(1)) if mj else None,
+                        'JUL': float(ml.group(1)) if ml else None}
         except OSError:
             pass
     _NORMALS = out
@@ -588,3 +590,68 @@ def locale_facts(market, lat, lon, dest_city_id=None, root='/home/user/Livdar-eS
                     else:
                         out.append(f'{_MONTH[mi]} averages within a degree of {name}')
     return out
+
+
+_PARENT_POINT = None
+
+
+def parent_points(root='/home/user/Livdar-eSim/'):
+    """{(country, parent id): (lat, lon)} from the captured parent layers."""
+    global _PARENT_POINT
+    if _PARENT_POINT is not None:
+        return _PARENT_POINT
+    import glob as _g, gzip as _gz, re as _re
+    # Deliberately NOT json.loads. A parent record carries its full polygon ring and the layers
+    # total hundreds of megabytes of them; parsing all that to read three scalars took longer than
+    # the build it was serving. Four small regexes over the raw line do the same job in a fraction
+    # of the time, and a line that does not match simply has no point, which is the same answer
+    # json.loads would have given.
+    _ID = _re.compile(r'"id":\s*"([^"]+)"')
+    _CC = _re.compile(r'"country":\s*"([^"]+)"')
+    _LA = _re.compile(r'"lat":\s*(-?[0-9.]+)')
+    _LO = _re.compile(r'"lon":\s*(-?[0-9.]+)')
+    out = {}
+    for f in sorted(_g.glob(root + 'data/atlas/sources/osm-parents/parents-*.jsonl.gz')):
+        try:
+            with _gz.open(f, 'rt', encoding='utf-8') as fh:
+                for line in fh:
+                    mi, ma, mo = _ID.search(line), _LA.search(line), _LO.search(line)
+                    if not (mi and ma and mo):
+                        continue
+                    pt = (float(ma.group(1)), float(mo.group(1)))
+                    mc = _CC.search(line)
+                    out[(mc.group(1) if mc else None, mi.group(1))] = pt
+                    out[mi.group(1)] = pt
+        except (EOFError, OSError):
+            pass
+    _PARENT_POINT = out
+    return out
+
+
+def row_point(r, root='/home/user/Livdar-eSim/'):
+    """Where this candidate row is, from whatever locator it carries.
+
+    Every candidate shape carries a parent id and most carry a city id; none carries a raw
+    coordinate, because the builders had no use for one until the destination axis needed a
+    distance. Resolving it here keeps one answer for every builder.
+    """
+    if r.get('lat') is not None and r.get('lon') is not None:
+        return float(r['lat']), float(r['lon'])
+    cid = str(r.get('city_id') or '')
+    if cid:
+        c = load_gazetteer().by_id.get(cid)
+        if c and c.get('lat') is not None:
+            return float(c['lat']), float(c['lon'])
+    pid = r.get('parent_id')
+    if pid:
+        pp = parent_points(root)
+        hit = pp.get((r.get('country'), pid)) or pp.get(pid)
+        if hit:
+            return hit
+    return None, None
+
+
+def locale_facts_for_row(market, r, root='/home/user/Livdar-eSim/'):
+    """The locale-specific facts for this row in this market, or [] when none can be computed."""
+    la, lo = row_point(r, root)
+    return locale_facts(market, la, lo, r.get('city_id') or None, root)

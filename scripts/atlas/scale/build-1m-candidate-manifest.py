@@ -1022,7 +1022,13 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           'destination',
           # set only where a long dash was normalised out of a rendered string, so the
           # change is recorded in the manifest rather than only in the run log
-          'dash_normalised']
+          'dash_normalised',
+          # The facts that make a destination copy something other than a translation, computed
+          # from the entity's coordinates and the market's own origin city: the distance and the
+          # January and July temperature gap. Carried as a field rather than left inside the
+          # uniqueness reason so a checker can read it without sniffing prose, which is how six
+          # false findings were produced in an earlier pass.
+          'locale_facts']
 
 stats = collections.Counter()
 rows = []
@@ -1435,6 +1441,7 @@ for a in agg:
         'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
         'publication_cohort_candidate': '', 'status': 'POI_AGGREGATION',
         'uniqueness_reason': a['uniqueness_reason'],
+        'locale_facts': ' | '.join(a.get('locale_facts') or []),
         'parent_url': a.get('parent_url', '') or OUTDOOR_PARENT_URL.get(
             (a.get('parent_id'), a.get('cls'), a.get('language')), ''),
     })

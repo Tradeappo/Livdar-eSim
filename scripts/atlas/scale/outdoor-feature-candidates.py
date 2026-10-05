@@ -366,8 +366,13 @@ for r in rows:
         if not mark:
             _fs['no_mark_in_this_language'] += 1
             continue
+        lf = entity_identity.locale_facts_for_row(mkt, r)
+        if not lf:
+            _fs['no_locale_specific_fact_could_be_computed'] += 1
+            continue
         r2 = dict(r)
         r2['market'], r2['language'] = mkt, lang
+        r2['locale_facts'] = lf
         if r.get('url') and r.get('language'):
             r2['url'] = '/' + lang + r['url'][len(r['language']) + 1:]
         r2['market_reason'] = (f'{iso} carries measured {lang} demand ({ev[0]:,} connectivity, '
@@ -376,7 +381,7 @@ for r in rows:
             str(r.get('uniqueness_reason') or '').rstrip('.') +
             f'. This page is served to {mkt} because {iso} carries measured {lang} demand and '
             f'this feature carries {mark}, which is a proxy for {lang} interest in it and not a '
-            f'measured volume for this page')
+            f'measured volume for this page. For this market it is ' + ' and '.join(lf) + '.')
         _fan.append(r2)
         _fs['copied:' + mkt] += 1
 if _fan:
