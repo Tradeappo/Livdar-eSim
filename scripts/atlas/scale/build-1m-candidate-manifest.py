@@ -1520,6 +1520,20 @@ for a in agg:
             (a.get('parent_id'), a.get('cls'), a.get('language')), ''),
     })
 print(f'  aggregation candidates emitted {len(agg):,}', file=sys.stderr)
+# Free the raw aggregation records NOW. They were loaded as dicts, converted into manifest rows
+# just above, and are never read again (the `agg` at the bottom of this file is a local inside
+# brk(), a different variable entirely). Holding both copies of 266,028 rows is pure waste.
+#
+# This stage was OOM-killed TWICE on 2026-10-05, at 11,788 MB and then 11,920 MB against a 15GB
+# cgroup shared with everything else running. The first fix streamed the rejection file, which
+# was where the kill LANDED and not where the memory went: the second kill came earlier, before
+# that code. The peak is simply the number of live dict rows, and the only honest fix is to stop
+# holding rows nothing reads.
+import gc as _gc0
+_agg_freed = len(agg)
+agg = []
+_gc0.collect()
+print(f'  freed {_agg_freed:,} raw aggregation records now that they are rows', file=sys.stderr)
 
 # ---------------------------------------------------------------- quality gates
 # SERP feasibility, from the measured SERP class rather than from KD. KD has already
@@ -1979,6 +1993,10 @@ for r in stage2:
         r['status'] = 'REJECTED_LOCALIZATION'
         loc_rejected.append(r)
 
+# The per-language city mark index is read only by destination_markets(), which the localisation
+# gate above has now finished calling. 36,952 cities with a dict of languages each.
+CITY_LANG_MARK.clear()
+_gc0.collect()
 after_localization = len(stage2b)
 print(f'localisation gate: kept {after_localization:,}, rejected {len(loc_rejected):,}',
       file=sys.stderr)
@@ -2514,11 +2532,16 @@ del _rej_groups
 rejected, exact_dupes, semantic_dupes, name_dupes = [], [], [], []
 loc_rejected, fam_gate_rejected, xm_rejected = [], [], []
 cannib_rejected, orphan_rejected = [], []
-# the generated intermediates are no longer read after stage3 exists
-try:
-    del agg, rows, stage1, stage2, stage2a, stage2b, stage2c, stage2f
-except NameError:
-    pass
+# The generated intermediates are no longer read after stage3 exists. Freed ONE AT A TIME:
+# `del a, b, c` deletes left to right and raises on the first name that does not exist, so a
+# single statement wrapped in try/except NameError frees the names before the missing one and
+# silently keeps every name after it. That is why the first attempt at this changed nothing.
+for _nm in ('agg', 'rows', 'stage1', 'stage2', 'stage2a', 'stage2b', 'stage2c', 'stage2f',
+            'xm_group', 'best', 'group_langs', 'XL_CITIES', 'XL_MARKET_CITIES',
+            'XL_LANG_CITIES', 'CITY_MARK', 'cell_kw', 'fam_kw', 'km'):
+    if _nm in globals():
+        globals()[_nm] = None
+        del globals()[_nm]
 import gc as _gc
 _gc.collect()
 print(f'rejected candidates written: {_rej_total:,}', file=sys.stderr)
@@ -2533,9 +2556,23 @@ try:
     # leaving the summary stale at the previous run's count while the manifest held the new
     # one. A report that reads the summary would then have contradicted the data it
     # describes, which is the one property this folder is supposed to guarantee.
-    cols = {k: pa.array([r.get(k, '') for r in stage3]) for k in FIELDS}
-    pq.write_table(pa.table(cols), OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.parquet', compression='snappy')
-    print('parquet written', file=sys.stderr)
+    # Written in ROW-GROUP BATCHES, not as one table. Building the whole table first meant a
+    # Python list of 347,914 strings per field for 65 fields, and the arrays for every field
+    # alive at once before the write; this stage was OOM-killed at 12,277 MB immediately after
+    # the rejection file was written, which is exactly here. Batching caps the transient to one
+    # batch per field.
+    _schema = pa.schema([(k, pa.string()) for k in FIELDS])
+    _BATCH = 50000
+    with pq.ParquetWriter(OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.parquet', _schema,
+                          compression='snappy') as _pw:
+        for _i in range(0, len(stage3), _BATCH):
+            _chunk = stage3[_i:_i + _BATCH]
+            _pw.write_table(pa.table(
+                {k: pa.array([str(r.get(k, '') or '') for r in _chunk], type=pa.string())
+                 for k in FIELDS}, schema=_schema))
+            del _chunk
+    print(f'parquet written in {(len(stage3) + _BATCH - 1) // _BATCH} row groups',
+          file=sys.stderr)
 except ImportError:
     print('pyarrow missing: parquet skipped', file=sys.stderr)
 except Exception as e:

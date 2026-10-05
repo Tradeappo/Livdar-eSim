@@ -1,0 +1,27 @@
+{
+ "found_on": "2026-10-05",
+ "run": "the manifest written at 18:22, run 10 solo",
+ "the_finding": "Two same-language markets can NEVER both hold a row for one (family, entity, intent), because the generator collapses them before any row exists. In the main family loop:\n\n    by_lang = {}\n    for m in cand_markets:\n        l = MKT_LANG[m]\n        if l not in by_lang or demand_score(fid, m, tier) > demand_score(fid, by_lang[l], tier):\n            by_lang[l] = m\n\nOne market per language wins each entity, on demand_score. So every same-language pair reads zero shared groups by CONSTRUCTION, and the four zeros reported for en-AU vs en-GB, en-AU vs en-US, en-GB vs en-US and es-ES vs es-MX are structural, NOT a result the cross-market gate produced. The gate's same-language rule is currently a no-op: it can never fire in this design. That is worth knowing because it was built to enforce exactly that rule.",
+ "what_this_means_for_the_two_new_markets": {
+  "es-MX": "ZERO rows in the final manifest. It generated 10,201 and every one was rejected: 8,869 by the per-market family gate in places.* families it never measured, 888 on quality, 444 on SERP. It produced NOT ONE row in the three families it was actually allowed (activities.city-things-to-do, outdoors.peak, outdoors.national-park), because the same-language collapse handed every /es/ URL to es-ES: Mexican city rows for that family went to de-DE 222, en-AU 477, es-ES 222, en-GB 977, fr-FR 222, it-IT 222, zh-Hant-TW 222 and pt-BR 92, and never to es-MX. Admitting es-MX currently delivers nothing.",
+  "en-AU": "11,634 rows, and the composition is the problem. 477 of them are about MEXICAN cities, won from en-GB and en-US on demand_score, because the en-AU keyword overlay carries \"things to do in melbourne\" at 28,000 and demand_score is computed per (family, market) rather than per entity. A market with one high-volume city in a family therefore wins EVERY entity in that family against its same-language rivals, including entities it has no particular claim to. en-GB lost 4,038 rows net between the two runs and that is where they went."
+ },
+ "why_this_is_a_defect_and_not_a_design": "The collapse was written when there were eleven markets and ten languages, where it meant \"en is served by en-US unless en-GB measured better\". With three English markets and two Spanish ones it decides, per family, which single market owns every entity on earth in that family, on a number measured for a different entity. A page about Merida should belong to es-MX because Mexico is its home country; it belongs to es-ES because es-ES scored higher on a Spanish keyword about something else.",
+ "the_fix_this_needs": "The home market must win its own country. markets_for() already computes home = COUNTRY_MKTS[entity country]; the collapse should prefer a home market over any other market in the same language, and only then fall back to demand_score. That is a small change with a large effect and it has NOT been made yet: it needs its own rebuild and its own measurement, and reporting it is more useful than rushing it.",
+ "rows_by_market_in_this_run": {
+  "de-DE": 58648,
+  "en-US": 52719,
+  "fr-FR": 49423,
+  "ja-JP": 37073,
+  "en-GB": 32349,
+  "it-IT": 28279,
+  "pt-BR": 17533,
+  "es-ES": 17438,
+  "nl-NL": 15433,
+  "pl-PL": 13562,
+  "tr-TR": 13023,
+  "en-AU": 11634,
+  "zh-Hant-TW": 800
+ },
+ "what_is_NOT_affected": "The funnel, the totals, the family gate and the cross-LANGUAGE half of the cross-market gate are all sound. 28,792 cross-language sibling relationships were evaluated and every surviving row holds a named differentiator. The defect is confined to how markets sharing one language divide entities between them."
+}
