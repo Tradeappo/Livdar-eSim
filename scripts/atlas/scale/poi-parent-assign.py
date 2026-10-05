@@ -54,7 +54,22 @@ OUTDOOR_POI = {
     'castle', 'tower', 'nature_reserve', 'wayside_cross', 'wayside_shrine',
 }
 
+# The ring is built into a geometry and DROPPED in the same pass, never accumulated.
+#
+# This stage was OOM-killed on 2026-10-05 at 11.1GB against a 15GB cgroup, the moment the
+# sixteenth parent layer landed: Australia, Mexico and Indonesia added 122,000 polygons between
+# them. The cause was holding every ring TWICE, once as the Python list of floats json.loads
+# produced and once as the shapely geometry built from it, and a Python float is a 24-byte object
+# in a list of pointers while shapely keeps a packed C array. The rings dominate the record; the
+# five scalars read after indexing (id, name, cls, km2, country) do not.
+#
+# So the geometry is built as each line is read and the ring is discarded immediately. Peak
+# memory becomes one ring plus the geometry index, instead of every ring plus the index. This is
+# the difference between a stage that grows with the number of countries captured and one that
+# does not, which matters because the whole point of the current work is capturing more of them.
 parents = []
+geoms, meta = [], []
+_skipped_geom = 0
 for f in sorted(glob.glob(PARENTS + 'parents-*.jsonl.gz')):
     with gzip.open(f, 'rt', encoding='utf-8') as fh:
         for line in fh:
@@ -65,8 +80,21 @@ for f in sorted(glob.glob(PARENTS + 'parents-*.jsonl.gz')):
             if p.get('geometry') != 'polygon': continue
             km2 = p.get('km2') or 0
             if km2 < MIN_KM2 or km2 > MAX_KM2: continue
-            if not p.get('ring'): continue
-            parents.append(p)
+            ring = p.get('ring')
+            if not ring: continue
+            try:
+                g = shape(ring)
+            except Exception:
+                _skipped_geom += 1
+                continue
+            if g.is_empty:
+                _skipped_geom += 1
+                continue
+            # everything the rest of this file reads, and nothing else
+            parents.append({'id': p.get('id'), 'name': p.get('name'), 'cls': p.get('cls'),
+                            'km2': p.get('km2'), 'country': p.get('country')})
+            geoms.append(g)
+            meta.append(len(parents) - 1)
 
 if not parents:
     print('no parent polygons found; run scripts/atlas/ingest/osm-parents-run.sh first',
@@ -78,17 +106,10 @@ by_cls = collections.Counter(p['cls'] for p in parents)
 for c, n in by_cls.most_common():
     print(f'    {n:>7,}  {c}', file=sys.stderr)
 
-geoms, meta = [], []
-for i, p in enumerate(parents):
-    try:
-        g = shape(p['ring'])
-    except Exception:
-        continue
-    if g.is_empty: continue
-    geoms.append(g)
-    meta.append(i)
 tree = STRtree(geoms)
-print(f'indexed {len(geoms):,} parent geometries', file=sys.stderr)
+print(f'indexed {len(geoms):,} parent geometries'
+      + (f', {_skipped_geom:,} rings refused by the geometry builder' if _skipped_geom else ''),
+      file=sys.stderr)
 
 countries = {p['country'] for p in parents}
 stats = collections.Counter()
