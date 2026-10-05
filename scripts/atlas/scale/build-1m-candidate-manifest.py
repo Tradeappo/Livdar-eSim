@@ -2316,9 +2316,21 @@ for _l, _ms in sorted(_lang_markets.items()):
                             f'id and {_rej} rows were rejected. The rest were accepted only on '
                             f'{sorted(_diffs)}.'),
             }
+# Every key the printer below reads must exist in every row it prints. This loop crashed the
+# manifest stage once because the dict key was renamed and the format string was not, after the
+# gate had already done all its work: 40 minutes of pipeline thrown away by a KeyError in a
+# progress message. Checking it here turns that into a named error at the top of the loop.
+_XM_REQUIRED = ('same_family_entity_intent_groups_both_markets_claim',
+                'template_only_variants_same_template_data_AND_facts',
+                'rejected_by_the_cross_market_gate')
+for _pair, _v in XM_SAME_LANGUAGE_REPORT.items():
+    _missing = [_k for _k in _XM_REQUIRED if _k not in _v]
+    if _missing:
+        raise KeyError(f'the same-language report for {_pair} is missing {_missing}; the keys '
+                       f'written and the keys read have drifted apart')
 for _pair, _v in XM_SAME_LANGUAGE_REPORT.items():
     print(f'    same-language check {_pair:24} '
-          f'{_v["entity_and_intent_groups_both_markets_claim"]:>7,} shared groups',
+          f'{_v["same_family_entity_intent_groups_both_markets_claim"]:>7,} shared groups',
           file=sys.stderr)
 
 stage2 = stage2c
@@ -2469,13 +2481,47 @@ print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,}', 
 os.makedirs(OUT, exist_ok=True)
 # every rejection in one file, whatever stage produced it: hiding the localisation
 # rejections in a separate place would make the funnel unauditable
-rejected = (rejected + exact_dupes + semantic_dupes + name_dupes + loc_rejected
-            + fam_gate_rejected + xm_rejected
-            + cannib_rejected + orphan_rejected)
+# The rejection lists are written ONE AT A TIME and freed as they go, instead of being
+# concatenated into a single list first.
+#
+# This stage was OOM-killed at 11,788 MB on 2026-10-05 right here, after doing all of its work:
+# the log's last line was the dash pass and the outputs were never written. Concatenating nine
+# lists of dict rows allocates a tenth list holding every one of them while all nine originals
+# are still alive, and at 498,491 generated rows with 65 fields each that doubling is what went
+# over. The funnel needs the COUNTS, not the lists, so each count is taken before its list is
+# dropped and every number below reads from REJ_COUNTS.
+#
+# The fatal-stage policy added earlier the same day did its job here: the runner printed
+# MANIFEST FAILED and stopped, so the artifacts on disk stayed consistent with the previous run
+# rather than becoming a half-written mixture. That is the difference between a crash that costs
+# forty minutes and one that costs trust in every file in the folder.
+REJ_COUNTS = {}
+_rej_groups = [('quality_gates', rejected), ('exact_dupes', exact_dupes),
+               ('semantic_dupes', semantic_dupes), ('name_dupes', name_dupes),
+               ('loc_rejected', loc_rejected), ('fam_gate_rejected', fam_gate_rejected),
+               ('xm_rejected', xm_rejected), ('cannib_rejected', cannib_rejected),
+               ('orphan_rejected', orphan_rejected)]
+_rej_total = 0
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
-    w.writeheader(); w.writerows(rejected)
-print(f'rejected candidates written: {len(rejected):,}', file=sys.stderr)
+    w.writeheader()
+    for _name, _lst in _rej_groups:
+        REJ_COUNTS[_name] = len(_lst)
+        _rej_total += len(_lst)
+        w.writerows(_lst)
+        _lst.clear()           # free it before the next group is written
+del _rej_groups
+rejected, exact_dupes, semantic_dupes, name_dupes = [], [], [], []
+loc_rejected, fam_gate_rejected, xm_rejected = [], [], []
+cannib_rejected, orphan_rejected = [], []
+# the generated intermediates are no longer read after stage3 exists
+try:
+    del agg, rows, stage1, stage2, stage2a, stage2b, stage2c, stage2f
+except NameError:
+    pass
+import gc as _gc
+_gc.collect()
+print(f'rejected candidates written: {_rej_total:,}', file=sys.stderr)
 
 with gzip.open(OUT + 'LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore'); w.writeheader(); w.writerows(stage3)
@@ -2569,20 +2615,20 @@ summary = {
     'raw_candidate_combinations': raw_total,
     'raw_candidate_combinations_means': 'the count AFTER the uniqueness and SERP gate',
     'removed_by_uniqueness_and_serp_gate': generated_total - raw_total,
-    'removed_as_exact_duplicate_urls': len(exact_dupes),
-    'removed_by_per_market_family_gate': len(fam_gate_rejected),
-    'removed_by_localisation_gate': len(loc_rejected),
-    'removed_by_cross_market_content_uniqueness_gate': len(xm_rejected),
+    'removed_as_exact_duplicate_urls': REJ_COUNTS['exact_dupes'],
+    'removed_by_per_market_family_gate': REJ_COUNTS['fam_gate_rejected'],
+    'removed_by_localisation_gate': REJ_COUNTS['loc_rejected'],
+    'removed_by_cross_market_content_uniqueness_gate': REJ_COUNTS['xm_rejected'],
     'cross_market_same_language_checks': XM_SAME_LANGUAGE_REPORT,
-    'removed_as_semantic_duplicates': len(semantic_dupes),
-    'removed_by_cannibalisation': len(cannib_rejected),
-    'removed_as_the_same_name_in_the_same_city': len(name_dupes),
-    'removed_because_the_declared_parent_did_not_survive': len(orphan_rejected),
+    'removed_as_semantic_duplicates': REJ_COUNTS['semantic_dupes'],
+    'removed_by_cannibalisation': REJ_COUNTS['cannib_rejected'],
+    'removed_as_the_same_name_in_the_same_city': REJ_COUNTS['name_dupes'],
+    'removed_because_the_declared_parent_did_not_survive': REJ_COUNTS['orphan_rejected'],
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
-                          - len(exact_dupes) - len(semantic_dupes) - len(name_dupes)
-                          - len(fam_gate_rejected) - len(loc_rejected)
-                          - len(xm_rejected) - len(cannib_rejected)
-                          - len(orphan_rejected)) == len(stage3),
+                          - REJ_COUNTS['exact_dupes'] - REJ_COUNTS['semantic_dupes'] - REJ_COUNTS['name_dupes']
+                          - REJ_COUNTS['fam_gate_rejected'] - REJ_COUNTS['loc_rejected']
+                          - REJ_COUNTS['xm_rejected'] - REJ_COUNTS['cannib_rejected']
+                          - REJ_COUNTS['orphan_rejected']) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
     'after_localization_and_cross_locale_gate': after_localization,
@@ -2593,7 +2639,7 @@ summary = {
     'FINAL_DISTINCT_CANDIDATES': len(stage3),
     'target': 1000000,
     'shortfall_to_1m': max(0, 1000000 - len(stage3)),
-    'rejected_by_quality_gates': len(rejected),
+    'rejected_by_quality_gates': _rej_total,
     'dropped_no_demand_evidence': stats['dropped_no_demand_evidence'],
     'cities_added_by_measured_demand_over_tier': stats['cities_added_by_measured_demand_over_tier'],
     'entity_slug_fell_back_to_the_id': stats['entity_slug_fell_back_to_the_id'],
