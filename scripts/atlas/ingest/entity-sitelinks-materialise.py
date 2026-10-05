@@ -108,7 +108,13 @@ for bi, batch in enumerate(batches):
             if attempt == 4:
                 print(f'  batch {bi} failed after 5 attempts: {e}', file=sys.stderr, flush=True)
             else:
-                time.sleep((30 * (attempt + 1)) if is429 else (2 ** attempt))
+                # MEASURED 2026-10-05, after this overcorrected once: a 429 here is intermittent,
+                # not a block. Three identical requests a second apart gave 429, then 200, then
+                # 200. The first version of this waited 30, 60, 90 and 120 seconds on a 429 and
+                # turned a ninety-minute job into a twenty-hour one, which looked exactly like
+                # being rate-limited and was in fact the backoff doing it. Two seconds and up
+                # clears the same 429.
+                time.sleep((2, 5, 10, 20)[attempt] if is429 else (2 ** attempt))
     if data:
         for qid, ent in (data.get('entities') or {}).items():
             if qid not in want:
