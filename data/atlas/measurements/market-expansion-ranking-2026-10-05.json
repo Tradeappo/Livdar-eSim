@@ -1,0 +1,335 @@
+{
+ "generated_on": "2026-10-05",
+ "tool": "Ahrefs Keywords Explorer, keywords-explorer-overview",
+ "units_spent": 3454,
+ "the_structural_fact_that_shapes_this_whole_ranking": "Every URL in the manifest belongs to exactly ONE market, and distinct URLs per language equals rows per language exactly: en-GB holds 34,980 and en-US 49,299, together exactly the 84,279 distinct /en/ URLs. So the two English markets do not duplicate each other, they contribute DIFFERENT entities to a shared language space. That means a new market pays off in two different ways and they have to be ranked differently. A new LANGUAGE opens a new URL space and needs a new alternate-name pass, a new sitelink language and new local phrasing. A new MARKET IN AN EXISTING LANGUAGE needs none of that and still adds pages, but only for the entities the existing markets do not already search, which is exactly what separates en-AU from de-AT.",
+ "the_six_criteria_as_the_instruction_names_them": {
+  "1_search_demand_total": "total_measured_volume, summed over the keywords tested",
+  "2_local_language_opportunity": "keywords_at_difficulty_0_or_1 and whether the phrasing is native",
+  "3_destination_demand": "top_families, and whether the destinations are captured countries",
+  "4_data_and_source_coverage": "home_country_osm_layer_rows and source_coverage, measured on disk",
+  "5_expected_valid_page_yield": "estimated_valid_pages, anchored on markets already built",
+  "6_low_duplicate_risk": "duplicate_risk, measured for same-language candidates rather than assumed"
+ },
+ "rows_per_market_today_which_is_the_yield_anchor": {
+  "de-DE": 58657,
+  "en-US": 49299,
+  "fr-FR": 43286,
+  "en-GB": 34980,
+  "ja-JP": 31095,
+  "it-IT": 25892,
+  "pt-BR": 15773,
+  "es-ES": 15527,
+  "nl-NL": 14847,
+  "pl-PL": 11907,
+  "zh-Hant-TW": 800
+ },
+ "candidates": [
+  {
+   "market": "en-AU",
+   "language": "en",
+   "is_a_new_language": false,
+   "keywords_tested": 16,
+   "keywords_with_volume": 16,
+   "total_measured_volume": 50000,
+   "top_volume": 7800,
+   "median_volume": 3000,
+   "max_cpc_cents": 180,
+   "keywords_at_difficulty_0_or_1": 11,
+   "top_families": [
+    "places.city-things-to-do (cairns 7,800, tasmania 4,100, noosa 3,000)",
+    "esim country intent at the highest CPC measured anywhere in this project",
+    "outdoors.beach-in-region"
+   ],
+   "home_country": "AU",
+   "home_country_entities_on_disk": {
+    "cities": 277,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country in the capture queue, not yet written",
+   "notes": "No new language: it shares the /en/ URL space, and en-GB already proved a second market in one language ADDS pages rather than duplicating them, contributing 34,980 /en/ URLs that en-US does not claim. The entities are ones en-US and en-GB never search: Cairns, Noosa, Byron Bay, Tasmania, Queenstown, Fiji, Vanuatu, Ubud. esim japan 5,400 at $1.70 and esim new zealand 2,700 at $1.80 are the highest CPCs measured in this project. Australia is in the capture queue; New Zealand and Fiji are not reachable.",
+   "priority_score": 117.5,
+   "priority": 1
+  },
+  {
+   "market": "tr-TR",
+   "language": "tr",
+   "is_a_new_language": true,
+   "keywords_tested": 18,
+   "keywords_with_volume": 18,
+   "total_measured_volume": 41720,
+   "top_volume": 8800,
+   "median_volume": 2400,
+   "max_cpc_cents": 9,
+   "keywords_at_difficulty_0_or_1": 14,
+   "top_families": [
+    "places.city-things-to-do (2,100 to 8,800 a city, difficulty 0)",
+    "outdoors.beach-in-region (antalya 1,800, bodrum 700)",
+    "destinations.region-what-to-see (yunanistan adalari 3,400)"
+   ],
+   "home_country": "TR",
+   "home_country_entities_on_disk": {
+    "cities": 820,
+    "poi": 195140,
+    "places": 23717,
+    "outdoor": 20765,
+    "trails": 268,
+    "parents": 14553
+   },
+   "home_country_osm_layer_rows": 254443,
+   "source_coverage": "HOME COUNTRY CAPTURED",
+   "notes": "The only candidate whose home country is already captured in full, and the city things-to-do family measures LARGER in Turkish than in most existing markets: eleven separate cities between 2,100 and 8,800 a month, every one at keyword difficulty 0 or 1. Turkish searchers also want the captured European countries, so the destination half rests on data already on disk.",
+   "priority_score": 105.2,
+   "priority": 2
+  },
+  {
+   "market": "id-ID",
+   "language": "id",
+   "is_a_new_language": true,
+   "keywords_tested": 16,
+   "keywords_with_volume": 16,
+   "total_measured_volume": 49330,
+   "top_volume": 38000,
+   "median_volume": 400,
+   "max_cpc_cents": 45,
+   "keywords_at_difficulty_0_or_1": 13,
+   "top_families": [
+    "places.city-things-to-do (bandung 38,000, yogyakarta 900)",
+    "outdoors.beach-in-region (pantai di bali 5,900)",
+    "esim country intent at $0.25 to $0.45"
+   ],
+   "home_country": "ID",
+   "home_country_entities_on_disk": {
+    "cities": 483,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country in the capture queue, not yet written",
+   "notes": "The single largest city keyword measured in this whole exercise, tempat wisata di bandung at 38,000, and pantai di bali at 5,900. Indonesia is in the capture queue, so the domestic half is reachable; the destination half points at Singapore, Malaysia, Hong Kong and Japan, of which only Japan is captured.",
+   "priority_score": 101.1,
+   "priority": 3
+  },
+  {
+   "market": "es-MX",
+   "language": "es",
+   "is_a_new_language": false,
+   "keywords_tested": 16,
+   "keywords_with_volume": 16,
+   "total_measured_volume": 31050,
+   "top_volume": 5300,
+   "median_volume": 2400,
+   "max_cpc_cents": 130,
+   "keywords_at_difficulty_0_or_1": 13,
+   "top_families": [
+    "places.city-things-to-do (monterrey 5,300, merida 4,100, cancun 3,500)",
+    "outdoors.beach-in-region (playas de yucatan 1,200)",
+    "esim country intent (esim europa 900 at $1.30)"
+   ],
+   "home_country": "MX",
+   "home_country_entities_on_disk": {
+    "cities": 1798,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country in the capture queue, not yet written",
+   "notes": "No new language, shares /es/. Every entity measured is Mexican or United States and es-ES covers none of them, so the marginal URLs are real rather than a second page for the same place. Mexico is in the capture queue and the United States is already captured.",
+   "priority_score": 99.0,
+   "priority": 4
+  },
+  {
+   "market": "th-TH",
+   "language": "th",
+   "is_a_new_language": true,
+   "keywords_tested": 14,
+   "keywords_with_volume": 14,
+   "total_measured_volume": 48860,
+   "top_volume": 22000,
+   "median_volume": 1900,
+   "max_cpc_cents": 25,
+   "keywords_at_difficulty_0_or_1": 9,
+   "top_families": [
+    "places.city-things-to-do, DOMESTIC (chiang mai 22,000, phuket 11,000)",
+    "places.city-things-to-do for JP and TW",
+    "esim country intent at $0.20 to $0.25"
+   ],
+   "home_country": "TH",
+   "home_country_entities_on_disk": {
+    "cities": 413,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country BLOCKED by the network policy, no OSM route from here",
+   "notes": "Strong demand, 14 of 14, and the bulk of it is DOMESTIC: chiang mai 22,000 and phuket 11,000. Thailand is one of the fourteen countries the network policy blocks, so the half that carries the volume cannot be built from here at all. The Japanese and Taiwanese half is buildable and is the smaller half.",
+   "priority_score": 69.6,
+   "priority": 5
+  },
+  {
+   "market": "ko-KR",
+   "language": "ko",
+   "is_a_new_language": true,
+   "keywords_tested": 18,
+   "keywords_with_volume": 18,
+   "total_measured_volume": 32240,
+   "top_volume": 5300,
+   "median_volume": 1500,
+   "max_cpc_cents": 60,
+   "keywords_at_difficulty_0_or_1": 17,
+   "top_families": [
+    "places.city-things-to-do for JAPANESE cities (fukuoka 5,300, tokyo 5,200, osaka 5,000)",
+    "esim country intent at $0.30 to $0.60",
+    "places.city-things-to-do for ES and IT cities"
+   ],
+   "home_country": "KR",
+   "home_country_entities_on_disk": {
+    "cities": 151,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country BLOCKED by the network policy, no OSM route from here",
+   "notes": "18 of 18 with volume and the demand points almost entirely at countries ALREADY captured: Japan has 654,530 POI and 420,216 places on disk, and Spain, Italy and Taiwan are captured too. So Korean can be built now on existing data even though South Korea itself is one of the fourteen countries no OSM mirror here can reach, which caps the domestic half.",
+   "priority_score": 66.7,
+   "priority": 6
+  },
+  {
+   "market": "vi-VN",
+   "language": "vi",
+   "is_a_new_language": true,
+   "keywords_tested": 14,
+   "keywords_with_volume": 14,
+   "total_measured_volume": 36900,
+   "top_volume": 10000,
+   "median_volume": 700,
+   "max_cpc_cents": 35,
+   "keywords_at_difficulty_0_or_1": 9,
+   "top_families": [
+    "places.city-things-to-do, DOMESTIC (da nang 10,000, phu quoc 7,700, nha trang 6,800)",
+    "esim country intent at $0.25 to $0.35"
+   ],
+   "home_country": "VN",
+   "home_country_entities_on_disk": {
+    "cities": 448,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country BLOCKED by the network policy, no OSM route from here",
+   "notes": "Same shape as Thai and the same blocker: 14 of 14 with volume, the bulk domestic, and Vietnam is network-blocked. Buildable only for Singapore, Taiwan, Japan and Hong Kong.",
+   "priority_score": 58.1,
+   "priority": 7
+  },
+  {
+   "market": "de-AT",
+   "language": "de",
+   "is_a_new_language": false,
+   "keywords_tested": 12,
+   "keywords_with_volume": 9,
+   "total_measured_volume": 1450,
+   "top_volume": 450,
+   "median_volume": 200,
+   "max_cpc_cents": 60,
+   "keywords_at_difficulty_0_or_1": 4,
+   "top_families": [
+    "wandern salzburg 450 and little else"
+   ],
+   "home_country": "AT",
+   "home_country_entities_on_disk": {
+    "cities": 154,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country in the capture queue, not yet written",
+   "notes": "REFUSED, and it is the cleanest demonstration of duplicate risk in the set. Austria shares /de/ with Germany and searches largely the same destinations, and the city things-to-do keywords come back at ZERO or ten: wien sehenswuerdigkeiten 10, salzburg 0, graz 0, innsbruck 10. Those queries exist, but the volume is attributed to the German market that already serves them. A second market in one language only pays when it searches DIFFERENT entities, which en-AU does and de-AT does not.",
+   "priority_score": 52.5,
+   "priority": 8
+  },
+  {
+   "market": "ru-RU",
+   "language": "ru",
+   "is_a_new_language": true,
+   "keywords_tested": 18,
+   "keywords_with_volume": 18,
+   "total_measured_volume": 7510,
+   "top_volume": 1400,
+   "median_volume": 200,
+   "max_cpc_cents": 0,
+   "keywords_at_difficulty_0_or_1": 16,
+   "top_families": [
+    "places.city-things-to-do (istanbul 1,100, yerevan 1,200)",
+    "esim country intent (esim turciya 1,400)"
+   ],
+   "home_country": "RU",
+   "home_country_entities_on_disk": {
+    "cities": 2607,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country BLOCKED by the network policy, no OSM route from here",
+   "notes": "18 of 18 carry volume and EVERY ONE returns a null CPC, which means no advertiser is bidding: for a product that monetises on the connectivity intent that is the one signal that matters most, and it is absent. Russia is also not in the capture queue. Measured, recorded, not recommended.",
+   "priority_score": 37.5,
+   "priority": 9
+  },
+  {
+   "market": "ar-SA",
+   "language": "ar",
+   "is_a_new_language": true,
+   "keywords_tested": 15,
+   "keywords_with_volume": 13,
+   "total_measured_volume": 1630,
+   "top_volume": 300,
+   "median_volume": 100,
+   "max_cpc_cents": 40,
+   "keywords_at_difficulty_0_or_1": 12,
+   "top_families": [
+    "nothing clears a useful floor"
+   ],
+   "home_country": "SA",
+   "home_country_entities_on_disk": {
+    "cities": 141,
+    "poi": 0,
+    "places": 0,
+    "outdoor": 0,
+    "trails": 0,
+    "parents": 0
+   },
+   "home_country_osm_layer_rows": 0,
+   "source_coverage": "home country BLOCKED by the network policy, no OSM route from here",
+   "notes": "REFUSED on the measurement. 13 of 15 carry volume and the largest is 300 a month, with two outright zeros including esim europa. Arabic would also need right-to-left handling, a new script in the slug function and a GeoNames alternate-name pass that does not exist, which is the highest implementation cost of any candidate for the lowest measured return.",
+   "priority_score": 27.6,
+   "priority": 10
+  }
+ ],
+ "what_is_recommended_and_why": "Materialise tr-TR first. It is the only candidate whose home country is captured in full, 195,140 POI and 23,717 places and 20,765 outdoor features and 14,553 parent polygons, and its city things-to-do family measures LARGER in Turkish than in most markets already built: eleven cities between 2,100 and 8,800 a month at difficulty 0. Nothing has to be downloaded for it. Then en-AU and es-MX, which need no new language at all and whose entities no existing market searches, as soon as the queue writes Australia and Mexico. Then ko-KR, which is unusual: its demand points at Japan, Spain, Italy and Taiwan, all captured, so it can be built before its own country is reachable. id-ID when the queue reaches Indonesia. th-TH and vi-VN are held, not refused: the demand is real and large and the half that carries it is network-blocked. ru-RU, ar-SA and de-AT are refused on the measurement, each for a different reason, and each reason is recorded.",
+ "what_this_does_not_do": "It does not add a language for multiplication. Three candidates are refused and two are held, which is half the set, and the refusals are the point: ar-SA tops out at 300 a month, ru-RU has no advertiser bidding on the intent that monetises, and de-AT returns zero on the family that carries every other market because German already serves those queries."
+}
