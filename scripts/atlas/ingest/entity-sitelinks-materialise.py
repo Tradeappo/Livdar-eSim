@@ -76,9 +76,37 @@ if os.path.exists(OUT):
         pass
 print(f'already fetched: {len(done):,}', file=sys.stderr)
 
-todo = [q for q in want if q not in done]
+# Order by what the gates actually wait on, measured 2026-10-05. Of 321,546 items on disk only
+# 11,652 sit in a destination country that qualifies for a language, and those are the ones the
+# destination axis is blocked on: an entity in a MARKET country already has a home market and needs
+# no language mark to earn it. Fetching in file order meant sixteen hours before the first useful
+# row; fetching the destination set first unlocks the axis in about thirty-five minutes and the
+# remainder still finishes, because a market country's entity does need a mark to earn a DIFFERENT
+# market, which is how a Japanese page about Rome exists.
+MKT = {'US', 'GB', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'BR', 'JP', 'TW'}
+QUALIFIES = set()
+try:
+    _t = json.load(open(ROOT + 'data/atlas/measurements/'
+                        'destination-demand-by-country-language-2026-10-02.json'))
+    QUALIFIES = {v['destination_country'] for v in _t['table'].values() if v.get('qualifies')}
+except (FileNotFoundError, KeyError, ValueError):
+    pass
+
+
+def priority(q):
+    cc = want.get(q)
+    if cc and cc not in MKT and cc in QUALIFIES:
+        return 0            # the destination axis is blocked on these
+    if cc in QUALIFIES:
+        return 1            # a market country that some OTHER market has demand for
+    return 2                # everything else, useful later
+
+
+todo = sorted((q for q in want if q not in done), key=lambda q: (priority(q), q))
+_first = sum(1 for q in todo if priority(q) == 0)
 batches = [todo[i:i + 50] for i in range(0, len(todo), 50)]
-print(f'to fetch: {len(todo):,} items in {len(batches):,} batches of 50', file=sys.stderr)
+print(f'to fetch: {len(todo):,} items in {len(batches):,} batches of 50; '
+      f'{_first:,} of them in a destination country and fetched first', file=sys.stderr)
 
 
 def flush():
