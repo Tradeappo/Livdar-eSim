@@ -157,16 +157,9 @@ FEATURE_CLASSES = {
 # own wikipedia tag, whose prefix is a language: a region tagged wikipedia=de:Andalusien has a
 # German encyclopedia article, which is evidence German speakers look it up. A proxy for interest,
 # never a measured volume, and the row says so.
-DEST_LANG = {}
-try:
-    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
-                         'destination-demand-by-country-language-2026-10-02.json'))
-    for _v in _dt['table'].values():
-        if _v.get('qualifies'):
-            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
-                _v['max_connectivity_volume'], _v['max_information_volume'])
-except (FileNotFoundError, KeyError, ValueError):
-    pass
+# One loader in entity_identity, which reads every dated measurement file and merges them.
+# This was six copies of the same loop; see DEST_FILES there for why each file stays separate.
+DEST_LANG = entity_identity.dest_lang_by_country()
 LANG_MKT = entity_identity.LANG_MKT
 
 

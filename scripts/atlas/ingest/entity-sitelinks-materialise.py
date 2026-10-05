@@ -107,7 +107,21 @@ def priority(q):
     return 2                # everything else, useful later
 
 
-todo = sorted((q for q in want if q not in done), key=lambda q: (priority(q), q))
+# A row written before a language joined WIKIS was never ASKED about it, so its absence from
+# wikipedia_languages means "not asked", not "no article". The first 19,000 rows here were
+# fetched with ten wikis, before tr-TR was admitted, and reusing them unchanged would mean a
+# Turkish page about Vienna refused for want of a mark nobody had asked Wikidata for. Every row
+# now carries the set it was asked and a row asked a smaller set is refetched, destination
+# countries first as before.
+ASKED = sorted(WIKIS.values())
+def _complete(r):
+    return set(r.get('wikis_asked') or []) >= set(ASKED)
+_stale = sum(1 for r in done.values() if not _complete(r))
+if _stale:
+    print(f'rows fetched before the current language set: {_stale:,}, refetching them',
+          file=sys.stderr)
+todo = sorted((q for q in want if q not in done or not _complete(done[q])),
+              key=lambda q: (priority(q), q))
 _first = sum(1 for q in todo if priority(q) == 0)
 batches = [todo[i:i + 50] for i in range(0, len(todo), 50)]
 print(f'to fetch: {len(todo):,} items in {len(batches):,} batches of 50; '
@@ -157,7 +171,8 @@ for bi, batch in enumerate(batches):
                      for wiki, lang in WIKIS.items() if wiki in sl}
             # An item with no article in any Livdar language is recorded as empty rather than
             # skipped, so a resume does not ask for it again every time.
-            done[qid] = {'qid': qid, 'country': want.get(qid), 'wikipedia_languages': langs}
+            done[qid] = {'qid': qid, 'country': want.get(qid), 'wikipedia_languages': langs,
+                         'wikis_asked': ASKED}
             if langs:
                 kept += 1
     time.sleep(1.0)

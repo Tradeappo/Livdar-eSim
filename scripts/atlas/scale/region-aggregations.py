@@ -92,16 +92,9 @@ for fam in ('things_to_do', 'cities', 'best_time'):
     ms = sorted(m for (f, m) in cells if f == fam)
     print(f'  {fam:<14} {ms}', file=sys.stderr)
 
-DEST_LANG = {}
-try:
-    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
-                         'destination-demand-by-country-language-2026-10-02.json'))
-    for _v in _dt['table'].values():
-        if _v.get('qualifies'):
-            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
-                _v['max_connectivity_volume'], _v['max_information_volume'])
-except (FileNotFoundError, KeyError, ValueError):
-    pass
+# One loader in entity_identity, which reads every dated measurement file and merges them.
+# This was six copies of the same loop; see DEST_FILES there for why each file stays separate.
+DEST_LANG = entity_identity.dest_lang_by_country()
 
 
 def markets_for_parent(country, p):

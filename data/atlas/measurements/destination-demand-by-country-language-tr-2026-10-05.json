@@ -1,0 +1,566 @@
+{
+ "derived_on": "2026-10-05",
+ "derived_from": "Ahrefs Keywords Explorer, country=tr, 2026-10-05. 60 keywords across the connectivity and travel-information halves, recorded in ahrefs-tr-TR-market-admission-2026-10-05.json and in this file.",
+ "adds_to": "destination-demand-by-country-language-2026-10-02.json",
+ "why_a_separate_file": "The 2026-10-02 table is dated evidence for ten languages and stays byte-identical. Turkish was measured three days later, so it goes in its own dated file and the loader merges the two. Editing a dated measurement to add rows measured on another day would make its own date a lie about half its contents.",
+ "rule": "Unchanged from the 2026-10-02 table: a destination country earns a language only when BOTH a connectivity keyword and a travel-information keyword carry volume in it. One alone is not enough.",
+ "the_bar_and_where_it_comes_from": "The 2026-10-02 table states \"carry volume\" without a number, so the bar is read off what it actually ADMITTED: its lowest qualifying connectivity volumes are IS/de at 40 and SI/it at 50, and every refusal in it is for ZERO information volume, never for a low connectivity volume. So 40 is the bar, applied here unchanged. Holding Turkish to a higher bar than the one German and Italian were admitted on would be the inconsistency, not the fix.",
+ "what_the_turkish_measurement_shows_that_the_others_did_not": "In Turkish the eSIM intent is GENERIC, not per-country. esim nedir reads 5,800, esim nasil alinir 5,100, yurtdisi internet paketi 1,000, yurtdisinda internet kullanimi 600, while the per-country phrasing tops out at 100: ingiltere sim kart 100, dubai esim 100, yunanistan esim 90, gurcistan esim 70, japonya esim 70. German and English behave the opposite way - esim japan reads 5,400 in en-AU, esim albania 3,400 in it-IT. This is a fact about how Turkish speakers word the query, not about whether they travel: yunanistan vize reads 17,000 and karadag gezilecek yerler 6,000. It is why eleven countries clear the bar here and why seven with large travel volume do not.",
+ "pairs_tested": 18,
+ "pairs_qualifying": 11,
+ "qualifying_pairs": [
+  "AE|tr",
+  "DE|tr",
+  "EG|tr",
+  "GB|tr",
+  "GE|tr",
+  "GR|tr",
+  "IT|tr",
+  "JP|tr",
+  "ME|tr",
+  "NL|tr",
+  "TH|tr"
+ ],
+ "refused_pairs_with_strong_travel_volume": [
+  "AT|tr",
+  "BA|tr",
+  "CZ|tr",
+  "ES|tr",
+  "FR|tr",
+  "HU|tr",
+  "PT|tr"
+ ],
+ "of_the_qualifying_countries_which_are_captured_on_disk": [
+  "DE",
+  "GB",
+  "IT",
+  "JP",
+  "NL"
+ ],
+ "of_the_qualifying_countries_which_are_not": [
+  "AE",
+  "EG",
+  "GE",
+  "GR",
+  "ME",
+  "TH"
+ ],
+ "table": {
+  "GB|tr": {
+   "destination_country": "GB",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "ingiltere sim kart",
+     100,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ingiltere gezilecek yerler",
+     1200,
+     0,
+     0
+    ],
+    [
+     "londra gezilecek yerler",
+     2100,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 100,
+   "max_information_volume": 2100,
+   "max_cpc_cents": 0
+  },
+  "AE|tr": {
+   "destination_country": "AE",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "dubai esim",
+     100,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "dubai gezilecek yerler",
+     3000,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 100,
+   "max_information_volume": 3000,
+   "max_cpc_cents": 0
+  },
+  "GR|tr": {
+   "destination_country": "GR",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "yunanistan esim",
+     90,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "yunanistan adaları",
+     3400,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 90,
+   "max_information_volume": 3400,
+   "max_cpc_cents": 0
+  },
+  "GE|tr": {
+   "destination_country": "GE",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "gürcistan esim",
+     70,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "gürcistan gezilecek yerler",
+     3600,
+     0,
+     0
+    ],
+    [
+     "tiflis gezilecek yerler",
+     9700,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 70,
+   "max_information_volume": 9700,
+   "max_cpc_cents": 0
+  },
+  "JP|tr": {
+   "destination_country": "JP",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "japonya esim",
+     70,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "japonya gezilecek yerler",
+     2300,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 70,
+   "max_information_volume": 2300,
+   "max_cpc_cents": 0
+  },
+  "EG|tr": {
+   "destination_country": "EG",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "mısır esim",
+     60,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "mısır gezilecek yerler",
+     5300,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 60,
+   "max_information_volume": 5300,
+   "max_cpc_cents": 0
+  },
+  "ME|tr": {
+   "destination_country": "ME",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "karadağ sim kart",
+     60,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "karadağ gezilecek yerler",
+     6000,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 60,
+   "max_information_volume": 6000,
+   "max_cpc_cents": 0
+  },
+  "NL|tr": {
+   "destination_country": "NL",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "hollanda sim kart",
+     50,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "hollanda gezilecek yerler",
+     2200,
+     0,
+     0
+    ],
+    [
+     "amsterdam gezilecek yerler",
+     3300,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 50,
+   "max_information_volume": 3300,
+   "max_cpc_cents": 0
+  },
+  "IT|tr": {
+   "destination_country": "IT",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "italya esim",
+     50,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "italya gezilecek yerler",
+     3100,
+     0,
+     0
+    ],
+    [
+     "roma gezilecek yerler",
+     2200,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 50,
+   "max_information_volume": 3100,
+   "max_cpc_cents": 0
+  },
+  "DE|tr": {
+   "destination_country": "DE",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "almanya sim kart",
+     50,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "almanya gezilecek yerler",
+     2600,
+     0,
+     0
+    ],
+    [
+     "berlin gezilecek yerler",
+     2200,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 50,
+   "max_information_volume": 2600,
+   "max_cpc_cents": 0
+  },
+  "TH|tr": {
+   "destination_country": "TH",
+   "language": "tr",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "tayland esim",
+     40,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "tayland gezilecek yerler",
+     2400,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 40,
+   "max_information_volume": 2400,
+   "max_cpc_cents": 0
+  },
+  "ES|tr": {
+   "destination_country": "ES",
+   "language": "tr",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"ispanya esim\" reads 30 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on (IS/de at 40, SI/it at 50). The travel-information half is strong here - \"ispanya gezilecek yerler\" 3,600, \"barselona gezilecek yerler\" 2,400 - and that is not enough on its own: the rule asks for both halves and this country has one. Refused on the SAME bar the other ten languages were measured against.",
+   "connectivity_keywords": [
+    [
+     "ispanya esim",
+     30,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "ispanya gezilecek yerler",
+     3600,
+     0,
+     0
+    ],
+    [
+     "barselona gezilecek yerler",
+     2400,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 30,
+   "max_information_volume": 3600,
+   "max_cpc_cents": 0
+  },
+  "FR|tr": {
+   "destination_country": "FR",
+   "language": "tr",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"fransa esim\" reads 20 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on (IS/de at 40, SI/it at 50). The travel-information half is strong here - \"fransa gezilecek yerler\" 1,800, \"paris gezilecek yerler\" 2,600 - and that is not enough on its own: the rule asks for both halves and this country has one. Refused on the SAME bar the other ten languages were measured against.",
+   "connectivity_keywords": [
+    [
+     "fransa esim",
+     20,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "fransa gezilecek yerler",
+     1800,
+     0,
+     0
+    ],
+    [
+     "paris gezilecek yerler",
+     2600,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 20,
+   "max_information_volume": 2600,
+   "max_cpc_cents": 0
+  },
+  "AT|tr": {
+   "destination_country": "AT",
+   "language": "tr",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"avusturya esim\" reads 10 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on (IS/de at 40, SI/it at 50). The travel-information half is strong here - \"avusturya gezilecek yerler\" 900, \"viyana gezilecek yerler\" 4,100 - and that is not enough on its own: the rule asks for both halves and this country has one. Refused on the SAME bar the other ten languages were measured against.",
+   "connectivity_keywords": [
+    [
+     "avusturya esim",
+     10,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "avusturya gezilecek yerler",
+     900,
+     0,
+     0
+    ],
+    [
+     "viyana gezilecek yerler",
+     4100,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 10,
+   "max_information_volume": 4100,
+   "max_cpc_cents": 0
+  },
+  "BA|tr": {
+   "destination_country": "BA",
+   "language": "tr",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"bosna esim\" reads 10 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on (IS/de at 40, SI/it at 50). The travel-information half is strong here - \"bosna gezilecek yerler\" 800, \"saraybosna gezilecek yerler\" 2,900 - and that is not enough on its own: the rule asks for both halves and this country has one. Refused on the SAME bar the other ten languages were measured against.",
+   "connectivity_keywords": [
+    [
+     "bosna esim",
+     10,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "bosna gezilecek yerler",
+     800,
+     0,
+     0
+    ],
+    [
+     "saraybosna gezilecek yerler",
+     2900,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 10,
+   "max_information_volume": 2900,
+   "max_cpc_cents": 0
+  },
+  "HU|tr": {
+   "destination_country": "HU",
+   "language": "tr",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"macaristan esim\" reads 0 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on (IS/de at 40, SI/it at 50). The travel-information half is strong here - \"macaristan gezilecek yerler\" 1,000, \"budapeşte gezilecek yerler\" 3,600 - and that is not enough on its own: the rule asks for both halves and this country has one. Refused on the SAME bar the other ten languages were measured against.",
+   "connectivity_keywords": [
+    [
+     "macaristan esim",
+     0,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "macaristan gezilecek yerler",
+     1000,
+     0,
+     0
+    ],
+    [
+     "budapeşte gezilecek yerler",
+     3600,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 0,
+   "max_information_volume": 3600,
+   "max_cpc_cents": 0
+  },
+  "CZ|tr": {
+   "destination_country": "CZ",
+   "language": "tr",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"çekya sim kart\" reads 0 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on (IS/de at 40, SI/it at 50). The travel-information half is strong here - \"çekya gezilecek yerler\" 450, \"prag gezilecek yerler\" 3,600 - and that is not enough on its own: the rule asks for both halves and this country has one. Refused on the SAME bar the other ten languages were measured against.",
+   "connectivity_keywords": [
+    [
+     "çekya sim kart",
+     0,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "çekya gezilecek yerler",
+     450,
+     0,
+     0
+    ],
+    [
+     "prag gezilecek yerler",
+     3600,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 0,
+   "max_information_volume": 3600,
+   "max_cpc_cents": 0
+  },
+  "PT|tr": {
+   "destination_country": "PT",
+   "language": "tr",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"portekiz esim\" reads 0 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on (IS/de at 40, SI/it at 50). The travel-information half is strong here - \"portekiz gezilecek yerler\" 1,200 - and that is not enough on its own: the rule asks for both halves and this country has one. Refused on the SAME bar the other ten languages were measured against.",
+   "connectivity_keywords": [
+    [
+     "portekiz esim",
+     0,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "portekiz gezilecek yerler",
+     1200,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 0,
+   "max_information_volume": 1200,
+   "max_cpc_cents": 0
+  }
+ }
+}

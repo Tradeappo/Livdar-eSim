@@ -370,6 +370,68 @@ class Gazetteer:
         return self.slugs(slugify).get(str(cid), '')
 
 
+# ---- the destination demand table, one loader -------------------------------------------------
+# Six builders each carried their own copy of this load loop, five of them building one shape
+# and the manifest another. Adding the Turkish measurement meant editing six files that had to
+# agree about which files to read and what qualifies, which is the sixth duplicated definition
+# this project has had to collapse after it drifted. One loader, two shapes, one list of files.
+#
+# Each file is DATED EVIDENCE and none is edited to hold another day's measurement: the
+# 2026-10-02 table covers ten languages, the tr file covers Turkish measured on 2026-10-05, and
+# the merge happens here at read time. A pair present in more than one file keeps the row with
+# the larger connectivity volume, so a later re-measurement raises a pair and never silently
+# lowers it.
+DEST_FILES = [
+    'destination-demand-by-country-language-2026-10-02.json',
+    'destination-demand-by-country-language-tr-2026-10-05.json',
+]
+_DEST_ROWS = None
+
+
+def _dest_rows():
+    """{(country, language): row} for every QUALIFYING pair across every measurement file."""
+    global _DEST_ROWS
+    if _DEST_ROWS is not None:
+        return _DEST_ROWS
+    out = {}
+    for fn in DEST_FILES:
+        try:
+            d = json.load(open(ROOT + 'data/atlas/measurements/' + fn, encoding='utf-8'))
+        except (FileNotFoundError, ValueError):
+            continue
+        for v in (d.get('table') or {}).values():
+            if not v.get('qualifies'):
+                continue
+            k = (v['destination_country'], v['language'])
+            if k in out and out[k]['max_connectivity_volume'] >= v['max_connectivity_volume']:
+                continue
+            out[k] = v
+    _DEST_ROWS = out
+    return out
+
+
+def dest_lang_by_country():
+    """{country: {language: (connectivity volume, information volume)}}, the shape the five
+    geographic builders ask for."""
+    out = {}
+    for (cc, lang), v in _dest_rows().items():
+        out.setdefault(cc, {})[lang] = (v['max_connectivity_volume'],
+                                        v['max_information_volume'])
+    return out
+
+
+def dest_lang_with_keywords():
+    """{(country, language): (connectivity volume, information volume, connectivity keyword,
+    information keyword)}, the shape the manifest asks for, because its uniqueness reasons
+    quote the keywords rather than only the volumes."""
+    out = {}
+    for k, v in _dest_rows().items():
+        out[k] = (v['max_connectivity_volume'], v['max_information_volume'],
+                  (v['connectivity_keywords'] or [['', 0]])[0][0],
+                  (v['information_keywords'] or [['', 0]])[0][0])
+    return out
+
+
 def load_gazetteer():
     """Every city shard, with the fields identity needs."""
     recs = []

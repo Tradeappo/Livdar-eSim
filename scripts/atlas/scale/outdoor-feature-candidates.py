@@ -56,16 +56,9 @@ slug = entity_identity.slugify
 # tagged name:de has a German name because German speakers refer to it. Measured in the Turkish
 # layer: of the first 5,000 features, 1,477 carry a Wikidata item, 542 carry a name:xx and 249
 # carry a Wikipedia article.
-DEST_LANG = {}
-try:
-    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
-                         'destination-demand-by-country-language-2026-10-02.json'))
-    for _v in _dt['table'].values():
-        if _v.get('qualifies'):
-            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
-                _v['max_connectivity_volume'], _v['max_information_volume'])
-except (FileNotFoundError, KeyError, ValueError):
-    pass
+# One loader in entity_identity, which reads every dated measurement file and merges them.
+# This was six copies of the same loop; see DEST_FILES there for why each file stays separate.
+DEST_LANG = entity_identity.dest_lang_by_country()
 # The market list lives in entity_identity, which owns identity for the whole pipeline.
 # Twelve files each hand-wrote their own copy; adding tr-TR meant editing twelve places and
 # a thirteenth that would have been missed. One definition, imported.

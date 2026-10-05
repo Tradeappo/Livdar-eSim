@@ -498,20 +498,10 @@ except FileNotFoundError:
 #
 # The second half is a PROXY for interest, never a measurement of volume, and every row that
 # rests on it says so in its own uniqueness reason.
-DEST_LANG = {}
-try:
-    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
-                         'destination-demand-by-country-language-2026-10-02.json'))
-    for _v in _dt['table'].values():
-        if _v.get('qualifies'):
-            DEST_LANG[(_v['destination_country'], _v['language'])] = (
-                _v['max_connectivity_volume'], _v['max_information_volume'],
-                (_v['connectivity_keywords'] or [['', 0]])[0][0],
-                (_v['information_keywords'] or [['', 0]])[0][0])
-    print(f'  destination country-language pairs with measured demand: {len(DEST_LANG):,}',
-          file=sys.stderr)
-except (FileNotFoundError, KeyError, ValueError):
-    pass
+# One loader in entity_identity, which reads every dated measurement file and merges them.
+DEST_LANG = entity_identity.dest_lang_with_keywords()
+print(f'  destination country-language pairs with measured demand: {len(DEST_LANG):,} '
+      f'from {len(entity_identity.DEST_FILES)} measurement files', file=sys.stderr)
 
 # city id -> {language: how the mark was earned}
 CITY_LANG_MARK = collections.defaultdict(dict)

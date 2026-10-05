@@ -1261,16 +1261,9 @@ rejects['entity_not_notable'] += counts['poi_read'] - len(notable)
 # What this is NOT: a translation. A copy is made only where the place itself carries a name or an
 # article in that language, so the page is about something that language already has words for.
 # The mark is a PROXY for interest and the uniqueness reason on every copy says so.
-DEST_LANG = {}
-try:
-    _dt = json.load(open(ROOT + 'data/atlas/measurements/'
-                         'destination-demand-by-country-language-2026-10-02.json'))
-    for _v in _dt['table'].values():
-        if _v.get('qualifies'):
-            DEST_LANG.setdefault(_v['destination_country'], {})[_v['language']] = (
-                _v['max_connectivity_volume'], _v['max_information_volume'])
-except (FileNotFoundError, KeyError, ValueError):
-    pass
+# One loader in entity_identity, which reads every dated measurement file and merges them.
+# This was six copies of the same loop; see DEST_FILES there for why each file stays separate.
+DEST_LANG = entity_identity.dest_lang_by_country()
 LANG_MKT = entity_identity.LANG_MKT
 
 CITY_MARK = collections.defaultdict(dict)
