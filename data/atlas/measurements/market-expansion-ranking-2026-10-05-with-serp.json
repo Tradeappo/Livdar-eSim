@@ -1,0 +1,222 @@
+{
+ "generated_on": "2026-10-05",
+ "supersedes": "market-expansion-ranking-2026-10-05.json, which ranked the candidates before any of their SERPs had been read",
+ "tool": "Ahrefs Keywords Explorer (keywords-explorer-overview) and SERP Overview (serp-overview)",
+ "units_spent": 13882,
+ "the_finding_that_reorders_everything": "The first ranking scored the candidates on demand, local phrasing and source coverage, and put en-AU first, tr-TR second, id-ID third and es-MX fourth. ko-KR was not in it at all. Reading the SERPs changed the order almost completely, because the two candidates with the LARGEST measured demand have the WORST SERPs and the two with the most open SERPs are the two that need no new language.\n\n  ko-KR  250,330 measured volume  - five of five SERPs owned by Naver and official boards\n  id-ID   49,330 measured volume  - every organic slot held by Klook, Trip.com, Traveloka\n  en-AU   50,000 measured volume  - two DOMAIN RATING 4 sites in the top five\n  es-MX   31,050 measured volume  - a DOMAIN RATING 16 site at position 3\n  tr-TR  ~190,000 measured volume - a DOMAIN RATING 2 site at position 3 on the region family, a DR 16 at 6 on the city family, state portals on the entity family\n\nDemand says which markets are worth wanting. The SERP says which of them are reachable. Ranking on demand alone would have put the single least reachable market first.",
+ "the_six_criteria_the_brief_names_and_where_each_one_landed": {
+  "1_search_demand_total": "ko-KR 250,330, tr-TR ~190,000, en-AU 50,000, id-ID 49,330, es-MX 31,050. This criterion alone ranks the two unreachable markets first and second.",
+  "2_local_language_opportunity": "every candidate passed. Turkish, Korean and Indonesian phrasing was measured in the language, not translated: gezilecek yerler, yeohaeng, tempat wisata. en-AU and es-MX need no new phrasing at all.",
+  "3_destination_demand": "tr-TR earns eleven destination countries of eighteen tested and five of them are captured. ko-KR earns twelve of sixteen and six are captured. Both tables are in their own dated files.",
+  "4_data_and_source_coverage": "tr-TR captured in full. en-AU extracting now. es-MX and id-ID queued. ko-KR not queued at all.",
+  "5_expected_valid_page_yield": "measured by rebuild for tr-TR rather than estimated. For the others the only honest anchor is en-GB contributing 34,980 /en/ URLs that en-US does not claim, and that anchor is quoted rather than extrapolated into a number.",
+  "6_low_duplicate_risk": "measured, not assumed. Distinct /en/ URLs equals rows per language exactly (en-GB 34,980 + en-US 49,299 = 84,279), so a second market in one language adds pages for entities the others do not search. That is why en-AU and es-MX pay and de-AT, which would search the same Austrian entities de-DE already reaches, does not."
+ },
+ "what_is_being_built_and_in_what_order": [
+  "1. tr-TR, materialised 2026-10-05. Home country already on disk, so it was the only candidate that could be built the day it was measured.",
+  "2. en-AU, as soon as the Australian layers finish. Best SERP of any candidate, no new language, and the entities are ones no existing market searches.",
+  "3. es-MX, as soon as Mexico is captured. Same shape as en-AU, smaller.",
+  "4. id-ID and ko-KR: NOT built. Measured, recorded, deprioritised on the SERP, and left wired so that admitting either is one line in MARKETS if the SERP question is ever answered differently. Indonesia is still being captured, as a DESTINATION for the existing markets."
+ ],
+ "what_would_change_the_two_refusals": "Neither is a gate relaxation. For ko-KR: a Korean family whose SERP is open that was not among the five sampled, or a Naver-first distribution strategy that Google organic ranking is the wrong test for, or South Korea captured and a domestic family measuring open. For id-ID: the same, a family outside the OTA-held city-guide shape. Until then, both would be pages built to rank behind a platform, and tens of thousands of them would add template mass to a site whose whole defence is that every page earns its place.",
+ "candidates": [
+  {
+   "market": "tr-TR",
+   "language": "tr",
+   "is_a_new_language": true,
+   "priority": 1,
+   "disposition": "ADMITTED_AND_MATERIALISED",
+   "measured_demand": {
+    "keywords_tested": 118,
+    "total_measured_volume": "about 190,000 after the second and third waves, against 41,720 on the first 18 keywords that the pre-SERP ranking scored",
+    "top_keyword": "istanbul gezilecek yerler 33,000",
+    "keywords_at_difficulty_0_or_1": "most of the city family; every one of the twelve cities above 7,000 a month sits at difficulty 0, 1 or 2"
+   },
+   "top_families": [
+    "activities.city-things-to-do, 29 keywords above the 100 floor, Istanbul 33,000, Bursa 31,000, Eskisehir 27,000, Antalya 26,000, Mardin 21,000, Trabzon 17,000, Gaziantep 17,000",
+    "outdoors.peak, Nemrut Dagi 47,000, Agri Dagi 29,000, Erciyes 11,000, Kackar 6,300",
+    "outdoors.hiking-trail, likya yolu 17,000 on its own",
+    "poi.city-category-durable, Topkapi 7,300, Sumela 2,400, Pamukkale 1,400"
+   ],
+   "source_coverage": "HOME COUNTRY CAPTURED IN FULL: 195,140 POI, 23,717 places, 20,765 outdoor features, 268 trails, 14,553 parent polygons, 820 cities. Nothing to download.",
+   "serp": {
+    "sampled": 6,
+    "verdict": "MIXED AND WORKABLE",
+    "reading": "eskisehir gezilecek yerler reads OFFICIAL_PLUS_AGGREGATOR_MIXED: enuygun DR 70 and Tripadvisor DR 83 hold the head and the state culture portal sits at 5, but a DR 46 site ranks 4th on ONE backlink and a DR 16 site ranks 6th on two. karadeniz gezilecek yerler is the clearest opening measured in any candidate: a DOMAIN RATING 2 blog at position 3. The one adverse reading is the named-entity SERP, where three Turkish government portals hold 5, 6 and 7 for nemrut dagi, so the outdoor-entity family is recorded at 50 rather than the 85 the German reading gave it. That orders publication, it does not refuse the family."
+   },
+   "estimated_valid_pages": "measured by rebuild rather than estimated; see the funnel",
+   "duplication_risk": "LOW. New language, new URL space, nothing shared with an existing market.",
+   "implementation_cost": "LOWEST of all candidates. No capture. One line in MARKETS, one origin city, one keyword overlay file, tr added to the alternate-name and sitelink language sets.",
+   "why_first": "Not the highest demand and not the best SERP. It is the only candidate whose home country was already on disk, so it was the only one that could be materialised the same day it was measured."
+  },
+  {
+   "market": "en-AU",
+   "language": "en",
+   "is_a_new_language": false,
+   "priority": 2,
+   "disposition": "ADMITTED_CAPTURE_IN_FLIGHT",
+   "measured_demand": {
+    "keywords_tested": 16,
+    "total_measured_volume": 50000,
+    "top_keyword": "cairns 7,800",
+    "keywords_at_difficulty_0_or_1": 11,
+    "highest_cpc_in_the_project": "esim japan 5,400 at $1.70, esim new zealand 2,700 at $1.80"
+   },
+   "top_families": [
+    "places.city-things-to-do (cairns 7,800, tasmania 4,100, noosa 3,000)",
+    "esim country intent at the highest CPC measured anywhere here",
+    "outdoors.beach-in-region"
+   ],
+   "source_coverage": "Australia was 33rd in the destination queue and was pulled forward into the new market-candidate queue on 2026-10-05; the 1,017MB extract is on disk and the parent layer is extracting now.",
+   "serp": {
+    "sampled": 1,
+    "verdict": "THE MOST OPEN SERP MEASURED IN THIS WHOLE EXERCISE",
+    "reading": "things to do in cairns: getawaycairns.com.au at DOMAIN RATING FOUR holds position 3 with 1,118 traffic and ONE backlink, and cairnsurbanwalkingtours.com.au, also DOMAIN RATING FOUR, holds position 5. Tripadvisor DR 87 sits between them at 4. The AI Overview above cites travelmermaid, littlegreybox and shortgirlontour, which are small independent travel blogs, not official boards or OTAs. Two DR 4 sites in the top five is as open as a SERP gets."
+   },
+   "estimated_valid_pages": "not estimated. en-GB contributes 34,980 /en/ URLs that en-US does not claim, on a country with a comparable entity count, and that is the only anchor worth quoting until Australia is on disk.",
+   "duplication_risk": "LOW, and measured rather than assumed. Every URL in the manifest belongs to exactly one market, and distinct /en/ URLs equals rows per language exactly: en-GB 34,980 plus en-US 49,299 is exactly the 84,279 distinct /en/ URLs. A second market in one language ADDS pages for the entities the others do not search. Cairns, Noosa, Byron Bay, Tasmania and Uluru are not entities en-US or en-GB reach.",
+   "implementation_cost": "LOW. No new language, so no alternate-name pass, no new sitelink language and no new local phrasing. One line in MARKETS, one origin city, one capture.",
+   "why_second": "Best SERP of any candidate and no new language to build, but Australia had to be downloaded and that is the only reason it is not first."
+  },
+  {
+   "market": "es-MX",
+   "language": "es",
+   "is_a_new_language": false,
+   "priority": 3,
+   "disposition": "ADMITTED_CAPTURE_QUEUED",
+   "measured_demand": {
+    "keywords_tested": 16,
+    "total_measured_volume": 31050,
+    "top_keyword": "monterrey 5,300",
+    "keywords_at_difficulty_0_or_1": 13
+   },
+   "top_families": [
+    "places.city-things-to-do (monterrey 5,300, merida 4,100, cancun 3,500)",
+    "outdoors.beach-in-region (playas de yucatan 1,200)",
+    "esim country intent"
+   ],
+   "source_coverage": "Mexico was 23rd in the destination queue and is now second in the market-candidate queue, behind Australia.",
+   "serp": {
+    "sampled": 1,
+    "verdict": "OPEN",
+    "reading": "que hacer en merida: lotuseaters.travel at DOMAIN RATING 16 holds position 3 with 944 traffic and ONE backlink, visitmerida.mx DR 40 at 4, zonaturistica DR 49 at 5, anadventurousworld DR 39 at 6 with ZERO backlinks, GetYourGuide DR 90 only at 7. Three mid-authority pages with no links between them, and the large OTA below all of them."
+   },
+   "estimated_valid_pages": "not estimated until Mexico is on disk.",
+   "duplication_risk": "LOW for the same measured reason as en-AU: es-MX shares /es/ with es-ES and contributes Monterrey, Merida, Cancun, Oaxaca and Guanajuato, which es-ES does not search. The entities are disjoint, not the language.",
+   "implementation_cost": "LOW. No new language. One capture."
+  },
+  {
+   "market": "id-ID",
+   "language": "id",
+   "is_a_new_language": true,
+   "priority": 4,
+   "disposition": "MEASURED_DEPRIORITISED_ON_SERP",
+   "measured_demand": {
+    "keywords_tested": 16,
+    "total_measured_volume": 49330,
+    "top_keyword": "tempat wisata di bandung 38,000, the single largest city keyword measured anywhere in this exercise",
+    "keywords_at_difficulty_0_or_1": 13
+   },
+   "top_families": [
+    "places.city-things-to-do (bandung 38,000)",
+    "outdoors.beach-in-region (pantai di bali 5,900)"
+   ],
+   "source_coverage": "Indonesia is third in the market-candidate queue. It is being captured anyway, as a DESTINATION for the existing markets rather than as a market: Bali carries measured demand in several of the eleven.",
+   "serp": {
+    "sampled": 1,
+    "verdict": "OTA LOCKED",
+    "reading": "tempat wisata di bandung: an AI Overview takes position 1 with a sitelink block of hotel chains, Klook, a bank, Trip.com, Ascott and tiket.com plus twenty Google place cards, and every organic slot underneath is a large brand: Klook DR 85 with 23,084 traffic, Trip.com DR 87 with 6,336, Traveloka DR 83 with 4,146, Instagram DR 100, CIMB Niaga DR 71. Not one independent site in the top seven. The 38,000 is held by the OTAs."
+   },
+   "estimated_valid_pages": "not estimated. The demand is real and not reachable by this page type, which is a different thing from the demand being absent.",
+   "duplication_risk": "LOW (new language) and irrelevant while the SERP is closed.",
+   "implementation_cost": "HIGH relative to its reachable value: a new language means a new alternate-name pass, a new sitelink language, new local phrasing and a new SERP sample set."
+  },
+  {
+   "market": "ko-KR",
+   "language": "ko",
+   "is_a_new_language": true,
+   "priority": 5,
+   "disposition": "MEASURED_DEPRIORITISED_ON_SERP_NOT_IN_MARKETS",
+   "measured_demand": {
+    "keywords_tested": 119,
+    "total_measured_volume": 250330,
+    "top_keyword": "gyeongbokgung 22,000",
+    "note": "the largest measured demand of any candidate by a factor of five over the next"
+   },
+   "top_families": [
+    "weather.city-month about Japanese cities (dokyo nalssi 13,000, osaka nalssi 12,000)",
+    "poi.city-category-durable (gyeongbokgung 22,000, osaka-seong 7,400, namsan tower 6,000)",
+    "outdoors.peak (seoraksan 7,100, hallasan 5,600, fuji 6,100)",
+    "activities.city-things-to-do, 59 keywords above the floor, 44 of them about Japan"
+   ],
+   "source_coverage": "South Korea is in NEITHER capture queue, so the domestic half is not buildable. Japan is captured in full and is where Korean searchers look: 44 keywords and 130,000 of the volume are about Japanese places.",
+   "serp": {
+    "sampled": 5,
+    "verdict": "PLATFORM OWNED IN EVERY FAMILY SAMPLED",
+    "reading": "Five SERPs, five families, 35 sampled positions, ONE independent mid-authority result: att-japan.net at DOMAIN RATING 35 in position 7 on osaka-seong. Korean organic search is held by Naver blogs, namu.wiki, Daum, Brunch, Blind, Instagram and official tourism boards. The largest family, weather at 13,000 and 12,000, is held entirely by AccuWeather, the Japan Meteorological Agency, weather.com, MSN and Ventusky."
+   },
+   "estimated_valid_pages": "not estimated and deliberately not built.",
+   "duplication_risk": "structurally ZERO (new language) and irrelevant while the SERP is closed.",
+   "implementation_cost": "HIGHEST. A new language AND a capture that is not even queued, for pages that would rank behind Naver."
+  },
+  {
+   "market": "de-AT",
+   "language": "de",
+   "is_a_new_language": false,
+   "priority": 6,
+   "disposition": "REFUSED_ON_DEMAND_2026_10_02",
+   "measured_demand": {
+    "top_keyword": "wien sehenswuerdigkeiten 10"
+   },
+   "serp": {
+    "sampled": 0,
+    "verdict": "NOT SAMPLED, AND NOT NEEDED"
+   },
+   "source_coverage": "Austria is in the destination queue.",
+   "duplication_risk": "HIGH, which is the point. de-AT shares /de/ with de-DE and would search the SAME Austrian entities de-DE already reaches, so it adds URLs to no new entity. This is the case that separates a second market in one language that PAYS (en-AU, es-MX) from one that does not.",
+   "implementation_cost": "low and still not worth paying."
+  },
+  {
+   "market": "ar-SA",
+   "language": "ar",
+   "is_a_new_language": true,
+   "priority": 7,
+   "disposition": "REFUSED_ON_DEMAND_2026_10_02",
+   "measured_demand": {
+    "top_keyword": "nothing above 300 across the set tested"
+   },
+   "serp": {
+    "sampled": 0,
+    "verdict": "NOT SAMPLED, AND NOT NEEDED"
+   }
+  },
+  {
+   "market": "ru-RU",
+   "language": "ru",
+   "is_a_new_language": true,
+   "priority": 8,
+   "disposition": "REFUSED_ON_DEMAND_2026_10_02",
+   "measured_demand": {
+    "top_keyword": "volume present, every CPC null"
+   },
+   "serp": {
+    "sampled": 0,
+    "verdict": "NOT SAMPLED, AND NOT NEEDED"
+   }
+  }
+ ],
+ "the_structural_fact_that_shapes_this_whole_ranking": "Every URL in the manifest belongs to exactly ONE market, and distinct URLs per language equals rows per language exactly: en-GB holds 34,980 and en-US 49,299, together exactly the 84,279 distinct /en/ URLs. So the two English markets do not duplicate each other, they contribute DIFFERENT entities to a shared language space. That means a new market pays off in two different ways and they have to be ranked differently. A new LANGUAGE opens a new URL space and needs a new alternate-name pass, a new sitelink language and new local phrasing. A new MARKET IN AN EXISTING LANGUAGE needs none of that and still adds pages, but only for the entities the existing markets do not already search, which is exactly what separates en-AU from de-AT.",
+ "rows_per_market_before_this_expansion": {
+  "de-DE": 58657,
+  "en-US": 49299,
+  "fr-FR": 43286,
+  "en-GB": 34980,
+  "ja-JP": 31095,
+  "it-IT": 25892,
+  "pt-BR": 15773,
+  "es-ES": 15527,
+  "nl-NL": 14847,
+  "pl-PL": 11907,
+  "zh-Hant-TW": 800
+ }
+}

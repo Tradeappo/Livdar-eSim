@@ -36,21 +36,32 @@ OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
 # is a directory because mkdir is atomic; a second run waits for the first rather than
 # skipping, so a caller that needs fresh output gets it.
 _LOCK = '/tmp/poi_aggregations.lock'
+# Staleness is read off the lock's OWN AGE, not off how long this process has been waiting.
+# The first version waited 90 minutes of wall clock before declaring a lock stale, which meant a
+# lock left behind by a run killed three days earlier cost a fresh run ninety idle minutes: that
+# happened on 2026-10-05, when a lock dated 2026-10-02 blocked the tr-TR rebuild and the log said
+# "another aggregation run holds the lock" with no such run in the process table. A lock older
+# than the longest this stage has ever taken cannot belong to a live run.
+_STALE_AFTER = 5400     # 90 minutes; the stage itself runs in about ten
 _waited = 0
 while True:
     try:
         os.mkdir(_LOCK)
         break
     except FileExistsError:
+        try:
+            _age = time.time() - os.path.getmtime(_LOCK)
+        except OSError:
+            continue            # it went away between the mkdir and the stat; try again
+        if _age > _STALE_AFTER:
+            print(f'lock is {_age / 3600:.1f} hours old, older than any run of this stage has '
+                  f'ever taken, so it is stale and is being taken', file=sys.stderr)
+            break
         if _waited == 0:
-            print('another aggregation run holds the lock; waiting for it to finish',
-                  file=sys.stderr)
+            print(f'another aggregation run holds the lock ({_age / 60:.0f} minutes old); '
+                  f'waiting for it to finish', file=sys.stderr)
         time.sleep(20)
         _waited += 20
-        if _waited > 5400:
-            print('lock held for 90 minutes, assuming it is stale and taking it',
-                  file=sys.stderr)
-            break
 import atexit
 atexit.register(lambda: os.rmdir(_LOCK) if os.path.isdir(_LOCK) else None)
 
