@@ -1,0 +1,66 @@
+{
+ "measured_on": "2026-10-05",
+ "question": "The region families are built entirely on containment: the cities inside a region, the features inside it, the climate of the places inside it. On 2026-10-02 the parents filter was widened to capture place=region because the three strongest German region keywords name places that were in no class the filter accepted. Did that fix deliver usable region parents?",
+ "the_answer_is_mostly_no_and_the_reason_matters": "place=region in OpenStreetMap is very often a NODE, a label point rather than a boundary. Costa Brava is n5491451305, a point. Mazury is n14069175097, a point. Bieszczady and Karkonosze come through as mountain_range with no area at all. A point cannot ground a containment claim, and giving it a radius would be the nearest-centroid error this project refuses at every other level. The region builder rejects them, and it is right to.",
+ "so_the_2026_10_02_filter_fix_is_downgraded": "It captures the tag and the tag is mostly unusable. The claim that it opened the named tourist regions was too strong and is withdrawn. What it does add is the minority of place=region objects drawn as areas, which is worth having and is not the lever it looked like. The re-capture of DE, IT, NL, TR and FR parents is therefore LOW value rather than the priority it was recorded as.",
+ "and_the_good_news_which_is_the_larger_half": "The German regions with measured demand already had usable polygons under classes the builder ALREADY accepts, so the demand is reachable without the fix at all. Measured in the German parent layer: Schwarzwald is a mountain_range polygon of 6,145 square kilometres with a Wikipedia article, against schwarzwald sehenswuerdigkeiten 1,900 and schwarzwald wandern 1,800. Harz 2,208, Odenwald 2,391, Rhoen 2,988, Bayerischer Wald 4,986, Ruegen 955 as an island, Lueneburger Heide 232 as a nature reserve, Spreewald 472 as a protected area.",
+ "the_one_real_loss": "Allgaeu has no polygon under any class in the layer, and allgaeu sehenswuerdigkeiten is 2,100 with allgaeu wandern 1,400. One region, not a systemic gap, and it needs a boundary from a source other than OSM.",
+ "japanese_regions_which_are_the_largest_demand_in_the_project": "Present and polygonal, and an earlier check missed them only because it searched Latin names: Hokkaido is both a region polygon of 138,379 square kilometres at admin level 4 and an island polygon of 77,574, Kyoto prefecture 7,450, Okinawa 41,644, Nagano 13,505, Kyushu 36,659 and Shikoku 18,227 as islands. Against kyoto 78,000, hokkaido 44,000, okinawa 41,000, nagano 35,000, shikoku 23,000 and kyushu 13,000. Japan produced 128 region rows on the last build.",
+ "region_class_counts_by_country": {
+  "DE": {
+   "region": 16,
+   "mountain_range": 52,
+   "peninsula": 51,
+   "archipelago": 5
+  },
+  "ES": {
+   "region": 25,
+   "mountain_range": 25,
+   "peninsula": 6,
+   "archipelago": 11
+  },
+  "FR": {
+   "region": 14,
+   "mountain_range": 18,
+   "peninsula": 17,
+   "archipelago": 26
+  },
+  "GB": {
+   "region": 40,
+   "mountain_range": 38,
+   "peninsula": 126,
+   "archipelago": 48
+  },
+  "IT": {
+   "region": 35,
+   "mountain_range": 67,
+   "peninsula": 9,
+   "archipelago": 41
+  },
+  "JP": {
+   "region": 50,
+   "mountain_range": 12,
+   "peninsula": 16,
+   "archipelago": 38
+  },
+  "NL": {
+   "region": 12,
+   "mountain_range": 0,
+   "peninsula": 43,
+   "archipelago": 3
+  },
+  "PL": {
+   "region": 32,
+   "mountain_range": 54,
+   "peninsula": 59,
+   "archipelago": 3
+  },
+  "TR": {
+   "region": 81,
+   "mountain_range": 104,
+   "peninsula": 18,
+   "archipelago": 5
+  }
+ },
+ "a_method_note_on_this_measurement": "The first run of this check sliced the country code out of the filename and took one character too many, so every country read as a single letter. That is the same off-by-one this project has already hit once, in the parent assignment that printed \"outdoor POI tested: 0\". The country is read from the RECORD here. A second run searched Latin names for Japanese regions and found none, which said nothing about the data."
+}
