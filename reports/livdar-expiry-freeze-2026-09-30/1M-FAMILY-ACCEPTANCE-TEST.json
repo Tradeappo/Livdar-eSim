@@ -1,24 +1,27 @@
 {
  "measuredOn": "2026-10-01",
- "families": 203,
- "pages": 340847,
+ "families": 204,
+ "pages": 342483,
  "verdicts": {
-  "ACCEPTED": 168,
+  "ACCEPTED": 169,
   "ACCEPTED_WITH_AN_UNKNOWN": 35
  },
  "pages_by_verdict": {
-  "ACCEPTED": 260427,
-  "ACCEPTED_WITH_AN_UNKNOWN": 80420
+  "ACCEPTED": 267401,
+  "ACCEPTED_WITH_AN_UNKNOWN": 75082
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
  "by_family": {
   "activities.city-things-to-do": {
-   "pages": 17465,
+   "pages": 11750,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
+    "en-US",
     "es-ES",
+    "es-MX",
     "fr-FR",
     "it-IT",
     "ja-JP",
@@ -44,20 +47,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 17465,
+    "unique_fact_count": 11750,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 13235,
-    "template_ratio": 17465.0,
+    "distinct_entity_count": 7513,
+    "template_ratio": 11750.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0035,
+    "near_duplicate_token_score": 0.001,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "activities.city-things-to-do for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; nl market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
   "areas.city-index": {
-   "pages": 417,
+   "pages": 385,
    "markets": [
     "de-DE",
     "en-GB",
@@ -68,8 +71,7 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR",
-    "tr-TR"
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -87,10 +89,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 417,
+    "unique_fact_count": 385,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 417,
-    "template_ratio": 417.0,
+    "distinct_entity_count": 385,
+    "template_ratio": 385.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -100,7 +102,7 @@
    "every_page_is_low_completeness": false
   },
   "areas.overview": {
-   "pages": 3357,
+   "pages": 3128,
    "markets": [
     "de-DE",
     "en-GB",
@@ -111,8 +113,7 @@
     "ja-JP",
     "nl-NL",
     "pl-PL",
-    "pt-BR",
-    "tr-TR"
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -130,15 +131,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3357,
+    "unique_fact_count": 3128,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3357,
-    "template_ratio": 3357.0,
+    "distinct_entity_count": 3128,
+    "template_ratio": 3128.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0019,
+    "near_duplicate_token_score": 0.002,
     "near_duplicate_worst_language": "en",
-    "information_gain_reason": "100. Yıl is a named suburb of Bandırma with 59 mapped entities across 6 categories and a mapped place node, population 11316, Wikidata Q31193923: an area overview that no single category list and no city page covers"
+    "information_gain_reason": "10e Arrondissement is a named suburb of Paris 10 Entrepôt with 65 mapped entities across 7 categories and a mapped place node, population 83543, Wikidata Q163948: an area overview that no single category list and no city page covers"
    },
    "every_page_is_low_completeness": false
   },
@@ -181,17 +182,17 @@
    "every_page_is_low_completeness": false
   },
   "comparisons.city-vs-city": {
-   "pages": 82,
+   "pages": 50,
    "markets": [
     "en-GB",
+    "en-US",
     "ja-JP",
-    "pt-BR",
-    "tr-TR"
+    "pt-BR"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (32 of 82 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "PASS",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -203,24 +204,23 @@
    },
    "failed": [],
    "unknown": [
-    "2_measured_demand",
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 82,
+    "unique_fact_count": 50,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 82,
-    "template_ratio": 82.0,
+    "distinct_entity_count": 50,
+    "template_ratio": 50.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "comparisons.city-vs-city for Istanbul vs Bengaluru (TR) in tr-TR: a two-sided comparison whose figures exist for no other pair; 2 source fields from HELD; tr market demand measured for this family"
+    "information_gain_reason": "comparisons.city-vs-city for London vs Bengaluru (GB) in en-GB: a two-sided comparison whose figures exist for no other pair; 2 source fields from HELD; en market demand measured for this family"
    },
    "every_page_is_low_completeness": true
   },
   "comparisons.city-vs-home": {
-   "pages": 804,
+   "pages": 740,
    "markets": [
     "de-DE",
     "en-GB",
@@ -232,13 +232,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (82 of 804 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (18 of 740 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -254,10 +253,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 804,
+    "unique_fact_count": 740,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 804,
-    "template_ratio": 804.0,
+    "distinct_entity_count": 740,
+    "template_ratio": 740.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -266,8 +265,43 @@
    },
    "every_page_is_low_completeness": false
   },
+  "comparisons.country-vs-country": {
+   "pages": 12,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [
+    "7_serp_sampled"
+   ],
+   "contract": {
+    "unique_fact_count": 12,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 12,
+    "template_ratio": 12.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "comparisons.country-vs-country for Australia vs Aruba in en-US: a two-sided comparison whose figures exist for no other pair; 2 source fields from HELD; en market demand measured for this family"
+   },
+   "every_page_is_low_completeness": true
+  },
   "cost-of-living.city": {
-   "pages": 3156,
+   "pages": 2967,
    "markets": [
     "de-DE",
     "en-GB",
@@ -279,13 +313,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (229 of 3156 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (40 of 2967 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -301,10 +334,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3156,
+    "unique_fact_count": 2967,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3156,
-    "template_ratio": 3156.0,
+    "distinct_entity_count": 2967,
+    "template_ratio": 2967.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0045,
@@ -314,7 +347,7 @@
    "every_page_is_low_completeness": true
   },
   "cost-of-living.city-vs-market": {
-   "pages": 804,
+   "pages": 740,
    "markets": [
     "de-DE",
     "en-GB",
@@ -326,13 +359,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (82 of 804 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (18 of 740 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -348,10 +380,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 804,
+    "unique_fact_count": 740,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 804,
-    "template_ratio": 804.0,
+    "distinct_entity_count": 740,
+    "template_ratio": 740.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -361,9 +393,10 @@
    "every_page_is_low_completeness": false
   },
   "destinations.country-hub": {
-   "pages": 12,
+   "pages": 11,
    "markets": [
     "de-DE",
+    "en-GB",
     "en-US",
     "es-ES",
     "fr-FR",
@@ -372,13 +405,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (3 of 12 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (3 of 11 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -394,10 +426,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 12,
+    "unique_fact_count": 11,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 12,
-    "template_ratio": 12.0,
+    "distinct_entity_count": 11,
+    "template_ratio": 11.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -489,7 +521,7 @@
    "every_page_is_low_completeness": false
   },
   "education.city-schools": {
-   "pages": 269,
+   "pages": 259,
    "markets": [
     "de-DE",
     "en-GB",
@@ -501,13 +533,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (130 of 269 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (120 of 259 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -523,10 +554,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 269,
+    "unique_fact_count": 259,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 269,
-    "template_ratio": 269.0,
+    "distinct_entity_count": 259,
+    "template_ratio": 259.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -536,7 +567,7 @@
    "every_page_is_low_completeness": false
   },
   "education.city-universities": {
-   "pages": 773,
+   "pages": 709,
    "markets": [
     "de-DE",
     "en-GB",
@@ -548,13 +579,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (64 of 773 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "PASS",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -566,14 +596,13 @@
    },
    "failed": [],
    "unknown": [
-    "2_measured_demand",
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 773,
+    "unique_fact_count": 709,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 773,
-    "template_ratio": 773.0,
+    "distinct_entity_count": 709,
+    "template_ratio": 709.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -720,7 +749,7 @@
    "every_page_is_low_completeness": true
   },
   "health.city": {
-   "pages": 3000,
+   "pages": 2811,
    "markets": [
     "de-DE",
     "en-GB",
@@ -732,13 +761,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (189 of 3000 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "PASS",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -750,14 +778,13 @@
    },
    "failed": [],
    "unknown": [
-    "2_measured_demand",
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3000,
+    "unique_fact_count": 2811,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3000,
-    "template_ratio": 3000.0,
+    "distinct_entity_count": 2811,
+    "template_ratio": 2811.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0045,
@@ -2496,9 +2523,10 @@
    "every_page_is_low_completeness": true
   },
   "places.area-arts_centre": {
-   "pages": 304,
+   "pages": 313,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2525,10 +2553,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 304,
+    "unique_fact_count": 313,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 304,
-    "template_ratio": 304.0,
+    "distinct_entity_count": 313,
+    "template_ratio": 313.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2538,9 +2566,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-attraction": {
-   "pages": 268,
+   "pages": 288,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2568,10 +2597,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 268,
+    "unique_fact_count": 288,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 268,
-    "template_ratio": 268.0,
+    "distinct_entity_count": 288,
+    "template_ratio": 288.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2581,9 +2610,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-attribute": {
-   "pages": 5113,
+   "pages": 5620,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-US",
     "pl-PL",
     "pt-BR",
@@ -2607,22 +2637,23 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 5113,
+    "unique_fact_count": 5620,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 5113,
-    "template_ratio": 113.62,
+    "distinct_entity_count": 5620,
+    "template_ratio": 124.89,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0008,
+    "near_duplicate_token_score": 0.0006,
     "near_duplicate_worst_language": "en",
-    "information_gain_reason": "10 bar entities tagged outdoor seating inside Downtown (suburb of Milwaukee), against 32 citywide"
+    "information_gain_reason": "10 bar entities tagged outdoor seating inside Rathenauviertel (neighbourhood of Köln), against 27 citywide"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-bar": {
-   "pages": 4189,
+   "pages": 4433,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2650,10 +2681,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4189,
+    "unique_fact_count": 4433,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4189,
-    "template_ratio": 4189.0,
+    "distinct_entity_count": 4433,
+    "template_ratio": 4433.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0061,
@@ -2697,9 +2728,10 @@
    "every_page_is_low_completeness": true
   },
   "places.area-cafe": {
-   "pages": 8016,
+   "pages": 8764,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2727,10 +2759,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 8016,
+    "unique_fact_count": 8764,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 8016,
-    "template_ratio": 8016.0,
+    "distinct_entity_count": 8764,
+    "template_ratio": 8764.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0021,
@@ -2740,7 +2772,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-camp_site": {
-   "pages": 7,
+   "pages": 6,
    "markets": [
     "en-US",
     "pl-PL",
@@ -2763,10 +2795,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 7,
+    "unique_fact_count": 6,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 7,
-    "template_ratio": 7.0,
+    "distinct_entity_count": 6,
+    "template_ratio": 6.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2809,9 +2841,10 @@
    "every_page_is_low_completeness": true
   },
   "places.area-childcare": {
-   "pages": 2226,
+   "pages": 2298,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2839,10 +2872,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2226,
+    "unique_fact_count": 2298,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2226,
-    "template_ratio": 2226.0,
+    "distinct_entity_count": 2298,
+    "template_ratio": 2298.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2852,9 +2885,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-cinema": {
-   "pages": 196,
+   "pages": 204,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2882,10 +2916,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 196,
+    "unique_fact_count": 204,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 196,
-    "template_ratio": 196.0,
+    "distinct_entity_count": 204,
+    "template_ratio": 204.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2895,9 +2929,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-clinic": {
-   "pages": 5484,
+   "pages": 5838,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2925,10 +2960,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 5484,
+    "unique_fact_count": 5838,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 5484,
-    "template_ratio": 5484.0,
+    "distinct_entity_count": 5838,
+    "template_ratio": 5838.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0084,
@@ -2938,9 +2973,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-college": {
-   "pages": 366,
+   "pages": 373,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -2968,10 +3004,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 366,
+    "unique_fact_count": 373,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 366,
-    "template_ratio": 366.0,
+    "distinct_entity_count": 373,
+    "template_ratio": 373.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2981,8 +3017,9 @@
    "every_page_is_low_completeness": false
   },
   "places.area-coworking": {
-   "pages": 171,
+   "pages": 181,
    "markets": [
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3010,10 +3047,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 171,
+    "unique_fact_count": 181,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 171,
-    "template_ratio": 171.0,
+    "distinct_entity_count": 181,
+    "template_ratio": 181.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3023,9 +3060,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-cuisine": {
-   "pages": 20824,
+   "pages": 22166,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3053,10 +3091,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 20824,
+    "unique_fact_count": 22166,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 20824,
-    "template_ratio": 223.91,
+    "distinct_entity_count": 22166,
+    "template_ratio": 238.34,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0025,
@@ -3066,9 +3104,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-dentist": {
-   "pages": 3552,
+   "pages": 3737,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3096,22 +3135,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3552,
+    "unique_fact_count": 3737,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3552,
-    "template_ratio": 3552.0,
+    "distinct_entity_count": 3737,
+    "template_ratio": 3737.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named dentist entities inside Back Bay, a suburb of Boston, Massachusetts (OSM place node, 1.8km radius), against 23 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named dentist entities inside Ashfield, a suburb of Sydney (OSM polygon), against 211 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-department_store": {
-   "pages": 345,
+   "pages": 434,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3139,10 +3179,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 345,
+    "unique_fact_count": 434,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 345,
-    "template_ratio": 345.0,
+    "distinct_entity_count": 434,
+    "template_ratio": 434.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3152,9 +3192,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-fast_food": {
-   "pages": 9962,
+   "pages": 10741,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3182,10 +3223,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 9962,
+    "unique_fact_count": 10741,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 9962,
-    "template_ratio": 9962.0,
+    "distinct_entity_count": 10741,
+    "template_ratio": 10741.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0038,
@@ -3195,9 +3236,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-gallery": {
-   "pages": 440,
+   "pages": 467,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3224,21 +3266,22 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 440,
+    "unique_fact_count": 467,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 440,
-    "template_ratio": 440.0,
+    "distinct_entity_count": 467,
+    "template_ratio": 467.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named gallery entities inside Back Bay, a suburb of Boston, Massachusetts (OSM place node, 1.8km radius), against 23 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named gallery entities inside Ciutat Vella, a borough of Barcelona (OSM polygon), against 35 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-garden": {
-   "pages": 15,
+   "pages": 19,
    "markets": [
+    "en-AU",
     "en-GB",
     "en-US",
     "fr-FR"
@@ -3259,10 +3302,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 15,
+    "unique_fact_count": 19,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 15,
-    "template_ratio": 15.0,
+    "distinct_entity_count": 19,
+    "template_ratio": 19.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3272,9 +3315,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-guest_house": {
-   "pages": 752,
+   "pages": 754,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3302,10 +3346,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 752,
+    "unique_fact_count": 754,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 752,
-    "template_ratio": 752.0,
+    "distinct_entity_count": 754,
+    "template_ratio": 754.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3315,9 +3359,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-gym": {
-   "pages": 2552,
+   "pages": 2833,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3345,22 +3390,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2552,
+    "unique_fact_count": 2833,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2552,
-    "template_ratio": 2552.0,
+    "distinct_entity_count": 2833,
+    "template_ratio": 2833.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named gym entities inside Bushwick, a quarter of Brooklyn, New York (OSM place node, 1.3km radius), against 147 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named gym entities inside Carroll Gardens, a neighbourhood of New York City (OSM place node, 1.0km radius), against 177 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-hospital": {
-   "pages": 170,
+   "pages": 175,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3388,10 +3434,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 170,
+    "unique_fact_count": 175,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 170,
-    "template_ratio": 170.0,
+    "distinct_entity_count": 175,
+    "template_ratio": 175.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3401,9 +3447,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-hostel": {
-   "pages": 324,
+   "pages": 337,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3431,10 +3478,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 324,
+    "unique_fact_count": 337,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 324,
-    "template_ratio": 324.0,
+    "distinct_entity_count": 337,
+    "template_ratio": 337.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3444,9 +3491,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-library": {
-   "pages": 905,
+   "pages": 934,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3474,10 +3522,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 905,
+    "unique_fact_count": 934,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 905,
-    "template_ratio": 905.0,
+    "distinct_entity_count": 934,
+    "template_ratio": 934.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3487,8 +3535,9 @@
    "every_page_is_low_completeness": false
   },
   "places.area-mall": {
-   "pages": 36,
+   "pages": 38,
    "markets": [
+    "en-AU",
     "en-US",
     "es-ES",
     "it-IT",
@@ -3514,10 +3563,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 36,
+    "unique_fact_count": 38,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 36,
-    "template_ratio": 36.0,
+    "distinct_entity_count": 38,
+    "template_ratio": 38.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3565,9 +3614,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-market": {
-   "pages": 184,
+   "pages": 190,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3594,10 +3644,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 184,
+    "unique_fact_count": 190,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 184,
-    "template_ratio": 184.0,
+    "distinct_entity_count": 190,
+    "template_ratio": 190.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3607,9 +3657,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-museum": {
-   "pages": 1041,
+   "pages": 1078,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3637,10 +3688,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1041,
+    "unique_fact_count": 1078,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1041,
-    "template_ratio": 1041.0,
+    "distinct_entity_count": 1078,
+    "template_ratio": 1078.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0282,
@@ -3650,7 +3701,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-nature_reserve": {
-   "pages": 4,
+   "pages": 3,
    "markets": [
     "en-US"
    ],
@@ -3670,10 +3721,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4,
+    "unique_fact_count": 3,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4,
-    "template_ratio": 4.0,
+    "distinct_entity_count": 3,
+    "template_ratio": 3.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3683,9 +3734,10 @@
    "every_page_is_low_completeness": true
   },
   "places.area-nightclub": {
-   "pages": 405,
+   "pages": 413,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3713,10 +3765,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 405,
+    "unique_fact_count": 413,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 405,
-    "template_ratio": 405.0,
+    "distinct_entity_count": 413,
+    "template_ratio": 413.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3726,9 +3778,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-opening": {
-   "pages": 7580,
+   "pages": 7913,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3758,10 +3811,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 7580,
+    "unique_fact_count": 7913,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 7580,
-    "template_ratio": 344.55,
+    "distinct_entity_count": 7913,
+    "template_ratio": 359.68,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0045,
@@ -3771,8 +3824,9 @@
    "every_page_is_low_completeness": false
   },
   "places.area-park": {
-   "pages": 21,
+   "pages": 24,
    "markets": [
+    "en-AU",
     "en-US",
     "es-ES",
     "fr-FR",
@@ -3798,10 +3852,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 21,
+    "unique_fact_count": 24,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 21,
-    "template_ratio": 21.0,
+    "distinct_entity_count": 24,
+    "template_ratio": 24.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3811,9 +3865,10 @@
    "every_page_is_low_completeness": true
   },
   "places.area-parking": {
-   "pages": 480,
+   "pages": 497,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3841,10 +3896,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 480,
+    "unique_fact_count": 497,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 480,
-    "template_ratio": 480.0,
+    "distinct_entity_count": 497,
+    "template_ratio": 497.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0235,
@@ -3854,9 +3909,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-pharmacy": {
-   "pages": 10598,
+   "pages": 10855,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3884,10 +3940,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 10598,
+    "unique_fact_count": 10855,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 10598,
-    "template_ratio": 10598.0,
+    "distinct_entity_count": 10855,
+    "template_ratio": 10855.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0056,
@@ -3897,9 +3953,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-pub": {
-   "pages": 4044,
+   "pages": 4213,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3927,22 +3984,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4044,
+    "unique_fact_count": 4213,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4044,
-    "template_ratio": 4044.0,
+    "distinct_entity_count": 4213,
+    "template_ratio": 4213.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0015,
+    "near_duplicate_token_score": 0.0014,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "10 named pub entities inside Aldrington, a suburb of Hove (OSM place node, 1.8km radius), against 28 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-railway_station": {
-   "pages": 480,
+   "pages": 504,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -3969,22 +4027,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 480,
+    "unique_fact_count": 504,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 480,
-    "template_ratio": 480.0,
+    "distinct_entity_count": 504,
+    "template_ratio": 504.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named railway_station entities inside Battery Park City, a neighbourhood of New York City (OSM place node, 1.0km radius), against 100 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "10 named railway_station entities inside Williamsburg, a quarter of New York City (OSM place node, 1.3km radius), against 100 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
   "places.area-restaurant": {
-   "pages": 14800,
+   "pages": 15751,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4011,10 +4070,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 14800,
+    "unique_fact_count": 15751,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 14800,
-    "template_ratio": 14800.0,
+    "distinct_entity_count": 15751,
+    "template_ratio": 15751.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0071,
@@ -4024,9 +4083,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-school": {
-   "pages": 2752,
+   "pages": 2785,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4054,10 +4114,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2752,
+    "unique_fact_count": 2785,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2752,
-    "template_ratio": 2752.0,
+    "distinct_entity_count": 2785,
+    "template_ratio": 2785.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4067,9 +4127,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-sports_centre": {
-   "pages": 960,
+   "pages": 988,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4097,10 +4158,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 960,
+    "unique_fact_count": 988,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 960,
-    "template_ratio": 960.0,
+    "distinct_entity_count": 988,
+    "template_ratio": 988.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4110,9 +4171,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-supermarket": {
-   "pages": 8235,
+   "pages": 8662,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4140,10 +4202,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 8235,
+    "unique_fact_count": 8662,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 8235,
-    "template_ratio": 8235.0,
+    "distinct_entity_count": 8662,
+    "template_ratio": 8662.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -4186,9 +4248,10 @@
    "every_page_is_low_completeness": true
   },
   "places.area-theatre": {
-   "pages": 556,
+   "pages": 585,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4216,15 +4279,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 556,
+    "unique_fact_count": 585,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 556,
-    "template_ratio": 556.0,
+    "distinct_entity_count": 585,
+    "template_ratio": 585.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "11 named theatre entities inside South End, a suburb of Boston, Massachusetts (OSM place node, 1.8km radius), against 39 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "11 named theatre entities inside Downtown, a suburb of Boston, Massachusetts (OSM polygon), against 39 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
@@ -4262,9 +4325,10 @@
    "every_page_is_low_completeness": true
   },
   "places.area-university": {
-   "pages": 202,
+   "pages": 208,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4292,10 +4356,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 202,
+    "unique_fact_count": 208,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 202,
-    "template_ratio": 202.0,
+    "distinct_entity_count": 208,
+    "template_ratio": 208.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4305,9 +4369,10 @@
    "every_page_is_low_completeness": false
   },
   "places.area-veterinary": {
-   "pages": 754,
+   "pages": 783,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4335,10 +4400,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 754,
+    "unique_fact_count": 783,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 754,
-    "template_ratio": 754.0,
+    "distinct_entity_count": 783,
+    "template_ratio": 783.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4351,6 +4416,7 @@
    "pages": 28,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-US",
     "es-ES",
     "fr-FR",
@@ -4421,8 +4487,9 @@
    "every_page_is_low_completeness": true
   },
   "places.city-aquarium": {
-   "pages": 6,
+   "pages": 7,
    "markets": [
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4444,10 +4511,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 6,
+    "unique_fact_count": 7,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 6,
-    "template_ratio": 6.0,
+    "distinct_entity_count": 7,
+    "template_ratio": 7.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4457,9 +4524,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-arts_centre": {
-   "pages": 350,
+   "pages": 357,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4487,10 +4555,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 350,
+    "unique_fact_count": 357,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 350,
-    "template_ratio": 350.0,
+    "distinct_entity_count": 357,
+    "template_ratio": 357.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4500,9 +4568,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-attraction": {
-   "pages": 348,
+   "pages": 359,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4530,10 +4599,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 348,
+    "unique_fact_count": 359,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 348,
-    "template_ratio": 348.0,
+    "distinct_entity_count": 359,
+    "template_ratio": 359.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4543,9 +4612,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-attribute": {
-   "pages": 2982,
+   "pages": 3196,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-US",
     "pl-PL",
     "pt-BR",
@@ -4570,10 +4640,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2982,
+    "unique_fact_count": 3196,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2982,
-    "template_ratio": 64.83,
+    "distinct_entity_count": 3196,
+    "template_ratio": 69.48,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4583,9 +4653,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-bar": {
-   "pages": 1389,
+   "pages": 1401,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4613,10 +4684,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1389,
+    "unique_fact_count": 1401,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1389,
-    "template_ratio": 1389.0,
+    "distinct_entity_count": 1401,
+    "template_ratio": 1401.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4662,9 +4733,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-cafe": {
-   "pages": 2521,
+   "pages": 2594,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4692,10 +4764,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2521,
+    "unique_fact_count": 2594,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2521,
-    "template_ratio": 2521.0,
+    "distinct_entity_count": 2594,
+    "template_ratio": 2594.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4783,9 +4855,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-category": {
-   "pages": 5333,
+   "pages": 5575,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4814,22 +4887,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 5333,
+    "unique_fact_count": 5575,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 5333,
-    "template_ratio": 5333.0,
+    "distinct_entity_count": 5575,
+    "template_ratio": 5575.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0043,
+    "near_duplicate_token_score": 0.0034,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "places.city-category for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; nl market demand measured for this family"
    },
    "every_page_is_low_completeness": true
   },
   "places.city-childcare": {
-   "pages": 856,
+   "pages": 869,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4857,10 +4931,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 856,
+    "unique_fact_count": 869,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 856,
-    "template_ratio": 856.0,
+    "distinct_entity_count": 869,
+    "template_ratio": 869.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4870,9 +4944,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-cinema": {
-   "pages": 432,
+   "pages": 445,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4900,10 +4975,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 432,
+    "unique_fact_count": 445,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 432,
-    "template_ratio": 432.0,
+    "distinct_entity_count": 445,
+    "template_ratio": 445.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4913,9 +4988,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-clinic": {
-   "pages": 2442,
+   "pages": 2482,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4944,10 +5020,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2442,
+    "unique_fact_count": 2482,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2442,
-    "template_ratio": 2442.0,
+    "distinct_entity_count": 2482,
+    "template_ratio": 2482.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -4957,9 +5033,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-college": {
-   "pages": 346,
+   "pages": 351,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -4987,10 +5064,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 346,
+    "unique_fact_count": 351,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 346,
-    "template_ratio": 346.0,
+    "distinct_entity_count": 351,
+    "template_ratio": 351.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5000,9 +5077,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-coworking": {
-   "pages": 157,
+   "pages": 161,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5030,10 +5108,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 157,
+    "unique_fact_count": 161,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 157,
-    "template_ratio": 157.0,
+    "distinct_entity_count": 161,
+    "template_ratio": 161.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5043,9 +5121,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-cuisine": {
-   "pages": 13352,
+   "pages": 13760,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5073,10 +5152,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 13352,
+    "unique_fact_count": 13760,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 13352,
-    "template_ratio": 142.04,
+    "distinct_entity_count": 13760,
+    "template_ratio": 146.38,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5086,9 +5165,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-dentist": {
-   "pages": 1630,
+   "pages": 1652,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5117,10 +5197,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1630,
+    "unique_fact_count": 1652,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1630,
-    "template_ratio": 1630.0,
+    "distinct_entity_count": 1652,
+    "template_ratio": 1652.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5130,9 +5210,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-department_store": {
-   "pages": 1072,
+   "pages": 1130,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5160,22 +5241,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1072,
+    "unique_fact_count": 1128,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1072,
-    "template_ratio": 1072.0,
+    "distinct_entity_count": 1130,
+    "template_ratio": 1130.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0024,
+    "near_duplicate_token_score": 0.0022,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "10 distinct named department_store entities in Adapazarı from OSM, 3 with hours, website or phone: a list a person searching \"department_store in Adapazarı\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-fast_food": {
-   "pages": 3960,
+   "pages": 4035,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5203,22 +5285,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3960,
+    "unique_fact_count": 4035,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3960,
-    "template_ratio": 3960.0,
+    "distinct_entity_count": 4035,
+    "template_ratio": 4035.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0044,
+    "near_duplicate_token_score": 0.0042,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "10 distinct named fast_food entities in Aberdeen, Maryland from OSM, 7 with hours, website or phone: a list a person searching \"fast_food in Aberdeen, Maryland\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-gallery": {
-   "pages": 323,
+   "pages": 333,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5245,22 +5328,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 323,
+    "unique_fact_count": 333,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 323,
-    "template_ratio": 323.0,
+    "distinct_entity_count": 333,
+    "template_ratio": 333.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 distinct named gallery entities in Berkeley, California from OSM, 7 with hours, website or phone: a list a person searching \"gallery in Berkeley, California\" cannot get from any single venue page"
+    "information_gain_reason": "10 distinct named gallery entities in Adelaide from OSM, 6 with hours, website or phone: a list a person searching \"gallery in Adelaide\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-garden": {
-   "pages": 24,
+   "pages": 27,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "fr-FR",
@@ -5283,10 +5367,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 24,
+    "unique_fact_count": 27,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 24,
-    "template_ratio": 24.0,
+    "distinct_entity_count": 27,
+    "template_ratio": 27.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5330,9 +5414,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-guest_house": {
-   "pages": 709,
+   "pages": 714,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5360,10 +5445,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 709,
+    "unique_fact_count": 714,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 709,
-    "template_ratio": 709.0,
+    "distinct_entity_count": 714,
+    "template_ratio": 714.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5373,9 +5458,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-gym": {
-   "pages": 1304,
+   "pages": 1335,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5403,10 +5489,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1304,
+    "unique_fact_count": 1335,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1304,
-    "template_ratio": 1304.0,
+    "distinct_entity_count": 1335,
+    "template_ratio": 1335.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5416,9 +5502,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-hospital": {
-   "pages": 532,
+   "pages": 536,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5447,22 +5534,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 532,
+    "unique_fact_count": 536,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 532,
-    "template_ratio": 266.0,
+    "distinct_entity_count": 536,
+    "template_ratio": 268.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0116,
+    "near_duplicate_token_score": 0.0114,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "10 distinct named hospital entities in Houston from OSM, 10 with hours, website or phone: a list a person searching \"hospital in Houston\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-hostel": {
-   "pages": 250,
+   "pages": 263,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5490,10 +5578,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 250,
+    "unique_fact_count": 263,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 250,
-    "template_ratio": 250.0,
+    "distinct_entity_count": 263,
+    "template_ratio": 263.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5503,9 +5591,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-library": {
-   "pages": 935,
+   "pages": 949,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5534,10 +5623,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 935,
+    "unique_fact_count": 949,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 935,
-    "template_ratio": 467.5,
+    "distinct_entity_count": 949,
+    "template_ratio": 474.5,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5547,9 +5636,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-mall": {
-   "pages": 64,
+   "pages": 66,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5576,10 +5666,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 64,
+    "unique_fact_count": 66,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 64,
-    "template_ratio": 64.0,
+    "distinct_entity_count": 66,
+    "template_ratio": 66.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5589,9 +5679,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-marina": {
-   "pages": 191,
+   "pages": 192,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5617,10 +5708,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 191,
+    "unique_fact_count": 192,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 191,
-    "template_ratio": 191.0,
+    "distinct_entity_count": 192,
+    "template_ratio": 192.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5630,9 +5721,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-market": {
-   "pages": 488,
+   "pages": 500,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5660,10 +5752,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 488,
+    "unique_fact_count": 500,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 488,
-    "template_ratio": 488.0,
+    "distinct_entity_count": 500,
+    "template_ratio": 500.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5715,9 +5807,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-museum": {
-   "pages": 1137,
+   "pages": 1149,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5745,10 +5838,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1137,
+    "unique_fact_count": 1149,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1137,
-    "template_ratio": 1137.0,
+    "distinct_entity_count": 1149,
+    "template_ratio": 1149.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5793,9 +5886,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-nightclub": {
-   "pages": 251,
+   "pages": 257,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5823,10 +5917,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 251,
+    "unique_fact_count": 257,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 251,
-    "template_ratio": 251.0,
+    "distinct_entity_count": 257,
+    "template_ratio": 257.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5836,9 +5930,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-opening": {
-   "pages": 3965,
+   "pages": 4111,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5867,10 +5962,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3965,
+    "unique_fact_count": 4111,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3965,
-    "template_ratio": 165.21,
+    "distinct_entity_count": 4111,
+    "template_ratio": 171.29,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5880,8 +5975,9 @@
    "every_page_is_low_completeness": false
   },
   "places.city-park": {
-   "pages": 63,
+   "pages": 66,
    "markets": [
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5908,10 +6004,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 63,
+    "unique_fact_count": 66,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 63,
-    "template_ratio": 63.0,
+    "distinct_entity_count": 66,
+    "template_ratio": 66.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5921,9 +6017,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-parking": {
-   "pages": 253,
+   "pages": 258,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5951,10 +6048,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 253,
+    "unique_fact_count": 258,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 253,
-    "template_ratio": 253.0,
+    "distinct_entity_count": 258,
+    "template_ratio": 258.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5964,9 +6061,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-pharmacy": {
-   "pages": 3170,
+   "pages": 3202,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -5995,10 +6093,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3170,
+    "unique_fact_count": 3202,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3170,
-    "template_ratio": 3170.0,
+    "distinct_entity_count": 3202,
+    "template_ratio": 3202.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6008,9 +6106,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-pub": {
-   "pages": 1250,
+   "pages": 1269,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6038,10 +6137,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1250,
+    "unique_fact_count": 1269,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1250,
-    "template_ratio": 1250.0,
+    "distinct_entity_count": 1269,
+    "template_ratio": 1269.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6051,9 +6150,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-railway_station": {
-   "pages": 231,
+   "pages": 234,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6080,10 +6180,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 231,
+    "unique_fact_count": 234,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 231,
-    "template_ratio": 231.0,
+    "distinct_entity_count": 234,
+    "template_ratio": 234.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6093,9 +6193,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-restaurant": {
-   "pages": 6022,
+   "pages": 6097,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6123,10 +6224,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 6022,
+    "unique_fact_count": 6097,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 6022,
-    "template_ratio": 6022.0,
+    "distinct_entity_count": 6097,
+    "template_ratio": 6097.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0026,
@@ -6136,9 +6237,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-school": {
-   "pages": 1631,
+   "pages": 1636,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6166,10 +6268,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1631,
+    "unique_fact_count": 1636,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1631,
-    "template_ratio": 1631.0,
+    "distinct_entity_count": 1636,
+    "template_ratio": 1636.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6222,9 +6324,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-sport": {
-   "pages": 132,
+   "pages": 155,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-US",
     "pl-PL",
     "pt-BR",
@@ -6246,10 +6349,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 132,
+    "unique_fact_count": 155,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 132,
-    "template_ratio": 3.88,
+    "distinct_entity_count": 155,
+    "template_ratio": 4.19,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6259,9 +6362,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-sports_centre": {
-   "pages": 924,
+   "pages": 932,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6289,10 +6393,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 924,
+    "unique_fact_count": 932,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 924,
-    "template_ratio": 924.0,
+    "distinct_entity_count": 932,
+    "template_ratio": 932.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6345,9 +6449,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-supermarket": {
-   "pages": 2166,
+   "pages": 2202,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6375,10 +6480,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2166,
+    "unique_fact_count": 2202,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2166,
-    "template_ratio": 2166.0,
+    "distinct_entity_count": 2202,
+    "template_ratio": 2202.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6388,9 +6493,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-swimming_pool": {
-   "pages": 8,
+   "pages": 9,
    "markets": [
     "de-DE",
+    "en-AU",
     "es-ES",
     "it-IT",
     "nl-NL",
@@ -6412,10 +6518,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 8,
+    "unique_fact_count": 9,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 8,
-    "template_ratio": 8.0,
+    "distinct_entity_count": 9,
+    "template_ratio": 9.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6425,9 +6531,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-theatre": {
-   "pages": 456,
+   "pages": 463,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6455,10 +6562,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 456,
+    "unique_fact_count": 463,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 456,
-    "template_ratio": 456.0,
+    "distinct_entity_count": 463,
+    "template_ratio": 463.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6509,9 +6616,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-university": {
-   "pages": 535,
+   "pages": 539,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6540,22 +6648,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 535,
+    "unique_fact_count": 539,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 535,
-    "template_ratio": 267.5,
+    "distinct_entity_count": 539,
+    "template_ratio": 269.5,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.011,
+    "near_duplicate_token_score": 0.0108,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "10 distinct named university entities in Belo Horizonte from OSM, 4 with hours, website or phone: a list a person searching \"university in Belo Horizonte\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-veterinary": {
-   "pages": 700,
+   "pages": 711,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6584,10 +6693,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 700,
+    "unique_fact_count": 711,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 700,
-    "template_ratio": 700.0,
+    "distinct_entity_count": 711,
+    "template_ratio": 711.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6597,9 +6706,10 @@
    "every_page_is_low_completeness": false
   },
   "places.city-viewpoint": {
-   "pages": 44,
+   "pages": 46,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6625,10 +6735,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 44,
+    "unique_fact_count": 46,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 44,
-    "template_ratio": 44.0,
+    "distinct_entity_count": 46,
+    "template_ratio": 46.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6902,9 +7012,10 @@
    "every_page_is_low_completeness": false
   },
   "poi.attraction-notable": {
-   "pages": 147,
+   "pages": 149,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -6932,10 +7043,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 145,
+    "unique_fact_count": 147,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 147,
-    "template_ratio": 147.0,
+    "distinct_entity_count": 149,
+    "template_ratio": 149.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7020,9 +7131,10 @@
    "every_page_is_low_completeness": false
   },
   "poi.gallery-notable": {
-   "pages": 107,
+   "pages": 109,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -7048,10 +7160,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 106,
+    "unique_fact_count": 108,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 107,
-    "template_ratio": 107.0,
+    "distinct_entity_count": 109,
+    "template_ratio": 109.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7095,9 +7207,10 @@
    "every_page_is_low_completeness": false
   },
   "poi.museum-notable": {
-   "pages": 3153,
+   "pages": 3168,
    "markets": [
     "de-DE",
+    "en-AU",
     "en-GB",
     "en-US",
     "es-ES",
@@ -7125,13 +7238,13 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3143,
+    "unique_fact_count": 3158,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3145,
-    "template_ratio": 1576.5,
+    "distinct_entity_count": 3160,
+    "template_ratio": 1584.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0037,
+    "near_duplicate_token_score": 0.0036,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "'t Kiekhuus is a museum in Wolvega with Wikidata item Q17517652, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
    },
@@ -7393,7 +7506,7 @@
    "every_page_is_low_completeness": false
   },
   "property.city-buy": {
-   "pages": 3178,
+   "pages": 2989,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7404,13 +7517,12 @@
     "ja-JP",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (1149 of 3178 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (960 of 2989 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7425,10 +7537,10 @@
     "2_measured_demand"
    ],
    "contract": {
-    "unique_fact_count": 3178,
+    "unique_fact_count": 2989,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3178,
-    "template_ratio": 3178.0,
+    "distinct_entity_count": 2989,
+    "template_ratio": 2989.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -7438,7 +7550,7 @@
    "every_page_is_low_completeness": false
   },
   "relocation.city": {
-   "pages": 3410,
+   "pages": 3221,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7450,13 +7562,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (229 of 3410 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (40 of 3221 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7472,10 +7583,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3410,
+    "unique_fact_count": 3221,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3410,
-    "template_ratio": 3410.0,
+    "distinct_entity_count": 3221,
+    "template_ratio": 3221.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -7485,10 +7596,11 @@
    "every_page_is_low_completeness": true
   },
   "relocation.country": {
-   "pages": 13,
+   "pages": 15,
    "markets": [
     "de-DE",
     "en-GB",
+    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -7515,20 +7627,20 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 13,
+    "unique_fact_count": 15,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 12,
-    "template_ratio": 13.0,
+    "distinct_entity_count": 14,
+    "template_ratio": 15.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "relocation.country for Brazil in pt-BR: country-specific rules, rates or figures that differ by jurisdiction; 2 source fields from MISSING_ACQUIRABLE; pt market demand measured for this family"
+    "information_gain_reason": "relocation.country for Australia in en-US: country-specific rules, rates or figures that differ by jurisdiction; 2 source fields from MISSING_ACQUIRABLE; en market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
   "rents.city": {
-   "pages": 5391,
+   "pages": 5202,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7539,13 +7651,12 @@
     "ja-JP",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
-   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
+   "verdict": "ACCEPTED",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (189 of 5391 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "PASS",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7556,14 +7667,12 @@
     "10_honest_localisation": "PASS"
    },
    "failed": [],
-   "unknown": [
-    "2_measured_demand"
-   ],
+   "unknown": [],
    "contract": {
-    "unique_fact_count": 5391,
+    "unique_fact_count": 5202,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 5391,
-    "template_ratio": 5391.0,
+    "distinct_entity_count": 5202,
+    "template_ratio": 5202.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -7617,7 +7726,7 @@
    "every_page_is_low_completeness": false
   },
   "safety.city": {
-   "pages": 718,
+   "pages": 654,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7629,13 +7738,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (451 of 718 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (387 of 654 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7651,10 +7759,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 718,
+    "unique_fact_count": 654,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 718,
-    "template_ratio": 718.0,
+    "distinct_entity_count": 654,
+    "template_ratio": 654.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7664,7 +7772,7 @@
    "every_page_is_low_completeness": false
   },
   "services.city-practical": {
-   "pages": 1782,
+   "pages": 1593,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7676,13 +7784,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (1149 of 1782 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (960 of 1593 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7698,10 +7805,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 1782,
+    "unique_fact_count": 1593,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1782,
-    "template_ratio": 1782.0,
+    "distinct_entity_count": 1593,
+    "template_ratio": 1593.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7711,7 +7818,7 @@
    "every_page_is_low_completeness": true
   },
   "sport.city-activity": {
-   "pages": 754,
+   "pages": 690,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7723,13 +7830,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (490 of 754 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (426 of 690 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7745,10 +7851,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 754,
+    "unique_fact_count": 690,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 754,
-    "template_ratio": 754.0,
+    "distinct_entity_count": 690,
+    "template_ratio": 690.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7758,10 +7864,11 @@
    "every_page_is_low_completeness": true
   },
   "stay.city-type": {
-   "pages": 8957,
+   "pages": 9807,
    "markets": [
     "de-DE",
     "en-GB",
+    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -7790,14 +7897,14 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 8957,
+    "unique_fact_count": 9807,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 6920,
-    "template_ratio": 8957.0,
+    "distinct_entity_count": 7115,
+    "template_ratio": 9807.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0008,
-    "near_duplicate_worst_language": "ja",
+    "near_duplicate_token_score": 0.0026,
+    "near_duplicate_worst_language": "en",
     "information_gain_reason": "stay.city-type for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from BLOCKED_COMMERCIAL; nl market demand measured for this family"
    },
    "every_page_is_low_completeness": true
@@ -7807,6 +7914,7 @@
    "markets": [
     "de-DE",
     "en-GB",
+    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -7846,10 +7954,11 @@
    "every_page_is_low_completeness": false
   },
   "taxes.country-remote-work": {
-   "pages": 12,
+   "pages": 13,
    "markets": [
     "de-DE",
     "en-GB",
+    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -7876,15 +7985,15 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 12,
+    "unique_fact_count": 13,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 11,
-    "template_ratio": 12.0,
+    "distinct_entity_count": 13,
+    "template_ratio": 13.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "taxes.country-remote-work for Brazil in pt-BR: country-specific rules, rates or figures that differ by jurisdiction; 2 source fields from MISSING_ACQUIRABLE; pt market demand measured for this family"
+    "information_gain_reason": "taxes.country-remote-work for Australia in en-US: country-specific rules, rates or figures that differ by jurisdiction; 2 source fields from MISSING_ACQUIRABLE; en market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
@@ -7935,10 +8044,11 @@
    "every_page_is_low_completeness": false
   },
   "transport.route-from-market": {
-   "pages": 1416,
+   "pages": 1327,
    "markets": [
     "de-DE",
     "en-GB",
+    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -7946,13 +8056,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (584 of 1416 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (651 of 1327 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7968,10 +8077,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 1416,
+    "unique_fact_count": 1327,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 1262,
-    "template_ratio": 1416.0,
+    "distinct_entity_count": 1217,
+    "template_ratio": 1327.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7981,7 +8090,7 @@
    "every_page_is_low_completeness": false
   },
   "visas.country-work-permit": {
-   "pages": 2,
+   "pages": 3,
    "markets": [
     "en-GB"
    ],
@@ -8003,23 +8112,24 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2,
+    "unique_fact_count": 3,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2,
-    "template_ratio": 2.0,
+    "distinct_entity_count": 3,
+    "template_ratio": 3.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "visas.country-work-permit for United Kingdom in en-GB: country-specific rules, rates or figures that differ by jurisdiction; 2 source fields from MISSING_ACQUIRABLE; en market demand measured for this family"
+    "information_gain_reason": "visas.country-work-permit for Australia in en-GB: country-specific rules, rates or figures that differ by jurisdiction; 2 source fields from MISSING_ACQUIRABLE; en market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
   "weather.city-month": {
-   "pages": 8523,
+   "pages": 8306,
    "markets": [
     "de-DE",
     "en-GB",
+    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -8027,13 +8137,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (189 of 8523 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "PASS",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8045,14 +8154,13 @@
    },
    "failed": [],
    "unknown": [
-    "2_measured_demand",
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 8523,
+    "unique_fact_count": 8306,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 4896,
-    "template_ratio": 8523.0,
+    "distinct_entity_count": 4827,
+    "template_ratio": 8306.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0014,
@@ -8062,7 +8170,7 @@
    "every_page_is_low_completeness": false
   },
   "work.city-jobs-category": {
-   "pages": 795,
+   "pages": 731,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8074,13 +8182,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (252 of 795 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (188 of 731 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8096,10 +8203,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 795,
+    "unique_fact_count": 731,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 795,
-    "template_ratio": 795.0,
+    "distinct_entity_count": 731,
+    "template_ratio": 731.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8109,7 +8216,7 @@
    "every_page_is_low_completeness": true
   },
   "work.city-salaries": {
-   "pages": 3379,
+   "pages": 3190,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8121,13 +8228,12 @@
     "nl-NL",
     "pl-PL",
     "pt-BR",
-    "tr-TR",
     "zh-Hant-TW"
    ],
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (229 of 3379 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (40 of 3190 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8143,10 +8249,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3379,
+    "unique_fact_count": 3190,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3379,
-    "template_ratio": 3379.0,
+    "distinct_entity_count": 3190,
+    "template_ratio": 3190.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,

@@ -4,10 +4,10 @@ Built 2026-10-05. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **340,847**
+- FINAL DISTINCT VALID CANDIDATES: **342,483**
 - target: 1,000,000
-- shortfall: **659,153** (34.1 per cent of target)
-- rejected and kept visible: 226,136
+- shortfall: **657,517** (34.2 per cent of target)
+- rejected and kept visible: 236,985
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 470,128 | same url_pattern |
-| after semantic dedupe | 470,128 | same market, family, template signature and entity |
-| FINAL DISTINCT | 340,847 | what is in the manifest |
+| after exact dedupe | 480,688 | same url_pattern |
+| after semantic dedupe | 480,688 | same market, family, template signature and entity |
+| FINAL DISTINCT | 342,483 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,76 +27,78 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
+| en-US | 61,039 |
 | de-DE | 58,648 |
-| en-US | 51,476 |
 | fr-FR | 49,423 |
 | ja-JP | 37,073 |
-| en-GB | 36,387 |
 | it-IT | 28,279 |
+| en-GB | 21,242 |
 | pt-BR | 17,533 |
 | es-ES | 17,216 |
 | nl-NL | 15,433 |
-| tr-TR | 15,017 |
 | pl-PL | 13,562 |
+| tr-TR | 13,023 |
+| en-AU | 7,758 |
+| es-MX | 1,454 |
 | zh-Hant-TW | 800 |
 
 ### By surface
 
 | surface | candidates |
 | --- | --- |
-| places | 180,415 |
+| places | 188,956 |
 | outdoors | 57,306 |
-| areas | 28,274 |
-| stay | 23,137 |
+| stay | 23,609 |
+| areas | 22,539 |
 | pulse | 14,165 |
-| move | 13,221 |
-| climate | 8,720 |
-| work | 4,174 |
-| transport | 3,948 |
-| poi | 3,712 |
+| move | 12,331 |
+| climate | 8,503 |
+| work | 3,921 |
+| transport | 3,859 |
+| poi | 3,731 |
 | destinations | 1,417 |
-| tools | 886 |
-| sport | 754 |
-| safety | 718 |
+| tools | 802 |
+| sport | 690 |
+| safety | 654 |
 
 ### By readiness
 
 | status | candidates |
 | --- | --- |
-| POI_AGGREGATION | 246,821 |
-| MISSING_DATA | 46,526 |
-| BLOCKED_BY_LICENCE | 27,908 |
-| EXPERIMENT_ONLY | 10,122 |
-| NOT_IMPLEMENTED | 9,368 |
-| VALIDATED | 82 |
+| POI_AGGREGATION | 255,120 |
+| MISSING_DATA | 39,351 |
+| BLOCKED_BY_LICENCE | 28,758 |
+| EXPERIMENT_ONLY | 9,841 |
+| NOT_IMPLEMENTED | 9,343 |
+| VALIDATED | 50 |
 | PROMISING | 20 |
 
 ### By source readiness
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 292,717 |
-| LICENCE_REQUIRED | 27,908 |
-| FEED_REQUIRED | 10,189 |
-| READY_NOW | 10,033 |
+| SOURCE_AVAILABLE | 294,272 |
+| LICENCE_REQUIRED | 28,758 |
+| FEED_REQUIRED | 9,747 |
+| READY_NOW | 9,706 |
 
 ### By SERP feasibility
 
 | serp_feasibility | candidates |
 | --- | --- |
-| viable | 161,666 |
-| unsampled_needs_serp_check | 71,851 |
-| competitive | 53,850 |
-| strong_opportunity | 29,478 |
-| poor_fit | 24,002 |
+| viable | 167,130 |
+| unsampled_needs_serp_check | 72,093 |
+| competitive | 54,100 |
+| poor_fit | 25,155 |
+| strong_opportunity | 24,005 |
 
 ### By licence
 
 | licence_status | candidates |
 | --- | --- |
-| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 243,919 |
-| OK | 66,118 |
-| LICENCE_REQUIRED | 27,908 |
+| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 252,218 |
+| OK | 58,605 |
+| LICENCE_REQUIRED | 28,758 |
 | CC0_NO_CONDITIONS | 2,902 |
 
 ### By demand evidence for the market the page targets
@@ -105,34 +107,34 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | market_demand_evidence | candidates |
 | --- | --- |
-| shape_measured_2026_10_01 | 246,821 |
-| measured_in_this_market | 86,970 |
-| family_measured_elsewhere | 7,056 |
+| shape_measured_2026_10_01 | 255,120 |
+| measured_in_this_market | 82,178 |
+| family_measured_elsewhere | 5,185 |
 
 ### The twenty largest families
 
 | family | candidates |
 | --- | --- |
-| places.area-cuisine | 20,824 |
+| places.area-cuisine | 22,166 |
 | outdoors.peak | 20,621 |
-| activities.city-things-to-do | 17,465 |
-| places.area-restaurant | 14,800 |
-| places.city-cuisine | 13,352 |
+| places.area-restaurant | 15,751 |
+| places.city-cuisine | 13,760 |
 | outdoors.hiking-trail | 11,973 |
-| places.area-pharmacy | 10,598 |
-| places.area-fast_food | 9,962 |
-| stay.city-type | 8,957 |
-| weather.city-month | 8,523 |
-| places.area-supermarket | 8,235 |
-| places.area-cafe | 8,016 |
-| places.area-opening | 7,580 |
+| activities.city-things-to-do | 11,750 |
+| places.area-pharmacy | 10,855 |
+| places.area-fast_food | 10,741 |
+| stay.city-type | 9,807 |
+| places.area-cafe | 8,764 |
+| places.area-supermarket | 8,662 |
+| weather.city-month | 8,306 |
+| places.area-opening | 7,913 |
 | events.city-type | 6,680 |
 | events.city-calendar | 6,680 |
 | outdoors.castle | 6,616 |
-| places.city-restaurant | 6,022 |
-| places.area-clinic | 5,484 |
-| rents.city | 5,391 |
-| places.city-category | 5,333 |
+| places.city-restaurant | 6,097 |
+| places.area-clinic | 5,838 |
+| places.area-attribute | 5,620 |
+| places.city-category | 5,575 |
 
 ## 3b. The multilingual breakdown
 
@@ -140,18 +142,18 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 67,740 | 51,476 | 9,036 | 882 | 5,148 | 209 | 247 | 0 | 742 |
-| en-GB | 76,240 | 36,387 | 12,691 | 5,321 | 0 | 0 | 21,561 | 0 | 280 |
-| de-DE | 96,920 | 58,648 | 9,619 | 4,012 | 1,008 | 257 | 22,556 | 0 | 820 |
-| ja-JP | 86,113 | 37,073 | 10,483 | 3,097 | 34,055 | 318 | 548 | 248 | 291 |
-| zh-Hant-TW | 4,939 | 800 | 690 | 80 | 0 | 1 | 3,368 | 0 | 0 |
-| it-IT | 55,051 | 28,279 | 7,354 | 1,162 | 14,244 | 109 | 3,377 | 0 | 526 |
-| es-ES | 26,753 | 17,216 | 4,791 | 308 | 0 | 1 | 4,030 | 0 | 407 |
-| fr-FR | 60,879 | 49,423 | 6,927 | 286 | 0 | 1 | 3,804 | 248 | 190 |
+| en-US | 98,640 | 61,039 | 19,723 | 3,866 | 6,740 | 212 | 6,296 | 0 | 764 |
+| en-GB | 30,067 | 21,242 | 2,087 | 2,365 | 0 | 0 | 4,098 | 0 | 275 |
+| de-DE | 99,998 | 58,648 | 9,619 | 4,140 | 2,470 | 189 | 24,112 | 0 | 820 |
+| ja-JP | 87,360 | 37,073 | 10,483 | 3,097 | 35,315 | 305 | 548 | 248 | 291 |
+| zh-Hant-TW | 5,191 | 800 | 690 | 80 | 0 | 1 | 3,620 | 0 | 0 |
+| it-IT | 56,210 | 28,279 | 7,354 | 1,162 | 15,271 | 69 | 3,549 | 0 | 526 |
+| es-ES | 26,781 | 17,216 | 4,790 | 308 | 0 | 0 | 4,060 | 0 | 407 |
+| fr-FR | 61,131 | 49,423 | 6,927 | 286 | 0 | 1 | 4,056 | 248 | 190 |
 | nl-NL | 21,382 | 15,433 | 4,878 | 114 | 0 | 1 | 796 | 0 | 160 |
 | pl-PL | 19,502 | 13,562 | 4,893 | 218 | 0 | 1 | 796 | 0 | 32 |
-| pt-BR | 26,123 | 17,533 | 5,881 | 1,354 | 0 | 1 | 1,323 | 0 | 31 |
-| **all 11** | **541,642** | **325,830** | | | | | | | |
+| pt-BR | 26,228 | 17,533 | 5,881 | 1,354 | 0 | 1 | 1,428 | 0 | 31 |
+| **all 11** | **532,490** | **320,248** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -159,17 +161,17 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 322,488 |
-| VALID_LOCALIZATION | 18,359 |
+| NATIVE_LOCALE | 326,314 |
+| VALID_LOCALIZATION | 16,169 |
 
-- flagged LOCAL_SERP_UNVERIFIED: 71,851. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
+- flagged LOCAL_SERP_UNVERIFIED: 72,093. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
 
 ### Top families per market
 
 | market | strongest families |
 | --- | --- |
-| en-US | places.area-cuisine (5,181), places.city-cuisine (4,894), places.area-attribute (2,605), places.area-restaurant (2,440) |
-| en-GB | activities.city-things-to-do (11,332), weather.city-month (2,886), stay.near-venue (2,582), places.area-cuisine (2,128) |
+| en-US | places.area-cuisine (5,415), places.city-cuisine (4,894), places.area-restaurant (2,917), activities.city-things-to-do (2,592) |
+| en-GB | places.area-cuisine (2,128), places.area-fast_food (1,548), places.area-cafe (1,354), places.city-cuisine (1,250) |
 | de-DE | outdoors.peak (12,423), stay.city-type (3,609), places.city-category (2,405), rents.city (2,405) |
 | ja-JP | places.area-cuisine (4,089), places.area-restaurant (2,943), activities.city-things-to-do (2,544), weather.city-month (2,544) |
 | zh-Hant-TW | activities.city-things-to-do (51), places.city-category (40), weather.city-month (40), health.city (40) |
@@ -202,13 +204,13 @@ Transliterations are used above for the Japanese and Chinese roots so this table
 
 ## 4. What was materialised in this pass
 
-- OSM POI files on disk: 19 (poi-AU.jsonl.gz, poi-BR.jsonl.gz, poi-DE.jsonl.gz, poi-ES.jsonl.gz, poi-FR.jsonl.gz, poi-GB.jsonl.gz, poi-ID.jsonl.gz, poi-IT.jsonl.gz, poi-JP.jsonl.gz, poi-LU.jsonl.gz, poi-MX.jsonl.gz, poi-NL.jsonl.gz, poi-PL.jsonl.gz, poi-TR.jsonl.gz, poi-TW-health.jsonl.gz, poi-US-us-midwest.jsonl.gz, poi-US-us-northeast.jsonl.gz, poi-US-us-south.jsonl.gz, poi-US-us-west.jsonl.gz)
-- OSM place files with geometry: 27 (places-AU.jsonl.gz, places-BR.jsonl.gz, places-DE.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-MX.jsonl.gz, places-NL.jsonl.gz, places-PL.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-northeast.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-germany.jsonl.gz, places-italy.jsonl.gz, places-luxembourg.jsonl.gz, places-netherlands.jsonl.gz, places-pl_JP.jsonl.gz, places-poland.jsonl.gz, places-spain.jsonl.gz, places-united_kingdom.jsonl.gz, places-us-south.jsonl.gz, places-us-west.jsonl.gz)
+- OSM POI files on disk: 28 (poi-AE.jsonl.gz, poi-AT.jsonl.gz, poi-AU.jsonl.gz, poi-BR.jsonl.gz, poi-CH.jsonl.gz, poi-DE.jsonl.gz, poi-EG.jsonl.gz, poi-ES.jsonl.gz, poi-FR.jsonl.gz, poi-GB.jsonl.gz, poi-ID.jsonl.gz, poi-IE.jsonl.gz, poi-IT.jsonl.gz, poi-JP.jsonl.gz, poi-KH.jsonl.gz, poi-LU.jsonl.gz, poi-MA.jsonl.gz, poi-MX.jsonl.gz, poi-MY.jsonl.gz, poi-NL.jsonl.gz, poi-PL.jsonl.gz, poi-PT.jsonl.gz, poi-TR.jsonl.gz, poi-TW-health.jsonl.gz, poi-US-us-midwest.jsonl.gz, poi-US-us-northeast.jsonl.gz, poi-US-us-south.jsonl.gz, poi-US-us-west.jsonl.gz)
+- OSM place files with geometry: 27 (places-AE.jsonl.gz, places-AT.jsonl.gz, places-AU.jsonl.gz, places-BR.jsonl.gz, places-CH.jsonl.gz, places-DE.jsonl.gz, places-EG.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IE.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-KH.jsonl.gz, places-MA.jsonl.gz, places-MX.jsonl.gz, places-MY.jsonl.gz, places-NL.jsonl.gz, places-PL.jsonl.gz, places-PT.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-northeast.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-luxembourg.jsonl.gz)
 - POI read: 5,687,344, of which 1,202,937 carried an addr:city tag and 3,119,955 were attributed spatially against the 31,715-city gazetteer; 1,363,715 fell outside every city radius and were dropped
-- named places loaded: 499,034, of which 81,409 passed the entity gates
-- POI assigned to an area by polygon containment: 405,666; by documented proximity to a place node: 2,187,778
-- aggregation candidates: 246,239 ({'city_category': 71599, 'area_category': 86018, 'city_cuisine': 30628, 'area_cuisine': 20856, 'city_attribute': 7382, 'area_attribute': 5118, 'city_opening': 9368, 'area_opening': 7598, 'city_sport': 315, 'area_parent': 3761, 'city_areas_hub': 878, 'notable_entity': 2718})
-- Wikidata entities loaded: 195,328, candidates 5,969, deduped against OSM by {'qid': 13907, 'name_and_position': 4980}
+- named places loaded: 502,205, of which 91,665 passed the entity gates
+- POI assigned to an area by polygon containment: 497,710; by documented proximity to a place node: 2,290,647
+- aggregation candidates: 266,028 ({'city_category': 76245, 'area_category': 93217, 'city_cuisine': 32996, 'area_cuisine': 22838, 'city_attribute': 8406, 'area_attribute': 5691, 'city_opening': 10539, 'area_opening': 8007, 'city_sport': 383, 'area_parent': 4038, 'city_areas_hub': 916, 'notable_entity': 2752})
+- Wikidata entities loaded: 195,490, candidates 5,971, deduped against OSM by {'qid': 13917, 'name_and_position': 4980}
 - Pulse entities normalised from four providers: {'national': 1081, 'regional': 623, 'school': 1502, 'long_weekends': 687, 'bridge_days': 233, 'long_weekends_subdivision': 3539, 'bridge_days_subdivision': 1052, 'bridge_plans': 348}
 
 ## 5. Every gate that fired, with its count
@@ -220,108 +222,223 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | gate | rejected |
 | --- | --- |
 | entity_not_notable | 5,674,635 |
-| place_not_a_named_entity | 252,449 |
-| below_min_count | 183,410 |
-| area_cuisine_below_min_count | 173,562 |
-| area_class_not_a_list_intent | 166,886 |
-| destination_fanout_area_itself_carries_no_mark_in_this_language | 147,628 |
-| class_not_a_list_intent | 137,582 |
-| cuisine_below_min_count | 137,333 |
-| area_parent_city_page_not_accepted | 137,315 |
-| place_no_parent_city | 126,669 |
-| area_below_min_count | 99,928 |
-| area_opening_below_min_count | 83,033 |
-| opening_below_min_count | 62,114 |
-| area_attr_below_min_count | 61,645 |
-| attr_below_min_count | 58,918 |
-| no_market_for_country | 46,563 |
-| place_no_market_for_country | 29,313 |
-| area_parent_too_narrow | 23,905 |
-| entries_too_thin | 23,183 |
-| area_entries_too_thin | 21,746 |
-| area_opening_parent_page_not_accepted | 13,427 |
-| opening_city_below_measured_demand_floor | 12,355 |
-| area_cuisine_parent_page_not_accepted | 9,974 |
-| cuisine_city_below_measured_demand_floor | 9,523 |
-| destination_fanout_no_city_mark_in_any_language | 8,902 |
-| notable_but_data_thin | 8,265 |
-| place_ambiguous_duplicate_name_in_city | 6,651 |
-| area_attr_parent_page_not_accepted | 6,405 |
-| attr_city_below_measured_demand_floor | 6,148 |
-| sport_below_min_count | 6,073 |
-| area_opening_area_not_a_searched_entity | 5,704 |
-| area_parent_entity_too_thin | 4,439 |
-| destination_fanout_entity_itself_carries_no_mark_in_this_language | 3,322 |
-| area_attr_area_not_a_searched_entity | 3,189 |
-| area_parent_city_has_no_areas_hub | 3,086 |
+| place_not_a_named_entity | 262,774 |
+| below_min_count | 192,156 |
+| area_cuisine_below_min_count | 191,393 |
+| area_class_not_a_list_intent | 179,523 |
+| destination_fanout_area_itself_carries_no_mark_in_this_language | 162,154 |
+| area_parent_city_page_not_accepted | 147,368 |
+| class_not_a_list_intent | 144,430 |
+| cuisine_below_min_count | 142,399 |
+| place_no_parent_city | 131,878 |
+| area_below_min_count | 111,061 |
+| area_opening_below_min_count | 90,499 |
+| area_attr_below_min_count | 71,886 |
+| opening_below_min_count | 64,542 |
+| attr_below_min_count | 62,286 |
+| area_parent_too_narrow | 26,455 |
+| entries_too_thin | 25,427 |
+| area_entries_too_thin | 23,705 |
+| area_opening_parent_page_not_accepted | 13,973 |
+| no_market_for_country | 12,920 |
+| opening_city_below_measured_demand_floor | 12,537 |
+| area_cuisine_parent_page_not_accepted | 10,474 |
+| cuisine_city_below_measured_demand_floor | 9,705 |
+| destination_fanout_no_city_mark_in_any_language | 9,676 |
+| notable_but_data_thin | 8,358 |
+| area_attr_parent_page_not_accepted | 7,213 |
+| place_ambiguous_duplicate_name_in_city | 6,769 |
+| sport_below_min_count | 6,694 |
+| place_no_market_for_country | 6,576 |
+| area_opening_area_not_a_searched_entity | 6,501 |
+| attr_city_below_measured_demand_floor | 6,383 |
+| area_parent_entity_too_thin | 4,855 |
+| area_attr_area_not_a_searched_entity | 4,074 |
+| destination_fanout_entity_itself_carries_no_mark_in_this_language | 3,395 |
+| area_parent_city_has_no_areas_hub | 3,272 |
+| area_duplicates_city_list | 2,509 |
 | place_name_not_usable | 2,475 |
-| area_duplicates_city_list | 2,376 |
 | area_class_measured_at_or_near_zero_in_this_market | 2,052 |
-| notable_entity_has_no_parent_page | 1,508 |
-| cuisine_parent_restaurant_list_not_accepted | 502 |
-| cuisine_entries_too_thin | 442 |
-| area_cuisine_duplicates_city_list | 394 |
-| areas_hub_too_few_areas | 270 |
-| attr_parent_city_page_not_accepted | 199 |
-| area_opening_parent_area_page_not_accepted | 181 |
-| opening_parent_city_page_not_accepted | 107 |
-| area_attr_parent_area_page_not_accepted | 95 |
+| notable_entity_has_no_parent_page | 1,514 |
+| cuisine_parent_restaurant_list_not_accepted | 530 |
+| cuisine_entries_too_thin | 493 |
+| area_cuisine_duplicates_city_list | 423 |
+| areas_hub_too_few_areas | 290 |
+| attr_parent_city_page_not_accepted | 278 |
+| area_opening_parent_area_page_not_accepted | 186 |
+| area_attr_parent_area_page_not_accepted | 118 |
+| opening_parent_city_page_not_accepted | 110 |
+| sport_parent_city_page_not_accepted | 71 |
 | place_polygon_implausibly_large | 65 |
-| area_opening_duplicates_city_list | 59 |
-| sport_parent_city_page_not_accepted | 54 |
+| area_opening_duplicates_city_list | 60 |
 | attr_not_discriminating | 21 |
-| area_attr_duplicates_city_list | 14 |
+| area_attr_duplicates_city_list | 13 |
 | cuisine_measured_at_or_near_zero_in_this_market | 7 |
-| opening_not_discriminating | 4 |
+| opening_not_discriminating | 6 |
 | place_polygon_degenerate | 3 |
 
 ### Wikidata gates
 
 | gate | rejected |
 | --- | --- |
-| no_official_website_so_page_would_be_thin | 66,607 |
-| no_parent_city | 52,348 |
-| already_in_osm_corpus | 18,887 |
-| list_below_min_count | 12,297 |
+| no_official_website_so_page_would_be_thin | 66,605 |
+| no_parent_city | 52,343 |
+| already_in_osm_corpus | 18,897 |
+| list_below_min_count | 12,296 |
 | wikidata_duplicate_qid | 8,408 |
-| no_parent_page_exists_on_the_site | 8,121 |
-| no_market_for_country | 4,861 |
+| no_parent_page_exists_on_the_site | 8,119 |
+| no_market_for_country | 5,023 |
 | list_entries_too_thin | 932 |
-| list_already_published_from_the_osm_corpus | 212 |
+| list_already_published_from_the_osm_corpus | 211 |
 
 ### Manifest gates
 
 | gate | rejected |
 | --- | --- |
-| REJECTED_QUALITY: no defensible uniqueness basis | 78,962 |
-| localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 62,406 |
-| localization:TRANSLATION_ONLY | 61,869 |
-| REJECTED_SERP: SERP_FEATURE_SUPPRESSED is a measured closed SERP, not winnable | 14,113 |
-| REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 3,360 |
-| localization:LOCAL_INTENT_MISSING | 1,009 |
+| REJECTED_QUALITY: no defensible uniqueness basis | 80,182 |
+| localization:TRANSLATION_ONLY | 67,471 |
+| localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 53,359 |
+| REJECTED_SERP: SERP_FEATURE_SUPPRESSED is a measured closed SERP, not winnable | 14,563 |
+| REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 3,615 |
+| localization:LOCAL_INTENT_MISSING | 780 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-cuisine is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 632 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-restaurant is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 544 |
 | localization:LOCAL_DATA_MISSING | 496 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. weather.city-month is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 489 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-cuisine is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 473 |
 | REJECTED_QUALITY: indexability floor 10 | 419 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-fast_food is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 272 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-opening is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 261 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-pharmacy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 234 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. weather.city-month is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. health.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.city-getting-around is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. property.city-buy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-calendar is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. relocation.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. rents.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. services.city-practical is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-salaries is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. stay.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 222 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. areas.overview is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 216 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. areas.overview is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 210 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-attribute is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 201 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.route-from-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 199 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. health.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 189 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. property.city-buy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 189 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. relocation.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 189 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. rents.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 189 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. services.city-practical is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 189 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 189 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-salaries is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 189 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-cafe is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 148 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-restaurant is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 138 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-clinic is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 136 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-school is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 134 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-dentist is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 120 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. areas.city-index is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 109 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-childcare is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 107 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/berlin-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 96 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-fast_food is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 95 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.route-from-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-home is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city-vs-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-universities is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. safety.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-jobs-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. sport.city-activity is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-window is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 93 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-department_store is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 82 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. areas.overview is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 80 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-gym is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 80 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-school is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 79 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. places.neighbourhood-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 74 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. rents.neighbourhood is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 74 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. neighbourhoods.guide is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 74 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-clinic is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 71 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-cafe is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 67 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-supermarket is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 65 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-supermarket is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 65 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-pharmacy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-veterinary is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-home is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city-vs-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-universities is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. safety.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-jobs-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. sport.city-activity is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 64 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-dentist is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 63 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-bar is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 60 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-opening is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 59 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-attribute is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 58 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-gym is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 52 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-department_store is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 51 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/aachen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 48 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/florence-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 42 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 40 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-childcare is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 36 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-veterinary is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 36 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-hospital is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 35 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. weather.city-month is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. health.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.city-getting-around is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. property.city-buy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-calendar is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. relocation.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. rents.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. services.city-practical is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-salaries is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. stay.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 33 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 32 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-bar is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 31 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-college is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 30 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/hamburg-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 30 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-railway_station is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 29 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/madrid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 27 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-college is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 26 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-arts_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 25 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/leipzig/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 25 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-hostel is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 24 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 23 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-hostel is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 22 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/weimar/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 22 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-university is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-hospital is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 20 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/amsterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 20 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-arts_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 19 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/potsdam-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 19 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/portland-us-oregon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 19 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-museum is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 18 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-cinema is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 17 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/madrid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 17 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-cinema is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 16 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/dresden/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/barcelona-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/naples-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/kobe/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/chicago/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.route-from-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-home is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city-vs-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-universities is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. safety.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-university is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-jobs-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. sport.city-activity is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-window is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/sapporo/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/dallas-us-texas/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-railway_station is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 14 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-museum is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/chicago/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/park/madrid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/amsterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
@@ -339,10 +456,15 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/berlin-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 13 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/munich/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 13 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/regensburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 13 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-guest_house is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 12 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-pub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/amsterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/nagoya/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/new-york-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/milan-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-attraction is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 11 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. areas.city-index is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 11 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-guest_house is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/new-york-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/london-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/kyoto/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
@@ -351,11 +473,16 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/los-angeles-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/nuremberg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/edinburgh/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 10 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 10 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/philadelphia-us-pennsylvania/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 10 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/saarbrucken/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 10 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/edinburgh/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 10 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/dusseldorf/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 10 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/san-diego-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 10 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. areas.city-index is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 9 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. poi.museum-notable is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 9 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-library is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/milan-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/malaga-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/atlanta-us-georgia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
@@ -365,6 +492,8 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/munster-de-north-rhine-westphalia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/philadelphia-us-pennsylvania/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/portland-us-oregon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-sports_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-sports_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/malaga-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/rotterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/genoa-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
@@ -374,12 +503,14 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/denver/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/essen-de-north-rhine-westphalia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/genoa-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/rostock/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/areas/rostock/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/darmstadt/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/siena/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/pamplona-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/munich/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/savannah-us-georgia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-pub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 7 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 7 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/chemnitz/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/rotterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/stuttgart-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
@@ -402,6 +533,9 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/palermo-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/naples-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
 | REJECTED_SAME_NAME_IN_CITY: /pl/poi/attraction/laweczka-chopina-n13293477296/ is already the poi page for an entity named Ławeczka Chopina in Warsaw, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 6 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-sport is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 6 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-attraction is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 6 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/bologna/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/niigata/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/toledo-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
@@ -433,13 +567,17 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/braunschweig/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/gijon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/park/san-diego-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/osnabruck/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/osnabruck/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/gasteiz-vitoria/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/la-rochelle/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/pisa/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/dessau/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/erlangen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/reutlingen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-gallery is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-nightclub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-library is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/theatre/fukuoka/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/pittsburgh/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/morioka/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
@@ -510,7 +648,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/murcia-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/valencia-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/hanau-am-main/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/luneburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/luneburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/memphis-us-tennessee/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/komae/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/santiago-de-compostela/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
@@ -550,7 +688,9 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/columbus-us-ohio/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/palermo-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/turin-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
+| REJECTED_PARENT_REMOVED: this page declares /ja/areas/providence-us-rhode-island/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/pittsburgh/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
+| REJECTED_PARENT_REMOVED: this page declares /ja/areas/omaha/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/san-jose-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/valladolid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/wichita/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
@@ -558,6 +698,10 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/bernkastel-kues/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_SAME_NAME_IN_CITY: /pl/poi/attraction/laweczka-chopina-n13293479732/ is already the poi page for an entity named Ławeczka Chopina in Praga Północ, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 3 |
 | REJECTED_SAME_NAME_IN_CITY: /pl/poi/attraction/laweczka-chopina-n13293462008/ is already the poi page for an entity named Ławeczka Chopina in Śródmieście, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-mall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-nightclub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-theatre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-gallery is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/bremen-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/dusseldorf/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/salt-lake-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
@@ -574,7 +718,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/arnhem/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/pescara/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/bilbao/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/wurzburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/wurzburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/theatre/nagoya/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/sakai-jp-osaka/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/belfast-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
@@ -622,7 +766,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/charlotte-us-north-carolina/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/detroit/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/bolzano/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/bautzen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/areas/bautzen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/troyes/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/beaumont-us-texas/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/schwerin/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
@@ -670,6 +814,9 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_SAME_NAME_IN_CITY: /en/poi/gallery/gagosian-n10859974159/ is already the poi page for an entity named Gagosian in Hoboken, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/de-doelen-q128795837/ is already the stay page for an entity named De Doelen in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
 | REJECTED_SAME_NAME_IN_CITY: /nl/stay/near-venue/de-doelen-q128795837/ is already the stay page for an entity named De Doelen in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-garden is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-water_park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-viewpoint is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/esplugues-de-llobregat/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/fujisawa/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/ayase/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -679,6 +826,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/zushi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/maceio/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /nl/areas/rijswijk/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/worcester-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/curitiba/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/manaus/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/cunit/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -704,6 +852,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/owariasahi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /nl/areas/hoorn/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/fremont-us-california/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/toledo-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/brest-fr/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/bristol-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/cambridge-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -732,6 +881,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/nishi-tokyo-shi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/nonoichi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/sayama-jp-osaka/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/havertown/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/belem-br-para/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /de/areas/essen-de-north-rhine-westphalia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /de/areas/kaiserslautern/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -746,7 +896,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/bellaria-igea-marina/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/hachioji/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pl/areas/gorzow-wielkopolski/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/fatih/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/billings/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/riverside-us-california/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/tampa/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -764,23 +913,23 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/torquay-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/reggio-nell-emilia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pl/areas/swinoujscie/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/bursa/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/sultanbeyli/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/sultangazi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/cincinnati/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/portland-us-maine/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/hendaye/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/kingston-upon-hull/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/south-shields/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/sunderland/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pl/areas/wlochy/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/adapazari/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/evanston-us-illinois/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/duque-de-caxias/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/torrevieja/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/oldham/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/rimini/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pl/areas/szklarska-poreba/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/gaziantep/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/dayton-us-ohio/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/dunkirk-fr/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/walsall/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/areas/maltepe/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/minato-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/museum/otaru/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/museum/yokohama/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -822,7 +971,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/lugo-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/monforte-de-lemos/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/a-coruna/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/tottenham-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/areas/tottenham-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/san-diego-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/florence-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/bad-bergzabern/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -875,7 +1024,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/munster-de-north-rhine-westphalia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/santa-monica-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/albuquerque/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/ulm/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/ulm/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/brighton-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/evanston-us-illinois/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/rochefort-fr/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -894,7 +1043,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/villeneuve-d-ascq/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/saint-malo/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/seattle/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/cincinnati/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/zwolle/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/minneapolis/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/villeurbanne/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -913,7 +1061,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/verona-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/alcoy/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/sheffield-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/gorlitz/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/gorlitz/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/kita-jp/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/branson/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/memphis-us-tennessee/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -930,7 +1078,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/pordenone/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/lecce/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/acton-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/worcester-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/segovia-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/charlotte-us-north-carolina/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/kiel/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -964,14 +1111,10 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_SAME_NAME_IN_CITY: /en/poi/amusement-park/luna-park-q19864620/ is already the poi page for an entity named Luna Park in Brooklyn, New York, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/energiehal-q133821963/ is already the stay page for an entity named Energiehal in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /nl/stay/near-venue/energiehal-q133821963/ is already the stay page for an entity named Energiehal in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
-| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/kingston-stadium-q104868005/ is already the stay page for an entity named Kingston Stadium in Cedar Rapids, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
-| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/ryan-field-q130238480/ is already the stay page for an entity named Ryan Field in Wilmette, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /de/stay/near-venue/harmonie-q1783653/ is already the stay page for an entity named Harmonie in Heilbronn, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/harmonie-q1783653/ is already the stay page for an entity named Harmonie in Heilbronn, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/aomori-stadium-q11662291/ is already the stay page for an entity named Aomori Stadium in Aomori, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /ja/stay/near-venue/aomori-stadium-q11662291/ is already the stay page for an entity named Aomori Stadium in Aomori, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
-| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/john-f-kennedy-stadium-q2390739/ is already the stay page for an entity named John F Kennedy Stadium in Camden, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
-| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/clark-field-q5127221/ is already the stay page for an entity named Clark Field in Austin, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/dalziel-park-q5211809/ is already the stay page for an entity named Dalziel Park in Motherwell, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /de/stay/near-venue/weimarhalle-q19965560/ is already the stay page for an entity named Weimarhalle in Weimar, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/weimarhalle-q19965560/ is already the stay page for an entity named Weimarhalle in Weimar, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
@@ -983,13 +1126,33 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/beethovenhalle-q317912/ is already the stay page for an entity named Beethovenhalle in Bonn, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /de/stay/near-venue/gewandhaus-q519613/ is already the stay page for an entity named Gewandhaus in Leipzig, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/gewandhaus-q519613/ is already the stay page for an entity named Gewandhaus in Leipzig, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
-| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/nelson-field-q6990513/ is already the stay page for an entity named Nelson Field in Austin, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/calypso-q109627539/ is already the stay page for an entity named Calypso in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /nl/stay/near-venue/calypso-q109627539/ is already the stay page for an entity named Calypso in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /de/stay/near-venue/saalbau-essen-q61435369/ is already the stay page for an entity named Saalbau Essen in Essen, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/saalbau-essen-q61435369/ is already the stay page for an entity named Saalbau Essen in Essen, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /de/stay/near-venue/kurhaus-wiesbaden-q16054321/ is already the stay page for an entity named Kurhaus Wiesbaden in Wiesbaden, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/kurhaus-wiesbaden-q16054321/ is already the stay page for an entity named Kurhaus Wiesbaden in Wiesbaden, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
+| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/kingston-stadium-q104868005/ is already the stay page for an entity named Kingston Stadium in Cedar Rapids, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
+| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/ryan-field-q130238480/ is already the stay page for an entity named Ryan Field in Wilmette, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
+| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/john-f-kennedy-stadium-q2390739/ is already the stay page for an entity named John F Kennedy Stadium in Camden, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
+| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/clark-field-q5127221/ is already the stay page for an entity named Clark Field in Austin, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
+| REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/nelson-field-q6990513/ is already the stay page for an entity named Nelson Field in Austin, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-viewpoint is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-parking is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-nature_reserve is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. neighbourhoods.city-where-to-stay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-beach is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-aquarium is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-golf_course is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-camp_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. neighbourhoods.city-best-for is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-theatre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-mall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/bordeaux/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/aihara/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/inagi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1063,7 +1226,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/fukui-shi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/hamamatsu/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/minamirinkan/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/beylikduzu/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/lake-forest-us-california/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /de/areas/mainz/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/torrent/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1079,7 +1241,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/yao-jp/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /pl/areas/kolobrzeg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /pl/areas/konin/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/buyukcekmece/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/atlantic-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/chula-vista/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /de/areas/lubeck/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/alcobendas/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1099,10 +1261,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/nisshin/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/odawara/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/tomiya/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/alanya/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/cigli/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/denizli/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/zeytinburnu/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/bellingham/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/jacksonville-us-florida/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/parole/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1110,9 +1268,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/castello-de-la-plana/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/chadderton/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/wallsend/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/i-zmir/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/karabaglar/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/konak/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/eugene/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/raleigh/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/salem-us-oregon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1129,7 +1284,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/marne-la-vallee/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/musashino/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/nagareyama/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/sancaktepe/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/salt-lake-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/mairena-del-aljarafe/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/paterna/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1148,13 +1302,15 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/tarbes/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/irun/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/vicenza/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /tr/areas/esenyurt/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/brisbane/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/areas/diyarbakir/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /en/areas/adelaide-au/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/destinations/region/阿蘇くじゅう国立公園-r9394106/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/sacramento-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/museum/sendai-jp-miyagi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/museum/chiba-jp/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/places/museum/kumamoto/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/ulm/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/areas/ulm/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/zutphen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/siracusa/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/barletta/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1223,7 +1379,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/long-beach-us-california/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/ann-arbor/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/oakland-us-california/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/evanston-us-illinois/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/indianapolis/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/sioux-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/chattanooga/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1261,6 +1416,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/toulon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /it/places/museum/tagajo-shi/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/draguignan/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /ja/areas/fort-lee-us-new-jersey/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/darmstadt/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/hannover/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/augsburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1273,10 +1429,10 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/bielefeld/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/koblenz/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/lubeck/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/osnabruck/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/osnabruck/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/sevilla-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/tarbes/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/swindon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/swindon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/leeds-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/rovereto/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/strasbourg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1376,7 +1532,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/boise/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/cody/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/buffalo-us-new-york/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/arlington-us-massachusetts/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/greensboro/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/daly-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/charleston-us-south-carolina/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1429,7 +1584,6 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/jacksonville-us-florida/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/fayetteville-us-north-carolina/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/leeds-gb/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/areas/trenton-us-new-jersey/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/katsushika/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/ventura/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/barstow/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1448,11 +1602,11 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/portsmouth-us-new-hampshire/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/miltenberg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/schwabisch-hall/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/frankfurt-oder/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/frankfurt-oder/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/neubrandenburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/goslar/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/goslar/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/ludwigshafen-am-rhein/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
-| REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/zittau/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/zittau/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/houston-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/portsmouth-us-new-hampshire/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/rochester-us-new-york/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1482,20 +1636,20 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 ## 6. QA at scale
 
-- rows checked: 340,847, distinct URLs 340,847
+- rows checked: 342,483, distinct URLs 342,483
 
 | check | count |
 | --- | --- |
-| meta_over_165_chars | 95,595 |
-| title_over_65_chars | 228,660 |
+| title_over_65_chars | 236,950 |
+| meta_over_165_chars | 97,049 |
 | duplicate_title_exact | 0 |
 | duplicate_title_same_tokens | 27 |
 | superlative_from_the_family_own_intent | 60 |
-| destination_rows | 41,879 |
-| destination_rows_with_no_locale_specific_fact | 8,552 |
+| destination_rows | 37,392 |
+| destination_rows_with_no_locale_specific_fact | 15,398 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
-| orphan_pages | 73 |
+| orphan_pages | 71 |
 | top_level_pages_whose_parent_is_the_locale_home | 0 |
 | intent_owners_claimed_by_more_than_one_url | 0 |
 | urls_sharing_a_cannibalization_key | 0 |
@@ -1510,12 +1664,12 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | duplicate_meta_within_a_market | 0 |
 | duplicate_h1_within_a_market | 0 |
 | declared_parent_is_not_a_valid_parent | 0 |
-| declared_parent_is_valid_but_not_a_path_prefix | 33,582 |
+| declared_parent_is_valid_but_not_a_path_prefix | 34,032 |
 | family_locale_cells_failing_the_usefulness_test | 0 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
 
-- title length: min 16, max 210, mean 71.2
+- title length: min 16, max 210, mean 72.2
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -1566,7 +1720,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-340,847 candidates survive the gates. The target is 1,000,000.
+342,483 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

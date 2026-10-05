@@ -1087,9 +1087,12 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           # uniqueness, and these five are what let a reader check the difference without
           # taking anyone's word for it.
           'cross_market_uniqueness_reason', 'information_gain_vs_same_language_markets',
-          'shared_fact_ratio', 'shared_section_ratio', 'semantic_similarity_score']
+          'shared_fact_ratio', 'shared_section_ratio', 'semantic_similarity_score',
+          # which of the three ownership bases gave this market the page in its language
+          'same_language_ownership_basis']
 
 stats = collections.Counter()
+OWNERSHIP_STATS = collections.Counter()
 rows = []
 for f in fams:
     fid = f['family_id']
@@ -1113,11 +1116,65 @@ for f in fams:
     for (etype, eid, ename, ecountry, ecity, eneigh, tier) in pool:
         cand_markets = markets_for(f, ecountry, tier, ename, eid)
         # collapse markets that share a language, keeping the one with real evidence
-        by_lang = {}
+        # ---- which market OWNS this entity in each language ---------------------------------
+        # This replaced a collapse that kept, per language, whichever market had the higher
+        # demand_score. demand_score is measured per (FAMILY, MARKET), not per entity, so that
+        # rule let a market win an entity on a number measured for a different one. The effect
+        # was measured on 2026-10-05: en-AU took 477 Mexican cities from en-GB and en-US because
+        # its overlay carries "things to do in melbourne" at 28,000, and es-MX finished the run
+        # with ZERO rows because es-ES outscored it on every Mexican entity. A page about Merida
+        # belonged to es-ES because es-ES scored higher on a Spanish keyword about something else.
+        #
+        # The order now, strongest evidence first:
+        #   1 HOME MARKET. The entity sits in the market's own country. Mexico is es-MX's,
+        #     Australia is en-AU's, the United Kingdom is en-GB's. Nothing outranks this.
+        #   2 ENTITY-SPECIFIC MEASURED DEMAND. This market was measured searching THIS place,
+        #     from the cross-language reach file and the destination harvest, which record
+        #     (city, market) pairs rather than family totals.
+        #   3 only if neither applies, the family-level score, which is what the old rule used
+        #     for every case and is now the last resort rather than the first.
+        #
+        # More than one market can own a language here, and the cross-market gate downstream
+        # then decides whether both survive. In practice they cannot BOTH keep a page for one
+        # entity and family, because the URL space is language-scoped: /es/ holds one URL per
+        # entity per family, so two Spanish markets claiming one entity claim one URL. That is
+        # the brief's own rule 4 - same-language coexistence must not become three copies, keep
+        # the legitimate owner - and the legitimate owner is what this ordering names.
+        lang_markets = collections.defaultdict(list)
         for m in cand_markets:
-            l = MKT_LANG[m]
-            if l not in by_lang or demand_score(fid, m, tier) > demand_score(fid, by_lang[l], tier):
-                by_lang[l] = m
+            lang_markets[MKT_LANG[m]].append(m)
+        by_lang = {}
+        own_why = {}
+        for l, ms in lang_markets.items():
+            if len(ms) == 1:
+                by_lang[l] = ms[0]
+                own_why[l] = 'the only market serving this language that earns this entity'
+                continue
+            _home = [m for m in ms if MKT_COUNTRY.get(m) == ecountry]
+            if _home:
+                by_lang[l] = _home[0]
+                own_why[l] = (f'{_home[0]} is the HOME market: this entity is in '
+                              f'{ecountry}, its own country, which outranks every other '
+                              f'market sharing {l}')
+                OWNERSHIP_STATS['home_market_wins'] += 1
+                continue
+            _low = (ename or '').lower()
+            _ent = [m for m in ms
+                    if (_low, ecountry) in XL_MARKET_CITIES.get(m, set())]
+            if _ent:
+                by_lang[l] = _ent[0]
+                own_why[l] = (f'{_ent[0]} was measured searching for this entity itself in the '
+                              f'cross-language reach file, which is entity-specific evidence '
+                              f'rather than a family total')
+                OWNERSHIP_STATS['entity_specific_demand_wins'] += 1
+                continue
+            _best = max(ms, key=lambda m: (demand_score(fid, m, tier), m))
+            by_lang[l] = _best
+            own_why[l] = (f'no market serving {l} is home to {ecountry} and none was measured '
+                          f'searching this entity, so the family-level score decides and '
+                          f'{_best} holds it. This is the weakest of the three bases and it is '
+                          f'named as such on the row.')
+            OWNERSHIP_STATS['family_score_last_resort'] += 1
         for lang, m in sorted(by_lang.items()):
             # trim to this market's own measured depth: a city deeper than the cell
             # was measured to reach is not a candidate in that market
@@ -1217,6 +1274,7 @@ for f in fams:
                 'data_signature': dsig, 'template_signature': tsig,
                 'duplicate_risk': dup, 'cannibalization_risk': can,
                 'market_demand_evidence': dev, 'locale_facts': ' | '.join(_lf),
+                'same_language_ownership_basis': own_why.get(lang, ''),
                 'quality_score': q, 'demand_score': dscore, 'source_score': srcscore,
                 'serp_score': sscore, 'serp_class': serp_c,
                 'indexability_score': iscore,
@@ -1519,6 +1577,8 @@ for a in agg:
         'parent_url': a.get('parent_url', '') or OUTDOOR_PARENT_URL.get(
             (a.get('parent_id'), a.get('cls'), a.get('language')), ''),
     })
+for _k, _v in OWNERSHIP_STATS.most_common():
+    print(f'  same-language ownership, {_k:34} {_v:>9,}', file=sys.stderr)
 print(f'  aggregation candidates emitted {len(agg):,}', file=sys.stderr)
 # Free the raw aggregation records NOW. They were loaded as dicts, converted into manifest rows
 # just above, and are never read again (the `agg` at the bottom of this file is a local inside
@@ -2487,13 +2547,21 @@ def strip_long_dashes(rows):
             touched += 1
     return touched
 
-_dash_fixed = (strip_long_dashes(stage3) + strip_long_dashes(fam_gate_rejected)
-              + strip_long_dashes(rejected)
-              + strip_long_dashes(exact_dupes) + strip_long_dashes(loc_rejected)
-              + strip_long_dashes(xm_rejected)
-              + strip_long_dashes(cannib_rejected)
-              + strip_long_dashes(semantic_dupes))
-print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,}', file=sys.stderr)
+# ONE list of every row group, used for the dash sweep AND for writing the rejection file, so
+# the two can never drift. They had: orphan_rejected and name_dupes were in the write and NOT in
+# the sweep, and the dash check found 17 EN DASHES in the rejected file, every one on a
+# REJECTED_PARENT_REMOVED row ("Werkbundarchiv - Museum der Dinge"). The rule is em dash 0 and
+# en dash 0 across the repository, and a sweep that covers eight of ten groups does not meet it.
+# Driving both from one definition is the fix; adding the missing two by hand would leave the
+# next list to be forgotten the same way.
+ROW_GROUPS = [('kept', stage3), ('quality_gates', rejected), ('exact_dupes', exact_dupes),
+              ('semantic_dupes', semantic_dupes), ('name_dupes', name_dupes),
+              ('loc_rejected', loc_rejected), ('fam_gate_rejected', fam_gate_rejected),
+              ('xm_rejected', xm_rejected), ('cannib_rejected', cannib_rejected),
+              ('orphan_rejected', orphan_rejected)]
+_dash_fixed = sum(strip_long_dashes(_g) for _n, _g in ROW_GROUPS)
+print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,} '
+      f'across {len(ROW_GROUPS)} row groups', file=sys.stderr)
 
 # ---------------------------------------------------------------- outputs
 os.makedirs(OUT, exist_ok=True)
@@ -2514,11 +2582,8 @@ os.makedirs(OUT, exist_ok=True)
 # rather than becoming a half-written mixture. That is the difference between a crash that costs
 # forty minutes and one that costs trust in every file in the folder.
 REJ_COUNTS = {}
-_rej_groups = [('quality_gates', rejected), ('exact_dupes', exact_dupes),
-               ('semantic_dupes', semantic_dupes), ('name_dupes', name_dupes),
-               ('loc_rejected', loc_rejected), ('fam_gate_rejected', fam_gate_rejected),
-               ('xm_rejected', xm_rejected), ('cannib_rejected', cannib_rejected),
-               ('orphan_rejected', orphan_rejected)]
+# the same ROW_GROUPS the dash sweep used, minus the kept rows
+_rej_groups = [(n, g) for n, g in ROW_GROUPS if n != 'kept']
 _rej_total = 0
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
