@@ -633,6 +633,15 @@ def locale_facts(market, lat, lon, dest_city_id=None, root='/home/user/Livdar-eS
     if not org or lat is None or lon is None:
         return []
     name, ola, olo, ocid = org
+    # A page about the origin city itself cannot carry a fact that compares it to the origin city.
+    # Without this, the Turkish page about Istanbul read "January averages within a degree of
+    # Istanbul", which is true, vacuous, and exactly the kind of sentence a reader recognises as
+    # machine-written. The right answer for the origin city is NO locale fact: the page is in its
+    # own market's own city and needs no comparison to justify existing. Returning [] here is safe
+    # because the no-translated-clones gate only requires a locale fact for a DESTINATION copy,
+    # and the origin city is never a destination for its own market.
+    if dest_city_id and str(dest_city_id) == str(ocid):
+        return []
     out = []
     km = great_circle_km(float(lat), float(lon), ola, olo)
     if km >= 25:
