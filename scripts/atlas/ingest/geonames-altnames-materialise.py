@@ -34,7 +34,9 @@ ZIP = '/tmp/alternateNamesV2.zip'
 # the ten languages the eleven markets are served in. zh-Hant is 'zh' in GeoNames with no
 # script split, so Traditional and Simplified both arrive as zh and the row says so rather
 # than pretending the file distinguishes them.
-WANT = {'de', 'en', 'es', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'zh'}
+# 'tr' added 2026-10-05 when tr-TR was admitted as a search market: the destination half of
+# that market needs a Turkish mark on every foreign place before it may have a Turkish page.
+WANT = {'de', 'en', 'es', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'tr', 'zh'}
 
 if not os.path.exists(ZIP) or os.path.getsize(ZIP) < 150_000_000:
     print(f'downloading {URL}', file=sys.stderr, flush=True)

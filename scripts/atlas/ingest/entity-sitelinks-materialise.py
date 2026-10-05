@@ -30,8 +30,13 @@ ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'data/atlas/sources/wikidata/entity-sitelinks.jsonl.gz'
 PROV = ROOT + 'data/atlas/sources/wikidata/entity-sitelinks.provenance.json'
 API = 'https://www.wikidata.org/w/api.php'
+# 'trwiki' added 2026-10-05 with the tr-TR market. The pass that was already running when this
+# was added fetched the other ten languages only, so the rows it wrote carry no Turkish mark
+# and a second pass is needed for Turkish. That is recorded rather than hidden: a row with no
+# 'tr' key means not asked, not absent.
 WIKIS = {'dewiki': 'de', 'enwiki': 'en', 'eswiki': 'es', 'frwiki': 'fr', 'itwiki': 'it',
-         'jawiki': 'ja', 'nlwiki': 'nl', 'plwiki': 'pl', 'ptwiki': 'pt', 'zhwiki': 'zh'}
+         'jawiki': 'ja', 'nlwiki': 'nl', 'plwiki': 'pl', 'ptwiki': 'pt', 'trwiki': 'tr',
+         'zhwiki': 'zh'}
 LAYERS = [
     ('outdoor', 'data/atlas/sources/osm-outdoor/outdoor-*.jsonl.gz'),
     ('trails', 'data/atlas/sources/osm-trails/trails-*.jsonl.gz'),

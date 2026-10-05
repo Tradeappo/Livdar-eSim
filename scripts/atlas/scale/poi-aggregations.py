@@ -76,6 +76,30 @@ NOTABLE_CLASSES = {'museum', 'castle', 'attraction', 'zoo', 'theme_park', 'aquar
 # never fewer than two: a "list" of one is the venue's own page under another name
 MIN_FOR_AREA = {k: max(2, v // 3) for k, v in LIST_CLASSES.items()}
 
+# ---- what a market's own measurement REFUSED -------------------------------------------------
+# A market is admitted family by family, not wholesale, and these two tables carry the classes
+# and cuisines a market's keyword measurement found DEAD rather than merely unmeasured. The
+# distinction matters: unmeasured is not refused anywhere else in this pipeline, and treating
+# absence of evidence as evidence of a poor fit already mislabelled 62 per cent of this
+# inventory once. What is recorded here is the opposite case, a measurement that came back
+# near zero, and those cells are excluded by name.
+#
+# tr-TR, measured 2026-10-05 in ahrefs-tr-TR-market-admission-2026-10-05.json:
+#   the neighbourhood list is real in Turkish for cafes and breakfast and dead for restaurants.
+#   kadikoy kafeler 1,500, nisantasi kafeler 1,100, karakoy kafeler 600, cihangir kafeler 500,
+#   kadikoy kahvalti mekanlari 2,300, against besiktas restoranlari at TWENTY. The restaurant
+#   intent in Turkish lives at city level, where ankara italyan restorani reads 900.
+AREA_CLASS_REFUSED = {
+    'tr-TR': {'restaurant'},
+}
+#   and the cuisine filter is Italian and fish, not Asian: ankara italyan restorani 900,
+#   izmir balik restoranlari 700, istanbul italyan restoranlari 600, against istanbul sushi
+#   restoranlari 50, istanbul cin restorani 40 and istanbul vegan restoranlar 30 - all three
+#   in the largest city in the country, so this is not a population floor doing the work.
+CUISINE_REFUSED = {
+    'tr-TR': {'chinese', 'sushi', 'japanese', 'vegan', 'vegetarian', 'asian', 'thai', 'korean'},
+}
+
 # Classes where a cuisine is a meaningful filter. "Italian restaurants in Manchester"
 # is a real query with a real answer; "Italian pharmacies" is not.
 FOOD_CLASSES = {'restaurant', 'fast_food', 'cafe', 'bar', 'pub'}
@@ -178,10 +202,11 @@ def cuisines(v):
         out.append(t)
     return out[:3]
 
-MARKETS = [('en-US','US','en'),('de-DE','DE','de'),('fr-FR','FR','fr'),('it-IT','IT','it'),
-           ('es-ES','ES','es'),('nl-NL','NL','nl'),('pl-PL','PL','pl'),('pt-BR','BR','pt'),
-           ('en-GB','GB','en'),('ja-JP','JP','ja'),('zh-Hant-TW','TW','zh-Hant')]
-COUNTRY_MKT = {c: (m, l) for m, c, l in MARKETS}
+# The market list lives in entity_identity, which owns identity for the whole pipeline.
+# Twelve files each hand-wrote their own copy; adding tr-TR meant editing twelve places and
+# a thirteenth that would have been missed. One definition, imported.
+MARKETS = entity_identity.MARKETS
+COUNTRY_MKT = entity_identity.COUNTRY_MKT
 
 # how far a place mapped only as a POINT may claim POI. OSM gives no extent for a
 # point, so the radius comes from what the place type means on the ground, and a page
@@ -809,6 +834,8 @@ for (pi, cls), n in area_n.items():
     need = MIN_FOR_AREA.get(cls)
     if need is None:
         rejects['area_class_not_a_list_intent'] += 1; continue
+    if cls in AREA_CLASS_REFUSED.get(market, ()):
+        rejects['area_class_measured_at_or_near_zero_in_this_market'] += 1; continue
     if (p['_city_id'], cls) not in accepted_city:
         rejects['area_parent_city_page_not_accepted'] += 1; continue
     if n < need:
@@ -854,6 +881,8 @@ for (cid, cu), n in city_cu.items():
     market, lang = mk
     if n < MIN_CUISINE_CITY:
         rejects['cuisine_below_min_count'] += 1; continue
+    if cu in CUISINE_REFUSED.get(market, ()):
+        rejects['cuisine_measured_at_or_near_zero_in_this_market'] += 1; continue
     if city_pop_id(cid) < POP_FLOOR_CUISINE:
         rejects['cuisine_city_below_measured_demand_floor'] += 1; continue
     if (cid, 'restaurant') not in accepted_city:
@@ -881,6 +910,8 @@ for (pi, cu), n in area_cu.items():
     market, lang = mk
     if n < MIN_CUISINE_AREA:
         rejects['area_cuisine_below_min_count'] += 1; continue
+    if cu in CUISINE_REFUSED.get(market, ()):
+        rejects['area_cuisine_measured_at_or_near_zero_in_this_market'] += 1; continue
     if (p['_city_id'], cu) not in accepted_city_cuisine:
         rejects['area_cuisine_parent_page_not_accepted'] += 1; continue
     if city_pop_id(p['_city_id']) < POP_FLOOR_CUISINE:
@@ -1240,8 +1271,7 @@ try:
                 _v['max_connectivity_volume'], _v['max_information_volume'])
 except (FileNotFoundError, KeyError, ValueError):
     pass
-LANG_MKT = {'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'es-ES',
-            'nl': 'nl-NL', 'pl': 'pl-PL', 'pt': 'pt-BR', 'ja': 'ja-JP', 'zh-Hant': 'zh-Hant-TW'}
+LANG_MKT = entity_identity.LANG_MKT
 
 CITY_MARK = collections.defaultdict(dict)
 try:

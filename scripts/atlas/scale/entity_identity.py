@@ -517,6 +517,7 @@ ORIGIN = {
     'pt-BR': ('Sao Paulo', -23.5505, -46.6333, '3448439'),
     'ja-JP': ('Tokyo', 35.6762, 139.6503, '1850147'),
     'zh-Hant-TW': ('Taipei', 25.0330, 121.5654, '1668341'),
+    'tr-TR': ('Istanbul', 41.0082, 28.9784, '745044'),
 }
 _MCODE = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 _MONTH = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
@@ -655,3 +656,44 @@ def locale_facts_for_row(market, r, root='/home/user/Livdar-eSim/'):
     """The locale-specific facts for this row in this market, or [] when none can be computed."""
     la, lo = row_point(r, root)
     return locale_facts(market, la, lo, r.get('city_id') or None, root)
+
+
+# ---- the markets, in ONE place ------------------------------------------------------------------
+# Twelve files carried their own copy of this list and four of them wrote it out by hand. That is
+# the same duplication that gave this pipeline four disagreeing slug functions and five different
+# answers to "does this entity carry a language mark", and it makes adding a market a twelve-file
+# change in which one file gets forgotten. The list lives here, where identity lives, and every
+# builder derives what it needs from it.
+#
+# A market is (market tag, home country, page language). Adding one is a line here plus the
+# measured evidence the gates ask for; it is deliberately not possible to add one by editing a
+# builder, because a market the builders disagree about is worse than a market that is missing.
+MARKETS = [
+    ('en-US', 'US', 'en'), ('de-DE', 'DE', 'de'), ('fr-FR', 'FR', 'fr'),
+    ('it-IT', 'IT', 'it'), ('es-ES', 'ES', 'es'), ('nl-NL', 'NL', 'nl'),
+    ('pl-PL', 'PL', 'pl'), ('pt-BR', 'BR', 'pt'), ('en-GB', 'GB', 'en'),
+    ('ja-JP', 'JP', 'ja'), ('zh-Hant-TW', 'TW', 'zh-Hant'),
+    # Added 2026-10-05 on the measurement in market-expansion-ranking-2026-10-05.json. Turkish is
+    # the only candidate whose home country was already captured in full, 195,140 POI and 23,717
+    # places and 20,765 outdoor features and 14,553 parent polygons, so it needed no download at
+    # all. Its city things-to-do family measures LARGER in Turkish than in most markets already
+    # built: eleven cities between 2,100 and 8,800 a month, every one at keyword difficulty 0 or 1,
+    # with kapadokya gezilecek yerler at 8,800 and viyana at 4,100.
+    ('tr-TR', 'TR', 'tr'),
+]
+MKT_COUNTRY = {m: c for m, c, _ in MARKETS}
+MKT_LANG = {m: l for m, _, l in MARKETS}
+COUNTRY_MKT = {c: (m, l) for m, c, l in MARKETS}
+NATIVE_LANG = {c: l for _m, c, l in MARKETS}
+# The market a language is served to, where a language has more than one it is the larger.
+LANG_MKT = {}
+for _m, _c, _l in MARKETS:
+    LANG_MKT.setdefault(_l, _m)
+
+
+def country_markets():
+    """{country: [markets]}, because a country can be the home of more than one market."""
+    out = {}
+    for m, c, _l in MARKETS:
+        out.setdefault(c, []).append(m)
+    return out

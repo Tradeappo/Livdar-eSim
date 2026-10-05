@@ -46,12 +46,10 @@ PARENTS = ROOT + 'data/atlas/sources/osm-parents/'
 OUT = TRAILS + '_trail-candidates.jsonl.gz'
 slug = entity_identity.slugify
 
-COUNTRY_MKT = {
-    'US': ('en-US', 'en'), 'GB': ('en-GB', 'en'), 'DE': ('de-DE', 'de'),
-    'FR': ('fr-FR', 'fr'), 'IT': ('it-IT', 'it'), 'ES': ('es-ES', 'es'),
-    'NL': ('nl-NL', 'nl'), 'PL': ('pl-PL', 'pl'), 'BR': ('pt-BR', 'pt'),
-    'JP': ('ja-JP', 'ja'), 'TW': ('zh-Hant-TW', 'zh-Hant'),
-}
+# The market list lives in entity_identity, which owns identity for the whole pipeline.
+# Twelve files each hand-wrote their own copy; adding tr-TR meant editing twelve places and
+# a thirteenth that would have been missed. One definition, imported.
+COUNTRY_MKT = entity_identity.COUNTRY_MKT
 MIN_KM = 5.0
 
 # ---- the destination axis, for routes outside the eleven market countries ---------------------
@@ -73,10 +71,7 @@ try:
                 _v['max_connectivity_volume'], _v['max_information_volume'])
 except (FileNotFoundError, KeyError, ValueError):
     pass
-LANG_MKT = {l: m for m, (l) in {}.items()} if False else {
-    'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'es-ES',
-    'nl': 'nl-NL', 'pl': 'pl-PL', 'pt': 'pt-BR', 'ja': 'ja-JP', 'zh-Hant': 'zh-Hant-TW',
-}
+LANG_MKT = entity_identity.LANG_MKT
 
 
 def markets_for_route(iso, t):

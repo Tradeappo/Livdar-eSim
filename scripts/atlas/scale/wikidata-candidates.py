@@ -39,10 +39,11 @@ WD_INDIVIDUAL_OK = {'museum', 'art_museum', 'castle', 'monument', 'archaeologica
 WD_LIST_ONLY = {'hospital', 'library', 'university', 'stadium', 'shopping_mall',
                 'movie_theater', 'railway_station', 'airport', 'cemetery'}
 
-MARKETS = [('en-US','US','en'),('de-DE','DE','de'),('fr-FR','FR','fr'),('it-IT','IT','it'),
-           ('es-ES','ES','es'),('nl-NL','NL','nl'),('pl-PL','PL','pl'),('pt-BR','BR','pt'),
-           ('en-GB','GB','en'),('ja-JP','JP','ja'),('zh-Hant-TW','TW','zh-Hant')]
-COUNTRY_MKT = {c: (m, l) for m, c, l in MARKETS}
+# The market list lives in entity_identity, which owns identity for the whole pipeline.
+# Twelve files each hand-wrote their own copy; adding tr-TR meant editing twelve places and
+# a thirteenth that would have been missed. One definition, imported.
+MARKETS = entity_identity.MARKETS
+COUNTRY_MKT = entity_identity.COUNTRY_MKT
 MIN_FOR_LIST = {'hospital': 4, 'library': 4, 'university': 2, 'stadium': 2,
                 'shopping_mall': 2, 'movie_theater': 3, 'railway_station': 5,
                 'airport': 2, 'cemetery': 4}

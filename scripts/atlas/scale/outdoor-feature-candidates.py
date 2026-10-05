@@ -66,8 +66,10 @@ try:
                 _v['max_connectivity_volume'], _v['max_information_volume'])
 except (FileNotFoundError, KeyError, ValueError):
     pass
-LANG_MKT = {'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'it': 'it-IT', 'es': 'es-ES',
-            'nl': 'nl-NL', 'pl': 'pl-PL', 'pt': 'pt-BR', 'ja': 'ja-JP', 'zh-Hant': 'zh-Hant-TW'}
+# The market list lives in entity_identity, which owns identity for the whole pipeline.
+# Twelve files each hand-wrote their own copy; adding tr-TR meant editing twelve places and
+# a thirteenth that would have been missed. One definition, imported.
+LANG_MKT = entity_identity.LANG_MKT
 
 
 def feature_marks(o):
@@ -80,12 +82,7 @@ def feature_marks(o):
     """
     return {L: why for L, why in entity_identity.marks_for(o).items() if L in LANG_MKT}
 
-COUNTRY_MKT = {
-    'US': ('en-US', 'en'), 'GB': ('en-GB', 'en'), 'DE': ('de-DE', 'de'),
-    'FR': ('fr-FR', 'fr'), 'IT': ('it-IT', 'it'), 'ES': ('es-ES', 'es'),
-    'NL': ('nl-NL', 'nl'), 'PL': ('pl-PL', 'pl'), 'BR': ('pt-BR', 'pt'),
-    'JP': ('ja-JP', 'ja'), 'TW': ('zh-Hant-TW', 'zh-Hant'),
-}
+COUNTRY_MKT = entity_identity.COUNTRY_MKT
 # Classes that are a destination in their own right. A spring, a cliff and a pier are features of
 # a landscape rather than places people go to by name, and they are left out rather than included
 # at a lower bar: 6,608 named springs in Germany would be 6,608 pages about water coming out of

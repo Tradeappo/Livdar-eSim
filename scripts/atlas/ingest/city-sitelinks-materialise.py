@@ -30,8 +30,11 @@ API = 'https://www.wikidata.org/w/api.php'
 # the Wikipedia of each Livdar language. zh-Hant and zh-Hans share zhwiki, which this file
 # cannot split, so a zhwiki article is treated as evidence for zh only in combination with the
 # Taiwanese market demand measured separately.
+# 'trwiki' added 2026-10-05 with the tr-TR market. A city that carries a Turkish Wikipedia
+# article is a city Turkish speakers look up, which is half two of the destination evidence.
 WIKIS = {'dewiki': 'de', 'enwiki': 'en', 'eswiki': 'es', 'frwiki': 'fr', 'itwiki': 'it',
-         'jawiki': 'ja', 'nlwiki': 'nl', 'plwiki': 'pl', 'ptwiki': 'pt', 'zhwiki': 'zh'}
+         'jawiki': 'ja', 'nlwiki': 'nl', 'plwiki': 'pl', 'ptwiki': 'pt', 'trwiki': 'tr',
+         'zhwiki': 'zh'}
 
 city_ids = {}
 for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
@@ -63,7 +66,19 @@ if os.path.exists(OUT):
         pass
 print(f'already fetched: {len(done):,}', file=sys.stderr)
 
-todo = [(g, q) for g, q in qid_of.items() if g not in done]
+# A row written before a language was added to WIKIS was never ASKED about that language, so
+# its absence from wikipedia_languages means "not asked", not "no article". Treating the two the
+# same is how a market gets admitted and then silently finds no marks: the 19,594 rows already on
+# disk were fetched with ten wikis and tr-TR needs an eleventh. Every row carries the set it was
+# asked, and a row asked a smaller set is refetched.
+ASKED = sorted(WIKIS.values())
+def _complete(r):
+    return set(r.get('wikis_asked') or []) >= set(ASKED)
+_stale = sum(1 for r in done.values() if not _complete(r))
+if _stale:
+    print(f'rows fetched before the current language set: {_stale:,}, refetching them',
+          file=sys.stderr)
+todo = [(g, q) for g, q in qid_of.items() if g not in done or not _complete(done[g])]
 by_qid = {q: g for g, q in todo}
 batches = [list(by_qid)[i:i + 50] for i in range(0, len(by_qid), 50)]
 print(f'to fetch: {len(by_qid):,} items in {len(batches):,} batches of 50', file=sys.stderr)
@@ -112,7 +127,7 @@ for bi, batch in enumerate(batches):
             if wiki in sl:
                 langs[lang] = sl[wiki].get('title', '')
         done[gid] = {'geonameid': gid, 'qid': qid, 'country': city_ids.get(gid),
-                     'wikipedia_languages': langs}
+                     'wikipedia_languages': langs, 'wikis_asked': ASKED}
         new += 1
     # A deliberate pace. 50 items a call at one call a second is 3,000 items a minute from a
     # service that asked for less, and the whole job is under half an hour at this rate anyway.

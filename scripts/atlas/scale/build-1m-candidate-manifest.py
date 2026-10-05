@@ -37,15 +37,12 @@ def jload(p):
 # exists ONCE per language. Eleven markets collapse to ten languages. The manifest
 # keeps `market` (the strongest-demand market for that language) and `language`
 # (the page's actual scope), and the dedupe enforces one row per page.
-MARKETS = [
-    # market, country, language
-    ('en-US', 'US', 'en'), ('de-DE', 'DE', 'de'), ('fr-FR', 'FR', 'fr'),
-    ('it-IT', 'IT', 'it'), ('es-ES', 'ES', 'es'), ('nl-NL', 'NL', 'nl'),
-    ('pl-PL', 'PL', 'pl'), ('pt-BR', 'BR', 'pt'), ('en-GB', 'GB', 'en'),
-    ('ja-JP', 'JP', 'ja'), ('zh-Hant-TW', 'TW', 'zh-Hant'),
-]
-MKT_COUNTRY = {m: c for m, c, _ in MARKETS}
-MKT_LANG = {m: l for m, _, l in MARKETS}
+# The market list lives in entity_identity, which owns identity for the whole pipeline.
+# Twelve files each hand-wrote their own copy; adding tr-TR meant editing twelve places and
+# a thirteenth that would have been missed. One definition, imported.
+MARKETS = entity_identity.MARKETS
+MKT_COUNTRY = entity_identity.MKT_COUNTRY
+MKT_LANG = entity_identity.MKT_LANG
 COUNTRY_MKTS = collections.defaultdict(list)
 for m, c, _ in MARKETS: COUNTRY_MKTS[c].append(m)
 
@@ -315,6 +312,48 @@ for d in (cell_kw, fam_kw):
     for k in d: d[k].sort(key=lambda x: -x[1])
 print(f'  keyword master rows {len(km):,}, family-market cells with evidence {len(cell_kw):,}', file=sys.stderr)
 
+# ---- new-market keyword overlay --------------------------------------------------------------
+# The keyword master is a FROZEN research file and stays byte-identical: a market admitted after
+# the freeze brings its own measurement file and that file is ADDED to the cells, never
+# substituted for them, exactly as the destination harvest is added to CROSS-LANGUAGE-REACH.csv.
+# Without this a new market has no cell anywhere and every family in it reads
+# "proven elsewhere, never measured here", which is how a gate keyed on one market refuses
+# every other for want of a MEASUREMENT rather than for want of demand. That mistake has been
+# made twice in this project and the overlay is what stops it being made a third time.
+#
+# Only the families the measurement file ADMITS are loaded. The ones it records as refused
+# (neighbourhoods.city-where-to-stay at 20 and 50 in Turkish, weather.city-month at 70 and 20,
+# rents.city at 40) are read, counted and deliberately left out of the cells, so the refusal is
+# carried by the same file that carries the admission.
+NEW_MARKET_MEAS = ['ahrefs-tr-TR-market-admission-2026-10-05.json']
+for _fn in NEW_MARKET_MEAS:
+    try:
+        _d = json.load(open(ROOT + 'data/atlas/measurements/' + _fn, encoding='utf-8'))
+    except (FileNotFoundError, ValueError):
+        continue
+    _mkt = _d['market']
+    _added = _skipped = 0
+    for _fam, _v in (_d.get('families') or {}).items():
+        if _v.get('verdict') != 'MEASURED_IN_TURKISH' and _v.get('verdict') != 'MEASURED':
+            _skipped += 1
+            continue
+        # "family/DEST:XX" rows measure the destination axis for that family, not a separate
+        # family, so they validate the same cell under the base name.
+        _base = _fam.split('/')[0]
+        for _k in _v['keywords']:
+            if (_k.get('volume') or 0) < _d.get('keyword_floor_used', 100):
+                continue
+            _rec = (_k['keyword'], int(_k['volume']), str(_k.get('kd') or ''),
+                    (_d.get('serp_evidence', {}).get(_fam, {}) or {}).get('class', ''), 'MEASURED')
+            cell_kw[(_base, _mkt)].append(_rec)
+            fam_kw[_base].append(_rec)
+            _added += 1
+    for _d2 in (cell_kw, fam_kw):
+        for _k2 in _d2: _d2[_k2].sort(key=lambda x: -x[1])
+    print(f'  {_mkt} overlay: {_added:,} measured keywords across '
+          f'{len(_d.get("families_admitted") or [])} admitted families, '
+          f'{_skipped} families measured and refused', file=sys.stderr)
+
 # The two files name families differently: FAMILY-MASTER.csv calls the holiday
 # families pulse.*, the keyword master calls them events.*; visas.* there is
 # move.visa-country here, and so on. Without this map 35 of 76 families scored zero
@@ -421,7 +460,6 @@ XL_CITIES = set()
 # the two let a city measured only in en-GB vouch for a German page about it.
 XL_MARKET_CITIES = collections.defaultdict(set)
 XL_LANG_CITIES = collections.defaultdict(set)
-MKT_LANG = {m: l for m, _c, l in MARKETS}
 try:
     for r in csv.DictReader(open(ROOT + 'reports/livdar-master-seo-universe-2026-09-30/CROSS-LANGUAGE-REACH.csv')):
         xl_markets[r['family']].add(r['searcher_market'])
@@ -1656,7 +1694,7 @@ stage2 = stage2a
 #   LOCAL_SERP_UNVERIFIED kept with the flag. Absence of SERP evidence is not evidence of a
 #                        poor fit; treating it as one already mislabelled 62 per cent of this
 #                        inventory once, and the same mistake is not repeated here.
-NATIVE_LANG = {c: l for _m, c, l in MARKETS}
+NATIVE_LANG = entity_identity.NATIVE_LANG
 
 # which (family, entity) groups exist in more than one language at all
 group_langs = collections.defaultdict(set)
