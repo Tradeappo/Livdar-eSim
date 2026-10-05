@@ -4,7 +4,7 @@
  "country": "MX",
  "generated_on": "2026-10-05",
  "provider": "Ahrefs Keywords Explorer and SERP Overview, country=mx",
- "units_spent": 1168,
+ "units_spent": 1360,
  "keywords_tested": 30,
  "total_measured_volume": 257080,
  "is_a_new_language": false,
@@ -259,16 +259,24 @@
   "esim mexico reads 6,700 at a CPC of ONE DOLLAR and keyword difficulty ZERO. That is the second most valuable connectivity keyword in the ranking behind esim australia at $3.50, and it is the easier of the two."
  ],
  "serp_evidence": {
-  "sampled": 1,
-  "verdict": "OPEN",
+  "sampled": 2,
+  "verdict": "SPLIT: THE CITY FAMILY IS OPEN AND THE HEAD ENTITY IS OFFICIAL OWNED",
   "families": {
    "activities.city-things-to-do": {
     "keyword": "que hacer en merida",
     "class": "OPEN_SPECIALIST_PAGE_WINS",
     "reading": "lotuseaters.travel at DOMAIN RATING 16 holds position 3 with 944 traffic and ONE backlink. visitmerida.mx DR 40 at 4, zonaturistica DR 49 at 5, anadventurousworld DR 39 at 6 with ZERO backlinks, and GetYourGuide DR 90 only at 7. An AI Overview sits above citing YouTube, Instagram and Tripadvisor. Three mid-authority pages with no links between them, and the large OTA below all of them."
+   },
+   "poi.city-category-durable": {
+    "keyword": "chichen itza",
+    "volume": 91000,
+    "kd": 24,
+    "class": "OFFICIAL_PLUS_AGGREGATOR_MIXED",
+    "reading": "es.wikipedia DR 97 at position 1 with 22,808 traffic and 1,040 backlinks, INAH - the Mexican federal archaeology institute - DR 79 at 3 with 11,513 traffic, the site's own chichenitza.com DR 66 at 4, yucatan.gob.mx DR 73 at 6, National Geographic DR 82 at 7. Wikipedia, two government portals, the monument's own domain and a global magazine. There is no independent mid-authority page anywhere in the top seven, which is the opposite of what the city family showed on the same market."
    }
   },
-  "what_is_not_sampled": "One SERP, on the city family. The named-entity family that carries most of this market's volume is NOT sampled: chichen itza at 91,000 and difficulty 24 is a SERP that needs its own reading, and so does esim mexico at a one dollar CPC."
+  "what_is_not_sampled": "Two of five. The city family (open) and the head of the named-entity family (official owned). The second-tier entities, the outdoor family and esim mexico at a dollar a click are unsampled.",
+  "what_this_changes": "It corrects the shape of this market as I first described it. The admission file said the named-entity family \"IS the market\" because it carries 91,000 of the volume on chichen itza alone. That volume is real and it is not reachable: Wikipedia and INAH hold the head. The family that IS reachable is the city family, where que hacer en merida has a DOMAIN RATING 16 page at position 3. So es-MX is admitted on 18 cities rather than on 5 icons, which is a smaller market than the volume column suggests and still a real one. The second-tier entities are unsampled and are where the question actually sits: hierve el agua reads 12,000 at difficulty ZERO with a fifty cent CPC and may behave like the city family rather than like Chichen Itza."
  },
  "families_admitted": [
   "activities.city-things-to-do",
@@ -284,5 +292,6 @@
  "duplication_risk_measured_not_assumed": "es-MX shares /es/ with es-ES and ADDS pages, on the same measured basis as en-AU: every URL belongs to exactly one market and distinct URLs per language equals rows per language exactly. Chichen Itza, Teotihuacan, Monterrey, Merida, Oaxaca, Guanajuato and Valle de Bravo are entities es-ES does not reach, because Mexico had no home market until now.",
  "implementation_cost": "LOW. No new language. One line in MARKETS, Mexico City in ORIGIN, this file in the keyword overlay, and the capture that is second in the market-candidate queue.",
  "blocking_dependency": "the Mexican OSM layers, second in osm-market-candidate-queue.sh behind Australia.",
- "licence_and_provenance": "Ahrefs Keywords Explorer and SERP Overview, read through the Ahrefs API v3 on 2026-10-05 against country=mx. Volumes are Ahrefs monthly search volume for Mexico; CPC is in USD cents as the API returns it."
+ "licence_and_provenance": "Ahrefs Keywords Explorer and SERP Overview, read through the Ahrefs API v3 on 2026-10-05 against country=mx. Volumes are Ahrefs monthly search volume for Mexico; CPC is in USD cents as the API returns it.",
+ "correction_to_my_own_earlier_reading": "The first version of this file called the named-entity family the market, on volume alone, before its SERP had been read. Same error as the ko-KR admission at 576354a, one market later, caught by sampling rather than by a gate. The city family carries the market; the icons carry the volume."
 }
