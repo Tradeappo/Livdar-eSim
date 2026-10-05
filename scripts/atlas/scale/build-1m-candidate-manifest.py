@@ -961,7 +961,7 @@ for _c in cities:
         SAME_NAME_IN_COUNTRY[(_c.get('country'), _c['name'].casefold())] += 1
 
 
-def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier, eid=''):
+def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier, eid='', ecity=''):
     basis = DISTINCT_BASIS.get(etype)
     if not basis:
         return ''                       # no defensible basis: the gate below drops it
@@ -974,11 +974,20 @@ def uniqueness_reason(f, etype, ename, ecountry, market, lang, tier, eid=''):
     # "for Barcelona in de-DE" - and a reason that cannot tell two candidates apart is
     # not doing the job the gate exists for.
     who = ename or etype
-    if ecountry and etype in ('city', 'city-pair', 'neighbourhood', 'venue', 'airport'):
+    # For anything BELOW city level the country is not the distinguishing fact and the city is.
+    # There are two Alte Opers in Germany, in Erfurt and in Frankfurt, and two E-Werks, in Cologne
+    # and in Berlin; naming only the country gave both members of each pair a byte-identical reason,
+    # 87 rows of it in stay.near-venue alone. The city is also what a reader needs, and it is the
+    # same qualifier the title already carries, so this is the reason catching up with the title
+    # rather than a discriminator invented to satisfy a checker.
+    if etype in ('venue', 'neighbourhood', 'poi', 'outdoor_feature', 'trail', 'airport'):
+        where = ', '.join(x for x in (ecity, ecountry) if x)
+        if where:
+            who = f"{who} ({where})"
+    elif ecountry and etype in ('city', 'city-pair'):
         who = f"{who} ({ecountry})"
-    # A country is not always enough: the United States has several Springfields, and two
-    # of them produced identical reasons. The entity id is the last resort that always
-    # distinguishes, because it is the id of the row's own entity.
+    # And where even that repeats, the entity id is the last resort that always distinguishes,
+    # because it is the id of the row's own entity. The United States has several Springfields.
     if eid and ename and SAME_NAME_IN_COUNTRY.get((ecountry, (ename or '').casefold()), 0) > 1:
         who = f"{who} [{eid}]"
     return (f"{f['family_id']} for {who} in {market}: {basis}; "
@@ -1152,7 +1161,8 @@ for f in fams:
                 # Why this page deserves to exist separately. Built from the family's
                 # own distinct-value test plus the entity and market that make this row
                 # different from its siblings. A row without one is dropped below.
-                'uniqueness_reason': uniqueness_reason(f, etype, ename, ecountry, m, lang, tier, eid),
+                'uniqueness_reason': uniqueness_reason(f, etype, ename, ecountry, m, lang,
+                                                      tier, eid, ecity),
             })
 
 # ---- OSM POI AGGREGATIONS (not one page per POI) ---------------------------
