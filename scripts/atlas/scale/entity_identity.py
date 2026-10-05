@@ -384,6 +384,7 @@ class Gazetteer:
 DEST_FILES = [
     'destination-demand-by-country-language-2026-10-02.json',
     'destination-demand-by-country-language-tr-2026-10-05.json',
+    'destination-demand-by-country-language-ko-2026-10-05.json',
 ]
 _DEST_ROWS = None
 

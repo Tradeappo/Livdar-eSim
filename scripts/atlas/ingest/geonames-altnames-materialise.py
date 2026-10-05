@@ -36,7 +36,7 @@ ZIP = '/tmp/alternateNamesV2.zip'
 # than pretending the file distinguishes them.
 # 'tr' added 2026-10-05 when tr-TR was admitted as a search market: the destination half of
 # that market needs a Turkish mark on every foreign place before it may have a Turkish page.
-WANT = {'de', 'en', 'es', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'tr', 'zh'}
+WANT = {'de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'tr', 'zh'}
 
 if not os.path.exists(ZIP) or os.path.getsize(ZIP) < 150_000_000:
     print(f'downloading {URL}', file=sys.stderr, flush=True)

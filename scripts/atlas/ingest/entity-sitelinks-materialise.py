@@ -36,7 +36,7 @@ API = 'https://www.wikidata.org/w/api.php'
 # 'tr' key means not asked, not absent.
 WIKIS = {'dewiki': 'de', 'enwiki': 'en', 'eswiki': 'es', 'frwiki': 'fr', 'itwiki': 'it',
          'jawiki': 'ja', 'nlwiki': 'nl', 'plwiki': 'pl', 'ptwiki': 'pt', 'trwiki': 'tr',
-         'zhwiki': 'zh'}
+         'kowiki': 'ko', 'zhwiki': 'zh'}
 LAYERS = [
     ('outdoor', 'data/atlas/sources/osm-outdoor/outdoor-*.jsonl.gz'),
     ('trails', 'data/atlas/sources/osm-trails/trails-*.jsonl.gz'),

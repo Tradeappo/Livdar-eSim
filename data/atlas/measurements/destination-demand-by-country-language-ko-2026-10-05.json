@@ -1,0 +1,474 @@
+{
+ "derived_on": "2026-10-05",
+ "derived_from": "Ahrefs Keywords Explorer, country=kr, 2026-10-05. 119 keywords recorded in ahrefs-ko-KR-market-admission-2026-10-05.json; the sixteen country pairs below are the subset where both halves were asked.",
+ "adds_to": "destination-demand-by-country-language-2026-10-02.json",
+ "why_a_separate_file": "Same reason as the tr file: the 2026-10-02 table is dated evidence for ten languages and stays byte-identical. The loader in entity_identity merges every file it is given.",
+ "rule": "Unchanged: a destination country earns a language only when BOTH a connectivity keyword and a travel-information keyword carry volume in it.",
+ "the_bar_and_where_it_comes_from": "The same 40 the Turkish file uses, read off what the 2026-10-02 table actually admitted (IS/de at 40, SI/it at 50). Korean clears it comfortably where Turkish barely reached it.",
+ "the_contrast_with_turkish_is_the_point": "These two markets were admitted on the same day and their connectivity halves behave in opposite ways. In Turkish the eSIM intent is generic: esim nedir 5,800 and esim nasil alinir 5,100 against a per-country ceiling of 100. In Korean it is per-country and expensive: ilbon esim 2,400 at $0.30, miguk esim 600 at $0.60, yeongguk esim 200 at $0.70, dogil esim 150 at $0.70. Twelve of sixteen Korean pairs qualify, against eleven of eighteen Turkish ones that mostly scraped over the bar. A gate keyed on one market would have got one of these two badly wrong whichever market it was keyed on.",
+ "pairs_tested": 16,
+ "pairs_qualifying": 12,
+ "qualifying_pairs": [
+  "DE|ko",
+  "ES|ko",
+  "FR|ko",
+  "GB|ko",
+  "HK|ko",
+  "IT|ko",
+  "JP|ko",
+  "SG|ko",
+  "TH|ko",
+  "TW|ko",
+  "US|ko",
+  "VN|ko"
+ ],
+ "refused_pairs_with_real_travel_volume": [
+  "CZ|ko",
+  "GR|ko",
+  "NL|ko",
+  "PT|ko"
+ ],
+ "of_the_qualifying_countries_which_are_captured_on_disk": [
+  "DE",
+  "ES",
+  "FR",
+  "GB",
+  "IT",
+  "JP"
+ ],
+ "of_the_qualifying_countries_which_are_not": [
+  "HK",
+  "SG",
+  "TH",
+  "TW",
+  "US",
+  "VN"
+ ],
+ "note_on_the_us": "US qualifies for Korean and its four regional extracts are being captured now, so this pair becomes buildable when that finishes rather than needing anything new queued.",
+ "table": {
+  "JP|ko": {
+   "destination_country": "JP",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "일본 esim",
+     2400,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "도쿄 여행",
+     5200,
+     0,
+     0
+    ],
+    [
+     "오사카 여행",
+     5000,
+     0,
+     0
+    ],
+    [
+     "후쿠오카 여행",
+     5300,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 2400,
+   "max_information_volume": 5300,
+   "max_cpc_cents": 0
+  },
+  "US|ko": {
+   "destination_country": "US",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "미국 esim",
+     600,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "하와이 여행",
+     1000,
+     0,
+     0
+    ],
+    [
+     "뉴욕 여행",
+     700,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 600,
+   "max_information_volume": 1000,
+   "max_cpc_cents": 0
+  },
+  "TW|ko": {
+   "destination_country": "TW",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "대만 esim",
+     500,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "타이베이 여행",
+     800,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 500,
+   "max_information_volume": 800,
+   "max_cpc_cents": 0
+  },
+  "VN|ko": {
+   "destination_country": "VN",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "베트남 esim",
+     450,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "다낭 여행",
+     2300,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 450,
+   "max_information_volume": 2300,
+   "max_cpc_cents": 0
+  },
+  "TH|ko": {
+   "destination_country": "TH",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "태국 esim",
+     250,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "방콕 여행",
+     1700,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 250,
+   "max_information_volume": 1700,
+   "max_cpc_cents": 0
+  },
+  "HK|ko": {
+   "destination_country": "HK",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "홍콩 esim",
+     250,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "홍콩 여행",
+     1800,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 250,
+   "max_information_volume": 1800,
+   "max_cpc_cents": 0
+  },
+  "GB|ko": {
+   "destination_country": "GB",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "영국 esim",
+     200,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "런던 여행",
+     450,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 200,
+   "max_information_volume": 450,
+   "max_cpc_cents": 0
+  },
+  "DE|ko": {
+   "destination_country": "DE",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "독일 esim",
+     150,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "베를린 여행",
+     200,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 200,
+   "max_cpc_cents": 0
+  },
+  "IT|ko": {
+   "destination_country": "IT",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "이탈리아 esim",
+     150,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "로마 여행",
+     500,
+     0,
+     0
+    ],
+    [
+     "이탈리아 여행 코스",
+     400,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 500,
+   "max_cpc_cents": 0
+  },
+  "ES|ko": {
+   "destination_country": "ES",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "스페인 esim",
+     150,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "바르셀로나 여행",
+     1200,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 1200,
+   "max_cpc_cents": 0
+  },
+  "FR|ko": {
+   "destination_country": "FR",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "프랑스 esim",
+     150,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "파리 여행",
+     500,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 500,
+   "max_cpc_cents": 0
+  },
+  "SG|ko": {
+   "destination_country": "SG",
+   "language": "ko",
+   "qualifies": true,
+   "why_not": "",
+   "connectivity_keywords": [
+    [
+     "싱가포르 esim",
+     150,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "싱가포르 여행",
+     1700,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 150,
+   "max_information_volume": 1700,
+   "max_cpc_cents": 0
+  },
+  "PT|ko": {
+   "destination_country": "PT",
+   "language": "ko",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"포르투갈 esim\" reads 10 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on. The travel half is real here - \"포르투갈 여행\" 1,600 - and one half is not enough. Portugal is the clearest case of the asymmetry the rule exists to catch: 1,600 a month reading about it and 10 a month wanting a SIM for it.",
+   "connectivity_keywords": [
+    [
+     "포르투갈 esim",
+     10,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "포르투갈 여행",
+     1600,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 10,
+   "max_information_volume": 1600,
+   "max_cpc_cents": 0
+  },
+  "GR|ko": {
+   "destination_country": "GR",
+   "language": "ko",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"그리스 esim\" reads 0 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on. The travel half is real here - \"그리스 산토리니\" 1,300 - and one half is not enough. Portugal is the clearest case of the asymmetry the rule exists to catch: 1,600 a month reading about it and 10 a month wanting a SIM for it.",
+   "connectivity_keywords": [
+    [
+     "그리스 esim",
+     0,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "그리스 산토리니",
+     1300,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 0,
+   "max_information_volume": 1300,
+   "max_cpc_cents": 0
+  },
+  "CZ|ko": {
+   "destination_country": "CZ",
+   "language": "ko",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"체코 esim\" reads 0 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on. The travel half is real here - \"프라하 여행\" 700 - and one half is not enough. Portugal is the clearest case of the asymmetry the rule exists to catch: 1,600 a month reading about it and 10 a month wanting a SIM for it.",
+   "connectivity_keywords": [
+    [
+     "체코 esim",
+     0,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "프라하 여행",
+     700,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 0,
+   "max_information_volume": 700,
+   "max_cpc_cents": 0
+  },
+  "NL|ko": {
+   "destination_country": "NL",
+   "language": "ko",
+   "qualifies": false,
+   "why_not": "the connectivity keyword \"네덜란드 esim\" reads 10 a month, below the 40 that the lowest QUALIFYING pair in the 2026-10-02 table was admitted on. The travel half is real here - \"암스테르담 여행\" 300 - and one half is not enough. Portugal is the clearest case of the asymmetry the rule exists to catch: 1,600 a month reading about it and 10 a month wanting a SIM for it.",
+   "connectivity_keywords": [
+    [
+     "네덜란드 esim",
+     10,
+     0,
+     0
+    ]
+   ],
+   "information_keywords": [
+    [
+     "암스테르담 여행",
+     300,
+     0,
+     0
+    ]
+   ],
+   "max_connectivity_volume": 10,
+   "max_information_volume": 300,
+   "max_cpc_cents": 0
+  }
+ }
+}

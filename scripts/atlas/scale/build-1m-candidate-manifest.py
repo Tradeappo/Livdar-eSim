@@ -325,7 +325,8 @@ print(f'  keyword master rows {len(km):,}, family-market cells with evidence {le
 # (neighbourhoods.city-where-to-stay at 20 and 50 in Turkish, weather.city-month at 70 and 20,
 # rents.city at 40) are read, counted and deliberately left out of the cells, so the refusal is
 # carried by the same file that carries the admission.
-NEW_MARKET_MEAS = ['ahrefs-tr-TR-market-admission-2026-10-05.json']
+NEW_MARKET_MEAS = ['ahrefs-tr-TR-market-admission-2026-10-05.json',
+                   'ahrefs-ko-KR-market-admission-2026-10-05.json']
 for _fn in NEW_MARKET_MEAS:
     try:
         _d = json.load(open(ROOT + 'data/atlas/measurements/' + _fn, encoding='utf-8'))
@@ -334,12 +335,10 @@ for _fn in NEW_MARKET_MEAS:
     _mkt = _d['market']
     _added = _skipped = 0
     for _fam, _v in (_d.get('families') or {}).items():
-        if _v.get('verdict') != 'MEASURED_IN_TURKISH' and _v.get('verdict') != 'MEASURED':
+        if _v.get('verdict') != 'MEASURED':
             _skipped += 1
             continue
-        # "family/DEST:XX" rows measure the destination axis for that family, not a separate
-        # family, so they validate the same cell under the base name.
-        _base = _fam.split('/')[0]
+        _base = _fam
         for _k in _v['keywords']:
             if (_k.get('volume') or 0) < _d.get('keyword_floor_used', 100):
                 continue

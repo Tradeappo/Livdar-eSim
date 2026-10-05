@@ -34,7 +34,7 @@ API = 'https://www.wikidata.org/w/api.php'
 # article is a city Turkish speakers look up, which is half two of the destination evidence.
 WIKIS = {'dewiki': 'de', 'enwiki': 'en', 'eswiki': 'es', 'frwiki': 'fr', 'itwiki': 'it',
          'jawiki': 'ja', 'nlwiki': 'nl', 'plwiki': 'pl', 'ptwiki': 'pt', 'trwiki': 'tr',
-         'zhwiki': 'zh'}
+         'kowiki': 'ko', 'zhwiki': 'zh'}
 
 city_ids = {}
 for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
