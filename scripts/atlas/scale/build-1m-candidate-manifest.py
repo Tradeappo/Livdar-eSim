@@ -342,6 +342,8 @@ print(f'  keyword master rows {len(km):,}, family-market cells with evidence {le
 # an open family not among the five sampled, or South Korea captured and a domestic family
 # measuring open - admitting it is one line in MARKETS rather than a re-measurement.
 NEW_MARKET_MEAS = ['ahrefs-tr-TR-market-admission-2026-10-05.json',
+                   'ahrefs-en-AU-market-admission-2026-10-05.json',
+                   'ahrefs-es-MX-market-admission-2026-10-05.json',
                    'ahrefs-ko-KR-market-admission-2026-10-05.json']
 for _fn in NEW_MARKET_MEAS:
     try:
@@ -1759,6 +1761,151 @@ def dest_evidence(r, top_kw):
         return _dm[r['market']]
     return ''
 
+
+# ---- the per-market family gate, for markets admitted AFTER the research freeze --------------
+# A new market does NOT inherit the family set of the markets that share its language. en-AU does
+# not get en-US's 203 families because they share /en/, and es-MX does not get es-ES's. Each
+# family has to be admitted on that market's OWN measurement, and anything not covered by one is
+# refused by name so the yield is auditable rather than assumed.
+#
+# The original eleven markets are untouched: their families were validated in the 2026-09-30
+# research freeze, which is the evidence this gate is standing in for.
+#
+# The manifest carries 203 families at class granularity (places.area-cafe, outdoors.volcano,
+# poi.museum-notable) while a keyword measurement is necessarily category level (you measure
+# "sydney restaurants" and "bondi cafes", not 104 separate list shapes). So the mapping from a
+# measured category to the families it admits is written out here rather than inferred, because
+# an inferred mapping is how a market quietly acquires families nobody measured.
+NEW_MARKET_FAMILY_COVER = {
+    'activities.city-things-to-do': {'activities.city-things-to-do'},
+    # the city list and the neighbourhood list, measured as "sydney restaurants" 4,400 and
+    # "bondi cafes" 800 in en-AU, "istanbul muzeleri" 1,300 and "kadikoy kafeler" 1,500 in tr-TR
+    'places.city-category': {'__prefix__places.city-'},
+    'places.area-category': {'__prefix__places.area-'},
+    'places.city-cuisine': {'places.city-cuisine', 'places.area-cuisine'},
+    # the named visitor entity: taronga zoo 52,000, chichen itza 91,000, topkapi 7,300
+    'poi.city-category-durable': {'__suffix__-notable'},
+    # named summits. cradle mountain 19,000 at difficulty zero, nemrut dagi 47,000
+    'outdoors.peak': {'outdoors.peak', 'outdoors.volcano', 'outdoors.mountain_pass',
+                      'outdoors.glacier', 'outdoors.cliff'},
+    # the beach and bay list inside a named area. bondi 83,000, fethiye plajlari 3,100
+    'outdoors.beach-in-region': {'outdoors.beach-in-region', 'outdoors.beach', 'outdoors.bay',
+                                 'outdoors.beach_resort', 'outdoors.beach-in-city'},
+    # parks and reserves. kakadu 12,000 at difficulty zero, hierve el agua 12,000
+    'outdoors.national-park': {'outdoors.national_park', 'outdoors.protected_area',
+                               'outdoors.nature_reserve', 'outdoors.region-feature'},
+    # long-distance routes measured from member geometry. likya yolu 17,000, larapinta 5,900
+    'outdoors.hiking-trail': {'outdoors.hiking-trail', 'outdoors.trail', 'outdoors.bicycle-trail',
+                              'outdoors.walking-trail'},
+    # fortifications and ruins. bodrum kalesi 5,500, alanya kalesi 6,100
+    'outdoors.castle': {'outdoors.castle', 'outdoors.fort', 'outdoors.ruins',
+                        'outdoors.archaeological_site', 'outdoors.city_gate'},
+    # the named region enumerations. karadeniz gezilecek yerler 2,400
+    'destinations.region-what-to-see': {'destinations.region-what-to-see',
+                                        'destinations.region-cities'},
+    'events.city-type': {'__prefix__events.'},
+    'stay.city-type': {'__prefix__stay.'},
+    'transport.city-getting-around': {'transport.city-getting-around'},
+    'weather.city-best-time': {'climate.region-when-to-go'},
+    'weather.city-month': {'weather.city-month'},
+    # connectivity is a PRODUCT surface, not a travel-content family, and none of the 203
+    # families in this manifest targets it. Mapped to nothing on purpose: esim australia at
+    # 18,000 and a $3.50 CPC is the commercial case for entering a market, and a travel page
+    # built to rank for it would be a doorway page.
+    'connectivity.esim-country': set(),
+    'connectivity.esim-region': set(),
+    'connectivity.esim-explainer': set(),
+}
+
+# A family a market's own SERP reading found closed is refused even though its demand measured.
+# This is the "head entities dominated by official or Wikipedia must not be forced" rule, applied
+# to the one case where a market-specific SERP actually contradicted the global shape class.
+NEW_MARKET_SERP_REFUSED = {
+    'es-MX': {
+        'poi.city-category-durable': (
+            'the es-MX SERP for chichen itza, 91,000 a month and the largest keyword in this '
+            'market, is held by es.wikipedia at 1 with 22,808 traffic, INAH the federal '
+            'archaeology institute at 3 with 11,513, the monument own domain at 4, '
+            'yucatan.gob.mx at 6 and National Geographic at 7. No independent mid-authority page '
+            'in the top seven. The demand is real and not reachable by this page type, so the '
+            'named-entity family is refused for es-MX and the market rests on its eighteen '
+            'measured cities instead'),
+    },
+}
+
+NEW_MARKETS = {}
+for _fn in NEW_MARKET_MEAS:
+    try:
+        _d = json.load(open(ROOT + 'data/atlas/measurements/' + _fn, encoding='utf-8'))
+    except (FileNotFoundError, ValueError):
+        continue
+    _mkt = _d['market']
+    if _mkt not in MKT_COUNTRY:          # measured but not admitted to MARKETS, e.g. ko-KR
+        continue
+    _allow = set()
+    _unmapped = []
+    for _cat in (_d.get('families_admitted') or []):
+        if _cat in NEW_MARKET_SERP_REFUSED.get(_mkt, {}):
+            continue
+        _cover = NEW_MARKET_FAMILY_COVER.get(_cat)
+        if _cover is None:
+            _unmapped.append(_cat)
+            continue
+        _allow |= _cover
+    NEW_MARKETS[_mkt] = _allow
+    print(f'  {_mkt} family gate: {len(_d.get("families_admitted") or [])} measured categories '
+          f'-> {len(_allow)} cover rules'
+          + (f'; SERP-refused: {sorted(NEW_MARKET_SERP_REFUSED.get(_mkt, {}))}'
+             if NEW_MARKET_SERP_REFUSED.get(_mkt) else '')
+          + (f'; UNMAPPED and therefore refused: {_unmapped}' if _unmapped else ''),
+          file=sys.stderr)
+
+
+def family_allowed_in_new_market(market, fid):
+    """True when this family is covered by this market's own measurement."""
+    allow = NEW_MARKETS.get(market)
+    if allow is None:
+        return True                      # one of the original eleven, validated at the freeze
+    if fid in allow:
+        return True
+    for rule in allow:
+        if rule.startswith('__prefix__') and fid.startswith(rule[10:]):
+            return True
+        if rule.startswith('__suffix__') and fid.endswith(rule[10:]):
+            return True
+    return False
+
+
+fam_gate_rejected = []
+stage2f = []
+fam_gate_counts = collections.Counter()
+for r in stage2:
+    if family_allowed_in_new_market(r['market'], r['family']):
+        stage2f.append(r)
+        continue
+    _why = NEW_MARKET_SERP_REFUSED.get(r['market'], {}).get(r['family'])
+    r['rejection_reason'] = (
+        f"REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: {r['market']} was admitted after the "
+        f"research freeze, so it inherits no family from the markets that share its language. "
+        + (_why if _why else
+           f"{r['family']} is not covered by any category its own keyword measurement admitted, "
+           f"so there is no evidence this market wants this page type")
+        + '. A shared language is not shared demand.')
+    r['status'] = 'REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET'
+    fam_gate_counts[f"{r['market']}:{r['family']}"] += 1
+    fam_gate_rejected.append(r)
+
+after_family_gate = len(stage2f)
+if fam_gate_rejected:
+    print(f'per-market family gate: kept {after_family_gate:,}, '
+          f'rejected {len(fam_gate_rejected):,}', file=sys.stderr)
+    _bym = collections.Counter(k.split(':')[0] for k in fam_gate_counts.elements())
+    for _m, _n in _bym.most_common():
+        print(f'    {_m:12} {_n:>8,} rows in families it never measured', file=sys.stderr)
+    for _k, _n in fam_gate_counts.most_common(8):
+        print(f'      {_k:48} {_n:>8,}', file=sys.stderr)
+stage2 = stage2f
+
 loc_counts = collections.Counter()
 loc_rejected = []
 stage2b = []
@@ -2108,16 +2255,66 @@ for _l, _ms in sorted(_lang_markets.items()):
                 _mk = {_r['market'] for _r in _g}
                 if _a in _mk and _b in _mk:
                     _shared.append(_k)
+            # the full per-pair detail the brief asks for, computed rather than asserted
+            _exact = _semantic = _tplonly = _samedata = _samefacts = _samesect = 0
+            _diffs = collections.Counter()
+            _rej = 0
+            for _k in _shared:
+                _ra = [x for x in xm_group[_k] if x['market'] == _a]
+                _rb = [x for x in xm_group[_k] if x['market'] == _b]
+                for _x in _ra:
+                    for _y in _rb:
+                        if _x['url_pattern'] == _y['url_pattern']:
+                            _exact += 1
+                        if _x.get('semantic_cluster_id') == _y.get('semantic_cluster_id'):
+                            _semantic += 1
+                        if _x['template_signature'] == _y['template_signature']:
+                            _samesect += 1
+                        if _x.get('data_signature') == _y.get('data_signature'):
+                            _samedata += 1
+                        _fa = {z.strip() for z in (_x.get('locale_facts') or '').split('|')
+                               if z.strip()}
+                        _fb = {z.strip() for z in (_y.get('locale_facts') or '').split('|')
+                               if z.strip()}
+                        if _fa == _fb:
+                            _samefacts += 1
+                        if (_x['template_signature'] == _y['template_signature']
+                                and _fa == _fb
+                                and _x.get('data_signature') == _y.get('data_signature')):
+                            _tplonly += 1
+                for _x in _ra + _rb:
+                    _rsn = _x.get('cross_market_uniqueness_reason') or ''
+                    if 'earns a separate page' in _rsn:
+                        for _tok in ('OWN_MEASURED_DEMAND', 'TWO_OR_MORE_MARKET_FACTS',
+                                     'NATIVE_LANGUAGE_OF_THE_SUBJECT', 'DIFFERENT_INTENT',
+                                     'MARKET_REGULATION', 'MARKET_PRICING',
+                                     'DIFFERENT_ENTITY_SCOPE'):
+                            if _tok in _rsn:
+                                _diffs[_tok] += 1
+            _rej = sum(1 for _x in xm_rejected
+                       if _x['market'] in (_a, _b)
+                       and (_x['family'], _x['entity_type'], _x['entity_id']) in set(_shared))
             XM_SAME_LANGUAGE_REPORT[f'{_a} vs {_b}'] = {
                 'language': _l,
-                'entity_and_intent_groups_both_markets_claim': len(_shared),
+                'same_family_entity_intent_groups_both_markets_claim': len(_shared),
+                'exact_content_duplicates_same_url': _exact,
+                'semantic_duplicates_same_semantic_cluster': _semantic,
+                'same_section_sets_same_template_signature': _samesect,
+                'same_data_signatures': _samedata,
+                'same_fact_sets': _samefacts,
+                'template_only_variants_same_template_data_AND_facts': _tplonly,
+                'differentiator_types_accepted_on': dict(_diffs.most_common()),
+                'rejected_by_the_cross_market_gate': _rej,
                 'examples': [list(x) for x in _shared[:5]],
-                'reading': ('no (family, entity) is claimed by both markets, so there is no '
-                            'same-language content duplication between them to resolve'
+                'reading': ('no (family, entity, intent) group is claimed by both markets, so '
+                            'there is no same-language content duplication between them to '
+                            'resolve. This is measured on every run, not assumed.'
                             if not _shared else
-                            f'{len(_shared)} groups are claimed by both and each row in them had '
-                            f'to earn its place on a market-specific difference, not on its '
-                            f'market id'),
+                            f'{len(_shared)} groups claimed by both. Of the pairs inside them, '
+                            f'{_tplonly} are TEMPLATE-ONLY variants, identical in template, '
+                            f'source data and fact set; those cannot pass the gate on a market '
+                            f'id and {_rej} rows were rejected. The rest were accepted only on '
+                            f'{sorted(_diffs)}.'),
             }
 for _pair, _v in XM_SAME_LANGUAGE_REPORT.items():
     print(f'    same-language check {_pair:24} '
@@ -2229,6 +2426,7 @@ for i, r in enumerate(stage3):
 
 print(f'after exact dedupe:        {after_exact:,}', file=sys.stderr)
 print(f'after semantic dedupe:     {after_semantic:,}', file=sys.stderr)
+print(f'after family gate:         {after_family_gate:,}', file=sys.stderr)
 print(f'after localisation gate:   {after_localization:,}', file=sys.stderr)
 print(f'after cross-market gate:   {after_cross_market:,}', file=sys.stderr)
 print(f'after cannibalization:     {after_cannib:,}', file=sys.stderr)
@@ -2259,7 +2457,8 @@ def strip_long_dashes(rows):
             touched += 1
     return touched
 
-_dash_fixed = (strip_long_dashes(stage3) + strip_long_dashes(rejected)
+_dash_fixed = (strip_long_dashes(stage3) + strip_long_dashes(fam_gate_rejected)
+              + strip_long_dashes(rejected)
               + strip_long_dashes(exact_dupes) + strip_long_dashes(loc_rejected)
               + strip_long_dashes(xm_rejected)
               + strip_long_dashes(cannib_rejected)
@@ -2271,7 +2470,7 @@ os.makedirs(OUT, exist_ok=True)
 # every rejection in one file, whatever stage produced it: hiding the localisation
 # rejections in a separate place would make the funnel unauditable
 rejected = (rejected + exact_dupes + semantic_dupes + name_dupes + loc_rejected
-            + xm_rejected
+            + fam_gate_rejected + xm_rejected
             + cannib_rejected + orphan_rejected)
 with gzip.open(OUT + 'LIVDAR-1M-REJECTED-CANDIDATES.csv.gz', 'wt', newline='') as gz:
     w = csv.DictWriter(gz, fieldnames=FIELDS, extrasaction='ignore')
@@ -2371,6 +2570,7 @@ summary = {
     'raw_candidate_combinations_means': 'the count AFTER the uniqueness and SERP gate',
     'removed_by_uniqueness_and_serp_gate': generated_total - raw_total,
     'removed_as_exact_duplicate_urls': len(exact_dupes),
+    'removed_by_per_market_family_gate': len(fam_gate_rejected),
     'removed_by_localisation_gate': len(loc_rejected),
     'removed_by_cross_market_content_uniqueness_gate': len(xm_rejected),
     'cross_market_same_language_checks': XM_SAME_LANGUAGE_REPORT,
@@ -2380,7 +2580,8 @@ summary = {
     'removed_because_the_declared_parent_did_not_survive': len(orphan_rejected),
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
                           - len(exact_dupes) - len(semantic_dupes) - len(name_dupes)
-                          - len(loc_rejected) - len(xm_rejected) - len(cannib_rejected)
+                          - len(fam_gate_rejected) - len(loc_rejected)
+                          - len(xm_rejected) - len(cannib_rejected)
                           - len(orphan_rejected)) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,

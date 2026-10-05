@@ -58,20 +58,50 @@ python3 scripts/atlas/ingest/pulse-materialise.py > /tmp/pipe_pulse.log 2>&1 \
   && tail -3 /tmp/pipe_pulse.log || echo "  pulse: FAILED, see /tmp/pipe_pulse.log"
 
 log "POI to containment parent, so every later stage can ask what is INSIDE a geography"
-python3 scripts/atlas/scale/poi-parent-assign.py > /tmp/pipe_assign.log 2>&1 \
-  && tail -4 /tmp/pipe_assign.log || echo "  parent assignment: see /tmp/pipe_assign.log"
+# FATAL. Every stage after this one asks what is inside a geography, so a stale or missing
+# answer here silently corrupts all of them. On 2026-10-05 this stage was OOM-killed, the runner
+# printed "see the log" and carried on, and the run reached the manifest with containment parents
+# that predated three captured countries. See verify-stage-output.sh for the four checks and why
+# each is needed.
+touch /tmp/.assign_attempt_marker
+python3 scripts/atlas/scale/poi-parent-assign.py > /tmp/pipe_assign.log 2>&1
+AC=$?
+tail -4 /tmp/pipe_assign.log
+if ! ./scripts/atlas/scale/verify-stage-output.sh "poi-parent-assign" "$AC" \
+     data/atlas/sources/osm-poi/_parent-assignment.jsonl.gz 100000 /tmp/.assign_attempt_marker; then
+  echo "  STOPPING. Nothing downstream is regenerated, so every artifact on disk still describes"
+  echo "  the previous run rather than a half-built one. The last 20 lines of its log:"
+  tail -20 /tmp/pipe_assign.log
+  exit 1
+fi
 
 log "exclusive POI density per place, which decides which unnamed places are real"
 # Every named POI to EXACTLY ONE place. This has to run BEFORE poi-aggregations, because the
 # place gate reads its output to recover places that carry no polygon, no population, no Wikidata
 # item and no Wikipedia article but do hold twenty or more named POI nothing else can claim.
-python3 scripts/atlas/scale/place-poi-density.py > /tmp/pipe_density.log 2>&1 \
-  && grep -E "EXCLUSIVE|recoverable|written" /tmp/pipe_density.log \
-  || echo "  density: see /tmp/pipe_density.log"
+# FATAL: poi-aggregations reads this to decide which unnamed places are real, so an empty or
+# stale density file silently changes which places exist.
+touch /tmp/.density_attempt_marker
+python3 scripts/atlas/scale/place-poi-density.py > /tmp/pipe_density.log 2>&1
+DC=$?
+grep -E "EXCLUSIVE|recoverable|written" /tmp/pipe_density.log
+if ! ./scripts/atlas/scale/verify-stage-output.sh "place-poi-density" "$DC" \
+     data/atlas/sources/places/poi-density.jsonl.gz 10000 /tmp/.density_attempt_marker; then
+  echo "  STOPPING; nothing downstream is regenerated."; tail -20 /tmp/pipe_density.log; exit 1
+fi
 
 log "POI aggregations (city and area shapes, gated on measured demand)"
+# FATAL: this is the single largest contributor to the manifest, 214,953 rows of the 302,063 in
+# the 2026-10-02 build. A manifest built without it is not a smaller manifest, it is a different
+# inventory.
+touch /tmp/.agg_attempt_marker
 python3 scripts/atlas/scale/poi-aggregations.py > /tmp/pipe_agg.log 2>&1
+GC=$?
 grep -E "^(POI read|aggregation candidates|  by shape)" /tmp/pipe_agg.log || tail -3 /tmp/pipe_agg.log
+if ! ./scripts/atlas/scale/verify-stage-output.sh "poi-aggregations" "$GC" \
+     data/atlas/sources/osm-poi/_aggregations.jsonl.gz 50000 /tmp/.agg_attempt_marker; then
+  echo "  STOPPING; nothing downstream is regenerated."; tail -20 /tmp/pipe_agg.log; exit 1
+fi
 
 else
   if [ "$MODE" = "--from-aggregations" ]; then
@@ -82,8 +112,19 @@ else
       echo "  reusing $need  ($(stat -c '%y' "$need" | cut -d. -f1))"
     done
     log "POI to containment parent, refreshed because a new parent layer changes every answer"
-    python3 scripts/atlas/scale/poi-parent-assign.py > /tmp/pipe_assign.log 2>&1 \
-      && tail -4 /tmp/pipe_assign.log || echo "  parent assignment: see /tmp/pipe_assign.log"
+    # FATAL here too, and for a sharper reason: --from-aggregations exists to be run after a new
+    # geographic layer lands, so this is exactly the path where a stale parent assignment does
+    # the most damage.
+    touch /tmp/.assign_attempt_marker
+    python3 scripts/atlas/scale/poi-parent-assign.py > /tmp/pipe_assign.log 2>&1
+    AC=$?
+    tail -4 /tmp/pipe_assign.log
+    if ! ./scripts/atlas/scale/verify-stage-output.sh "poi-parent-assign" "$AC" \
+         data/atlas/sources/osm-poi/_parent-assignment.jsonl.gz 100000 /tmp/.assign_attempt_marker; then
+      echo "  STOPPING; nothing downstream is regenerated. The last 20 lines of its log:"
+      tail -20 /tmp/pipe_assign.log
+      exit 1
+    fi
   fi
 fi
 

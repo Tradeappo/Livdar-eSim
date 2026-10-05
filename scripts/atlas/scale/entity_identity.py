@@ -615,6 +615,8 @@ ORIGIN = {
     'ja-JP': ('Tokyo', 35.6762, 139.6503, '1850147'),
     'zh-Hant-TW': ('Taipei', 25.0330, 121.5654, '1668341'),
     'tr-TR': ('Istanbul', 41.0082, 28.9784, '745044'),
+    'en-AU': ('Sydney', -33.8688, 151.2093, '2147714'),
+    'es-MX': ('Mexico City', 19.4326, -99.1332, '3530597'),
 }
 _MCODE = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 _MONTH = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
@@ -794,6 +796,18 @@ MARKETS = [
     # built: eleven cities between 2,100 and 8,800 a month, every one at keyword difficulty 0 or 1,
     # with kapadokya gezilecek yerler at 8,800 and viyana at 4,100.
     ('tr-TR', 'TR', 'tr'),
+    # Admitted 2026-10-05 on ahrefs-en-AU-market-admission-2026-10-05.json: 60 keywords, 673,150
+    # measured volume, the largest of any candidate, and the most open SERP read anywhere in this
+    # exercise (two DOMAIN RATING 4 sites in the top five of "things to do in cairns", a DR 31
+    # page with ZERO backlinks above Tripadvisor and Lonely Planet on "cradle mountain"). It
+    # inherits NO family from en-US or en-GB: the per-market family gate in the manifest admits
+    # only the categories its own measurement covers.
+    ('en-AU', 'AU', 'en'),
+    # Admitted 2026-10-05 on ahrefs-es-MX-market-admission-2026-10-05.json: 30 keywords, 257,080
+    # volume, city family open (a DR 16 page at position 3 on one backlink). Its named-entity
+    # family is REFUSED despite measuring 91,000 on chichen itza, because that SERP is held by
+    # Wikipedia, INAH and the Yucatan state portal. The market rests on its eighteen cities.
+    ('es-MX', 'MX', 'es'),
 ]
 MKT_COUNTRY = {m: c for m, c, _ in MARKETS}
 MKT_LANG = {m: l for m, _, l in MARKETS}
