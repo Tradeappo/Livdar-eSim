@@ -484,3 +484,107 @@ def marks_for(o, root='/home/user/Livdar-eSim/'):
                 out['zh-Hant'] = out[alias]
                 break
     return out
+
+
+# ---- what makes a locale copy something other than a translation -------------------------------
+# The destination axis lets one place earn several markets. Two halves of evidence decide WHETHER a
+# copy exists: the country carries measured demand in that language, and the entity carries a name
+# or an article in it. Neither says anything about whether the copy is WORTH existing, and a German
+# and an Italian page carrying the same facts in different words is a translated clone whatever
+# evidence let it through the gate.
+#
+# So every destination copy carries at least one fact that is true for ITS market and not for the
+# others, computed rather than asserted:
+#
+#   the distance from that market's main origin city, which is a different number for every market
+#   and is the first thing a traveller wants: Cappadocia is 2,200km from Berlin and 9,000km from
+#   Tokyo, and those are not the same trip
+#
+#   the temperature gap against that origin in the warmest and coolest month, where NASA POWER has
+#   normals for both ends, which is the second thing they want and is also market-specific
+#
+# This is not a style rule. A page that cannot state one locale-specific fact has nothing to say to
+# that locale that the original did not already say, and the honest thing is for it not to exist.
+ORIGIN = {
+    'en-US': ('New York', 40.7128, -74.0060, '5128581'),
+    'en-GB': ('London', 51.5074, -0.1278, '2643743'),
+    'de-DE': ('Berlin', 52.5200, 13.4050, '2950159'),
+    'fr-FR': ('Paris', 48.8566, 2.3522, '2988507'),
+    'it-IT': ('Rome', 41.9028, 12.4964, '3169070'),
+    'es-ES': ('Madrid', 40.4168, -3.7038, '3117735'),
+    'nl-NL': ('Amsterdam', 52.3676, 4.9041, '2759794'),
+    'pl-PL': ('Warsaw', 52.2297, 21.0122, '756135'),
+    'pt-BR': ('Sao Paulo', -23.5505, -46.6333, '3448439'),
+    'ja-JP': ('Tokyo', 35.6762, 139.6503, '1850147'),
+    'zh-Hant-TW': ('Taipei', 25.0330, 121.5654, '1668341'),
+}
+_MCODE = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+_MONTH = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+          'September', 'October', 'November', 'December']
+_NORMALS = None
+
+
+def _normals(root='/home/user/Livdar-eSim/'):
+    """{city_id: {month code: mean temperature}} from the NASA POWER climatology."""
+    global _NORMALS
+    if _NORMALS is not None:
+        return _NORMALS
+    import glob as _g, json as _js
+    out = {}
+    for f in sorted(_g.glob(root + 'data/atlas/sources/climate/power/power-*.jsonl')):
+        try:
+            with open(f, encoding='utf-8') as fh:
+                for line in fh:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        r = _js.loads(line)
+                    except Exception:
+                        continue
+                    cid = r.get('city_id')
+                    ms = r.get('months') or {}
+                    if cid and ms:
+                        out[str(cid)] = {k: (v or {}).get('T2M') for k, v in ms.items()}
+        except OSError:
+            pass
+    _NORMALS = out
+    return out
+
+
+def great_circle_km(la1, lo1, la2, lo2):
+    r = 6371.0
+    p1, p2 = math.radians(la1), math.radians(la2)
+    dp, dl = p2 - p1, math.radians(lo2 - lo1)
+    a = (math.sin(dp / 2) ** 2
+         + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2)
+    return 2 * r * math.asin(min(1.0, math.sqrt(a)))
+
+
+def locale_facts(market, lat, lon, dest_city_id=None, root='/home/user/Livdar-eSim/'):
+    """Facts true for THIS market and not the others. Empty when none can be computed."""
+    org = ORIGIN.get(market)
+    if not org or lat is None or lon is None:
+        return []
+    name, ola, olo, ocid = org
+    out = []
+    km = great_circle_km(float(lat), float(lon), ola, olo)
+    if km >= 25:
+        # rounded, because a great-circle distance is not a flight path and the page should not
+        # imply a precision it does not have
+        step = 50 if km < 1000 else 100
+        out.append(f'about {int(round(km / step) * step):,}km from {name} in a straight line')
+    if dest_city_id:
+        nn = _normals(root)
+        a, b = nn.get(str(dest_city_id)), nn.get(ocid)
+        if a and b:
+            for mi in (6, 0):          # July and January, the two a traveller compares
+                ta, tb = a.get(_MCODE[mi]), b.get(_MCODE[mi])
+                if ta is not None and tb is not None:
+                    d = ta - tb
+                    if abs(d) >= 1.5:
+                        out.append(f'{_MONTH[mi]} averages {abs(d):.0f} degrees '
+                                   f'{"warmer" if d > 0 else "cooler"} than {name}')
+                    else:
+                        out.append(f'{_MONTH[mi]} averages within a degree of {name}')
+    return out

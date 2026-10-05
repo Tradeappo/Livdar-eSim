@@ -1,20 +1,20 @@
 {
  "measuredOn": "2026-10-01",
- "families": 187,
- "pages": 253988,
+ "families": 204,
+ "pages": 302063,
  "verdicts": {
-  "ACCEPTED": 154,
-  "ACCEPTED_WITH_AN_UNKNOWN": 33
+  "ACCEPTED": 170,
+  "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 189851,
-  "ACCEPTED_WITH_AN_UNKNOWN": 64137
+  "ACCEPTED": 228126,
+  "ACCEPTED_WITH_AN_UNKNOWN": 73937
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
  "by_family": {
   "activities.city-things-to-do": {
-   "pages": 8887,
+   "pages": 16266,
    "markets": [
     "de-DE",
     "en-GB",
@@ -43,13 +43,13 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 8887,
+    "unique_fact_count": 16266,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 8741,
-    "template_ratio": 8887.0,
+    "distinct_entity_count": 12654,
+    "template_ratio": 16266.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0052,
+    "near_duplicate_token_score": 0.0035,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "activities.city-things-to-do for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; nl market demand measured for this family"
    },
@@ -136,6 +136,41 @@
     "near_duplicate_token_score": 0.0067,
     "near_duplicate_worst_language": "pl",
     "information_gain_reason": "10e Arrondissement is a named suburb of Paris 10 Entrepôt with 595 mapped entities across 20 categories and a mapped place node, population 83543, Wikidata Q163948: an area overview that no single category list and no city page covers"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "climate.region-when-to-go": {
+   "pages": 84,
+   "markets": [
+    "de-DE"
+   ],
+   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [
+    "7_serp_sampled"
+   ],
+   "contract": {
+    "unique_fact_count": 84,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 84,
+    "template_ratio": 84.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "a twelve-month mean temperature and rainfall normal for Angeln, computed from the NASA POWER daily record for the 4 places inside its polygon and not from one station with a region's name on it. The station count is stated on the page because an average of three is not an average of thirty."
    },
    "every_page_is_low_completeness": false
   },
@@ -356,6 +391,76 @@
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
     "information_gain_reason": "destinations.country-hub for Brazil in pt-BR: country-specific rules, rates or figures that differ by jurisdiction; 2 source fields from HELD; pt market demand measured for this family"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "destinations.region-cities": {
+   "pages": 120,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 120,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 120,
+    "template_ratio": 120.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "the 1,527 cities and towns inside Penisola italiana, each one inside its polygon rather than near its centre, with the population and elevation GeoNames publishes for each. The set is different for every region by construction, because a city is in one polygon or it is not."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "destinations.region-what-to-see": {
+   "pages": 404,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 404,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 403,
+    "template_ratio": 404.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "1,189 named places inside Parc naturel régional de Millevaches en Limousin, a protected area, broken down across 9 kinds and each attached by containment within its polygon rather than by distance to its centre. No single place page carries the breakdown or the count."
    },
    "every_page_is_low_completeness": false
   },
@@ -762,77 +867,10 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.aqueduct": {
-   "pages": 20,
-   "markets": [
-    "de-DE",
-    "it-IT"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 20,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 20,
-    "template_ratio": 20.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Acqua Paola is a named aqueduct in IT recorded in OpenStreetMap with 1 measured attributes (dated to 109), inside Macchia della Fiora, a forest, 3.7km from Manziana. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
-   },
-   "every_page_is_low_completeness": false
-  },
-  "outdoors.archaeological_site": {
-   "pages": 1384,
-   "markets": [
-    "de-DE",
-    "it-IT"
-   ],
-   "verdict": "ACCEPTED",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "PASS",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [],
-   "contract": {
-    "unique_fact_count": 1384,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 1384,
-    "template_ratio": 1384.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Abbazia Benedettina is a named archaeological site in IT recorded in OpenStreetMap with 2 measured attributes (opening hours: Tu-Th 16:00-19:00; PH off, fee: no), inside Catanzaro, a county, 5.5km from Sambiase. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
-   },
-   "every_page_is_low_completeness": false
-  },
-  "outdoors.beach": {
    "pages": 27,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -859,13 +897,87 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
+    "information_gain_reason": "Acqua Paola is a named aqueduct in IT recorded in OpenStreetMap with 1 measured attributes (dated to 109), inside Macchia della Fiora, a forest, 3.7km from Manziana. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.archaeological_site": {
+   "pages": 1887,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 1887,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 1884,
+    "template_ratio": 1887.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Abbaye de Clairlieu is a named archaeological site in FR recorded in OpenStreetMap with 1 measured attributes (access: permissive), inside Meurthe-et-Moselle, a county, 3.0km from Villers-lès-Nancy. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.beach": {
+   "pages": 57,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 57,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 57,
+    "template_ratio": 57.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
     "information_gain_reason": "Badestelle Kleiner Müggelsee is a named beach in DE recorded in OpenStreetMap with 1 measured attributes (), inside Müggelspree, a protected area, 5.1km from Schöneiche. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.beach-in-region": {
-   "pages": 20,
+   "pages": 44,
    "markets": [
+    "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -884,22 +996,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 20,
+    "unique_fact_count": 44,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 20,
-    "template_ratio": 20.0,
+    "distinct_entity_count": 44,
+    "template_ratio": 44.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "3 named beachs inside Forlì-Cesena, a county, each attached by containment within its polygon and named in OpenStreetMap: a list and a count that no single feature page carries"
+    "information_gain_reason": "10 named beachs inside Île de Porquerolles, a island, each attached by containment within its polygon and named in OpenStreetMap: a list and a count that no single feature page carries"
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.beach_resort": {
-   "pages": 3,
+   "pages": 4,
    "markets": [
-    "it-IT"
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -917,10 +1030,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3,
+    "unique_fact_count": 4,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3,
-    "template_ratio": 3.0,
+    "distinct_entity_count": 4,
+    "template_ratio": 4.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -929,11 +1042,11 @@
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.camp_site": {
-   "pages": 104,
+  "outdoors.bicycle-trail": {
+   "pages": 3537,
    "markets": [
-    "de-DE",
-    "it-IT"
+    "fr-FR",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -951,10 +1064,79 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 104,
+    "unique_fact_count": 3537,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 104,
-    "template_ratio": 104.0,
+    "distinct_entity_count": 3537,
+    "template_ratio": 3537.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.005,
+    "near_duplicate_worst_language": "fr",
+    "information_gain_reason": "(Projet) Voie PLM is a named cycle route in FR measured at 8km from its mapped member ways, with waymarked as a regional cycle route, passing through 2 named geographies. It is evidenced as a real route by waymarked as a regional cycle route. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume fo"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.bird_hide": {
+   "pages": 1,
+   "markets": [
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS (a single page cannot be similar to itself)",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 1,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 1,
+    "template_ratio": 1.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "In between the gap is a named bird hide in NL recorded in OpenStreetMap with 1 measured attributes (), inside Kluut (2), a protected area, 1.3km from Zwanenburg. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.camp_site": {
+   "pages": 119,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 119,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 119,
+    "template_ratio": 119.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -997,10 +1179,44 @@
    },
    "every_page_is_low_completeness": false
   },
+  "outdoors.canoe-trail": {
+   "pages": 30,
+   "markets": [
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 30,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 30,
+    "template_ratio": 30.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Achterbosroute Kort is a named canoe route in NL measured at 8km from its mapped member ways, with passing through 1 named geographies, within 8km of 6 towns. It is evidenced as a real route by maintained by Gemeente De Ronde Venen. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume for THIS rou"
+   },
+   "every_page_is_low_completeness": false
+  },
   "outdoors.caravan_site": {
-   "pages": 7,
+   "pages": 14,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1019,23 +1235,25 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 7,
+    "unique_fact_count": 14,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 7,
-    "template_ratio": 7.0,
+    "distinct_entity_count": 14,
+    "template_ratio": 14.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Caravan-Übernachtungsplatz Billy - Bad Gottleuba-Berggießhübel is a named caravan site in DE recorded in OpenStreetMap with 5 measured attributes (a capacity of 6, opening hours: Apr-Oct, fee: yes), inside Sächsische Schweiz, a mountain range, 9.1km from Pirna. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Aire de Camping-Car de Fromelennes is a named caravan site in FR recorded in OpenStreetMap with 2 measured attributes (a capacity of 10, fee: no), inside Parc naturel régional des Ardennes, a protected area, 3.2km from Givet. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.castle": {
-   "pages": 2689,
+   "pages": 6616,
    "markets": [
     "de-DE",
-    "it-IT"
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1053,22 +1271,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2689,
+    "unique_fact_count": 6616,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2689,
-    "template_ratio": 2689.0,
+    "distinct_entity_count": 6611,
+    "template_ratio": 6616.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "8 is a named castle in DE recorded in OpenStreetMap with 1 measured attributes (), inside Landkreis Ravensburg, a county, 0.1km from Kißlegg. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "'t Joppe is a named castle in NL recorded in OpenStreetMap with 2 measured attributes (dated to 1650, access: private), inside Gelderland, a region, 5.8km from Bathmen. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.castle-in-region": {
-   "pages": 154,
+   "pages": 299,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1087,10 +1306,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 154,
+    "unique_fact_count": 299,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 154,
-    "template_ratio": 154.0,
+    "distinct_entity_count": 299,
+    "template_ratio": 299.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1100,10 +1319,12 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.cave": {
-   "pages": 327,
+   "pages": 476,
    "markets": [
     "de-DE",
-    "it-IT"
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1121,10 +1342,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 327,
+    "unique_fact_count": 476,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 327,
-    "template_ratio": 327.0,
+    "distinct_entity_count": 476,
+    "template_ratio": 476.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1134,10 +1355,12 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.city_gate": {
-   "pages": 210,
+   "pages": 334,
    "markets": [
     "de-DE",
-    "it-IT"
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1155,10 +1378,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 210,
+    "unique_fact_count": 334,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 210,
-    "template_ratio": 210.0,
+    "distinct_entity_count": 334,
+    "template_ratio": 334.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1168,9 +1391,10 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.climbing_crag": {
-   "pages": 7,
+   "pages": 10,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1189,10 +1413,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 7,
+    "unique_fact_count": 10,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 7,
-    "template_ratio": 7.0,
+    "distinct_entity_count": 10,
+    "template_ratio": 10.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1201,11 +1425,11 @@
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.fort": {
-   "pages": 109,
+  "outdoors.foot-trail": {
+   "pages": 732,
    "markets": [
-    "de-DE",
-    "it-IT"
+    "fr-FR",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1223,10 +1447,46 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 109,
+    "unique_fact_count": 732,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 109,
-    "template_ratio": 109.0,
+    "distinct_entity_count": 732,
+    "template_ratio": 732.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0063,
+    "near_duplicate_worst_language": "nl",
+    "information_gain_reason": "'s-Gravelandse Buitenplaatsen is a named walking route in NL measured at 17km from its mapped member ways, with a published distance of 16, waymarked as a local route, passing through 2 named geographies. It is evidenced as a real route by waymarked as a local route and maintained by Natuurmonumenten. The demand for this FAMILY was measured on eighteen named trails across two languages, every one "
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.fort": {
+   "pages": 300,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 300,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 300,
+    "template_ratio": 300.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1268,16 +1528,17 @@
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.hot_spring": {
-   "pages": 1,
+  "outdoors.hiking-trail": {
+   "pages": 11973,
    "markets": [
-    "it-IT"
+    "fr-FR",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
     "1_real_entities": "PASS",
     "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS (a single page cannot be similar to itself)",
+    "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
     "6_owns_its_intent": "PASS",
@@ -1289,23 +1550,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1,
+    "unique_fact_count": 11973,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1,
-    "template_ratio": 1.0,
+    "distinct_entity_count": 11973,
+    "template_ratio": 11973.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Bagni di Craveggia is a named hot spring in IT recorded in OpenStreetMap with 1 measured attributes (fee: no), inside Verbano-Cusio-Ossola, a county, 21.0km from Domodossola. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "near_duplicate_token_score": 0.0015,
+    "near_duplicate_worst_language": "fr",
+    "information_gain_reason": "'Langs wad, plas, duin, strand en vuurtoren\" is a named hiking trail in NL measured at 9km from its mapped member ways, with a published distance of 8.8, waymarked as a local route, passing through 6 named geographies. It is evidenced as a real route by waymarked as a local route and a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every "
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.lighthouse": {
+  "outdoors.horse-trail": {
    "pages": 112,
    "markets": [
-    "de-DE",
-    "it-IT"
+    "fr-FR",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1331,15 +1592,121 @@
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
+    "information_gain_reason": "Aachener Stadtwald (Tour 1) is a named riding route in NL measured at 6km from its mapped member ways, with within 8km of 1 town. It is evidenced as a real route by maintained by StädteRegion Aachen. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume for THIS route was not measured and none is c"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.hot_spring": {
+   "pages": 2,
+   "markets": [
+    "fr-FR",
+    "it-IT"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 2,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 2,
+    "template_ratio": 2.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Bagni di Craveggia is a named hot spring in IT recorded in OpenStreetMap with 1 measured attributes (fee: no), inside Verbano-Cusio-Ossola, a county, 21.0km from Domodossola. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.inline_skates-trail": {
+   "pages": 4,
+   "markets": [
+    "fr-FR",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 4,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 4,
+    "template_ratio": 4.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Bosdijkroute is a named skating route in NL measured at 21km from its mapped member ways, with passing through 1 named geographies, within 8km of 6 towns. It is evidenced as a real route by maintained by ANWB. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume for THIS route was not measured and"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.lighthouse": {
+   "pages": 253,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 253,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 251,
+    "template_ratio": 253.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
     "information_gain_reason": "Altenbruch Leuchtturm Dicke Berta is a named lighthouse in DE recorded in OpenStreetMap with 4 measured attributes (dated to 1897, opening hours: Tu 10:00-12:00; Sa 15:00-17:00), inside Landkreis Cuxhaven, a county, 6.0km from Cuxhaven. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.monument": {
-   "pages": 285,
+   "pages": 412,
    "markets": [
     "de-DE",
-    "it-IT"
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1357,22 +1724,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 285,
+    "unique_fact_count": 412,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 285,
-    "template_ratio": 285.0,
+    "distinct_entity_count": 412,
+    "template_ratio": 412.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Acquedotto Carolino is a named monument in IT recorded in OpenStreetMap with 2 measured attributes (dated to 1770, access: yes), inside Caserta, a county, 3.1km from Maddaloni. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Abbaye Notre-Dame-des-Anges (ancienne) is a named monument in FR recorded in OpenStreetMap with 1 measured attributes (), inside Yvelines, a county, 0.7km from Saint-Cyr-l'École. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.mountain_hut": {
-   "pages": 586,
+   "pages": 750,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1391,10 +1759,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 586,
+    "unique_fact_count": 750,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 586,
-    "template_ratio": 586.0,
+    "distinct_entity_count": 740,
+    "template_ratio": 750.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1404,9 +1772,10 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.mountain_pass": {
-   "pages": 684,
+   "pages": 1197,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1425,10 +1794,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 684,
+    "unique_fact_count": 1197,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 684,
-    "template_ratio": 684.0,
+    "distinct_entity_count": 1182,
+    "template_ratio": 1197.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1437,16 +1806,17 @@
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.natural_arch": {
-   "pages": 1,
+  "outdoors.mtb-trail": {
+   "pages": 2121,
    "markets": [
-    "it-IT"
+    "fr-FR",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
     "1_real_entities": "PASS",
     "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS (a single page cannot be similar to itself)",
+    "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
     "6_owns_its_intent": "PASS",
@@ -1458,22 +1828,22 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1,
+    "unique_fact_count": 2121,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1,
-    "template_ratio": 1.0,
+    "distinct_entity_count": 2121,
+    "template_ratio": 2121.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Porta di Prada is a named natural arch in IT recorded in OpenStreetMap with 1 measured attributes (1686m above sea level), inside Grigna Settentrionale, a protected area, 6.1km from Mandello del Lario. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "near_duplicate_token_score": 0.0292,
+    "near_duplicate_worst_language": "nl",
+    "information_gain_reason": "03 - La Porrissa is a named mountain bike route in FR measured at 10km from its mapped member ways, with a published distance of 8.8, waymarked as a local cycle route. It is evidenced as a real route by waymarked as a local cycle route and maintained by Centre BTT Salines-Bassegoda. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume"
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.observatory": {
-   "pages": 95,
+  "outdoors.natural_arch": {
+   "pages": 4,
    "markets": [
-    "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1492,10 +1862,46 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 95,
+    "unique_fact_count": 4,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 95,
-    "template_ratio": 95.0,
+    "distinct_entity_count": 4,
+    "template_ratio": 4.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Le Pont d'Arc is a named natural arch in FR recorded in OpenStreetMap with 1 measured attributes (), inside Ardèche, a county, 18.1km from Bourg-Saint-Andéol. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.observatory": {
+   "pages": 116,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 116,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 116,
+    "template_ratio": 116.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1505,10 +1911,12 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.peak": {
-   "pages": 17341,
+   "pages": 20621,
    "markets": [
     "de-DE",
-    "it-IT"
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1526,10 +1934,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 17341,
+    "unique_fact_count": 20621,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 17341,
-    "template_ratio": 17341.0,
+    "distinct_entity_count": 20565,
+    "template_ratio": 20621.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.002,
@@ -1571,11 +1979,10 @@
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.ruins": {
-   "pages": 455,
+  "outdoors.piste-trail": {
+   "pages": 228,
    "markets": [
-    "de-DE",
-    "it-IT"
+    "fr-FR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1593,10 +2000,46 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 455,
+    "unique_fact_count": 228,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 455,
-    "template_ratio": 455.0,
+    "distinct_entity_count": 228,
+    "template_ratio": 228.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "15 Tour des Roches is a named piste in FR measured at 5km from its mapped member ways, with a published distance of 6, graded easy on the piste difficulty scale, passing through 3 named geographies. It is evidenced as a real route by a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; "
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.ruins": {
+   "pages": 725,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 725,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 724,
+    "template_ratio": 725.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1605,11 +2048,11 @@
    },
    "every_page_is_low_completeness": false
   },
-  "outdoors.tower": {
-   "pages": 1181,
+  "outdoors.running-trail": {
+   "pages": 171,
    "markets": [
-    "de-DE",
-    "it-IT"
+    "fr-FR",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1627,10 +2070,79 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1181,
+    "unique_fact_count": 171,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1181,
-    "template_ratio": 1181.0,
+    "distinct_entity_count": 171,
+    "template_ratio": 171.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Arboretum Fallières is a named running route in FR measured at 11km from its mapped member ways, with a published distance of 10.7, total ascent 180m, waymarked as a local route. It is evidenced as a real route by waymarked as a local route and maintained by Station de Trail Vosges Saint-Nabord. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of whi"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.ski-trail": {
+   "pages": 23,
+   "markets": [
+    "fr-FR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 23,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 23,
+    "template_ratio": 23.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Bergein is a named ski route in FR measured at 7km from its mapped member ways, with a published distance of 7.0, total ascent 180m, total descent 180m. It is evidenced as a real route by a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume for THIS route was not measured and"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.tower": {
+   "pages": 1408,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 1408,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 1408,
+    "template_ratio": 1408.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1640,10 +2152,12 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.viewpoint": {
-   "pages": 168,
+   "pages": 230,
    "markets": [
     "de-DE",
-    "it-IT"
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1661,10 +2175,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 168,
+    "unique_fact_count": 230,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 168,
-    "template_ratio": 168.0,
+    "distinct_entity_count": 230,
+    "template_ratio": 230.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1707,9 +2221,10 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.volcano": {
-   "pages": 41,
+   "pages": 153,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1728,10 +2243,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 41,
+    "unique_fact_count": 153,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 41,
-    "template_ratio": 41.0,
+    "distinct_entity_count": 153,
+    "template_ratio": 153.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1740,10 +2255,45 @@
    },
    "every_page_is_low_completeness": false
   },
+  "outdoors.walking-trail": {
+   "pages": 2,
+   "markets": [
+    "fr-FR",
+    "nl-NL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 2,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 2,
+    "template_ratio": 2.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Van Kooten en De Bie-route is a named walking route in NL measured at 6km from its mapped member ways, with a published distance of 10.1, waymarked as a local route, passing through 1 named geographies. It is evidenced as a real route by waymarked as a local route and maintained by Historische Kring Bussum. The demand for this FAMILY was measured on eighteen named trails across two languages, ever"
+   },
+   "every_page_is_low_completeness": false
+  },
   "outdoors.waterfall": {
-   "pages": 69,
+   "pages": 110,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1762,10 +2312,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 69,
+    "unique_fact_count": 110,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 69,
-    "template_ratio": 69.0,
+    "distinct_entity_count": 108,
+    "template_ratio": 110.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1775,10 +2325,12 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.watermill": {
-   "pages": 140,
+   "pages": 261,
    "markets": [
     "de-DE",
-    "it-IT"
+    "fr-FR",
+    "it-IT",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1796,22 +2348,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 140,
+    "unique_fact_count": 261,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 140,
-    "template_ratio": 140.0,
+    "distinct_entity_count": 260,
+    "template_ratio": 261.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Antico mulino dul Tacc is a named watermill in IT recorded in OpenStreetMap with 1 measured attributes (operator: Ecomuseo Ed Leuzerie e di Scherpelit), inside Verbano-Cusio-Ossola, a county, 15.4km from Domodossola. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "'t Soepuus is a named watermill in NL recorded in OpenStreetMap with 1 measured attributes (dated to 1641), inside Zuid-Beveland, a peninsula, 0.2km from Goes. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.wilderness_hut": {
-   "pages": 118,
+   "pages": 134,
    "markets": [
     "de-DE",
+    "fr-FR",
     "it-IT"
    ],
    "verdict": "ACCEPTED",
@@ -1830,10 +2383,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 118,
+    "unique_fact_count": 134,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 118,
-    "template_ratio": 118.0,
+    "distinct_entity_count": 131,
+    "template_ratio": 134.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1843,9 +2396,11 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.windmill": {
-   "pages": 203,
+   "pages": 923,
    "markets": [
-    "de-DE"
+    "de-DE",
+    "fr-FR",
+    "nl-NL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1863,15 +2418,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 203,
+    "unique_fact_count": 923,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 203,
-    "template_ratio": 203.0,
+    "distinct_entity_count": 923,
+    "template_ratio": 923.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Accumer Mühle is a named windmill in DE recorded in OpenStreetMap with 2 measured attributes (dated to 1746), inside Landkreis Friesland, a county, 4.6km from Sande. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "'t Nupke is a named windmill in NL recorded in OpenStreetMap with 1 measured attributes (dated to 1843), inside Noord-Brabant, a region, 0.6km from Geldrop. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
@@ -4956,6 +5511,48 @@
    },
    "every_page_is_low_completeness": false
   },
+  "places.city-movie_theater": {
+   "pages": 496,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "zh-Hant-TW"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 496,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 496,
+    "template_ratio": 496.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "10 movie theater entities in Bilbao with Wikidata items and coordinates, 2 with an official website: a list page, because a page for each one would compete with its own website"
+   },
+   "every_page_is_low_completeness": false
+  },
   "places.city-museum": {
    "pages": 1124,
    "markets": [
@@ -5411,7 +6008,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-shopping_mall": {
-   "pages": 544,
+   "pages": 542,
    "markets": [
     "de-DE",
     "en-GB",
@@ -5441,10 +6038,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 544,
+    "unique_fact_count": 542,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 544,
-    "template_ratio": 544.0,
+    "distinct_entity_count": 542,
+    "template_ratio": 542.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5979,6 +6576,46 @@
    },
    "every_page_is_low_completeness": false
   },
+  "poi.amusement_park-notable": {
+   "pages": 35,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 35,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 35,
+    "template_ratio": 35.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Adventure Island is a amusement park in Southend-on-Sea with Wikidata item Q169442, coordinates and an official website, and is NOT in the OSM corpus: a visitor-intent entity where a guide page competes, unlike the institution classes whose own site owns the SERP"
+   },
+   "every_page_is_low_completeness": false
+  },
   "poi.aquarium-notable": {
    "pages": 7,
    "markets": [
@@ -6362,7 +6999,7 @@
    "every_page_is_low_completeness": false
   },
   "poi.museum-notable": {
-   "pages": 4936,
+   "pages": 4934,
    "markets": [
     "de-DE",
     "en-GB",
@@ -6391,10 +7028,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4926,
+    "unique_fact_count": 4924,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4928,
-    "template_ratio": 2468.0,
+    "distinct_entity_count": 4926,
+    "template_ratio": 2467.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.002,
@@ -6553,7 +7190,7 @@
    "every_page_is_low_completeness": false
   },
   "poi.theatre-notable": {
-   "pages": 746,
+   "pages": 712,
    "markets": [
     "de-DE",
     "en-US",
@@ -6581,10 +7218,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 746,
+    "unique_fact_count": 712,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 746,
-    "template_ratio": 746.0,
+    "distinct_entity_count": 712,
+    "template_ratio": 712.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7056,7 +7693,7 @@
    "every_page_is_low_completeness": true
   },
   "stay.city-type": {
-   "pages": 3801,
+   "pages": 7786,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7087,14 +7724,14 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3801,
+    "unique_fact_count": 7786,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3742,
-    "template_ratio": 3801.0,
+    "distinct_entity_count": 6247,
+    "template_ratio": 7786.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
+    "near_duplicate_token_score": 0.0008,
+    "near_duplicate_worst_language": "ja",
     "information_gain_reason": "stay.city-type for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from BLOCKED_COMMERCIAL; nl market demand measured for this family"
    },
    "every_page_is_low_completeness": true
@@ -7231,7 +7868,7 @@
    "every_page_is_low_completeness": false
   },
   "transport.route-from-market": {
-   "pages": 721,
+   "pages": 1352,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7247,7 +7884,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (520 of 721 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (520 of 1352 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7263,10 +7900,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 721,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 697,
-    "template_ratio": 721.0,
+    "unique_fact_count": 1352,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 1238,
+    "template_ratio": 1352.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7311,7 +7948,7 @@
    "every_page_is_low_completeness": false
   },
   "weather.city-month": {
-   "pages": 3212,
+   "pages": 8312,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7342,13 +7979,13 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3212,
+    "unique_fact_count": 8312,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3184,
-    "template_ratio": 3212.0,
+    "distinct_entity_count": 4826,
+    "template_ratio": 8312.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0035,
+    "near_duplicate_token_score": 0.0014,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "weather.city-month for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from HELD; nl market demand measured for this family"
    },

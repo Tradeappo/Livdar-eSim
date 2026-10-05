@@ -1,37 +1,38 @@
 {
- "wikidata_loaded": 177456,
- "osm_poi_for_dedupe": 5012699,
- "osm_qids": 196317,
- "candidates": 5675,
+ "wikidata_loaded": 191030,
+ "osm_poi_for_dedupe": 5184510,
+ "osm_qids": 200361,
+ "candidates": 6169,
  "by_shape": {
   "wikidata_notable": 4284,
-  "wikidata_city_list": 1391
+  "wikidata_city_list": 1885
  },
  "by_market": {
-  "pt-BR": 499,
-  "de-DE": 981,
-  "es-ES": 509,
-  "en-GB": 388,
+  "pt-BR": 601,
+  "de-DE": 1031,
+  "es-ES": 516,
+  "fr-FR": 277,
+  "en-GB": 677,
+  "nl-NL": 271,
+  "pl-PL": 239,
+  "en-US": 1286,
   "it-IT": 588,
-  "ja-JP": 643,
-  "en-US": 1271,
-  "nl-NL": 265,
-  "fr-FR": 261,
-  "pl-PL": 237,
-  "zh-Hant-TW": 33
+  "ja-JP": 648,
+  "zh-Hant-TW": 35
  },
  "dedupe_matched_by": {
-  "qid": 12872,
-  "name_and_position": 4731
+  "qid": 13906,
+  "name_and_position": 4980
  },
  "rejections": {
-  "no_official_website_so_page_would_be_thin": 66656,
-  "no_parent_city": 51690,
-  "already_in_osm_corpus": 17603,
-  "no_parent_page_exists_on_the_site": 7802,
-  "wikidata_duplicate_qid": 7825,
+  "no_parent_city": 52349,
+  "no_parent_page_exists_on_the_site": 7921,
+  "already_in_osm_corpus": 18886,
+  "no_official_website_so_page_would_be_thin": 66608,
+  "wikidata_duplicate_qid": 8356,
+  "no_market_for_country": 614,
   "list_already_published_from_the_osm_corpus": 212,
-  "list_below_min_count": 10158,
-  "list_entries_too_thin": 488
+  "list_below_min_count": 12297,
+  "list_entries_too_thin": 932
  }
 }

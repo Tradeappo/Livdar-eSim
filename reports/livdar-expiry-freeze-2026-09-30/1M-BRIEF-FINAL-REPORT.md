@@ -8,12 +8,12 @@ there is no cohort 003.
 
 | | rows |
 | --- | --- |
-| **FINAL DISTINCT VALID** | **253,988** |
+| **FINAL DISTINCT VALID** | **302,063** |
 | target | 1,000,000 |
-| **GAP TO 1M** | **746,012** |
-| generated before any gate | 391,873 |
+| **GAP TO 1M** | **697,937** |
+| generated before any gate | 458,056 |
 | funnel reconciles | True |
-| distinct families | 187 |
+| distinct families | 204 |
 | markets | 11 |
 
 Every removal, as the funnel records it. Generated minus this column equals the final count,
@@ -21,100 +21,101 @@ checked by a verifier that fails the run rather than by reading the numbers.
 
 | removal stage                                       | rows |
 | --------------------------------------------------- | --- |
-| removed_as_exact_duplicate_urls                     | 0 |
+| removed_as_exact_duplicate_urls                     | 1 |
 | removed_as_semantic_duplicates                      | 0 |
-| removed_as_the_same_name_in_the_same_city           | 57 |
+| removed_as_the_same_name_in_the_same_city           | 58 |
 | removed_because_the_declared_parent_did_not_survive | 0 |
 | removed_by_cannibalisation                          | 0 |
-| removed_by_localisation_gate                        | 62,911 |
-| removed_by_uniqueness_and_serp_gate                 | 74,917 |
+| removed_by_localisation_gate                        | 62,323 |
+| removed_by_uniqueness_and_serp_gate                 | 93,611 |
 
 ## BY SURFACE
 
-| surface   | rows |
-| --------- | --- |
-| areas     | 19,954 |
-| climate   | 3,212 |
-| move      | 12,327 |
-| outdoors  | 27,427 |
-| places    | 144,775 |
-| poi       | 6,982 |
-| pulse     | 12,589 |
-| safety    | 654 |
-| sport     | 690 |
-| stay      | 17,603 |
-| tools     | 790 |
-| transport | 3,064 |
-| work      | 3,921 |
+| surface      | rows |
+| ------------ | --- |
+| areas        | 27,333 |
+| climate      | 8,396 |
+| destinations | 524 |
+| move         | 12,327 |
+| outdoors     | 57,306 |
+| places       | 145,269 |
+| poi          | 6,981 |
+| pulse        | 12,589 |
+| safety       | 654 |
+| sport        | 690 |
+| stay         | 21,588 |
+| tools        | 790 |
+| transport    | 3,695 |
+| work         | 3,921 |
 
 ## BY LOCALE and BY COUNTRY
 
 | market     | rows |
 | ---------- | --- |
-| de-DE      | 56,205 |
-| en-GB      | 27,674 |
-| en-US      | 49,285 |
-| es-ES      | 15,520 |
-| fr-FR      | 18,382 |
-| it-IT      | 23,690 |
-| ja-JP      | 25,150 |
-| nl-NL      | 9,708 |
-| pl-PL      | 11,905 |
-| pt-BR      | 15,671 |
-| zh-Hant-TW | 798 |
+| de-DE      | 58,657 |
+| en-GB      | 34,980 |
+| en-US      | 49,299 |
+| es-ES      | 15,527 |
+| fr-FR      | 43,286 |
+| it-IT      | 25,892 |
+| ja-JP      | 31,095 |
+| nl-NL      | 14,847 |
+| pl-PL      | 11,907 |
+| pt-BR      | 15,773 |
+| zh-Hant-TW | 800 |
 
 | language | rows |
 | -------- | --- |
-| de       | 56,205 |
-| en       | 76,959 |
-| es       | 15,520 |
-| fr       | 18,382 |
-| it       | 23,690 |
-| ja       | 25,150 |
-| nl       | 9,708 |
-| pl       | 11,905 |
-| pt       | 15,671 |
-| zh-Hant  | 798 |
+| de       | 58,657 |
+| en       | 84,279 |
+| es       | 15,527 |
+| fr       | 43,286 |
+| it       | 25,892 |
+| ja       | 31,095 |
+| nl       | 14,847 |
+| pl       | 11,907 |
+| pt       | 15,773 |
+| zh-Hant  | 800 |
 
 Top 20 destination countries, which are NOT the same thing as the markets above: the searcher
 market and the place a page is about are different axes and the brief is explicit about that.
 
 | destination country | rows |
 | ------------------- | --- |
-| US                  | 58,596 |
-| DE                  | 56,063 |
-| JP                  | 25,183 |
-| IT                  | 23,711 |
-| FR                  | 18,392 |
-| GB                  | 18,252 |
-| BR                  | 15,665 |
-| ES                  | 15,522 |
-| PL                  | 11,917 |
-| NL                  | 9,738 |
-| TW                  | 797 |
-| PT                  | 17 |
-| BE                  | 13 |
-| AT                  | 10 |
-| AE                  | 8 |
-| SE                  | 8 |
-| CA                  | 8 |
-| DK                  | 7 |
-| IE                  | 6 |
-| MX                  | 6 |
+| US                  | 61,558 |
+| DE                  | 56,786 |
+| FR                  | 43,632 |
+| JP                  | 26,532 |
+| IT                  | 24,242 |
+| GB                  | 19,015 |
+| ES                  | 15,826 |
+| BR                  | 15,767 |
+| NL                  | 14,877 |
+| PL                  | 11,919 |
+| IN                  | 2,705 |
+| MX                  | 1,515 |
+| TR                  | 1,174 |
+| TW                  | 871 |
+| ID                  | 636 |
+| VN                  | 559 |
+| TH                  | 547 |
+| EG                  | 439 |
+| CA                  | 414 |
+| GR                  | 399 |
 
 ## BY SOURCE
 
 | data source and licence                                          | rows |
 | ---------------------------------------------------------------- | --- |
-| OpenStreetMap named POI (ODbL 1.0, share-alike, attribution requ | 178,303 |
-| Wikidata (CC0 1.0, public domain dedication, no share-alike)     | 5,670 |
-| geonames-cities; attractions-verified                            | 8,887 |
+| OpenStreetMap named POI (ODbL 1.0, share-alike, attribution requ | 208,790 |
+| Wikidata (CC0 1.0, public domain dedication, no share-alike)     | 6,163 |
+| geonames-cities; attractions-verified                            | 16,266 |
 | geonames-cities; cost-of-living-city-verified                    | 4,447 |
 | geonames-cities; cost-of-living-city-verified; visa-rules-verifi | 3,221 |
 | geonames-cities; cost-of-living-verified                         | 50 |
 | geonames-cities; events-verified                                 | 12,589 |
 | geonames-cities; health-rules-verified                           | 2,811 |
-| geonames-cities; nasa-power-daily                                | 3,212 |
+| geonames-cities; nasa-power-daily                                | 8,312 |
 | geonames-cities; neighbourhood-facts-verified                    | 845 |
 | geonames-cities; neighbourhood-facts-verified; rent-index-verifi | 20 |
 | geonames-cities; ourairports                                     | 11 |
@@ -126,10 +127,10 @@ market and the place a page is about are different axes and the brief is explici
 | geonames-cities; salary-data-verified; work-rules-verified       | 731 |
 | geonames-cities; school-data-verified                            | 968 |
 | geonames-cities; sport-routes-verified                           | 690 |
-| geonames-cities; stay-inventory-verified                         | 3,801 |
+| geonames-cities; stay-inventory-verified                         | 7,786 |
 | geonames-cities; transit-fares-verified                          | 2,343 |
 | neighbourhood-facts-verified; places-data-verified               | 825 |
-| ourairports; geonames-cities; computed-distance                  | 721 |
+| ourairports; geonames-cities; computed-distance                  | 1,352 |
 | tax-rules-verified; visa-rules-verified                          | 12 |
 | venue-data-verified; stay-inventory-verified                     | 4,786 |
 | visa-rules-verified; cost-of-living-verified                     | 13 |
@@ -145,37 +146,43 @@ market and the place a page is about are different axes and the brief is explici
 | area_cuisine    | 17,594 |
 | area_opening    | 9,613 |
 | areas_index     | 520 |
-| city            | 62,666 |
+| city            | 79,761 |
 | city-pair       | 50 |
 | city_attribute  | 2,755 |
-| city_category   | 38,845 |
+| city_category   | 39,339 |
 | city_cuisine    | 13,011 |
 | city_opening    | 3,732 |
 | city_sport      | 129 |
 | country         | 38 |
 | neighbourhood   | 2,475 |
-| outdoor_feature | 26,369 |
-| outdoor_region  | 1,058 |
-| poi             | 6,982 |
+| outdoor_feature | 37,146 |
+| outdoor_region  | 1,227 |
+| poi             | 6,981 |
+| region          | 608 |
+| trail           | 18,933 |
 | venue           | 4,786 |
 
 ## BY FAMILY, the 40 largest
 
 | family                        | rows |
 | ----------------------------- | --- |
+| outdoors.peak                 | 20,621 |
 | places.area-cuisine           | 17,594 |
-| outdoors.peak                 | 17,341 |
+| activities.city-things-to-do  | 16,266 |
 | places.city-cuisine           | 13,011 |
+| outdoors.hiking-trail         | 11,973 |
 | places.area-opening           | 9,613 |
-| activities.city-things-to-do  | 8,887 |
+| weather.city-month            | 8,312 |
 | places.area-restaurant        | 8,054 |
+| stay.city-type                | 7,786 |
+| outdoors.castle               | 6,616 |
 | places.area-attribute         | 6,344 |
 | places.area-fast_food         | 6,059 |
 | events.city-type              | 5,924 |
 | events.city-calendar          | 5,924 |
 | places.city-restaurant        | 5,920 |
 | rents.city                    | 5,202 |
-| poi.museum-notable            | 4,936 |
+| poi.museum-notable            | 4,934 |
 | places.area-cafe              | 4,895 |
 | places.area-pharmacy          | 4,893 |
 | stay.near-venue               | 4,786 |
@@ -183,11 +190,10 @@ market and the place a page is about are different axes and the brief is explici
 | places.area-supermarket       | 4,499 |
 | areas.overview                | 4,269 |
 | places.city-fast_food         | 3,902 |
-| stay.city-type                | 3,801 |
 | places.city-opening           | 3,732 |
+| outdoors.bicycle-trail        | 3,537 |
 | places.area-clinic            | 3,464 |
 | relocation.city               | 3,221 |
-| weather.city-month            | 3,212 |
 | work.city-salaries            | 3,190 |
 | property.city-buy             | 2,989 |
 | cost-of-living.city           | 2,967 |
@@ -196,34 +202,33 @@ market and the place a page is about are different axes and the brief is explici
 | places.city-attribute         | 2,755 |
 | places.area-bar               | 2,739 |
 | places.area-pub               | 2,703 |
-| outdoors.castle               | 2,689 |
 | places.city-cafe              | 2,448 |
 | places.city-clinic            | 2,394 |
 | places.area-dentist           | 2,356 |
 | transport.city-getting-around | 2,343 |
-| places.city-supermarket       | 1,964 |
-| places.area-gym               | 1,921 |
 
-187 families in total. The full list with the content contract per family is in
+204 families in total. The full list with the content contract per family is in
 1M-UNIQUE-CONTENT-CONTRACT.csv and the per-condition verdicts in 1M-FAMILY-ACCEPTANCE-TEST.json.
 
 ## CONTENT QUALITY: what was rejected and why
 
 | rejection status           | rows |
 | -------------------------- | --- |
-| REJECTED_LOCALIZATION      | 62,911 |
-| REJECTED_QUALITY           | 62,919 |
-| REJECTED_SAME_NAME_IN_CITY | 57 |
-| REJECTED_SERP              | 11,998 |
+| REJECTED_DUPLICATE         | 1 |
+| REJECTED_LOCALIZATION      | 62,323 |
+| REJECTED_QUALITY           | 76,961 |
+| REJECTED_SAME_NAME_IN_CITY | 58 |
+| REJECTED_SERP              | 16,650 |
 
 The reason text, grouped by its first clause:
 
 | recorded reason            | rows |
 | -------------------------- | --- |
-| REJECTED_QUALITY           | 62,919 |
-| localization               | 62,911 |
-| REJECTED_SERP              | 11,998 |
-| REJECTED_SAME_NAME_IN_CITY | 57 |
+| REJECTED_QUALITY           | 76,961 |
+| localization               | 62,323 |
+| REJECTED_SERP              | 16,650 |
+| REJECTED_SAME_NAME_IN_CITY | 58 |
+| REJECTED_DUPLICATE         | 1 |
 
 ## QA: every check in the pass
 
@@ -231,23 +236,23 @@ The reason text, grouped by its first clause:
 | -------------------------------------------------- | --- |
 | candidates_with_no_usable_source                   | 0 |
 | declared_parent_is_not_a_valid_parent              | 0 |
-| declared_parent_is_valid_but_not_a_path_prefix     | 31,634 |
+| declared_parent_is_valid_but_not_a_path_prefix     | 35,627 |
 | duplicate_canonicals                               | 0 |
-| duplicate_h1_within_a_market                       | 2 |
+| duplicate_h1_within_a_market                       | 0 |
 | duplicate_meta_within_a_market                     | 0 |
 | duplicate_title_exact                              | 0 |
-| duplicate_title_same_tokens                        | 2 |
-| entity_names_needing_a_disambiguator_in_the_title  | 1,655 |
+| duplicate_title_same_tokens                        | 19 |
+| entity_names_needing_a_disambiguator_in_the_title  | 1,920 |
 | family_locale_cells_failing_the_usefulness_test    | 0 |
 | intent_owners_claimed_by_more_than_one_url         | 0 |
 | kept_rows_with_a_rejecting_localisation_class      | 0 |
 | locale_mismatch_between_url_and_row                | 0 |
-| meta_over_165_chars                                | 53,701 |
-| orphan_pages                                       | 65 |
+| meta_over_165_chars                                | 80,223 |
+| orphan_pages                                       | 69 |
 | same_entity_id_under_two_names                     | 0 |
 | superlative_from_the_family_own_intent             | 60 |
 | templates_with_repeated_entities                   | 0 |
-| title_over_65_chars                                | 165,472 |
+| title_over_65_chars                                | 195,940 |
 | top_level_pages_whose_parent_is_the_locale_home    | 0 |
 | uniqueness_reason_shared_with_another_candidate    | 98 |
 | urls_containing_a_latin_character_with_a_diacritic | 0 |
@@ -258,46 +263,46 @@ The reason text, grouped by its first clause:
 
 | verdict                  | rows |
 | ------------------------ | --- |
-| ACCEPTED                 | 154 |
-| ACCEPTED_WITH_AN_UNKNOWN | 33 |
+| ACCEPTED                 | 170 |
+| ACCEPTED_WITH_AN_UNKNOWN | 34 |
 
 | pages by verdict         | rows |
 | ------------------------ | --- |
-| ACCEPTED                 | 189,851 |
-| ACCEPTED_WITH_AN_UNKNOWN | 64,137 |
+| ACCEPTED                 | 228,126 |
+| ACCEPTED_WITH_AN_UNKNOWN | 73,937 |
 
 Failed conditions across all families: none
 
 ## PARENT GEOGRAPHY
 
-POI attached to a containment parent: 126,143
+POI attached to a containment parent: 195,324
 
 | parent class    | rows |
 | --------------- | --- |
-| county          | 81,180 |
-| nature_reserve  | 10,855 |
-| protected_area  | 10,406 |
-| mountain_range  | 6,808 |
-| region          | 5,834 |
-| forest          | 3,689 |
-| national_park   | 3,113 |
-| park            | 1,579 |
-| island          | 974 |
-| ski_area        | 404 |
-| zoo_complex     | 399 |
-| theme_park      | 312 |
-| peninsula       | 161 |
-| garden          | 144 |
-| campus          | 111 |
-| lake            | 62 |
-| airport_complex | 45 |
-| beach_area      | 36 |
-| bay             | 24 |
-| archipelago     | 5 |
+| county          | 119,259 |
+| protected_area  | 25,859 |
+| nature_reserve  | 14,666 |
+| region          | 10,571 |
+| mountain_range  | 7,674 |
+| forest          | 4,806 |
+| national_park   | 3,252 |
+| park            | 2,415 |
+| zoo_complex     | 1,687 |
+| island          | 1,623 |
+| ski_area        | 1,101 |
+| theme_park      | 956 |
+| peninsula       | 719 |
+| garden          | 165 |
+| campus          | 143 |
+| airport_complex | 133 |
+| lake            | 116 |
+| beach_area      | 102 |
+| bay             | 58 |
+| archipelago     | 13 |
 
-Of those attachments, 87,014 are to a region or a county, which contains every
+Of those attachments, 129,830 are to a region or a county, which contains every
 point in its country by construction. The honest outdoor attachment is the remainder,
-39,129. A rate that counts administrative containment is
+65,494. A rate that counts administrative containment is
 measuring geometry rather than attribution, and this report does not quote one.
 
 ## MEASUREMENTS TAKEN IN THIS PASS
@@ -325,12 +330,64 @@ cost where it used Ahrefs, and the decision it drove.
 - url-collision-findings-2026-10-01.json
 - wikidata-truncation-verified-2026-10-01.json
 
-## WHAT THE ARITHMETIC SAYS
+## NEW SOURCES THIS PASS, AND WHAT EACH ONE OPENS
 
-The full argument, with every path sized and every refusal explained, is in
-1M-DISCOVERY-AND-SCALE-REPORT.md. The short form: the defensible ceiling with every path
-measured in this pass built out is 405,000 to 540,000, and reaching one million would require
-relaxing a quality gate, translating without local evidence, or a new entity axis of roughly
-450,000 real entities carrying distinct data and demand. The first two are refused by the brief
-and by this pipeline. The third has one measured candidate, the outdoor feature layer, and it is
-worth a quarter of what would be needed.
+| source | licence | status | what it opens |
+| --- | --- | --- | --- |
+| GeoNames alternateNamesV2 | CC BY 4.0, attribution required, no share-alike | MATERIALISED | none on its own. It is half two of the destination gate, per entity and per language. |
+| Wikidata sitelinks for every gazetteer city, joined through the GeoNames wkdt rows | Wikidata CC0 1.0 public domain dedication; GeoNames CC BY 4.0 for the join key | MATERIALISING, resumable, checkpointing every 50 batches | none on its own. Half two of the destination gate, with roughly three times the coverage of the exonym mark. |
+| OpenStreetMap route relations WITH their member way geometry | ODbL 1.0, share-alike, attribution required | MATERIALISING through the capture queue | outdoors.hiking-trail, outdoors.bicycle-trail, outdoors.foot-trail, outdoors.mtb-trail, outdoors.canoe-trail and the rest, one family per route type |
+| OpenStreetMap place=region and region:type | ODbL 1.0 | FILTER FIXED, awaiting the queue and a re-capture of five countries | destinations.region-what-to-see, destinations.region-cities, climate.region-when-to-go, and a wider entity set for the existing outdoors.<class>-in-region famil |
+| NASA POWER monthly climatology, 2001 to 2020 | public domain, no restriction, attribution requested | MATERIALISING, 17,000 cities left at 3.6 a second | climate.city, climate.region-when-to-go, and the climate half of the region pages |
+| Exclusive POI density per place, derived from the OSM POI and place layers | ODbL 1.0 inherited | MATERIALISED and wired into the place gate | the existing neighbourhood and area families, for places that carry no polygon, no population, no Wikidata item and no Wikipedia article |
+| National Heritage List for England | Open Government Licence v3.0 | FETCHED, held as enrichment |  |
+| The fourteen countries this mirror does not carry | see the register | NOT STARTED, recorded with what each one is worth | machu picchu 230,000 in en-US, the largest volume measured anywhere in this project; esim 15,000 and jeju 19,000 in ja-JP for Korea; saranda 26,000 in it-IT for |
+
+One estimate was withdrawn rather than quietly dropped:
+
+The first pass listed the National Heritage List for England as MATERIALISING with 40,000 to 44,000 expected pages. 379,685 entries were fetched. Then the demand was measured and it is ZERO for the place-aggregation shape, which is the half that carried most of that estimate. The fetch happened before the measurement, which is the wrong order, and the estimate is withdrawn. The register is kept as an ENRICHMENT source: a Grade I listing is a real fact to put on a page about a place, and it is not a page of its own. Netherlands, Poland and France are not fetched and will not be until a demand measurement says to.
+
+
+## SCALE PATHS: COUNTED AGAINST PROJECTED
+
+Counted today in the manifest: **302,063**
+
+Paths with a COUNTED entity-level number:
+
+- exclusive poi density recovery: 16,129 places
+- destination cities on exonyms alone: 5,399 city-by-language combinations
+- dutch trails: 3,722 candidates for one locale from one small country
+
+Paths whose number is PROJECTED, with what it is projected from stated in the register:
+
+- trails across 43 countries: 60,000 to 200,000
+- destination cities on sitelinks: 100,000 to 200,000
+- outdoor features across 43 countries: PROJECTED 150,000 to 250,000 candidates, from DE 18,067 and IT 8,302 against TR 20,765 raw features, which says Germany is the best mapped country on earth for this and a destination country will yield less
+- places and poi aggregations for 33 new destination countries: 100,000 to 160,000
+- region families: 25,000 to 50,000
+- climate: 20,000 to 40,000
+- the fourteen unreachable countries: 60,000 to 120,000
+
+Adding the counted and the projected gives a range whose midpoint is near one million and whose low end is near 700,000. That is a very different position from the 2026-10-01 verdict that the measured closure paths do not reach one million, and the difference is not a relaxed gate: it is the destination axis, which was never examined, plus three region families, plus a trail layer that could not be measured until osmium was called without -R. Every number above that is projected says so, and the projections will be replaced by counts as the capture queue finishes. Nothing here licenses publishing anything.
+
+## THE DESTINATION AXIS
+
+Before this pass, 99.97 per cent of the inventory was about the same eleven countries the
+eleven searcher markets live in, which is backwards for a travel-connectivity product: the
+commercial moment is a person in one country about to travel to another. The axis was not
+opened by relaxing a gate. markets_for() already asks for evidence rather than for a country
+list, so the work was to supply the evidence it asks for, in two halves that are both required:
+
+1. the destination country carries measured demand in the page language, where BOTH a
+   connectivity keyword and a travel-information keyword clear the floor
+2. the place itself carries a mark in that same language, a Wikipedia article or a GeoNames
+   alternate name, which is a PROXY for interest and is labelled a proxy on every row that
+   rests on it
+
+Rows whose market was earned by that evidence rather than by a home market: 0
+
+And the largest lever examined in this pass did NOT open. Once the city pool grew, the biggest
+gate in the funnel became the measured-tier cap. It was sampled rather than argued, 28 cities
+in two languages, and the cap stands: the family phrasing is dead at that depth, with
+"estoril cosa vedere" at 30 against "estoril" at 2,300. A name with volume is not a page
+intent. The full measurement is in tier-cap-vs-destination-mark-2026-10-02.json.
