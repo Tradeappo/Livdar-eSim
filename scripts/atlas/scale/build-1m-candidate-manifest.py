@@ -325,6 +325,14 @@ print(f'  keyword master rows {len(km):,}, family-market cells with evidence {le
 # (neighbourhoods.city-where-to-stay at 20 and 50 in Turkish, weather.city-month at 70 and 20,
 # rents.city at 40) are read, counted and deliberately left out of the cells, so the refusal is
 # carried by the same file that carries the admission.
+# ko-KR is listed and has NO EFFECT, deliberately. Its keyword cells load, and nothing reads
+# them, because ko-KR is not in entity_identity.MARKETS: it was measured on 2026-10-05 as the
+# largest candidate by demand, about 250,000 monthly volume over 119 keywords, and then five
+# Korean SERPs were read and every one of them was held by Naver blogs, namu.wiki, Daum, Brunch,
+# Instagram or an official tourism board. One independent mid-authority result in 35 sampled
+# positions. The file stays wired so that the day the SERP question is answered differently -
+# an open family not among the five sampled, or South Korea captured and a domestic family
+# measuring open - admitting it is one line in MARKETS rather than a re-measurement.
 NEW_MARKET_MEAS = ['ahrefs-tr-TR-market-admission-2026-10-05.json',
                    'ahrefs-ko-KR-market-admission-2026-10-05.json']
 for _fn in NEW_MARKET_MEAS:

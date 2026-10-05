@@ -4,7 +4,7 @@
  "country": "KR",
  "generated_on": "2026-10-05",
  "provider": "Ahrefs Keywords Explorer (keywords-explorer-overview), country=kr",
- "units_spent": 3960,
+ "units_spent": 4856,
  "keywords_tested": 119,
  "total_measured_volume": 250330,
  "verdict_rule": "A family is judged on ALL its measured keywords merged, not on each destination separately. The first version of this file split activities.city-things-to-do into one cell per destination country and then called the 450-a-month British cell thin, while the family itself tops out at 5,600 on the same page type: the split is evidence about WHICH COUNTRIES a market searches, which belongs in the destination table, and it is not evidence about whether the family works in the language. The split is kept below under destination_split so both readings stay available. Admitted when the top keyword clears 1,000 a month, OR when three or more keywords clear the 100 floor and the top one clears 500.",
@@ -849,7 +849,43 @@
   "Weather is the top Korean destination family and was REFUSED in Turkish. Tokyo weather reads 13,000 and Osaka weather 12,000 in Korean, against istanbul nisan ayi hava durumu at 70 in Turkish. Two markets admitted on the same day, one of them refusing the family the other leads with: that is what measuring per (family, market) rather than per family buys.",
   "Four countries with real travel volume are refused on the connectivity half: Netherlands (amseuteureudam yeohaeng 300 but neodeollandeu esim 10), Portugal (poreutugal yeohaeng 1,600 but esim 10), Czechia (peuraha yeohaeng 700 but esim 0) and Greece (geuriseu santorini 1,300 but esim 0). Portugal at 1,600 travel volume and 10 connectivity is the clearest case in either market of a country that wants reading about and does not want a SIM, which is exactly the asymmetry the two-half rule exists to catch."
  ],
- "serp_evidence": "NOT_SAMPLED_YET",
+ "serp_evidence": {
+  "sampled": 5,
+  "verdict": "EVERY SAMPLED SERP IS PLATFORM OWNED OR OFFICIAL OWNED",
+  "this_overturns_the_demand_reading": "ko-KR has the largest measured demand of any candidate and the worst SERP of any candidate, and the SERP is the half that decides whether the demand is reachable. Five SERPs were read across five different families and not one of them has a realistic entry for a third-party programmatic page. Korean organic search is held by Naver blogs, namu.wiki, Daum, Brunch, Blind, Instagram and the official tourism boards. The single independent mid-authority result found in 35 sampled positions was att-japan.net at DOMAIN RATING 35, in position 7, on osaka-seong. That is the whole opening.",
+  "families": {
+   "activities.city-things-to-do": {
+    "keyword": "도쿄 여행",
+    "volume": 5200,
+    "class": "BRAND_OWNED_PLUS_SOCIAL",
+    "reading": "An AI Overview takes position 1 and cites the official gotokyo.org first. Then Naver blog DR 93, Tistory DR 87, gotokyo.org again DR 77, Naver blog DR 93, Instagram DR 100. Six of seven slots are a blog platform, a social platform or the destination official tourism board. No independent editorial site at any authority appears."
+   },
+   "weather.city-month": {
+    "keyword": "오사카 날씨",
+    "volume": 12000,
+    "class": "AGGREGATOR_LOCKED",
+    "reading": "A knowledge card takes position 1, then every organic slot is a major weather property: AccuWeather DR 90, the Japan Meteorological Agency DR 89, japan.travel DR 82, weather.com DR 90, MSN DR 92, Ventusky DR 74. This is the LARGEST Korean family measured (13,000 Tokyo, 12,000 Osaka) and none of that volume is addressable. Recorded as the clearest case in this project of large demand behind a closed SERP."
+   },
+   "outdoors.peak": {
+    "keyword": "설악산",
+    "volume": 7100,
+    "class": "OFFICIAL_OWNED_PLUS_AI_OVERVIEW",
+    "reading": "The national park service knps.or.kr DR 71 at 1 with 1,884 traffic, namu.wiki DR 85 at 2, GetYourGuide DR 90 at 3, ko.wikipedia DR 97 at 4, a four-item news block at 5, an AI Overview at 6 citing Wikipedia, namu.wiki, YouTube, a Naver blog and two government portals. The German equivalent of this family reads OPEN_SPECIALIST_PAGE_WINS at 85 on a DOMAIN RATING 1 hobby blog at position 6; the Korean one has no such slot."
+   },
+   "poi.city-category-durable": {
+    "keyword": "오사카성",
+    "volume": 7400,
+    "class": "AGGREGATOR_AND_VENUE_OWNED",
+    "reading": "A three-item local pack at 1, namu.wiki DR 85, japan.travel DR 82 with 2,766 traffic, Naver blog DR 93, ko.wikipedia DR 97, kkday DR 81, and att-japan.net at DR 35 in position 7 with 262 traffic. This is the ONE partial opening in the whole sample and it is one slot at the bottom of the page."
+   },
+   "places.city-category": {
+    "keyword": "부산 맛집",
+    "volume": 2200,
+    "class": "BRAND_OWNED_PLUS_SOCIAL",
+    "reading": "AI Overview at 1, Naver blog DR 93 at 2, a three-venue local pack at 3, brunch.co.kr DR 79 at 4, danawa DR 74 at 5, teamblind DR 74 at 6, Instagram DR 100 at 7. Korean platform properties plus a local pack plus a SERP feature, with nothing else."
+   }
+  }
+ },
  "families_admitted": [
   "activities.city-things-to-do",
   "connectivity.esim-country",
@@ -1477,5 +1513,8 @@
    "min_kd_at_top": 0,
    "per_destination_reading": "MEASURED_AT_OR_NEAR_ZERO_REFUSED"
   }
- }
+ },
+ "disposition": "ADMITTED_ON_DEMAND_DEPRIORITISED_ON_SERP_NOT_MATERIALISED",
+ "disposition_reason": "The brief admits a market on measured demand AND real local phrasing AND a verified SERP. ko-KR passes the first two by the widest margin of any candidate and fails the third by the widest margin. So it is recorded as measured, kept out of the market list, and left unmaterialised. Three things would change that and none of them is a gate relaxation: a family whose Korean SERP is open that was not among the five sampled, a Naver-first distribution strategy that organic Google ranking is the wrong test for, or South Korea being captured and a domestic family measuring open. Until one of those, the pages would be built to rank behind Naver, and building 20,000 of them would add template mass to a site whose whole defence is that every page earns its place.",
+ "correction_to_my_own_earlier_reading": "This market was committed as admitted at 576354a before any Korean SERP had been sampled, on the demand measurement alone. That was the wrong order of work: the SERP requirement exists precisely to catch a market like this one, and reading five SERPs cost 896 units and twenty minutes against a market that would have cost a capture, a mark pass and twenty thousand pages. The demand numbers in this file stand; the admission does not."
 }
