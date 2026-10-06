@@ -1,0 +1,19 @@
+{
+ "measured_on": "2026-10-06",
+ "the_instruction": "expand transport where the data exists: airports, train stations, metro, tram, ferries, public transit, airport-city, transport passes, station-area, mobility comparison. No fake live timetable.",
+ "the_source_probed": {
+  "name": "Mobility Database, the successor to the TransitFeeds GTFS catalogue",
+  "endpoint": "https://storage.googleapis.com/storage/v1/b/mdb-csv/o/sources.csv?alt=media",
+  "probe_result": "HTTP 200, 1,181,582 bytes, 3,518 GTFS sources",
+  "coverage": "89 countries. US 1,184, ES 169, CA 156, FR 123, IT 77, SE 61, DE 60, AU 54, PL 54, IE 50, GB 46, and 1,012 rows with no country code at all.",
+  "the_licence_problem_which_is_the_decisive_one": "only 1,714 of the 3,518 sources carry a licence URL. Nearly half state no licence, and this project's rule is that a candidate with no recorded licence and provenance does not reach FINAL. So the usable half has to be identified feed by feed before any of it is a source, which is real work for a layer whose page shape is already in doubt.",
+  "api_endpoints_that_did_not_answer": {
+   "https://api.mobilitydatabase.org/v1/metadata": "HTTP 302, the v1 API wants a token",
+   "https://transit.land/api/v2/rest/feeds": "HTTP 401, needs an API key"
+  }
+ },
+ "and_the_page_shape_is_the_one_already_refused": "a GTFS entity is a STOP: a name, a pair of coordinates, and a parent station. That is the one-attribute shape the outdoor gate rejected this morning across 65,396 features, and applying the rule consistently means it is rejected here before the pages exist rather than after. The defensible shapes are the aggregation - the stations of a metro system in one city - and the station-area shape, and the station-area shape is ALREADY SERVED: stay.near-venue holds 4,786 rows and transport.node-route-and-hotels is the declared intent owner for it.",
+ "verdict": "LOW PRIORITY, RECORDED RATHER THAN BUILT. The catalogue is open and the gap is not data availability: it is that half the feeds have no licence, the natural entity is a stop which is too thin for a page, and the one shape worth having already has an owner in this inventory. A metro-system-per-city aggregation is the only new page type this source clearly supports, which is a few hundred pages across the captured markets.",
+ "what_would_change_this": "a measured demand reading for the metro-stations-in-city shape, and a licence sweep over the 1,714 feeds that state one. Neither was spent today, because the brief's priority order puts transport eleventh and the two paths above it - the destination axis and the outdoor gate - were both open and both materialised in this pass.",
+ "no_fake_timetable": "nothing here proposes a departure time, a live arrival or a service status. A GTFS schedule is a planned timetable and presenting it as live information would be exactly the fabrication the brief forbids. Only the stop inventory and the system structure were considered."
+}
