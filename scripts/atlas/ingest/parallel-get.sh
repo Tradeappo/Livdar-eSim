@@ -60,7 +60,22 @@ for i in $(seq 1 "$PARTS"); do
   [ "$from" -gt "$to" ] && continue
   f=$(printf "%s/p%02d" "$D" "$i")
   want=$(( to - from + 1 ))
-  if [ -f "$f" ] && [ "$(stat -c%s "$f")" -eq "$want" ]; then continue; fi
+  if [ -f "$f" ]; then
+    have=$(stat -c%s "$f")
+    if [ "$have" -eq "$want" ]; then continue; fi
+    # A part can NEVER legitimately exceed its own range, so a bigger one is corrupt and
+    # resuming it makes it worse. This happens when the mirror or a proxy ignores the Range
+    # header: curl then writes the WHOLE file into one part, and because the old test was only
+    # -eq, the next attempt resumed with -C - and appended the whole file again. Egypt reached
+    # 340,069,344 bytes of a 204,041,606-byte file across six attempts, with p03 holding the
+    # entire file inside a 68MB slice, and the run could never finish because the sum could
+    # never equal the total. Discard and refetch rather than resume.
+    if [ "$have" -gt "$want" ]; then
+      echo "  part $(basename "$f") is $have bytes for a $want-byte range, so the server ignored"
+      echo "  the range request; discarding it and fetching that range again"
+      rm -f "$f"
+    fi
+  fi
   ( curl -sS -m 7200 -C - -r "$from-$to" -o "$f" "$URL" ) &
   pids+=("$!")
 done
@@ -70,6 +85,13 @@ for p in "${pids[@]:-}"; do [ -n "$p" ] && wait "$p"; done
 # fails much later, inside the extractor
 GOT=0
 for f in "$D"/p*; do GOT=$(( GOT + $(stat -c%s "$f") )); done
+if [ "$GOT" -gt "$TOTAL" ]; then
+  # Reported separately from "incomplete", because the two need opposite actions and calling
+  # an oversized download incomplete is what sent Egypt round six identical attempts.
+  echo "oversized: have $GOT of $TOTAL bytes, so at least one range was served in full."
+  echo "The offending parts are discarded above on the next run; re-run to refetch them."
+  exit 1
+fi
 if [ "$GOT" -ne "$TOTAL" ]; then
   echo "incomplete: have $GOT of $TOTAL bytes, re-run to resume"; exit 1
 fi
