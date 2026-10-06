@@ -426,6 +426,85 @@ def _dest_rows():
     return out
 
 
+def markets_for_entity(country, record, dest_lang=None, marks=None,
+                       root='/home/user/Livdar-eSim/'):
+    """Every (market, language, basis) this entity earns, home market first.
+
+    THE ONE DEFINITION. Five geographic builders each had their own copy of this decision and
+    four of them agreed: home market if the entity's country has one, then every language in
+    which that country carries measured destination demand AND the entity itself carries a mark.
+    The fifth, poi-aggregations.py, instead rejected outright when there was no home market
+    (`no_market_for_country`) and bolted a fan-out onto the end that iterated over rows which,
+    for a destination country, had never been created. The effect, measured on 2026-10-06: no
+    destination country had ever produced a POI-derived page, so the two largest families in the
+    inventory produced nothing for 45 countries while 910,845 named destination POI sat on disk.
+    That is the same shape of defect as the four slug functions and the twelve market lists, and
+    it has the same cure.
+
+    `basis` is returned STRUCTURED rather than as prose, because the prose belongs to the family:
+      'home'
+      ('destination', connectivity_volume, information_volume, mark)
+    Each builder renders its own sentence from that, which is a copy decision, while the decision
+    about which markets exist is made here once.
+
+    A market country's own language is never added twice: the home market already serves it.
+    """
+    out = []
+    home = COUNTRY_MKT.get(country)
+    if home:
+        out.append((home[0], home[1], 'home'))
+    dl = dest_lang if dest_lang is not None else dest_lang_by_country()
+    mk = marks if marks is not None else marks_for(record, root)
+    for lang, ev in (dl.get(country) or {}).items():
+        mkt = LANG_MKT.get(lang)
+        if not mkt or (home and home[1] == lang):
+            continue
+        mark = mk.get(lang)
+        if not mark:
+            continue
+        out.append((mkt, lang, ('destination', ev[0], ev[1], mark)))
+    return out
+
+
+def strongest_destination_language(country, record, dest_lang=None, marks=None,
+                                   root='/home/user/Livdar-eSim/'):
+    """For an entity whose country has NO home market: the one language to write the base row in.
+
+    The highest measured information volume wins, and a language the entity carries no mark in
+    is not a candidate at all. Returns (market, language, basis) or None. This is what
+    outdoor-feature-candidates.py already did inline, lifted so the POI builder does it the same
+    way rather than a second way.
+
+    Returns None when the country HAS a home market, rather than quietly handing back the
+    strongest foreign language. The caller's next line writes a base row, and a base row in a
+    foreign language for a country that owns one is a bug the caller cannot see. The contract is
+    enforced here instead of trusted: a first version of this returned the strongest non-home
+    language for Turkey, which is a real answer to a question no caller should be asking.
+    """
+    if COUNTRY_MKT.get(country):
+        return None
+    cands = [m for m in markets_for_entity(country, record, dest_lang, marks, root)
+             if m[2] != 'home']
+    if not cands:
+        return None
+    return max(cands, key=lambda m: (m[2][2], m[2][1], m[1]))
+
+
+def destination_basis_sentence(country, lang, basis, subject):
+    """The sentence the four geographic builders all write, in one place.
+
+    Kept separate from the decision so a builder can still phrase its own if it needs to: this
+    is the wording three of the five already shared word for word.
+    """
+    if basis == 'home':
+        return f'the home market of this {subject}'
+    _, conn, info, mark = basis
+    return (f'{country} carries measured {lang} demand ({conn:,} on the connectivity keyword '
+            f'and {info:,} on the travel-information keyword) and this {subject} carries '
+            f'{mark}, which is a proxy for {lang} interest and not a measured volume for this '
+            f'page')
+
+
 def dest_lang_by_country():
     """{country: {language: (connectivity volume, information volume)}}, the shape the five
     geographic builders ask for."""

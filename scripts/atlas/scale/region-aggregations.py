@@ -98,26 +98,19 @@ DEST_LANG = entity_identity.dest_lang_by_country()
 
 
 def markets_for_parent(country, p):
-    out = []
-    home = COUNTRY_MKT.get(country)
-    if home:
-        out.append((home[0], home[1], 'the home market of this region'))
-    # the shared mark loader, so this builder and the four others agree on what counts as
-    # evidence: the Wikidata sitelink index first, then the OSM wikipedia tag, then name:xx
-    marks = entity_identity.marks_for(p)
-    for lang, ev in (DEST_LANG.get(country) or {}).items():
-        mkt = LANG_MKT.get(lang)
-        if not mkt or (home and home[1] == lang):
-            continue
-        mark = marks.get(lang)
-        if not mark:
-            continue
-        out.append((mkt, lang,
-                    f'{country} carries measured {lang} demand ({ev[0]:,} on the connectivity '
-                    f'keyword and {ev[1]:,} on the travel-information keyword) and this region '
-                    f'carries {mark}, which is a proxy for {lang} interest and not a measured '
-                    f'volume for this page'))
-    return out
+    # ONE definition, in entity_identity. This function was copied into five builders and four
+    # of them agreed; the fifth rejected destination countries outright, which is why no
+    # destination country had ever produced a POI page. The decision lives there now and only
+    # the sentence lives here, because the sentence is this family's copy.
+    # The BASIS travels with the sentence. The home-market tests below used to read the PROSE
+    # (`why.startswith('the home market')`), which happens to still hold now that the sentence
+    # is generated, and that is exactly why it is being changed: a test that passes by accident
+    # of wording is a test that breaks the next time the wording is improved.
+    return [(mkt, lang,
+             entity_identity.destination_basis_sentence(country, lang, basis, 'region'),
+             basis == 'home')
+            for mkt, lang, basis in entity_identity.markets_for_entity(
+                country, p, dest_lang=DEST_LANG, marks=entity_identity.marks_for(p))]
 
 
 # ---- the country hub, which is what a region page hangs under ---------------------------------
@@ -287,12 +280,12 @@ for i, p in enumerate(regions):
     sl = slug(name)
     pid = slug(p['id'])
 
-    for (market, lang, why) in mkts:
+    for (market, lang, why, is_home) in mkts:
         # Same requirement as every other shape: a copy served to a market whose country this is
         # not has to carry at least one fact computed for THAT market, or it is a translation.
-        lf = ([] if why.startswith('the home market')
+        lf = ([] if is_home
               else entity_identity.locale_facts_for_row(market, dict(p, parent_id=p['id'])))
-        if not why.startswith('the home market') and not lf:
+        if not is_home and not lf:
             rejects['no_locale_specific_fact_could_be_computed'] += 1
             continue
         # The what-to-see page is the region's own page and the other two hang under it, so its

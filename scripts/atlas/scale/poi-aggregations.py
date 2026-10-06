@@ -569,8 +569,18 @@ for p in places.values():
     name = (p.get('name') or '').strip()
     if len(name) < 2 or name.isdigit():
         rejects['place_name_not_usable'] += 1; continue
+    # DELIBERATELY still gated to market countries, now that the CITY level is not.
+    # The city level opens because a city with a mark of its own in a language whose country
+    # carries measured demand is a subject that language has words for. A NEIGHBOURHOOD is one
+    # level below that, and this file already states the rule: a city mark is not evidence for a
+    # page one level below the city. So Kuta and Seminyak do not get German neighbourhood pages
+    # off Indonesia's German demand and Bali's German article; they would need marks of their
+    # own, and the area-level evidence for destination countries has not been measured. Opening
+    # it would be a bigger step on weaker evidence, so it stays shut and says so rather than
+    # being an unexplained asymmetry between two shapes in one file.
     if not COUNTRY_MKT.get(p.get('country')):
-        rejects['place_no_market_for_country'] += 1; continue
+        rejects['place_no_market_for_country_neighbourhood_level_stays_home_market_only'] += 1
+        continue
     hit = nearest_city(p['country'], float(p['lat']), float(p['lon']))
     if not hit:
         # a neighbourhood that resolves to no city has no hierarchy, so no breadcrumb,
@@ -794,6 +804,82 @@ for k, v in name_resolution.most_common():
     print(f'    {v:>9,}  {k}', file=sys.stderr)
 print(f'distinct (city id, class) cells: {len(city_n):,}', file=sys.stderr)
 
+# ---- the destination evidence, loaded BEFORE the shapes rather than after them --------------
+# This block used to sit a thousand lines further down, immediately above the fan-out that is the
+# only thing that read it. That ordering is why no destination country has ever produced a POI
+# page: each shape below needs to know, at the moment it decides whether a row exists, which
+# language a country with no home market has evidence for, and the answer was not loaded yet. So
+# every such row was rejected as no_market_for_country, and the fan-out below then had nothing to
+# fan out. Moving the load earlier is the whole of the fix; the evidence required is unchanged.
+# One loader in entity_identity, which reads every dated measurement file and merges them.
+# This was six copies of the same loop; see DEST_FILES there for why each file stays separate.
+DEST_LANG = entity_identity.dest_lang_by_country()
+LANG_MKT = entity_identity.LANG_MKT
+
+CITY_MARK = collections.defaultdict(dict)
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/altnames-by-language.jsonl.gz',
+                        'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if not _l: continue
+        _r = json.loads(_l)
+        for _lang, _v in (_r.get('names') or {}).items():
+            if _v.get('historic') or _v.get('colloquial'): continue
+            CITY_MARK[str(_r['geonameid'])][_lang] = 'a GeoNames alternate name'
+except (EOFError, OSError, FileNotFoundError):
+    pass
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/city-sitelinks.jsonl.gz',
+                        'rt', encoding='utf-8'):
+        _l = _l.strip()
+        if not _l: continue
+        _r = json.loads(_l)
+        for _lang in (_r.get('wikipedia_languages') or {}):
+            _d = CITY_MARK[str(_r['geonameid'])]
+            _d[_lang] = ('a GeoNames alternate name and a Wikipedia article'
+                         if _lang in _d else 'a Wikipedia article')
+except (EOFError, OSError, FileNotFoundError):
+    pass
+
+# The AREA mark, through the one shared loader in entity_identity so this builder and the four
+# others agree on what counts as evidence. It reads the Wikidata sitelink index first, then the OSM
+# wikipedia tag, then name:xx.
+AREA_MARK = {}
+for _p in places.values():
+    _m = entity_identity.marks_for(_p)
+    if _m:
+        AREA_MARK[(_p.get('country'), _p.get('id'))] = _m
+print(f'cities carrying a per-language mark: {len(CITY_MARK):,}; '
+      f'areas carrying one: {len(AREA_MARK):,}', file=sys.stderr)
+
+def city_market(country, cid):
+    """(market, language) for a city-level page, or None when nothing earns it.
+
+    Home market where the country has one. Where it does not, the destination language with the
+    strongest measured information volume that THIS city carries a mark in, decided by
+    entity_identity.strongest_destination_language so that this builder, the trail builder, the
+    two region builders and the outdoor feature builder all choose the same way.
+
+    This replaced five byte-identical copies of
+
+        mk = COUNTRY_MKT.get(country)
+        if not mk: rejects['no_market_for_country'] += 1; continue
+
+    which is why 910,845 named POI in twelve destination countries produced nothing: a city with
+    no home market could not hold a page at all, so the destination fan-out at the end of this
+    file, whose entire purpose is to copy such a page into the languages the evidence licenses,
+    had no page to copy. The evidence required is unchanged. A city still needs its country to
+    carry measured demand in the language AND a mark of its own in that language, and every gate
+    downstream still applies.
+    """
+    mk = COUNTRY_MKT.get(country)
+    if mk:
+        return mk[0], mk[1]
+    s = entity_identity.strongest_destination_language(
+        country, {}, dest_lang=DEST_LANG, marks=CITY_MARK.get(str(cid)) or {})
+    return (s[0], s[1]) if s else None
+
+
 rows = []
 # Which city-level pages were actually accepted. An area page whose parent city page was
 # rejected is an orphan by construction: the QA pass found 1,193 such area cuisine pages
@@ -813,9 +899,9 @@ for (cid, cls), n in city_n.items():
     city = city_label(cid)
     cslug = city_slug(cid)
 
-    mk = COUNTRY_MKT.get(country)
+    mk = city_market(country, cid)
     if not mk:
-        rejects['no_market_for_country'] += 1; continue
+        rejects['no_market_and_no_destination_evidence_for_country'] += 1; continue
     market, lang = mk
     need = LIST_CLASSES.get(cls)
     if need is None:
@@ -886,9 +972,9 @@ for (cid, cu), n in city_cu.items():
     city = city_label(cid)
     cslug = city_slug(cid)
 
-    mk = COUNTRY_MKT.get(country)
+    mk = city_market(country, cid)
     if not mk:
-        rejects['no_market_for_country'] += 1; continue
+        rejects['no_market_and_no_destination_evidence_for_country'] += 1; continue
     market, lang = mk
     if n < MIN_CUISINE_CITY:
         rejects['cuisine_below_min_count'] += 1; continue
@@ -970,9 +1056,9 @@ for (cid, cls, an), n in city_at.items():
     city = city_label(cid)
     cslug = city_slug(cid)
 
-    mk = COUNTRY_MKT.get(country)
+    mk = city_market(country, cid)
     if not mk:
-        rejects['no_market_for_country'] += 1; continue
+        rejects['no_market_and_no_destination_evidence_for_country'] += 1; continue
     market, lang = mk
     if n < MIN_ATTR_CITY:
         rejects['attr_below_min_count'] += 1; continue
@@ -1039,9 +1125,9 @@ for (cid, cls, mode), n in city_op.items():
     city = city_label(cid)
     cslug = city_slug(cid)
 
-    mk = COUNTRY_MKT.get(country)
+    mk = city_market(country, cid)
     if not mk:
-        rejects['no_market_for_country'] += 1; continue
+        rejects['no_market_and_no_destination_evidence_for_country'] += 1; continue
     market, lang = mk
     if n < MIN_OPEN_CITY[mode]:
         rejects['opening_below_min_count'] += 1; continue
@@ -1108,9 +1194,9 @@ for (cid, sp), n in city_sp.items():
     city = city_label(cid)
     cslug = city_slug(cid)
 
-    mk = COUNTRY_MKT.get(country)
+    mk = city_market(country, cid)
     if not mk:
-        rejects['no_market_for_country'] += 1; continue
+        rejects['no_market_and_no_destination_evidence_for_country'] += 1; continue
     market, lang = mk
     if n < MIN_SPORT_CITY:
         rejects['sport_below_min_count'] += 1; continue
@@ -1272,46 +1358,6 @@ rejects['entity_not_notable'] += counts['poi_read'] - len(notable)
 # What this is NOT: a translation. A copy is made only where the place itself carries a name or an
 # article in that language, so the page is about something that language already has words for.
 # The mark is a PROXY for interest and the uniqueness reason on every copy says so.
-# One loader in entity_identity, which reads every dated measurement file and merges them.
-# This was six copies of the same loop; see DEST_FILES there for why each file stays separate.
-DEST_LANG = entity_identity.dest_lang_by_country()
-LANG_MKT = entity_identity.LANG_MKT
-
-CITY_MARK = collections.defaultdict(dict)
-try:
-    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/altnames-by-language.jsonl.gz',
-                        'rt', encoding='utf-8'):
-        _l = _l.strip()
-        if not _l: continue
-        _r = json.loads(_l)
-        for _lang, _v in (_r.get('names') or {}).items():
-            if _v.get('historic') or _v.get('colloquial'): continue
-            CITY_MARK[str(_r['geonameid'])][_lang] = 'a GeoNames alternate name'
-except (EOFError, OSError, FileNotFoundError):
-    pass
-try:
-    for _l in gzip.open(ROOT + 'data/atlas/sources/geonames/city-sitelinks.jsonl.gz',
-                        'rt', encoding='utf-8'):
-        _l = _l.strip()
-        if not _l: continue
-        _r = json.loads(_l)
-        for _lang in (_r.get('wikipedia_languages') or {}):
-            _d = CITY_MARK[str(_r['geonameid'])]
-            _d[_lang] = ('a GeoNames alternate name and a Wikipedia article'
-                         if _lang in _d else 'a Wikipedia article')
-except (EOFError, OSError, FileNotFoundError):
-    pass
-
-# The AREA mark, through the one shared loader in entity_identity so this builder and the four
-# others agree on what counts as evidence. It reads the Wikidata sitelink index first, then the OSM
-# wikipedia tag, then name:xx.
-AREA_MARK = {}
-for _p in places.values():
-    _m = entity_identity.marks_for(_p)
-    if _m:
-        AREA_MARK[(_p.get('country'), _p.get('id'))] = _m
-print(f'cities carrying a per-language mark: {len(CITY_MARK):,}; '
-      f'areas carrying one: {len(AREA_MARK):,}', file=sys.stderr)
 
 _fan = []
 _fan_stats = collections.Counter()

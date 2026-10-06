@@ -165,26 +165,20 @@ LANG_MKT = entity_identity.LANG_MKT
 
 def markets_for_parent(country, p):
     """Every (market, language, why) this region earns. Home market first."""
-    out = []
-    home = COUNTRY_MKT.get(country)
-    if home:
-        out.append((home[0], home[1], 'home'))
-    # the shared mark loader, so this builder and the four others agree on what counts as
-    # evidence: the Wikidata sitelink index first, then the OSM wikipedia tag, then name:xx
-    marks = entity_identity.marks_for(p)
-    for lang, ev in (DEST_LANG.get(country) or {}).items():
-        mkt = LANG_MKT.get(lang)
-        if not mkt or (home and home[1] == lang):
-            continue
-        mark = marks.get(lang)
-        if not mark:
-            continue
-        out.append((mkt, lang,
-                    f'{country} carries measured {lang} demand ({ev[0]:,} on the connectivity '
-                    f'keyword and {ev[1]:,} on the travel-information keyword) and this region '
-                    f'carries {mark}, which is a proxy for {lang} interest and not a measured '
-                    f'volume for this page'))
-    return out
+    # ONE definition, in entity_identity. This function was copied into five builders and four
+    # of them agreed; the fifth rejected destination countries outright, which is why no
+    # destination country had ever produced a POI page. The decision lives there now and only
+    # the sentence lives here, because the sentence is this family's copy.
+    # The BASIS is carried alongside the sentence, and the home-market tests below key on it.
+    # They used to key on the reason string being exactly 'home', and generating that string
+    # from one place made the comparison silently false: every home-market row would then have
+    # been required to carry a locale fact and the ones that legitimately have none would have
+    # been dropped. A sentinel that is also display copy is a trap, so the two are separated.
+    return [(mkt, lang,
+             entity_identity.destination_basis_sentence(country, lang, basis, 'region'),
+             basis == 'home')
+            for mkt, lang, basis in entity_identity.markets_for_entity(
+                country, p, dest_lang=DEST_LANG, marks=entity_identity.marks_for(p))]
 
 
 # A list needs enough entries to be a list. Three is the floor every other shape in this
@@ -265,13 +259,13 @@ for key, counts in sorted(per.items()):
       # One pass per market this region earns. The feature count and the examples are facts about
       # the region and are the same in every language; what differs is the language the page is
       # written in and whether that market has MEASURED demand for this list shape.
-      for (market, lang, why) in mkts:
+      for (market, lang, why, is_home) in mkts:
         # A list page served to a market whose country this is NOT has to say something to that
         # market the home page did not. The facts are computed from the region's own coordinates
         # and that market's origin city, so they differ for every market by construction.
-        lf = ([] if why == 'home'
+        lf = ([] if is_home
               else entity_identity.locale_facts_for_row(market, dict(p, parent_id=pid)))
-        if why != 'home' and not lf:
+        if not is_home and not lf:
             rejects['no_locale_specific_fact_could_be_computed'] += 1; continue
         if market not in dem['measured_in']:
             # the family is proven in another market and not in this one. Recorded, not

@@ -177,15 +177,15 @@ for f in sorted(glob.glob(OUTD + 'outdoor-*.jsonl.gz')):
             # No home market, so the BASE row is written in the destination language this feature
             # has the strongest evidence for, and the fan-out below adds any others. Writing a row
             # with no market at all is what produced the earlier "no_market_for_country" rejections
-            # for every Turkish peak.
-            _dl = DEST_LANG.get(iso) or {}
-            _mk = feature_marks(o)
-            _cand = sorted(((_dl[L][1], L) for L in _dl if L in _mk), reverse=True)
-            if not _cand:
+            # for every Turkish peak, and the same omission in poi-aggregations.py is why no
+            # destination country had ever produced a POI page. The choice now comes from
+            # entity_identity so all five builders make it the same way.
+            _s = entity_identity.strongest_destination_language(
+                iso, o, dest_lang=DEST_LANG, marks=feature_marks(o))
+            if not _s:
                 rejects['no_market_and_no_destination_evidence_for_this_feature'] += 1
                 continue
-            lang = _cand[0][1]
-            market = LANG_MKT[lang]
+            market, lang = _s[0], _s[1]
         attr = o.get('attr') or {}
         notable = bool(o.get('qid') or o.get('wikipedia'))
         measurable = [k for k in MEASURABLE if k in attr]

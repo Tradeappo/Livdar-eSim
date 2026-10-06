@@ -74,20 +74,16 @@ def markets_for_route(iso, t):
     language in which its own country carries measured demand AND the route carries a Wikipedia
     article earns that language's market too.
     """
+    # ONE definition, in entity_identity, shared with the four other geographic builders. This
+    # file's own compact reason string stays here, because it is this family's copy.
     out = []
-    home = COUNTRY_MKT.get(iso)
-    if home:
-        out.append((home[0], home[1], 'home'))
-    # the shared mark loader: the Wikidata sitelink index, then the OSM wikipedia tag, then name:xx
-    marks = entity_identity.marks_for(t)
-    for lang, ev in (DEST_LANG.get(iso) or {}).items():
-        mkt = LANG_MKT.get(lang)
-        if not mkt or (home and home[1] == lang):
-            continue
-        mark = marks.get(lang)
-        if not mark:
-            continue
-        out.append((mkt, lang, f'destination:{ev[0]:,}/{ev[1]:,}:{mark}'))
+    for mkt, lang, basis in entity_identity.markets_for_entity(
+            iso, t, dest_lang=DEST_LANG, marks=entity_identity.marks_for(t)):
+        if basis == 'home':
+            out.append((mkt, lang, 'home'))
+        else:
+            _, conn, info, mark = basis
+            out.append((mkt, lang, f'destination:{conn:,}/{info:,}:{mark}'))
     return out
 NETWORK_REACH = {'iwn': 'international', 'nwn': 'national', 'rwn': 'regional', 'lwn': 'local',
                  'icn': 'international cycle', 'ncn': 'national cycle', 'rcn': 'regional cycle',
