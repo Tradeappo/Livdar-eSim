@@ -488,7 +488,13 @@ def main():
                     'family': fid, 'entity_type': etype, 'entity_id': eid,
                     'entity_name': c.get('entity_name') or '', 'country': c.get('country') or '',
                     'information_gain_reason': why,
+                    # All THREE sources, in the order of how specific the evidence is. The
+                    # first version of this field left esd_dest out while the DECISION used it,
+                    # so nineteen rows read NOT_MEASURED_FOR_EITHER while being classified on
+                    # demand that had in fact been measured. A field that contradicts the
+                    # decision beside it is worse than no field.
                     'entity_specific_demand': (
+                        ('MEASURED_FOR_THIS_MARKET: ' + esd_dest) if esd_dest else
                         ('MEASURED_FOR_THIS_MARKET: ' + esd_adm) if esd_adm else
                         ('MEASURED_FOR_THIS_MARKET: cross-language reach file' if esd_reach else
                          ('MEASURED_FOR_THE_OWNER_ONLY' if owner_esd
@@ -584,6 +590,10 @@ def main():
                 'predates the admission of both markets under test and carries no row for '
                 'either. It cannot say anything about them, which is not the same as saying '
                 'they have no demand'),
+            'foreign_destination_measurement': {
+                m: {'entities': len(DEST.get(m, {})),
+                    'volume': sum(v[1] for v in DEST.get(m, {}).values()),
+                    'file': DESTINATION_DEMAND} for m in UNDER_TEST},
             'own_admission_measurement': {
                 m: {'travel_keywords': len(ADM.get(m, ([], []))[0]),
                     'travel_volume': sum(k[2] for k in ADM.get(m, ([], []))[0]),

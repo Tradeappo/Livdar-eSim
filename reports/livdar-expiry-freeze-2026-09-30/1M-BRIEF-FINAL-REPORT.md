@@ -251,8 +251,8 @@ The reason text, grouped by its first clause:
 | candidates_with_no_usable_source                   | 0 |
 | declared_parent_is_not_a_valid_parent              | 0 |
 | declared_parent_is_valid_but_not_a_path_prefix     | 34,032 |
-| destination_rows                                   | 16,177 |
-| destination_rows_with_no_locale_specific_fact      | 12 |
+| destination_rows                                   | 16,165 |
+| destination_rows_with_no_locale_specific_fact      | 0 |
 | duplicate_canonicals                               | 0 |
 | duplicate_h1_within_a_market                       | 0 |
 | duplicate_meta_within_a_market                     | 0 |

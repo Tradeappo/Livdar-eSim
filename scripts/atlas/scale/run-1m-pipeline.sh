@@ -196,6 +196,40 @@ log "gap analysis against the one million target"
 python3 scripts/atlas/scale/build-1m-gap-analysis.py > /tmp/pipe_gap.log 2>&1 \
   && tail -6 /tmp/pipe_gap.log || echo "  gap analysis: see /tmp/pipe_gap.log"
 
+log "market-scoped URL experiment, OFFLINE: en-AU and es-MX against their language siblings"
+# Reads the contests the manifest recorded and decides, per candidate, whether a market-scoped
+# page would be a page a reader needs. It writes two files into reports/ and changes no route,
+# sitemap, redirect or template. In the pipeline so the artifact cannot go stale against the
+# manifest it describes.
+python3 scripts/atlas/scale/market-url-experiment.py > /tmp/pipe_mexp.log 2>&1 \
+  && grep -E "net_new_valid_pages_total|raw_candidates|justified_separate" /tmp/pipe_mexp.log \
+  || echo "  market-url experiment: see /tmp/pipe_mexp.log"
+
+log "hreflang and canonical design, OFFLINE: generated, checked for reciprocity, not deployed"
+python3 scripts/atlas/scale/hreflang-canonical-design.py > /tmp/pipe_hreflang.log 2>&1 \
+  && grep -E "verdict|pages_in_the_plan|market_pages_justified" /tmp/pipe_hreflang.log \
+  || echo "  hreflang design: see /tmp/pipe_hreflang.log"
+
+log "the market-URL report, generated from those two artifacts"
+python3 scripts/atlas/scale/market-url-report.py 2>&1 | tail -2
+
+log "market-scoped URL experiment, OFFLINE: en-AU and es-MX against their language siblings"
+# Reads the contests the manifest recorded and decides, per candidate, whether a market-scoped
+# page would be a page a reader needs. It writes two files into reports/ and changes no route,
+# sitemap, redirect or template. In the pipeline so the artifact cannot go stale against the
+# manifest it describes.
+python3 scripts/atlas/scale/market-url-experiment.py > /tmp/pipe_mexp.log 2>&1 \
+  && grep -E "net_new_valid_pages_total|raw_candidates|justified_separate" /tmp/pipe_mexp.log \
+  || echo "  market-url experiment: see /tmp/pipe_mexp.log"
+
+log "hreflang and canonical design, OFFLINE: generated, checked for reciprocity, not deployed"
+python3 scripts/atlas/scale/hreflang-canonical-design.py > /tmp/pipe_hreflang.log 2>&1 \
+  && grep -E "verdict|pages_in_the_plan|market_pages_justified" /tmp/pipe_hreflang.log \
+  || echo "  hreflang design: see /tmp/pipe_hreflang.log"
+
+log "the market-URL report, generated from those two artifacts"
+python3 scripts/atlas/scale/market-url-report.py 2>&1 | tail -2
+
 log "long dash check across the repository"
 npm run -s dashcheck 2>&1 | tail -5 || echo "  dashcheck reported findings"
 

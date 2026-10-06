@@ -93,12 +93,15 @@ def main():
       'contest in the experiment population is about a FOREIGN entity, and the admission files '
       'say nothing about those either way.')
     w('')
-    w('**So foreign-destination demand was measured directly**, 27 keywords and 54,300 monthly '
-      'volume on 2026-10-06, rather than reported as absent. It is substantial and mostly at '
-      'keyword difficulty 0 to 5: Australians search "things to do in bali" 7,100 times a month, '
-      '"things to do in tokyo" 7,000 and "things to do in singapore" 6,300. Reporting "no '
-      'entity-specific demand" from the admission files alone would have been a statement about '
-      'the files, not the markets.')
+    _dd = exp.get('entity_level_demand_sources', {}).get('foreign_destination_measurement', {})
+    _kw = sum(v.get('entities', 0) for v in _dd.values()) if _dd else 27
+    _vol = sum(v.get('volume', 0) for v in _dd.values()) if _dd else 0
+    w(f'**So foreign-destination demand was measured directly**, {_kw} entities and '
+      f'{n(_vol)} monthly volume on 2026-10-06, rather than reported as absent. It is '
+      'substantial and mostly at keyword difficulty 0 to 5: Australians search "things to do in '
+      'bali" 7,100 times a month, "things to do in tokyo" 7,000 and "things to do in singapore" '
+      '6,300. Reporting "no entity-specific demand" from the admission files alone would have '
+      'been a statement about the files, not the markets.')
     w('')
     w('**Demand proves the audience, not the page.** Everything a `/en-au/` page about Bali '
       'could currently say that the `/en/` page does not is a distance from Sydney and a '
@@ -113,9 +116,13 @@ def main():
       '`MARKET_PAGE_JUSTIFIED_PENDING_SOURCE`, counted apart from the yield and named with the '
       'source each is waiting on.')
     w('')
-    w('## 4. The three sources that would change the answer')
+    w('## 4. The sources that would change the answer')
     w('')
-    w('Each is a real difference a reader plans around, and none is in the inventory.')
+    w('Six kinds of information gain the brief accepts have no source in this inventory. Three '
+      'of them bear directly on the candidates above - market-specific regulation, '
+      'market-specific seasonality and materially different travel access - and any ONE of '
+      'those three would turn the pending candidates into real pages. Each is a difference a '
+      'reader plans around, not a wording change.')
     w('')
     for k, v in (exp.get('information_gain_kinds_with_no_source_yet') or {}).items():
         w(f'- **{k}**: {v}')
@@ -136,8 +143,15 @@ def main():
     w('## 6. hreflang and canonical')
     w('')
     if hre:
+        _c = hre.get('counts', {})
         w(f"Design only, not deployed. {n(hre.get('pages_in_the_plan', 0))} pages planned, "
-          f"{hre.get('market_pages_justified_by_the_experiment', 0)} of them market pages.")
+          f"{hre.get('market_pages_justified_by_the_experiment', 0)} of them market pages. "
+          f"{n(_c.get('pages_with_no_alternates', 0))} of those pages are the only page for "
+          f"their entity and intent in any language and so carry NO hreflang at all: a lone "
+          f"self-annotation tells a crawler nothing the canonical does not, and it is the "
+          f"commonest way a cluster later turns non-reciprocal. The annotations sit on the "
+          f"{n(hre.get('pages_in_the_plan', 0) - _c.get('pages_with_no_alternates', 0))} pages "
+          f"that genuinely have alternates.")
         w('')
         rec = hre.get('reciprocity', {})
         w(f"Reciprocity: {n(rec.get('annotations_checked', 0))} annotations checked, "

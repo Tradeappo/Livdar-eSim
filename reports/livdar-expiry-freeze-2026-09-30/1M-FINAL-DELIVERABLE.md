@@ -1644,8 +1644,8 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | meta_over_165_chars | 97,049 |
 | duplicate_title_exact | 0 |
 | duplicate_title_same_tokens | 27 |
-| destination_rows | 16,177 |
-| destination_rows_with_no_locale_specific_fact | 12 |
+| destination_rows | 16,165 |
+| destination_rows_with_no_locale_specific_fact | 0 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
 | orphan_pages | 68 |

@@ -10,10 +10,15 @@
   "en-AU": {
    "raw_candidates": 16982,
    "justified_separate_pages": 0,
-   "duplicate_rejected": 0,
-   "insufficient_market_value_rejected": 4666,
+   "duplicate_rejected": 4399,
+   "insufficient_market_value_rejected": 248,
    "generic_only": 12316,
    "no_generic_owner_survived_excluded_from_yield": 12316,
+   "of_those_owner_never_generated_a_row": 5431,
+   "of_those_owner_rejected_by_a_later_gate": 6885,
+   "real_coexistence_decisions": 4666,
+   "justified_pending_a_source_not_counted_as_yield": 19,
+   "entities_in_the_foreign_destination_measurement": 48,
    "net_new_valid_pages": 0,
    "yield_rate": 0.0,
    "compared_with": [
@@ -29,6 +34,11 @@
    "insufficient_market_value_rejected": 0,
    "generic_only": 31,
    "no_generic_owner_survived_excluded_from_yield": 31,
+   "of_those_owner_never_generated_a_row": 0,
+   "of_those_owner_rejected_by_a_later_gate": 31,
+   "real_coexistence_decisions": 0,
+   "justified_pending_a_source_not_counted_as_yield": 0,
+   "entities_in_the_foreign_destination_measurement": 0,
    "net_new_valid_pages": 0,
    "yield_rate": 0.0,
    "compared_with": [
@@ -43,12 +53,16 @@
   "en-AU vs en-GB": {
    "KEEP_GENERIC_ONLY": 12316,
    "pairs": 16982,
-   "INSUFFICIENT_MARKET_VALUE": 4666
+   "MARKET_PAGE_DUPLICATE": 4399,
+   "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 19,
+   "INSUFFICIENT_MARKET_VALUE": 248
   },
   "en-AU vs en-US": {
    "KEEP_GENERIC_ONLY": 12316,
    "pairs": 16982,
-   "INSUFFICIENT_MARKET_VALUE": 4666
+   "MARKET_PAGE_DUPLICATE": 4399,
+   "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 19,
+   "INSUFFICIENT_MARKET_VALUE": 248
   },
   "es-MX vs es-ES": {
    "KEEP_GENERIC_ONLY": 31,
@@ -58,7 +72,6 @@
  "why_the_generic_owner_was_missing": {
   "en-AU": {
    "REJECTED_QUALITY": 5168,
-   "NOT_IN_THE_REJECTION_FILE_EITHER": 5431,
    "REJECTED_LOCALIZATION": 5,
    "REJECTED_SERP": 1712
   },
@@ -76,7 +89,9 @@
    "present_in_the_cross_language_reach_file": 0
   }
  },
- "information_gain_kinds_earned": {},
+ "information_gain_kinds_earned": {
+  "en-AU:ENTITY_SPECIFIC_MEASURED_DEMAND": 48
+ },
  "information_gain_kinds_with_no_source_yet": {
   "MARKET_SPECIFIC_REGULATION": "needs a per-(reader country, subject country) rules table: visa class, length of stay, work rights, tax residency threshold. Nothing in this inventory is keyed on the READER country, so relocation.country, taxes.country-remote-work, health.country and banking.country cannot currently differentiate an Australian reader from an American one even though the real-world answers differ",
   "MARKET_SPECIFIC_PRICING": "needs prices quoted in the market currency from a licensed source. The rent index and cost-of-living fields are single-currency, so a currency conversion is all this inventory could produce, and brief rule 3 rules a currency symbol out explicitly",
@@ -111,28 +126,28 @@
    "stay.city-type:KEEP_GENERIC_ONLY": 3255,
    "activities.city-things-to-do:KEEP_GENERIC_ONLY": 2164,
    "climate.city-day:KEEP_GENERIC_ONLY": 1712,
-   "weather.city-month:INSUFFICIENT_MARKET_VALUE": 1712,
    "climate.city-annual:KEEP_GENERIC_ONLY": 1712,
-   "activities.city-things-to-do:INSUFFICIENT_MARKET_VALUE": 1712,
    "destinations.city-hub:KEEP_GENERIC_ONLY": 1712,
    "weather.city-best-time:KEEP_GENERIC_ONLY": 1712,
-   "stay.city-type:INSUFFICIENT_MARKET_VALUE": 621,
-   "transport.route-from-market:INSUFFICIENT_MARKET_VALUE": 621,
+   "weather.city-month:MARKET_PAGE_DUPLICATE": 1584,
+   "activities.city-things-to-do:MARKET_PAGE_DUPLICATE": 1584,
+   "transport.route-from-market:MARKET_PAGE_DUPLICATE": 616,
+   "stay.city-type:MARKET_PAGE_DUPLICATE": 615,
+   "weather.city-month:INSUFFICIENT_MARKET_VALUE": 122,
+   "activities.city-things-to-do:INSUFFICIENT_MARKET_VALUE": 122,
    "calendar.month:KEEP_GENERIC_ONLY": 24,
+   "weather.city-month:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6,
+   "activities.city-things-to-do:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6,
+   "stay.city-type:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 4,
    "transport.route-from-market:KEEP_GENERIC_ONLY": 4,
+   "transport.route-from-market:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 3,
+   "stay.city-type:INSUFFICIENT_MARKET_VALUE": 2,
+   "transport.route-from-market:INSUFFICIENT_MARKET_VALUE": 2,
    "calendar.year:KEEP_GENERIC_ONLY": 2,
    "calendar.week-numbers:KEEP_GENERIC_ONLY": 2,
    "tools.calculator:KEEP_GENERIC_ONLY": 1,
    "tools.matcher:KEEP_GENERIC_ONLY": 1,
-   "tools.cost-calculator:KEEP_GENERIC_ONLY": 1,
-   "tools.cost-comparison:KEEP_GENERIC_ONLY": 1,
-   "tools.loan-payment:KEEP_GENERIC_ONLY": 1,
-   "tools.rent-to-income:KEEP_GENERIC_ONLY": 1,
-   "tools.vehicle-financing:KEEP_GENERIC_ONLY": 1,
-   "tools.net-pay:KEEP_GENERIC_ONLY": 1,
-   "tools.net-pay-contract-level:KEEP_GENERIC_ONLY": 1,
-   "tools.bonus-net-pay:KEEP_GENERIC_ONLY": 1,
-   "tools.mortgage-tax-deduction:KEEP_GENERIC_ONLY": 1
+   "tools.cost-calculator:KEEP_GENERIC_ONLY": 1
   },
   "es-MX": {
    "calendar.month:KEEP_GENERIC_ONLY": 24,
@@ -145,12 +160,25 @@
  },
  "decisions": [
   "MARKET_PAGE_JUSTIFIED",
+  "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE",
   "KEEP_GENERIC_ONLY",
   "MARKET_PAGE_DUPLICATE",
   "INSUFFICIENT_MARKET_VALUE"
  ],
  "entity_level_demand_sources": {
   "cross_language_reach_file": "reports/livdar-master-seo-universe-2026-09-30/CROSS-LANGUAGE-REACH.csv, which predates the admission of both markets under test and carries no row for either. It cannot say anything about them, which is not the same as saying they have no demand",
+  "foreign_destination_measurement": {
+   "en-AU": {
+    "entities": 15,
+    "volume": 44700,
+    "file": "destination-demand-new-markets-2026-10-06.json"
+   },
+   "es-MX": {
+    "entities": 12,
+    "volume": 7500,
+    "file": "destination-demand-new-markets-2026-10-06.json"
+   }
+  },
   "own_admission_measurement": {
    "en-AU": {
     "travel_keywords": 54,

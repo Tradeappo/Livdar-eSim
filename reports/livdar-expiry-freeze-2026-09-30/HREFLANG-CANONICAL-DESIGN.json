@@ -1,0 +1,68 @@
+{
+ "generated": "2026-10-06",
+ "status": "DESIGN ONLY, NOT DEPLOYED. No route, sitemap, redirect or template changed.",
+ "url_space_today": "LANGUAGE-scoped: /{language}/{surface}/{family}/{entity}/",
+ "market_pages_justified_by_the_experiment": 0,
+ "pages_in_the_plan": 342463,
+ "languages_present": {
+  "en": 90034,
+  "de": 58645,
+  "fr": 49420,
+  "ja": 37072,
+  "it": 28277,
+  "es": 18668,
+  "pt": 17532,
+  "nl": 15432,
+  "pl": 13560,
+  "tr": 13023,
+  "zh-Hant": 800
+ },
+ "counts": {
+  "pages_LANGUAGE_PAGE": 17868,
+  "annotations": 29418,
+  "pages_with_no_alternates": 324595
+ },
+ "reciprocity": {
+  "annotations_checked": 29418,
+  "pointing_at_a_url_not_in_the_plan": 0,
+  "not_reciprocated_by_the_target": 0,
+  "examples_broken": [],
+  "examples_non_reciprocal": [],
+  "verdict": "every annotation resolves and reciprocates"
+ },
+ "canonical_rule": "self on every page. A market page NEVER canonicals to the generic page: that would declare it a duplicate, and a duplicate should not exist rather than exist with a canonical pointing away. The two outcomes for a market candidate are \"exists and self-canonicals\" and \"is not created\".",
+ "hreflang_values_emittable_in_this_url_space": {
+  "language_tags": [
+   "de",
+   "en",
+   "es",
+   "fr",
+   "it",
+   "ja",
+   "nl",
+   "pl",
+   "pt",
+   "tr",
+   "zh-Hant"
+  ],
+  "market_tags": [
+   "en-AU",
+   "es-MX"
+  ],
+  "market_tags_emitted": [],
+  "why_not_en_US_and_en_GB": "no /en-us/ or /en-gb/ URL exists. The brief lists en, en-GB, en-US, en-AU, es, es-ES and es-MX, which describes a fully market-scoped space; this space is language-scoped, and the brief own rule - no hreflang alternative for a page that does not exist - rules those four out. Emitting hreflang=\"en-US\" on /en/ would also stop /en/ serving British and Australian readers, which it does today.",
+  "why_en_and_en_AU_do_not_conflict": "en is the unqualified English page and en-AU the regional refinement. An Australian reader matches en-AU; every other English reader falls back to en. This is the one pair in this design where a language tag and a market tag coexist, and it works precisely because the generic page keeps the bare tag."
+ },
+ "x_default": {
+  "emitted": false,
+  "why": "x-default names the page for a reader whose language and region match nothing in the cluster, which in practice means a language selector or a language-neutral page. The Atlas has neither: every page is in one language at a language-scoped path. Nominating /en/ as the default would be an assumption about who the unmatched reader is, and the brief asks for x-default to be deliberate rather than assumed.",
+  "the_condition_that_would_make_it_correct": "a language-neutral entity page at a path with no language segment, or a language selector at the entity level. Neither exists and neither is proposed here. Until one does, the absence of x-default is the accurate statement: there is no page that serves everyone."
+ },
+ "where_the_tags_belong": "in the HTML head of each page, not in the sitemap. Both are valid to Google; head tags are chosen because the cluster for a page is computed from that page own render and so cannot drift from what the page is, whereas a sitemap annotation is a second source of truth that goes stale the moment a page is added or removed. This project has paid for a second source of truth often enough.",
+ "what_would_have_to_be_true_before_deploying_any_of_this": [
+  "a market page justified by measurement, of which this run produced none",
+  "the reciprocity check above passing, which it does for the language clusters",
+  "the sitemap and redirect audit, which is a separate technical task and not done here",
+  "a decision to serve /en-au/ at all, which is a routing change and outside this brief"
+ ]
+}
