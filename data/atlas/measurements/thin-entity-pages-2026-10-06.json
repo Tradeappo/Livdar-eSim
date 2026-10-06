@@ -1,0 +1,244 @@
+{
+ "generated": "2026-10-06",
+ "question": "how much of the inventory is one measured attribute wearing a page",
+ "inventory_rows": 422825,
+ "rows_that_record_an_attribute_count": 93911,
+ "attribute_count_distribution": {
+  "1": 83612,
+  "2": 6380,
+  "3": 1827,
+  "4": 1012,
+  "5": 574,
+  "6": 337,
+  "7": 117,
+  "8": 44,
+  "9": 5,
+  "10": 3
+ },
+ "rows_with_exactly_one_measured_attribute": 83612,
+ "share_of_the_attribute_recording_rows": 0.89,
+ "rows_with_one_attribute_and_a_name_shared_in_the_same_market": 24296,
+ "distinct_shared_names": 6268,
+ "the_most_repeated_names": {
+  "Bald Mountain (outdoors.peak, en-US)": 124,
+  "Black Mountain (outdoors.peak, en-US)": 105,
+  "Galgenberg (outdoors.peak, de-DE)": 96,
+  "Round Mountain (outdoors.peak, en-US)": 90,
+  "Little Mountain (outdoors.peak, en-US)": 81,
+  "Steinberg (outdoors.peak, de-DE)": 80,
+  "Pine Hill (outdoors.peak, en-US)": 78,
+  "Bald Hill (outdoors.peak, en-US)": 72,
+  "Oak Hill (outdoors.peak, en-US)": 68,
+  "Bald Knob (outdoors.peak, en-US)": 67,
+  "Bear Mountain (outdoors.peak, en-US)": 60,
+  "Sugarloaf Mountain (outdoors.peak, en-US)": 60,
+  "Pine Mountain (outdoors.peak, en-US)": 56,
+  "Red Hill (outdoors.peak, en-US)": 55,
+  "Green Mountain (outdoors.peak, en-US)": 54,
+  "Round Top (outdoors.peak, en-US)": 54,
+  "Weinberg (outdoors.peak, de-DE)": 53,
+  "Buck Mountain (outdoors.peak, en-US)": 52,
+  "Prospect Hill (outdoors.peak, en-US)": 52,
+  "Red Mountain (outdoors.peak, en-US)": 48,
+  "Iron Mountain (outdoors.peak, en-US)": 47,
+  "Lookout Mountain (outdoors.peak, en-US)": 43,
+  "Middle Mountain (outdoors.peak, en-US)": 43,
+  "Pilot Knob (outdoors.peak, en-US)": 43,
+  "Eichelberg (outdoors.peak, de-DE)": 42
+ },
+ "candidate_gates": {
+  "an_entity_page_needs_two_or_more_measured_attributes": {
+   "removes": 83612,
+   "leaves": 339213,
+   "cost": "it removes a page about a real hill whose only published fact is its height. That page is not false, it is thin, and it is the shape Google treats as scaled content abuse when there are tens of thousands of it."
+  },
+  "one_attribute_is_enough_only_if_the_name_is_unique_in_its_market_and_family": {
+   "removes": 24296,
+   "leaves": 398529,
+   "cost": "it keeps the single peak called Aarnest and removes the fifty-four called Round Top, which is the narrower reading: a lone thin page is thin, fifty-four of them with one number changed is a template."
+  }
+ },
+ "per_family": {
+  "outdoors.aqueduct": {
+   "pages": 40,
+   "with_exactly_one_measured_attribute": 28,
+   "share_one_attribute": 0.7,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 9
+  },
+  "outdoors.archaeological_site": {
+   "pages": 2909,
+   "with_exactly_one_measured_attribute": 2168,
+   "share_one_attribute": 0.745,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 43
+  },
+  "outdoors.beach": {
+   "pages": 831,
+   "with_exactly_one_measured_attribute": 723,
+   "share_one_attribute": 0.87,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 79
+  },
+  "outdoors.beach_resort": {
+   "pages": 11,
+   "with_exactly_one_measured_attribute": 4,
+   "share_one_attribute": 0.364,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.bird_hide": {
+   "pages": 1,
+   "with_exactly_one_measured_attribute": 1,
+   "share_one_attribute": 1.0,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.camp_site": {
+   "pages": 346,
+   "with_exactly_one_measured_attribute": 66,
+   "share_one_attribute": 0.191,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.caravan_site": {
+   "pages": 26,
+   "with_exactly_one_measured_attribute": 4,
+   "share_one_attribute": 0.154,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.castle": {
+   "pages": 7922,
+   "with_exactly_one_measured_attribute": 5509,
+   "share_one_attribute": 0.695,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 419
+  },
+  "outdoors.cave": {
+   "pages": 832,
+   "with_exactly_one_measured_attribute": 424,
+   "share_one_attribute": 0.51,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 6
+  },
+  "outdoors.city_gate": {
+   "pages": 406,
+   "with_exactly_one_measured_attribute": 323,
+   "share_one_attribute": 0.796,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 39
+  },
+  "outdoors.climbing_crag": {
+   "pages": 10,
+   "with_exactly_one_measured_attribute": 6,
+   "share_one_attribute": 0.6,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.fort": {
+   "pages": 500,
+   "with_exactly_one_measured_attribute": 291,
+   "share_one_attribute": 0.582,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.geyser": {
+   "pages": 53,
+   "with_exactly_one_measured_attribute": 50,
+   "share_one_attribute": 0.943,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.glacier": {
+   "pages": 124,
+   "with_exactly_one_measured_attribute": 124,
+   "share_one_attribute": 1.0,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 2
+  },
+  "outdoors.hot_spring": {
+   "pages": 16,
+   "with_exactly_one_measured_attribute": 14,
+   "share_one_attribute": 0.875,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.lighthouse": {
+   "pages": 710,
+   "with_exactly_one_measured_attribute": 352,
+   "share_one_attribute": 0.496,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 1
+  },
+  "outdoors.monument": {
+   "pages": 949,
+   "with_exactly_one_measured_attribute": 610,
+   "share_one_attribute": 0.643,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 27
+  },
+  "outdoors.mountain_hut": {
+   "pages": 905,
+   "with_exactly_one_measured_attribute": 69,
+   "share_one_attribute": 0.076,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.mountain_pass": {
+   "pages": 2643,
+   "with_exactly_one_measured_attribute": 2628,
+   "share_one_attribute": 0.994,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 108
+  },
+  "outdoors.natural_arch": {
+   "pages": 9,
+   "with_exactly_one_measured_attribute": 8,
+   "share_one_attribute": 0.889,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 2
+  },
+  "outdoors.observatory": {
+   "pages": 229,
+   "with_exactly_one_measured_attribute": 93,
+   "share_one_attribute": 0.406,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 5
+  },
+  "outdoors.peak": {
+   "pages": 68642,
+   "with_exactly_one_measured_attribute": 66392,
+   "share_one_attribute": 0.967,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 23242
+  },
+  "outdoors.ruins": {
+   "pages": 1254,
+   "with_exactly_one_measured_attribute": 962,
+   "share_one_attribute": 0.767,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 34
+  },
+  "outdoors.tower": {
+   "pages": 1856,
+   "with_exactly_one_measured_attribute": 810,
+   "share_one_attribute": 0.436,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 98
+  },
+  "outdoors.viewpoint": {
+   "pages": 355,
+   "with_exactly_one_measured_attribute": 220,
+   "share_one_attribute": 0.62,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 5
+  },
+  "outdoors.volcano": {
+   "pages": 450,
+   "with_exactly_one_measured_attribute": 404,
+   "share_one_attribute": 0.898,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 14
+  },
+  "outdoors.waterfall": {
+   "pages": 416,
+   "with_exactly_one_measured_attribute": 322,
+   "share_one_attribute": 0.774,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 12
+  },
+  "outdoors.watermill": {
+   "pages": 306,
+   "with_exactly_one_measured_attribute": 212,
+   "share_one_attribute": 0.693,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 8
+  },
+  "outdoors.wilderness_hut": {
+   "pages": 181,
+   "with_exactly_one_measured_attribute": 24,
+   "share_one_attribute": 0.133,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 0
+  },
+  "outdoors.windmill": {
+   "pages": 979,
+   "with_exactly_one_measured_attribute": 771,
+   "share_one_attribute": 0.788,
+   "one_attribute_and_a_name_shared_with_another_page_in_the_same_market": 143
+  }
+ },
+ "what_this_does_not_say": "nothing here says these entities are not real or that the attribute is wrong. The source is OpenStreetMap and the heights are measured. The question is whether one measured number plus a containing polygon plus a distance is a page, and that is a publication decision rather than a data decision, so this file does not take it."
+}
