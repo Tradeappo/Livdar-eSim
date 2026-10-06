@@ -1,0 +1,31 @@
+{
+  "generated_on": "2026-10-06",
+  "kind": "structural finding plus a bounded measurement. Nothing was built and no code was changed.",
+  "the_finding": "No destination country has ever produced a POI-derived page, and the reason is one line in scripts/atlas/scale/poi-aggregations.py. Every aggregation shape starts with `mk = COUNTRY_MKT.get(country)` and, when the country has no HOME market, is rejected as `no_market_for_country`. The destination fan-out further down the same file exists precisely to copy a row into the languages the destination axis licenses, but it iterates over `rows`, and for a destination country there is no row to copy. So the POI and places families, which are the largest in the inventory at 76,245 city-category and 93,217 area-category aggregations across the 14 market countries, produce exactly nothing for the 45 destination countries.",
+  "how_it_was_found": "The POI aggregation on disk contains 14 countries and all 14 are market countries. The first hypothesis was staleness: the aggregation last ran at 17:45 on 2026-10-05, and nine POI layers (CH, PT, MA, EG, AE, KH, MY, IE and PH) were written after that, 616,905 named POI it had never seen. But poi-ID was written at 12:16 on 2026-10-05, five hours BEFORE that run, and Indonesia is absent too. Staleness was therefore not the cause, and reading the builder found the real one.",
+  "a_correction_to_what_was_reported_earlier_today": "The commit that captured the Philippines said the 23 countries with full OSM layers contribute 1,986 of the 6,842 destination rows, about 86 each. That stated a correlation as a contribution and is wrong. OSM capture contributes ZERO destination rows, because no destination POI has ever been aggregated. All 6,842 destination rows come from the GeoNames city list joined to the NASA POWER climate normals, through four families: activities.city-things-to-do, weather.city-month, stay.city-type and transport.route-from-market. The 1,986 figure was simply those rows that happen to fall in countries that also have OSM layers.",
+  "the_bounded_measurement": {
+    "what_was_measured": "How many city-category pages would pass the floors ALREADY IN THE BUILDER if a destination country were allowed to produce a row at all. The floors were read out of the builder by AST rather than retyped, so the probe cannot drift from what it probes.",
+    "poi_layers_on_disk_for_destination_countries": ["AE", "AT", "CH", "EG", "ID", "IE", "KH", "LU", "MA", "MY", "PH", "PT"],
+    "named_poi_read_deduped": 910845,
+    "with_a_resolvable_city_tag": 221955,
+    "city_category_pairs_considered": 53455,
+    "rejected_below_min_count": 30195,
+    "rejected_class_not_a_list_intent": 20387,
+    "rejected_entries_too_thin": 899,
+    "would_pass_the_existing_floors": 1974,
+    "of_those_in_countries_that_already_carry_licensed_destination_demand": 1950,
+    "by_country": {
+      "AT": 498, "CH": 411, "PT": 250, "PH": 233, "IE": 171, "MY": 134,
+      "ID": 131, "MA": 61, "AE": 28, "LU": 24, "KH": 20, "EG": 13
+    },
+    "why_1974_IS_A_LOWER_BOUND": "The probe attributes a POI to a city only through its own `city` tag, which reached 221,955 of 910,845 named POI. The builder also attributes spatially through the gazetteer, which is how it reaches the rest, so the real population is materially larger. The probe was deliberately kept to the cheaper half: a lower bound is the useful shape of this answer, because the question is whether the path is worth a design change, and 1,974 already settles that.",
+    "what_was_NOT_counted": "Only the city-category shape. The builder also emits area-category, city-cuisine, area-cuisine, city-attribute, area-attribute, city-opening, area-opening, city-sport, area-parent, city-areas-hub and notable-entity. Across the market countries those together outnumber city-category by roughly two to one, so the full shape set would be a multiple of this figure."
+  },
+  "what_a_design_change_would_have_to_settle": {
+    "which_language_a_destination_row_starts_in": "A market row starts in its home market's language. A destination row has no home market, so it would have to start in a language the destination axis already licenses for that country, from dest_lang_by_country(). That is a real change to the generation model rather than a relaxed gate: the row would exist because a measured language demand licenses it, not because a market owns it.",
+    "every_existing_gate_still_applies": "The localisation gate removed 122,106 rows on the 2026-10-06 run and is the gate these rows would mostly meet. A destination page in a foreign language needs a locale fact computed for its market and a city language mark, and both are already required by the fan-out. Nothing here proposes relaxing any of that.",
+    "the_risk_to_weigh": "Vienna restaurant and Graz clinic lists are the largest things that would pass, and a clinic list in a city no market owns is exactly the kind of page that passes a count floor while serving nobody. The SERP gate and the per-family demand evidence would have to carry more weight on this axis than they do on the market axis, because the demand evidence is per COUNTRY and per LANGUAGE here rather than per city and per market."
+  },
+  "honest_size_against_the_target": "Several thousand pages, probably under ten thousand once every shape and the spatial attribution are counted and every gate is applied. That is worth having and is the same order as every other remaining path. It does not change the conclusion that the measured closure paths do not reach 1,000,000."
+}

@@ -77,8 +77,23 @@ contribute 1,986 of those 6,842, about 86 each. The remaining 4,856 destination 
 countries with NO OSM capture at all, through GeoNames cities joined to the NASA POWER climate
 normals.
 
-So the OSM destination queue is a data-quality and coverage exercise rather than a path to
-scale: 192,826 Philippine POI will not become 192,826 pages, and on the measured rate they
-will become roughly 86. The binding constraint on the destination axis is not capture, it is
-MEASURED DEMAND PER (market, destination city): the harvest covers 369 cities across 7 markets,
-and en-US, en-GB, ja-JP, tr-TR, en-AU, es-MX and zh-Hant-TW have no harvest rows at all.
+**CORRECTED a few hours later, on 2026-10-06.** The paragraph that stood here said the OSM
+destination queue was worth roughly 86 pages per country on the measured rate. That stated a
+correlation as a contribution and was wrong. The OSM destination layers contribute ZERO pages
+today, not 86: `poi-aggregations.py` rejects every aggregation whose country has no HOME market
+(`mk = COUNTRY_MKT.get(country)`), so no destination country has ever produced a POI-derived
+page. All 6,842 destination rows come from the GeoNames city list joined to the NASA POWER
+climate normals, through four families that need no POI at all. The 1,986 I attributed to
+OSM-captured countries were simply the rows that happen to fall in countries which also have
+OSM layers.
+
+So 192,826 Philippine POI currently become nothing, and the constraint is not capture and not
+keyword coverage but that one line. The measurement of what it blocks is in
+`data/atlas/measurements/destination-poi-blocked-by-home-market-2026-10-06.json`: a LOWER bound
+of 1,974 city-category pages across twelve destination countries would pass the floors already
+in the builder, 1,950 of them in countries that already carry licensed destination demand.
+
+The keyword gap is real as well and is the second constraint, not the first: the harvest covers
+369 cities across 7 markets, and a probe of fourteen head destinations absent from every
+evidence file found demand for all fourteen in both en-US and de-DE
+(`destination-coverage-probe-2026-10-06.json`).

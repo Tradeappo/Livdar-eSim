@@ -1,0 +1,69 @@
+{
+  "generated_on": "2026-10-06",
+  "provider": "Ahrefs Keywords Explorer v3, country-scoped volume",
+  "units_spent": 616,
+  "the_question": "The destination axis contributes 6,842 of 342,463 final rows, and the binding constraint looked like MEASURED DEMAND PER (market, destination city) rather than data capture: only 74 city-country pairs in destination countries carry entity-level demand evidence, across CROSS-LANGUAGE-REACH.csv and the 2026-10-01 harvest. Before treating that as headroom it had to be tested, because the other possibility is that 74 IS the head and the rest of the world's cities have no demand worth a page.",
+  "how_it_was_tested": "Twenty obvious head destinations were checked against the evidence files. Six were already covered. The other FOURTEEN were measured in the two largest markets, each with that market's own established keyword template: 'things to do in {city}' for en-US and '{city} sehenswuerdigkeiten' for de-DE, both taken from the templates the 2026-10-01 harvest already used rather than invented here.",
+  "the_result": "14 of 14 have real demand in BOTH markets. Not one came back empty. So the evidence set is not the head, it is a sample, and the destination axis has measurable headroom that is a MEASUREMENT cost rather than a capture cost.",
+  "licence_and_provenance": {
+    "source": "Ahrefs API v3 keywords-explorer-overview",
+    "licence": "commercial subscription, Advanced plan, internal use",
+    "redistribution": "NOT redistributable. Volumes decide which pages are built; they are published on no page.",
+    "cache": "no_cache, live figures for 2026-10-06"
+  },
+  "en-US": {
+    "template": "things to do in {city}",
+    "hit_rate": "14 of 14",
+    "total_volume": 36750,
+    "keywords": [
+      {"city": "Singapore", "country": "SG", "volume": 7700, "kd": 24},
+      {"city": "Seoul", "country": "KR", "volume": 6300, "kd": 2},
+      {"city": "Bali", "country": "ID", "volume": 5400, "kd": 5},
+      {"city": "Hanoi", "country": "VN", "volume": 3000, "kd": 0},
+      {"city": "Phuket", "country": "TH", "volume": 2400, "kd": 21},
+      {"city": "Cairo", "country": "EG", "volume": 2200, "kd": 0},
+      {"city": "Chiang Mai", "country": "TH", "volume": 2200, "kd": 0},
+      {"city": "Hoi An", "country": "VN", "volume": 1800, "kd": 2},
+      {"city": "Mumbai", "country": "IN", "volume": 1700, "kd": 2},
+      {"city": "Jaipur", "country": "IN", "volume": 1300, "kd": 0},
+      {"city": "Delhi", "country": "IN", "volume": 1200, "kd": 4},
+      {"city": "Kathmandu", "country": "NP", "volume": 800, "kd": 0},
+      {"city": "Siem Reap", "country": "KH", "volume": 400, "kd": 0},
+      {"city": "Colombo", "country": "LK", "volume": 350, "kd": 2}
+    ]
+  },
+  "de-DE": {
+    "template": "{city} sehenswuerdigkeiten",
+    "hit_rate": "14 of 14",
+    "total_volume": 14550,
+    "keywords": [
+      {"city": "Singapore", "country": "SG", "volume": 2800, "kd": 1},
+      {"city": "Bali", "country": "ID", "volume": 2700, "kd": 0},
+      {"city": "Phuket", "country": "TH", "volume": 2000, "kd": 7},
+      {"city": "Seoul", "country": "KR", "volume": 1600, "kd": 0},
+      {"city": "Chiang Mai", "country": "TH", "volume": 1200, "kd": 0},
+      {"city": "Cairo", "country": "EG", "volume": 1100, "kd": 0},
+      {"city": "Hanoi", "country": "VN", "volume": 1100, "kd": 0},
+      {"city": "Hoi An", "country": "VN", "volume": 400, "kd": 0},
+      {"city": "Mumbai", "country": "IN", "volume": 400, "kd": 71},
+      {"city": "Colombo", "country": "LK", "volume": 350, "kd": 0},
+      {"city": "Delhi", "country": "IN", "volume": 300, "kd": 0},
+      {"city": "Jaipur", "country": "IN", "volume": 200, "kd": 68},
+      {"city": "Kathmandu", "country": "NP", "volume": 200, "kd": 57},
+      {"city": "Siem Reap", "country": "KH", "volume": 200, "kd": 0}
+    ]
+  },
+  "what_this_does_and_does_not_establish": {
+    "establishes": "The 74-city evidence set in destination countries is a sample rather than an exhaustion. Fourteen head destinations chosen without reference to the data all have demand in both markets tested, most at keyword difficulty 0 to 7, which is the open end of the difficulty range.",
+    "does_not_establish": "How far down the tail the demand runs. A head sample tells you the head exists; it says nothing about city number 400 or city number 4,000. The honest next step is a tail sample, not a projection off the head.",
+    "does_not_establish_either": "That these pages would pass the gates. Demand gets a city into the pool; the localisation gate, the SERP gate and the uniqueness gate each still apply, and the localisation gate alone removed 122,106 rows on this run."
+  },
+  "the_arithmetic_as_far_as_it_can_be_taken": {
+    "basis": "6,842 final destination rows come from 74 destination cities carrying entity-level evidence, which is about 92 final rows per evidence-carrying city AFTER every gate.",
+    "if_the_evidence_set_reached_500_cities": "about 46,000 final rows, a gain of roughly 39,000",
+    "if_it_reached_1000_cities": "about 92,000 final rows, a gain of roughly 85,000",
+    "the_caveat_that_matters": "Both figures assume the per-city rate holds as the set grows, and it will NOT hold indefinitely: the 92 rows per city is an average over a set weighted towards heads, and tail cities will carry fewer families and weaker SERP classes. Treat these as an upper bound on this axis, not a forecast.",
+    "against_the_target": "Even the 1,000-city figure leaves the 1,000,000 target short by more than half a million. This axis is worth real money and is not the answer on its own."
+  },
+  "the_cheapest_next_measurement": "A TAIL sample: 40 destination cities drawn from ranks 100 to 1,000 by population in the destination countries already captured, measured in two markets. About 1,800 units. That is what decides whether this axis is worth 39,000 pages or 5,000, and it is the number the 1,000,000 arithmetic actually turns on."
+}
