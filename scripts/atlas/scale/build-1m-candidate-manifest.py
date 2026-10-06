@@ -273,7 +273,17 @@ VENUE_COUNTRIES = {v['country'] for v in venues if v['country']}
 # generated. Only entity-plus-practical-modifier pages are, and only for the three
 # modifiers ENTITY-MODIFIER-RESEARCH.csv verified as MODIFIER_WORKS: tickets, opening
 # hours, how to get to.
-osm_poi = []
+# COUNTED, not kept. This loop used to append every record to a list, and nothing in the
+# remaining 2,500 lines ever read it: its only three references were the declaration, the
+# append and the length print. Measured on 2026-10-06: 6,986,031 records at an average 1,272
+# bytes is 8.89 GB held to print one number, and that is what killed this stage at 13.95 GB on
+# the run following the destination-gate expansion. The expansion was not the cause; it pushed
+# an existing 8.89 GB of waste past the limit.
+#
+# The count is still printed because it is a real fact about the corpus the aggregation was
+# built from, and the comment above says why no page is generated from these records directly:
+# bare POI entity pages are BRAND_OWNED_PLUS_SOCIAL per the SERP evidence.
+poi_corpus_count = 0
 for _f in sorted(glob.glob(ROOT + 'data/atlas/sources/osm-poi/poi-*.jsonl.gz')):
     try:
         for _l in gzip.open(_f, 'rt', encoding='utf-8'):
@@ -282,10 +292,10 @@ for _f in sorted(glob.glob(ROOT + 'data/atlas/sources/osm-poi/poi-*.jsonl.gz')):
             try: _o = json.loads(_l)
             except Exception: continue
             if _o.get('name') and _o.get('cls'):
-                osm_poi.append(_o)
+                poi_corpus_count += 1
     except (EOFError, OSError):
         pass
-print(f'  osm poi {len(osm_poi):,}', file=sys.stderr)
+print(f'  osm poi {poi_corpus_count:,}', file=sys.stderr)
 
 # Which practical modifier each POI class can carry. One or two per class, never more:
 # the modifier must answer a question that class actually gets asked.
