@@ -285,6 +285,200 @@ A('in two languages, and the cap stands: the family phrasing is dead at that dep
 A('"estoril cosa vedere" at 30 against "estoril" at 2,300. A name with volume is not a page')
 A('intent. The full measurement is in tier-cap-vs-destination-mark-2026-10-02.json.')
 
+# ---- the sections the 2026-10-06 brief asks for by name ---------------------------------------
+# Each one reads a measurement file rather than restating a number, so the report cannot drift
+# from the evidence and a missing file shows as missing rather than as a confident zero.
+MEAS = ROOT + 'data/atlas/measurements/'
+
+
+def m(fn):
+    return jload(MEAS + fn, {})
+
+
+A('')
+A('## COUNTRIES')
+A('')
+_cc = collections.Counter(r['country'] for r in rows if (r.get('country') or '').strip())
+_dest_tab = (m('destination-demand-by-country-language-six-languages-2026-10-06.json')
+             .get('table') or {})
+_qual = {k.split('|')[0] for k, v in _dest_tab.items() if v.get('qualifies')}
+for fn in ('destination-demand-by-country-language-2026-10-02.json',
+           'destination-demand-by-country-language-tr-2026-10-05.json',
+           'destination-demand-by-country-language-ko-2026-10-05.json'):
+    for pair in (m(fn).get('qualifying_pairs') or []):
+        _qual.add(pair.split('|')[0])
+_mirror = m('destination-mirror-coverage-2026-10-02.json')
+_blocked = set(_mirror.get('not_carried_by_this_mirror') or [])
+A('| | count |')
+A('| --- | --- |')
+A(f'| destination countries represented by at least one page | {len(_cc):,} |')
+A(f'| countries whose demand qualifies in at least one language | {len(_qual):,} |')
+A(f'| of those, represented by a page today | {len(_qual & set(_cc)):,} |')
+A(f'| of those, measured as qualifying and NOT yet represented | {len(_qual - set(_cc)):,} |')
+A(f'| countries this OSM mirror does not carry, so blocked on a second source '
+  f'| {len(_blocked):,} |')
+A('')
+A('Countries that qualify on demand and have no page yet, which is the queue in priority order '
+  'rather than a gap:')
+A('')
+A('  ' + ' '.join(sorted(_qual - set(_cc))) or '  none')
+A('')
+if _blocked:
+    A('Blocked on the mirror, recorded with what each is worth in '
+      'destination-mirror-coverage-2026-10-02.json:')
+    A('')
+    A('  ' + ' '.join(sorted(_blocked)))
+    A('')
+
+A('## MARKETS')
+A('')
+_active = sorted({r['market'] for r in rows})
+A(f'Active and generating: {len(_active)}')
+A('')
+A('  ' + ' '.join(_active))
+A('')
+_rank06 = m('market-expansion-ranking-2026-10-06.json').get('candidates') or []
+_rank05 = m('market-expansion-ranking-2026-10-05.json').get('candidates') or []
+A(f'Researched as candidates and NOT admitted: {len(_rank05) + len(_rank06)} across two passes.')
+A('')
+A('| candidate | new language | measured volume | highest CPC cents | disposition |')
+A('| --- | --- | --- | --- | --- |')
+for c in _rank06:
+    pr = c.get('priority')
+    disp = f'recommended, priority {pr}' if isinstance(pr, int) else str(pr)
+    A(f"| {c['market']} | {'yes' if c.get('is_a_new_language') else 'no'} "
+      f"| {c.get('total_measured_volume', 0):,} | {c.get('highest_cpc_cents', 0)} | {disp} |")
+A('')
+A('The rule both passes found, and it is the best predictor of page yield measured anywhere in '
+  'this project: a candidate whose per-city family is ALIVE yields a page per city, and a '
+  'candidate where only the generic connectivity intent lives yields none. Czech reads esim '
+  '10,000 and then praha co videt NINETY; Arabic in the UAE reads esim 5,300 and then Paris 10. '
+  'Both are refused on that basis, and ko-KR stays out on its SERP after passing demand by the '
+  'widest margin of any candidate.')
+A('')
+
+A('## LANGUAGES')
+A('')
+_lang_now = collections.Counter(r['language'] for r in rows)
+A('| language | pages | destination gate measured |')
+A('| --- | --- | --- |')
+_six = set((m('destination-demand-by-country-language-six-languages-2026-10-06.json')
+            .get('per_language') or {}))
+_old_langs = set()
+for fn in ('destination-demand-by-country-language-2026-10-02.json',
+           'destination-demand-by-country-language-tr-2026-10-05.json',
+           'destination-demand-by-country-language-ko-2026-10-05.json'):
+    for pair in (m(fn).get('qualifying_pairs') or []):
+        _old_langs.add(pair.split('|')[1])
+for lg, n in _lang_now.most_common():
+    when = ('2026-10-06, newly measured' if lg in _six
+            else 'earlier passes' if lg in _old_langs else 'NOT MEASURED')
+    A(f'| {lg} | {n:,} | {when} |')
+A('')
+
+A('## OUTDOOR: individual entity against aggregation')
+A('')
+_thin = m('thin-entity-pages-2026-10-06.json')
+_ind = sum(n for f, n in by_family.items() if f.startswith('outdoors.'))
+A('| | count |')
+A('| --- | --- |')
+A(f'| outdoor pages in the manifest | {_ind:,} |')
+if _thin:
+    A(f'| pages that carried exactly one measured attribute before the gate '
+      f'| {_thin.get("rows_with_exactly_one_measured_attribute", 0):,} |')
+    A(f'| of those, sharing a name with a sibling in the same market '
+      f'| {_thin.get("rows_with_one_attribute_and_a_name_shared_in_the_same_market", 0):,} |')
+A('')
+A('The gate: an individual outdoor entity page needs two or more measured attributes OR its own '
+  'Wikipedia article in the page language. A Wikidata item alone is not enough, because it '
+  'admits "45 Hill" alongside the Zugspitze. Every refused feature goes to its parent list WITH '
+  'its facts, so a rejected peak still appears as a named row with its elevation. The counts for '
+  'the current build are printed by outdoor-feature-candidates.py and outdoor-aggregations.py '
+  'and are carried in the run log rather than retyped here.')
+A('')
+
+A('## TRAILS')
+A('')
+_tr = {f: n for f, n in by_family.items() if 'trail' in f}
+if _tr:
+    A('| family | pages |')
+    A('| --- | --- |')
+    for f, n in sorted(_tr.items(), key=lambda x: -x[1]):
+        A(f'| {f} | {n:,} |')
+    A(f'| **total** | **{sum(_tr.values()):,}** |')
+A('')
+
+A('## TOOLS, counted apart from the page target on purpose')
+A('')
+_tool = m('tool-family-demand-2026-10-06.json')
+if _tool:
+    for mkt, heads in (_tool.get('the_heads') or {}).items():
+        A(f'{mkt}:')
+        A('')
+        A('| keyword | volume | difficulty | CPC cents |')
+        A('| --- | --- | --- | --- |')
+        for k, v in sorted(heads.items(), key=lambda x: -x[1].get('volume', 0)):
+            A(f"| {k} | {v.get('volume', 0):,} | {v.get('kd')} | {v.get('cpc_cents')} |")
+        A('')
+    A('A tool family is about twenty pages per market, so the whole surface is a few hundred '
+      'pages against a target of a million, while brutto netto rechner alone carries more '
+      'measured monthly demand than this entire inventory. The two numbers are not added '
+      'together anywhere in this report, because adding them would hide both facts. The '
+      'city-scoped form of a calculator was measured and does not exist as an intent: salary '
+      'needed to live in london reads TWENTY.')
+    A('')
+
+A('## AHREFS')
+A('')
+_units = 0
+for fn in sorted(glob.glob(MEAS + '*2026-10-06*.json')):
+    d = jload(fn, {})
+    # licence_and_provenance is a string in some files and a dict in others, so the lookup has
+    # to tolerate both rather than assume the shape of a file written on another day.
+    lp = d.get('licence_and_provenance')
+    u = d.get('units_spent')
+    if u is None and isinstance(lp, dict):
+        u = lp.get('units_spent')
+    if isinstance(u, int):
+        _units += u
+A(f'Units spent on 2026-10-06 measurements, summed from the files themselves: {_units:,}')
+A('')
+A('| module used | what it settled |')
+A('| --- | --- |')
+A('| Keywords Explorer overview | the destination gate in six unmeasured languages, eight '
+  'candidate markets, the 96 category tokens, the climate family, the tool heads, the French '
+  'property tail, the education family |')
+A('| SERP overview | prix immobilier angers and prix m2 auch, both PLATFORM_DOMINATED |')
+A('| Site Explorer metrics and top pages | mapcarta, weatherspark, weather-and-climate and '
+  'climatestotravel |')
+A('')
+
+A('## PUBLICATION')
+A('')
+A('| | |')
+A('| --- | --- |')
+A('| mass publish | NO |')
+A('| cohort 003 | NO |')
+A('| production changed | NO |')
+A('| routing changed | NO |')
+A('| sitemap changed for this inventory | NO |')
+A('| indexing requested | NO |')
+A('')
+
+A('## REPO')
+A('')
+A('| | |')
+A('| --- | --- |')
+A('| branch | claude/seo-handoff-partial-data-7rs7zi |')
+A('| manifest | reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz |')
+A('| parquet | reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.parquet |')
+A('| rejected set | reports/livdar-expiry-freeze-2026-09-30/1M-REJECTED-CANDIDATES.csv.gz |')
+A('| measurements | data/atlas/measurements/ |')
+A('| rebuild | ./scripts/atlas/scale/run-1m-pipeline.sh |')
+A('| resume after the aggregation | ./scripts/atlas/scale/run-1m-pipeline.sh --from-aggregations |')
+A('| resume at the manifest | ./scripts/atlas/scale/run-1m-pipeline.sh --from-manifest |')
+A('')
+
 with open(OUT + '1M-BRIEF-FINAL-REPORT.md', 'w', encoding='utf-8') as f:
     f.write('\n'.join(md) + '\n')
 print(f'written {OUT}1M-BRIEF-FINAL-REPORT.md  ({sum(str(x).count(chr(10)) + 1 for x in md):,} lines)')

@@ -291,34 +291,34 @@ Failed conditions across all families: none
 
 ## PARENT GEOGRAPHY
 
-POI attached to a containment parent: 697,835
+POI attached to a containment parent: 703,943
 
 | parent class    | rows |
 | --------------- | --- |
-| county          | 387,878 |
-| nature_reserve  | 90,647 |
-| protected_area  | 58,957 |
-| region          | 58,346 |
-| island          | 22,162 |
-| park            | 19,562 |
-| mountain_range  | 19,104 |
-| forest          | 13,573 |
-| national_park   | 7,078 |
-| peninsula       | 5,137 |
-| zoo_complex     | 4,470 |
-| theme_park      | 3,060 |
-| ski_area        | 2,617 |
-| campus          | 2,260 |
-| garden          | 724 |
-| lake            | 699 |
-| airport_complex | 538 |
+| county          | 388,416 |
+| nature_reserve  | 92,551 |
+| region          | 60,327 |
+| protected_area  | 58,881 |
+| island          | 23,166 |
+| park            | 19,673 |
+| mountain_range  | 19,113 |
+| forest          | 13,697 |
+| national_park   | 7,326 |
+| peninsula       | 5,187 |
+| zoo_complex     | 4,577 |
+| theme_park      | 3,092 |
+| ski_area        | 2,656 |
+| campus          | 2,266 |
+| lake            | 727 |
+| garden          | 725 |
+| airport_complex | 539 |
 | beach_area      | 535 |
-| bay             | 311 |
+| bay             | 312 |
 | archipelago     | 129 |
 
-Of those attachments, 446,224 are to a region or a county, which contains every
+Of those attachments, 448,743 are to a region or a county, which contains every
 point in its country by construction. The honest outdoor attachment is the remainder,
-251,611. A rate that counts administrative containment is
+255,200. A rate that counts administrative containment is
 measuring geometry rather than attribution, and this report does not quote one.
 
 ## MEASUREMENTS TAKEN IN THIS PASS
@@ -428,3 +428,143 @@ gate in the funnel became the measured-tier cap. It was sampled rather than argu
 in two languages, and the cap stands: the family phrasing is dead at that depth, with
 "estoril cosa vedere" at 30 against "estoril" at 2,300. A name with volume is not a page
 intent. The full measurement is in tier-cap-vs-destination-mark-2026-10-02.json.
+
+## COUNTRIES
+
+| | count |
+| --- | --- |
+| destination countries represented by at least one page | 59 |
+| countries whose demand qualifies in at least one language | 99 |
+| of those, represented by a page today | 59 |
+| of those, measured as qualifying and NOT yet represented | 40 |
+| countries this OSM mirror does not carry, so blocked on a second source | 14 |
+
+Countries that qualify on demand and have no page yet, which is the queue in priority order rather than a gap:
+
+  AM AZ BA BO CU CY DO EE GT HK HN IL JM JO KE KZ LK LT LU LV MK MN MT MU MV NP OM PA PY QA RS SA SC SG SV TN TZ UY UZ ZA
+
+Blocked on the mirror, recorded with what each is worth in destination-mirror-coverage-2026-10-02.json:
+
+  AL CO GR HR HU IS KR ME MT NZ PE SI TH VN
+
+## MARKETS
+
+Active and generating: 14
+
+  de-DE en-AU en-GB en-US es-ES es-MX fr-FR it-IT ja-JP nl-NL pl-PL pt-BR tr-TR zh-Hant-TW
+
+Researched as candidates and NOT admitted: 18 across two passes.
+
+| candidate | new language | measured volume | highest CPC cents | disposition |
+| --- | --- | --- | --- | --- |
+| he-IL | yes | 22,550 | 130 | recommended, priority 1 |
+| sv-SE | yes | 13,850 | 110 | recommended, priority 2 |
+| fi-FI | yes | 7,850 | 60 | recommended, priority 3 |
+| da-DK | yes | 8,410 | 200 | recommended, priority 4 |
+| nb-NO | yes | 8,480 | 140 | recommended, priority 5 |
+| el-GR | yes | 6,900 | 70 | recommended, priority 6 |
+| cs-CZ | yes | 13,390 | 110 | NOT RECOMMENDED as an atlas market |
+| ar-AE | yes | 6,990 | 90 | NOT RECOMMENDED on this evidence |
+
+The rule both passes found, and it is the best predictor of page yield measured anywhere in this project: a candidate whose per-city family is ALIVE yields a page per city, and a candidate where only the generic connectivity intent lives yields none. Czech reads esim 10,000 and then praha co videt NINETY; Arabic in the UAE reads esim 5,300 and then Paris 10. Both are refused on that basis, and ko-KR stays out on its SERP after passing demand by the widest margin of any candidate.
+
+## LANGUAGES
+
+| language | pages | destination gate measured |
+| --- | --- | --- |
+| en | 142,334 | earlier passes |
+| de | 58,544 | earlier passes |
+| fr | 49,422 | 2026-10-06, newly measured |
+| ja | 40,637 | earlier passes |
+| es | 33,005 | 2026-10-06, newly measured |
+| it | 28,276 | earlier passes |
+| pl | 21,197 | 2026-10-06, newly measured |
+| pt | 18,493 | 2026-10-06, newly measured |
+| nl | 15,433 | 2026-10-06, newly measured |
+| tr | 14,684 | earlier passes |
+| zh-Hant | 800 | 2026-10-06, newly measured |
+
+## OUTDOOR: individual entity against aggregation
+
+| | count |
+| --- | --- |
+| outdoor pages in the manifest | 137,402 |
+| pages that carried exactly one measured attribute before the gate | 83,612 |
+| of those, sharing a name with a sibling in the same market | 24,296 |
+
+The gate: an individual outdoor entity page needs two or more measured attributes OR its own Wikipedia article in the page language. A Wikidata item alone is not enough, because it admits "45 Hill" alongside the Zugspitze. Every refused feature goes to its parent list WITH its facts, so a rejected peak still appears as a named row with its elevation. The counts for the current build are printed by outdoor-feature-candidates.py and outdoor-aggregations.py and are carried in the run log rather than retyped here.
+
+## TRAILS
+
+| family | pages |
+| --- | --- |
+| outdoors.hiking-trail | 23,494 |
+| outdoors.bicycle-trail | 12,195 |
+| outdoors.mtb-trail | 3,487 |
+| outdoors.foot-trail | 1,860 |
+| outdoors.horse-trail | 376 |
+| outdoors.piste-trail | 286 |
+| outdoors.running-trail | 259 |
+| outdoors.canoe-trail | 99 |
+| outdoors.ski-trail | 45 |
+| outdoors.inline_skates-trail | 4 |
+| outdoors.walking-trail | 2 |
+| **total** | **42,107** |
+
+## TOOLS, counted apart from the page target on purpose
+
+de-DE:
+
+| keyword | volume | difficulty | CPC cents |
+| --- | --- | --- | --- |
+| brutto netto rechner | 1,260,000 | 12 | 2 |
+| gehaltsrechner | 89,000 | 47 | 2 |
+| baufinanzierung rechner | 4,500 | 58 | 90 |
+| mietrechner | 500 | 0 | 80 |
+| kaufnebenkosten rechner | 450 | 5 | 20 |
+
+en-GB:
+
+| keyword | volume | difficulty | CPC cents |
+| --- | --- | --- | --- |
+| mortgage calculator | 380,000 | 7 | 70 |
+| stamp duty calculator | 232,000 | 55 | 7 |
+| take home pay calculator | 217,000 | 62 | 50 |
+| rent affordability calculator | 2,100 | 4 | 40 |
+
+A tool family is about twenty pages per market, so the whole surface is a few hundred pages against a target of a million, while brutto netto rechner alone carries more measured monthly demand than this entire inventory. The two numbers are not added together anywhere in this report, because adding them would hide both facts. The city-scoped form of a calculator was measured and does not exist as an intent: salary needed to live in london reads TWENTY.
+
+## AHREFS
+
+Units spent on 2026-10-06 measurements, summed from the files themselves: 8,211
+
+| module used | what it settled |
+| --- | --- |
+| Keywords Explorer overview | the destination gate in six unmeasured languages, eight candidate markets, the 96 category tokens, the climate family, the tool heads, the French property tail, the education family |
+| SERP overview | prix immobilier angers and prix m2 auch, both PLATFORM_DOMINATED |
+| Site Explorer metrics and top pages | mapcarta, weatherspark, weather-and-climate and climatestotravel |
+
+## PUBLICATION
+
+| | |
+| --- | --- |
+| mass publish | NO |
+| cohort 003 | NO |
+| production changed | NO |
+| routing changed | NO |
+| sitemap changed for this inventory | NO |
+| indexing requested | NO |
+
+## REPO
+
+| | |
+| --- | --- |
+| branch | claude/seo-handoff-partial-data-7rs7zi |
+| manifest | reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz |
+| parquet | reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.parquet |
+| rejected set | reports/livdar-expiry-freeze-2026-09-30/1M-REJECTED-CANDIDATES.csv.gz |
+| measurements | data/atlas/measurements/ |
+| rebuild | ./scripts/atlas/scale/run-1m-pipeline.sh |
+| resume after the aggregation | ./scripts/atlas/scale/run-1m-pipeline.sh --from-aggregations |
+| resume at the manifest | ./scripts/atlas/scale/run-1m-pipeline.sh --from-manifest |
+
