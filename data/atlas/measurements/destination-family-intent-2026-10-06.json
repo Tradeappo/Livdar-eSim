@@ -1,0 +1,126 @@
+{
+ "measured_on": "2026-10-06",
+ "question": "the destination axis is 27,259 pages across six families and the cap is the 13-entry DESTINATION scope list in build-1m-candidate-manifest.py, not the data. Which of the families that reach a destination country and produce nothing can be opened, and on what evidence?",
+ "what_was_found_first": {
+  "the_four_families_that_generate_rows_and_keep_none": {
+   "weather.city-best-time": "29,210 rows, all rejected REJECTED_SERP SERP_FEATURE_SUPPRESSED",
+   "destinations.city-hub": "26,179 rows, all rejected REJECTED_QUALITY no defensible uniqueness basis",
+   "climate.city-day": "25,976 rows, same",
+   "climate.city-annual": "25,976 rows, same"
+  },
+  "the_cause_of_the_three_quality_rejections": "their required_data cell in FAMILY-MASTER.csv is EMPTY, and uniqueness_reason() returns an empty string when a family declares fewer than two source fields. weather.city-month declares \"geonames-cities; nasa-power-daily\" and produces 22,927 pages from the same store.",
+  "the_cause_of_the_serp_rejection": "the serp_class for weather.city-best-time came from two rows in 08-SERP-EVIDENCE.csv whose keywords are \"wetter konstanz\" and \"spokane weather\". Those are current weather queries, their SERP is a knowledge card, and both rows are DUPLICATES of rows 8, 9 and 25 which carry the same two keywords correctly filed under weather.city. Their own reason column reads \"sampled no\". serp_by_fam takes the first row it sees for a family, so two mislabelled duplicates rejected 29,210 rows."
+ },
+ "the_serp_was_then_sampled_on_the_right_intent": {
+  "method": "serp-overview, top ten, three markets, 2026-10-06, 918 units",
+  "best time to visit rome (us)": {
+   "knowledge_card": "absent",
+   "ai_overview": "present at position 1",
+   "weakest_winners": "Rick Steves DR 76 at URL rating 4 on SIX backlinks; Royal Caribbean DR 82 on TWO backlinks; getyourguide DR 90 on TWO backlinks; tickets-rome.com DR 46 at position 7",
+   "verdict": "OPEN at page level: every top ten URL rating is between 0 and 7"
+  },
+  "beste reisezeit dubai (de)": {
+   "knowledge_card": "absent",
+   "ai_overview": "present at position 1",
+   "weakest_winners": "luxus-reiseprofi.de DOMAIN RATING 9 with ZERO backlinks at position 8; restplatzboerse.com DR 8 with zero backlinks at position 10; travelklima.de DR 31 at 7",
+   "verdict": "OPEN: three domains under DR 35 in the top ten"
+  },
+  "quand partir en islande (fr)": {
+   "knowledge_card": "absent",
+   "ai_overview": "present at position 1",
+   "weakest_winners": "voyageislande.com DR 37 with zero backlinks at position 7; travelbase.fr DR 43 on ONE backlink at position 4",
+   "verdict": "OPEN"
+  },
+  "and_across_the_92_english_rows_measured_in_bulk": "knowledge_card appears in ZERO of them. ai_overview appears in 71. So the correct class is OPEN with an AI overview recorded, and the AI overview is the honest caveat on click through rate, not a reason to refuse."
+ },
+ "then_the_obvious_gate_was_tested_and_refuted": {
+  "the_hypothesis": "admit a best-time page wherever the (market, city) pair already has an activities.city-things-to-do page, since that family proved destination demand",
+  "the_test": "the twenty city tail probe against the things-to-do set, 2026-10-06",
+  "cities_with_a_things_to_do_page_that_read_ZERO": "Akron 0, Tulsa 0, Konstanz 0, Leipzig 0, Rostock 0, Lille 0, Marseille 0, Strasbourg 0",
+  "cities_with_NO_things_to_do_page_that_read_strongly": "Sedona 2,400, Charleston 400, Savannah 150",
+  "conclusion": "the sibling family predicts this one in neither direction. The intent follows whether a place has a season that decides the trip, which neither population nor POI count nor a sibling family predicts. So every city in this family is measured one keyword at a time. This is the brief rule applied to itself: demand is measured, not inferred."
+ },
+ "the_phrasing_is_itself_a_measurement": {
+  "fr": "quand partir a X 250 against meilleure periode pour visiter X 20, a factor of twelve",
+  "it": "quando andare a X; the parent topics confirm periodo migliore per",
+  "es": "mejor epoca para viajar a X beats cuando ir a X, whose parent topic points back to it",
+  "nl": "beste reistijd X; wanneer naar X reads 0 to 90",
+  "how_it_was_caught": "the parent_topic column, which costs nothing to request"
+ },
+ "the_verdict_per_language": {
+  "en": {
+   "decision": "ADMIT at city level",
+   "evidence": "92 of 283 cities clear 20 a month, 49 clear 100, head cities 350 to 6,000 at difficulty 0 to 8"
+  },
+  "de": {
+   "decision": "ADMIT at city level",
+   "evidence": "41 of 137 clear 50 a month, head 200 to 7,800 at difficulty 0 or 1, and the highest CPC of any language measured at 10 to 45 cents"
+  },
+  "fr": {
+   "decision": "ADMIT at city level with a volume floor",
+   "evidence": "16 of 131 clear 50 a month"
+  },
+  "it": {
+   "decision": "ADMIT at city level with a volume floor",
+   "evidence": "11 of 64 clear 50 a month"
+  },
+  "es": {
+   "decision": "REFUSE at city level",
+   "evidence": "5 of 72 clear 50 a month; the same intent reads 1,700 for tailandia, so in Spanish it is a country question"
+  },
+  "nl": {
+   "decision": "QUEUED, head reads 20 to 150 at city level and 600 to 1,800 at country level",
+   "evidence": "head probe only; the bulk wave has not been run"
+  },
+  "ja": {
+   "decision": "QUEUED, head reads 50 to 250 at city level and 700 to 2,200 at country level",
+   "evidence": "head probe only"
+  },
+  "pl": {
+   "decision": "REFUSE at city level",
+   "evidence": "rzym 10, paryz 0, barcelona 0, londyn 0, nowy jork 0, wenecja 0, wieden 0; alive only at country level, bali 150 and tajlandia 80"
+  },
+  "pt": {
+   "decision": "REFUSE at city level",
+   "evidence": "roma 20, paris 10, nova york 0, lisboa 0, barcelona 0, madri 0; alive only at tailandia 150"
+  },
+  "tr": {
+   "decision": "REFUSE at city level",
+   "evidence": "roma 0, barselona 0, istanbul 0, lizbon 0, atina 0; alive at bali 350, kapadokya 200, dubai 150"
+  },
+  "zh-Hant": {
+   "decision": "NOT MEASURED",
+   "evidence": "no phrasing has been read for Traditional Chinese"
+  }
+ },
+ "what_this_family_is_actually_worth": {
+  "the_raw_row_count": 29210,
+  "what_the_measurement_supports_so_far": "160 (language, city) pairs cleared the floor in the first wave across en, de, fr and it, out of 615 measured. Extrapolating the measured hit rates across the full queue of 13,547 cities in those four languages gives roughly 3,100 to 3,500 pairs, and each pair becomes one page per market sharing that language. So this family is worth thousands, not 29,210, and the difference is the point: 26,000 of those rows are cities with no measurable best-time demand.",
+  "and_this_is_the_right_outcome": "the brief says a million URLs just to reach the number is not wanted. A family that generates a row for every city in the gazetteer and keeps only the ones a person actually searches is the gate working."
+ },
+ "the_three_other_dead_families_are_REFUSED_on_evidence": {
+  "climate.city-annual": {
+   "rows": 25976,
+   "decision": "REFUSE as a page family",
+   "evidence": "X climate reads 150 to 2,000 but the parent_topic points elsewhere in eleven of fifteen English readings and in almost every German, French and Italian one: amsterdam climate to \"amsterdam\", tokyo climate to \"tokyo\", clima roma to \"meteo\", rom klima to \"klimatabelle rom\", clima barcellona to \"meteo barcellona\", climat lisbonne to \"quand partir a lisbonne\". The query is absorbed either by the city itself or by the weather-by-month family that already holds 22,927 pages, or by the best-time family. Admitting it would cannibalise a live family, which is the thing this project guards against.",
+   "what_to_do_instead": "carry the annual shape as a section of the month pages parent, not as its own URL"
+  },
+  "climate.city-day": {
+   "rows": 25976,
+   "decision": "REFUSE on substance",
+   "evidence": "the entity is city-date and the only source is NASA POWER MONTHLY normals. A daily figure derived from a monthly mean is a precision the source does not carry. No keyword was measured for it because the page could not be honest whatever the volume."
+  },
+  "destinations.city-hub": {
+   "rows": 26179,
+   "decision": "REFUSE as a page family",
+   "evidence": "X travel guide reads 250 to 2,400 in en-US at CPC 20 to 120 cents, which is the best commercial signal of the three, but the parent topics are \"things to do in bangkok\", \"visiting paris\", \"what to see in rome\", \"barcelona travel\" and \"amsterdam travel\": the same topic activities.city-things-to-do already holds with 30,040 pairs. And outside English it is dead: X reisefuehrer reads 10 in German for every city tested and guida di viaggio X reads 0 to 30 in Italian.",
+   "what_to_do_instead": "the commercial signal is real and belongs on the things-to-do page, as a title and copy question, not as a second URL competing with it"
+  }
+ },
+ "units_spent_today_on_this_question": {
+  "keyword readings": 5366,
+  "serp samples": 918,
+  "total": 6284
+ },
+ "licence_and_provenance": "Ahrefs Keywords Explorer and SERP overview via the Ahrefs API v3 on 2026-10-06. Per-language detail in data/atlas/measurements/best-time/. The keyword queue with every city still to measure is in best-time-keyword-queue-2026-10-06.json."
+}

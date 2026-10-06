@@ -623,14 +623,32 @@ except FileNotFoundError:
 print(f'  destination harvest: {len(HARVEST_CITY_IDS):,} cities with measured demand in at '
       f'least one language', file=sys.stderr)
 
-# SERP class per family, from the frozen evidence
+# SERP class per family, from the frozen evidence.
+#
+# First row wins, and that is only safe while the evidence is correctly labelled. It was not:
+# two rows carrying the keywords "wetter konstanz" and "spokane weather" were filed under
+# weather.city-best-time with a reason column reading "sampled no", duplicating rows already
+# filed correctly under weather.city. Those are current weather queries whose SERP is a weather
+# knowledge card, and on that class the gate below rejected all 29,210 best-time rows. The
+# SERP for "best time to visit rome" has no knowledge card at all and its top ten URL ratings
+# run from 0 to 7. So the rows were removed and the intent was sampled properly on 2026-10-06.
+# This loop now prints every family whose evidence disagrees with itself, because a silent
+# first-wins over conflicting rows is how that defect survived.
 serp_by_fam = {}
+_serp_seen = collections.defaultdict(set)
 try:
     for r in csv.DictReader(open(OUT + '08-SERP-EVIDENCE.csv')):
         f, c = r.get('family', ''), r.get('serp_class', '')
-        if f and c and f not in serp_by_fam: serp_by_fam[f] = c
+        if f and c:
+            _serp_seen[f].add(c)
+            if f not in serp_by_fam:
+                serp_by_fam[f] = c
 except FileNotFoundError:
     pass
+for _f, _cs in sorted(_serp_seen.items()):
+    if len(_cs) > 1:
+        print(f'  SERP evidence disagrees for {_f}: {sorted(_cs)}; using {serp_by_fam[_f]} '
+              f'(the first row in the file)', file=sys.stderr)
 
 # ---------------------------------------------------------------- scope rules
 # How a family is allowed to multiply across markets. This is the single most
@@ -1711,6 +1729,56 @@ def serp_feasibility(score, cls):
     if score >= 45: return 'competitive'
     return 'poor_fit'
 
+# Families measured on 2026-10-06 and REFUSED on the evidence, not on a blank catalogue cell.
+# Each of the three generated about 26,000 rows and kept none, and each was being rejected for
+# the wrong reason: their required_data column in FAMILY-MASTER.csv is empty, so
+# uniqueness_reason() returned '' and the gate said "no defensible uniqueness basis". The real
+# reasons are below and they are stronger, because two of the three would cannibalise a family
+# that is already live. Full readings in destination-family-intent-2026-10-06.json.
+REFUSED_FAMILIES = {
+    'climate.city-annual': (
+        'REFUSED_MEASURED_CANNIBALISATION: "X climate" reads 150 to 2,000 a month, but its '
+        'parent_topic points elsewhere in eleven of fifteen English readings and in almost '
+        'every German, French and Italian one: amsterdam climate to "amsterdam", clima roma to '
+        '"meteo", rom klima to "klimatabelle rom", climat lisbonne to "quand partir a '
+        'lisbonne". The query is absorbed by the city itself, by weather.city-month which '
+        'already holds 22,927 pages from the same NASA POWER store, or by the best-time intent. '
+        'The annual shape belongs as a section on the month pages parent, not as its own URL.'),
+    'climate.city-day': (
+        'REFUSED_FABRICATED_PRECISION: the entity is city-date and the only source is NASA '
+        'POWER MONTHLY normals. A daily figure derived from a monthly mean is a precision the '
+        'source does not carry, so no keyword was measured for it: the page could not be honest '
+        'whatever the volume turned out to be.'),
+    'destinations.city-hub': (
+        'REFUSED_MEASURED_CANNIBALISATION: "X travel guide" reads 250 to 2,400 in en-US at CPC '
+        '20 to 120 cents, the best commercial signal of the three, but its parent topics are '
+        '"things to do in bangkok", "visiting paris", "what to see in rome", "barcelona travel" '
+        'and "amsterdam travel", which is the topic activities.city-things-to-do already holds '
+        'with 30,040 pairs. Outside English it is dead: "X reisefuehrer" reads 10 in German for '
+        'every city tested and "guida di viaggio X" reads 0 to 30 in Italian. The commercial '
+        'signal is real and belongs in the things-to-do title and copy, not on a second URL '
+        'competing with it.'),
+}
+
+# weather.city-best-time is admitted ONE (language, city) PAIR AT A TIME, from measured volume.
+# The obvious gate was tested and refuted on 2026-10-06: cities that HAVE a things-to-do page
+# read zero for this intent (Akron 0, Tulsa 0, Konstanz 0, Leipzig 0, Rostock 0, Lille 0,
+# Marseille 0, Strasbourg 0) and cities with NO things-to-do page read strongly (Sedona 2,400,
+# Charleston 400, Savannah 150). Neither population nor POI count nor a sibling family predicts
+# it, so the brief's own rule applies and every city is measured.
+BEST_TIME_ADMITTED = {}
+BEST_TIME_REFUSED_LANGS = {}
+try:
+    _bt = json.load(open(ROOT + 'data/atlas/measurements/'
+                         'best-time-admissions-2026-10-06.json', encoding='utf-8'))
+    for _a in _bt['admissions']:
+        BEST_TIME_ADMITTED[(_a['language'], str(_a['geonameid']))] = _a
+    BEST_TIME_REFUSED_LANGS = dict(_bt.get('refused_at_city_level') or {})
+    print(f'  best-time admissions: {len(BEST_TIME_ADMITTED):,} measured (language, city) pairs '
+          f'across {len(set(k[0] for k in BEST_TIME_ADMITTED))} languages', file=sys.stderr)
+except (FileNotFoundError, ValueError, KeyError):
+    print('  best-time admissions table missing: the family will admit nothing', file=sys.stderr)
+
 TOOL_FAMILIES = ('tools.', 'calendar.', 'comparisons.', 'rankings.')
 for r in rows:
     r.setdefault('uniqueness_reason', '')
@@ -1734,12 +1802,43 @@ for r in rows:
                             else 'content')
     r['rejection_reason'] = ''
 
+def _bt_key(r):
+    return (entity_identity.MKT_LANG.get(r.get('market') or '', ''), str(r.get('entity_id') or ''))
+
+
+def _best_time_ok(r):
+    """True only for a (language, city) pair whose own keyword was measured above the floor."""
+    return _bt_key(r) in BEST_TIME_ADMITTED
+
+
+def _best_time_why(r):
+    lang, gid = _bt_key(r)
+    if lang in BEST_TIME_REFUSED_LANGS:
+        return (f'REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: the best-time intent was measured '
+                f'in {lang} and refused at city level ({BEST_TIME_REFUSED_LANGS[lang]}). It is a '
+                f'country question in this language, not a city one.')
+    if not any(k[0] == lang for k in BEST_TIME_ADMITTED):
+        return (f'REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: no best-time phrasing has been '
+                f'measured in {lang} beyond a head probe, so no city in it can be admitted yet. '
+                f'The queue is in best-time-keyword-queue-2026-10-06.json.')
+    return ('REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: this city was either measured and read '
+            'below the floor, or has not been measured. Akron, Tulsa, Konstanz, Leipzig, '
+            'Rostock, Lille, Marseille and Strasbourg all read zero for this intent while '
+            'Sedona read 2,400, so the city is admitted on its own reading and on nothing else.')
+
+
 # GATE 1 - uniqueness. A unique URL is not a reason to exist. Anything that cannot
 # name its distinct basis is rejected, and the rejections are kept, not hidden.
 rejected = []
 kept = []
 for r in rows:
-    if not r['uniqueness_reason']:
+    if r['family'] in REFUSED_FAMILIES:
+        r['rejection_reason'] = REFUSED_FAMILIES[r['family']]
+        r['status'] = 'REJECTED_FAMILY_MEASURED_AND_REFUSED'; rejected.append(r)
+    elif r['family'] == 'weather.city-best-time' and not _best_time_ok(r):
+        r['rejection_reason'] = _best_time_why(r)
+        r['status'] = 'REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY'; rejected.append(r)
+    elif not r['uniqueness_reason']:
         r['rejection_reason'] = 'REJECTED_QUALITY: no defensible uniqueness basis'
         r['status'] = 'REJECTED_QUALITY'; rejected.append(r)
     elif r['serp_feasibility'] == 'rejected':

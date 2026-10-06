@@ -1,0 +1,1661 @@
+{
+ "generated_on": "2026-10-06",
+ "family": "weather.city-best-time",
+ "what_this_is": "the (language, city) pairs whose best-time keyword was measured and cleared the floor. The manifest gate admits a page only for a pair in this table, so the family can never fan out to a city nobody searches",
+ "the_floor_per_language": {
+  "en": 20,
+  "de": 50,
+  "fr": 50,
+  "it": 50
+ },
+ "refused_at_city_level": {
+  "es": "5 of 72 cities clear 50 a month",
+  "pl": "rzym 10, paryz 0, barcelona 0, londyn 0, nowy jork 0",
+  "pt": "roma 20, paris 10, nova york 0, lisboa 0, barcelona 0",
+  "tr": "roma 0, barselona 0, istanbul 0, lizbon 0, atina 0"
+ },
+ "measured_only_at_the_head_so_far": {
+  "nl": "head probe only, 20 to 150 at city level",
+  "ja": "head probe only, 50 to 250 at city level",
+  "zh-Hant": "no phrasing read"
+ },
+ "waves_run": {
+  "de": {
+   "submitted": 137,
+   "returned": 41,
+   "floor": 50,
+   "file": "de-wave1.json"
+  },
+  "en": {
+   "submitted": 283,
+   "returned": 92,
+   "floor": 20,
+   "file": "en-us-wave1.json"
+  },
+  "es": {
+   "submitted": 72,
+   "returned": 5,
+   "floor": null,
+   "file": "es-wave1.json"
+  },
+  "fr": {
+   "submitted": 131,
+   "returned": 16,
+   "floor": 50,
+   "file": "fr-wave1.json"
+  },
+  "it": {
+   "submitted": 64,
+   "returned": 11,
+   "floor": 50,
+   "file": "it-wave1.json"
+  }
+ },
+ "admitted_pairs": 159,
+ "admitted_by_language": {
+  "de": 41,
+  "en": 92,
+  "fr": 16,
+  "it": 10
+ },
+ "cities_still_unmeasured_by_language": {
+  "en": 4755,
+  "de": 3742,
+  "fr": 3477,
+  "it": 958
+ },
+ "keywords_returned_that_matched_no_queued_city": [],
+ "admissions": [
+  {
+   "language": "de",
+   "geonameid": "292223",
+   "city": "Dubai",
+   "country": "AE",
+   "keyword": "beste reisezeit dubai",
+   "volume": 1700,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "1850147",
+   "city": "Tokyo",
+   "country": "JP",
+   "keyword": "beste reisezeit tokio",
+   "volume": 600,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3169070",
+   "city": "Rome",
+   "country": "IT",
+   "keyword": "beste reisezeit rom",
+   "volume": 500,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "1609350",
+   "city": "Bangkok",
+   "country": "TH",
+   "keyword": "beste reisezeit bangkok",
+   "volume": 500,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3451190",
+   "city": "Rio de Janeiro",
+   "country": "BR",
+   "keyword": "beste reisezeit rio de janeiro",
+   "volume": 450,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2643743",
+   "city": "London",
+   "country": "GB",
+   "keyword": "beste reisezeit london",
+   "volume": 400,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2542997",
+   "city": "Marrakesh",
+   "country": "MA",
+   "keyword": "beste reisezeit marrakesch",
+   "volume": 400,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2147714",
+   "city": "Sydney",
+   "country": "AU",
+   "keyword": "beste reisezeit sydney",
+   "volume": 300,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "5368361",
+   "city": "Los Angeles",
+   "country": "US",
+   "keyword": "beste reisezeit los angeles",
+   "volume": 300,
+   "cpc_cents": 20,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3128760",
+   "city": "Barcelona",
+   "country": "ES",
+   "keyword": "beste reisezeit barcelona",
+   "volume": 300,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "1735161",
+   "city": "Kuala Lumpur",
+   "country": "MY",
+   "keyword": "beste reisezeit kuala lumpur",
+   "volume": 300,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2673730",
+   "city": "Stockholm",
+   "country": "SE",
+   "keyword": "beste reisezeit stockholm",
+   "volume": 250,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "745044",
+   "city": "Istanbul",
+   "country": "TR",
+   "keyword": "beste reisezeit istanbul",
+   "volume": 250,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2988507",
+   "city": "Paris",
+   "country": "FR",
+   "keyword": "beste reisezeit paris",
+   "volume": 250,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "1581130",
+   "city": "Hanoi",
+   "country": "VN",
+   "keyword": "beste reisezeit hanoi",
+   "volume": 200,
+   "cpc_cents": 20,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2618425",
+   "city": "Copenhagen",
+   "country": "DK",
+   "keyword": "beste reisezeit kopenhagen",
+   "volume": 200,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3435910",
+   "city": "Buenos Aires",
+   "country": "AR",
+   "keyword": "beste reisezeit buenos aires",
+   "volume": 200,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2759794",
+   "city": "Amsterdam",
+   "country": "NL",
+   "keyword": "beste reisezeit amsterdam",
+   "volume": 200,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2964574",
+   "city": "Dublin",
+   "country": "IE",
+   "keyword": "beste reisezeit dublin",
+   "volume": 150,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "264371",
+   "city": "Athens",
+   "country": "GR",
+   "keyword": "beste reisezeit athen",
+   "volume": 150,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "360630",
+   "city": "Cairo",
+   "country": "EG",
+   "keyword": "beste reisezeit kairo",
+   "volume": 150,
+   "cpc_cents": 5,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "6167865",
+   "city": "Toronto",
+   "country": "CA",
+   "keyword": "beste reisezeit toronto",
+   "volume": 150,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "5391959",
+   "city": "San Francisco",
+   "country": "US",
+   "keyword": "beste reisezeit san francisco",
+   "volume": 150,
+   "cpc_cents": 25,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "292968",
+   "city": "Abu Dhabi",
+   "country": "AE",
+   "keyword": "beste reisezeit abu dhabi",
+   "volume": 150,
+   "cpc_cents": 20,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3143244",
+   "city": "Oslo",
+   "country": "NO",
+   "keyword": "beste reisezeit oslo",
+   "volume": 100,
+   "cpc_cents": 20,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2761369",
+   "city": "Vienna",
+   "country": "AT",
+   "keyword": "beste reisezeit wien",
+   "volume": 100,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2063523",
+   "city": "Perth",
+   "country": "AU",
+   "keyword": "beste reisezeit perth",
+   "volume": 100,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3067696",
+   "city": "Prague",
+   "country": "CZ",
+   "keyword": "beste reisezeit prag",
+   "volume": 100,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3054643",
+   "city": "Budapest",
+   "country": "HU",
+   "keyword": "beste reisezeit budapest",
+   "volume": 100,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3172394",
+   "city": "Naples",
+   "country": "IT",
+   "keyword": "beste reisezeit neapel",
+   "volume": 90,
+   "cpc_cents": 30,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2158177",
+   "city": "Melbourne",
+   "country": "AU",
+   "keyword": "beste reisezeit melbourne",
+   "volume": 70,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3625549",
+   "city": "Valencia",
+   "country": "VE",
+   "keyword": "beste reisezeit valencia",
+   "volume": 70,
+   "cpc_cents": 45,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3173435",
+   "city": "Milan",
+   "country": "IT",
+   "keyword": "beste reisezeit mailand",
+   "volume": 70,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2561668",
+   "city": "Agadir",
+   "country": "MA",
+   "keyword": "beste reisezeit agadir",
+   "volume": 70,
+   "cpc_cents": 15,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "323777",
+   "city": "Antalya",
+   "country": "TR",
+   "keyword": "beste reisezeit antalya",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2510911",
+   "city": "Sevilla",
+   "country": "ES",
+   "keyword": "beste reisezeit sevilla",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "4887398",
+   "city": "Chicago",
+   "country": "US",
+   "keyword": "beste reisezeit chicago",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2911298",
+   "city": "Hamburg",
+   "country": "DE",
+   "keyword": "beste reisezeit hamburg",
+   "volume": 50,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "1642911",
+   "city": "Jakarta",
+   "country": "ID",
+   "keyword": "beste reisezeit jakarta",
+   "volume": 50,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "3117735",
+   "city": "Madrid",
+   "country": "ES",
+   "keyword": "beste reisezeit madrid",
+   "volume": 50,
+   "cpc_cents": 5,
+   "floor_applied": 50
+  },
+  {
+   "language": "de",
+   "geonameid": "2174003",
+   "city": "Brisbane",
+   "country": "AU",
+   "keyword": "beste reisezeit brisbane",
+   "volume": 50,
+   "cpc_cents": 40,
+   "floor_applied": 50
+  },
+  {
+   "language": "en",
+   "geonameid": "5128581",
+   "city": "New York City",
+   "country": "US",
+   "keyword": "best time to visit new york",
+   "volume": 4700,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2643743",
+   "city": "London",
+   "country": "GB",
+   "keyword": "best time to visit london",
+   "volume": 3900,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2988507",
+   "city": "Paris",
+   "country": "FR",
+   "keyword": "best time to visit paris",
+   "volume": 3900,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1850147",
+   "city": "Tokyo",
+   "country": "JP",
+   "keyword": "best time to visit tokyo",
+   "volume": 3900,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3530597",
+   "city": "Mexico City",
+   "country": "MX",
+   "keyword": "best time to visit mexico city",
+   "volume": 3200,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "4887398",
+   "city": "Chicago",
+   "country": "US",
+   "keyword": "best time to visit chicago",
+   "volume": 3000,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1880252",
+   "city": "Singapore",
+   "country": "SG",
+   "keyword": "best time to visit singapore",
+   "volume": 2600,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "292223",
+   "city": "Dubai",
+   "country": "AE",
+   "keyword": "best time to visit dubai",
+   "volume": 2400,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3169070",
+   "city": "Rome",
+   "country": "IT",
+   "keyword": "best time to visit rome",
+   "volume": 2000,
+   "cpc_cents": 10,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "6077243",
+   "city": "Montréal",
+   "country": "CA",
+   "keyword": "best time to visit montreal",
+   "volume": 1500,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3128760",
+   "city": "Barcelona",
+   "country": "ES",
+   "keyword": "best time to visit barcelona",
+   "volume": 1500,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1819729",
+   "city": "Hong Kong",
+   "country": "HK",
+   "keyword": "best time to visit hong kong",
+   "volume": 1500,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1609350",
+   "city": "Bangkok",
+   "country": "TH",
+   "keyword": "best time to visit bangkok",
+   "volume": 1400,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "745044",
+   "city": "Istanbul",
+   "country": "TR",
+   "keyword": "best time to visit istanbul",
+   "volume": 1200,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1796236",
+   "city": "Shanghai",
+   "country": "CN",
+   "keyword": "best time to visit shanghai",
+   "volume": 1100,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1835848",
+   "city": "Seoul",
+   "country": "KR",
+   "keyword": "best time to visit seoul",
+   "volume": 1100,
+   "cpc_cents": 6,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1816670",
+   "city": "Beijing",
+   "country": "CN",
+   "keyword": "best time to visit beijing",
+   "volume": 1000,
+   "cpc_cents": 10,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3451190",
+   "city": "Rio de Janeiro",
+   "country": "BR",
+   "keyword": "best time to visit rio de janeiro",
+   "volume": 1000,
+   "cpc_cents": 9,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "6167865",
+   "city": "Toronto",
+   "country": "CA",
+   "keyword": "best time to visit toronto",
+   "volume": 1000,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3369157",
+   "city": "Cape Town",
+   "country": "ZA",
+   "keyword": "best time to visit cape town",
+   "volume": 900,
+   "cpc_cents": 15,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "5368361",
+   "city": "Los Angeles",
+   "country": "US",
+   "keyword": "best time to visit los angeles",
+   "volume": 900,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1668341",
+   "city": "Taipei",
+   "country": "TW",
+   "keyword": "best time to visit taipei",
+   "volume": 900,
+   "cpc_cents": 5,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3435910",
+   "city": "Buenos Aires",
+   "country": "AR",
+   "keyword": "best time to visit buenos aires",
+   "volume": 800,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2761369",
+   "city": "Vienna",
+   "country": "AT",
+   "keyword": "best time to visit vienna",
+   "volume": 800,
+   "cpc_cents": 9,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2950159",
+   "city": "Berlin",
+   "country": "DE",
+   "keyword": "best time to visit berlin",
+   "volume": 800,
+   "cpc_cents": 5,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1581130",
+   "city": "Hanoi",
+   "country": "VN",
+   "keyword": "best time to visit hanoi",
+   "volume": 800,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3054643",
+   "city": "Budapest",
+   "country": "HU",
+   "keyword": "best time to visit budapest",
+   "volume": 800,
+   "cpc_cents": 5,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3117735",
+   "city": "Madrid",
+   "country": "ES",
+   "keyword": "best time to visit madrid",
+   "volume": 600,
+   "cpc_cents": 7,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "5308655",
+   "city": "Phoenix",
+   "country": "US",
+   "keyword": "best time to visit phoenix",
+   "volume": 600,
+   "cpc_cents": 1,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "360630",
+   "city": "Cairo",
+   "country": "EG",
+   "keyword": "best time to visit cairo",
+   "volume": 600,
+   "cpc_cents": 15,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2147714",
+   "city": "Sydney",
+   "country": "AU",
+   "keyword": "best time to visit sydney",
+   "volume": 500,
+   "cpc_cents": 15,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "4560349",
+   "city": "Philadelphia Pennsylvania",
+   "country": "US",
+   "keyword": "best time to visit philadelphia",
+   "volume": 450,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "4699066",
+   "city": "Houston",
+   "country": "US",
+   "keyword": "best time to visit houston",
+   "volume": 450,
+   "cpc_cents": 70,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2158177",
+   "city": "Melbourne",
+   "country": "AU",
+   "keyword": "best time to visit melbourne",
+   "volume": 400,
+   "cpc_cents": 15,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1273294",
+   "city": "Delhi",
+   "country": "IN",
+   "keyword": "best time to visit delhi",
+   "volume": 350,
+   "cpc_cents": 6,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3652462",
+   "city": "Quito",
+   "country": "EC",
+   "keyword": "best time to visit quito",
+   "volume": 350,
+   "cpc_cents": 25,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1275339",
+   "city": "Mumbai",
+   "country": "IN",
+   "keyword": "best time to visit mumbai",
+   "volume": 350,
+   "cpc_cents": 2,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1853909",
+   "city": "Osaka",
+   "country": "JP",
+   "keyword": "best time to visit osaka",
+   "volume": 350,
+   "cpc_cents": 10,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "184745",
+   "city": "Nairobi",
+   "country": "KE",
+   "keyword": "best time to visit nairobi",
+   "volume": 200,
+   "cpc_cents": 20,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "993800",
+   "city": "Johannesburg",
+   "country": "ZA",
+   "keyword": "best time to visit johannesburg",
+   "volume": 200,
+   "cpc_cents": 20,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "292968",
+   "city": "Abu Dhabi",
+   "country": "AE",
+   "keyword": "best time to visit abu dhabi",
+   "volume": 150,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2128295",
+   "city": "Sapporo",
+   "country": "JP",
+   "keyword": "best time to visit sapporo",
+   "volume": 150,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1701668",
+   "city": "Manila",
+   "country": "PH",
+   "keyword": "best time to visit manila",
+   "volume": 150,
+   "cpc_cents": 4,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1269515",
+   "city": "Jaipur",
+   "country": "IN",
+   "keyword": "best time to visit jaipur",
+   "volume": 150,
+   "cpc_cents": 9,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3936456",
+   "city": "Lima",
+   "country": "PE",
+   "keyword": "best time to visit lima",
+   "volume": 150,
+   "cpc_cents": 15,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1275004",
+   "city": "Kolkata",
+   "country": "IN",
+   "keyword": "best time to visit kolkata",
+   "volume": 100,
+   "cpc_cents": 25,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1814906",
+   "city": "Chongqing",
+   "country": "CN",
+   "keyword": "best time to visit chongqing",
+   "volume": 100,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2332459",
+   "city": "Lagos",
+   "country": "NG",
+   "keyword": "best time to visit lagos",
+   "volume": 100,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1566083",
+   "city": "Ho Chi Minh City",
+   "country": "VN",
+   "keyword": "best time to visit ho chi minh city",
+   "volume": 100,
+   "cpc_cents": 5,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1815286",
+   "city": "Chengdu",
+   "country": "CN",
+   "keyword": "best time to visit chengdu",
+   "volume": 90,
+   "cpc_cents": 10,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "524901",
+   "city": "Moscow",
+   "country": "RU",
+   "keyword": "best time to visit moscow",
+   "volume": 80,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2063523",
+   "city": "Perth",
+   "country": "AU",
+   "keyword": "best time to visit perth",
+   "volume": 70,
+   "cpc_cents": 50,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3492908",
+   "city": "Santo Domingo",
+   "country": "DO",
+   "keyword": "best time to visit santo domingo",
+   "volume": 70,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1269843",
+   "city": "Hyderabad",
+   "country": "IN",
+   "keyword": "best time to visit hyderabad",
+   "volume": 70,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3911925",
+   "city": "La Paz",
+   "country": "BO",
+   "keyword": "best time to visit la paz",
+   "volume": 70,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1838524",
+   "city": "Busan",
+   "country": "KR",
+   "keyword": "best time to visit busan",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2553604",
+   "city": "Casablanca",
+   "country": "MA",
+   "keyword": "best time to visit casablanca",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "683506",
+   "city": "Bucharest",
+   "country": "RO",
+   "keyword": "best time to visit bucharest",
+   "volume": 50,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3553478",
+   "city": "Havana",
+   "country": "CU",
+   "keyword": "best time to visit havana",
+   "volume": 50,
+   "cpc_cents": 3,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2174003",
+   "city": "Brisbane",
+   "country": "AU",
+   "keyword": "best time to visit brisbane",
+   "volume": 50,
+   "cpc_cents": 30,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "587084",
+   "city": "Baku",
+   "country": "AZ",
+   "keyword": "best time to visit baku",
+   "volume": 50,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "104515",
+   "city": "Makkah",
+   "country": "SA",
+   "keyword": "best time to visit mecca",
+   "volume": 50,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1809498",
+   "city": "Guilin",
+   "country": "CN",
+   "keyword": "best time to visit guilin",
+   "volume": 50,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1264527",
+   "city": "Chennai",
+   "country": "IN",
+   "keyword": "best time to visit chennai",
+   "volume": 40,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "108410",
+   "city": "Riyadh",
+   "country": "SA",
+   "keyword": "best time to visit riyadh",
+   "volume": 40,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1809858",
+   "city": "Guangzhou",
+   "country": "CN",
+   "keyword": "best time to visit guangzhou",
+   "volume": 40,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3871336",
+   "city": "Santiago",
+   "country": "CL",
+   "keyword": "best time to visit santiago",
+   "volume": 40,
+   "cpc_cents": 50,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1526384",
+   "city": "Almaty",
+   "country": "KZ",
+   "keyword": "best time to visit almaty",
+   "volume": 40,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "344979",
+   "city": "Addis Ababa",
+   "country": "ET",
+   "keyword": "best time to visit addis ababa",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1512569",
+   "city": "Tashkent",
+   "country": "UZ",
+   "keyword": "best time to visit tashkent",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2911298",
+   "city": "Hamburg",
+   "country": "DE",
+   "keyword": "best time to visit hamburg",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "756135",
+   "city": "Warsaw",
+   "country": "PL",
+   "keyword": "best time to visit warsaw",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3663517",
+   "city": "Manaus",
+   "country": "BR",
+   "keyword": "best time to visit manaus",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1821306",
+   "city": "Phnom Penh",
+   "country": "KH",
+   "keyword": "best time to visit phnom penh",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1795565",
+   "city": "Shenzhen Shenzhen Guangdong",
+   "country": "CN",
+   "keyword": "best time to visit shenzhen",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3687925",
+   "city": "Cali",
+   "country": "CO",
+   "keyword": "best time to visit cali",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3625549",
+   "city": "Valencia",
+   "country": "VE",
+   "keyword": "best time to visit valencia",
+   "volume": 30,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "361058",
+   "city": "Alexandria",
+   "country": "EG",
+   "keyword": "best time to visit alexandria",
+   "volume": 20,
+   "cpc_cents": 9,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2306104",
+   "city": "Accra",
+   "country": "GH",
+   "keyword": "best time to visit accra",
+   "volume": 20,
+   "cpc_cents": 80,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3450554",
+   "city": "Salvador",
+   "country": "BR",
+   "keyword": "best time to visit salvador",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2253354",
+   "city": "Dakar",
+   "country": "SN",
+   "keyword": "best time to visit dakar",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "276781",
+   "city": "Beirut",
+   "country": "LB",
+   "keyword": "best time to visit beirut",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "2037013",
+   "city": "Harbin",
+   "country": "CN",
+   "keyword": "best time to visit harbin",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1808926",
+   "city": "Hangzhou",
+   "country": "CN",
+   "keyword": "best time to visit hangzhou",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "3981609",
+   "city": "Tijuana",
+   "country": "MX",
+   "keyword": "best time to visit tijuana",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1277333",
+   "city": "Bengaluru",
+   "country": "IN",
+   "keyword": "best time to visit bengaluru",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1863967",
+   "city": "Fukuoka",
+   "country": "JP",
+   "keyword": "best time to visit fukuoka",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1279233",
+   "city": "Ahmedabad",
+   "country": "IN",
+   "keyword": "best time to visit ahmedabad",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1642911",
+   "city": "Jakarta",
+   "country": "ID",
+   "keyword": "best time to visit jakarta",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1007311",
+   "city": "Durban",
+   "country": "ZA",
+   "keyword": "best time to visit durban",
+   "volume": 20,
+   "cpc_cents": 20,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "105343",
+   "city": "Jeddah",
+   "country": "SA",
+   "keyword": "best time to visit jeddah",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "en",
+   "geonameid": "1172451",
+   "city": "Lahore",
+   "country": "PK",
+   "keyword": "best time to visit lahore",
+   "volume": 20,
+   "cpc_cents": null,
+   "floor_applied": 20
+  },
+  {
+   "language": "fr",
+   "geonameid": "5128581",
+   "city": "New York City",
+   "country": "US",
+   "keyword": "quand partir a new york",
+   "volume": 250,
+   "cpc_cents": 4,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "3169070",
+   "city": "Rome",
+   "country": "IT",
+   "keyword": "quand partir a rome",
+   "volume": 250,
+   "cpc_cents": 9,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "1609350",
+   "city": "Bangkok",
+   "country": "TH",
+   "keyword": "quand partir a bangkok",
+   "volume": 150,
+   "cpc_cents": 30,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "1850147",
+   "city": "Tokyo",
+   "country": "JP",
+   "keyword": "quand partir a tokyo",
+   "volume": 150,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "3128760",
+   "city": "Barcelona",
+   "country": "ES",
+   "keyword": "quand partir a barcelone",
+   "volume": 100,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "3451190",
+   "city": "Rio de Janeiro",
+   "country": "BR",
+   "keyword": "quand partir a rio de janeiro",
+   "volume": 100,
+   "cpc_cents": 35,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "1880252",
+   "city": "Singapore",
+   "country": "SG",
+   "keyword": "quand partir a singapour",
+   "volume": 100,
+   "cpc_cents": 140,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "2643743",
+   "city": "London",
+   "country": "GB",
+   "keyword": "quand partir a londres",
+   "volume": 90,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "5368361",
+   "city": "Los Angeles",
+   "country": "US",
+   "keyword": "quand partir a los angeles",
+   "volume": 80,
+   "cpc_cents": 60,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "3054643",
+   "city": "Budapest",
+   "country": "HU",
+   "keyword": "quand partir a budapest",
+   "volume": 80,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "745044",
+   "city": "Istanbul",
+   "country": "TR",
+   "keyword": "quand partir a istanbul",
+   "volume": 70,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "2988507",
+   "city": "Paris",
+   "country": "FR",
+   "keyword": "quand partir a paris",
+   "volume": 70,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "3117735",
+   "city": "Madrid",
+   "country": "ES",
+   "keyword": "quand partir a madrid",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "2618425",
+   "city": "Copenhagen",
+   "country": "DK",
+   "keyword": "quand partir a copenhague",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "2761369",
+   "city": "Vienna",
+   "country": "AT",
+   "keyword": "quand partir a vienne",
+   "volume": 60,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "fr",
+   "geonameid": "323777",
+   "city": "Antalya",
+   "country": "TR",
+   "keyword": "quand partir a antalya",
+   "volume": 50,
+   "cpc_cents": 20,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "2542997",
+   "city": "Marrakesh",
+   "country": "MA",
+   "keyword": "quando andare a marrakech",
+   "volume": 450,
+   "cpc_cents": 1,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "4164138",
+   "city": "Miami Florida",
+   "country": "US",
+   "keyword": "quando andare a miami",
+   "volume": 350,
+   "cpc_cents": 1,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "5128581",
+   "city": "New York City",
+   "country": "US",
+   "keyword": "quando andare a new york",
+   "volume": 300,
+   "cpc_cents": 10,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "745044",
+   "city": "Istanbul",
+   "country": "TR",
+   "keyword": "quando andare a istanbul",
+   "volume": 250,
+   "cpc_cents": 1,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "2267057",
+   "city": "Lisbon",
+   "country": "PT",
+   "keyword": "quando andare a lisbona",
+   "volume": 200,
+   "cpc_cents": 2,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "2761369",
+   "city": "Vienna",
+   "country": "AT",
+   "keyword": "quando andare a vienna",
+   "volume": 150,
+   "cpc_cents": 4,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "1850147",
+   "city": "Tokyo",
+   "country": "JP",
+   "keyword": "quando andare a tokyo",
+   "volume": 100,
+   "cpc_cents": 1,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "1609350",
+   "city": "Bangkok",
+   "country": "TH",
+   "keyword": "quando andare a bangkok",
+   "volume": 100,
+   "cpc_cents": 3,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "5368361",
+   "city": "Los Angeles",
+   "country": "US",
+   "keyword": "quando andare a los angeles",
+   "volume": 100,
+   "cpc_cents": null,
+   "floor_applied": 50
+  },
+  {
+   "language": "it",
+   "geonameid": "3143244",
+   "city": "Oslo",
+   "country": "NO",
+   "keyword": "quando andare a oslo",
+   "volume": 50,
+   "cpc_cents": null,
+   "floor_applied": 50
+  }
+ ],
+ "licence_and_provenance": "Ahrefs Keywords Explorer via the Ahrefs API v3 on 2026-10-06. Per-wave detail under data/atlas/measurements/best-time/."
+}
