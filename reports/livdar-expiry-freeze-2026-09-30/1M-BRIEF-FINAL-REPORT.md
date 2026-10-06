@@ -8,12 +8,12 @@ there is no cohort 003.
 
 | | rows |
 | --- | --- |
-| **FINAL DISTINCT VALID** | **342,483** |
+| **FINAL DISTINCT VALID** | **342,463** |
 | target | 1,000,000 |
-| **GAP TO 1M** | **657,517** |
+| **GAP TO 1M** | **657,537** |
 | generated before any gate | 579,468 |
 | funnel reconciles | True |
-| distinct families | 204 |
+| distinct families | 203 |
 | markets | 14 |
 
 Every removal, as the funnel records it. Generated minus this column equals the final count,
@@ -28,14 +28,15 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | removed_by_cannibalisation                          | 0 |
 | removed_by_cross_market_content_uniqueness_gate     | 0 |
 | removed_by_localisation_gate                        | 122,106 |
-| removed_by_per_market_family_gate                   | 12,599 |
+| removed_by_per_market_family_gate                   | 12,598 |
 | removed_by_uniqueness_and_serp_gate                 | 98,779 |
+| removed_by_unsupported_superlative_gate             | 21 |
 
 ## BY SURFACE
 
 | surface      | rows |
 | ------------ | --- |
-| areas        | 22,539 |
+| areas        | 22,519 |
 | climate      | 8,503 |
 | destinations | 1,417 |
 | move         | 12,331 |
@@ -54,32 +55,32 @@ checked by a verifier that fails the run rather than by reading the numbers.
 
 | market     | rows |
 | ---------- | --- |
-| de-DE      | 58,648 |
+| de-DE      | 58,645 |
 | en-AU      | 7,758 |
-| en-GB      | 21,242 |
-| en-US      | 61,039 |
-| es-ES      | 17,216 |
+| en-GB      | 21,241 |
+| en-US      | 61,035 |
+| es-ES      | 17,214 |
 | es-MX      | 1,454 |
-| fr-FR      | 49,423 |
-| it-IT      | 28,279 |
-| ja-JP      | 37,073 |
-| nl-NL      | 15,433 |
-| pl-PL      | 13,562 |
-| pt-BR      | 17,533 |
+| fr-FR      | 49,420 |
+| it-IT      | 28,277 |
+| ja-JP      | 37,072 |
+| nl-NL      | 15,432 |
+| pl-PL      | 13,560 |
+| pt-BR      | 17,532 |
 | tr-TR      | 13,023 |
 | zh-Hant-TW | 800 |
 
 | language | rows |
 | -------- | --- |
-| de       | 58,648 |
-| en       | 90,039 |
-| es       | 18,670 |
-| fr       | 49,423 |
-| it       | 28,279 |
-| ja       | 37,073 |
-| nl       | 15,433 |
-| pl       | 13,562 |
-| pt       | 17,533 |
+| de       | 58,645 |
+| en       | 90,034 |
+| es       | 18,668 |
+| fr       | 49,420 |
+| it       | 28,277 |
+| ja       | 37,072 |
+| nl       | 15,432 |
+| pl       | 13,560 |
+| pt       | 17,532 |
 | tr       | 13,023 |
 | zh-Hant  | 800 |
 
@@ -88,16 +89,16 @@ market and the place a page is about are different axes and the brief is explici
 
 | destination country | rows |
 | ------------------- | --- |
-| US                  | 60,571 |
-| DE                  | 57,113 |
-| FR                  | 49,768 |
-| JP                  | 32,372 |
-| IT                  | 26,694 |
-| GB                  | 20,570 |
-| BR                  | 17,527 |
-| ES                  | 17,514 |
-| NL                  | 15,512 |
-| PL                  | 13,574 |
+| US                  | 60,567 |
+| DE                  | 57,110 |
+| FR                  | 49,765 |
+| JP                  | 32,371 |
+| IT                  | 26,692 |
+| GB                  | 20,569 |
+| BR                  | 17,526 |
+| ES                  | 17,512 |
+| NL                  | 15,511 |
+| PL                  | 13,572 |
 | TR                  | 13,025 |
 | AU                  | 7,851 |
 | MX                  | 2,655 |
@@ -124,7 +125,6 @@ market and the place a page is about are different axes and the brief is explici
 | geonames-cities; health-rules-verified                           | 2,811 |
 | geonames-cities; nasa-power-daily                                | 8,306 |
 | geonames-cities; neighbourhood-facts-verified                    | 845 |
-| geonames-cities; neighbourhood-facts-verified; rent-index-verifi | 20 |
 | geonames-cities; ourairports                                     | 11 |
 | geonames-cities; places-data-verified                            | 7,168 |
 | geonames-cities; property-price-verified                         | 2,989 |
@@ -153,7 +153,7 @@ market and the place a page is about are different axes and the brief is explici
 | area_cuisine    | 22,166 |
 | area_opening    | 7,913 |
 | areas_index     | 385 |
-| city            | 79,998 |
+| city            | 79,978 |
 | city-pair       | 50 |
 | city_attribute  | 3,196 |
 | city_category   | 41,213 |
@@ -215,7 +215,7 @@ market and the place a page is about are different axes and the brief is explici
 | places.area-school           | 2,785 |
 | places.city-cafe             | 2,594 |
 
-204 families in total. The full list with the content contract per family is in
+203 families in total. The full list with the content contract per family is in
 1M-UNIQUE-CONTENT-CONTRACT.csv and the per-condition verdicts in 1M-FAMILY-ACCEPTANCE-TEST.json.
 
 ## CONTENT QUALITY: what was rejected and why
@@ -223,12 +223,13 @@ market and the place a page is about are different axes and the brief is explici
 | rejection status                            | rows |
 | ------------------------------------------- | --- |
 | REJECTED_DUPLICATE                          | 1 |
-| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,599 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,598 |
 | REJECTED_LOCALIZATION                       | 122,106 |
 | REJECTED_PARENT_REMOVED                     | 3,442 |
 | REJECTED_QUALITY                            | 80,601 |
 | REJECTED_SAME_NAME_IN_CITY                  | 58 |
 | REJECTED_SERP                               | 18,178 |
+| REJECTED_UNSUPPORTED_SUPERLATIVE            | 21 |
 
 The reason text, grouped by its first clause:
 
@@ -237,9 +238,10 @@ The reason text, grouped by its first clause:
 | localization                                | 122,106 |
 | REJECTED_QUALITY                            | 80,601 |
 | REJECTED_SERP                               | 18,178 |
-| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,599 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,598 |
 | REJECTED_PARENT_REMOVED                     | 3,442 |
 | REJECTED_SAME_NAME_IN_CITY                  | 58 |
+| REJECTED_UNSUPPORTED_SUPERLATIVE            | 21 |
 | REJECTED_DUPLICATE                          | 1 |
 
 ## QA: every check in the pass
@@ -249,8 +251,8 @@ The reason text, grouped by its first clause:
 | candidates_with_no_usable_source                   | 0 |
 | declared_parent_is_not_a_valid_parent              | 0 |
 | declared_parent_is_valid_but_not_a_path_prefix     | 34,032 |
-| destination_rows                                   | 37,392 |
-| destination_rows_with_no_locale_specific_fact      | 15,398 |
+| destination_rows                                   | 16,177 |
+| destination_rows_with_no_locale_specific_fact      | 12 |
 | duplicate_canonicals                               | 0 |
 | duplicate_h1_within_a_market                       | 0 |
 | duplicate_meta_within_a_market                     | 0 |
@@ -262,9 +264,8 @@ The reason text, grouped by its first clause:
 | kept_rows_with_a_rejecting_localisation_class      | 0 |
 | locale_mismatch_between_url_and_row                | 0 |
 | meta_over_165_chars                                | 97,049 |
-| orphan_pages                                       | 71 |
+| orphan_pages                                       | 68 |
 | same_entity_id_under_two_names                     | 0 |
-| superlative_from_the_family_own_intent             | 60 |
 | templates_with_repeated_entities                   | 0 |
 | title_over_65_chars                                | 236,950 |
 | top_level_pages_whose_parent_is_the_locale_home    | 0 |
@@ -278,12 +279,12 @@ The reason text, grouped by its first clause:
 | verdict                  | rows |
 | ------------------------ | --- |
 | ACCEPTED                 | 169 |
-| ACCEPTED_WITH_AN_UNKNOWN | 35 |
+| ACCEPTED_WITH_AN_UNKNOWN | 34 |
 
 | pages by verdict         | rows |
 | ------------------------ | --- |
 | ACCEPTED                 | 267,401 |
-| ACCEPTED_WITH_AN_UNKNOWN | 75,082 |
+| ACCEPTED_WITH_AN_UNKNOWN | 75,062 |
 
 Failed conditions across all families: none
 
@@ -364,7 +365,7 @@ The first pass listed the National Heritage List for England as MATERIALISING wi
 
 ## SCALE PATHS: COUNTED AGAINST PROJECTED
 
-Counted today in the manifest: **342,483**
+Counted today in the manifest: **342,463**
 
 Paths with a COUNTED entity-level number:
 

@@ -1,0 +1,66 @@
+{
+  "generated_on": "2026-10-06",
+  "provider": "Ahrefs Keywords Explorer v3, country-scoped volume",
+  "units_spent": 864,
+  "why_this_measurement_exists": "The market-scoped URL experiment found that every travel keyword in the en-AU and es-MX admission measurements names a place in that market's OWN country: all 54 Australian keywords name Australian places, all 27 Mexican keywords name Mexican places. So the experiment had no entity-level evidence either way about whether those markets search for FOREIGN destinations, and reporting 'no entity-specific demand' would have been a statement about the files rather than about the markets. This measurement settles it directly.",
+  "what_it_settles": "Both markets have substantial, low-difficulty demand for foreign destinations. It does NOT settle whether a market-scoped page about one of those destinations would differ from the existing language-scoped page; that is a content question and the answer is recorded in MARKET-URL-EXPERIMENT.json.",
+  "licence_and_provenance": {
+    "source": "Ahrefs API v3 keywords-explorer-overview",
+    "licence": "commercial subscription, Advanced plan, internal use",
+    "redistribution": "NOT redistributable. Volumes may inform which pages are built; they are not published on any page.",
+    "captured_by": "scripts/atlas/scale/market-url-experiment.py reads this file; the capture was a direct API call recorded here",
+    "cache": "no_cache, so these are live figures for 2026-10-06"
+  },
+  "markets": {
+    "en-AU": {
+      "language": "en",
+      "home_country": "AU",
+      "family": "activities.city-things-to-do",
+      "keyword_template": "things to do in {entity}",
+      "total_volume": 46600,
+      "keywords": [
+        {"keyword": "things to do in bali", "entity": "Bali", "country": "ID", "volume": 7100, "kd": 1, "cpc_cents": 7},
+        {"keyword": "things to do in tokyo", "entity": "Tokyo", "country": "JP", "volume": 7000, "kd": 0, "cpc_cents": 9},
+        {"keyword": "things to do in singapore", "entity": "Singapore", "country": "SG", "volume": 6300, "kd": 1, "cpc_cents": 8},
+        {"keyword": "things to do in queenstown", "entity": "Queenstown", "country": "NZ", "volume": 4200, "kd": 0, "cpc_cents": 20},
+        {"keyword": "things to do in london", "entity": "London", "country": "GB", "volume": 3200, "kd": 24, "cpc_cents": 10},
+        {"keyword": "things to do in kyoto", "entity": "Kyoto", "country": "JP", "volume": 2800, "kd": 0, "cpc_cents": 9},
+        {"keyword": "things to do in fiji", "entity": "Fiji", "country": "FJ", "volume": 2400, "kd": 2, "cpc_cents": 15},
+        {"keyword": "things to do in auckland", "entity": "Auckland", "country": "NZ", "volume": 2400, "kd": 8, "cpc_cents": 25},
+        {"keyword": "things to do in rome", "entity": "Rome", "country": "IT", "volume": 1900, "kd": 13, "cpc_cents": 25},
+        {"keyword": "things to do in bangkok", "entity": "Bangkok", "country": "TH", "volume": 1900, "kd": 46, "cpc_cents": 5},
+        {"keyword": "things to do in phuket", "entity": "Phuket", "country": "TH", "volume": 1700, "kd": 5, "cpc_cents": 7},
+        {"keyword": "things to do in ubud", "entity": "Ubud", "country": "ID", "volume": 1700, "kd": 3, "cpc_cents": 8},
+        {"keyword": "things to do in seminyak", "entity": "Seminyak", "country": "ID", "volume": 1100, "kd": 0, "cpc_cents": 9},
+        {"keyword": "things to do in new york", "entity": "New York", "country": "US", "volume": 900, "kd": 11, "cpc_cents": 9},
+        {"keyword": "things to do in nusa penida", "entity": "Nusa Penida", "country": "ID", "volume": 100, "kd": 20, "cpc_cents": 15}
+      ]
+    },
+    "es-MX": {
+      "language": "es",
+      "home_country": "MX",
+      "family": "activities.city-things-to-do",
+      "keyword_template": "que hacer en {entity}",
+      "total_volume": 7700,
+      "keywords": [
+        {"keyword": "que hacer en madrid", "entity": "Madrid", "country": "ES", "volume": 1100, "kd": 0, "cpc_cents": 9},
+        {"keyword": "que hacer en nueva york", "entity": "New York", "country": "US", "volume": 900, "kd": 0, "cpc_cents": 8},
+        {"keyword": "que hacer en bogota", "entity": "Bogota", "country": "CO", "volume": 900, "kd": 0, "cpc_cents": 4},
+        {"keyword": "que hacer en miami", "entity": "Miami", "country": "US", "volume": 700, "kd": 0, "cpc_cents": 7},
+        {"keyword": "que hacer en paris", "entity": "Paris", "country": "FR", "volume": 700, "kd": 3, "cpc_cents": 8},
+        {"keyword": "que hacer en roma", "entity": "Rome", "country": "IT", "volume": 600, "kd": 0, "cpc_cents": 15},
+        {"keyword": "que hacer en barcelona", "entity": "Barcelona", "country": "ES", "volume": 600, "kd": 4, "cpc_cents": 15},
+        {"keyword": "que hacer en medellin", "entity": "Medellin", "country": "CO", "volume": 600, "kd": 0, "cpc_cents": 7},
+        {"keyword": "que hacer en londres", "entity": "London", "country": "GB", "volume": 500, "kd": 0, "cpc_cents": 10},
+        {"keyword": "que hacer en tokio", "entity": "Tokyo", "country": "JP", "volume": 400, "kd": 0, "cpc_cents": 15},
+        {"keyword": "que hacer en buenos aires", "entity": "Buenos Aires", "country": "AR", "volume": 350, "kd": 31, "cpc_cents": 6},
+        {"keyword": "que hacer en lisboa", "entity": "Lisbon", "country": "PT", "volume": 150, "kd": 67, "cpc_cents": 15}
+      ]
+    }
+  },
+  "the_sources_this_demand_cannot_yet_be_turned_into_a_page_with": {
+    "flight_routes_and_duration_from_the_origin_market": "Sydney to Denpasar is six hours direct from six Australian cities. New York to Denpasar is not a comparable journey in any respect a reader plans around. This is the single strongest differentiator for en-AU and no captured source carries it.",
+    "origin_market_school_and_public_holiday_calendar": "the Australian summer holiday falls in December and January, which inverts when an Australian should visit Europe relative to a northern-hemisphere reader. The holiday layer carries holidays per country DESCRIBED, not per reader market.",
+    "per_passport_entry_rules": "visa on arrival, length of stay and cost differ by the reader's passport. Nothing in this inventory is keyed on the reader's country."
+  }
+}

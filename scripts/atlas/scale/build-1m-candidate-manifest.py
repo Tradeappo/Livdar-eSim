@@ -32,6 +32,7 @@ import json, glob, gzip, csv, hashlib, collections, os, sys, math
 # mine and the fix is to import a module before reading it, not to move the reader.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import entity_identity                                        # noqa: E402
+import content_uniqueness                                     # noqa: E402
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
@@ -1093,6 +1094,65 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
 
 stats = collections.Counter()
 OWNERSHIP_STATS = collections.Counter()
+
+# Every (family, entity, language) where two or more markets earned the entity and only one
+# could keep the language-scoped URL. Written to disk because these discards are precisely the
+# population the market-scoped URL question is about, and a discarded candidate nobody recorded
+# cannot be measured for information gain later.
+#
+# STREAMED, not accumulated. Held as a list of 73,303 dicts it cost this build its fourth OOM
+# kill: the manifest already peaks near twelve gigabytes assembling the parquet, and a list that
+# is only ever appended to and then written once has no reason to be in memory at all. The file
+# is opened before the family loop and each contest goes straight into it.
+# Written to a .tmp and renamed at close, so a run that dies partway leaves the PREVIOUS
+# contest file intact. Truncating it at the start of the run would break the one guarantee the
+# fatal-stage policy exists to give: that when a stage fails, every artifact on disk still
+# describes the last run that finished.
+SL_CONTEST_PATH = ROOT + 'data/atlas/measurements/same-language-contests.jsonl.gz'
+SL_CONTEST_FH = gzip.open(SL_CONTEST_PATH + '.tmp', 'wt', encoding='utf-8')
+SL_CONTEST_N = 0
+SL_SHUT_OUT_N = 0
+
+
+def write_contest(c):
+    global SL_CONTEST_N, SL_SHUT_OUT_N
+    SL_CONTEST_N += 1
+    SL_SHUT_OUT_N += len(c['shut_out_markets'])
+    SL_CONTEST_FH.write(json.dumps(c, ensure_ascii=False) + '\n')
+
+
+def decide_language_owner(lang, ms, ecountry, ename, fid, tier):
+    """Which market owns this entity in this language, and on what basis.
+
+    Returns (owner_market, prose_reason, stats_key). Strongest evidence first:
+      1 HOME MARKET      the entity sits in the market's own country
+      2 ENTITY-SPECIFIC  this market was measured searching THIS place
+      3 FAMILY SCORE     the last resort, named as such on the row
+    """
+    if len(ms) == 1:
+        return ms[0], 'the only market serving this language that earns this entity', ''
+    _home = [m for m in ms if MKT_COUNTRY.get(m) == ecountry]
+    if _home:
+        return (_home[0],
+                f'{_home[0]} is the HOME market: this entity is in {ecountry}, its own '
+                f'country, which outranks every other market sharing {lang}',
+                'home_market_wins')
+    _low = (ename or '').lower()
+    _ent = [m for m in ms if (_low, ecountry) in XL_MARKET_CITIES.get(m, set())]
+    if _ent:
+        return (_ent[0],
+                f'{_ent[0]} was measured searching for this entity itself in the '
+                f'cross-language reach file, which is entity-specific evidence rather than a '
+                f'family total',
+                'entity_specific_demand_wins')
+    _best = max(ms, key=lambda m: (demand_score(fid, m, tier), m))
+    return (_best,
+            f'no market serving {lang} is home to {ecountry} and none was measured searching '
+            f'this entity, so the family-level score decides and {_best} holds it. This is the '
+            f'weakest of the three bases and it is named as such on the row.',
+            'family_score_last_resort')
+
+
 rows = []
 for f in fams:
     fid = f['family_id']
@@ -1145,36 +1205,50 @@ for f in fams:
             lang_markets[MKT_LANG[m]].append(m)
         by_lang = {}
         own_why = {}
+        pending_contest = {}
+        emitted_langs = set()
         for l, ms in lang_markets.items():
-            if len(ms) == 1:
-                by_lang[l] = ms[0]
-                own_why[l] = 'the only market serving this language that earns this entity'
-                continue
-            _home = [m for m in ms if MKT_COUNTRY.get(m) == ecountry]
-            if _home:
-                by_lang[l] = _home[0]
-                own_why[l] = (f'{_home[0]} is the HOME market: this entity is in '
-                              f'{ecountry}, its own country, which outranks every other '
-                              f'market sharing {l}')
-                OWNERSHIP_STATS['home_market_wins'] += 1
-                continue
-            _low = (ename or '').lower()
-            _ent = [m for m in ms
-                    if (_low, ecountry) in XL_MARKET_CITIES.get(m, set())]
-            if _ent:
-                by_lang[l] = _ent[0]
-                own_why[l] = (f'{_ent[0]} was measured searching for this entity itself in the '
-                              f'cross-language reach file, which is entity-specific evidence '
-                              f'rather than a family total')
-                OWNERSHIP_STATS['entity_specific_demand_wins'] += 1
-                continue
-            _best = max(ms, key=lambda m: (demand_score(fid, m, tier), m))
-            by_lang[l] = _best
-            own_why[l] = (f'no market serving {l} is home to {ecountry} and none was measured '
-                          f'searching this entity, so the family-level score decides and '
-                          f'{_best} holds it. This is the weakest of the three bases and it is '
-                          f'named as such on the row.')
-            OWNERSHIP_STATS['family_score_last_resort'] += 1
+            _owner, _why, _key = decide_language_owner(l, ms, ecountry, ename, fid, tier)
+            by_lang[l] = _owner
+            own_why[l] = _why
+            if _key:
+                OWNERSHIP_STATS[_key] += 1
+            if len(ms) > 1:
+                # the contest, and the markets it shut out. The loser's facts are not computed
+                # here: the experiment computes them through entity_identity, so there is one
+                # definition of what a market fact is rather than two that can disagree.
+                #
+                # PENDING, not recorded yet. The ownership rule runs before the per-market tier
+                # cap and the demand check, so the market this names as owner may be dropped a
+                # few lines below and never become a row at all. Recorded straight from here,
+                # 5,431 of 16,982 en-AU contests pointed at an owner that is in neither the kept
+                # manifest nor the rejection file, which reads as a missing record and is really
+                # a contest resolved in favour of a page that was never generated. The flag is
+                # set once the entity's markets have all been through their own checks.
+                pending_contest[l] = {
+                    'family': fid, 'surface': f['surface'], 'intent': f['intent'],
+                    'entity_type': etype, 'entity_id': eid, 'entity_name': ename,
+                    'country': ecountry or '', 'city': ecity or '', 'tier': tier,
+                    'language': l, 'owner_market': _owner,
+                    'ownership_basis': _key or 'sole_market',
+                    'shut_out_markets': [m for m in ms if m != _owner],
+                    # family-level, which is what demand_score and local_keyword both are. The
+                    # experiment must not read these as evidence that a market searches THIS
+                    # entity; that is the next field, and the distinction is the whole reason
+                    # the old collapse was wrong.
+                    'family_demand_scores': {m: demand_score(fid, m, tier) for m in ms},
+                    'family_keyword': {m: (kw_cell(fid, m)[0][0] if kw_cell(fid, m) else '')
+                                       for m in ms},
+                    'family_keyword_volume': {m: (kw_cell(fid, m)[0][1] if kw_cell(fid, m)
+                                                  else 0) for m in ms},
+                    # ENTITY-SPECIFIC: which of the contending markets was actually measured
+                    # searching for this place, from the cross-language reach file. This is the
+                    # only demand evidence in the inventory that is about the entity rather
+                    # than about the family.
+                    'entity_specific_demand_markets': [
+                        m for m in ms
+                        if ((ename or '').lower(), ecountry) in XL_MARKET_CITIES.get(m, set())],
+                }
         for lang, m in sorted(by_lang.items()):
             # trim to this market's own measured depth: a city deeper than the cell
             # was measured to reach is not a candidate in that market
@@ -1250,6 +1324,7 @@ for f in fams:
                         else GAZ.city_id_for(ecity, ecountry))
             _lf = entity_identity.locale_facts_for_row(
                 m, {'city_id': _lf_city, 'country': ecountry or ''}) if _lf_city else []
+            emitted_langs.add(lang)
             rows.append({
                 'candidate_id': 'c_' + sig(fid, eid, m),
                 'url_pattern': url, 'market': m, 'language': lang,
@@ -1286,6 +1361,17 @@ for f in fams:
                 'uniqueness_reason': uniqueness_reason(f, etype, ename, ecountry, m, lang,
                                                       tier, eid, ecity),
             })
+        # the contests for this entity, now that the owner's own per-market checks have run
+        for _l, _c in pending_contest.items():
+            _c['owner_generated_a_row'] = _l in emitted_langs
+            if not _c['owner_generated_a_row']:
+                OWNERSHIP_STATS['contest_owner_dropped_before_generating'] += 1
+            write_contest(_c)
+
+SL_CONTEST_FH.close()
+os.replace(SL_CONTEST_PATH + '.tmp', SL_CONTEST_PATH)
+print(f'same-language contests recorded: {SL_CONTEST_N:,} ({SL_SHUT_OUT_N:,} market candidates '
+      f'shut out of the language-scoped URL space)', file=sys.stderr)
 
 # ---- OSM POI AGGREGATIONS (not one page per POI) ---------------------------
 # The previous pass emitted one page per POI per modifier, 161,474 of them. That is
@@ -1950,6 +2036,64 @@ def family_allowed_in_new_market(market, fid):
     return False
 
 
+# ---- the superlative gate ---------------------------------------------------------------------
+# "best", "top", "safest" and the rest may not be claimed without a documented methodology.
+# Audited 2026-10-05, all 60 QA hits: they are 20 rows of ONE family, neighbourhoods.city-best-for,
+# counted once each in title, meta and h1. Classification against the five classes:
+#
+#   ENTITY_NAME                       0.  No entity is named Best. The earlier 15 hits were the
+#                                     Dutch town of Best and the check already excludes it.
+#   TEMPLATE_INVENTED                 0.  The separate counter for that reads zero.
+#   SOURCE_SUPPORTED                  0.  The sources are geonames-cities,
+#                                     neighbourhood-facts-verified and rent-index-verified. Those
+#                                     support a factual comparison - this district has the lowest
+#                                     median rent of the twelve, that one has fourteen
+#                                     playgrounds - and they do NOT support a ranking.
+#   FAMILY_INTENT_REQUIRES_METHODOLOGY  20. The claim is in the family itself: the id is
+#                                     city-best-for, the URL segment is city-best-for, and the
+#                                     intent reads "which areas of this city suit one kind of
+#                                     person". That is a recommendation.
+#   UNSUPPORTED                       20, the same 20, because no methodology document exists for
+#                                     it anywhere in this repository.
+#
+# So the claim is unsupported and the instruction is fix or reject. It is REJECTED, for a reason
+# beyond the missing methodology: areas.city-index already exists and already lists a city's areas
+# from the same verified facts without ranking them. city-best-for is that page plus an unearned
+# superlative, so rejecting it removes a claim and loses no information. 20 rows of 342,483, all
+# EXPERIMENT_ONLY, none live.
+#
+# This gate is a FAMILY allowlist, not a word filter on rendered copy. A word filter would invite
+# rewriting a real place name to satisfy a style rule, which is falsification; a family that earns
+# a superlative by publishing its methodology gets added here by name.
+SUPERLATIVE_WORDS = {'best', 'top', 'safest', 'cheapest', 'greatest', 'ultimate', 'perfect',
+                     'worst', 'finest'}
+SUPERLATIVE_WITH_A_METHODOLOGY = set()      # none yet; add a family here WITH its document
+
+sup_rejected = []
+stage2s = []
+for r in stage2:
+    _fw = set(r['family'].replace('.', ' ').replace('-', ' ').split())
+    _hit = sorted(_fw & SUPERLATIVE_WORDS)
+    if not _hit or r['family'] in SUPERLATIVE_WITH_A_METHODOLOGY:
+        stage2s.append(r)
+        continue
+    r['rejection_reason'] = (
+        f"REJECTED_UNSUPPORTED_SUPERLATIVE: the family id itself claims {_hit}, which appears in "
+        f"the URL segment and in the rendered title, and no methodology document exists for it. "
+        f"Its sources ({r['data_source'][:60]}) support a factual comparison and not a ranking. "
+        f"areas.city-index already lists a city's areas from the same verified facts without "
+        f"ranking them, so this page is that one plus an unearned superlative.")
+    r['status'] = 'REJECTED_UNSUPPORTED_SUPERLATIVE'
+    sup_rejected.append(r)
+if sup_rejected:
+    import collections as _cs
+    print(f'superlative gate: rejected {len(sup_rejected):,} rows claiming a superlative with no '
+          f'methodology', file=sys.stderr)
+    for _f, _n in _cs.Counter(x['family'] for x in sup_rejected).most_common():
+        print(f'    {_f:40} {_n:>7,}', file=sys.stderr)
+stage2 = stage2s
+after_superlative = len(stage2)
+
 fam_gate_rejected = []
 stage2f = []
 fam_gate_counts = collections.Counter()
@@ -2115,56 +2259,21 @@ stage2 = stage2b
 XM_SHARED_SLOTS = {}        # (family) -> how many content slots the family's template fills
 
 
+# These three were defined here AND again in market-url-experiment.py, which is how this
+# project ended up with four slug functions and twelve market lists. They live in
+# content_uniqueness now and both callers measure with the same definition: a fact that counts
+# as a difference in the gate counts as one in the experiment, by construction rather than by
+# two people writing the same rule twice.
 def _xm_slots(fid):
-    """How many content slots this family's page carries, the same for every row of it.
-
-    Counted from the family master's own declared data fields rather than guessed: the sections,
-    tables and lists a page of this family renders all come from the template plus the entity's
-    source data, and both are identical for two rows about the same entity. So this number is
-    the SHARED part of any two such pages, and the market-specific facts are the whole of the
-    unshared part. A family with no declared fields is given 1 rather than 0, because every page
-    renders at least its own subject.
-    """
-    if fid in XM_SHARED_SLOTS:
-        return XM_SHARED_SLOTS[fid]
-    n = 1
-    for f in fams:
-        if f['family_id'] == fid:
-            fields = (f.get('required_data') or '') + ',' + (f.get('distinct_value_test') or '')
-            n = max(1, len([x for x in fields.split(',') if x.strip()]))
-            break
-    XM_SHARED_SLOTS[fid] = n
-    return n
+    return content_uniqueness.slots_for_family(fid, fams, XM_SHARED_SLOTS)
 
 
 def _xm_facts(r):
-    """The facts this row carries that its siblings about the same entity do NOT."""
-    out = []
-    for x in (r.get('locale_facts') or '').split('|'):
-        x = x.strip()
-        if x:
-            out.append(x)
-    return out
+    return content_uniqueness.facts_of(r.get('locale_facts'))
 
 
 def _xm_fact_kinds(facts):
-    """Which KINDS of market fact these are, so one distance can be told from a distance and
-    two temperature gaps. A kind counted twice is still one kind."""
-    kinds = set()
-    for f in facts:
-        low = f.lower()
-        if 'within a degree' in low:
-            # the ABSENCE of a difference, not a kind of difference. entity_identity no longer
-            # emits this, and this branch stays so a row carried over from an older build
-            # cannot earn a pass on it.
-            continue
-        if 'straight line' in low or 'km from' in low:
-            kinds.add('distance')
-        elif 'averages' in low:
-            kinds.add('temperature')
-        else:
-            kinds.add('other')
-    return kinds
+    return content_uniqueness.fact_kinds(facts)
 
 
 xm_rejected = []
@@ -2516,6 +2625,7 @@ for i, r in enumerate(stage3):
 
 print(f'after exact dedupe:        {after_exact:,}', file=sys.stderr)
 print(f'after semantic dedupe:     {after_semantic:,}', file=sys.stderr)
+print(f'after superlative gate:    {after_superlative:,}', file=sys.stderr)
 print(f'after family gate:         {after_family_gate:,}', file=sys.stderr)
 print(f'after localisation gate:   {after_localization:,}', file=sys.stderr)
 print(f'after cross-market gate:   {after_cross_market:,}', file=sys.stderr)
@@ -2555,6 +2665,7 @@ def strip_long_dashes(rows):
 # Driving both from one definition is the fix; adding the missing two by hand would leave the
 # next list to be forgotten the same way.
 ROW_GROUPS = [('kept', stage3), ('quality_gates', rejected), ('exact_dupes', exact_dupes),
+              ('sup_rejected', sup_rejected),
               ('semantic_dupes', semantic_dupes), ('name_dupes', name_dupes),
               ('loc_rejected', loc_rejected), ('fam_gate_rejected', fam_gate_rejected),
               ('xm_rejected', xm_rejected), ('cannib_rejected', cannib_rejected),
@@ -2718,6 +2829,7 @@ summary = {
     'raw_candidate_combinations_means': 'the count AFTER the uniqueness and SERP gate',
     'removed_by_uniqueness_and_serp_gate': generated_total - raw_total,
     'removed_as_exact_duplicate_urls': REJ_COUNTS['exact_dupes'],
+    'removed_by_unsupported_superlative_gate': REJ_COUNTS['sup_rejected'],
     'removed_by_per_market_family_gate': REJ_COUNTS['fam_gate_rejected'],
     'removed_by_localisation_gate': REJ_COUNTS['loc_rejected'],
     'removed_by_cross_market_content_uniqueness_gate': REJ_COUNTS['xm_rejected'],
@@ -2728,6 +2840,7 @@ summary = {
     'removed_because_the_declared_parent_did_not_survive': REJ_COUNTS['orphan_rejected'],
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
                           - REJ_COUNTS['exact_dupes'] - REJ_COUNTS['semantic_dupes'] - REJ_COUNTS['name_dupes']
+                          - REJ_COUNTS['sup_rejected']
                           - REJ_COUNTS['fam_gate_rejected'] - REJ_COUNTS['loc_rejected']
                           - REJ_COUNTS['xm_rejected'] - REJ_COUNTS['cannib_rejected']
                           - REJ_COUNTS['orphan_rejected']) == len(stage3),

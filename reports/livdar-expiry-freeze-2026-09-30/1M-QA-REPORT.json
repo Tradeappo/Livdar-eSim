@@ -1,17 +1,16 @@
 {
- "manifest_rows": 342483,
- "distinct_urls": 342483,
+ "manifest_rows": 342463,
+ "distinct_urls": 342463,
  "checks": {
   "title_over_65_chars": 236950,
   "meta_over_165_chars": 97049,
   "duplicate_title_exact": 0,
   "duplicate_title_same_tokens": 27,
-  "superlative_from_the_family_own_intent": 60,
-  "destination_rows": 37392,
-  "destination_rows_with_no_locale_specific_fact": 15398,
+  "destination_rows": 16165,
+  "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 71,
+  "orphan_pages": 68,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
@@ -38,7 +37,6 @@
   "places.city-swimming_pool": 4,
   "places.city-theme_park": 4,
   "places.city-garden": 3,
-  "neighbourhoods.city-best-for": 3,
   "neighbourhoods.city-where-to-stay": 3,
   "places.city-aquarium": 2,
   "places.city-beach": 2,
@@ -55,7 +53,8 @@
   "places.city-marina": 1,
   "places.city-parking": 1,
   "places.city-nature_reserve": 1,
-  "outdoors.beach_resort": 1
+  "outdoors.beach_resort": 1,
+  "outdoors.bird_hide": 1
  },
  "top_level_by_family": {},
  "saturated_templates": [],
@@ -1529,69 +1528,6 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
-   ]
-  },
-  "neighbourhoods.city-best-for|de": {
-   "rows": 3,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|en": {
-   "rows": 5,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|es": {
-   "rows": 2,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|fr": {
-   "rows": 3,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|it": {
-   "rows": 2,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|ja": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|nl": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|pl": {
-   "rows": 2,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "neighbourhoods.city-best-for|pt": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it names geonames-cities; neighbourhood-facts-verified; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "neighbourhoods.city-where-to-stay|de": {
@@ -11294,152 +11230,9 @@
   }
  ],
  "long_dash_examples": [],
- "destination_rows_with_no_locale_specific_fact_examples": [
-  {
-   "candidate_id": "c_101932ebe170",
-   "market": "en-AU",
-   "country": "AU",
-   "family": "activities.city-things-to-do",
-   "url": "/en/areas/city-things-to-do/sydney-au/"
-  },
-  {
-   "candidate_id": "c_5d1be13aea6b",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/istanbul/"
-  },
-  {
-   "candidate_id": "c_0f177ee8e3ae",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/atasehir/"
-  },
-  {
-   "candidate_id": "c_7a7573347fd2",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/bahcelievler/"
-  },
-  {
-   "candidate_id": "c_66e86dc7bac2",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/bagcilar/"
-  },
-  {
-   "candidate_id": "c_6de8267cca75",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/esenler/"
-  },
-  {
-   "candidate_id": "c_c3fa41f04cc8",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/fatih/"
-  },
-  {
-   "candidate_id": "c_36b08e25da8c",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/kucukcekmece/"
-  },
-  {
-   "candidate_id": "c_6e0e0fac26f1",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/maltepe/"
-  },
-  {
-   "candidate_id": "c_4d1c50341170",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/sancaktepe/"
-  },
-  {
-   "candidate_id": "c_4bd9a2add2a1",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/sultangazi/"
-  },
-  {
-   "candidate_id": "c_4c4fbaa2abde",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/umraniye/"
-  },
-  {
-   "candidate_id": "c_27142c97774e",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/zeytinburnu/"
-  },
-  {
-   "candidate_id": "c_7fb12239058e",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/uskudar/"
-  },
-  {
-   "candidate_id": "c_f1a434b30bab",
-   "market": "tr-TR",
-   "country": "TR",
-   "family": "activities.city-things-to-do",
-   "url": "/tr/areas/city-things-to-do/sisli/"
-  },
-  {
-   "candidate_id": "c_dc491351e572",
-   "market": "es-MX",
-   "country": "MX",
-   "family": "activities.city-things-to-do",
-   "url": "/es/areas/city-things-to-do/ciudad-nezahualcoyotl/"
-  },
-  {
-   "candidate_id": "c_e73905c12cca",
-   "market": "es-MX",
-   "country": "MX",
-   "family": "activities.city-things-to-do",
-   "url": "/es/areas/city-things-to-do/ecatepec-de-morelos/"
-  },
-  {
-   "candidate_id": "c_d6100a6973d9",
-   "market": "es-MX",
-   "country": "MX",
-   "family": "activities.city-things-to-do",
-   "url": "/es/areas/city-things-to-do/gustavo-adolfo-madero/"
-  },
-  {
-   "candidate_id": "c_bf3765f4d9be",
-   "market": "es-MX",
-   "country": "MX",
-   "family": "activities.city-things-to-do",
-   "url": "/es/areas/city-things-to-do/iztapalapa/"
-  },
-  {
-   "candidate_id": "c_8e42da9b96cb",
-   "market": "es-MX",
-   "country": "MX",
-   "family": "activities.city-things-to-do",
-   "url": "/es/areas/city-things-to-do/mexico-city/"
-  }
- ],
+ "destination_rows_with_no_locale_specific_fact_examples": [],
  "superlative_examples": [],
- "families_whose_own_name_claims_a_superlative": {
-  "neighbourhoods.city-best-for": 60
- },
+ "families_whose_own_name_claims_a_superlative": {},
  "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
   "min": 16,

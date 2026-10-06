@@ -165,7 +165,6 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-park | 8 |  |  | 4 |  | 1 | 1 | 2 |  | 1 | 2 |
 | outdoors.ski-trail |  |  |  |  |  |  |  | 23 |  |  |  |
 | places.city-theme_park | 3 | 1 | 1 | 2 |  | 1 |  | 7 |  | 5 | 1 |
-| neighbourhoods.city-best-for | 4 | 1 | 3 | 1 |  | 2 | 2 | 3 | 1 | 2 | 1 |
 | neighbourhoods.city-where-to-stay | 4 | 1 | 3 | 1 |  | 2 | 2 | 3 | 1 | 2 | 1 |
 | places.area-garden | 12 | 1 |  |  |  |  |  | 3 |  |  |  |
 | poi.archaeological_site-notable | 1 | 2 | 1 | 2 |  | 12 |  |  |  |  | 1 |

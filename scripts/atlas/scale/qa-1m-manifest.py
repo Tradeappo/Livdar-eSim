@@ -33,6 +33,7 @@ what is wrong before anything is published, not to declare the set clean:
 import csv, gzip, collections, json, os, sys, re, hashlib, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import page_copy                                              # noqa: E402
+import entity_identity                                        # noqa: E402
 # The three skeletons live in one module now, because each of them was separately wrong in the
 # same way and the only reliable cure is one definition. undash comes from there too.
 from page_copy import title_for, meta_for, h1_for, undash      # noqa: E402
@@ -193,15 +194,44 @@ for r in rows:
 # The builders refuse to emit a copy without one; this check is the independent confirmation, and
 # it reads the locale_facts FIELD rather than sniffing the uniqueness reason for a phrase, because
 # sniffing prose is how six false findings were produced in an earlier pass.
-HOME_OF = {'en-US': 'US', 'en-GB': 'GB', 'de-DE': 'DE', 'fr-FR': 'FR', 'it-IT': 'IT',
-           'es-ES': 'ES', 'nl-NL': 'NL', 'pl-PL': 'PL', 'pt-BR': 'BR', 'ja-JP': 'JP',
-           'zh-Hant-TW': 'TW'}
+# The TWELFTH hand-written copy of the market list in this project, and the last one. It held
+# eleven markets while MARKETS held fourteen, so every tr-TR page about Turkey, every en-AU page
+# about Australia and every es-MX page about Mexico was counted as a FOREIGN destination copy and
+# then flagged for carrying no market-specific fact. That is what the 15,398
+# destination_rows_with_no_locale_specific_fact finding was: 22,235 home-country pages measured
+# against a list that did not know their markets existed, not pages missing facts.
+#
+# Imported now, like everything else that asks what a market is. A checker with its own copy of
+# the thing it is checking can only ever test that copy.
+HOME_OF = dict(entity_identity.MKT_COUNTRY)
+
+# A page whose ENTITY IS A COUNTRY, or a PAIR of countries, is exempt. The locale fact is a
+# great-circle distance from the market's origin city plus the January and July temperature gap,
+# and all three are computed from a CITY's coordinates. There is no city here, so there is no
+# number to compute: "2,400km from New York to Japan" is not a fact about Japan, and a distance
+# from New York to "Australia vs Belgium" is not a fact about anything. Exempting them is not
+# relaxing the rule, it is applying it only where it can mean something.
+#
+# Measured on the 2026-10-06 manifest: 42 country rows (destinations.country-hub,
+# relocation.country, taxes.country-remote-work) and 12 country-pair rows
+# (comparisons.country-vs-country). NONE of the 54 carries a locale fact and none can, and all
+# 12 country-pair rows are en-US, so no second market holds one and there is no duplication for
+# the rule to prevent.
+#
+# What WOULD legitimately differentiate these pages per market is regulation: the visa class, the
+# length of stay and the tax residency threshold an Australian faces entering Portugal are not
+# the ones an American faces. That is recorded as a MISSING SOURCE in
+# MARKET-URL-EXPERIMENT.json rather than papered over here, because the fact is real and the
+# data is absent, and those are different problems.
+COUNTRY_ENTITY_TYPES = {'country', 'country-pair'}
 no_locale_fact = []
 dest_rows = 0
 for r in rows:
     cc = (r.get('country') or '').strip()
     if not cc or HOME_OF.get(r.get('market')) == cc:
         continue              # a page about its own market's country is not a destination copy
+    if (r.get('entity_type') or '') in COUNTRY_ENTITY_TYPES:
+        continue              # no city, so no computable distance or temperature gap
     dest_rows += 1
     if not (r.get('locale_facts') or '').strip():
         if len(no_locale_fact) < 20:
@@ -212,6 +242,7 @@ issues['destination_rows'] = dest_rows
 issues['destination_rows_with_no_locale_specific_fact'] = sum(
     1 for r in rows
     if (r.get('country') or '').strip()
+    and (r.get('entity_type') or '') not in COUNTRY_ENTITY_TYPES
     and HOME_OF.get(r.get('market')) != (r.get('country') or '').strip()
     and not (r.get('locale_facts') or '').strip())
 

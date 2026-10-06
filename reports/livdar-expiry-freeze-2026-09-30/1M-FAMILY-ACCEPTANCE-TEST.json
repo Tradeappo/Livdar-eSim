@@ -1,14 +1,14 @@
 {
  "measuredOn": "2026-10-01",
- "families": 204,
- "pages": 342483,
+ "families": 203,
+ "pages": 342463,
  "verdicts": {
   "ACCEPTED": 169,
-  "ACCEPTED_WITH_AN_UNKNOWN": 35
+  "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
   "ACCEPTED": 267401,
-  "ACCEPTED_WITH_AN_UNKNOWN": 75082
+  "ACCEPTED_WITH_AN_UNKNOWN": 75062
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
@@ -792,50 +792,6 @@
     "information_gain_reason": "health.city for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from MISSING_ACQUIRABLE; nl market demand measured for this family"
    },
    "every_page_is_low_completeness": false
-  },
-  "neighbourhoods.city-best-for": {
-   "pages": 20,
-   "markets": [
-    "de-DE",
-    "en-GB",
-    "en-US",
-    "es-ES",
-    "fr-FR",
-    "it-IT",
-    "ja-JP",
-    "nl-NL",
-    "pl-PL",
-    "pt-BR"
-   ],
-   "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
-   "conditions": {
-    "1_real_entities": "PASS",
-    "2_measured_demand": "PASS",
-    "3_pages_differ": "PASS",
-    "4_distinct_data": "PASS",
-    "5_valid_hierarchy": "PASS",
-    "6_owns_its_intent": "PASS",
-    "7_serp_sampled": "UNKNOWN (archetype not sampled for this family)",
-    "8_licence_permits": "PASS",
-    "9_useful_without_google": "PASS",
-    "10_honest_localisation": "PASS"
-   },
-   "failed": [],
-   "unknown": [
-    "7_serp_sampled"
-   ],
-   "contract": {
-    "unique_fact_count": 20,
-    "unique_data_point_count": 12,
-    "distinct_entity_count": 20,
-    "template_ratio": 20.0,
-    "similarity_score": 0.0,
-    "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "neighbourhoods.city-best-for for Amsterdam (NL) in nl-NL: city-level local data and local-language demand; 3 source fields from HELD_PARTIAL; nl market demand measured for this family"
-   },
-   "every_page_is_low_completeness": true
   },
   "neighbourhoods.city-where-to-stay": {
    "pages": 20,

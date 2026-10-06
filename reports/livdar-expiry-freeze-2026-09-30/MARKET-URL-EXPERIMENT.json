@@ -1,0 +1,179 @@
+{
+ "generated": "2026-10-06",
+ "what_this_is": "an OFFLINE test of whether market-scoped URLs would create pages a reader needs. Nothing here is published: no route, no sitemap, no redirect, no cohort. Existing /en/ and /es/ URLs are untouched and no migration is proposed.",
+ "population": "every (family, entity, language) contest the ownership rule resolved in which a market under test was shut out of the single language-scoped URL",
+ "markets_under_test": [
+  "en-AU",
+  "es-MX"
+ ],
+ "yield": {
+  "en-AU": {
+   "raw_candidates": 16982,
+   "justified_separate_pages": 0,
+   "duplicate_rejected": 0,
+   "insufficient_market_value_rejected": 4666,
+   "generic_only": 12316,
+   "no_generic_owner_survived_excluded_from_yield": 12316,
+   "net_new_valid_pages": 0,
+   "yield_rate": 0.0,
+   "compared_with": [
+    "en-US",
+    "en-GB"
+   ],
+   "reconciles": true
+  },
+  "es-MX": {
+   "raw_candidates": 31,
+   "justified_separate_pages": 0,
+   "duplicate_rejected": 0,
+   "insufficient_market_value_rejected": 0,
+   "generic_only": 31,
+   "no_generic_owner_survived_excluded_from_yield": 31,
+   "net_new_valid_pages": 0,
+   "yield_rate": 0.0,
+   "compared_with": [
+    "es-ES"
+   ],
+   "reconciles": true
+  }
+ },
+ "net_new_valid_pages_total": 0,
+ "raw_candidates_total": 17013,
+ "by_overlap": {
+  "en-AU vs en-GB": {
+   "KEEP_GENERIC_ONLY": 12316,
+   "pairs": 16982,
+   "INSUFFICIENT_MARKET_VALUE": 4666
+  },
+  "en-AU vs en-US": {
+   "KEEP_GENERIC_ONLY": 12316,
+   "pairs": 16982,
+   "INSUFFICIENT_MARKET_VALUE": 4666
+  },
+  "es-MX vs es-ES": {
+   "KEEP_GENERIC_ONLY": 31,
+   "pairs": 31
+  }
+ },
+ "why_the_generic_owner_was_missing": {
+  "en-AU": {
+   "REJECTED_QUALITY": 5168,
+   "NOT_IN_THE_REJECTION_FILE_EITHER": 5431,
+   "REJECTED_LOCALIZATION": 5,
+   "REJECTED_SERP": 1712
+  },
+  "es-MX": {
+   "REJECTED_QUALITY": 31
+  }
+ },
+ "entity_level_demand_hits": {
+  "en-AU": {
+   "named_in_its_own_admission_measurement": 0,
+   "present_in_the_cross_language_reach_file": 0
+  },
+  "es-MX": {
+   "named_in_its_own_admission_measurement": 0,
+   "present_in_the_cross_language_reach_file": 0
+  }
+ },
+ "information_gain_kinds_earned": {},
+ "information_gain_kinds_with_no_source_yet": {
+  "MARKET_SPECIFIC_REGULATION": "needs a per-(reader country, subject country) rules table: visa class, length of stay, work rights, tax residency threshold. Nothing in this inventory is keyed on the READER country, so relocation.country, taxes.country-remote-work, health.country and banking.country cannot currently differentiate an Australian reader from an American one even though the real-world answers differ",
+  "MARKET_SPECIFIC_PRICING": "needs prices quoted in the market currency from a licensed source. The rent index and cost-of-living fields are single-currency, so a currency conversion is all this inventory could produce, and brief rule 3 rules a currency symbol out explicitly",
+  "DIFFERENT_COMMERCIAL_AVAILABILITY": "needs per-market product availability. Real for connectivity families and the family gate already refuses those for the new markets as PRODUCT surfaces, so there is no travel-content family where this could apply",
+  "MARKET_SPECIFIC_SEASONALITY": "needs southern-hemisphere school and holiday calendars joined to the destination. The public-holiday layer carries holidays per COUNTRY DESCRIBED, not per reader market, so the genuinely useful en-AU fact - that the Australian summer holiday falls in December and January, which inverts when an Australian should visit Europe - is not computable from what is captured",
+  "MATERIALLY_DIFFERENT_TRAVEL_ACCESS": "needs flight route and duration data per origin market. This is the strongest unbuilt path for en-AU specifically: Sydney to Europe is a different journey from New York to Europe in a way a reader plans around, and no captured source carries it",
+  "MATERIALLY_DIFFERENT_TOOL_OUTPUT": "needs the calculators to take the reader market as an input. They currently take the subject city only"
+ },
+ "gain_kinds_accepted_as_sufficient": [
+  "ENTITY_SPECIFIC_MEASURED_DEMAND",
+  "MARKET_SPECIFIC_REGULATION",
+  "MARKET_SPECIFIC_PRICING",
+  "DIFFERENT_COMMERCIAL_AVAILABILITY",
+  "DIFFERENT_INTENT",
+  "DIFFERENT_ENTITY_SCOPE",
+  "MARKET_SPECIFIC_SEASONALITY",
+  "MATERIALLY_DIFFERENT_TRAVEL_ACCESS",
+  "MATERIALLY_DIFFERENT_TOOL_OUTPUT",
+  "MULTIPLE_MARKET_SPECIFIC_FACTS"
+ ],
+ "gain_kinds_insufficient_alone": [
+  "ORIGIN_MARKET_NAME",
+  "ONE_DISTANCE",
+  "ONE_TEMPERATURE",
+  "SPELLING_VARIANT",
+  "CURRENCY_SYMBOL_ONLY",
+  "TRANSLATED_OR_REWORDED_PROSE",
+  "DIFFERENT_URL"
+ ],
+ "top_families_by_decision": {
+  "en-AU": {
+   "stay.city-type:KEEP_GENERIC_ONLY": 3255,
+   "activities.city-things-to-do:KEEP_GENERIC_ONLY": 2164,
+   "climate.city-day:KEEP_GENERIC_ONLY": 1712,
+   "weather.city-month:INSUFFICIENT_MARKET_VALUE": 1712,
+   "climate.city-annual:KEEP_GENERIC_ONLY": 1712,
+   "activities.city-things-to-do:INSUFFICIENT_MARKET_VALUE": 1712,
+   "destinations.city-hub:KEEP_GENERIC_ONLY": 1712,
+   "weather.city-best-time:KEEP_GENERIC_ONLY": 1712,
+   "stay.city-type:INSUFFICIENT_MARKET_VALUE": 621,
+   "transport.route-from-market:INSUFFICIENT_MARKET_VALUE": 621,
+   "calendar.month:KEEP_GENERIC_ONLY": 24,
+   "transport.route-from-market:KEEP_GENERIC_ONLY": 4,
+   "calendar.year:KEEP_GENERIC_ONLY": 2,
+   "calendar.week-numbers:KEEP_GENERIC_ONLY": 2,
+   "tools.calculator:KEEP_GENERIC_ONLY": 1,
+   "tools.matcher:KEEP_GENERIC_ONLY": 1,
+   "tools.cost-calculator:KEEP_GENERIC_ONLY": 1,
+   "tools.cost-comparison:KEEP_GENERIC_ONLY": 1,
+   "tools.loan-payment:KEEP_GENERIC_ONLY": 1,
+   "tools.rent-to-income:KEEP_GENERIC_ONLY": 1,
+   "tools.vehicle-financing:KEEP_GENERIC_ONLY": 1,
+   "tools.net-pay:KEEP_GENERIC_ONLY": 1,
+   "tools.net-pay-contract-level:KEEP_GENERIC_ONLY": 1,
+   "tools.bonus-net-pay:KEEP_GENERIC_ONLY": 1,
+   "tools.mortgage-tax-deduction:KEEP_GENERIC_ONLY": 1
+  },
+  "es-MX": {
+   "calendar.month:KEEP_GENERIC_ONLY": 24,
+   "calendar.year:KEEP_GENERIC_ONLY": 2,
+   "calendar.week-numbers:KEEP_GENERIC_ONLY": 2,
+   "tools.calculator:KEEP_GENERIC_ONLY": 1,
+   "tools.matcher:KEEP_GENERIC_ONLY": 1,
+   "tools.cost-comparison:KEEP_GENERIC_ONLY": 1
+  }
+ },
+ "decisions": [
+  "MARKET_PAGE_JUSTIFIED",
+  "KEEP_GENERIC_ONLY",
+  "MARKET_PAGE_DUPLICATE",
+  "INSUFFICIENT_MARKET_VALUE"
+ ],
+ "entity_level_demand_sources": {
+  "cross_language_reach_file": "reports/livdar-master-seo-universe-2026-09-30/CROSS-LANGUAGE-REACH.csv, which predates the admission of both markets under test and carries no row for either. It cannot say anything about them, which is not the same as saying they have no demand",
+  "own_admission_measurement": {
+   "en-AU": {
+    "travel_keywords": 54,
+    "travel_volume": 634250,
+    "product_keywords_refused_by_the_family_gate": [
+     "esim australia",
+     "esim japan",
+     "esim bali",
+     "esim new zealand",
+     "esim usa",
+     "esim europe"
+    ],
+    "every_travel_keyword_names_a_place_in": "AU"
+   },
+   "es-MX": {
+    "travel_keywords": 27,
+    "travel_volume": 248880,
+    "product_keywords_refused_by_the_family_gate": [
+     "esim mexico",
+     "esim estados unidos"
+    ],
+    "every_travel_keyword_names_a_place_in": "MX"
+   }
+  }
+ }
+}
