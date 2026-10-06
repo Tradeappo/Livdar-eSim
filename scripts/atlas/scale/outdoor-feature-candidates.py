@@ -111,19 +111,31 @@ for f in sorted(glob.glob(PARENTS + 'parents-*.jsonl.gz')):
         km2 = p.get('km2') or 0
         if km2 < MIN_PARENT_KM2 or km2 > MAX_PARENT_KM2:
             continue
+        # Build the geometry and DROP THE RING in the same pass. Holding both is the exact
+        # defect that OOM-killed poi-parent-assign.py at 11,114 MB earlier in this session, and
+        # it was sitting here too: `parents.append(p)` keeps the whole record including its ring
+        # as a list of Python floats, and `shape(p['ring'])` below then holds every ring a
+        # second time as a shapely geometry. Measured on 2026-10-06: killed at 3,356 MB sharing
+        # the box, and still climbing past 9,494 MB with the box to itself.
+        #
+        # Nothing downstream reads the ring. Lines 205 to 218 use the tree for the spatial
+        # query and then only country, km2 and the parent's identity, so the ring's only
+        # purpose is to become the geometry, and once it has there is no reason to keep it.
+        try:
+            g = shape(p['ring'])
+        except Exception:
+            continue
+        del p['ring']
+        if g.is_empty:
+            continue
+        # meta maps a GEOMETRY index to a PARENT index, and appending to both only when the
+        # geometry is good keeps them aligned by construction rather than by a parallel counter.
+        meta.append(len(parents))
         parents.append(p)
+        geoms.append(g)
 if not parents:
     print('no parent polygons on disk; run the parents pass first', file=sys.stderr)
     sys.exit(2)
-for i, p in enumerate(parents):
-    try:
-        g = shape(p['ring'])
-    except Exception:
-        continue
-    if g.is_empty:
-        continue
-    geoms.append(g)
-    meta.append(i)
 tree = STRtree(geoms)
 countries = {p['country'] for p in parents}
 print(f'parent polygons: {len(geoms):,} across {sorted(countries)}', file=sys.stderr)

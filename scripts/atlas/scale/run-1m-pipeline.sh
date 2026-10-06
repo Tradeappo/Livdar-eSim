@@ -143,21 +143,68 @@ else
 fi
 
 if [ "$MODE" != "--from-manifest" ]; then
+# ---- the four ENTITY STORE builders are FATAL from 2026-10-06 ---------------------------------
+# They were the last stages that could fail silently, and one of them did. On 2026-10-06
+# outdoor-feature-candidates.py was OOM-killed, the runner printed "features: see the log",
+# carried on, and the manifest read _feature-candidates.jsonl.gz from 2026-10-02: four days
+# stale, predating the Turkey, Australia, Mexico, Swiss, Portuguese, Moroccan, Egyptian, Emirati,
+# Cambodian, Malaysian, Irish and Philippine captures. Every run that day had used
+# --from-manifest, which skips this stage, so nothing had rebuilt it and nothing had noticed.
+#
+# The distinction that matters: these four write ENTITY STORES the manifest reads, so a stale one
+# silently changes which pages exist. The report stages further down are downstream of the
+# manifest, and a failed report is visible as a missing report rather than as a wrong inventory.
 log "outdoor feature candidates: peaks, lakes, beaches and the rest, with their own attributes"
-python3 scripts/atlas/scale/outdoor-feature-candidates.py > /tmp/pipe_feat.log 2>&1 \
-  && tail -6 /tmp/pipe_feat.log || echo "  features: see /tmp/pipe_feat.log"
+touch /tmp/.pipe_feat_attempt_marker
+python3 scripts/atlas/scale/outdoor-feature-candidates.py > /tmp/pipe_feat.log 2>&1
+SC=$?
+tail -6 /tmp/pipe_feat.log
+if ! ./scripts/atlas/scale/verify-stage-output.sh "outdoor-feature-candidates" "$SC" \
+     data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz 20000 /tmp/.pipe_feat_attempt_marker; then
+  echo "  STOPPING. features is an entity store the manifest reads, so a stale one silently"
+  echo "  changes which pages exist. Nothing downstream is regenerated."
+  tail -20 /tmp/pipe_feat.log
+  exit 1
+fi
 
 log "outdoor region lists: one feature class inside one named geography, containment only"
-python3 scripts/atlas/scale/outdoor-aggregations.py > /tmp/pipe_outagg.log 2>&1 \
-  && tail -8 /tmp/pipe_outagg.log || echo "  outdoor lists: see /tmp/pipe_outagg.log"
+touch /tmp/.pipe_outagg_attempt_marker
+python3 scripts/atlas/scale/outdoor-aggregations.py > /tmp/pipe_outagg.log 2>&1
+SC=$?
+tail -6 /tmp/pipe_outagg.log
+if ! ./scripts/atlas/scale/verify-stage-output.sh "outdoor-aggregations" "$SC" \
+     data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz 2000 /tmp/.pipe_outagg_attempt_marker; then
+  echo "  STOPPING. outdoor lists is an entity store the manifest reads, so a stale one silently"
+  echo "  changes which pages exist. Nothing downstream is regenerated."
+  tail -20 /tmp/pipe_outagg.log
+  exit 1
+fi
 
 log "region families: what to see, the towns, and when to go"
-python3 scripts/atlas/scale/region-aggregations.py > /tmp/pipe_region.log 2>&1 \
-  && tail -10 /tmp/pipe_region.log || echo "  regions: see /tmp/pipe_region.log"
+touch /tmp/.pipe_region_attempt_marker
+python3 scripts/atlas/scale/region-aggregations.py > /tmp/pipe_region.log 2>&1
+SC=$?
+tail -6 /tmp/pipe_region.log
+if ! ./scripts/atlas/scale/verify-stage-output.sh "region-aggregations" "$SC" \
+     data/atlas/sources/osm-parents/_region-aggregations.jsonl.gz 500 /tmp/.pipe_region_attempt_marker; then
+  echo "  STOPPING. regions is an entity store the manifest reads, so a stale one silently"
+  echo "  changes which pages exist. Nothing downstream is regenerated."
+  tail -20 /tmp/pipe_region.log
+  exit 1
+fi
 
 log "trail candidates, measured from route member geometry"
-python3 scripts/atlas/scale/trail-candidates.py > /tmp/pipe_trail.log 2>&1 \
-  && tail -10 /tmp/pipe_trail.log || echo "  trails: see /tmp/pipe_trail.log"
+touch /tmp/.pipe_trail_attempt_marker
+python3 scripts/atlas/scale/trail-candidates.py > /tmp/pipe_trail.log 2>&1
+SC=$?
+tail -6 /tmp/pipe_trail.log
+if ! ./scripts/atlas/scale/verify-stage-output.sh "trail-candidates" "$SC" \
+     data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz 200 /tmp/.pipe_trail_attempt_marker; then
+  echo "  STOPPING. trails is an entity store the manifest reads, so a stale one silently"
+  echo "  changes which pages exist. Nothing downstream is regenerated."
+  tail -20 /tmp/pipe_trail.log
+  exit 1
+fi
 
 log "Wikidata candidates, deduped against the OSM corpus"
 python3 scripts/atlas/scale/wikidata-candidates.py > /tmp/pipe_wd.log 2>&1
