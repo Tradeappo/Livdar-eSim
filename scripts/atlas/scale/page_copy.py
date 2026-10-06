@@ -105,9 +105,14 @@ def compute_ambiguous_labels(all_rows):
 def family_label(r):
     """The family in words, carrying its topic where the second segment is shared."""
     fam = r['family']
-    lab = (fam.split('.', 1)[1] if '.' in fam else fam).replace('-', ' ')
+    # UNDERSCORES too, not only hyphens. A family id built from an OSM class keeps that class's
+    # underscore, so the description read "Grotenburg, Kreis Lippe, Detmold: archaeological_site"
+    # while the title beside it read "archaeological site": the title path normalised the class
+    # and this one did not. Fixed here because this is the function both paths share, which is
+    # the only place the fix cannot drift out of one of them.
+    lab = (fam.split('.', 1)[1] if '.' in fam else fam).replace('-', ' ').replace('_', ' ')
     if fam in AMBIGUOUS_FAM_LABEL:
-        lab = fam.split('.', 1)[0].replace('-', ' ') + ' ' + lab
+        lab = (fam.split('.', 1)[0].replace('-', ' ').replace('_', ' ') + ' ' + lab)
     return lab
 
 
@@ -235,6 +240,16 @@ def title_for(r):
         cls_h = (r.get('entity_type') in ('outdoor_feature', 'trail')
                  and (r['family'].split('.', 1)[-1]).replace('_', ' ').replace('-', ' ')
                  or '')
+        # OUTDOORS keeps the class and drops the tail. "what to know about this peak before you
+        # go" is 44 characters of template that every peak page carries identically, and the
+        # measurement on 2026-10-06 was that 56,197 of 57,306 outdoor titles ran past 65
+        # characters, almost entirely on this phrase plus the admin chain. The CLASS stays,
+        # because it is a fact about the subject and it is what keeps Grotenburg the peak apart
+        # from Grotenburg the ruined castle at the same spot; the promise about what the page
+        # will tell you goes, because a title is not the place to make it.
+        if surface == 'outdoors':
+            return (f"{name}{', ' + where if where else ''}"
+                    + (f': {cls_h}' if cls_h else ''))
         tail = f'what to know about this {cls_h} before you go' if cls_h \
             else 'what to know before you go'
         return f"{name}{', ' + where if where else ''}: {tail}"
@@ -252,13 +267,31 @@ def title_for(r):
     if fam == 'areas.overview':
         return f"{area}, {where}: what the area is like"
     if surface == 'places':
-        return f"{qualified}: {fam_label}, the full list from open data"
+        # The tail is GONE, and this is the single biggest copy defect in the inventory. It read
+        # "dentist in Alt-Wetter, Hagen, North Rhine-Westphalia, DE: area dentist, the full list
+        # from open data": the subject already says dentist, "area dentist" is the family id
+        # leaking into human-facing copy, and "the full list from open data" is a promise about
+        # provenance that belongs in the page, not the title. 177,429 of 188,956 places titles
+        # ran past 65 characters and 109,702 of them repeated their own subject.
+        #
+        # Dropping it cannot collide two pages, which was the one real risk and was measured
+        # rather than assumed: the class is the first word of the subject, so two places families
+        # about one area differ in the subject itself, and a full simulation over all 342,463 rows
+        # with SHARED_SUBJECT and AMBIGUOUS_FAM_LABEL populated exactly as the QA populates them
+        # found 0 exact duplicates before and 0 after, and 0 collisions that were new.
+        return qualified
     if surface == 'pulse':
         return f"{qualified}: {fam_label}, dates and what is open"
     if surface == 'tools':
         return f"{name}: work it out with your own numbers"
     if surface == 'climate':
         return f"{qualified}: {fam_label}, what it is actually like"
+    if surface == 'outdoors':
+        # The region-feature families land here, and their subject ALREADY names the class:
+        # "camp sites in Naturpark Flusslandschaft Peenetal, DE: camp_site in region" says it
+        # twice and the second time in raw OSM form, underscore and all. Same cure as the places
+        # surface, and the class stays in the subject so nothing is made ambiguous.
+        return qualified
     if surface == 'areas':
         return f"{qualified}: {fam_label}"
     if surface == 'move':
@@ -290,14 +323,51 @@ def meta_for(r):
     if fact.startswith(r['family']):
         fact = ''
     if r['page_type'] == 'ENTITY':
+        # The SOURCE is named and the LICENCE is not. data_source holds the full licence string,
+        # "OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)", which is 69
+        # characters of field content in a sentence a reader meets in a search result, and it
+        # pushed 48,347 outdoor and 2,289 POI descriptions past 165 characters on its own. The
+        # ODbL obligation is attribution ON THE PAGE, which this does not touch, and the licence
+        # stays on the row in data_source and licence_status where a reader of the manifest and
+        # the page footer both find it. Same rule as the counted fact above: a provenance
+        # parenthetical does not belong in a snippet.
+        src = undash((r.get('data_source') or 'open data').split(' (')[0].strip())
         return (f'{subj}: location, hours where published, and how to get there, '
-                f'from {undash(r.get("data_source") or "open data")}.')
+                f'from {src}.')
     if fact:
-        return f'{subj}. {fact[:150]}.'
+        # The provenance parenthetical goes, and what is left is fitted to a budget computed
+        # from the subject rather than truncated at a fixed 150. The old form read "dentist in
+        # Alt-Wetter, Hagen, North Rhine-Westphalia. 7 named dentist entities inside Alt-Wetter,
+        # a suburb of Hagen, North Rhine-Westphalia (OSM polygon), against 55 in the whole
+        # city": the admin chain twice, the class three times, and the provenance in a sentence
+        # a reader sees in a search result. The COUNT survives whole, because the count is the
+        # part that differs per page and is the reason the page exists; the cut lands on a word
+        # boundary so it never ends mid word.
+        fact = fact.split(' (')[0].strip().rstrip(',')
+        # The stored uniqueness reason carries the RAW OSM class, so the description read
+        # "6 named arts_centre entities inside Leith" while the title above it correctly said
+        # "arts centre in Leith". No OSM class should reach a reader with an underscore in it.
+        # Fixed at render because the reason is a stored field and the aggregation that writes
+        # it is mid-rebuild; poi-aggregations should stop writing the raw class too, and that is
+        # recorded as a follow-up rather than done in the same breath as a running build.
+        fact = fact.replace('_', ' ')
+        budget = 163 - len(subj) - 2
+        if len(fact) > budget:
+            cut = fact[:max(0, budget)]
+            if ' ' in cut:
+                cut = cut.rsplit(' ', 1)[0]
+            fact = cut.rstrip(' ,')
+        return f'{subj}. {fact}.' if fact else f'{subj}.'
     bits = [b for b in (undash(r.get('primary_intent') or ''),
                         undash(r.get('data_completeness') or '')) if b]
-    return f'{subj}. {family_label(r)} for {place_phrase(r)}' + (
-        f', {bits[0]}.' if bits else '.')
+    # The family label and the place are ALREADY in the subject, and repeating them produced
+    # the worst copy in the inventory: "Abu Dhabi, AE: city things to do. city things to do for
+    # Abu Dhabi, AE, What there is to do in this city." says the family id twice and the place
+    # twice in 103 characters. What a reader has not been told yet is the INTENT, which the row
+    # already carries in its own words, so that is all this says now.
+    if bits:
+        return f'{subj}. {bits[0]}' + ('' if bits[0].endswith('.') else '.')
+    return f'{subj}. {family_label(r)} for {place_phrase(r)}.'
 
 
 def h1_for(r):
