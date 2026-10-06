@@ -143,6 +143,11 @@ else
 fi
 
 if [ "$MODE" != "--from-manifest" ]; then
+# Each minimum row count below is about a THIRD of what that store actually holds, measured on
+# 2026-10-06: features 37,437, outdoor lists 1,227, regions 1,778, trails 18,952. The check is
+# there to catch a stage that wrote nothing or wrote a stub, NOT to assert a count. A threshold
+# above the real output turns a working stage into a hard stop, which the first version of this
+# patch did by demanding 2,000 rows of outdoor lists from a file that legitimately holds 1,227.
 # ---- the four ENTITY STORE builders are FATAL from 2026-10-06 ---------------------------------
 # They were the last stages that could fail silently, and one of them did. On 2026-10-06
 # outdoor-feature-candidates.py was OOM-killed, the runner printed "features: see the log",
@@ -160,7 +165,7 @@ python3 scripts/atlas/scale/outdoor-feature-candidates.py > /tmp/pipe_feat.log 2
 SC=$?
 tail -6 /tmp/pipe_feat.log
 if ! ./scripts/atlas/scale/verify-stage-output.sh "outdoor-feature-candidates" "$SC" \
-     data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz 20000 /tmp/.pipe_feat_attempt_marker; then
+     data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz 10000 /tmp/.pipe_feat_attempt_marker; then
   echo "  STOPPING. features is an entity store the manifest reads, so a stale one silently"
   echo "  changes which pages exist. Nothing downstream is regenerated."
   tail -20 /tmp/pipe_feat.log
@@ -173,7 +178,7 @@ python3 scripts/atlas/scale/outdoor-aggregations.py > /tmp/pipe_outagg.log 2>&1
 SC=$?
 tail -6 /tmp/pipe_outagg.log
 if ! ./scripts/atlas/scale/verify-stage-output.sh "outdoor-aggregations" "$SC" \
-     data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz 2000 /tmp/.pipe_outagg_attempt_marker; then
+     data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz 400 /tmp/.pipe_outagg_attempt_marker; then
   echo "  STOPPING. outdoor lists is an entity store the manifest reads, so a stale one silently"
   echo "  changes which pages exist. Nothing downstream is regenerated."
   tail -20 /tmp/pipe_outagg.log
@@ -199,7 +204,7 @@ python3 scripts/atlas/scale/trail-candidates.py > /tmp/pipe_trail.log 2>&1
 SC=$?
 tail -6 /tmp/pipe_trail.log
 if ! ./scripts/atlas/scale/verify-stage-output.sh "trail-candidates" "$SC" \
-     data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz 200 /tmp/.pipe_trail_attempt_marker; then
+     data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz 5000 /tmp/.pipe_trail_attempt_marker; then
   echo "  STOPPING. trails is an entity store the manifest reads, so a stale one silently"
   echo "  changes which pages exist. Nothing downstream is regenerated."
   tail -20 /tmp/pipe_trail.log
