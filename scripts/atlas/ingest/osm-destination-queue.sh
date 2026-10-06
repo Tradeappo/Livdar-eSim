@@ -27,7 +27,42 @@
 # worth, so a second source can be found for them rather than the gap being discovered later.
 set -u
 cd /home/user/Livdar-eSim || exit 1
+# ---- the ORDER is the measured expected yield, not the alphabet ------------------------------
+# country-materialisation-plan-2026-10-06.json counts, for every country whose destination
+# demand qualifies, the pages it has today against the pages the already-captured countries
+# produce per gazetteer city. The uncaptured countries are queued largest expected NET NEW
+# first, so a slow mirror on a small country can never sit in front of a large one:
+#
+#   IN 70,165   UA 9,211   RO 8,800   CA 6,837   AR 6,105   ZA 6,100
+#   CZ 3,548    TZ 3,373   FI 2,627   CL 2,458
+#
+# RO and TZ were never in this queue at all and are not mirror-blocked, which the plan found
+# by comparing the demand table against the files on disk rather than against memory.
+#
+# The already-captured countries stay in the list and are skipped in seconds by the per-country
+# runner, so leaving them in costs nothing and removing them would lose the record of which
+# layers each one was asked for.
+#
+# India is first because it is the single largest capture opportunity measured anywhere in this
+# project: 6,470 gazetteer cities, no OSM layer of any kind on disk, and 5,649 pages today
+# against an expected 75,814.
 QUEUE="
+asia/india:IN
+europe/ukraine:UA
+europe/romania:RO
+north-america/canada:CA
+south-america/argentina:AR
+africa/south_africa:ZA
+europe/czech_republic:CZ
+africa/tanzania:TZ
+europe/finland:FI
+south-america/chile:CL
+europe/norway:NO
+africa/kenya:KE
+europe/slovakia:SK
+central-america/costa_rica:CR
+central-america/dominican_republic:DO
+asia/china:CN
 europe/netherlands:NL
 europe/france:FR
 europe/united_kingdom:GB
@@ -35,10 +70,6 @@ europe/spain:ES
 asia/japan:JP
 europe/poland:PL
 south-america/brazil:BR
-north-america/us-west:US-us-west:US
-north-america/us-midwest:US-us-midwest:US
-north-america/us-northeast:US-us-northeast:US
-north-america/us-south:US-us-south:US
 europe/turkey:TR
 europe/austria:AT
 europe/switzerland:CH
@@ -51,27 +82,17 @@ asia/malaysia:MY
 europe/ireland:IE
 asia/philippines:PH
 north-america/mexico:MX
-europe/czech_republic:CZ
 africa/tunisia:TN
 asia/singapore:SG
 europe/denmark:DK
 europe/belgium:BE
 europe/sweden:SE
 asia/indonesia:ID
-asia/india:IN
-europe/norway:NO
 oceania/australia:AU
-africa/south_africa:ZA
-asia/china:CN
-south-america/argentina:AR
-south-america/chile:CL
-africa/kenya:KE
-central-america/costa_rica:CR
-central-america/dominican_republic:DO
-europe/finland:FI
-europe/ukraine:UA
-europe/slovakia:SK
-north-america/canada:CA
+north-america/us-midwest:US-us-midwest
+north-america/us-northeast:US-us-northeast
+north-america/us-south:US-us-south
+north-america/us-west:US-us-west
 "
 for entry in $QUEUE; do
   REGION="${entry%%:*}"; rest="${entry#*:}"
