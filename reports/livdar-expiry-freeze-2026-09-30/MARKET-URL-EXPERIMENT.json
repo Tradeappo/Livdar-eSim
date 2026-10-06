@@ -28,27 +28,27 @@
    "reconciles": true
   },
   "es-MX": {
-   "raw_candidates": 31,
-   "justified_separate_pages": 0,
-   "duplicate_rejected": 0,
-   "insufficient_market_value_rejected": 0,
-   "generic_only": 31,
-   "no_generic_owner_survived_excluded_from_yield": 31,
-   "of_those_owner_never_generated_a_row": 0,
-   "of_those_owner_rejected_by_a_later_gate": 31,
-   "real_coexistence_decisions": 0,
-   "justified_pending_a_source_not_counted_as_yield": 0,
-   "entities_in_the_foreign_destination_measurement": 0,
-   "net_new_valid_pages": 0,
-   "yield_rate": 0.0,
+   "raw_candidates": 26391,
+   "justified_separate_pages": 2,
+   "duplicate_rejected": 5915,
+   "insufficient_market_value_rejected": 240,
+   "generic_only": 20218,
+   "no_generic_owner_survived_excluded_from_yield": 20218,
+   "of_those_owner_never_generated_a_row": 7816,
+   "of_those_owner_rejected_by_a_later_gate": 12402,
+   "real_coexistence_decisions": 6173,
+   "justified_pending_a_source_not_counted_as_yield": 16,
+   "entities_in_the_foreign_destination_measurement": 50,
+   "net_new_valid_pages": 2,
+   "yield_rate": 0.0001,
    "compared_with": [
     "es-ES"
    ],
    "reconciles": true
   }
  },
- "net_new_valid_pages_total": 0,
- "raw_candidates_total": 17013,
+ "net_new_valid_pages_total": 2,
+ "raw_candidates_total": 43373,
  "by_overlap": {
   "en-AU vs en-GB": {
    "KEEP_GENERIC_ONLY": 12316,
@@ -65,8 +65,12 @@
    "INSUFFICIENT_MARKET_VALUE": 248
   },
   "es-MX vs es-ES": {
-   "KEEP_GENERIC_ONLY": 31,
-   "pairs": 31
+   "KEEP_GENERIC_ONLY": 20218,
+   "pairs": 26391,
+   "MARKET_PAGE_DUPLICATE": 5915,
+   "INSUFFICIENT_MARKET_VALUE": 240,
+   "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 16,
+   "MARKET_PAGE_JUSTIFIED": 2
   }
  },
  "why_the_generic_owner_was_missing": {
@@ -76,7 +80,9 @@
    "REJECTED_SERP": 1712
   },
   "es-MX": {
-   "REJECTED_QUALITY": 31
+   "REJECTED_QUALITY": 9286,
+   "REJECTED_LOCALIZATION": 31,
+   "REJECTED_SERP": 3085
   }
  },
  "entity_level_demand_hits": {
@@ -90,7 +96,8 @@
   }
  },
  "information_gain_kinds_earned": {
-  "en-AU:ENTITY_SPECIFIC_MEASURED_DEMAND": 48
+  "en-AU:ENTITY_SPECIFIC_MEASURED_DEMAND": 48,
+  "es-MX:ENTITY_SPECIFIC_MEASURED_DEMAND": 50
  },
  "information_gain_kinds_with_no_source_yet": {
   "MARKET_SPECIFIC_REGULATION": "needs a per-(reader country, subject country) rules table: visa class, length of stay, work rights, tax residency threshold. Nothing in this inventory is keyed on the READER country, so relocation.country, taxes.country-remote-work, health.country and banking.country cannot currently differentiate an Australian reader from an American one even though the real-world answers differ",
@@ -150,9 +157,26 @@
    "tools.cost-calculator:KEEP_GENERIC_ONLY": 1
   },
   "es-MX": {
+   "stay.city-type:KEEP_GENERIC_ONLY": 7816,
+   "climate.city-day:KEEP_GENERIC_ONLY": 3085,
+   "climate.city-annual:KEEP_GENERIC_ONLY": 3085,
+   "destinations.city-hub:KEEP_GENERIC_ONLY": 3085,
+   "weather.city-best-time:KEEP_GENERIC_ONLY": 3085,
+   "weather.city-month:MARKET_PAGE_DUPLICATE": 2957,
+   "stay.city-type:MARKET_PAGE_DUPLICATE": 2932,
+   "weather.city-month:INSUFFICIENT_MARKET_VALUE": 121,
+   "stay.city-type:INSUFFICIENT_MARKET_VALUE": 118,
+   "transport.route-from-market:KEEP_GENERIC_ONLY": 31,
+   "activities.city-things-to-do:MARKET_PAGE_DUPLICATE": 26,
    "calendar.month:KEEP_GENERIC_ONLY": 24,
+   "stay.city-type:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6,
+   "weather.city-month:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6,
+   "activities.city-things-to-do:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 4,
    "calendar.year:KEEP_GENERIC_ONLY": 2,
    "calendar.week-numbers:KEEP_GENERIC_ONLY": 2,
+   "stay.city-type:MARKET_PAGE_JUSTIFIED": 1,
+   "weather.city-month:MARKET_PAGE_JUSTIFIED": 1,
+   "activities.city-things-to-do:INSUFFICIENT_MARKET_VALUE": 1,
    "tools.calculator:KEEP_GENERIC_ONLY": 1,
    "tools.matcher:KEEP_GENERIC_ONLY": 1,
    "tools.cost-comparison:KEEP_GENERIC_ONLY": 1

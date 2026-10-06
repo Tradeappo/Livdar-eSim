@@ -2,28 +2,29 @@
  "generated": "2026-10-06",
  "status": "DESIGN ONLY, NOT DEPLOYED. No route, sitemap, redirect or template changed.",
  "url_space_today": "LANGUAGE-scoped: /{language}/{surface}/{family}/{entity}/",
- "market_pages_justified_by_the_experiment": 0,
- "pages_in_the_plan": 422825,
+ "market_pages_justified_by_the_experiment": 2,
+ "pages_in_the_plan": 401395,
  "languages_present": {
-  "en": 142334,
-  "de": 58544,
-  "fr": 49422,
-  "ja": 40637,
-  "es": 33005,
-  "it": 28276,
-  "pl": 21197,
-  "pt": 18493,
-  "nl": 15433,
-  "tr": 14684,
+  "en": 107334,
+  "fr": 55318,
+  "de": 47702,
+  "es": 43684,
+  "ja": 39542,
+  "it": 24377,
+  "nl": 24115,
+  "pl": 23705,
+  "pt": 21513,
+  "tr": 13303,
   "zh-Hant": 800
  },
  "counts": {
-  "pages_LANGUAGE_PAGE": 18598,
-  "annotations": 30148,
-  "pages_with_no_alternates": 404227
+  "pages_LANGUAGE_PAGE": 56740,
+  "annotations": 229154,
+  "pages_with_no_alternates": 344653,
+  "pages_MARKET_PAGE": 2
  },
  "reciprocity": {
-  "annotations_checked": 30148,
+  "annotations_checked": 229154,
   "pointing_at_a_url_not_in_the_plan": 0,
   "not_reciprocated_by_the_target": 0,
   "examples_broken": [],
@@ -49,7 +50,9 @@
    "en-AU",
    "es-MX"
   ],
-  "market_tags_emitted": [],
+  "market_tags_emitted": [
+   "es-MX"
+  ],
   "why_not_en_US_and_en_GB": "no /en-us/ or /en-gb/ URL exists. The brief lists en, en-GB, en-US, en-AU, es, es-ES and es-MX, which describes a fully market-scoped space; this space is language-scoped, and the brief own rule - no hreflang alternative for a page that does not exist - rules those four out. Emitting hreflang=\"en-US\" on /en/ would also stop /en/ serving British and Australian readers, which it does today.",
   "why_en_and_en_AU_do_not_conflict": "en is the unqualified English page and en-AU the regional refinement. An Australian reader matches en-AU; every other English reader falls back to en. This is the one pair in this design where a language tag and a market tag coexist, and it works precisely because the generic page keeps the bare tag."
  },
