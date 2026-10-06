@@ -1,0 +1,62 @@
+{
+ "measured_on": "2026-10-06",
+ "provider": "Ahrefs Keywords Explorer, one call per market country",
+ "units_spent": 1386,
+ "the_question": "NASA POWER monthly normals are materialised for 64,418 cities and exactly ONE family uses them, weather.city-month, which holds 8,306 rows. The 2026-10-01 register projected 20,000 to 40,000 pages from climate. Is that real, and what shape is it?",
+ "the_answer_is_yes_but_the_shape_is_the_opposite_of_the_projection": "the best-time-to-visit intent is enormous and it is a POWER LAW AT COUNTRY LEVEL, not at city level. best time to visit japan reads 55,000 a month at keyword difficulty ZERO, which is the second largest single keyword measured anywhere in this project after machu picchu at 230,000. best time to visit italy reads 7,600. Then the city tail collapses: Dubrovnik 250, Krakow 200, Porto 200. The same shape repeats in every language tested.",
+ "so_the_projection_is_corrected_downward": "20,000 to 40,000 was projected from the 64,418 cities that carry data. The measurement says the family is worth roughly 100 country pages per market where it is measured, plus a head of cities, which is a few thousand pages and not tens of thousands. Recorded here as a correction rather than left standing, because the city count was never the constraint: the demand was.",
+ "and_the_superlative_is_earned_here_rather_than_claimed": "best time to visit is a superlative, and the superlative gate rejects a family that claims one with no documented methodology. This family can document one: the months whose mean temperature falls in a stated band and whose precipitation sits below the city's own annual median, computed from NASA POWER monthly normals over 2001 to 2020, with the band and the period printed on the page. That is a method a reader can check and disagree with, which is the difference between a ranking and an opinion. SUPERLATIVE_WITH_A_METHODOLOGY exists in the manifest and is empty; this is the first family that can legitimately go in it.",
+ "bar": 100,
+ "by_market": {
+  "en-US": {
+   "template_that_works": "best time to visit <place>",
+   "country_level": {"japan": {"volume": 55000, "kd": 0}, "italy": {"volume": 7600, "kd": 2}},
+   "city_level": {"paris": {"volume": 3900, "kd": 4}, "tokyo": {"volume": 3900, "kd": 0},
+                  "rome": {"volume": 2000, "kd": 2}, "barcelona": {"volume": 1500, "kd": 0},
+                  "prague": {"volume": 1200, "kd": 0}, "lisbon": {"volume": 1100, "kd": 4},
+                  "vienna": {"volume": 800, "kd": 0}, "dubrovnik": {"volume": 250, "kd": 1},
+                  "krakow": {"volume": 200, "kd": 1}, "porto": {"volume": 200, "kd": 4}},
+   "the_existing_month_family_also_measures": {"tokyo weather by month": 2100,
+                                               "rome weather by month": 1400},
+   "what_reads_zero": "barcelona sunshine hours and lisbon rainfall both read ZERO. The derived-metric families the register listed - rainfall, sunshine - have no measured demand in this phrasing and are NOT built.",
+   "verdict": "ADMIT at country and city level. Every keyword tested is difficulty 4 or below and ten of sixteen are 0 or 1, which is the most open family measured in this project."
+  },
+  "de-DE": {
+   "template_that_works": "beste reisezeit <place>",
+   "country_level": {"japan": {"volume": 6000, "kd": 1}, "italien": {"volume": 250, "kd": 0}},
+   "city_level": {"kreta": {"volume": 600, "kd": 8}, "mallorca": {"volume": 600, "kd": 0},
+                  "rom": {"volume": 500, "kd": 0}, "barcelona": {"volume": 300, "kd": 0},
+                  "lissabon": {"volume": 250, "kd": 0}, "porto": {"volume": 150, "kd": 0},
+                  "prag": {"volume": 100, "kd": 0}, "wien": {"volume": 100, "kd": 1}},
+   "what_reads_near_zero": "rom wetter monate 10, prag klimatabelle 20, krakau 30, dubrovnik 50. The German month-table phrasing is dead where the reisezeit phrasing is alive, which is the same lesson Norwegian taught this morning: measure the phrasing, never translate it.",
+   "verdict": "ADMIT. Note that two ISLANDS, Crete and Mallorca, outrank every mainland city, which says the entity set for this family in German is not the city gazetteer."
+  },
+  "fr-FR": {
+   "template_that_works": "quand partir <country>, and NOT quand partir <city>",
+   "country_level": {"thailande": {"volume": 1000, "kd": 0}, "japon": {"volume": 700, "kd": 0},
+                     "maroc": {"volume": 450, "kd": 0}, "italie": {"volume": 70, "kd": 0}},
+   "city_level": {"lisbonne": {"volume": 80, "kd": 0}, "barcelone": {"volume": 100, "kd": 0},
+                  "rome": {"volume": 100, "kd": 0}, "porto": {"volume": 70, "kd": 34},
+                  "prague": {"volume": 40, "kd": 0}, "vienne": {"volume": 30, "kd": 63},
+                  "dubrovnik": {"volume": 20, "kd": 0}, "cracovie": {"volume": 10}},
+   "a_different_phrasing_carries_the_city": {"climat lisbonne": 250, "climat rome": 200},
+   "verdict": "ADMIT AT COUNTRY LEVEL ONLY. The French city form sits at 10 to 100 and is below the bar; the climat <city> form reads 200 to 250 and is a DIFFERENT family, a climate table rather than a recommendation, which also means it carries no superlative to justify."
+  },
+  "it-IT": {
+   "template_that_works": "quando andare in <country>",
+   "country_level": {"thailandia": {"volume": 2400, "kd": 0}, "giappone": {"volume": 1300, "kd": 0},
+                     "marocco": {"volume": 600, "kd": 0}},
+   "city_level": {"parigi": {"volume": 200, "kd": 0}, "londra": {"volume": 200, "kd": 0},
+                  "lisbona": {"volume": 200, "kd": 0}, "praga": {"volume": 150, "kd": 0},
+                  "vienna": {"volume": 150, "kd": 0}, "barcellona": {"volume": 100, "kd": 0},
+                  "cracovia": {"volume": 90, "kd": 0}, "porto": {"volume": 40, "kd": 20},
+                  "dubrovnik": {"volume": 0}},
+   "verdict": "ADMIT at country level and for the city head. Italian is the most uniformly ZERO-difficulty market in the set."
+  }
+ },
+ "what_this_licenses_and_what_it_does_not": "it licenses a best-time family at country level in en-US, de-DE, fr-FR and it-IT, and at city level in en-US, de-DE and it-IT down to the measured floor. It does NOT license rainfall or sunshine pages, which read zero. It does not license the French city form. And it does not license a page anywhere without the methodology printed on it, because without the method the title is an unsupported superlative and this project rejects those by name.",
+ "licence_and_provenance": {
+  "keyword_metrics": "Ahrefs Keywords Explorer via the API on 2026-10-06, country codes us, de, fr, it. Volumes are Ahrefs monthly estimates; CPC in USD cents.",
+  "the_underlying_climate_data": "NASA POWER monthly climatology 2001-2020, public domain with attribution requested, already materialised at data/atlas/sources/climate/power for 64,418 cities with T2M, T2M_MAX, T2M_MIN, PRECTOTCORR, RH2M, WS2M and ALLSKY_SFC_SW_DWN per month."
+ }
+}
