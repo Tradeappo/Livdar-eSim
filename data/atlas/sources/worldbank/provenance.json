@@ -1,0 +1,23 @@
+{
+ "fetched_on": "2026-10-06",
+ "provider": "World Bank Open Data, api.worldbank.org/v2, no API key required",
+ "licence": "CC BY 4.0 (World Bank Open Data terms of use, https://datacatalog.worldbank.org/public-licenses)",
+ "attribution_required": true,
+ "query_shape": "https://api.worldbank.org/v2/country/all/indicator/<ID>?format=json&per_page=20000&mrnev=1 - mrnev=1 returns the most recent non-empty value per country, so each row carries its own observation year and no year is interpolated",
+ "indicators": {
+  "NY.GDP.PCAP.PP.CD": "GDP per capita, PPP (current international $) - purchasing power, 250 rows, most recent 2025",
+  "ST.INT.XPND.CD": "International tourism, expenditures (current US$) - OUTBOUND travel spend by residents, 238 rows, many most-recent 2019",
+  "ST.INT.RCPT.CD": "International tourism, receipts (current US$) - INBOUND visitor spend, 239 rows",
+  "IT.NET.USER.ZS": "Individuals using the Internet (% of population) - online-purchase reachability proxy, 245 rows",
+  "SP.POP.TOTL": "Population, total - denominator for the per-capita derivations, 264 rows"
+ },
+ "country_list": "https://api.worldbank.org/v2/country?format=json&per_page=400 - 296 rows of which 217 carry a real region; the 79 with region.id NA are aggregates and are excluded by code, not by hand",
+ "known_coverage_gap": "Taiwan (TW) is not a World Bank reporter and has no row in any of these five indicators. It is flagged in the matrix rather than filled with a neighbour's number.",
+ "what_these_are_NOT_used_for": "none of these five is used as a demand signal or as a page-count signal. Demand is measured with Ahrefs and scale is counted from this project's own stores. The 2026-10-02 measurement established that population and density are weak proxies for search demand, and population is used here only as a per-capita denominator.",
+ "pinned_year_files": {
+  "wb-ST.INT.XPND.CD-2019.json": "188 countries with a 2019 value",
+  "wb-ST.INT.RCPT.CD-2019.json": "175 countries with a 2019 value",
+  "why": "mrnev=1 returns 2020 for some countries and 2019 for others on the two tourism indicators, and 2020 is a pandemic year. Comparing Japan 2020 outbound spend with Germany 2019 is not a comparison: it cost Japan about thirty points on the travel spend component before the year was pinned. The matrix reads the 2019 file first and falls back to the most recent non empty reading only where 2019 is missing.",
+  "query_shape": "https://api.worldbank.org/v2/country/all/indicator/<ID>?format=json&per_page=20000&date=2019"
+ }
+}

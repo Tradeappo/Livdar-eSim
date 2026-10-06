@@ -816,6 +816,25 @@
    "probed_on": "2026-10-06",
    "refresh": "quarterly",
    "maxAgeDays": 180
+  },
+  {
+   "id": "worldbank-commercial-indicators",
+   "name": "World Bank Open Data: five indicators behind COMMERCIAL_SCORE",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/{NY.GDP.PCAP.PP.CD,ST.INT.XPND.CD,ST.INT.RCPT.CD,IT.NET.USER.ZS,SP.POP.TOTL}?format=json&per_page=20000",
+   "licence": "CC BY 4.0",
+   "attribution": "World Bank Open Data, CC BY 4.0",
+   "fields": [
+    "countryiso3code",
+    "country.id",
+    "date",
+    "value"
+   ],
+   "refresh": "annual",
+   "maxAgeDays": 400,
+   "what_it_is_used_for": "the commercial axis of COUNTRY-PRIORITY-MATRIX.csv: purchasing power, outbound travel spend per capita, inbound tourism receipts and internet penetration. Population is used only as the per capita denominator.",
+   "what_it_is_NOT_used_for": "demand and page count. The 2026-10-02 measurement established that population and density are weak proxies for search demand, so no scale or demand component reads a World Bank number.",
+   "known_coverage_gap": "Taiwan is not a World Bank reporter and is flagged in the matrix rather than filled in",
+   "stored_at": "data/atlas/sources/worldbank/ with provenance.json"
   }
  ]
 }
