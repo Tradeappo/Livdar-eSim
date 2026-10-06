@@ -400,6 +400,10 @@ DEST_FILES = [
     'destination-demand-by-country-language-2026-10-02.json',
     'destination-demand-by-country-language-tr-2026-10-05.json',
     'destination-demand-by-country-language-ko-2026-10-05.json',
+    # 2026-10-06: the six active markets that had never been asked. fr, es, nl, pl, pt and
+    # zh-Hant, 100 destination countries each, 384 qualifying pairs against the 96 the three
+    # files above hold between them.
+    'destination-demand-by-country-language-six-languages-2026-10-06.json',
 ]
 _DEST_ROWS = None
 
