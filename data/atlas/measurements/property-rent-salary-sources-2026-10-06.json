@@ -1,0 +1,84 @@
+{
+ "measured_on": "2026-10-06",
+ "the_instruction": "actively look for licensed or open city-level rent, housing price, wage and salary data, because it could unlock a large part of the missing million",
+ "method": "every source below was PROBED, not recalled. The HTTP status, the row count and the geography granularity in this file come from a request made today, and a source that did not answer is recorded as not answering rather than as unavailable.",
+ "sources_probed": {
+  "france_dvf_demandes_de_valeurs_foncieres": {
+   "endpoint": "https://files.data.gouv.fr/geo-dvf/latest/csv/{year}/communes/{dept}/{insee}.csv and /departements/{dept}.csv.gz",
+   "probe_result": "HTTP 200 and 206. The department 75 file opens and parses. One commune CSV per INSEE code is published for every commune, and a full.csv.gz exists per year.",
+   "granularity": "TRANSACTION level. Every recorded sale with valeur_fonciere, surface_reelle_bati, type_local (Appartement or Maison), nom_commune, code_commune, code_postal and a lat and lon.",
+   "coverage": "every French commune, about 34,900, for 2021 to 2024",
+   "licence": "Licence Ouverte / Open Licence 2.0 (Etalab), attribution required, commercial use permitted, share-alike NOT required",
+   "what_it_yields": "a median price per square metre per commune for apartments and for houses, with the transaction COUNT behind each median. That is a checkable number computed from recorded sales, not an estimate.",
+   "status": "SOURCE CONFIRMED AND MATERIALISABLE"
+  },
+  "uk_ons_house_price_statistics": {
+   "endpoint": "https://api.beta.ons.gov.uk/v1/datasets/house-prices-local-authority",
+   "probe_result": "HTTP 200. Dimensions are geography, propertytype, buildstatus, housesalesandprices, month and year.",
+   "granularity": "331 geographies, which are LOCAL AUTHORITIES. The title says small areas and the API edition does not serve them: the MSOA-level tables are published as spreadsheets outside this API.",
+   "licence": "Open Government Licence v3.0, attribution required",
+   "status": "USABLE AS ENRICHMENT ONLY. 331 authorities is not a city layer, and perhaps two hundred of them share a name with a gazetteer town."
+  },
+  "uk_ons_ashe_earnings": {
+   "endpoint": "https://api.beta.ons.gov.uk/v1/datasets/ashe-tables-7-and-8",
+   "probe_result": "HTTP 200, edition 2022 version 2",
+   "granularity": "earnings and hours worked by local authority, place of work and place of residence",
+   "licence": "Open Government Licence v3.0",
+   "status": "USABLE AS ENRICHMENT for UK city pages. Same granularity ceiling as above."
+  },
+  "eurostat_house_price_index": {
+   "endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_a",
+   "probe_result": "HTTP 200, 38 geo entries",
+   "granularity": "COUNTRY, and an INDEX rather than a price level",
+   "status": "NOT USABLE for a city page. An index with no level cannot answer what a flat costs, and a country is not a city."
+  },
+  "us_census_acs": {
+   "endpoint": "https://api.census.gov/data/2023/acs/acs5 with B25064_001E median gross rent and B19013_001E median household income, for=place",
+   "probe_result": "HTTP 302 to a Missing Key page. The variable metadata endpoint answers without a key; the data endpoint does not.",
+   "granularity": "would be PLACE level, about 30,000 US places, which is the most valuable single layer in this list",
+   "status": "BLOCKED ON A CREDENTIAL. The key is free and requires registering an email address, which is not mine to do. Recorded as the highest-value unblocked-by-money item in this file: one free key turns on median rent and median household income for roughly thirty thousand US places under a public-domain licence."
+  },
+  "france_dvf_community_mirror": {
+   "endpoint": "https://api.cquest.org/dvf",
+   "probe_result": "HTTP 502",
+   "status": "DOWN today. Not needed, because the official files.data.gouv.fr path answered."
+  }
+ },
+ "the_demand_measurement_for_the_one_source_that_is_fully_open": {
+  "market": "fr-FR",
+  "template": "prix immobilier <commune> and prix m2 <commune>",
+  "and_the_tail_HOLDS_which_no_other_family_measured_today_did": "paris 6,800 and prix m2 paris 5,400, lyon 1,100 and prix m2 lyon 1,200, bordeaux 800, prix m2 angers 600, rennes 500, prix m2 vannes 400, angers 350, vannes 200, prix m2 chartres 200, poitiers 150, colmar 150, chartres 100, laval 100, albi 100, and prix m2 auch 100 for a town of twenty-one thousand people. CPC runs 15 to 60 cents throughout, so the intent is commercial all the way down.",
+  "the_contrast_worth_stating": "every other family measured today collapsed in the tail. This one does not, and DVF covers all 34,900 communes, so on demand and data alone this is the strongest scale path found in this pass."
+ },
+ "and_then_the_SERP_reading_refuses_it": {
+  "why_a_SERP_was_read_at_all": "prix m2 vannes returned keyword difficulty 67, which is the highest difficulty on any family this project has measured. Difficulty alone is not evidence, so two SERPs were sampled: one mid-size city and one small one.",
+  "prix_immobilier_angers": [
+   "1  meilleursagents.com/prix-immobilier/angers-49000/      DR 78",
+   "2  seloger.com/prix-de-l-immo/.../angers/490007.htm        DR 79",
+   "5  pap.fr                                                  DR 74",
+   "6  thierry-immobilier.fr/fr/immobilier/angers-49000        DR 35, ONE backlink, 63 traffic",
+   "7  ouestfrance-immo.com/evolution-prix-immobilier/angers   DR 61",
+   "8  immobilier.lefigaro.fr/prix-immobilier/angers/ville     DR 91"
+  ],
+  "prix_m2_auch": [
+   "1  seloger.com      DR 79",
+   "3  meilleursagents  DR 78",
+   "5  efficity.com     DR 64",
+   "6  pap.fr           DR 74",
+   "7  mysweetimmo.com  DR 70",
+   "8  lefigaro.fr      DR 91"
+  ],
+  "classification": "PLATFORM_DOMINATED",
+  "the_reading": "five French property portals run this exact programmatic shape, one URL per commune, and they hold every position in both SERPs. The one encouraging signal is a DR 35 page with a single backlink at position 6 in Angers, which says the SERP is contested rather than sealed. But a page that offers the same number the portals already offer, against DR 74 to 91, is not a page that gets found."
+ },
+ "the_decision": {
+  "source": "CONFIRMED. DVF is materialised into the register as an available open source with its licence recorded.",
+  "family_as_its_own_page_type": "NOT ADMITTED. The brief's own rule is not to generate pages into a SERP held by major platforms without utility differentiation, and a median price per square metre is exactly what those platforms already publish.",
+  "what_is_recommended_instead": [
+   "ENRICHMENT: a median price per square metre, with its transaction count and its year, on the fr-FR city pages that already exist. A real sourced fact added to a page that already earns its place, which is information gain with no new URL and no new SERP to lose.",
+   "A TOOL: the affordability and mortgage calculators the brief lists need a real local price to be worth using, and DVF supplies one computed from recorded sales rather than estimated. A calculator is a different SERP from a price-listing page and the portals are weaker in it.",
+   "And the differentiator, if the family is ever revisited, has to be the thing the portals cannot copy: DVF is the record of what actually sold, with counts, so a page could show the transaction count and the spread rather than one estimated number. That is a real difference and it is a bet, not a certainty, and it is recorded as a bet."
+  ]
+ },
+ "honest_answer_to_the_instruction": "the instruction was that city-level housing and wage data could unlock a large part of the missing million. Measured: one source is fully open and covers 34,900 communes, its demand holds into the tail where nothing else does, and its SERP is held by five portals with domain ratings of 74 to 91. The US layer that would be larger again is behind a free credential that is not mine to create. So the honest size of this path is not hundreds of thousands of pages; it is a strong enrichment layer for one market, a real input for two tools, and one free API key away from a second market."
+}
