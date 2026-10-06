@@ -8,12 +8,12 @@ there is no cohort 003.
 
 | | rows |
 | --- | --- |
-| **FINAL DISTINCT VALID** | **342,463** |
+| **FINAL DISTINCT VALID** | **422,825** |
 | target | 1,000,000 |
-| **GAP TO 1M** | **657,537** |
-| generated before any gate | 579,468 |
+| **GAP TO 1M** | **577,175** |
+| generated before any gate | 682,481 |
 | funnel reconciles | True |
-| distinct families | 203 |
+| distinct families | 204 |
 | markets | 14 |
 
 Every removal, as the funnel records it. Generated minus this column equals the final count,
@@ -21,14 +21,14 @@ checked by a verifier that fails the run rather than by reading the numbers.
 
 | removal stage                                       | rows |
 | --------------------------------------------------- | --- |
-| removed_as_exact_duplicate_urls                     | 1 |
+| removed_as_exact_duplicate_urls                     | 136 |
 | removed_as_semantic_duplicates                      | 0 |
 | removed_as_the_same_name_in_the_same_city           | 58 |
-| removed_because_the_declared_parent_did_not_survive | 3,442 |
+| removed_because_the_declared_parent_did_not_survive | 3,443 |
 | removed_by_cannibalisation                          | 0 |
 | removed_by_cross_market_content_uniqueness_gate     | 0 |
-| removed_by_localisation_gate                        | 122,106 |
-| removed_by_per_market_family_gate                   | 12,598 |
+| removed_by_localisation_gate                        | 144,268 |
+| removed_by_per_market_family_gate                   | 12,951 |
 | removed_by_uniqueness_and_serp_gate                 | 98,779 |
 | removed_by_unsupported_superlative_gate             | 21 |
 
@@ -37,11 +37,11 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | surface      | rows |
 | ------------ | --- |
 | areas        | 22,519 |
-| climate      | 8,503 |
-| destinations | 1,417 |
+| climate      | 8,555 |
+| destinations | 1,556 |
 | move         | 12,331 |
-| outdoors     | 57,306 |
-| places       | 188,956 |
+| outdoors     | 137,402 |
+| places       | 189,031 |
 | poi          | 3,731 |
 | pulse        | 14,165 |
 | safety       | 654 |
@@ -55,33 +55,33 @@ checked by a verifier that fails the run rather than by reading the numbers.
 
 | market     | rows |
 | ---------- | --- |
-| de-DE      | 58,645 |
-| en-AU      | 7,758 |
-| en-GB      | 21,241 |
-| en-US      | 61,035 |
-| es-ES      | 17,214 |
-| es-MX      | 1,454 |
-| fr-FR      | 49,420 |
-| it-IT      | 28,277 |
-| ja-JP      | 37,072 |
-| nl-NL      | 15,432 |
-| pl-PL      | 13,560 |
-| pt-BR      | 17,532 |
-| tr-TR      | 13,023 |
+| de-DE      | 58,544 |
+| en-AU      | 10,158 |
+| en-GB      | 28,266 |
+| en-US      | 103,910 |
+| es-ES      | 31,507 |
+| es-MX      | 1,498 |
+| fr-FR      | 49,422 |
+| it-IT      | 28,276 |
+| ja-JP      | 40,637 |
+| nl-NL      | 15,433 |
+| pl-PL      | 21,197 |
+| pt-BR      | 18,493 |
+| tr-TR      | 14,684 |
 | zh-Hant-TW | 800 |
 
 | language | rows |
 | -------- | --- |
-| de       | 58,645 |
-| en       | 90,034 |
-| es       | 18,668 |
-| fr       | 49,420 |
-| it       | 28,277 |
-| ja       | 37,072 |
-| nl       | 15,432 |
-| pl       | 13,560 |
-| pt       | 17,532 |
-| tr       | 13,023 |
+| de       | 58,544 |
+| en       | 142,334 |
+| es       | 33,005 |
+| fr       | 49,422 |
+| it       | 28,276 |
+| ja       | 40,637 |
+| nl       | 15,433 |
+| pl       | 21,197 |
+| pt       | 18,493 |
+| tr       | 14,684 |
 | zh-Hant  | 800 |
 
 Top 20 destination countries, which are NOT the same thing as the markets above: the searcher
@@ -89,19 +89,19 @@ market and the place a page is about are different axes and the brief is explici
 
 | destination country | rows |
 | ------------------- | --- |
-| US                  | 60,567 |
-| DE                  | 57,110 |
-| FR                  | 49,765 |
-| JP                  | 32,371 |
-| IT                  | 26,692 |
-| GB                  | 20,569 |
-| BR                  | 17,526 |
-| ES                  | 17,512 |
-| NL                  | 15,511 |
-| PL                  | 13,572 |
-| TR                  | 13,025 |
-| AU                  | 7,851 |
-| MX                  | 2,655 |
+| US                  | 103,442 |
+| DE                  | 57,009 |
+| FR                  | 49,767 |
+| JP                  | 35,936 |
+| ES                  | 31,805 |
+| GB                  | 27,594 |
+| IT                  | 26,691 |
+| PL                  | 21,209 |
+| BR                  | 18,487 |
+| NL                  | 15,512 |
+| TR                  | 14,686 |
+| AU                  | 10,251 |
+| MX                  | 2,699 |
 | IN                  | 2,041 |
 | TW                  | 895 |
 | TH                  | 647 |
@@ -114,7 +114,7 @@ market and the place a page is about are different axes and the brief is explici
 
 | data source and licence                                          | rows |
 | ---------------------------------------------------------------- | --- |
-| OpenStreetMap named POI (ODbL 1.0, share-alike, attribution requ | 252,218 |
+| OpenStreetMap named POI (ODbL 1.0, share-alike, attribution requ | 332,580 |
 | Wikidata (CC0 1.0, public domain dedication, no share-alike)     | 2,902 |
 | cost-of-living-verified; tax-rules-verified                      | 12 |
 | geonames-cities; attractions-verified                            | 11,750 |
@@ -150,35 +150,36 @@ market and the place a page is about are different axes and the brief is explici
 | area            | 3,128 |
 | area_attribute  | 5,620 |
 | area_category   | 90,822 |
-| area_cuisine    | 22,166 |
+| area_cuisine    | 22,187 |
 | area_opening    | 7,913 |
 | areas_index     | 385 |
 | city            | 79,978 |
 | city-pair       | 50 |
 | city_attribute  | 3,196 |
 | city_category   | 41,213 |
-| city_cuisine    | 13,760 |
+| city_cuisine    | 13,814 |
 | city_opening    | 4,111 |
 | city_sport      | 155 |
 | country         | 42 |
 | country-pair    | 12 |
 | neighbourhood   | 2,475 |
-| outdoor_feature | 37,146 |
-| outdoor_region  | 1,227 |
+| outdoor_feature | 93,911 |
+| outdoor_region  | 1,384 |
 | poi             | 3,731 |
-| region          | 1,614 |
-| trail           | 18,933 |
+| region          | 1,805 |
+| trail           | 42,107 |
 | venue           | 4,786 |
 
 ## BY FAMILY, the 40 largest
 
 | family                       | rows |
 | ---------------------------- | --- |
-| places.area-cuisine          | 22,166 |
-| outdoors.peak                | 20,621 |
+| outdoors.peak                | 68,642 |
+| outdoors.hiking-trail        | 23,494 |
+| places.area-cuisine          | 22,187 |
 | places.area-restaurant       | 15,751 |
-| places.city-cuisine          | 13,760 |
-| outdoors.hiking-trail        | 11,973 |
+| places.city-cuisine          | 13,814 |
+| outdoors.bicycle-trail       | 12,195 |
 | activities.city-things-to-do | 11,750 |
 | places.area-pharmacy         | 10,855 |
 | places.area-fast_food        | 10,741 |
@@ -186,10 +187,10 @@ market and the place a page is about are different axes and the brief is explici
 | places.area-cafe             | 8,764 |
 | places.area-supermarket      | 8,662 |
 | weather.city-month           | 8,306 |
+| outdoors.castle              | 7,922 |
 | places.area-opening          | 7,913 |
 | events.city-type             | 6,680 |
 | events.city-calendar         | 6,680 |
-| outdoors.castle              | 6,616 |
 | places.city-restaurant       | 6,097 |
 | places.area-clinic           | 5,838 |
 | places.area-attribute        | 5,620 |
@@ -201,7 +202,7 @@ market and the place a page is about are different axes and the brief is explici
 | places.city-opening          | 4,111 |
 | places.city-fast_food        | 4,035 |
 | places.area-dentist          | 3,737 |
-| outdoors.bicycle-trail       | 3,537 |
+| outdoors.mtb-trail           | 3,487 |
 | relocation.city              | 3,221 |
 | places.city-pharmacy         | 3,202 |
 | places.city-attribute        | 3,196 |
@@ -210,22 +211,21 @@ market and the place a page is about are different axes and the brief is explici
 | areas.overview               | 3,128 |
 | property.city-buy            | 2,989 |
 | cost-of-living.city          | 2,967 |
+| outdoors.archaeological_site | 2,909 |
 | places.area-gym              | 2,833 |
 | health.city                  | 2,811 |
-| places.area-school           | 2,785 |
-| places.city-cafe             | 2,594 |
 
-203 families in total. The full list with the content contract per family is in
+204 families in total. The full list with the content contract per family is in
 1M-UNIQUE-CONTENT-CONTRACT.csv and the per-condition verdicts in 1M-FAMILY-ACCEPTANCE-TEST.json.
 
 ## CONTENT QUALITY: what was rejected and why
 
 | rejection status                            | rows |
 | ------------------------------------------- | --- |
-| REJECTED_DUPLICATE                          | 1 |
-| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,598 |
-| REJECTED_LOCALIZATION                       | 122,106 |
-| REJECTED_PARENT_REMOVED                     | 3,442 |
+| REJECTED_DUPLICATE                          | 136 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,951 |
+| REJECTED_LOCALIZATION                       | 144,268 |
+| REJECTED_PARENT_REMOVED                     | 3,443 |
 | REJECTED_QUALITY                            | 80,601 |
 | REJECTED_SAME_NAME_IN_CITY                  | 58 |
 | REJECTED_SERP                               | 18,178 |
@@ -235,14 +235,14 @@ The reason text, grouped by its first clause:
 
 | recorded reason                             | rows |
 | ------------------------------------------- | --- |
-| localization                                | 122,106 |
+| localization                                | 144,268 |
 | REJECTED_QUALITY                            | 80,601 |
 | REJECTED_SERP                               | 18,178 |
-| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,598 |
-| REJECTED_PARENT_REMOVED                     | 3,442 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 12,951 |
+| REJECTED_PARENT_REMOVED                     | 3,443 |
+| REJECTED_DUPLICATE                          | 136 |
 | REJECTED_SAME_NAME_IN_CITY                  | 58 |
 | REJECTED_UNSUPPORTED_SUPERLATIVE            | 21 |
-| REJECTED_DUPLICATE                          | 1 |
 
 ## QA: every check in the pass
 
@@ -250,24 +250,25 @@ The reason text, grouped by its first clause:
 | -------------------------------------------------- | --- |
 | candidates_with_no_usable_source                   | 0 |
 | declared_parent_is_not_a_valid_parent              | 0 |
-| declared_parent_is_valid_but_not_a_path_prefix     | 34,032 |
+| declared_parent_is_valid_but_not_a_path_prefix     | 34,513 |
 | destination_rows                                   | 16,165 |
 | destination_rows_with_no_locale_specific_fact      | 0 |
 | duplicate_canonicals                               | 0 |
-| duplicate_h1_within_a_market                       | 0 |
-| duplicate_meta_within_a_market                     | 0 |
+| duplicate_h1_within_a_market                       | 2 |
+| duplicate_meta_within_a_market                     | 2 |
 | duplicate_title_exact                              | 0 |
-| duplicate_title_same_tokens                        | 27 |
-| entity_names_needing_a_disambiguator_in_the_title  | 1,889 |
+| duplicate_title_same_tokens                        | 66 |
+| entity_names_needing_a_disambiguator_in_the_title  | 6,393 |
 | family_locale_cells_failing_the_usefulness_test    | 0 |
 | intent_owners_claimed_by_more_than_one_url         | 0 |
 | kept_rows_with_a_rejecting_localisation_class      | 0 |
 | locale_mismatch_between_url_and_row                | 0 |
-| meta_over_165_chars                                | 97,049 |
-| orphan_pages                                       | 68 |
+| meta_over_165_chars                                | 7,622 |
+| orphan_pages                                       | 79 |
 | same_entity_id_under_two_names                     | 0 |
 | templates_with_repeated_entities                   | 0 |
-| title_over_65_chars                                | 236,950 |
+| title_over_65_chars                                | 43,202 |
+| title_under_15_chars                               | 41 |
 | top_level_pages_whose_parent_is_the_locale_home    | 0 |
 | uniqueness_reason_shared_with_another_candidate    | 5 |
 | urls_containing_a_latin_character_with_a_diacritic | 0 |
@@ -278,46 +279,46 @@ The reason text, grouped by its first clause:
 
 | verdict                  | rows |
 | ------------------------ | --- |
-| ACCEPTED                 | 169 |
+| ACCEPTED                 | 170 |
 | ACCEPTED_WITH_AN_UNKNOWN | 34 |
 
 | pages by verdict         | rows |
 | ------------------------ | --- |
-| ACCEPTED                 | 267,401 |
-| ACCEPTED_WITH_AN_UNKNOWN | 75,062 |
+| ACCEPTED                 | 347,711 |
+| ACCEPTED_WITH_AN_UNKNOWN | 75,114 |
 
 Failed conditions across all families: none
 
 ## PARENT GEOGRAPHY
 
-POI attached to a containment parent: 609,310
+POI attached to a containment parent: 697,835
 
 | parent class    | rows |
 | --------------- | --- |
-| county          | 348,812 |
-| nature_reserve  | 84,610 |
-| protected_area  | 54,165 |
-| region          | 42,419 |
-| park            | 18,579 |
-| island          | 16,892 |
-| mountain_range  | 12,217 |
-| forest          | 10,026 |
-| national_park   | 6,139 |
-| zoo_complex     | 3,651 |
-| theme_park      | 2,758 |
-| peninsula       | 2,640 |
-| campus          | 2,082 |
-| ski_area        | 1,587 |
-| garden          | 683 |
-| lake            | 614 |
-| beach_area      | 488 |
-| airport_complex | 483 |
-| bay             | 299 |
-| archipelago     | 119 |
+| county          | 387,878 |
+| nature_reserve  | 90,647 |
+| protected_area  | 58,957 |
+| region          | 58,346 |
+| island          | 22,162 |
+| park            | 19,562 |
+| mountain_range  | 19,104 |
+| forest          | 13,573 |
+| national_park   | 7,078 |
+| peninsula       | 5,137 |
+| zoo_complex     | 4,470 |
+| theme_park      | 3,060 |
+| ski_area        | 2,617 |
+| campus          | 2,260 |
+| garden          | 724 |
+| lake            | 699 |
+| airport_complex | 538 |
+| beach_area      | 535 |
+| bay             | 311 |
+| archipelago     | 129 |
 
-Of those attachments, 391,231 are to a region or a county, which contains every
+Of those attachments, 446,224 are to a region or a county, which contains every
 point in its country by construction. The honest outdoor attachment is the remainder,
-218,079. A rate that counts administrative containment is
+251,611. A rate that counts administrative containment is
 measuring geometry rather than attribution, and this report does not quote one.
 
 ## MEASUREMENTS TAKEN IN THIS PASS
@@ -365,7 +366,7 @@ The first pass listed the National Heritage List for England as MATERIALISING wi
 
 ## SCALE PATHS: COUNTED AGAINST PROJECTED
 
-Counted today in the manifest: **342,463**
+Counted today in the manifest: **422,825**
 
 Paths with a COUNTED entity-level number:
 

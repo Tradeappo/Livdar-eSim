@@ -4,10 +4,10 @@ Built 2026-10-06. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **342,463**
+- FINAL DISTINCT VALID CANDIDATES: **422,825**
 - target: 1,000,000
-- shortfall: **657,537** (34.2 per cent of target)
-- rejected and kept visible: 237,005
+- shortfall: **577,175** (42.3 per cent of target)
+- rejected and kept visible: 259,656
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 480,688 | same url_pattern |
-| after semantic dedupe | 480,688 | same market, family, template signature and entity |
-| FINAL DISTINCT | 342,463 | what is in the manifest |
+| after exact dedupe | 583,566 | same url_pattern |
+| after semantic dedupe | 583,566 | same market, family, template signature and entity |
+| FINAL DISTINCT | 422,825 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,36 +27,36 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
-| en-US | 61,035 |
-| de-DE | 58,645 |
-| fr-FR | 49,420 |
-| ja-JP | 37,072 |
-| it-IT | 28,277 |
-| en-GB | 21,241 |
-| pt-BR | 17,532 |
-| es-ES | 17,214 |
-| nl-NL | 15,432 |
-| pl-PL | 13,560 |
-| tr-TR | 13,023 |
-| en-AU | 7,758 |
-| es-MX | 1,454 |
+| en-US | 103,910 |
+| de-DE | 58,544 |
+| fr-FR | 49,422 |
+| ja-JP | 40,637 |
+| es-ES | 31,507 |
+| it-IT | 28,276 |
+| en-GB | 28,266 |
+| pl-PL | 21,197 |
+| pt-BR | 18,493 |
+| nl-NL | 15,433 |
+| tr-TR | 14,684 |
+| en-AU | 10,158 |
+| es-MX | 1,498 |
 | zh-Hant-TW | 800 |
 
 ### By surface
 
 | surface | candidates |
 | --- | --- |
-| places | 188,956 |
-| outdoors | 57,306 |
+| places | 189,031 |
+| outdoors | 137,402 |
 | stay | 23,609 |
 | areas | 22,519 |
 | pulse | 14,165 |
 | move | 12,331 |
-| climate | 8,503 |
+| climate | 8,555 |
 | work | 3,921 |
 | transport | 3,859 |
 | poi | 3,731 |
-| destinations | 1,417 |
+| destinations | 1,556 |
 | tools | 802 |
 | sport | 690 |
 | safety | 654 |
@@ -65,7 +65,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | status | candidates |
 | --- | --- |
-| POI_AGGREGATION | 255,120 |
+| POI_AGGREGATION | 335,482 |
 | MISSING_DATA | 39,351 |
 | BLOCKED_BY_LICENCE | 28,758 |
 | EXPERIMENT_ONLY | 9,821 |
@@ -77,7 +77,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 294,252 |
+| SOURCE_AVAILABLE | 374,614 |
 | LICENCE_REQUIRED | 28,758 |
 | FEED_REQUIRED | 9,747 |
 | READY_NOW | 9,706 |
@@ -86,17 +86,17 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | serp_feasibility | candidates |
 | --- | --- |
-| viable | 167,130 |
-| unsampled_needs_serp_check | 72,073 |
-| competitive | 54,100 |
-| poor_fit | 25,155 |
+| viable | 247,374 |
+| unsampled_needs_serp_check | 72,125 |
+| competitive | 54,145 |
+| poor_fit | 25,176 |
 | strong_opportunity | 24,005 |
 
 ### By licence
 
 | licence_status | candidates |
 | --- | --- |
-| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 252,218 |
+| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 332,580 |
 | OK | 58,585 |
 | LICENCE_REQUIRED | 28,758 |
 | CC0_NO_CONDITIONS | 2,902 |
@@ -107,7 +107,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | market_demand_evidence | candidates |
 | --- | --- |
-| shape_measured_2026_10_01 | 255,120 |
+| shape_measured_2026_10_01 | 335,482 |
 | measured_in_this_market | 82,158 |
 | family_measured_elsewhere | 5,185 |
 
@@ -115,11 +115,12 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | family | candidates |
 | --- | --- |
-| places.area-cuisine | 22,166 |
-| outdoors.peak | 20,621 |
+| outdoors.peak | 68,642 |
+| outdoors.hiking-trail | 23,494 |
+| places.area-cuisine | 22,187 |
 | places.area-restaurant | 15,751 |
-| places.city-cuisine | 13,760 |
-| outdoors.hiking-trail | 11,973 |
+| places.city-cuisine | 13,814 |
+| outdoors.bicycle-trail | 12,195 |
 | activities.city-things-to-do | 11,750 |
 | places.area-pharmacy | 10,855 |
 | places.area-fast_food | 10,741 |
@@ -127,14 +128,13 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | places.area-cafe | 8,764 |
 | places.area-supermarket | 8,662 |
 | weather.city-month | 8,306 |
+| outdoors.castle | 7,922 |
 | places.area-opening | 7,913 |
 | events.city-type | 6,680 |
 | events.city-calendar | 6,680 |
-| outdoors.castle | 6,616 |
 | places.city-restaurant | 6,097 |
 | places.area-clinic | 5,838 |
 | places.area-attribute | 5,620 |
-| places.city-category | 5,575 |
 
 ## 3b. The multilingual breakdown
 
@@ -142,18 +142,18 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 98,640 | 61,035 | 19,723 | 3,866 | 6,740 | 212 | 6,296 | 0 | 768 |
-| en-GB | 30,067 | 21,241 | 2,087 | 2,365 | 0 | 0 | 4,098 | 0 | 276 |
-| de-DE | 99,998 | 58,645 | 9,619 | 4,140 | 2,470 | 189 | 24,112 | 0 | 823 |
-| ja-JP | 87,360 | 37,072 | 10,483 | 3,097 | 35,315 | 305 | 548 | 248 | 292 |
+| en-US | 148,467 | 103,910 | 19,723 | 3,866 | 9,388 | 4,515 | 6,296 | 0 | 769 |
+| en-GB | 37,092 | 28,266 | 2,087 | 2,365 | 0 | 0 | 4,098 | 0 | 276 |
+| de-DE | 108,721 | 58,544 | 9,619 | 4,140 | 2,527 | 8,842 | 24,112 | 0 | 937 |
+| ja-JP | 94,930 | 40,637 | 10,483 | 3,097 | 35,425 | 4,198 | 548 | 248 | 294 |
 | zh-Hant-TW | 5,191 | 800 | 690 | 80 | 0 | 1 | 3,620 | 0 | 0 |
-| it-IT | 56,210 | 28,277 | 7,354 | 1,162 | 15,271 | 69 | 3,549 | 0 | 528 |
-| es-ES | 26,781 | 17,214 | 4,790 | 308 | 0 | 0 | 4,060 | 0 | 409 |
-| fr-FR | 61,131 | 49,420 | 6,927 | 286 | 0 | 1 | 4,056 | 248 | 193 |
-| nl-NL | 21,382 | 15,432 | 4,878 | 114 | 0 | 1 | 796 | 0 | 161 |
-| pl-PL | 19,502 | 13,560 | 4,893 | 218 | 0 | 1 | 796 | 0 | 34 |
-| pt-BR | 26,228 | 17,532 | 5,881 | 1,354 | 0 | 1 | 1,428 | 0 | 32 |
-| **all 11** | **532,490** | **320,228** | | | | | | | |
+| it-IT | 58,260 | 28,276 | 7,354 | 1,162 | 15,285 | 2,087 | 3,549 | 0 | 547 |
+| es-ES | 41,074 | 31,507 | 4,790 | 308 | 0 | 0 | 4,060 | 0 | 409 |
+| fr-FR | 61,133 | 49,422 | 6,927 | 286 | 0 | 1 | 4,056 | 248 | 193 |
+| nl-NL | 21,383 | 15,433 | 4,878 | 114 | 0 | 1 | 796 | 0 | 161 |
+| pl-PL | 27,139 | 21,197 | 4,893 | 218 | 0 | 1 | 796 | 0 | 34 |
+| pt-BR | 27,189 | 18,493 | 5,881 | 1,354 | 0 | 1 | 1,428 | 0 | 32 |
+| **all 11** | **630,579** | **396,485** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -161,25 +161,25 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 326,294 |
+| NATIVE_LOCALE | 406,656 |
 | VALID_LOCALIZATION | 16,169 |
 
-- flagged LOCAL_SERP_UNVERIFIED: 72,073. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
+- flagged LOCAL_SERP_UNVERIFIED: 72,125. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
 
 ### Top families per market
 
 | market | strongest families |
 | --- | --- |
-| en-US | places.area-cuisine (5,415), places.city-cuisine (4,894), places.area-restaurant (2,917), activities.city-things-to-do (2,592) |
-| en-GB | places.area-cuisine (2,128), places.area-fast_food (1,548), places.area-cafe (1,354), places.city-cuisine (1,250) |
-| de-DE | outdoors.peak (12,423), stay.city-type (3,609), places.city-category (2,405), rents.city (2,405) |
+| en-US | outdoors.peak (32,068), places.area-cuisine (5,418), places.city-cuisine (4,914), outdoors.hiking-trail (3,310) |
+| en-GB | outdoors.peak (2,319), places.area-cuisine (2,130), places.area-fast_food (1,548), outdoors.hiking-trail (1,442) |
+| de-DE | outdoors.peak (12,350), stay.city-type (3,609), places.city-category (2,405), rents.city (2,405) |
 | ja-JP | places.area-cuisine (4,089), places.area-restaurant (2,943), activities.city-things-to-do (2,544), weather.city-month (2,544) |
 | zh-Hant-TW | activities.city-things-to-do (51), places.city-category (40), weather.city-month (40), health.city (40) |
-| it-IT | outdoors.peak (4,918), places.area-cuisine (1,725), places.area-restaurant (1,492), activities.city-things-to-do (1,039) |
-| es-ES | places.area-restaurant (1,486), places.area-cuisine (1,236), places.area-supermarket (1,049), places.area-pharmacy (961) |
+| it-IT | outdoors.peak (4,917), places.area-cuisine (1,727), places.area-restaurant (1,492), activities.city-things-to-do (1,039) |
+| es-ES | outdoors.peak (5,707), outdoors.hiking-trail (4,346), places.area-restaurant (1,486), places.area-cuisine (1,236) |
 | fr-FR | outdoors.hiking-trail (9,255), outdoors.castle (3,666), outdoors.bicycle-trail (3,185), outdoors.peak (3,161) |
 | nl-NL | outdoors.hiking-trail (2,718), outdoors.windmill (656), places.area-cuisine (628), places.area-supermarket (605) |
-| pl-PL | places.area-pharmacy (1,075), places.area-cuisine (867), places.area-restaurant (775), places.area-clinic (772) |
+| pl-PL | outdoors.peak (2,128), outdoors.bicycle-trail (1,983), outdoors.hiking-trail (1,879), places.area-pharmacy (1,075) |
 | pt-BR | cost-of-living.city (699), relocation.city (699), weather.city-month (677), rents.city (677) |
 
 ### Where the measured demand actually is, per market
@@ -204,13 +204,13 @@ Transliterations are used above for the Japanese and Chinese roots so this table
 
 ## 4. What was materialised in this pass
 
-- OSM POI files on disk: 28 (poi-AE.jsonl.gz, poi-AT.jsonl.gz, poi-AU.jsonl.gz, poi-BR.jsonl.gz, poi-CH.jsonl.gz, poi-DE.jsonl.gz, poi-EG.jsonl.gz, poi-ES.jsonl.gz, poi-FR.jsonl.gz, poi-GB.jsonl.gz, poi-ID.jsonl.gz, poi-IE.jsonl.gz, poi-IT.jsonl.gz, poi-JP.jsonl.gz, poi-KH.jsonl.gz, poi-LU.jsonl.gz, poi-MA.jsonl.gz, poi-MX.jsonl.gz, poi-MY.jsonl.gz, poi-NL.jsonl.gz, poi-PL.jsonl.gz, poi-PT.jsonl.gz, poi-TR.jsonl.gz, poi-TW-health.jsonl.gz, poi-US-us-midwest.jsonl.gz, poi-US-us-northeast.jsonl.gz, poi-US-us-south.jsonl.gz, poi-US-us-west.jsonl.gz)
-- OSM place files with geometry: 27 (places-AE.jsonl.gz, places-AT.jsonl.gz, places-AU.jsonl.gz, places-BR.jsonl.gz, places-CH.jsonl.gz, places-DE.jsonl.gz, places-EG.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IE.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-KH.jsonl.gz, places-MA.jsonl.gz, places-MX.jsonl.gz, places-MY.jsonl.gz, places-NL.jsonl.gz, places-PL.jsonl.gz, places-PT.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-northeast.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-luxembourg.jsonl.gz)
-- POI read: 5,687,344, of which 1,202,937 carried an addr:city tag and 3,119,955 were attributed spatially against the 31,715-city gazetteer; 1,363,715 fell outside every city radius and were dropped
-- named places loaded: 502,205, of which 91,665 passed the entity gates
+- OSM POI files on disk: 34 (poi-AE.jsonl.gz, poi-AT.jsonl.gz, poi-AU.jsonl.gz, poi-BE.jsonl.gz, poi-BR.jsonl.gz, poi-CH.jsonl.gz, poi-DE.jsonl.gz, poi-DK.jsonl.gz, poi-EG.jsonl.gz, poi-ES.jsonl.gz, poi-FR.jsonl.gz, poi-GB.jsonl.gz, poi-ID.jsonl.gz, poi-IE.jsonl.gz, poi-IT.jsonl.gz, poi-JP.jsonl.gz, poi-KH.jsonl.gz, poi-LU.jsonl.gz, poi-MA.jsonl.gz, poi-MX.jsonl.gz, poi-MY.jsonl.gz, poi-NL.jsonl.gz, poi-PH.jsonl.gz, poi-PL.jsonl.gz, poi-PT.jsonl.gz, poi-SE.jsonl.gz, poi-SG.jsonl.gz, poi-TN.jsonl.gz, poi-TR.jsonl.gz, poi-TW-health.jsonl.gz, poi-US-us-midwest.jsonl.gz, poi-US-us-northeast.jsonl.gz, poi-US-us-south.jsonl.gz, poi-US-us-west.jsonl.gz)
+- OSM place files with geometry: 33 (places-AE.jsonl.gz, places-AT.jsonl.gz, places-AU.jsonl.gz, places-BE.jsonl.gz, places-BR.jsonl.gz, places-CH.jsonl.gz, places-DE.jsonl.gz, places-DK.jsonl.gz, places-EG.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IE.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-KH.jsonl.gz, places-MA.jsonl.gz, places-MX.jsonl.gz, places-MY.jsonl.gz, places-NL.jsonl.gz, places-PH.jsonl.gz, places-PL.jsonl.gz, places-PT.jsonl.gz, places-SE.jsonl.gz, places-SG.jsonl.gz, places-TN.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-northeast.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-luxembourg.jsonl.gz)
+- POI read: 6,451,416, of which 1,310,843 carried an addr:city tag and 3,588,428 were attributed spatially against the 31,715-city gazetteer; 1,551,408 fell outside every city radius and were dropped
+- named places loaded: 559,318, of which 91,665 passed the entity gates
 - POI assigned to an area by polygon containment: 497,710; by documented proximity to a place node: 2,290,647
-- aggregation candidates: 266,028 ({'city_category': 76245, 'area_category': 93217, 'city_cuisine': 32996, 'area_cuisine': 22838, 'city_attribute': 8406, 'area_attribute': 5691, 'city_opening': 10539, 'area_opening': 8007, 'city_sport': 383, 'area_parent': 4038, 'city_areas_hub': 916, 'notable_entity': 2752})
-- Wikidata entities loaded: 195,490, candidates 5,971, deduped against OSM by {'qid': 13917, 'name_and_position': 4980}
+- aggregation candidates: 279,305 ({'city_category': 83203, 'area_category': 93217, 'city_cuisine': 36183, 'area_cuisine': 22859, 'city_attribute': 10101, 'area_attribute': 5691, 'city_opening': 11833, 'area_opening': 8007, 'city_sport': 505, 'area_parent': 4038, 'city_areas_hub': 916, 'notable_entity': 2752})
+- Wikidata entities loaded: 195,490, candidates 5,971, deduped against OSM by {'qid': 13919, 'name_and_position': 4980}
 - Pulse entities normalised from four providers: {'national': 1081, 'regional': 623, 'school': 1502, 'long_weekends': 687, 'bridge_days': 233, 'long_weekends_subdivision': 3539, 'bridge_days_subdivision': 1052, 'bridge_plans': 348}
 
 ## 5. Every gate that fired, with its count
@@ -221,69 +221,69 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 | gate | rejected |
 | --- | --- |
-| entity_not_notable | 5,674,635 |
+| entity_not_notable | 6,437,294 |
 | place_not_a_named_entity | 262,774 |
-| below_min_count | 192,156 |
-| area_cuisine_below_min_count | 191,393 |
+| below_min_count | 200,683 |
+| area_cuisine_below_min_count | 192,743 |
 | area_class_not_a_list_intent | 179,523 |
-| destination_fanout_area_itself_carries_no_mark_in_this_language | 162,154 |
+| destination_fanout_area_itself_carries_no_mark_in_this_language | 162,181 |
+| class_not_a_list_intent | 152,298 |
+| cuisine_below_min_count | 151,761 |
 | area_parent_city_page_not_accepted | 147,368 |
-| class_not_a_list_intent | 144,430 |
-| cuisine_below_min_count | 142,399 |
 | place_no_parent_city | 131,878 |
 | area_below_min_count | 111,061 |
 | area_opening_below_min_count | 90,499 |
 | area_attr_below_min_count | 71,886 |
-| opening_below_min_count | 64,542 |
-| attr_below_min_count | 62,286 |
+| attr_below_min_count | 69,035 |
+| opening_below_min_count | 67,822 |
+| place_no_market_for_country_neighbourhood_level_stays_home_market_only | 63,555 |
+| no_market_and_no_destination_evidence_for_country | 56,829 |
+| entries_too_thin | 27,957 |
 | area_parent_too_narrow | 26,455 |
-| entries_too_thin | 25,427 |
 | area_entries_too_thin | 23,705 |
 | area_opening_parent_page_not_accepted | 13,973 |
-| no_market_for_country | 12,920 |
-| opening_city_below_measured_demand_floor | 12,537 |
-| area_cuisine_parent_page_not_accepted | 10,474 |
-| cuisine_city_below_measured_demand_floor | 9,705 |
+| opening_city_below_measured_demand_floor | 13,366 |
+| area_cuisine_parent_page_not_accepted | 10,483 |
+| cuisine_city_below_measured_demand_floor | 10,147 |
 | destination_fanout_no_city_mark_in_any_language | 9,676 |
 | notable_but_data_thin | 8,358 |
+| sport_below_min_count | 7,812 |
+| attr_city_below_measured_demand_floor | 7,315 |
 | area_attr_parent_page_not_accepted | 7,213 |
 | place_ambiguous_duplicate_name_in_city | 6,769 |
-| sport_below_min_count | 6,694 |
-| place_no_market_for_country | 6,576 |
 | area_opening_area_not_a_searched_entity | 6,501 |
-| attr_city_below_measured_demand_floor | 6,383 |
 | area_parent_entity_too_thin | 4,855 |
 | area_attr_area_not_a_searched_entity | 4,074 |
 | destination_fanout_entity_itself_carries_no_mark_in_this_language | 3,395 |
 | area_parent_city_has_no_areas_hub | 3,272 |
+| place_name_not_usable | 2,609 |
 | area_duplicates_city_list | 2,509 |
-| place_name_not_usable | 2,475 |
 | area_class_measured_at_or_near_zero_in_this_market | 2,052 |
 | notable_entity_has_no_parent_page | 1,514 |
-| cuisine_parent_restaurant_list_not_accepted | 530 |
-| cuisine_entries_too_thin | 493 |
-| area_cuisine_duplicates_city_list | 423 |
+| cuisine_parent_restaurant_list_not_accepted | 690 |
+| cuisine_entries_too_thin | 588 |
+| area_cuisine_duplicates_city_list | 425 |
+| attr_parent_city_page_not_accepted | 421 |
 | areas_hub_too_few_areas | 290 |
-| attr_parent_city_page_not_accepted | 278 |
 | area_opening_parent_area_page_not_accepted | 186 |
+| opening_parent_city_page_not_accepted | 159 |
 | area_attr_parent_area_page_not_accepted | 118 |
-| opening_parent_city_page_not_accepted | 110 |
-| sport_parent_city_page_not_accepted | 71 |
+| sport_parent_city_page_not_accepted | 99 |
 | place_polygon_implausibly_large | 65 |
 | area_opening_duplicates_city_list | 60 |
-| attr_not_discriminating | 21 |
+| attr_not_discriminating | 23 |
+| cuisine_measured_at_or_near_zero_in_this_market | 20 |
 | area_attr_duplicates_city_list | 13 |
-| cuisine_measured_at_or_near_zero_in_this_market | 7 |
-| opening_not_discriminating | 6 |
+| opening_not_discriminating | 8 |
 | place_polygon_degenerate | 3 |
 
 ### Wikidata gates
 
 | gate | rejected |
 | --- | --- |
-| no_official_website_so_page_would_be_thin | 66,605 |
+| no_official_website_so_page_would_be_thin | 66,603 |
 | no_parent_city | 52,343 |
-| already_in_osm_corpus | 18,897 |
+| already_in_osm_corpus | 18,899 |
 | list_below_min_count | 12,296 |
 | wikidata_duplicate_qid | 8,408 |
 | no_parent_page_exists_on_the_site | 8,119 |
@@ -296,11 +296,11 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | gate | rejected |
 | --- | --- |
 | REJECTED_QUALITY: no defensible uniqueness basis | 80,182 |
-| localization:TRANSLATION_ONLY | 67,471 |
+| localization:TRANSLATION_ONLY | 70,343 |
 | localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 53,359 |
+| localization:LOCAL_INTENT_MISSING | 20,070 |
 | REJECTED_SERP: SERP_FEATURE_SUPPRESSED is a measured closed SERP, not winnable | 14,563 |
 | REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 3,615 |
-| localization:LOCAL_INTENT_MISSING | 780 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-cuisine is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 632 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-restaurant is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 544 |
 | localization:LOCAL_DATA_MISSING | 496 |
@@ -378,9 +378,12 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-department_store is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 51 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/aachen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 48 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/florence-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 42 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.mtb-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 41 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.foot-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 40 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 40 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-childcare is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 36 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-veterinary is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 36 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.archaeological_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 36 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-hospital is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 35 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. weather.city-month is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. health.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 33 |
@@ -400,17 +403,21 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-college is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 30 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/hamburg-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 30 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-railway_station is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 29 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.lighthouse is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 27 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/madrid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 27 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-college is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 26 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-arts_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 25 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/leipzig/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 25 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-hostel is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 24 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.monument is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 24 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 23 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-hostel is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 22 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.cave is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 22 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/weimar/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 22 |
 | REJECTED_UNSUPPORTED_SUPERLATIVE: the family id itself claims ['best'], which appears in the URL segment and in the rendered title, and no methodology document exists for it. Its sources (geonames-cities; neighbourhood-facts-verified; rent-index-ve) support a factual comparison and not a ranking. areas.city-index already lists a city's areas from the same verified facts without ranking them, so this page is that one plus an unearned superlative. | 21 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-university is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.waterfall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 20 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-hospital is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 20 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/amsterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 20 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-arts_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 19 |
@@ -426,6 +433,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/naples-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/kobe/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/chicago/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.bicycle-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.route-from-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-home is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city-vs-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
@@ -439,6 +447,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/sapporo/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/dallas-us-texas/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-railway_station is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 14 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.monument is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 14 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-museum is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/chicago/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/park/madrid-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 14 |
@@ -458,6 +467,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/munich/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 13 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/regensburg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 13 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-guest_house is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 12 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.monument is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 12 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-pub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/amsterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/nagoya/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 12 |
@@ -474,6 +484,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/los-angeles-us/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/nuremberg/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/edinburgh/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 11 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.aqueduct is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 10 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 10 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 10 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/philadelphia-us-pennsylvania/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 10 |
@@ -494,6 +505,8 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/philadelphia-us-pennsylvania/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/portland-us-oregon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-sports_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.cave is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.ruins is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-sports_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/malaga-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/rotterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
@@ -511,6 +524,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/munich/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/savannah-us-georgia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-pub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 7 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.waterfall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 7 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 7 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/chemnitz/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/rotterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
@@ -534,6 +548,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/palermo-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/naples-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 7 |
 | REJECTED_SAME_NAME_IN_CITY: /pl/poi/attraction/laweczka-chopina-n13293477296/ is already the poi page for an entity named Ławeczka Chopina in Warsaw, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 6 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.archaeological_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 6 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-sport is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 6 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-attraction is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 6 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 6 |
@@ -576,6 +591,11 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/erlangen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/reutlingen/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 6 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-gallery is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.tower is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.viewpoint is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.cave is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.lighthouse is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.ruins is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-nightclub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-library is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
@@ -627,6 +647,10 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/pistoia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/cagliari/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/catania/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.mtb-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 4 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.wilderness_hut is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 4 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.tower is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 4 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.fort is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/pesaro/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/cardiff/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/heidelberg-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 4 |
@@ -702,6 +726,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-mall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-nightclub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-theatre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.caravan_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-gallery is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/bremen-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/theatre/dusseldorf/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
@@ -812,10 +837,17 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/museum/birmingham-us-alabama/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/columbus-us-ohio/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/places/museum/karlsruhe/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n530747888, so the two would be the same page | 2 |
 | REJECTED_SAME_NAME_IN_CITY: /en/poi/gallery/gagosian-n10859974159/ is already the poi page for an entity named Gagosian in Hoboken, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/de-doelen-q128795837/ is already the stay page for an entity named De Doelen in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
 | REJECTED_SAME_NAME_IN_CITY: /nl/stay/near-venue/de-doelen-q128795837/ is already the stay page for an entity named De Doelen in Rotterdam, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.camp_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.hiking-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.ski-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-garden is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.observatory is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.castle is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.observatory is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-water_park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-viewpoint is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/esplugues-de-llobregat/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
@@ -1097,6 +1129,139 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /ja/places/theatre/fresno-us-california/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /ja/areas/seattle/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/munster-de-north-rhine-westphalia/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 2 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256042837, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n460855570, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n2299946900, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w131906872, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w177277435, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n26863047, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n246236550, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256041659, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256041673, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256041781, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256041847, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256041922, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256042733, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256042748, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n259965405, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n267433562, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n285972358, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n285972361, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n291978603, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity n310438152, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n310439113, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n319480822, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n319482020, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n323333182, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n323486209, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n323607635, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n324036733, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n330595505, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n381003555, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity n418874976, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n441557888, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n454666359, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n454899950, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n454899951, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.waterfall for entity n454925301, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n469641200, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n471168193, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n476276692, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.wilderness_hut for entity n476494311, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n477710706, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n480760326, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n530735159, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n530742114, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n530743910, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n530758016, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n531228704, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n531228737, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n531242760, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n535311207, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n537117100, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n650865315, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n658981816, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.cave for entity n795804611, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n913824467, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n913824478, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n913843561, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n913843564, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n914699800, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.cave for entity n923447187, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n953954978, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n954676432, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1041629520, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.ruins for entity n1045687035, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1175453045, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1412836122, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1490464439, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1495173302, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1774677537, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.cave for entity n2078649263, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.waterfall for entity n2492804962, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.waterfall for entity n2492813965, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n2506368453, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n2622035954, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity n3479091995, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.ruins for entity n3607868546, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n3777140322, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n3811621742, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n3923636455, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n4224427657, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n4459679614, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n5793904554, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity n6035232534, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n9796805128, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_pass for entity n10025075531, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n11286976214, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n11483815963, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n12244460043, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n12262806996, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n12277071185, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n12405480039, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_pass for entity n14024328597, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_pass for entity n14050775515, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w25804487, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity w26192938, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w30725037, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity w36538401, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w38431259, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.tower for entity w54601431, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.tower for entity w54611173, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w75133409, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w75318759, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w75465648, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w75472593, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.wilderness_hut for entity w87867019, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w98029976, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w100108452, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.wilderness_hut for entity w121940390, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.wilderness_hut for entity w136778436, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w155583950, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity w166032559, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w173682244, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.castle for entity w196198667, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n3133612029, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_pass for entity n514123004, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1572677722, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w35941913, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w35944076, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w35945051, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n26864565, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n421008446, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n514556972, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1222009983, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1316231728, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1452762704, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1455340359, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_pass for entity n1626728615, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n1827030711, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_pass for entity n2534284082, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n2545662733, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n2808382803, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n3640236069, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w153705216, so the two would be the same page | 1 |
+| REJECTED_DUPLICATE: this URL is already claimed by outdoors.mountain_hut for entity w236047957, so the two would be the same page | 1 |
 | REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n281399025, so the two would be the same page | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/poi/gallery/marianne-boesky-gallery-n10859974155/ is already the poi page for an entity named Marianne Boesky Gallery in Hoboken, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/poi/gallery/kasmin-gallery-n10860703829/ is already the poi page for an entity named Kasmin Gallery in Hoboken, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
@@ -1139,16 +1304,23 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/clark-field-q5127221/ is already the stay page for an entity named Clark Field in Austin, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_SAME_NAME_IN_CITY: /en/stay/near-venue/nelson-field-q6990513/ is already the stay page for an entity named Nelson Field in Austin, and nothing in the data distinguishes the two, so a second page would be headed by the same words about the same place | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-viewpoint is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.foot-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.camp_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.beach_resort is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.running-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.waterfall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-parking is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-nature_reserve is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.camp_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. neighbourhoods.city-where-to-stay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-beach is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-aquarium is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.windmill is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-golf_course is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-camp_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-theatre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
@@ -1302,6 +1474,7 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 | REJECTED_PARENT_REMOVED: this page declares /fr/areas/tarbes/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /es/areas/irun/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /it/areas/vicenza/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
+| REJECTED_PARENT_REMOVED: this page declares /de/outdoors/peaks/naturschutzgebiet-arnspitze-w1028498229/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/brisbane/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /tr/areas/diyarbakir/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
 | REJECTED_PARENT_REMOVED: this page declares /en/areas/adelaide-au/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 1 |
@@ -1636,39 +1809,40 @@ Nothing is hidden. A candidate rejected here is in LIVDAR-1M-REJECTED-CANDIDATES
 
 ## 6. QA at scale
 
-- rows checked: 342,463, distinct URLs 342,463
+- rows checked: 422,825, distinct URLs 422,825
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 236,950 |
-| meta_over_165_chars | 97,049 |
+| title_over_65_chars | 43,202 |
+| meta_over_165_chars | 7,622 |
+| title_under_15_chars | 41 |
 | duplicate_title_exact | 0 |
-| duplicate_title_same_tokens | 27 |
+| duplicate_title_same_tokens | 66 |
 | destination_rows | 16,165 |
 | destination_rows_with_no_locale_specific_fact | 0 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
-| orphan_pages | 68 |
+| orphan_pages | 79 |
 | top_level_pages_whose_parent_is_the_locale_home | 0 |
 | intent_owners_claimed_by_more_than_one_url | 0 |
 | urls_sharing_a_cannibalization_key | 0 |
 | locale_mismatch_between_url_and_row | 0 |
-| entity_names_needing_a_disambiguator_in_the_title | 1,889 |
+| entity_names_needing_a_disambiguator_in_the_title | 6,393 |
 | same_entity_id_under_two_names | 0 |
 | candidates_with_no_usable_source | 0 |
 | kept_rows_with_a_rejecting_localisation_class | 0 |
 | urls_that_collide_once_diacritics_are_folded | 0 |
 | urls_containing_a_latin_character_with_a_diacritic | 0 |
 | duplicate_canonicals | 0 |
-| duplicate_meta_within_a_market | 0 |
-| duplicate_h1_within_a_market | 0 |
+| duplicate_meta_within_a_market | 2 |
+| duplicate_h1_within_a_market | 2 |
 | declared_parent_is_not_a_valid_parent | 0 |
-| declared_parent_is_valid_but_not_a_path_prefix | 34,032 |
+| declared_parent_is_valid_but_not_a_path_prefix | 34,513 |
 | family_locale_cells_failing_the_usefulness_test | 0 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
 
-- title length: min 16, max 210, mean 72.2
+- title length: min 12, max 207, mean 44.3
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -1719,7 +1893,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-342,463 candidates survive the gates. The target is 1,000,000.
+422,825 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

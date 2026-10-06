@@ -1,14 +1,14 @@
 {
  "measuredOn": "2026-10-01",
- "families": 203,
- "pages": 342463,
+ "families": 204,
+ "pages": 422825,
  "verdicts": {
-  "ACCEPTED": 169,
+  "ACCEPTED": 170,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 267401,
-  "ACCEPTED_WITH_AN_UNKNOWN": 75062
+  "ACCEPTED": 347711,
+  "ACCEPTED_WITH_AN_UNKNOWN": 75114
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
@@ -144,7 +144,7 @@
    "every_page_is_low_completeness": false
   },
   "climate.region-when-to-go": {
-   "pages": 197,
+   "pages": 249,
    "markets": [
     "de-DE",
     "en-GB",
@@ -169,15 +169,15 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 197,
+    "unique_fact_count": 249,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 197,
-    "template_ratio": 197.0,
+    "distinct_entity_count": 249,
+    "template_ratio": 249.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "a twelve-month mean temperature and rainfall normal for Alba / Scotland, computed from the NASA POWER daily record for the 187 places inside its polygon and not from one station with a region's name on it. The station count is stated on the page because an average of three is not an average of thirty."
+    "information_gain_reason": "a twelve-month mean temperature and rainfall normal for Absecon Island, computed from the NASA POWER daily record for the 3 places inside its polygon and not from one station with a region's name on it. The station count is stated on the page because an average of three is not an average of thirty."
    },
    "every_page_is_low_completeness": false
   },
@@ -439,7 +439,7 @@
    "every_page_is_low_completeness": false
   },
   "destinations.region-cities": {
-   "pages": 286,
+   "pages": 331,
    "markets": [
     "de-DE",
     "en-GB",
@@ -467,10 +467,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 286,
+    "unique_fact_count": 331,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 286,
-    "template_ratio": 286.0,
+    "distinct_entity_count": 331,
+    "template_ratio": 331.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -480,7 +480,7 @@
    "every_page_is_low_completeness": false
   },
   "destinations.region-what-to-see": {
-   "pages": 1131,
+   "pages": 1225,
    "markets": [
     "de-DE",
     "en-GB",
@@ -508,10 +508,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1131,
+    "unique_fact_count": 1225,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1127,
-    "template_ratio": 1131.0,
+    "distinct_entity_count": 1221,
+    "template_ratio": 1225.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0408,
@@ -882,11 +882,14 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.aqueduct": {
-   "pages": 27,
+   "pages": 40,
    "markets": [
     "de-DE",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -904,10 +907,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 27,
+    "unique_fact_count": 40,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 27,
-    "template_ratio": 27.0,
+    "distinct_entity_count": 40,
+    "template_ratio": 40.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -917,12 +920,19 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.archaeological_site": {
-   "pages": 1887,
+   "pages": 2909,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -940,25 +950,32 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1887,
+    "unique_fact_count": 2909,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1884,
-    "template_ratio": 1887.0,
+    "distinct_entity_count": 2906,
+    "template_ratio": 2909.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Abbaye de Clairlieu is a named archaeological site in FR recorded in OpenStreetMap with 1 measured attributes (access: permissive), inside Meurthe-et-Moselle, a county, 3.0km from Villers-lès-Nancy. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "near_duplicate_token_score": 0.0204,
+    "near_duplicate_worst_language": "tr",
+    "information_gain_reason": "\"Dolmen del Mas Bou-serenys\" is a named archaeological site in ES recorded in OpenStreetMap with 1 measured attributes (access: yes), inside les Gavarres, a forest, 1.8km from Santa Cristina d'Aro. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.beach": {
-   "pages": 57,
+   "pages": 831,
    "markets": [
     "de-DE",
+    "en-AU",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -976,24 +993,29 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 57,
+    "unique_fact_count": 831,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 57,
-    "template_ratio": 57.0,
+    "distinct_entity_count": 831,
+    "template_ratio": 831.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Badestelle Kleiner Müggelsee is a named beach in DE recorded in OpenStreetMap with 1 measured attributes (), inside Müggelspree, a protected area, 5.1km from Schöneiche. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "1st Street Beach is a named beach in US recorded in OpenStreetMap with 1 measured attributes (180m above sea level), inside Douglas Park, a park, 1.7km from Manistee. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.beach-in-region": {
-   "pages": 44,
+   "pages": 189,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1011,23 +1033,26 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 44,
+    "unique_fact_count": 189,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 44,
-    "template_ratio": 44.0,
+    "distinct_entity_count": 189,
+    "template_ratio": 189.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 named beachs inside Île de Porquerolles, a island, each attached by containment within its polygon and named in OpenStreetMap: a list and a count that no single feature page carries"
+    "information_gain_reason": "10 named beachs inside Cornwall National Landscape, a protected area, each attached by containment within its polygon and named in OpenStreetMap: a list and a count that no single feature page carries"
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.beach_resort": {
-   "pages": 4,
+   "pages": 11,
    "markets": [
+    "en-US",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1045,23 +1070,31 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4,
+    "unique_fact_count": 11,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4,
-    "template_ratio": 4.0,
+    "distinct_entity_count": 11,
+    "template_ratio": 11.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Lido di Fido is a named beach resort in IT recorded in OpenStreetMap with 2 measured attributes (operator: Grado Impianti Turistici S.p.A., fee: yes), inside Spiaggia Principale, a beach area, 0.4km from Grado. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Burnaz Plajı is a named beach resort in TR recorded in OpenStreetMap with 1 measured attributes (fee: yes), inside Erzin, a county, 14.6km from Erzin. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.bicycle-trail": {
-   "pages": 3537,
+   "pages": 12195,
    "markets": [
+    "en-AU",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1079,15 +1112,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 3537,
+    "unique_fact_count": 12195,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 3537,
-    "template_ratio": 3537.0,
+    "distinct_entity_count": 12177,
+    "template_ratio": 12195.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.005,
-    "near_duplicate_worst_language": "fr",
-    "information_gain_reason": "(Projet) Voie PLM is a named cycle route in FR measured at 8km from its mapped member ways, with waymarked as a regional cycle route, passing through 2 named geographies. It is evidenced as a real route by waymarked as a regional cycle route. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume fo"
+    "near_duplicate_token_score": 0.0081,
+    "near_duplicate_worst_language": "pl",
+    "information_gain_reason": "\"Doliną Sanu\" Dynów Trasa nr2 is a named cycle route in PL measured at 22km from its mapped member ways, with a published distance of 22, waymarked as a local cycle route, a waymarking symbol recorded in OpenStreetMap. It is evidenced as a real route by waymarked as a local cycle route and maintained by Związek Gmin Turystycznych Pogórza Dynowskiego. The demand for this FAMILY was measured on eigh"
    },
    "every_page_is_low_completeness": false
   },
@@ -1125,12 +1158,18 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.camp_site": {
-   "pages": 119,
+   "pages": 346,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1148,10 +1187,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 119,
+    "unique_fact_count": 346,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 119,
-    "template_ratio": 119.0,
+    "distinct_entity_count": 346,
+    "template_ratio": 346.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1195,9 +1234,12 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.canoe-trail": {
-   "pages": 30,
+   "pages": 99,
    "markets": [
-    "nl-NL"
+    "en-GB",
+    "en-US",
+    "nl-NL",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1215,10 +1257,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 30,
+    "unique_fact_count": 99,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 30,
-    "template_ratio": 30.0,
+    "distinct_entity_count": 99,
+    "template_ratio": 99.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1228,9 +1270,11 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.caravan_site": {
-   "pages": 14,
+   "pages": 26,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
     "fr-FR",
     "it-IT"
    ],
@@ -1250,10 +1294,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 14,
+    "unique_fact_count": 26,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 14,
-    "template_ratio": 14.0,
+    "distinct_entity_count": 26,
+    "template_ratio": 26.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1263,12 +1307,19 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.castle": {
-   "pages": 6616,
+   "pages": 7922,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1286,24 +1337,25 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 6616,
+    "unique_fact_count": 7922,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 6611,
-    "template_ratio": 6616.0,
+    "distinct_entity_count": 7915,
+    "template_ratio": 7922.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
+    "near_duplicate_token_score": 0.0047,
+    "near_duplicate_worst_language": "es",
     "information_gain_reason": "'t Joppe is a named castle in NL recorded in OpenStreetMap with 2 measured attributes (dated to 1650, access: private), inside Gelderland, a region, 5.8km from Bathmen. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.castle-in-region": {
-   "pages": 299,
+   "pages": 313,
    "markets": [
     "de-DE",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1321,10 +1373,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 299,
+    "unique_fact_count": 313,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 299,
-    "template_ratio": 299.0,
+    "distinct_entity_count": 313,
+    "template_ratio": 313.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1334,12 +1386,18 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.cave": {
-   "pages": 476,
+   "pages": 832,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1357,25 +1415,32 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 476,
+    "unique_fact_count": 832,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 476,
-    "template_ratio": 476.0,
+    "distinct_entity_count": 832,
+    "template_ratio": 832.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Abisso della Perciata is a named cave in IT recorded in OpenStreetMap with 2 measured attributes (opening hours: 24/7), inside Riserva Naturale Orientata Monte Pellegrino, a nature reserve, 6.3km from Sferracavallo. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "near_duplicate_token_score": 0.0192,
+    "near_duplicate_worst_language": "en",
+    "information_gain_reason": "A Cova de Eirós is a named cave in ES recorded in OpenStreetMap with 1 measured attributes (), inside Reserva da Biosfera Ribeira Sacra e Serras do Oribio e Courel, a nature reserve, 17.0km from Sarria. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.city_gate": {
-   "pages": 334,
+   "pages": 406,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1393,10 +1458,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 334,
+    "unique_fact_count": 406,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 334,
-    "template_ratio": 334.0,
+    "distinct_entity_count": 406,
+    "template_ratio": 406.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1441,10 +1506,16 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.foot-trail": {
-   "pages": 732,
+   "pages": 1860,
    "markets": [
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1462,10 +1533,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 732,
+    "unique_fact_count": 1860,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 732,
-    "template_ratio": 732.0,
+    "distinct_entity_count": 1860,
+    "template_ratio": 1860.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0063,
@@ -1475,12 +1546,19 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.fort": {
-   "pages": 300,
+   "pages": 500,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1498,22 +1576,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 300,
+    "unique_fact_count": 500,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 300,
-    "template_ratio": 300.0,
+    "distinct_entity_count": 500,
+    "template_ratio": 500.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Bastion Alexander is a named fort in DE recorded in OpenStreetMap with 1 measured attributes (dated to 1673), inside Mainz, a county, 2.1km from Mainz. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Angel Island Immigration Station is a named fort in US recorded in OpenStreetMap with 3 measured attributes (opening hours: We-Fr 10:45-14:30; Sa,Su 11:00-15:30, fee: no), inside Angel Island Immigration Station, a protected area, 2.7km from Tiburon. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.geyser": {
-   "pages": 2,
+   "pages": 53,
    "markets": [
-    "de-DE"
+    "de-DE",
+    "en-US"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1531,23 +1610,64 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2,
+    "unique_fact_count": 53,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2,
-    "template_ratio": 2.0,
+    "distinct_entity_count": 53,
+    "template_ratio": 53.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Geysir Andernach is a named geyser in DE recorded in OpenStreetMap with 3 measured attributes (opening hours: \"09:00 - 17:00 nur mit gebuchter Bootstour\"), inside Namedyer Werth, a nature reserve, 2.8km from Andernach. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Andrews Geyser is a named geyser in US recorded in OpenStreetMap with 2 measured attributes (628m above sea level, dated to 1879), inside McDowell County, a county, 8.1km from Black Mountain. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+   },
+   "every_page_is_low_completeness": false
+  },
+  "outdoors.glacier": {
+   "pages": 124,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 124,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 124,
+    "template_ratio": 124.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Baby Glacier is a named glacier in US recorded in OpenStreetMap with 1 measured attributes (3565m above sea level), inside Bridger Wilderness, a nature reserve, 85.7km from Lander. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.hiking-trail": {
-   "pages": 11973,
+   "pages": 23494,
    "markets": [
+    "en-AU",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1565,23 +1685,27 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 11973,
+    "unique_fact_count": 23494,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 11973,
-    "template_ratio": 11973.0,
+    "distinct_entity_count": 23294,
+    "template_ratio": 23494.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0015,
-    "near_duplicate_worst_language": "fr",
-    "information_gain_reason": "'Langs wad, plas, duin, strand en vuurtoren\" is a named hiking trail in NL measured at 9km from its mapped member ways, with a published distance of 8.8, waymarked as a local route, passing through 6 named geographies. It is evidenced as a real route by waymarked as a local route and a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every "
+    "near_duplicate_token_score": 0.0035,
+    "near_duplicate_worst_language": "es",
+    "information_gain_reason": "\"M\" Trail is a named hiking trail in US measured at 6km from its mapped member ways, with a published distance of 3.8 mi, waymarked as a local route, passing through 3 named geographies. It is evidenced as a real route by waymarked as a local route and maintained by Riverside County Regional Park and Open-Space District. The demand for this FAMILY was measured on eighteen named trails across two l"
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.horse-trail": {
-   "pages": 112,
+   "pages": 376,
    "markets": [
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "nl-NL"
+    "nl-NL",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1599,10 +1723,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 112,
+    "unique_fact_count": 376,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 112,
-    "template_ratio": 112.0,
+    "distinct_entity_count": 376,
+    "template_ratio": 376.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1612,10 +1736,13 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.hot_spring": {
-   "pages": 2,
+   "pages": 16,
    "markets": [
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1633,15 +1760,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2,
+    "unique_fact_count": 16,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2,
-    "template_ratio": 2.0,
+    "distinct_entity_count": 16,
+    "template_ratio": 16.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Bagni di Craveggia is a named hot spring in IT recorded in OpenStreetMap with 1 measured attributes (fee: no), inside Verbano-Cusio-Ossola, a county, 21.0km from Domodossola. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Aquaxana is a named hot spring in ES recorded in OpenStreetMap with 1 measured attributes (), inside Asturias / Asturies, a region, 7.3km from Oviedo. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
@@ -1680,12 +1807,18 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.lighthouse": {
-   "pages": 253,
+   "pages": 710,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1703,25 +1836,31 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 253,
+    "unique_fact_count": 710,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 251,
-    "template_ratio": 253.0,
+    "distinct_entity_count": 708,
+    "template_ratio": 710.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Altenbruch Leuchtturm Dicke Berta is a named lighthouse in DE recorded in OpenStreetMap with 4 measured attributes (dated to 1897, opening hours: Tu 10:00-12:00; Sa 15:00-17:00), inside Landkreis Cuxhaven, a county, 6.0km from Cuxhaven. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Absecon Lighthouse is a named lighthouse in US recorded in OpenStreetMap with 1 measured attributes (52m high), inside Absecon Island, a island, 0.8km from Atlantic City. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.monument": {
-   "pages": 412,
+   "pages": 949,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1739,24 +1878,29 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 412,
+    "unique_fact_count": 949,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 412,
-    "template_ratio": 412.0,
+    "distinct_entity_count": 949,
+    "template_ratio": 949.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Abbaye Notre-Dame-des-Anges (ancienne) is a named monument in FR recorded in OpenStreetMap with 1 measured attributes (), inside Yvelines, a county, 0.7km from Saint-Cyr-l'École. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "1836 Battle Monument is a named monument in US recorded in OpenStreetMap with 2 measured attributes (33m above sea level, access: yes), inside Middlesex County, a county, 1.0km from Concord, Massachusetts. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.mountain_hut": {
-   "pages": 750,
+   "pages": 905,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1774,10 +1918,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 750,
+    "unique_fact_count": 905,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 740,
-    "template_ratio": 750.0,
+    "distinct_entity_count": 890,
+    "template_ratio": 905.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1787,11 +1931,18 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.mountain_pass": {
-   "pages": 1197,
+   "pages": 2643,
    "markets": [
     "de-DE",
+    "en-AU",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pl-PL",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1809,23 +1960,29 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1197,
+    "unique_fact_count": 2643,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1182,
-    "template_ratio": 1197.0,
+    "distinct_entity_count": 2620,
+    "template_ratio": 2643.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Achenpass is a named mountain pass in DE recorded in OpenStreetMap with 1 measured attributes (941m above sea level), inside Landkreis Miesbach, a county, 9.8km from Lenggries. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "5050 Pass is a named mountain pass in US recorded in OpenStreetMap with 1 measured attributes (1539m above sea level), inside Buckhorn Wilderness, a nature reserve, 28.4km from Bangor Trident Base. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.mtb-trail": {
-   "pages": 2121,
+   "pages": 3487,
    "markets": [
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1843,21 +2000,23 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2121,
+    "unique_fact_count": 3487,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2121,
-    "template_ratio": 2121.0,
+    "distinct_entity_count": 3467,
+    "template_ratio": 3487.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0292,
     "near_duplicate_worst_language": "nl",
-    "information_gain_reason": "03 - La Porrissa is a named mountain bike route in FR measured at 10km from its mapped member ways, with a published distance of 8.8, waymarked as a local cycle route. It is evidenced as a real route by waymarked as a local cycle route and maintained by Centre BTT Salines-Bassegoda. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume"
+    "information_gain_reason": "01 - Del Puig Clarà a Camós is a named mountain bike route in ES measured at 19km from its mapped member ways, with a published distance of 19.93, waymarked as a local cycle route, graded 1 on the mtb scale scale. It is evidenced as a real route by waymarked as a local cycle route and maintained by Centre BTT Pla de l'Estany. The demand for this FAMILY was measured on eighteen named trails across "
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.natural_arch": {
-   "pages": 4,
+   "pages": 9,
    "markets": [
+    "en-GB",
+    "en-US",
     "fr-FR",
     "it-IT"
    ],
@@ -1877,25 +2036,31 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4,
+    "unique_fact_count": 9,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4,
-    "template_ratio": 4.0,
+    "distinct_entity_count": 9,
+    "template_ratio": 9.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Le Pont d'Arc is a named natural arch in FR recorded in OpenStreetMap with 1 measured attributes (), inside Ardèche, a county, 18.1km from Bourg-Saint-Andéol. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Arch Rock is a named natural arch in US recorded in OpenStreetMap with 1 measured attributes (25m above sea level), inside Farallon Islands National Wildlife Refuge, a nature reserve, 44.8km from Tamalpais Valley. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.observatory": {
-   "pages": 116,
+   "pages": 229,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1913,25 +2078,34 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 116,
+    "unique_fact_count": 229,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 116,
-    "template_ratio": 116.0,
+    "distinct_entity_count": 229,
+    "template_ratio": 229.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Astronomische Station \"Tycho Brahe\" is a named observatory in DE recorded in OpenStreetMap with 2 measured attributes (6.8m high), inside Rostock, a county, 4.1km from Rostock. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Antigua sede del Observatorio Geofísico de Almería is a named observatory in ES recorded in OpenStreetMap with 1 measured attributes (access: no), inside Almería, a county, 1.6km from Almería. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.peak": {
-   "pages": 20621,
+   "pages": 68642,
    "markets": [
     "de-DE",
+    "en-AU",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "es-MX",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -1949,20 +2123,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 20621,
+    "unique_fact_count": 68642,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 20565,
-    "template_ratio": 20621.0,
+    "distinct_entity_count": 68480,
+    "template_ratio": 68642.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.002,
-    "near_duplicate_worst_language": "it",
-    "information_gain_reason": "2. Pfrontener Berg is a named peak in DE recorded in OpenStreetMap with 2 measured attributes (1352m above sea level, a prominence of 38m), inside Landkreis Ostallgäu, a county, 1.2km from Pfronten. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
+    "near_duplicate_token_score": 0.0038,
+    "near_duplicate_worst_language": "pt",
+    "information_gain_reason": "1839峰 is a named peak in JP recorded in OpenStreetMap with 1 measured attributes (1842m above sea level), inside 日高郡, a county, 38.2km from Taiki. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.peak-in-region": {
-   "pages": 448,
+   "pages": 446,
    "markets": [
     "de-DE"
    ],
@@ -1982,10 +2156,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 448,
+    "unique_fact_count": 446,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 448,
-    "template_ratio": 448.0,
+    "distinct_entity_count": 446,
+    "template_ratio": 446.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -1995,9 +2169,12 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.piste-trail": {
-   "pages": 228,
+   "pages": 286,
    "markets": [
-    "fr-FR"
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2015,25 +2192,32 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 228,
+    "unique_fact_count": 286,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 228,
-    "template_ratio": 228.0,
+    "distinct_entity_count": 285,
+    "template_ratio": 286.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "15 Tour des Roches is a named piste in FR measured at 5km from its mapped member ways, with a published distance of 6, graded easy on the piste difficulty scale, passing through 3 named geographies. It is evidenced as a real route by a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; "
+    "information_gain_reason": "10k Loop is a named piste in US measured at 10km from its mapped member ways, with a published distance of 10, graded intermediate on the piste difficulty scale, passing through 3 named geographies. It is evidenced as a real route by a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; "
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.ruins": {
-   "pages": 725,
+   "pages": 1254,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2051,23 +2235,26 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 725,
+    "unique_fact_count": 1254,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 724,
-    "template_ratio": 725.0,
+    "distinct_entity_count": 1252,
+    "template_ratio": 1254.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Aagaard-Tunnel is a named ruins in DE recorded in OpenStreetMap with 4 measured attributes (3m deep, 20m long, access: no), inside Oberhavel, a county, 1.0km from Glienicke. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "1887 Barn ruins is a named ruins in US recorded in OpenStreetMap with 1 measured attributes (), inside Washington County, a county, 10.3km from Brunswick, Maryland. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.running-trail": {
-   "pages": 171,
+   "pages": 259,
    "markets": [
+    "en-GB",
+    "en-US",
     "fr-FR",
-    "nl-NL"
+    "nl-NL",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2085,22 +2272,24 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 171,
+    "unique_fact_count": 259,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 171,
-    "template_ratio": 171.0,
+    "distinct_entity_count": 259,
+    "template_ratio": 259.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Arboretum Fallières is a named running route in FR measured at 11km from its mapped member ways, with a published distance of 10.7, total ascent 180m, waymarked as a local route. It is evidenced as a real route by waymarked as a local route and maintained by Station de Trail Vosges Saint-Nabord. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of whi"
+    "information_gain_reason": "Alton Water Parkrun is a named running route in GB measured at 5km from its mapped member ways, with a published distance of 5 km, passing through 1 named geographies, within 8km of 1 town. It is evidenced as a real route by a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volum"
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.ski-trail": {
-   "pages": 23,
+   "pages": 45,
    "markets": [
-    "fr-FR"
+    "en-US",
+    "fr-FR",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2118,25 +2307,31 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 23,
+    "unique_fact_count": 45,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 23,
-    "template_ratio": 23.0,
+    "distinct_entity_count": 45,
+    "template_ratio": 45.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Bergein is a named ski route in FR measured at 7km from its mapped member ways, with a published distance of 7.0, total ascent 180m, total descent 180m. It is evidenced as a real route by a published distance. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume for THIS route was not measured and"
+    "information_gain_reason": "22 is a named ski route in PL measured at 7km from its mapped member ways, with waymarked as a local route, a waymarking symbol recorded in OpenStreetMap. It is evidenced as a real route by waymarked as a local route and maintained by cz:krnap. The demand for this FAMILY was measured on eighteen named trails across two languages, every one of which had volume at a difficulty of 0 to 5; the volume "
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.tower": {
-   "pages": 1408,
+   "pages": 1856,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2154,10 +2349,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1408,
+    "unique_fact_count": 1856,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 1408,
-    "template_ratio": 1408.0,
+    "distinct_entity_count": 1854,
+    "template_ratio": 1856.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2167,12 +2362,18 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.viewpoint": {
-   "pages": 230,
+   "pages": 355,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2190,15 +2391,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 230,
+    "unique_fact_count": 355,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 230,
-    "template_ratio": 230.0,
+    "distinct_entity_count": 355,
+    "template_ratio": 355.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Alter Zoll is a named viewpoint in DE recorded in OpenStreetMap with 1 measured attributes (), inside Bonn, a county, 0.9km from Bonn. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Admiration Point is a named viewpoint in US recorded in OpenStreetMap with 1 measured attributes (1412m above sea level), inside Sequoia National Park, a nature reserve, 30.8km from Woodlake, California. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
@@ -2236,11 +2437,19 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.volcano": {
-   "pages": 153,
+   "pages": 450,
    "markets": [
     "de-DE",
+    "en-AU",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "es-MX",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pt-BR",
+    "tr-TR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2258,15 +2467,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 153,
+    "unique_fact_count": 450,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 153,
-    "template_ratio": 153.0,
+    "distinct_entity_count": 450,
+    "template_ratio": 450.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Bausenberg is a named volcano in DE recorded in OpenStreetMap with 1 measured attributes (339.8m above sea level), inside Bausenberg, a nature reserve, 6.4km from Bad Breisig. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "near_duplicate_token_score": 0.2549,
+    "near_duplicate_worst_language": "ja",
+    "information_gain_reason": "Acıgöl-Nevşehir is a named volcano in TR recorded in OpenStreetMap with 1 measured attributes (1689m above sea level), inside Acıgöl, a county, 9.4km from Acıgöl. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
@@ -2305,11 +2514,17 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.waterfall": {
-   "pages": 110,
+   "pages": 416,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2327,25 +2542,29 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 110,
+    "unique_fact_count": 416,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 108,
-    "template_ratio": 110.0,
+    "distinct_entity_count": 414,
+    "template_ratio": 416.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Allerheiligen-Wasserfälle is a named waterfall in DE recorded in OpenStreetMap with 1 measured attributes (), inside Kernzone Nationalpark Schwarzwald, a protected area, 8.1km from Oberkirch. Its notability is evidenced by a Wikipedia article, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Adobe Falls is a named waterfall in US recorded in OpenStreetMap with 1 measured attributes (access: private), inside Adobe Falls Ecological Reserve, a nature reserve, 4.6km from La Mesa. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.watermill": {
-   "pages": 261,
+   "pages": 306,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
     "it-IT",
-    "nl-NL"
+    "nl-NL",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2363,10 +2582,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 261,
+    "unique_fact_count": 306,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 260,
-    "template_ratio": 261.0,
+    "distinct_entity_count": 305,
+    "template_ratio": 306.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -2376,11 +2595,17 @@
    "every_page_is_low_completeness": false
   },
   "outdoors.wilderness_hut": {
-   "pages": 134,
+   "pages": 181,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "it-IT"
+    "it-IT",
+    "ja-JP",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2398,24 +2623,30 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 134,
+    "unique_fact_count": 181,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 131,
-    "template_ratio": 134.0,
+    "distinct_entity_count": 176,
+    "template_ratio": 181.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Aiblinger Hütte is a named wilderness hut in DE recorded in OpenStreetMap with 5 measured attributes (1311m above sea level, operator: DAV Sektion Bad Aibling, opening hours: Sa-Su), inside Landkreis Miesbach, a county, 3.5km from Fischbachau. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
+    "information_gain_reason": "Abrigo Rebouças is a named wilderness hut in BR recorded in OpenStreetMap with 3 measured attributes (operator: PNI, fee: yes, access: customers), inside Parque Nacional do Itatiaia, a national park, 17.1km from Itatiaia. Its notability is evidenced by a Wikidata item, which is a proxy for public interest and NOT a measured search volume."
    },
    "every_page_is_low_completeness": false
   },
   "outdoors.windmill": {
-   "pages": 923,
+   "pages": 979,
    "markets": [
     "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
     "fr-FR",
-    "nl-NL"
+    "ja-JP",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -2433,10 +2664,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 923,
+    "unique_fact_count": 979,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 923,
-    "template_ratio": 923.0,
+    "distinct_entity_count": 979,
+    "template_ratio": 979.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3016,7 +3247,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-cuisine": {
-   "pages": 22166,
+   "pages": 22187,
    "markets": [
     "de-DE",
     "en-AU",
@@ -3047,10 +3278,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 22166,
+    "unique_fact_count": 22187,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 22166,
-    "template_ratio": 238.34,
+    "distinct_entity_count": 22187,
+    "template_ratio": 226.4,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0025,
@@ -5077,7 +5308,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-cuisine": {
-   "pages": 13760,
+   "pages": 13814,
    "markets": [
     "de-DE",
     "en-AU",
@@ -5108,10 +5339,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 13760,
+    "unique_fact_count": 13814,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 13760,
-    "template_ratio": 146.38,
+    "distinct_entity_count": 13814,
+    "template_ratio": 136.77,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5203,8 +5434,8 @@
     "template_ratio": 1130.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0022,
-    "near_duplicate_worst_language": "en",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
     "information_gain_reason": "10 distinct named department_store entities in Adapazarı from OSM, 3 with hours, website or phone: a list a person searching \"department_store in Adapazarı\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
@@ -5247,8 +5478,8 @@
     "template_ratio": 4035.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0042,
-    "near_duplicate_worst_language": "en",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
     "information_gain_reason": "10 distinct named fast_food entities in Aberdeen, Maryland from OSM, 7 with hours, website or phone: a list a person searching \"fast_food in Aberdeen, Maryland\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
@@ -5496,8 +5727,8 @@
     "template_ratio": 268.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0114,
-    "near_duplicate_worst_language": "en",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
     "information_gain_reason": "10 distinct named hospital entities in Houston from OSM, 10 with hours, website or phone: a list a person searching \"hospital in Houston\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
@@ -6186,8 +6417,8 @@
     "template_ratio": 6097.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0026,
-    "near_duplicate_worst_language": "en",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
     "information_gain_reason": "100 distinct named restaurant entities in Canet-en-Roussillon from OSM, 44 with hours, website or phone: a list a person searching \"restaurant in Canet-en-Roussillon\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
@@ -6610,8 +6841,8 @@
     "template_ratio": 269.5,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0108,
-    "near_duplicate_worst_language": "en",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
     "information_gain_reason": "10 distinct named university entities in Belo Horizonte from OSM, 4 with hours, website or phone: a list a person searching \"university in Belo Horizonte\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
