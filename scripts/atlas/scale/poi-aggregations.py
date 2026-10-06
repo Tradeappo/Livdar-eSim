@@ -24,6 +24,7 @@ records, which does not fit in memory as dicts, so POI are read twice from disk 
 only counters are held - never the corpus.
 """
 import gzip, json, glob, collections, os, sys, math, hashlib, re, time
+import unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import entity_identity                                      # noqa: E402
 
@@ -225,6 +226,19 @@ CUISINE_OK = set()          # filled by a counting pass before any row is emitte
 # of restaurant. It recognised 46 of 96 and refused pizza, sushi, ramen, kebab, bakery and
 # steak house. An authority that refuses pizza is the wrong authority; that is recorded in the
 # measurement file rather than quietly dropped.
+def _canon_cuisine(t):
+    """The one spelling both sides of the demand lookup are compared in.
+
+    Diacritics fold, because OSM carries acai as the Portuguese acai with two accents and the
+    demand table carries the folded spelling. Leaving them unfolded refused a token measured at
+    16,000 a month on exactly the mismatch the hyphen had already caused once.
+    """
+    t = str(t).strip().lower().replace(' ', '_').replace('-', '_')
+    d = unicodedata.normalize('NFD', t)
+    return unicodedata.normalize(
+        'NFC', ''.join(c for c in d if unicodedata.category(c) != 'Mn'))
+
+
 def _category_demand(root=ROOT):
     try:
         d = json.load(open(root + 'data/atlas/measurements/category-demand-2026-10-06.json',
@@ -233,8 +247,11 @@ def _category_demand(root=ROOT):
         return {}, 0
     out = dict(d.get('admitted_with_the_restaurant_probe') or {})
     out.update(d.get('admitted_with_the_local_intent_probe') or {})
-    # The table is written with hyphens, the OSM token arrives with underscores.
-    return {k.replace('-', '_'): v for k, v in out.items()}, d.get('bar', 200)
+    # ONE canonical form on both sides. The first version underscored only the table, and the
+    # OSM token keeps its hyphen - cuisines() replaces spaces and nothing else - so tex-mex was
+    # refused by a gate that had measured it at 1,000. A lookup that normalises one side of a
+    # comparison is a lookup that fails silently.
+    return {_canon_cuisine(k): v for k, v in out.items()}, d.get('bar', 200)
 
 
 CATEGORY_DEMAND, CATEGORY_BAR = _category_demand()
@@ -252,7 +269,7 @@ def cuisines(v):
         t = CUISINE_SYNONYM.get(t, t)
         if not t or t in VAGUE_CUISINE or len(t) < 3 or len(t) > 24:
             continue
-        if CATEGORY_DEMAND and t not in CATEGORY_DEMAND:
+        if CATEGORY_DEMAND and _canon_cuisine(t) not in CATEGORY_DEMAND:
             # Not junk by my judgement, UNMEASURED. It can be admitted by measuring it.
             _cuisine_rejects['cuisine_token_has_no_measured_demand_' + t] += 1
             continue

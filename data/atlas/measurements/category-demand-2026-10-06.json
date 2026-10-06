@@ -13,28 +13,116 @@
  },
  "bar": 200,
  "admitted_with_the_restaurant_probe": {
-  "mexican": 90000, "chinese": 42000, "italian": 37000, "indian": 22000, "thai": 22000,
-  "japanese": 19000, "korean": 17000, "american": 12000, "seafood": 12000, "pizza": 10000,
-  "asian": 10000, "greek": 9000, "sushi": 8500, "vietnamese": 8200, "mediterranean": 7100,
-  "french": 5600, "chicken": 5400, "filipino": 5000, "peruvian": 4900, "breakfast": 4900,
-  "brazilian": 4700, "german": 4600, "ethiopian": 4600, "ramen": 3700, "turkish": 3600,
-  "latin-american": 3400, "african": 3400, "spanish": 3200, "barbecue": 2400, "steak": 2300,
-  "caribbean": 2200, "fish": 2200, "persian": 1700, "middle-eastern": 1300, "lebanese": 1200,
-  "tapas": 1100, "irish": 1100, "burger": 1000, "hawaiian": 1000, "tex-mex": 1000,
-  "pasta": 1000, "wings": 1000, "pancake": 900, "portuguese": 800, "polish": 800,
-  "fish-and-chips": 800, "hot-dog": 800, "argentinian": 700, "salad": 700, "moroccan": 700,
-  "oriental": 700, "poke": 600, "indonesian": 450, "grill": 450, "dessert": 450,
-  "noodle": 400, "malaysian": 400, "curry": 400, "acai": 350, "tacos": 350, "soup": 350,
-  "ice-cream": 300, "western": 300, "sandwich": 300, "bavarian": 250, "bagel": 250,
-  "kebab": 250, "diner": 250, "nepalese": 200, "steak-house": 200
+  "mexican": 90000,
+  "chinese": 42000,
+  "italian": 37000,
+  "indian": 22000,
+  "thai": 22000,
+  "japanese": 19000,
+  "korean": 17000,
+  "american": 12000,
+  "seafood": 12000,
+  "pizza": 10000,
+  "asian": 10000,
+  "greek": 9000,
+  "sushi": 8500,
+  "vietnamese": 8200,
+  "mediterranean": 7100,
+  "french": 5600,
+  "chicken": 5400,
+  "filipino": 5000,
+  "peruvian": 4900,
+  "breakfast": 4900,
+  "brazilian": 4700,
+  "german": 4600,
+  "ethiopian": 4600,
+  "ramen": 3700,
+  "turkish": 3600,
+  "latin-american": 3400,
+  "african": 3400,
+  "spanish": 3200,
+  "barbecue": 2400,
+  "steak": 2300,
+  "caribbean": 2200,
+  "fish": 2200,
+  "persian": 1700,
+  "middle-eastern": 1300,
+  "lebanese": 1200,
+  "tapas": 1100,
+  "irish": 1100,
+  "burger": 1000,
+  "hawaiian": 1000,
+  "tex-mex": 1000,
+  "pasta": 1000,
+  "wings": 1000,
+  "pancake": 900,
+  "portuguese": 800,
+  "polish": 800,
+  "fish-and-chips": 800,
+  "hot-dog": 800,
+  "argentinian": 700,
+  "salad": 700,
+  "moroccan": 700,
+  "oriental": 700,
+  "poke": 600,
+  "indonesian": 450,
+  "grill": 450,
+  "dessert": 450,
+  "noodle": 400,
+  "malaysian": 400,
+  "curry": 400,
+  "acai": 350,
+  "tacos": 350,
+  "soup": 350,
+  "ice-cream": 300,
+  "western": 300,
+  "sandwich": 300,
+  "bavarian": 250,
+  "bagel": 250,
+  "kebab": 250,
+  "diner": 250,
+  "nepalese": 200,
+  "steak-house": 200
  },
  "admitted_with_the_local_intent_probe": {
-  "coffee-shop": 498000, "bakery": 465000, "deli": 134000, "smoothie": 90000, "cake": 57000,
-  "bubble-tea": 45000, "british": 25000, "tea": 21000, "juice": 20000, "fries": 9600,
-  "arab": 7100, "taiwanese": 7000, "donut": 7200, "crepe": 6600, "european": 6300,
-  "udon": 5100, "pastry": 5100, "balkan": 2600, "pretzel": 2600, "austrian": 2200,
-  "churro": 2100, "sausage": 1400, "soba": 900, "gyoza": 600, "beef-bowl": 250,
-  "piadina": 200
+  "coffee-shop": 498000,
+  "bakery": 465000,
+  "deli": 134000,
+  "smoothie": 90000,
+  "cake": 57000,
+  "bubble-tea": 45000,
+  "british": 25000,
+  "tea": 21000,
+  "juice": 20000,
+  "fries": 9600,
+  "arab": 7100,
+  "taiwanese": 7000,
+  "donut": 7200,
+  "crepe": 6600,
+  "european": 6300,
+  "udon": 5100,
+  "pastry": 5100,
+  "balkan": 2600,
+  "pretzel": 2600,
+  "austrian": 2200,
+  "churro": 2100,
+  "sausage": 1400,
+  "soba": 900,
+  "gyoza": 600,
+  "beef-bowl": 250,
+  "piadina": 200,
+  "fast_food": 1600000,
+  "fried_chicken": 122000,
+  "falafel": 62000,
+  "waffle": 39000,
+  "acai": 16000,
+  "french_tacos": 4700,
+  "brasserie": 3800,
+  "savory_pancakes": 2000,
+  "buschenschank": 800,
+  "heuriger": 800,
+  "pakistani": 700,
+  "fried_food": 800
  },
  "the_thinnest_admitted": "piadina 200 and beef-bowl 250 clear the bar by a hair. They are kept because the bar is the bar, and recorded here so that a later pass can raise it on evidence rather than on mood.",
  "duplicates_the_measurement_exposed": {
@@ -42,5 +130,56 @@
   "coffee_and_coffee_shop": "coffee shop near me reads 498,000 and coffee reads nothing of its own. One category.",
   "italian_pizza": "a compound of two tokens that each already have a page. It is a tagging artefact, not a third category."
  },
- "what_this_does_not_measure": "demand for a token in a PLACE. austrian food reads 2,200 nationally and says nothing about whether austrian restaurants in Ulm is a page worth having. That is what the per-place supply floor is for, and it stays."
+ "what_this_does_not_measure": "demand for a token in a PLACE. austrian food reads 2,200 nationally and says nothing about whether austrian restaurants in Ulm is a page worth having. That is what the per-place supply floor is for, and it stays.",
+ "a_second_pass_on_2026-10-06_after_the_gate_refused_legitimate_tokens": {
+  "what_went_wrong": "the first table was built from the tokens that produced PAGES in the previous manifest, 96 of them. The CORPUS holds 110 tokens at or above the 400 floor, so fourteen legitimate ones were refused by a gate meant to refuse unmeasured junk. Worse, tex-mex was refused despite being measured at 1,000, because the table is written with hyphens and the OSM token keeps its hyphen while the lookup key had been underscored. A gate that refuses a token it measured is not a gate, it is a bug.",
+  "and_the_measurement_overturned_the_premise_a_second_time": "the brief names snack, waffle and fried_chicken as examples of what must not become a family. Measured: waffeln reads 39,000 in German and waffle near me 2,500 in en-US; fried chicken near me reads 122,000. snack is the one that was right to refuse and it already was, by name, in VAGUE_CUISINE. So again the intuition about items against categories does not survive contact with the numbers.",
+  "the_twelve_measured_in_the_second_pass": {
+   "fast_food": {
+    "en-US fast food near me": 1600000
+   },
+   "fried_chicken": {
+    "en-US fried chicken near me": 122000,
+    "de fried chicken": 3500
+   },
+   "falafel": {
+    "de falafel": 62000,
+    "en-US falafel near me": 17000
+   },
+   "waffle": {
+    "de waffeln": 39000,
+    "en-US waffle near me": 2500
+   },
+   "acai": {
+    "en-US acai near me": 16000,
+    "de açaí": 600
+   },
+   "french_tacos": {
+    "en-US french tacos": 4700,
+    "de französische tacos": 250
+   },
+   "brasserie": {
+    "de brasserie": 3800
+   },
+   "savory_pancakes": {
+    "en-US savory pancakes": 2000
+   },
+   "buschenschank": {
+    "de buschenschank": 800
+   },
+   "heuriger": {
+    "de heuriger wien": 800,
+    "de heuriger": 400
+   },
+   "pakistani": {
+    "en-US pakistani restaurant": 700
+   },
+   "fried_food": {
+    "en-US fried food near me": 800
+   }
+  },
+  "every_one_clears_the_bar": true,
+  "so_what_does_the_gate_actually_do_now": "it refuses a token nobody has measured, which is its only honest job. On the current corpus that is the 6,270-odd tokens BELOW the 400 floor, which the corpus floor already refused, so the gate changes nothing today and exists to catch the next token OSM invents. Claiming it cut junk would be false.",
+  "the_quality_question_that_demand_does_NOT_answer": "fast food near me at 1.6 million is a MAP intent, not a list-page intent, and the same argument that refused the city climate family on 2026-10-06 applies here: a page is the wrong shape for a query that wants a pin on a map. That distinction cannot be settled from volume. It needs a SERP sample per token and it is NOT settled here. Where it matters least is the culturally specific venue kinds - heuriger at 400, buschenschank at 800 - where a list of the Viennese wine taverns in a district is exactly what a reader wants and no map pin gives them."
+ }
 }
