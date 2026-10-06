@@ -61,6 +61,8 @@ print(f'manifest rows: {len(rows):,}', file=sys.stderr)
 # Must run before any title is simulated, because the label depends on it.
 page_copy.AMBIGUOUS_FAM_LABEL = AMBIGUOUS_FAM_LABEL = page_copy.compute_ambiguous_labels(rows)
 page_copy.SHARED_SUBJECT = page_copy.compute_shared_subjects(rows)
+# AFTER the two above, because it renders subjects and subject() reads them both.
+page_copy.SHARED_ENTITY_SUBJECT = page_copy.compute_shared_entity_subjects(rows)
 print(f'subjects claimed by more than one family in a market, so the heading carries the '
       f'angle too: {len(page_copy.SHARED_SUBJECT):,}', file=sys.stderr)
 if AMBIGUOUS_FAM_LABEL:

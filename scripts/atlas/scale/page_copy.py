@@ -89,6 +89,32 @@ def compute_shared_subjects(all_rows):
     return {k for k, v in fams.items() if len(v) > 1}
 
 
+# The ENTITY descriptions whose subject is claimed by more than one family in one market, keyed
+# on the rendered subject rather than on a slug. SHARED_SUBJECT above keys on the entity name
+# and misses these: "Hoof Trail" in the horse-trail family and "Hoof Trail, Castle Ward" in the
+# hiking-trail family slug to different keys and still render the same subject once the locator
+# is appended. Filled by the same caller that fills SHARED_SUBJECT, and empty by default so a
+# caller that does not fill it simply gets no class.
+SHARED_ENTITY_SUBJECT = set()
+
+
+def compute_shared_entity_subjects(all_rows):
+    """{(market, rendered subject)} for ENTITY rows whose subject two families both claim.
+
+    Must run AFTER SHARED_SUBJECT and AMBIGUOUS_FAM_LABEL are set, because subject() reads them.
+    Exists so the class is added to a description only where it is doing work. Adding it
+    everywhere cost 12,340 metas over 165 characters to fix 2 duplicates, which is the wrong
+    trade; this way the cost is paid by the colliding pages alone.
+    """
+    import collections as _c
+    fams = _c.defaultdict(set)
+    for r in all_rows:
+        if r.get('page_type') != 'ENTITY':
+            continue
+        fams[(r.get('market', ''), subject(r))].add(r.get('family'))
+    return {k for k, v in fams.items() if len(v) > 1}
+
+
 def compute_ambiguous_labels(all_rows):
     seg = collections.defaultdict(set)
     for r in all_rows:
@@ -332,7 +358,18 @@ def meta_for(r):
         # the page footer both find it. Same rule as the counted fact above: a provenance
         # parenthetical does not belong in a snippet.
         src = undash((r.get('data_source') or 'open data').split(' (')[0].strip())
-        return (f'{subj}: location, hours where published, and how to get there, '
+        # The CLASS goes in the description too, for the same reason it goes in the title. When
+        # the licence string came out of here it took the only thing distinguishing two
+        # same-named features with it, and the 2026-10-06 QA found the result: Hoof Trail in
+        # Castle Ward got one description as a hiking trail and another as a horse trail, and
+        # Sierra Alta in Teruel got one as a trail and one as a PEAK. The titles stayed distinct
+        # because they kept the class; the descriptions collided because I changed one renderer
+        # and not the other. Two pages about two things need two descriptions.
+        _cls = ((r.get('market', ''), subj) in SHARED_ENTITY_SUBJECT
+                and (r['family'].split('.', 1)[-1]).replace('_', ' ').replace('-', ' ')
+                or '')
+        _what = f'{subj}, a {_cls}' if _cls else subj
+        return (f'{_what}: location, hours where published, and how to get there, '
                 f'from {src}.')
     if fact:
         # The provenance parenthetical goes, and what is left is fitted to a budget computed
