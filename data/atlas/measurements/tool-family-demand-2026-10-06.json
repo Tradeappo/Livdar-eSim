@@ -1,0 +1,50 @@
+{
+ "measured_on": "2026-10-06",
+ "provider": "Ahrefs Keywords Explorer, country=de and country=gb",
+ "units_spent": 660,
+ "the_instruction": "keep searching all tool opportunities - salary, housing, tax, travel, move, health, education - and only build where there is real demand, a real formula or dataset, and meaningful utility",
+ "the_finding_and_it_runs_against_the_page_target": "the tool families are the exact inverse of every content family measured today. Their heads are the largest numbers in this entire project and they have NO TAIL AT ALL, so they are worth more commercially than anything else measured and they contribute almost nothing to a million pages.",
+ "the_heads": {
+  "de-DE": {
+   "brutto netto rechner": {"volume": 1260000, "kd": 12, "cpc_cents": 2},
+   "gehaltsrechner": {"volume": 89000, "kd": 47, "cpc_cents": 2},
+   "baufinanzierung rechner": {"volume": 4500, "kd": 58, "cpc_cents": 90},
+   "mietrechner": {"volume": 500, "kd": 0, "cpc_cents": 80},
+   "kaufnebenkosten rechner": {"volume": 450, "kd": 5, "cpc_cents": 20}
+  },
+  "en-GB": {
+   "mortgage calculator": {"volume": 380000, "kd": 7, "cpc_cents": 70},
+   "stamp duty calculator": {"volume": 232000, "kd": 55, "cpc_cents": 7},
+   "take home pay calculator": {"volume": 217000, "kd": 62, "cpc_cents": 50},
+   "rent affordability calculator": {"volume": 2100, "kd": 4, "cpc_cents": 40}
+  }
+ },
+ "the_four_that_are_both_large_and_open": [
+  "brutto netto rechner  1,260,000 a month at keyword difficulty TWELVE",
+  "mortgage calculator     380,000 a month at difficulty SEVEN",
+  "rent affordability calculator 2,100 at difficulty 4",
+  "mietrechner 500 and kaufnebenkosten rechner 450, both at difficulty 0 and 5 with CPC 80 and 20 cents"
+ ],
+ "and_there_is_no_city_tail": {
+  "de-DE": {"lebenshaltungskosten münchen": 150, "lebenshaltungskosten berlin": 100,
+            "lebenshaltungskosten hamburg": 90, "lebenshaltungskosten köln": 30,
+            "lebenshaltungskosten leipzig": 20, "lebenshaltungskosten dresden": 10,
+            "lebenshaltungskosten freiburg": 10, "gehalt münchen": 60,
+            "durchschnittsmiete münchen": 250, "durchschnittsmiete leipzig": 60},
+  "en-GB": {"cost of living in london": 400, "cost of living in manchester": 100,
+            "cost of living in bristol": 90, "average rent in manchester": 150,
+            "average rent in leeds": 90, "cost of living in edinburgh": 60,
+            "cost of living in cardiff": 40, "cost of living in leeds": 30,
+            "cost of living in york": 20, "cost of living in bath": 20,
+            "salary needed to live in london": 20},
+  "reading": "the brief lists salary needed for city and salary vs rent as tool shapes. Measured, the city-scoped form reads 10 to 400 and the one that sounded most promising, salary needed to live in london, reads TWENTY. Nobody searches a per-city calculator; they search a calculator and then type their own city into it."
+ },
+ "so_the_two_objectives_have_to_be_scored_separately": "a tool family is roughly twenty pages per market, so fourteen markets is a few hundred pages against a target of a million. brutto netto rechner alone carries more measured monthly demand - 1.26 million - than the entire 422,825-row inventory does. Reporting these in one number would hide both facts, so this file does not add them to the candidate count and the final report will not either.",
+ "what_this_licenses": [
+  "BUILD the national tool heads where the formula is real and the data is sourced: a gross-to-net calculator needs the current tax bands, a mortgage calculator needs nothing but arithmetic, a rent affordability calculator needs a local rent figure which DVF and the rent index already supply for some markets.",
+  "DO NOT build a per-city variant of a calculator. The measurement says the demand is not there, and a thousand city-scoped calculator pages differing only in a prefilled number is the template-only duplication this project rejects by name.",
+  "The city-level cost-of-living and rent figures stay where they already are: facts on city pages that exist for another reason, and inputs to the tools."
+ ],
+ "what_is_still_unmeasured_and_why_it_was_not_measured_today": "the brief also lists trip budget, transport cost, relocation budget, residency cost, health insurance cost, student budget, childcare cost and school cost. Each needs a sourced dataset before its demand is worth measuring, because a tool with no data behind it is a form that invents an answer. The order of work is source first, demand second, and that order was got wrong once already in this project with the England heritage register, which was fetched before it was measured and then measured at zero.",
+ "licence_and_provenance": "Ahrefs Keywords Explorer via the API on 2026-10-06, countries de and gb. Volumes are Ahrefs monthly estimates, CPC in USD cents. Difficulty is the Ahrefs KD score, used here only as a reason to sample a SERP and never as a verdict on its own."
+}
