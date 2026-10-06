@@ -391,6 +391,17 @@ print(f'\nfeatures given a measured discriminator in the name: {_disamb:,}', fil
 print(f'features dropped because nothing in the data separated them: {len(_dropped):,}',
       file=sys.stderr)
 
+def _nattr_of(r):
+    """How many measured attributes a built row carries.
+
+    The row records the count in its uniqueness_reason sentence, but parsing prose to recover a
+    number we already had is how a reader and a gate come to disagree. 'enriched' is that count
+    plus one when the feature carries local names, so the attribute count is enriched minus
+    that extra, and the row carries local_names so the extra is known rather than guessed.
+    """
+    return (r.get('enriched') or 0) - (1 if r.get('local_names') else 0)
+
+
 # ---- fan out to the markets the destination evidence allows ------------------------------------
 # Done once over the finished rows rather than inside the emit loop, for the same reason the POI
 # aggregation does it that way: one place to get right instead of several. A copy is made only
@@ -421,9 +432,27 @@ for r in rows:
         if not lf:
             _fs['no_locale_specific_fact_could_be_computed'] += 1
             continue
+        # ---- the thin-page gate has to be re-asked IN THE COPY'S LANGUAGE -------------
+        # The base row may have earned its page on a German Wikipedia article. A Japanese copy
+        # of it inherits that justification by dict(r) and both halves of that are wrong: the
+        # basis sentence would name German on a Japanese page, and if the only Japanese
+        # evidence is a name:ja tag then the copy rests on one measured attribute plus a name,
+        # which is thinner than the gate requires of the base row. A rule applied in one
+        # language and inherited in another is not the rule.
+        #
+        # marks_for distinguishes the two kinds of mark by its own wording: a sitelink or an
+        # OSM wikipedia tag reads "its own xx Wikipedia article", a name tag reads
+        # "a name:xx tag". So an ARTICLE in the copy's language satisfies the gate and a NAME
+        # does not.
+        if _nattr_of(r) < 2 and 'Wikipedia article' not in mark:
+            _fs['thin_in_the_copy_language_one_attribute_and_only_a_name_tag'] += 1
+            continue
         r2 = dict(r)
         r2['market'], r2['language'] = mkt, lang
         r2['locale_facts'] = lf
+        r2['individual_page_basis'] = (
+            r.get('individual_page_basis') if _nattr_of(r) >= 2
+            else f'one measured attribute and {mark}, in the language of this page')
         if r.get('url') and r.get('language'):
             r2['url'] = '/' + lang + r['url'][len(r['language']) + 1:]
         r2['market_reason'] = (f'{iso} carries measured {lang} demand ({ev[0]:,} connectivity, '
