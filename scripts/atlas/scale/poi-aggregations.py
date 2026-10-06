@@ -203,12 +203,58 @@ MIN_CUISINE_CORPUS = 400
 CUISINE_OK = set()          # filled by a counting pass before any row is emitted
 
 
+# ---- the quality dimension on category admission ----------------------------------------------
+# A corpus count admits a token because OSM happens to carry it five times, which is a fact
+# about taggers and not about readers. So admission now asks a second question: has anyone
+# measured that this category is searched at all?
+#
+# category-demand-2026-10-06.json holds the answer for every token currently producing a page,
+# measured in en-US with two probes because one template under-measures a venue kind:
+# "<token> restaurant" reads the cuisine intent and "<token> near me" or "<token> food" reads
+# the venue-kind intent. A token is admitted at 200 a month on either.
+#
+# The measurement overturned the premise it was built to confirm. The tokens that looked like
+# items rather than kitchens carry the largest local intent in the set: coffee shop near me
+# 498,000, bakery near me 465,000, deli near me 134,000, cake near me 57,000, british food
+# 25,000. So no token was cut for being an item. What the table does is make admission
+# EVIDENCE-BASED: a token OSM throws up that is not in the table - waffle and fried_chicken
+# among them - is refused until it is measured, where the old floor would have published it on
+# a corpus count of five.
+#
+# Wikidata was tried first as the authority, as instance or subclass of cuisine and as subclass
+# of restaurant. It recognised 46 of 96 and refused pizza, sushi, ramen, kebab, bakery and
+# steak house. An authority that refuses pizza is the wrong authority; that is recorded in the
+# measurement file rather than quietly dropped.
+def _category_demand(root=ROOT):
+    try:
+        d = json.load(open(root + 'data/atlas/measurements/category-demand-2026-10-06.json',
+                           encoding='utf-8'))
+    except (FileNotFoundError, ValueError):
+        return {}, 0
+    out = dict(d.get('admitted_with_the_restaurant_probe') or {})
+    out.update(d.get('admitted_with_the_local_intent_probe') or {})
+    # The table is written with hyphens, the OSM token arrives with underscores.
+    return {k.replace('-', '_'): v for k, v in out.items()}, d.get('bar', 200)
+
+
+CATEGORY_DEMAND, CATEGORY_BAR = _category_demand()
+# Two spellings of one category, and one compound of two categories that each already have a
+# page. OSM supplies all of them; a reader should not get three URLs for one answer.
+CUISINE_SYNONYM = {'noodles': 'noodle', 'coffee': 'coffee_shop', 'italian_pizza': 'italian'}
+_cuisine_rejects = collections.Counter()
+
+
 def cuisines(v):
-    """Split an OSM cuisine value into usable tokens."""
+    """Split an OSM cuisine value into usable tokens, measured ones only."""
     out = []
     for tok in str(v).replace(',', ';').split(';'):
         t = tok.strip().lower().replace(' ', '_')
+        t = CUISINE_SYNONYM.get(t, t)
         if not t or t in VAGUE_CUISINE or len(t) < 3 or len(t) > 24:
+            continue
+        if CATEGORY_DEMAND and t not in CATEGORY_DEMAND:
+            # Not junk by my judgement, UNMEASURED. It can be admitted by measuring it.
+            _cuisine_rejects['cuisine_token_has_no_measured_demand_' + t] += 1
             continue
         out.append(t)
     return out[:3]
@@ -1431,6 +1477,13 @@ print('  by shape:', dict(collections.Counter(r['shape'] for r in rows)), file=s
 print('  by market:', dict(collections.Counter(r['market'] for r in rows).most_common()), file=sys.stderr)
 print('\nrejections:', file=sys.stderr)
 for k, v in rejects.most_common(): print(f'    {k:42} {v:>10,}', file=sys.stderr)
+if _cuisine_rejects:
+    print(f'  cuisine tokens refused for having no measured demand: '
+          f'{len(_cuisine_rejects):,} distinct, {sum(_cuisine_rejects.values()):,} venue '
+          f'readings', file=sys.stderr)
+    for k, v in _cuisine_rejects.most_common(20):
+        print(f'    {k:60} {v:>8,}', file=sys.stderr)
+    rejects.update(_cuisine_rejects)
 
 os.makedirs(ROOT + 'data/atlas/sources/osm-poi/', exist_ok=True)
 tmp = ROOT + 'data/atlas/sources/osm-poi/_aggregations.jsonl.gz.tmp'

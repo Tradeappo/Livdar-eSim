@@ -206,6 +206,42 @@ if not os.path.exists(ASSIGN):
     print(f'no parent assignment at {ASSIGN}; run poi-parent-assign.py first', file=sys.stderr)
     sys.exit(2)
 
+# ---- the members, with their measured attribute --------------------------------------------
+# outdoor-feature-candidates.py now refuses a page to any feature carrying one measured
+# attribute and no Wikipedia article in the page language, and writes it here instead. Those
+# features are the substance of this family: a list of forty named peaks with their elevations
+# is a page a reader uses, where forty pages each holding one elevation are a template. So the
+# row carries real MEMBERS - name and first measured fact - and not eight example names.
+AGG_ONLY = ROOT + 'data/atlas/sources/osm-outdoor/_aggregate-only-features.jsonl.gz'
+members = collections.defaultdict(list)
+_mn = 0
+if os.path.exists(AGG_ONLY):
+    with gzip.open(AGG_ONLY, 'rt', encoding='utf-8') as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                a = json.loads(line)
+            except Exception:
+                continue
+            ft = None
+            for _ft, _cs in FEATURE_CLASSES.items():
+                if a.get('cls') in _cs:
+                    ft = _ft
+                    break
+            if not ft or not a.get('entity_name'):
+                continue
+            k = ((a['country'], a.get('parent_id')), ft)
+            if len(members[k]) < 40:
+                f = (a.get('facts') or [''])[0]
+                members[k].append({'name': a['entity_name'], 'fact': f})
+                _mn += 1
+    print(f'aggregate-only members loaded: {_mn:,} over {len(members):,} lists', file=sys.stderr)
+else:
+    print('no aggregate-only feature file; run outdoor-feature-candidates.py first',
+          file=sys.stderr)
+
 # feature counts per (parent, feature type), and the named examples that prove the list
 per = collections.defaultdict(lambda: collections.Counter())
 examples = collections.defaultdict(list)
@@ -270,6 +306,8 @@ for key, counts in sorted(per.items()):
             # generated: this is the same rule the localisation gate applies.
             rejects[f'demand_not_measured_in_this_market_{ft}'] += 1; continue
         ex = examples.get((key, ft)) or []
+        mem = members.get((key, ft)) or []
+        with_a_fact = [m for m in mem if m['fact']]
         rows.append({
             'shape': 'outdoor_region_feature', 'country': country, 'market': market,
             'language': lang, 'parent_id': pid, 'parent_name': p['name'],
@@ -279,10 +317,18 @@ for key, counts in sorted(per.items()):
             'url': f"/{lang}/outdoors/{slug(ft)}s/{slug(p['name'])}-{slug(pid)}/",
             'attribution': 'containment',
             'examples': ex,
+            # The table this page exists to show. Each member is a feature that was refused a
+            # page of its own for being thin; together with their measured attribute they are
+            # the reason a reader opens this one.
+            'members': mem,
+            'members_carrying_a_measured_fact': len(with_a_fact),
             'uniqueness_reason': (
                 f"{n} named {ft}s inside {p['name']}, a {PARENT_OK[p['cls']]}, each attached "
                 f"by containment within its polygon and named in OpenStreetMap: a list and a "
-                f"count that no single feature page carries"),
+                f"count that no single feature page carries"
+                + (f", and {len(with_a_fact)} of them are listed here with their measured "
+                   f"attribute because each was refused a page of its own for carrying only "
+                   f"one" if with_a_fact else '')),
             'count_answer': (
                 f"There are {n} named {ft}s mapped inside {p['name']} as of the OpenStreetMap "
                 f"extract this was built from"),

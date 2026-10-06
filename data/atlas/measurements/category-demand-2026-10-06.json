@@ -1,0 +1,46 @@
+{
+ "measured_on": "2026-10-06",
+ "provider": "Ahrefs Keywords Explorer, country=us",
+ "units_spent": 1133,
+ "the_question": "the cuisine and category corpus floor admits a token on COUNT alone. Does every token it admits name a category a person actually searches for, or does a numeric floor let an item through dressed as a kitchen?",
+ "why_it_was_measured_rather_than_argued": "the first attempt at this was a list of tokens I judged to be items rather than categories - waffle, fried chicken, sandwich, juice, cake, pretzel. Wikidata was then asked instead, as instance or subclass of cuisine (Q1778821) and as subclass of restaurant (Q11707): it recognised 46 of 96 and refused pizza, sushi, ramen, kebab, bakery and steak house, which are plainly categories. An authority that refuses pizza is the wrong authority, and a list I write from taste is not evidence, so the tokens were measured.",
+ "method": "two probes per token in en-US, because one template under-measures a venue kind: '<token> restaurant' reads the cuisine-style intent, and '<token> near me', '<token> food' or '<token> shop' read the venue-kind intent. A token is ADMITTED when any probe reads 200 a month or more.",
+ "the_finding_is_the_opposite_of_the_intuition": "all 96 tokens currently producing pages clear the bar. The ones that looked like items carry the largest local intent in the whole set: coffee shop near me 498,000, bakery near me 465,000, deli near me 134,000, smoothie near me 90,000, cake near me 57,000, bubble tea near me 45,000, british food 25,000, tea near me 21,000, juice near me 20,000. So the corpus floor is not admitting junk tokens, and the quality dimension this measurement supports is a different one: nothing may be admitted that has NOT been measured.",
+ "what_this_changes": "admission is now by presence in this table rather than by corpus count alone. A token OSM throws up that is not here - waffle and fried_chicken among them - is refused until it is measured. The floor stops being a number about supply and becomes a question about demand, which is the quality dimension the brief asks for.",
+ "licence_and_provenance": {
+  "keyword_metrics": "Ahrefs, active Advanced subscription. Estimates, not Google data, held as gate evidence and never rendered as a fact on a page.",
+  "taxonomy_check_that_was_rejected": "Wikidata rdfs:label over Q1778821 and Q11707, CC0 1.0, fetched 2026-10-06. Kept in the record because its refusal of pizza is why this measurement exists."
+ },
+ "bar": 200,
+ "admitted_with_the_restaurant_probe": {
+  "mexican": 90000, "chinese": 42000, "italian": 37000, "indian": 22000, "thai": 22000,
+  "japanese": 19000, "korean": 17000, "american": 12000, "seafood": 12000, "pizza": 10000,
+  "asian": 10000, "greek": 9000, "sushi": 8500, "vietnamese": 8200, "mediterranean": 7100,
+  "french": 5600, "chicken": 5400, "filipino": 5000, "peruvian": 4900, "breakfast": 4900,
+  "brazilian": 4700, "german": 4600, "ethiopian": 4600, "ramen": 3700, "turkish": 3600,
+  "latin-american": 3400, "african": 3400, "spanish": 3200, "barbecue": 2400, "steak": 2300,
+  "caribbean": 2200, "fish": 2200, "persian": 1700, "middle-eastern": 1300, "lebanese": 1200,
+  "tapas": 1100, "irish": 1100, "burger": 1000, "hawaiian": 1000, "tex-mex": 1000,
+  "pasta": 1000, "wings": 1000, "pancake": 900, "portuguese": 800, "polish": 800,
+  "fish-and-chips": 800, "hot-dog": 800, "argentinian": 700, "salad": 700, "moroccan": 700,
+  "oriental": 700, "poke": 600, "indonesian": 450, "grill": 450, "dessert": 450,
+  "noodle": 400, "malaysian": 400, "curry": 400, "acai": 350, "tacos": 350, "soup": 350,
+  "ice-cream": 300, "western": 300, "sandwich": 300, "bavarian": 250, "bagel": 250,
+  "kebab": 250, "diner": 250, "nepalese": 200, "steak-house": 200
+ },
+ "admitted_with_the_local_intent_probe": {
+  "coffee-shop": 498000, "bakery": 465000, "deli": 134000, "smoothie": 90000, "cake": 57000,
+  "bubble-tea": 45000, "british": 25000, "tea": 21000, "juice": 20000, "fries": 9600,
+  "arab": 7100, "taiwanese": 7000, "donut": 7200, "crepe": 6600, "european": 6300,
+  "udon": 5100, "pastry": 5100, "balkan": 2600, "pretzel": 2600, "austrian": 2200,
+  "churro": 2100, "sausage": 1400, "soba": 900, "gyoza": 600, "beef-bowl": 250,
+  "piadina": 200
+ },
+ "the_thinnest_admitted": "piadina 200 and beef-bowl 250 clear the bar by a hair. They are kept because the bar is the bar, and recorded here so that a later pass can raise it on evidence rather than on mood.",
+ "duplicates_the_measurement_exposed": {
+  "noodle_and_noodles": "two tokens for one category. noodle reads 400, noodles was not measured separately, and OSM supplies both spellings. They must collapse to one page.",
+  "coffee_and_coffee_shop": "coffee shop near me reads 498,000 and coffee reads nothing of its own. One category.",
+  "italian_pizza": "a compound of two tokens that each already have a page. It is a tagging artefact, not a third category."
+ },
+ "what_this_does_not_measure": "demand for a token in a PLACE. austrian food reads 2,200 nationally and says nothing about whether austrian restaurants in Ulm is a page worth having. That is what the per-place supply floor is for, and it stays."
+}

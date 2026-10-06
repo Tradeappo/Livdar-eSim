@@ -47,6 +47,7 @@ ROOT = '/home/user/Livdar-eSim/'
 OUTD = ROOT + 'data/atlas/sources/osm-outdoor/'
 PARENTS = ROOT + 'data/atlas/sources/osm-parents/'
 OUT = OUTD + '_feature-candidates.jsonl.gz'
+AGG_ONLY = OUTD + '_aggregate-only-features.jsonl.gz'
 slug = entity_identity.slugify
 
 # ---- the destination axis ---------------------------------------------------------------------
@@ -165,6 +166,7 @@ def nearest_town(country, lat, lon, min_pop=5000):
 
 
 rows, rejects = [], collections.Counter()
+agg_only = []          # features that belong in a list of their parent, not on their own page
 seen_slug = {}
 for f in sorted(glob.glob(OUTD + 'outdoor-*.jsonl.gz')):
     for line in gzip.open(f, 'rt', encoding='utf-8'):
@@ -260,7 +262,54 @@ for f in sorted(glob.glob(OUTD + 'outdoor-*.jsonl.gz')):
         where = f"inside {par['name']}, a {par['cls'].replace('_', ' ')}"
         if town:
             where += f", {dist}km from {GAZ.label(town['id'])}"
+        # ---- is this entity worth a page of its own, or does it belong in a list? ----------
+        # A named hill whose entire content is one elevation, a containing polygon and a
+        # distance to the nearest town is not false, it is thin, and 83,612 of them with one
+        # number changed is a template rather than an inventory. The rule, in the order the
+        # brief sets out:
+        #
+        #   two or more measured attributes        a reader gets more than one number
+        #   a Wikipedia article IN THE PAGE LANGUAGE   somebody wrote an encyclopedia article
+        #                                          about it in the reader's own language
+        #
+        # A Wikidata item alone is NOT enough. It was the old notability test and it admits
+        # "45 Hill" and "A Four Mountain" alongside the Zugspitze. The same-language article is
+        # the condition that separates them, and the 2026-10-01 entity-demand measurement is
+        # the evidence: of its eight measured German head features, the six present in this
+        # layer ALL carry a de Wikipedia article, and two of those six - Feldberg at 11,000 a
+        # month and Ochsenkopf at 5,800 - carry only ONE measured attribute. An attribute
+        # count on its own would have rejected two features with five-figure demand.
+        #
+        # Everything that fails goes to AGG_ONLY, not to nothing: the aggregation layer counts
+        # every feature assigned to a parent whether or not it became a page, so a rejected
+        # peak still appears in "peaks in the Berchtesgadener Alpen" with its name and its
+        # elevation. One useful list instead of forty pages that each say one number.
+        _wp = (o.get('wikipedia') or '')
+        _wl = _wp.split(':', 1)[0].strip().lower() if ':' in _wp else ''
+        _nattr = len(measurable) + len(practical)
+        if _nattr >= 2:
+            _basis = f'{_nattr} measured attributes, more than one number for a reader'
+        elif _wl == lang:
+            _basis = (f'one measured attribute and its own {lang} Wikipedia article, which is '
+                      f'an encyclopedia entry written in the language of this page')
+        else:
+            rejects['thin_one_attribute_and_no_article_in_the_page_language'] += 1
+            # The facts go with it. A rejected peak is not discarded, it becomes a ROW in
+            # its parent's list - "Grosser Arber, 1,456m above sea level" - which is what
+            # makes the list a useful page rather than eight example names.
+            agg_only.append({'country': iso, 'cls': cls, 'entity_id': o['id'],
+                             'entity_name': name, 'language': lang, 'attributes': _nattr,
+                             'wikipedia': _wp, 'facts': facts,
+                             'parent_id': par.get('id') or par.get('name'),
+                             'parent_name': par['name'], 'parent_cls': par['cls'],
+                             'city': GAZ.label(town['id']) if town else '',
+                             'km_from_city': dist,
+                             'why': 'one measured attribute and no Wikipedia article in the '
+                                    'page language, so it belongs in a list of its parent '
+                                    'rather than on a page of its own'})
+            continue
         rows.append({
+            'individual_page_basis': _basis,
             'shape': 'outdoor_feature', 'source': 'osm_outdoor', 'country': iso,
             'market': market, 'language': lang, 'cls': cls,
             'entity_id': o['id'], 'entity_name': name,
@@ -408,6 +457,16 @@ print(f'  names repeating within a language and class: '
 print('\n  rejections, every one counted:', file=sys.stderr)
 for k, v in rejects.most_common(18):
     print(f'    {k:54} {v:>8,}', file=sys.stderr)
+
+print(f'\n  sent to the aggregation layer instead of a page of their own: {len(agg_only):,}',
+      file=sys.stderr)
+print('    by class:',
+      dict(collections.Counter(a['cls'] for a in agg_only).most_common(10)), file=sys.stderr)
+with gzip.open(AGG_ONLY + '.tmp', 'wt', encoding='utf-8') as fh:
+    for a in agg_only:
+        fh.write(json.dumps(a, ensure_ascii=False) + '\n')
+os.replace(AGG_ONLY + '.tmp', AGG_ONLY)
+print(f'  written {AGG_ONLY}', file=sys.stderr)
 
 with gzip.open(OUT + '.tmp', 'wt', encoding='utf-8') as fh:
     for r in rows:
