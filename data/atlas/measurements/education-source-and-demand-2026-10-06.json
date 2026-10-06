@@ -1,0 +1,55 @@
+{
+ "measured_on": "2026-10-06",
+ "the_instruction": "evaluate ROR and official education datasets, and the families they could support: universities in city, universities in region, student cities, research institutions, student cost, student housing",
+ "the_source": {
+  "name": "Research Organization Registry (ROR)",
+  "endpoint": "https://api.ror.org/v2/organizations?filter=types:education",
+  "probe_result": "HTTP 200. 30,174 education organisations.",
+  "licence": "CC0 1.0 public domain dedication, no attribution required, no share-alike",
+  "why_it_is_unusually_clean_for_this_project": "every ROR location carries a geonames_id. That is the SAME key this project's city entities are built on, so the join is exact and there is no name matching to get wrong. Every other enrichment source in this register needed a fuzzy join; this one does not.",
+  "what_each_record_carries": "display name and aliases, types, locations with geonames_id and country, established year, domains, links and external ids",
+  "status": "SOURCE CONFIRMED, CLEAN JOIN, 30,174 entities"
+ },
+ "the_demand_and_it_is_the_opposite_shape_from_what_the_source_suggests": {
+  "en-US": {
+   "colleges in boston": {"volume": 9900, "kd": 77, "cpc_cents": 200},
+   "universities in boston": {"volume": 3700, "kd": 77, "cpc_cents": 300},
+   "universities in chicago": {"volume": 2300, "kd": 90, "cpc_cents": 300},
+   "universities in london": {"volume": 1400, "kd": 88, "cpc_cents": 160},
+   "universities in toronto": {"volume": 600, "kd": 20, "cpc_cents": 180},
+   "universities in amsterdam": {"volume": 250, "kd": 58, "cpc_cents": 90},
+   "universities in berlin": {"volume": 200, "kd": 39, "cpc_cents": 120},
+   "universities in barcelona": {"volume": 200, "kd": 0, "cpc_cents": 150},
+   "universities in milan": {"volume": 150, "kd": 0, "cpc_cents": 150},
+   "universities in vienna": {"volume": 90, "kd": 10, "cpc_cents": 80},
+   "universities in munich": {"volume": 80, "kd": 0, "cpc_cents": 170},
+   "universities in lisbon": {"volume": 40, "kd": 18},
+   "universities in krakow": {"volume": 20, "kd": 29},
+   "student cities in europe": {"volume": 0},
+   "best student cities": {"volume": 0}
+  },
+  "de-DE": {
+   "hochschulen berlin": {"volume": 500, "kd": 69, "cpc_cents": 130},
+   "studentenstädte deutschland": {"volume": 450, "kd": 1, "cpc_cents": 25},
+   "hochschulen münchen": {"volume": 400, "kd": 67, "cpc_cents": 25},
+   "universitäten berlin": {"volume": 400, "kd": 79, "cpc_cents": 130},
+   "universitäten nrw": {"volume": 200, "kd": 3, "cpc_cents": 110},
+   "hochschulen köln": {"volume": 150, "cpc_cents": 200},
+   "studieren in münchen": {"volume": 90, "kd": 3, "cpc_cents": 90},
+   "studieren in berlin": {"volume": 70, "kd": 6, "cpc_cents": 110},
+   "hochschulen dresden": {"volume": 50, "kd": 60, "cpc_cents": 110},
+   "universitäten hamburg": {"volume": 30, "kd": 0, "cpc_cents": 130},
+   "universitäten leipzig": {"volume": 20, "cpc_cents": 80}
+  }
+ },
+ "the_reading": "education is the most COMMERCIAL vertical measured today - CPC runs 80 to 300 cents, higher than any travel keyword in this project - and the valuable end of it is locked. Every keyword above 1,400 a month carries difficulty 77 to 90, which is university sites, QS and Times Higher Education. Where the difficulty is low the volume is 20 to 200. The two family shapes the brief suggested by name, student cities in europe and best student cities, read ZERO in en-US.",
+ "the_open_pockets_and_they_are_small": [
+  "studentenstädte deutschland 450 at difficulty ONE - a single country-level list page, not a family",
+  "universitäten nrw 200 at difficulty THREE - REGION level, which the region entity layer could serve",
+  "studieren in münchen 90 and studieren in berlin 70, both at difficulty 3 and 6 - a studying-in-city shape distinct from a university list",
+  "universities in barcelona 200, milan 150 and munich 80, all at difficulty 0 with CPC 150 to 170 cents - low volume, real money, open SERP"
+ ],
+ "verdict": "SOURCE ADMITTED AS ENRICHMENT, FAMILY NOT ADMITTED AS A SCALE PATH. ROR is clean, free and joins exactly, so the count and the named institutions belong on the city pages that already exist. A university-list page per city is perhaps fifty to a hundred defensible pages in the open pockets, against SERPs at difficulty 77 to 90 wherever the volume is worth having. That is not a path to a million and it is recorded as not being one.",
+ "what_was_not_built_and_why": "no individual institution pages. A ROR record is a name, a city, a year and a website, which is precisely the one-attribute shape the outdoor gate rejected this morning for 65,396 features. The same rule applies here before the pages exist rather than after.",
+ "licence_and_provenance": "ROR API v2, CC0, probed 2026-10-06. Ahrefs Keywords Explorer volumes and difficulty for countries us and de, same date; CPC in USD cents."
+}
