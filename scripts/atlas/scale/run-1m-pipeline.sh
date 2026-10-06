@@ -35,6 +35,20 @@
 # them, so when a GEOGRAPHIC layer has landed but the POI corpus has not changed this skips
 # the half hour and produces the same inputs. It refuses to run if either file is missing.
 #
+# WHAT NEITHER RESUME FLAG CAN KNOW is that the CODE behind the artifact it reuses has changed.
+# Both say "the sources have not moved", and both are silent about the builder. On 2026-10-06
+# poi-aggregations.py was changed so that a country with no home market can produce a row at
+# all, which is the difference between 45 destination countries holding no POI page and holding
+# some; resuming from the aggregation on disk would have reused the pre-fix file, reported the
+# old numbers, and agreed with itself perfectly while describing code that no longer existed.
+# That is the same failure the fatal-stage policy and verify-stage-output.sh were added for,
+# arriving through the one door they do not watch.
+#
+# So the rule, which the flags cannot enforce and a reader has to: reuse an artifact only when
+# neither its INPUTS nor the script that writes it has changed. Changed poi-aggregations.py,
+# place-poi-density.py or poi-parent-assign.py means a full run. Changed a gate in the manifest,
+# a report, or page_copy.py means --from-manifest is enough, because that flag re-runs all three.
+#
 # --from-manifest starts at the manifest and reuses the aggregation and Wikidata candidate
 # files already on disk. Those two stages read 5 million POI and take about nine minutes,
 # and they do not depend on any of the gate logic downstream of them, so when only a gate or
