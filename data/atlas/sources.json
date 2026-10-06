@@ -1,5 +1,5 @@
 {
- "note": "Every number on an Atlas page comes from one of these sources or is computed from them by a function in lib/. A source without a licence that allows commercial reuse is not listed. maxAgeDays is the freshness gate: a page whose data snapshot is older is held back from publication and flagged for refresh.",
+ "note": "Every number on an Atlas page comes from one of these sources or is computed from them by a function in lib/. A source without a licence that allows commercial reuse is not listed. maxAgeDays is the freshness gate: a page whose data snapshot is older is held back from publication and flagged for refresh. Entries carrying probed_on were requested on that date and the status recorded is what the endpoint actually returned, not what it was expected to return. A source whose status says NOT ADMITTED or BLOCKED is kept in the register deliberately, so the next pass reads the refusal instead of re-probing it.",
  "sources": [
   {
    "id": "geonames-cities",
@@ -669,6 +669,153 @@
    "ingest": "scripts/atlas/ingest/climate-normals.mjs",
    "store": "data/atlas/sources/climate/normals.json",
    "freshnessClass": "reference"
+  },
+  {
+   "id": "nasa-power-climatology",
+   "name": "NASA POWER monthly climatology 2001-2020",
+   "url": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+   "licence": "public domain, no restriction, attribution requested",
+   "attribution": "NASA POWER, Prediction Of Worldwide Energy Resources",
+   "fields": [
+    "T2M",
+    "T2M_MAX",
+    "T2M_MIN",
+    "PRECTOTCORR",
+    "RH2M",
+    "WS2M",
+    "ALLSKY_SFC_SW_DWN"
+   ],
+   "coverage": "64,418 gazetteer cities, twelve monthly values each",
+   "feeds": [
+    "weather.city-month",
+    "climate.country-best-time"
+   ],
+   "probed_on": "2026-10-06",
+   "refresh": "annual",
+   "maxAgeDays": 400
+  },
+  {
+   "id": "ror-research-organizations",
+   "name": "Research Organization Registry, education organisations",
+   "url": "https://api.ror.org/v2/organizations?filter=types:education",
+   "licence": "CC0 1.0 public domain dedication",
+   "attribution": "none required",
+   "fields": [
+    "names",
+    "types",
+    "locations.geonames_id",
+    "locations.country_code",
+    "established",
+    "domains",
+    "links",
+    "external_ids"
+   ],
+   "coverage": "30,174 education organisations across the world",
+   "why_it_is_unusually_clean": "every location carries a geonames_id, which is the key this project's city entities are built on, so the join is exact and there is no name matching to get wrong",
+   "status": "ENRICHMENT ONLY. Measured 2026-10-06: every city-level university keyword above 1,400 a month reads keyword difficulty 77 to 90, and the open pockets are small.",
+   "probed_on": "2026-10-06",
+   "refresh": "quarterly",
+   "maxAgeDays": 180
+  },
+  {
+   "id": "france-dvf",
+   "name": "Demandes de Valeurs Foncieres, recorded French property transactions",
+   "url": "https://files.data.gouv.fr/geo-dvf/latest/csv/",
+   "licence": "Licence Ouverte / Open Licence 2.0 (Etalab), attribution required, commercial use permitted, no share-alike",
+   "attribution": "Direction generale des Finances publiques, via data.gouv.fr",
+   "fields": [
+    "valeur_fonciere",
+    "surface_reelle_bati",
+    "type_local",
+    "nom_commune",
+    "code_commune",
+    "code_postal",
+    "date_mutation",
+    "longitude",
+    "latitude"
+   ],
+   "coverage": "every French commune, about 34,900, for 2021 to 2024, at transaction level",
+   "status": "SOURCE CONFIRMED, FAMILY NOT ADMITTED. The per-commune price family measured a tail that holds - prix m2 auch 100 for a town of 21,000 - and both sampled SERPs are PLATFORM_DOMINATED by seloger, meilleursagents, lefigaro, pap and efficity at domain ratings 64 to 91. Recommended as enrichment on existing fr-FR city pages and as the local input the affordability and mortgage tools need.",
+   "probed_on": "2026-10-06",
+   "refresh": "annual",
+   "maxAgeDays": 400
+  },
+  {
+   "id": "ons-house-prices-and-earnings",
+   "name": "ONS house price statistics and ASHE earnings, by local authority",
+   "url": "https://api.beta.ons.gov.uk/v1/datasets/house-prices-local-authority",
+   "licence": "Open Government Licence v3.0, attribution required",
+   "attribution": "Office for National Statistics, OGL v3.0",
+   "fields": [
+    "geography",
+    "propertytype",
+    "buildstatus",
+    "housesalesandprices",
+    "month",
+    "year"
+   ],
+   "coverage": "331 local authorities in England and Wales. The title says small areas and the API edition does not serve them; the MSOA tables are published as spreadsheets outside it.",
+   "status": "ENRICHMENT ONLY, because 331 authorities is not a city layer",
+   "probed_on": "2026-10-06",
+   "refresh": "quarterly",
+   "maxAgeDays": 180
+  },
+  {
+   "id": "mobility-database-gtfs",
+   "name": "Mobility Database GTFS source catalogue",
+   "url": "https://storage.googleapis.com/storage/v1/b/mdb-csv/o/sources.csv?alt=media",
+   "licence": "the CATALOGUE is open; only 1,714 of its 3,518 feeds state a licence of their own, and a feed with no stated licence is not usable here",
+   "attribution": "per feed, where stated",
+   "fields": [
+    "provider",
+    "location.country_code",
+    "location.municipality",
+    "urls.latest",
+    "urls.license",
+    "is_official"
+   ],
+   "coverage": "3,518 GTFS sources across 89 countries",
+   "status": "LOW PRIORITY, RECORDED NOT BUILT. The natural entity is a stop, which is the one-attribute shape the outdoor gate refuses, and the station-area shape already has an owner in stay.near-venue. No live timetable is proposed anywhere.",
+   "probed_on": "2026-10-06",
+   "refresh": "monthly",
+   "maxAgeDays": 90
+  },
+  {
+   "id": "us-census-acs",
+   "name": "US Census American Community Survey 5-year, median rent and median household income",
+   "url": "https://api.census.gov/data/2023/acs/acs5",
+   "licence": "US public domain",
+   "attribution": "US Census Bureau",
+   "fields": [
+    "B25064_001E median gross rent",
+    "B19013_001E median household income",
+    "NAME",
+    "place"
+   ],
+   "coverage": "would be about 30,000 US places, the largest city-level layer found in this pass",
+   "status": "BLOCKED ON A CREDENTIAL. Probed 2026-10-06: the data endpoint returns HTTP 302 to a Missing Key page while the variable metadata endpoint answers without one. The key is free and requires registering an email address, which is not mine to create. This is the highest-value item in the register that money does not block.",
+   "probed_on": "2026-10-06",
+   "refresh": "annual",
+   "maxAgeDays": 400
+  },
+  {
+   "id": "eurostat-house-price-index",
+   "name": "Eurostat house price index prc_hpi_a",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hpi_a",
+   "licence": "Eurostat reuse policy, attribution required",
+   "attribution": "Eurostat",
+   "fields": [
+    "freq",
+    "purchase",
+    "unit",
+    "geo",
+    "time"
+   ],
+   "coverage": "38 geo entries, all COUNTRY level, and an INDEX rather than a price level",
+   "status": "NOT USABLE for a city page. An index with no level cannot answer what a home costs, and a country is not a city. Recorded so it is not probed again.",
+   "probed_on": "2026-10-06",
+   "refresh": "quarterly",
+   "maxAgeDays": 180
   }
  ]
 }
