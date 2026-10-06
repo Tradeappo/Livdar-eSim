@@ -1,0 +1,59 @@
+{
+ "measured_on": "2026-10-06",
+ "provider": "Ahrefs Site Explorer and Keywords Explorer",
+ "units_spent": 1374,
+ "the_question": "which sites legitimately rank with hundreds of thousands of programmatic pages built from the same open data this project uses, and what does their architecture say about which families are worth building?",
+ "do_not_copy_their_content": "none of this is content to reproduce. What is being read is the SHAPE: which entity gets a page, which intent it answers, and whether the intent is one we can honestly serve.",
+ "competitors": {
+  "mapcarta.com": {
+   "what_it_is": "a place atlas built from OpenStreetMap, one page per node and way, in many languages",
+   "organic_keywords": 547308,
+   "monthly_organic_traffic": 1197932,
+   "keywords_in_the_top_three": 61885,
+   "estimated_traffic_value_usd": 237543,
+   "the_architecture": "mapcarta.com/{Name} for places and mapcarta.com/{lang}/{OSM_id} for everything else, so every OSM node is reachable and the id carries identity exactly as this project's entity URLs do.",
+   "and_the_honest_reading_of_its_traffic": "its scale is real and its traffic is NOT the model this project is building. Its top entity pages rank for BRAND-NAVIGATIONAL queries about individual businesses: liverpool oaxaca 11,000 (a department store), mango canarias 4,700 and marwa maroc 6,500 (shop chains), hyderabad metro map 120,000. Two of its twelve largest pages rank for queries that have nothing to do with the place at all - kibris escort at 63,000 and oudrew man betting at 17,000 - which is an OSM node page accidentally intercepting junk. And 71,185 of its keywords land on the HOMEPAGE, which is a site-search artefact rather than a content page.",
+   "what_this_project_takes_from_it": "proof that an OSM-derived atlas can reach half a million ranking keywords, and a warning about how. A page per business node winning 'where is this shop' is precisely the shape this project's POI gate refuses, and the junk-query interception is what a thin page at scale looks like from the outside. So this is evidence for the SCALE being achievable and evidence against the method.",
+   "verdict": "ARCHITECTURE NOTED, TRAFFIC MODEL REFUSED"
+  },
+  "weatherspark.com": {
+   "what_it_is": "a climate atlas: one page per place for the year and one per place per month, built from climatological normals, with es, pt and ru subdomains",
+   "organic_keywords": 156383,
+   "monthly_organic_traffic": 709367,
+   "keywords_in_the_top_three": 29164,
+   "estimated_traffic_value_usd": 54800,
+   "the_architecture": "/y/{id}/Average-Weather-in-{City}-{Country}-Year-Round for the year and /m/{id}/{month}/... for each month, localised on language subdomains. This is almost exactly the shape NASA POWER normals would support for the 64,418 cities already materialised here.",
+   "so_it_was_worth_measuring_whether_the_intent_is_ours": "and it is NOT. Its largest page, Baghdad year-round, takes 17,397 visits from ELEVEN keywords. Its Spanish and Portuguese pages take their traffic from el tiempo en parana at 52,000 and clima em ibipora at 41,000.",
+   "the_measurement_that_settles_it": {
+    "forecast_intent_which_we_cannot_serve": {"el tiempo en valencia": 140000,
+                                              "el tiempo en albacete": 28000},
+    "climatology_intent_which_we_could_serve": {"clima de roma": 150, "clima de valencia": 100,
+                                                "clima de zaragoza": 100,
+                                                "clima de valladolid": 100,
+                                                "clima de murcia": 60, "clima de lisboa": 30,
+                                                "clima de praga": 10, "clima de cracovia": 0,
+                                                "temperatura media valencia": 20},
+    "and_the_same_split_in_english": {"average weather in rome": 20, "average weather in tokyo": 30,
+                                      "average weather in prague": 0,
+                                      "average weather in krakow": 0,
+                                      "tokyo climate": 1900, "rome climate": 900,
+                                      "lisbon climate": 250, "prague climate": 80}
+   },
+   "the_conclusion_and_it_is_a_refusal": "weatherspark earns 709,000 visits a month by ranking TWENTY-YEAR AVERAGES for queries about today's weather. el tiempo en valencia at 140,000 is a person asking whether to take a coat this afternoon, and a climatology page does not answer that. The climatology intent we could honestly serve reads 0 to 150 a month per city. So the city climate family is REFUSED ON INTENT rather than on volume, which is a different and firmer reason than the one recorded this morning: the tail is not thin, it belongs to a question we have no data to answer and will not pretend to.",
+   "verdict": "FAMILY REFUSED ON INTENT MISMATCH"
+  },
+  "weather-and-climate.com": {
+   "organic_keywords": 14690, "monthly_organic_traffic": 63161,
+   "keywords_in_the_top_three": 1614, "estimated_traffic_value_usd": 5066,
+   "verdict": "same shape as weatherspark at a tenth the scale, same intent, same refusal"
+  },
+  "climatestotravel.com": {
+   "organic_keywords": 8081, "monthly_organic_traffic": 22329,
+   "keywords_in_the_top_three": 1264, "estimated_traffic_value_usd": 2213,
+   "the_difference_worth_noting": "this one is organised by COUNTRY and by when to go rather than by city and by month, which is the shape the 2026-10-06 climate demand measurement found alive: best time to visit japan 55,000 at difficulty zero. It is the smallest of the three and it is the only one whose intent this project can serve.",
+   "verdict": "SHAPE CONFIRMED for the country-level best-time family"
+  }
+ },
+ "what_the_four_together_say": "the two large climate sites prove that scale and traffic are available in this space and that both of them are reached through an intent mismatch. The small one, organised by country and by season, is on the intent we can serve and is a hundredth the size. That is the honest trade this project has already chosen: the country-level best-time family at 55,000 and difficulty zero, answered from twenty years of normals with the method printed on the page, and no city-by-month pages chasing a forecast query.",
+ "licence_and_provenance": "Ahrefs Site Explorer metrics and top pages, and Keywords Explorer volumes, read through the Ahrefs API v3 on 2026-10-06. Traffic and keyword counts are Ahrefs estimates for the named domains. No content from any of these sites was fetched, copied or reproduced; only their public ranking metrics and URL shapes were read."
+}
