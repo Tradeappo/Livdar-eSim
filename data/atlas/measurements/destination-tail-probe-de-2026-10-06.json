@@ -1,0 +1,56 @@
+{
+  "generated_on": "2026-10-06",
+  "provider": "Ahrefs Keywords Explorer v3, country-scoped volume, country=de",
+  "units_spent": 462,
+  "the_question": "The head probe earlier today found 14 of 14 obvious destinations had demand, which establishes that the 74-city evidence set is a sample rather than the head. It says nothing about how far down the tail the demand runs, and the arithmetic for this axis turns entirely on that. A projection off a head sample would have been a guess dressed as a number.",
+  "how_the_sample_was_chosen": "By TOURISM POI from the rebuilt aggregation, not by population. Population is explicitly the wrong instrument here and this project already paid to learn it: Szklarska Poreba has 6,970 people and 9,300 searches a month. A population-ranked tail of destination countries is mostly industrial cities and district towns no traveller searches, so it would have returned near zero and been read as a dead tail when it had really measured the wrong thing. A first attempt using raw POI city tags was also discarded: it reached only 28 cities, because most POI carry no city tag and are attributed spatially, and that spatial attribution had never run over a destination country until the 2026-10-06 rebuild. Cities already carrying entity-level evidence were excluded, leaving 120 uncovered destination cities with a tourism list page, and the sample was spread across ranks 25 to 400 of that list.",
+  "template": "{city} sehenswuerdigkeiten, which is the template the 2026-10-01 harvest already used for de-DE rather than one invented here",
+  "licence_and_provenance": {
+    "source": "Ahrefs API v3 keywords-explorer-overview",
+    "licence": "commercial subscription, Advanced plan, internal use",
+    "redistribution": "NOT redistributable. Volumes decide which pages are built and are published on no page.",
+    "cache": "no_cache, live figures for 2026-10-06"
+  },
+  "result": {
+    "cities_measured": 21,
+    "viable_at_100_or_more": 11,
+    "dead_at_40_or_less": 10,
+    "hit_rate": 0.524,
+    "total_monthly_volume_of_the_viable": 6750,
+    "keyword_difficulty_of_the_viable": "0 to 2 on every one of the eleven"
+  },
+  "viable": [
+    {"city": "Luzern", "country": "CH", "volume": 1800, "kd": 1, "tourism_poi": 36},
+    {"city": "Faro", "country": "PT", "volume": 1500, "kd": 0, "tourism_poi": 10},
+    {"city": "Sintra", "country": "PT", "volume": 800, "kd": 0, "tourism_poi": 12},
+    {"city": "Casablanca", "country": "MA", "volume": 600, "kd": 0, "tourism_poi": 12},
+    {"city": "Schaffhausen", "country": "CH", "volume": 500, "kd": 0, "tourism_poi": 12},
+    {"city": "Rabat", "country": "MA", "volume": 450, "kd": 0, "tourism_poi": 24},
+    {"city": "Kitzbuehel", "country": "AT", "volume": 350, "kd": 2, "tourism_poi": 21},
+    {"city": "Tavira", "country": "PT", "volume": 350, "kd": 0, "tourism_poi": 9},
+    {"city": "Thun", "country": "CH", "volume": 150, "kd": 0, "tourism_poi": 18},
+    {"city": "Eisenstadt", "country": "AT", "volume": 150, "kd": 0, "tourism_poi": 9},
+    {"city": "Krems an der Donau", "country": "AT", "volume": 100, "kd": 0, "tourism_poi": 12}
+  ],
+  "dead": [
+    {"city": "Fatima", "country": "PT", "volume": 40, "tourism_poi": 21},
+    {"city": "Tomar", "country": "PT", "volume": 30, "tourism_poi": 18},
+    {"city": "Olten", "country": "CH", "volume": 20, "tourism_poi": 27},
+    {"city": "Herisau", "country": "CH", "volume": 10, "tourism_poi": 9},
+    {"city": "Sarnen", "country": "CH", "volume": 10, "tourism_poi": 9},
+    {"city": "Moedling", "country": "AT", "volume": 10, "tourism_poi": 3},
+    {"city": "Brugg", "country": "CH", "volume": 10, "tourism_poi": 4},
+    {"city": "Neuhausen", "country": "CH", "volume": 10, "tourism_poi": 5},
+    {"city": "Burgdorf", "country": "CH", "volume": 10, "tourism_poi": 14},
+    {"city": "Laufen", "country": "CH", "volume": 0, "tourism_poi": 8}
+  ],
+  "the_finding_that_matters_most": "TOURISM POI COUNT DOES NOT PREDICT DEMAND. The sample was ordered by tourism POI descending and the volumes ignore that ordering completely: Luzern 36 POI and 1,800 searches, Olten 27 POI and 20 searches, Fatima 21 POI and 40 searches, Tavira 9 POI and 350 searches, Laufen 8 POI and zero. The correlation is weak enough to be useless as a gate. So tourism POI is a decent instrument for FINDING candidate destinations, which is what it was used for here, and worthless for deciding which of them deserves a page. Demand has to be measured per city. There is no proxy, and any build that infers demand from a count of things on a map will produce pages for Laufen.",
+  "what_it_means_for_scale": {
+    "candidate_pool": "120 uncovered destination cities currently hold a tourism list page in the rebuilt aggregation",
+    "if_the_52_percent_hit_rate_holds": "about 63 of them would carry 100 or more monthly searches in at least one licensed language",
+    "why_that_is_not_a_page_count": "each viable city then multiplies by the languages its country licenses, between one and four, and by the destination-capable families, and then every gate applies. The localisation gate alone removed 122,106 rows on the last run.",
+    "and_why_the_pool_itself_will_grow": "120 is what eleven captured destination countries yield. The queue is still running, and India alone holds 1,285 destination cities that already pass the language-evidence test and lack only the OSM layer.",
+    "honest_order_of_magnitude": "low thousands of pages on this axis, not the hundreds of thousands the 1,000,000 target needs. Worth building, and not the answer."
+  },
+  "the_cheapest_next_measurement": "The same 21-city probe in en and ja, the other two widely licensed languages across these countries, to see whether the 52 percent hit rate is a property of the cities or of German. About 950 units."
+}
