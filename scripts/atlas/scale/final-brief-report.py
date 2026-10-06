@@ -12,6 +12,9 @@ Writes reports/livdar-expiry-freeze-2026-09-30/1M-BRIEF-FINAL-REPORT.md
 """
 import collections, csv, glob, gzip, json, os, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity
+
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
 TARGET = 1_000_000
@@ -243,9 +246,38 @@ A('2. the place itself carries a mark in that same language, a Wikipedia article
 A('   alternate name, which is a PROXY for interest and is labelled a proxy on every row that')
 A('   rests on it')
 A('')
-dest_rows = sum(1 for r in rows if 'destination' in (r.get('market_demand_evidence') or '').lower()
-                or 'carries measured' in (r.get('market_demand_evidence') or ''))
-A(f'Rows whose market was earned by that evidence rather than by a home market: {dest_rows:,}')
+# Counted the same way the QA counts it, from the market's home country and the row's country,
+# not from a substring of market_demand_evidence: that column holds a coarse token
+# (shape_measured, measured_in_this_market) and never the destination sentence, so the
+# substring test reported a flat zero on an inventory holding 16,165 of them.
+HOME_OF = dict(entity_identity.MKT_COUNTRY)
+COUNTRY_ENTITY_TYPES = {'country', 'country-pair'}
+dest = [r for r in rows
+        if (r.get('country') or '').strip()
+        and (r.get('entity_type') or '') not in COUNTRY_ENTITY_TYPES
+        and HOME_OF.get(r.get('market')) != (r.get('country') or '').strip()]
+dest_rows = len(dest)
+A(f'Pages about a country that is not their own market\'s country: {dest_rows:,}')
+A('')
+A('| market | destination pages |')
+A('| --- | --- |')
+for m, n in collections.Counter(r.get('market') for r in dest).most_common():
+    A(f'| {m} | {n:,} |')
+A('')
+dbasis = collections.Counter(
+    'home market' if ' is the HOME market' in (r.get('same_language_ownership_basis') or '')
+    else 'measured searching this entity itself'
+    if 'measured searching for this entity itself' in (r.get('same_language_ownership_basis') or '')
+    else 'family-level score, the weakest basis'
+    if 'the family-level score decides' in (r.get('same_language_ownership_basis') or '')
+    else 'the only market serving this language that earns the entity'
+    for r in dest)
+A('How those pages earned the market that owns them:')
+A('')
+A('| ownership basis | pages |')
+A('| --- | --- |')
+for b, n in dbasis.most_common():
+    A(f'| {b} | {n:,} |')
 A('')
 A('And the largest lever examined in this pass did NOT open. Once the city pool grew, the biggest')
 A('gate in the funnel became the measured-tier cap. It was sampled rather than argued, 28 cities')
@@ -255,5 +287,5 @@ A('intent. The full measurement is in tier-cap-vs-destination-mark-2026-10-02.js
 
 with open(OUT + '1M-BRIEF-FINAL-REPORT.md', 'w', encoding='utf-8') as f:
     f.write('\n'.join(md) + '\n')
-print(f'written {OUT}1M-BRIEF-FINAL-REPORT.md  ({len(md)} lines)')
+print(f'written {OUT}1M-BRIEF-FINAL-REPORT.md  ({sum(str(x).count(chr(10)) + 1 for x in md):,} lines)')
 print(f'FINAL {final:,}  gap {max(0, TARGET - final):,}  families {len(by_family)}')

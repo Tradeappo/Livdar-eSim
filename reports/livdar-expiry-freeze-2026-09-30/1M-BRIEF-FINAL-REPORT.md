@@ -400,7 +400,28 @@ list, so the work was to supply the evidence it asks for, in two halves that are
    alternate name, which is a PROXY for interest and is labelled a proxy on every row that
    rests on it
 
-Rows whose market was earned by that evidence rather than by a home market: 0
+Pages about a country that is not their own market's country: 16,165
+
+| market | destination pages |
+| --- | --- |
+| ja-JP | 5,973 |
+| en-US | 3,427 |
+| de-DE | 2,297 |
+| it-IT | 2,047 |
+| en-GB | 1,323 |
+| tr-TR | 1,030 |
+| es-ES | 33 |
+| fr-FR | 19 |
+| zh-Hant-TW | 11 |
+| pt-BR | 5 |
+
+How those pages earned the market that owns them:
+
+| ownership basis | pages |
+| --- | --- |
+| the only market serving this language that earns the entity | 11,428 |
+| family-level score, the weakest basis | 4,630 |
+| measured searching this entity itself | 107 |
 
 And the largest lever examined in this pass did NOT open. Once the city pool grew, the biggest
 gate in the funnel became the measured-tier cap. It was sampled rather than argued, 28 cities

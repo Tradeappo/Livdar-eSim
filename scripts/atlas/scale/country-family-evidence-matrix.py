@@ -37,9 +37,12 @@ ROOT = '/home/user/Livdar-eSim/'
 SRC = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/1M-COUNTRY-FAMILY-EVIDENCE.csv'
 OUTJ = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/1M-COUNTRY-FAMILY-EVIDENCE.json'
-HOME_OF = {'en-US': 'US', 'en-GB': 'GB', 'de-DE': 'DE', 'fr-FR': 'FR', 'it-IT': 'IT',
-           'es-ES': 'ES', 'nl-NL': 'NL', 'pl-PL': 'PL', 'pt-BR': 'BR', 'ja-JP': 'JP',
-           'zh-Hant-TW': 'TW'}
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import entity_identity
+# One market list for the whole pipeline. This file used to carry its own copy and it went
+# stale at eleven markets, which silently counted every en-AU, es-MX and tr-TR home page as a
+# destination page.
+HOME_OF = dict(entity_identity.MKT_COUNTRY)
 
 rows = []
 with gzip.open(SRC, 'rt', encoding='utf-8') as fh:
@@ -162,6 +165,17 @@ json.dump({
   'rows_by_destination_country': dict(by_country.most_common()),
   'destination_axis_rows_by_country': dict(
       (k, v) for k, v in dest_by_country.most_common() if v),
+  'destination_axis_rows_total': sum(dest_by_country.values()),
+  # The QA and the final report count a smaller destination set, because they exclude
+  # country-level entities: a country page has no city, so there is no distance or temperature
+  # gap to compute and the locale-fact gate cannot apply to it. This file DOES count them,
+  # because its own conditions are the ones that bite on country families. The two numbers
+  # differ by exactly this count and neither is wrong; naming it is what keeps them one concept.
+  'destination_axis_rows_at_country_level_only': sum(
+      1 for r in rows
+      if (r.get('country') or '').strip()
+      and HOME_OF.get(r.get('market')) != (r.get('country') or '').strip()
+      and (r.get('entity_type') or '') in ('country', 'country-pair')),
   'conditions_and_the_cells_that_fail_them':
       {k: {'cells': len(v), 'examples': v[:25]} for k, v in sorted(fails.items())},
   'what_a_pass_means': (
