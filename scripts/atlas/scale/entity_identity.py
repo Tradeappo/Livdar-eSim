@@ -426,6 +426,99 @@ def _dest_rows():
     return out
 
 
+PARENT_KEEP = ('id', 'name', 'cls', 'country', 'km2', 'geometry', 'qid', 'wikipedia')
+
+
+def iter_parent_records(root='/home/user/Livdar-eSim/', keep=PARENT_KEEP):
+    """Yield every parent record WITHOUT its ring, polygon or not.
+
+    The sibling of iter_parent_polygons, for the builders that never build a geometry and only
+    need the scalars. outdoor-aggregations.py kept all 100,000-odd parents keyed by
+    (country, id) with their rings attached and was OOM-killed at 10,317 MB doing it, while
+    reading nothing from each record but geometry, cls, country, id and name.
+
+    Keeps non-polygon parents, because a caller that tests `geometry` itself needs to see them.
+    """
+    import glob as _g
+    import gzip as _gz
+    import json as _j
+    for fn in sorted(_g.glob(root + 'data/atlas/sources/osm-parents/parents-*.jsonl.gz')):
+        try:
+            fh = _gz.open(fn, 'rt', encoding='utf-8')
+        except OSError:
+            continue
+        with fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rec = _j.loads(line)
+                except ValueError:
+                    continue
+                yield {k: rec[k] for k in keep if k in rec}
+
+
+def iter_parent_polygons(make_geometry, root='/home/user/Livdar-eSim/',
+                         min_km2=None, max_km2=None, keep=PARENT_KEEP):
+    """Yield (slim record, geometry) for every parent polygon, never retaining a ring.
+
+    THE DEFECT THIS EXISTS TO MAKE IMPOSSIBLE, found four times in one day in four of the five
+    geographic builders. A parent record carries its full polygon ring, and the ring is by far
+    the largest thing in it: the parent layers are hundreds of megabytes of coordinates. Every
+    builder loaded the record and kept it:
+
+        parents.append(p)                      # p still holds p['ring']
+        g = shape(p['ring'])                   # and now the ring again, as a geometry
+
+    poi-parent-assign.py was OOM-killed at 11,114 MB on it, outdoor-feature-candidates.py
+    climbed past 10,755 MB, and outdoor-aggregations.py past 10,317 MB. region-aggregations.py
+    and trail-candidates.py read p['ring'] the same way.
+
+    Not one of them reads the ring for anything except building the geometry. So this loader
+    builds the geometry, keeps only the scalar fields, and yields both. A caller cannot retain
+    a ring through this function because it never hands one out, which is the difference between
+    fixing the bug and preventing it.
+
+    make_geometry is passed in rather than imported here so entity_identity stays free of a
+    shapely dependency: callers hand in shapely.geometry.shape. A ring that will not build is
+    skipped, and so is an empty geometry, because both are a parent that cannot ground a
+    containment claim.
+    """
+    import glob as _g
+    import gzip as _gz
+    import json as _j
+    for fn in sorted(_g.glob(root + 'data/atlas/sources/osm-parents/parents-*.jsonl.gz')):
+        try:
+            fh = _gz.open(fn, 'rt', encoding='utf-8')
+        except OSError:
+            continue
+        with fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    p = _j.loads(line)
+                except ValueError:
+                    continue
+                if p.get('geometry') != 'polygon' or not p.get('ring'):
+                    continue
+                km2 = p.get('km2') or 0
+                if min_km2 is not None and km2 < min_km2:
+                    continue
+                if max_km2 is not None and km2 > max_km2:
+                    continue
+                try:
+                    g = make_geometry(p['ring'])
+                except Exception:
+                    continue
+                if g.is_empty:
+                    continue
+                # the ring is dropped HERE, before anything can hold on to it
+                yield {k: p[k] for k in keep if k in p}, g
+
+
 def markets_for_entity(country, record, dest_lang=None, marks=None,
                        root='/home/user/Livdar-eSim/'):
     """Every (market, language, basis) this entity earns, home market first.

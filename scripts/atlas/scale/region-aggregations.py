@@ -133,42 +133,27 @@ except (EOFError, OSError, FileNotFoundError):
     pass
 print(f'country hub pages available as parents: {len(HUB):,}', file=sys.stderr)
 
+from shapely.geometry import shape as _shape, Point              # noqa: E402
+from shapely.strtree import STRtree                                # noqa: E402
+
 # ---- parents ----------------------------------------------------------------------------------
-regions = []
-for f in sorted(glob.glob(PARENTS + 'parents-*.jsonl.gz')):
-    for line in gzip.open(f, 'rt', encoding='utf-8'):
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            p = json.loads(line)
-        except Exception:
-            continue
-        if p.get('cls') not in REGION_OK:
-            continue
-        if p.get('geometry') != 'polygon' or not p.get('ring'):
-            continue
-        if (p.get('km2') or 0) < MIN_KM2:
-            continue
-        regions.append(p)
+# Through the shared loader, which drops the ring as it hands each record out. The class
+# filter stays here because REGION_OK is this file's own policy, not a property of a parent.
+regions, _rgeoms = [], []
+for _slim, _g in entity_identity.iter_parent_polygons(_shape, min_km2=MIN_KM2):
+    if _slim.get('cls') not in REGION_OK:
+        continue
+    regions.append(_slim)
+    _rgeoms.append(_g)
 if not regions:
     print('no region polygons; run the parents pass first', file=sys.stderr)
     sys.exit(2)
 print(f'region polygons: {len(regions):,} '
       f'({dict(collections.Counter(p["cls"] for p in regions).most_common())})', file=sys.stderr)
 
-from shapely.geometry import shape, Point                          # noqa: E402
-from shapely.strtree import STRtree                                # noqa: E402
-
-geoms, idx = [], []
-for i, p in enumerate(regions):
-    try:
-        g = shape(p['ring'])
-    except Exception:
-        continue
-    if g.is_empty:
-        continue
-    geoms.append(g); idx.append(i)
+# The geometries came back with the records from the loader, so there is no second pass over
+# rings to do: idx is the identity because a record is only kept when its geometry built.
+geoms, idx = _rgeoms, list(range(len(regions)))
 tree = STRtree(geoms)
 print(f'indexed: {len(geoms):,}', file=sys.stderr)
 

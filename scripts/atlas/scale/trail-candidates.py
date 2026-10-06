@@ -95,30 +95,12 @@ ROUTE_WORD = {'hiking': 'hiking trail', 'foot': 'walking route', 'walking': 'wal
 
 # ---- parents, for containment -----------------------------------------------
 parents, geoms, meta = [], [], []
-for f in sorted(glob.glob(PARENTS + 'parents-*.jsonl.gz')):
-    for line in gzip.open(f, 'rt', encoding='utf-8'):
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            p = json.loads(line)
-        except Exception:
-            continue
-        if p.get('geometry') != 'polygon' or not p.get('ring'):
-            continue
-        km2 = p.get('km2') or 0
-        if km2 < 1.0 or km2 > 60_000.0:
-            continue
-        parents.append(p)
-for i, p in enumerate(parents):
-    try:
-        g = shape(p['ring'])
-    except Exception:
-        continue
-    if g.is_empty:
-        continue
-    geoms.append(g)
-    meta.append(i)
+# Through the shared loader: it builds the geometry and drops the ring in one pass, so the
+# two-pass form that held every ring twice cannot be written here any more.
+for _slim, _g in entity_identity.iter_parent_polygons(shape, min_km2=1.0, max_km2=60_000.0):
+    meta.append(len(parents))
+    parents.append(_slim)
+    geoms.append(_g)
 tree = STRtree(geoms) if geoms else None
 print(f'parent polygons for containment: {len(geoms):,}', file=sys.stderr)
 

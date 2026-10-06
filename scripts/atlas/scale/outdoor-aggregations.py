@@ -188,15 +188,13 @@ MIN_FEATURES = 3
 # And the parent has to be a place, not a sliver. Below this a "region" is a boundary artefact.
 MIN_PARENT_KM2 = 5.0
 
+# Through the shared loader, which strips the ring before handing a record out. Keeping the
+# whole record here, rings and all, OOM-killed this stage at 10,317 MB on 2026-10-06 while the
+# only fields it ever reads are geometry, cls, country, id and name.
 parents = {}
-for f in sorted(glob.glob(PARENTS + 'parents-*.jsonl.gz')):
-    with gzip.open(f, 'rt', encoding='utf-8') as fh:
-        for line in fh:
-            line = line.strip()
-            if not line: continue
-            try: p = json.loads(line)
-            except Exception: continue
-            parents[(p['country'], p['id'])] = p
+for _p in entity_identity.iter_parent_records():
+    if _p.get('country') and _p.get('id'):
+        parents[(_p['country'], _p['id'])] = _p
 
 if not parents:
     print('no parent entities; run scripts/atlas/ingest/osm-parents-run.sh first',
