@@ -1,0 +1,63 @@
+{
+ "measured_on": "2026-10-07",
+ "purpose": "screen family-level intent at scale, which is what Ahrefs is FOR under the corrected admission model. It proves family intent, SERP shape, tail behaviour, commercial value, language behaviour and cannibalisation. It is not asked to contain every long-tail entity on earth, because at 100M pages it never could.",
+ "method": "matching-terms in phrase mode, many seed terms per call, select keyword only at 11 units a row so the volume floor filters server side without paying for the volume column. Floors between 1,000 and 3,000 a month by language.",
+ "hypotheses_screened_in_this_wave": 64,
+ "cumulative_hypotheses_screened": "about 120, counting the thirty in NEW-FAMILY-SCALE-MATRIX.csv and the nine pulse languages",
+ "THE_CENTRAL_FINDING": "named geographic feature classes carry family intent in every language tested, and the named entities come back in dozens per class per language. CASTLES are the most reliably transferable class in the project: measured strong in German, French, Italian, Spanish, Polish and Dutch, six languages.",
+ "by_language": {
+  "de": {"classes_with_named_entity_demand": {
+    "therme (thermal spa)": 27, "zoo": 16, "weihnachtsmarkt (christmas market)": 55,
+    "insel (island)": 21, "kloster (monastery)": 7, "seilbahn (cable car)": 4,
+    "schloss and burg (castle)": 20, "wasserfall": 14, "schlucht (gorge)": 6,
+    "strand (beach)": 15, "skigebiet (ski area)": 28, "wanderung (named hike)": 6,
+    "marathon": 10, "flughafen (airport)": 30},
+   "classes_refused": {
+    "hoehle (cave)": "dominated by Die Hoehle der Loewen, the television programme; only atta and wimsener surfaced as real caves",
+    "aussichtsturm (viewing tower)": "generic term plus a news story about three deaths in the Harz",
+    "leuchtturm (lighthouse)": "generic term plus a novel titled Leuchtturm 1917",
+    "schwimmbad (pool)": "city level only, no named-entity tail",
+    "universitaet": "only the generic term cleared the floor",
+    "krankenhaus (hospital)": "playmobil toys and supplementary insurance",
+    "bahnhof (station)": "no named-station tail cleared; the airport parking and arrivals intents dominate the transport screen"},
+   "the_airport_caveat": "flughafen returns about thirty named airports but the dominant intents are parken, parkplatz, ankunft and abflug: live flight boards and parking commerce, neither of which a static page can answer. The airport ENTITY page is admissible; the arrivals board is not."},
+  "fr": {"classes_with_named_entity_demand": {
+    "lac de (lake)": 26, "abbaye de (abbey)": 13, "col de (mountain pass)": 9,
+    "grotte de (cave)": 7, "ile de (island)": 20, "chateau de (castle)": 30,
+    "cascade (waterfall)": 20, "gorges (gorge)": 10, "phare de (lighthouse)": 3,
+    "plage de (beach)": 3},
+   "THIS_OVERTURNS_A_CLASSIFICATION": "mountain_pass was marked NOT MEASURED with 36,907 features on disk. It IS measured, in French: col de la croix de fer, la loze, la forclaz, l'iseran, la madeleine, joux plane, la bonette, de porte, la schlucht. A class with no demand in one language can have it in another, which is an argument for screening every class in every market language rather than once in German.",
+   "noise_classes": {
+    "ile de la tentation": "the reality programme, about fifteen variants, crowding the island class",
+    "chaussures de randonnee": "hiking BOOTS, a commercial product, about twelve variants crowding the trail class",
+    "ile de france": "the administrative region, about fifteen service and transport variants",
+    "col de l'uterus": "cervical cancer, which shares the French word for a pass"}},
+  "it": {"classes_with_named_entity_demand": {"lago di (lake)": 26, "castello di (castle)": 10},
+   "depth_probe": "lago di with the floor at 1,000 and the limit at 400 returned 132 rows and TERMINATED. About 95 are distinct named lakes. This is the measurement that bounds a class in a language."},
+  "es": {"classes_with_named_entity_demand": {
+    "monasterio de": 12, "sierra de (mountain range)": 12, "isla de": 12,
+    "embalse de (reservoir)": 4, "cueva de (cave)": 3, "faro de (lighthouse)": 5,
+    "puerto de (port or pass)": 11, "ruta de": 3, "playa de (beach)": 35,
+    "cascada (waterfall)": 2},
+   "the_worst_noise_in_the_project": "isla de las tentaciones, the Spanish Temptation Island, returned about fifty variants and dominated the entire call. faro de vigo is a newspaper. ruta de escape is a 2026 film."},
+  "pl": {"classes_with_named_entity_demand": {
+    "zamek (castle)": 30, "jezioro (lake)": 26, "park narodowy": 15,
+    "wodospad (waterfall)": 6, "jaskinia (cave)": 5, "szlak (trail)": 6},
+   "note": "fifteen Polish national parks carry demand. The US national park SERP is OFFICIAL_OWNED and unreachable, but the Polish one has not been sampled and may not be, which is the kind of per-market difference a single-language screen would miss.",
+   "polysemy": "zamek also means LOCK: zamek do skrzynki pocztowej, do furtki, do drzwi, lego zamek. The same trap as German Schloss."},
+  "nl": {"classes_with_named_entity_demand": {"kasteel (castle)": 27, "duinen (dunes)": 7, "meer (lake)": 5, "bos (forest)": 3},
+   "polysemy": "meer also means MORE and bos is a common surname: Stef Bos, Witteveen en Bos, Wouter Bos, Kimberley Bos. Both classes need a named-entity gate before they are usable."},
+  "en": {"classes_refused": {
+    "marina": "overwhelmingly a first name: Marina Abramovic, Marina Diamandis, Marina Squerciati, Marina Mabrey, Marina Satti, plus hotels, apartments and a Splatoon character. Only yas marina, dubai marina and marina bay are real entities.",
+    "university in X": "superlative and list intent, not per entity: best university in the world, oldest university in the us",
+    "hospital in X": "same, plus biggest hospital in the world",
+    "wheelchair accessible": "products, a van and a swing, not places",
+    "bike rental": "generic plus mackinac island",
+    "surf spot": "did not clear the floor",
+    "student accommodation": "generic only"}}
+ },
+ "the_general_rule_this_screen_establishes": "a named geographic feature class is admissible where (1) the class term returns dozens of NAMED entities above a real floor in that language, and (2) a named-entity gate can resolve the candidate against the source feature. Requirement 2 is not optional: every language has a collision that would otherwise dominate the family, a reality show in Spanish and French, a television programme in German, a lock in German and Polish, a surname in Dutch, a first name in English, hiking boots in French and cervical cancer in French.",
+ "what_this_means_for_the_admission_model": "family intent is now PROVEN for fourteen German classes, ten French, two Italian, ten Spanish, six Polish and four Dutch. Under class B those classes do not need a per-entity keyword reading, only a per-entity utility gate. That is what UTILITY-SCALE-CAPACITY.csv counts.",
+ "units_spent_on_this_wave": 10703,
+ "licence_and_provenance": "Ahrefs Keywords Explorer matching-terms via the Ahrefs API v3 on 2026-10-07"
+}

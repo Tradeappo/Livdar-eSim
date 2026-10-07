@@ -1,0 +1,92 @@
+family_id,surface,entity,pages_today,source_state,declared_source_fields,max_volume_in_catalogue,classification,why
+activities.city-things-to-do,areas,city:t2,30040,ACQUIRABLE_WITH_EFFORT,2,78000,LIVE,"30,040 pages in the manifest"
+weather.city-month,climate,city:t2+air,22927,HELD,2,60,LIVE,"22,927 pages in the manifest"
+stay.city-type,stay,city:t2,20333,BLOCKED_COMMERCIAL,2,8400,LIVE,"20,333 pages in the manifest"
+events.city-type,pulse,city:t2,6680,HELD,2,18000,LIVE,"6,680 pages in the manifest"
+events.city-calendar,pulse,city:t1,6680,HELD,2,,LIVE,"6,680 pages in the manifest"
+places.city-category,areas,city:t2,5575,ACQUIRABLE_WITH_EFFORT,2,23000,LIVE,"5,575 pages in the manifest"
+rents.city,stay,city:t3,5202,MISSING_ACQUIRABLE,2,14000,LIVE,"5,202 pages in the manifest"
+stay.near-venue,stay,venue:major,4786,HELD_PARTIAL,2,,LIVE,"4,786 pages in the manifest"
+relocation.city,move,city:t3,3221,MISSING_ACQUIRABLE,3,900,LIVE,"3,221 pages in the manifest"
+work.city-salaries,work,city:t3,3190,MISSING_ACQUIRABLE,2,150,LIVE,"3,190 pages in the manifest"
+property.city-buy,stay,city:t2,2989,MISSING_ACQUIRABLE,2,6800,LIVE,"2,989 pages in the manifest"
+cost-of-living.city,move,city:t3,2967,MISSING_ACQUIRABLE,2,450,LIVE,"2,967 pages in the manifest"
+health.city,move,city:t2,2811,MISSING_ACQUIRABLE,2,2900,LIVE,"2,811 pages in the manifest"
+transport.city-getting-around,transport,city:t2,2532,MISSING_ACQUIRABLE,2,40000,LIVE,"2,532 pages in the manifest"
+services.city-practical,move,city:t2,1593,ACQUIRABLE_WITH_EFFORT,2,14000,LIVE,"1,593 pages in the manifest"
+transport.route-from-market,transport,city:t2+air,1327,HELD,3,,LIVE,"1,327 pages in the manifest"
+places.neighbourhood-category,areas,neighbourhood,825,HELD_PARTIAL,2,,LIVE,825 pages in the manifest
+rents.neighbourhood,stay,neighbourhood,825,MISSING_ACQUIRABLE,2,,LIVE,825 pages in the manifest
+neighbourhoods.guide,areas,neighbourhood,825,HELD_PARTIAL,2,,LIVE,825 pages in the manifest
+events.city-window,pulse,city:t2,805,HELD,2,12000,LIVE,805 pages in the manifest
+comparisons.city-vs-home,tools,city:t2,740,MISSING_ACQUIRABLE,2,,LIVE,740 pages in the manifest
+cost-of-living.city-vs-market,move,city:t2,740,MISSING_ACQUIRABLE,2,,LIVE,740 pages in the manifest
+work.city-jobs-category,work,city:t2,731,MISSING_ACQUIRABLE,3,40,LIVE,731 pages in the manifest
+education.city-universities,move,city:t2,709,MISSING_ACQUIRABLE,2,10000,LIVE,709 pages in the manifest
+sport.city-activity,sport,city:t2,690,ACQUIRABLE_WITH_EFFORT,2,600,LIVE,690 pages in the manifest
+safety.city,safety,city:t2,654,MISSING_ACQUIRABLE,2,1800,LIVE,654 pages in the manifest
+education.city-schools,move,city:t1,259,MISSING_ACQUIRABLE,2,800,LIVE,259 pages in the manifest
+comparisons.city-vs-city,tools,city:pair,50,HELD,2,,LIVE,50 pages in the manifest
+neighbourhoods.city-where-to-stay,areas,city:t2,20,HELD_PARTIAL,2,1200,LIVE,20 pages in the manifest
+relocation.country,move,country,15,MISSING_ACQUIRABLE,2,100,LIVE,15 pages in the manifest
+taxes.country-remote-work,move,country,13,MISSING_ACQUIRABLE,2,0,LIVE,13 pages in the manifest
+comparisons.country-vs-country,tools,country:pair,12,HELD,2,,LIVE,12 pages in the manifest
+destinations.country-hub,areas,country,11,HELD,2,,DATA_HELD_BUT_GATE_BUG,"one declared source field. urlaub in X reads 2,000 to 4,900 a month in German at CPC 25 to 60 cents across sixteen countries, the best commercial band of any travel family measured. Holds 11 pages against that."
+weather.city-best-time,climate,city:t2+air,0,HELD,2,1020000,DATA_HELD_BUT_GATE_BUG,"two duplicated rows in 08-SERP-EVIDENCE.csv carrying the keywords wetter konstanz and spokane weather, filed under this family with a reason column reading ""sampled no"", set the class to SERP_FEATURE_SUPPRESSED and rejected all 29,210 rows. Resampled on the right intent there is no knowledge card and a DR 9 page with zero backlinks holds position 8. FIXED."
+cost-of-living.country-vs-market,move,country,0,HELD,1,,DATA_HELD_BUT_GATE_BUG,"HELD, one declared field."
+cost-of-living.country,move,country,0,HELD,1,250,DATA_HELD_BUT_GATE_BUG,source_state HELD and one declared field. The eurostat and World Bank price level files are on disk.
+pulse.named-holiday-date,pulse,holiday-country,0,HELD,0,,DATA_HELD_BUT_GATE_BUG,"empty required_data, 8,648 rows lost. The dated records are held; the per holiday-name intent has not been read separately, so this is a gate bug plus an unmeasured intent."
+pulse.long-weekends,pulse,country-year,0,HELD,0,22000,DATA_HELD_BUT_GATE_BUG,"empty required_data. 687 records held plus 3,539 subdivision records. de brueckentage 2026 reads 18,000 and pt feriados prolongados 19,000."
+pulse.subdivision-holidays,pulse,subdivision,0,HELD,0,,DATA_HELD_BUT_GATE_BUG,"empty required_data. 623 regional records held. de feiertage nrw 2026 reads 202,000 and ferien-nrw.com holds position 9 at DOMAIN RATING 1 with zero backlinks."
+pulse.country-holidays,pulse,country,0,HELD,0,705000,DATA_HELD_BUT_GATE_BUG,"required_data is EMPTY so uniqueness_reason returned an empty string. Data HELD: 1,081 national records over 43 countries with localised names. pt feriados 2026 reads 705,000."
+pulse.named-holiday-regions,pulse,holiday,0,HELD,0,,DATA_HELD_BUT_GATE_BUG,"empty required_data, 3,115 rows lost."
+sport.route,sport,route:named,0,ACQUIRABLE_WITH_EFFORT,1,400,DATA_HELD_UTILITY_POSSIBLE,"never generated a row, and this is the single largest class B opportunity in the project. 125,516 named route relations are on disk with a measured length_km, median 10 facts each. 114,530 pass a hard utility gate. de wanderung X reads 2,100 to 3,100 for named hikes and the French, Italian and Spanish sibling classes all transferred."
+outdoors.region-feature-list,outdoors,region:feature,0,HELD_PARTIAL,2,8600,DATA_HELD_UTILITY_POSSIBLE,"never generated a row. de ausflugsziele nrw reads 7,500 and five more German states clear 2,200. The GeoNames admin1 and admin2 stores plus the OSM outdoor and POI layers give the features to list, which is the aggregation the brief asks to prefer."
+transport.airport-to-city,transport,airport:linked,0,MISSING_ACQUIRABLE,3,30,DATA_HELD_INTENT_UNMEASURED,"never generated a row. airport transfer carries the highest CPC measured anywhere in this project at 100 to 250 cents, but the page needs a transport source beyond computed distance and the GTFS registry in sources.json is not ingested."
+connectivity.city-online,connectivity,city:t2,0,OUT_OF_SCOPE,2,,DATA_HELD_INTENT_UNMEASURED,"never generated a row, which is striking for an eSIM brand: the connectivity surface has ZERO pages."
+community.city-topic,community,city:t1,0,BLOCKED_LICENCE,2,,DATA_HELD_INTENT_UNMEASURED,never generated a row.
+airports.guide,transport,airport,0,HELD,2,,DATA_HELD_INTENT_UNMEASURED,"never generated a row. ourairports is registered. de flughafen returns about thirty named airports, but the dominant intents are parken, parkplatz, ankunft and abflug: parking commerce and live flight boards, neither of which a static page answers."
+connectivity.country-sim-gap,connectivity,country,0,OUT_OF_SCOPE,1,,DATA_HELD_INTENT_UNMEASURED,never generated a row.
+events.recurring,pulse,event-series,0,HELD,1,464000,DATA_HELD_INTENT_UNMEASURED,never generated a row.
+pulse.bridge-days-subdivision,pulse,subdivision-year-bridge,0,HELD,1,22000,DATA_HELD_INTENT_UNMEASURED,"never generated a row. 1,052 subdivision bridge days and 348 bridge plans with a computed max_days_off are held. de brueckentage 2026 nrw reads 9,900."
+calendar.month,tools,month-year-market,0,HELD,0,,AGGREGATE_INSTEAD,"as above, 264 rows."
+calendar.year,tools,year-market,0,HELD,0,766000,AGGREGATE_INSTEAD,"calendar 2026 reads 766,000 but the axis is 22 rows: one per market per year. Enormous volume, no page count, and the brief says not to count tools as a scale path."
+tools.calculator,tools,tool:global,0,HELD,1,217000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+calendar.week-numbers,tools,year-market,0,HELD,0,7900,AGGREGATE_INSTEAD,"as above, 22 rows."
+tools.matcher,tools,tool:global,0,HELD,1,,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.cost-calculator,tools,tool:global,0,HELD,1,,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.cost-comparison,tools,tool:global,0,HELD,1,,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+places.poi,areas,poi:gated,0,ACQUIRABLE_WITH_EFFORT,1,,AGGREGATE_INSTEAD,"never generated a row at entity level and the 2026-10-06 run settled why: the destination POI fan-out produced 292,613 raw rows and the localisation gate removed 263,742 as TRANSLATION_ONLY. poi-aggregations is the right shape."
+tools.loan-payment,tools,tool:market,0,HELD,4,42000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.rent-to-income,tools,tool:market,0,MISSING_ACQUIRABLE,2,9700,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.vehicle-financing,tools,tool:market,0,HELD,4,10000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.net-pay,tools,tool:market,0,MISSING_ACQUIRABLE,3,258000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.net-pay-contract-level,tools,tool:market,0,MISSING_ACQUIRABLE,3,3000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.bonus-net-pay,tools,tool:market,0,MISSING_ACQUIRABLE,1,10000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.mortgage-tax-deduction,tools,tool:market,0,MISSING_ACQUIRABLE,2,2600,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.max-borrowing,tools,tool:market,0,MISSING_ACQUIRABLE,1,18000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.government-loan-scheme,tools,tool:market,0,MISSING_ACQUIRABLE,2,1800,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.cross-border-net-pay,tools,tool:market,0,MISSING_ACQUIRABLE,1,2700,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.loan-overpayment,tools,tool:market,0,HELD,5,52000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.property-purchase-costs,tools,tool:subdivision,0,MISSING_ACQUIRABLE,3,16000,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+tools.energy-cost,tools,tool:market,0,HELD,4,1100,AGGREGATE_INSTEAD,"a tool is one page per market, not a family. brutto netto rechner reads 1,260,000 a month in German, the second largest keyword in the project, on an axis of one year and two states at CPC 2 cents. Build the tool; do not count it as scale."
+climate.city-annual,climate,city,0,HELD,0,,CANNIBALIZATION,"the parent topic of X climate points to the city itself, to meteo, to klimatabelle or to the best-time intent in eleven of fifteen English readings and nearly every German, French and Italian one. weather.city-month holds 22,927 pages from the same store."
+destinations.city-hub,areas,city:t3,0,HELD,1,,CANNIBALIZATION,"X travel guide reads 250 to 2,400 in en-US but its parent topics are things to do in bangkok, visiting paris and what to see in rome, which activities.city-things-to-do holds with 30,040 pairs. Dead outside English: X reisefuehrer reads 10 in German."
+work.city-jobs,work,city:t2,0,HELD,3,31000,SERP_BLOCKED,"AGGREGATOR_LOCKED on measured evidence, 3,615 rows. Job boards own this SERP."
+visas.country-work-permit,move,country,3,MISSING_ACQUIRABLE,2,,SOURCE_MISSING,MISSING_ACQUIRABLE.
+cost-of-living.item-country,move,country,0,MISSING_ACQUIRABLE,1,,SOURCE_MISSING,"MISSING_ACQUIRABLE, UNAVAILABLE_OPEN."
+events.series-city,pulse,city:t1,0,HELD,1,17000,SOURCE_MISSING,"HELD in name but acquisition is AFFILIATE_OR_PARTNER_FEED, which this project does not have. 6,935 rows lost. Note that de weihnachtsmarkt returns about 55 named markets above 3,000 a month, so the INTENT is proven and only the feed is missing."
+services.country-admin,move,country,0,MISSING_ACQUIRABLE,1,350,SOURCE_MISSING,"MISSING_ACQUIRABLE, GOVERNMENT_PLUS_OPEN."
+health.country,move,country,0,MISSING_ACQUIRABLE,1,3100,SOURCE_MISSING,"MISSING_ACQUIRABLE, GOVERNMENT. health.city holds 2,811."
+banking.country,move,country,0,MISSING_ACQUIRABLE,1,200,SOURCE_MISSING,"MISSING_ACQUIRABLE, GOVERNMENT_PLUS_COMMERCIAL."
+taxes.country,move,country,0,MISSING_ACQUIRABLE,1,,SOURCE_MISSING,"MISSING_ACQUIRABLE, acquisition GOVERNMENT_PLUS_OECD."
+visas.country-digital-nomad,move,country,0,MISSING_ACQUIRABLE,1,20,SOURCE_MISSING,"MISSING_ACQUIRABLE. digital nomad visa reads 13,000 and spain digital nomad visa 2,900 at CPC 140 cents, among the highest in the project. The source is each immigration authority and a visa page built on anything less is a liability."
+work.country-working,work,country,0,MISSING_ACQUIRABLE,1,,SOURCE_MISSING,"MISSING_ACQUIRABLE, GOVERNMENT."
+visas.country-residency,move,country,0,MISSING_ACQUIRABLE,1,600,SOURCE_MISSING,"MISSING_ACQUIRABLE, GOVERNMENT. Demand confirmed: visa requirements for us citizens 3,200 at CPC 15 to 200 cents."
+visas.country-visit,move,country,0,MISSING_ACQUIRABLE,1,7600,SOURCE_MISSING,"MISSING_ACQUIRABLE, and median KD 73."
+safety.country-advice,safety,country,0,MISSING_ACQUIRABLE,1,,SOURCE_MISSING,"MISSING_ACQUIRABLE. The honest source is each foreign ministry travel advice, which changes weekly. A stale safety page is worse than no page. Demand is thin anyway: five entities between 300 and 900 a month."
+pulse.school-holidays,pulse,subdivision-year,0,MISSING_ACQUIRABLE,0,30000,SOURCE_MISSING,"MISSING_ACQUIRABLE for the full set. 1,502 school records over 232 country-subdivision pairs ARE held from OpenHolidays covering 31 countries, and fr vacances scolaires 2026 reads 1,920,000, the largest keyword in the project. So it is partly held and partly missing, and the missing part is each education ministry."
+climate.city-day,climate,city-date,0,HELD,0,,CORRECTLY_REJECTED,the entity is city-date and the only source is MONTHLY normals. A daily figure derived from a monthly mean is a precision the source does not carry.
+neighbourhoods.city-best-for,areas,city:t2,0,HELD_PARTIAL,3,700,CORRECTLY_REJECTED,REJECTED_UNSUPPORTED_SUPERLATIVE: the family id itself claims best and no methodology document exists. areas.city-index lists the same areas from the same facts without the unearned ranking.
+rankings.index,tools,ranking:list,0,HELD,1,,CORRECTLY_REJECTED,a ranking with no methodology is the superlative gate.
+pulse.today,pulse,country-day,0,HELD,0,,CORRECTLY_REJECTED,a page that changes daily cannot be a static candidate.
