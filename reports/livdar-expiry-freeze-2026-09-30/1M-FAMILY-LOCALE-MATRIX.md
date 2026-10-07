@@ -27,6 +27,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-attribute | 2,328 |  | 1,832 |  |  |  |  |  |  | 400 | 161 |
 | places.city-category | 882 | 39 | 2,405 | 553 | 40 | 133 | 150 | 143 | 57 | 16 | 159 |
 | rents.city | 882 | 240 | 2,405 | 553 | 18 | 133 | 150 | 143 |  | 1 | 677 |
+| transport.city-pair-transit | 1,762 |  |  |  |  |  |  |  |  |  |  |
 | stay.near-venue | 2,096 | 486 | 613 | 375 |  | 169 | 214 | 295 | 125 | 172 | 241 |
 | places.area-bar | 973 | 297 | 326 | 464 |  | 661 | 515 | 782 | 82 | 77 | 125 |
 | places.area-pub | 397 | 930 | 706 | 597 |  | 272 | 538 | 203 | 169 | 115 | 134 |
@@ -53,7 +54,6 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | outdoors.archaeological_site | 67 | 287 | 635 | 59 |  | 447 | 189 | 329 | 46 | 17 | 6 |
 | transport.route-from-market | 208 | 893 | 95 | 161 | 18 | 95 | 85 | 38 | 36 | 23 | 212 |
 | outdoors.foot-trail | 186 | 685 |  | 45 |  |  | 40 | 412 | 317 | 166 | 6 |
-| transport.city-pair-transit | 1,762 |  |  |  |  |  |  |  |  |  |  |
 | places.city-supermarket |  |  | 172 | 263 |  | 252 | 246 | 192 | 138 | 138 | 145 |
 | events.city-window | 208 | 39 | 232 | 161 | 18 | 260 | 258 | 53 | 36 | 39 | 212 |
 | places.city-dentist | 598 | 158 | 145 | 112 | 19 | 75 | 119 | 118 | 99 | 108 | 46 |

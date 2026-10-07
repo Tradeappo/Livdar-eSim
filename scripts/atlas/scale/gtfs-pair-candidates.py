@@ -198,6 +198,28 @@ MODE_WORD = {'bus': 'bus', 'rail': 'train', 'subway': 'metro', 'tram': 'tram',
              'ferry': 'ferry', 'funicular': 'funicular', 'aerial_lift': 'cable car',
              'cable_tram': 'cable tram', 'trolleybus': 'trolleybus', 'monorail': 'monorail'}
 
+# ---- the locale of a pair -------------------------------------------------------------------
+# A pair is emitted in the LANGUAGE OF ITS OWN COUNTRY where that language was measured on the
+# pair form, and in English otherwise. This is not a language fan-out: it is one page per pair,
+# in one locale, chosen by where the pair is.
+#
+# Measured 2026-10-07, see ahrefs-expiry/gtfs-pair-local-language-2026-10-07.json and the three
+# market admission files. DOMESTIC ONLY: both endpoints must be in the country. A Copenhagen to
+# Hamburg page has real Danish demand (tog fra koebenhavn til hamborg 300) but it is also a page
+# about a German city, and calling it native-locale for Germany would be false, so cross-border
+# pairs stay in English and take their chances with the localisation gate.
+#
+# Dutch is absent on purpose. It holds the most pairs of any country, 7,509, and its pair demand
+# is international while the held feed is domestic.
+PAIR_LOCALE = {
+    'DK': ('da-DK', 'da', 'til', 'tog fra {a} til {b}'),
+    'NO': ('nb-NO', 'nb', 'til', 'tog fra {a} til {b}'),
+    # Finnish takes no preposition and puts the pair before the mode, so its joiner is a space
+    # and its measured form is "{a} {b} juna". Both directions carry equal volume (800 and 800),
+    # so the page stays unordered like every other pair here.
+    'FI': ('fi-FI', 'fi', None, '{a} {b} juna'),
+}
+
 rows, seen = [], set()
 for (_ka, _kb), e in sorted(P.items()):
     a, b = e['a'], e['b']
@@ -214,7 +236,20 @@ slugify = _ei.slugify
 
 out = []
 for a, b, e in rows:
-    url = f"/en/transport/public-transport/{slugify(a['name'])}-to-{slugify(b['name'])}/"
+    # domestic, and in a country whose own language was measured on the pair form
+    loc = PAIR_LOCALE.get(a['country']) if a['country'] == b['country'] else None
+    if loc:
+        market, lang, joiner, query_form = loc
+        name = (f"{a['name']} {joiner} {b['name']}" if joiner
+                else f"{a['name']} {b['name']}")
+        stats['emitted_in_local_language:' + lang] += 1
+    else:
+        market, lang, query_form = 'en-US', 'en', None
+        name = f"{a['name']} to {b['name']}"
+        stats['emitted_in_english'] += 1
+    joiner_slug = '-to-' if lang == 'en' else ('-til-' if joiner else '-')
+    url = (f"/{lang}/transport/public-transport/"
+           f"{slugify(a['name'])}{joiner_slug}{slugify(b['name'])}/")
     if url in seen:
         # two different gazetteer ids whose names slug the same: a real collision, and the
         # honest fix is to drop the second rather than mint a near-identical URL
@@ -241,9 +276,13 @@ for a, b, e in rows:
     lic = ', '.join(sorted(e['licences'])) or 'open licence stated in the Mobility Database'
     out.append({
         'shape': 'transport_pair_transit',
-        'market': 'en-US', 'language': 'en', 'url': url,
+        'market': market, 'language': lang, 'url': url,
         'entity_id': f"{a['id']}-{b['id']}",
-        'entity_name': f"{a['name']} to {b['name']}",
+        'entity_name': name,
+        # the query form this locale was actually measured on, carried onto the row so intent
+        # ownership is a recorded fact rather than an assumption downstream
+        'measured_local_query_form': (query_form.format(a=a['name'].lower(), b=b['name'].lower())
+                                      if query_form else ''),
         'country': a['country'], 'destination_country': b['country'],
         'city': a['name'], 'cls': 'settlement-settlement',
         'n': len(e['route_names']) or e['stop_pairs'],
@@ -257,7 +296,7 @@ for a, b, e in rows:
         'pair_duplicate_risk': 'LOW',
         'locale_facts': facts,
         'uniqueness_reason': (
-            f"{a['name']} to {b['name']} by public transport, from the published timetables of "
+            f"{name} by public transport, from the published timetables of "
             f"{', '.join(sorted(e['operators'])[:3]) or 'the operating agency'} "
             f"({lic}) via the Mobility Database. " + '; '.join(facts) + '. The journey time and '
             f"the service count are READ FROM the published schedule rather than estimated. "

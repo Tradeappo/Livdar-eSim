@@ -984,6 +984,32 @@ MARKETS = [
     # family is REFUSED despite measuring 91,000 on chichen itza, because that SERP is held by
     # Wikipedia, INAH and the Yucatan state portal. The market rests on its eighteen cities.
     ('es-MX', 'MX', 'es'),
+    # Admitted 2026-10-07, and admitted for ONE FAMILY each: the transport settlement pair.
+    # Measured in data/atlas/measurements/ahrefs-expiry/gtfs-pair-local-language-2026-10-07.json
+    # on the origin-destination form in each language, not on a family root and not translated
+    # from any other market.
+    #
+    # These three exist because the GTFS acquisition produced settlement pairs with real
+    # scheduled journey times in countries whose language is not English, and emitted in English
+    # every one of them is a cross-language page that the localisation gate correctly rejects:
+    # 19,622 of 21,384 pairs were lost that way. The pairs are not the problem; the locale was.
+    #
+    # da  tog fra aalborg til koebenhavn 350 KD 0, tog fra frederikshavn til skagen 200 KD 0,
+    #     tog fra broenderslev til aalborg 150 KD 0. 50 rows at a floor of 40, which was the
+    #     call limit, so a FLOOR and not a depth.
+    # nb  tog fra bergen til oslo 350 KD 0, tog fra voss til bergen 100 KD 1, tog fra sarpsborg
+    #     til oslo 100 KD 0. Also 50 rows at a floor of 40, also a floor.
+    # fi  helsinki turku juna 800 KD 0, helsinki porvoo bussi 800 KD 0. Finnish puts the PAIR
+    #     BEFORE THE MODE with no preposition, and both directions carry equal volume, which
+    #     says the Finnish pair is genuinely unordered and is ONE page. Only four rows were
+    #     read: the family is proven in Finnish, its DEPTH is not, and the admission file says so.
+    #
+    # Dutch was REFUSED despite holding the most pairs of any country (7,509), because Dutch
+    # pair demand is international (trein van amsterdam naar londen 400) while the held feed is
+    # domestic. Pair-axis viability tracks country geography, not language size.
+    ('da-DK', 'DK', 'da'),
+    ('nb-NO', 'NO', 'nb'),
+    ('fi-FI', 'FI', 'fi'),
 ]
 MKT_COUNTRY = {m: c for m, c, _ in MARKETS}
 MKT_LANG = {m: l for m, _, l in MARKETS}

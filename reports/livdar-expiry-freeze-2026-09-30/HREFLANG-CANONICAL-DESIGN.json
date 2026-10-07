@@ -3,7 +3,7 @@
  "status": "DESIGN ONLY, NOT DEPLOYED. No route, sitemap, redirect or template changed.",
  "url_space_today": "LANGUAGE-scoped: /{language}/{surface}/{family}/{entity}/",
  "market_pages_justified_by_the_experiment": 3,
- "pages_in_the_plan": 423766,
+ "pages_in_the_plan": 427124,
  "languages_present": {
   "en": 123203,
   "fr": 55523,
@@ -15,12 +15,15 @@
   "pl": 23725,
   "pt": 22201,
   "tr": 13487,
-  "zh-Hant": 800
+  "da": 1628,
+  "nb": 1141,
+  "zh-Hant": 800,
+  "fi": 589
  },
  "counts": {
   "pages_LANGUAGE_PAGE": 57273,
   "annotations": 232748,
-  "pages_with_no_alternates": 366490,
+  "pages_with_no_alternates": 369848,
   "pages_MARKET_PAGE": 3
  },
  "reciprocity": {
@@ -34,12 +37,15 @@
  "canonical_rule": "self on every page. A market page NEVER canonicals to the generic page: that would declare it a duplicate, and a duplicate should not exist rather than exist with a canonical pointing away. The two outcomes for a market candidate are \"exists and self-canonicals\" and \"is not created\".",
  "hreflang_values_emittable_in_this_url_space": {
   "language_tags": [
+   "da",
    "de",
    "en",
    "es",
+   "fi",
    "fr",
    "it",
    "ja",
+   "nb",
    "nl",
    "pl",
    "pt",

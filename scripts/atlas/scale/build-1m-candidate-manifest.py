@@ -355,7 +355,11 @@ print(f'  keyword master rows {len(km):,}, family-market cells with evidence {le
 NEW_MARKET_MEAS = ['ahrefs-tr-TR-market-admission-2026-10-05.json',
                    'ahrefs-en-AU-market-admission-2026-10-05.json',
                    'ahrefs-es-MX-market-admission-2026-10-05.json',
-                   'ahrefs-ko-KR-market-admission-2026-10-05.json']
+                   'ahrefs-ko-KR-market-admission-2026-10-05.json',
+                   # the three pair-only markets, admitted 2026-10-07
+                   'ahrefs-da-DK-market-admission-2026-10-07.json',
+                   'ahrefs-nb-NO-market-admission-2026-10-07.json',
+                   'ahrefs-fi-FI-market-admission-2026-10-07.json']
 for _fn in NEW_MARKET_MEAS:
     try:
         _d = json.load(open(ROOT + 'data/atlas/measurements/' + _fn, encoding='utf-8'))
@@ -2345,6 +2349,14 @@ NEW_MARKET_FAMILY_COVER = {
     'connectivity.esim-country': set(),
     'connectivity.esim-region': set(),
     'connectivity.esim-explainer': set(),
+    # The settlement pair, and ONLY the settlement pair. da-DK, nb-NO and fi-FI are admitted on
+    # this one measured category, so this cover rule is the whole of what those three markets
+    # may generate. Deliberately NOT mapped to transport.city-pair-air or
+    # transport.city-pair-rail: those rest on a 2014 OpenFlights snapshot and a Wikidata
+    # adjacency graph, neither of which was measured in Danish, Norwegian or Finnish, and
+    # letting a transit measurement license them would be the inferred mapping this table
+    # exists to prevent.
+    'transport.city-pair-transit': {'transport.city-pair-transit'},
 }
 
 # A family a market's own SERP reading found closed is refused even though its demand measured.

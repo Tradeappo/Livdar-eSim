@@ -1,0 +1,247 @@
+{
+ "market": "nb-NO",
+ "language": "nb",
+ "country": "NO",
+ "generated_on": "2026-10-07",
+ "provider": "Ahrefs keywords-explorer matching-terms",
+ "is_a_new_language": true,
+ "keyword_floor_used": 40,
+ "keywords_tested": 41,
+ "total_measured_volume": 8100,
+ "verdict_rule": "a family is MEASURED only where this market own keywords were read on this family own query form, not translated from another market",
+ "why_this_market": "Admitted on the GTFS pair local-language measurement of 2026-10-07, recorded in full in data/atlas/measurements/ahrefs-expiry/gtfs-pair-local-language-2026-10-07.json. This market is admitted for ONE family. It inherits nothing: the per-market family gate covers transport.city-pair-transit and nothing else, so no POI list, no outdoor feature, no city things-to-do and no holiday page is generated for it. The reason is that only the pair form was measured here.",
+ "the_pair_form_that_was_measured": "tog fra {A} til {B} and buss fra {A} til {B}, plus the reversed form",
+ "depth_is": "FLOOR not a depth: 50 rows returned, the call limit, at a volume floor of 40",
+ "settlement_pairs_held_on_disk": 2712,
+ "gtfs_feed_and_licence": "Entur (national Norwegian journey planner data), NLOD 2.0",
+ "families": {
+  "transport.city-pair-transit": {
+   "verdict": "MEASURED",
+   "keywords": [
+    {
+     "keyword": "tog fra oslo til stockholm",
+     "volume": 500,
+     "kd": 0
+    },
+    {
+     "keyword": "tog til stockholm fra oslo",
+     "volume": 350,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra bergen til oslo",
+     "volume": 350,
+     "kd": 0
+    },
+    {
+     "keyword": "buss fra kristiansand til oslo",
+     "volume": 350,
+     "kd": 31
+    },
+    {
+     "keyword": "tog fra trondheim til oslo",
+     "volume": 350,
+     "kd": 2
+    },
+    {
+     "keyword": "tog fra vaernes til trondheim",
+     "volume": 300,
+     "kd": 1
+    },
+    {
+     "keyword": "tog fra gardermoen til oslo s",
+     "volume": 300,
+     "kd": 2
+    },
+    {
+     "keyword": "buss fra oslo til kristiansand",
+     "volume": 300,
+     "kd": 28
+    },
+    {
+     "keyword": "tog fra oslo til goeteborg",
+     "volume": 300,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra stavanger til oslo",
+     "volume": 300,
+     "kd": 2
+    },
+    {
+     "keyword": "tog fra oslo til bergen",
+     "volume": 300,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra oslo til trondheim",
+     "volume": 250,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra oslo til kristiansand",
+     "volume": 200,
+     "kd": 1
+    },
+    {
+     "keyword": "tog til bergen fra oslo",
+     "volume": 200,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra kristiansand til oslo",
+     "volume": 200,
+     "kd": 2
+    },
+    {
+     "keyword": "buss fra bergen til stavanger",
+     "volume": 200,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra oslo til stavanger",
+     "volume": 200,
+     "kd": 0
+    },
+    {
+     "keyword": "tog til koebenhavn fra oslo",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra goeteborg til oslo",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra fredrikstad til oslo",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra oslo s til gardermoen",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "buss fra stavanger til bergen",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra oslo til koebenhavn",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra aandalsnes til oslo",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog til oslo fra stavanger",
+     "volume": 150,
+     "kd": 2
+    },
+    {
+     "keyword": "tog fra moss til oslo",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra stavanger til sandnes",
+     "volume": 150,
+     "kd": 1
+    },
+    {
+     "keyword": "tog til stavanger fra oslo",
+     "volume": 150,
+     "kd": 2
+    },
+    {
+     "keyword": "tog fra stockholm til oslo",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "buss fra oslo til goeteborg",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra trondheim til vaernes",
+     "volume": 150,
+     "kd": 0
+    },
+    {
+     "keyword": "tog til trondheim fra oslo",
+     "volume": 150,
+     "kd": 1
+    },
+    {
+     "keyword": "tog til goeteborg fra oslo",
+     "volume": 100,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra porsgrunn til oslo",
+     "volume": 100,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra stavanger til kristiansand",
+     "volume": 100,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra hamar til oslo",
+     "volume": 100,
+     "kd": 0
+    },
+    {
+     "keyword": "tog fra sandefjord til oslo",
+     "volume": 100,
+     "kd": 2
+    },
+    {
+     "keyword": "buss fra bergen til haugesund",
+     "volume": 100,
+     "kd": 5
+    },
+    {
+     "keyword": "buss fra oslo til arendal",
+     "volume": 100,
+     "kd": 29
+    },
+    {
+     "keyword": "tog fra voss til bergen",
+     "volume": 100,
+     "kd": 1
+    },
+    {
+     "keyword": "tog fra sarpsborg til oslo",
+     "volume": 100,
+     "kd": 0
+    }
+   ]
+  }
+ },
+ "serp_evidence": {
+  "transport.city-pair-transit": {
+   "class": "OPEN_SPECIALIST_PAGE_WINS",
+   "evidence": "keyword difficulty 0 to 2 across every pair row returned, which is the lowest band read for any family in this inventory outside the pulse cluster. No knowledge card and no aggregator lock observed on the pair form."
+  }
+ },
+ "families_admitted": [
+  "transport.city-pair-transit"
+ ],
+ "families_thin": [],
+ "families_refused": [
+  "every other family in the manifest. Nothing but the pair form was measured in this language, so nothing but the pair family is admitted. This market does NOT inherit the family set of any market that shares a region or a language group."
+ ],
+ "what_the_measurement_settles": "The origin-destination pair axis carries real demand at keyword difficulty 0 to 2 in this language, on small domestic pairs rather than only on famous corridors, which is the shape of the settlement pairs the national GTFS feed produced.",
+ "duplication_risk_measured_not_assumed": "LOW. Each page states a different scheduled journey time and direct-service count read from stop_times, so the differentiating facts are per pair rather than templated.",
+ "implementation_cost": "none beyond market registration: the pairs are already built and gated in data/atlas/sources/transport/_gtfs-pair-candidates.jsonl.gz",
+ "blocking_dependency": "none",
+ "licence_and_provenance": "Entur (national Norwegian journey planner data), NLOD 2.0, via the Mobility Database, with GeoNames (CC BY 4.0) for the settlements"
+}

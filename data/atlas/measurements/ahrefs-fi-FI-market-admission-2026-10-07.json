@@ -1,0 +1,62 @@
+{
+ "market": "fi-FI",
+ "language": "fi",
+ "country": "FI",
+ "generated_on": "2026-10-07",
+ "provider": "Ahrefs keywords-explorer matching-terms",
+ "is_a_new_language": true,
+ "keyword_floor_used": 150,
+ "keywords_tested": 4,
+ "total_measured_volume": 3100,
+ "verdict_rule": "a family is MEASURED only where this market own keywords were read on this family own query form, not translated from another market",
+ "why_this_market": "Admitted on the GTFS pair local-language measurement of 2026-10-07, recorded in full in data/atlas/measurements/ahrefs-expiry/gtfs-pair-local-language-2026-10-07.json. This market is admitted for ONE family. It inherits nothing: the per-market family gate covers transport.city-pair-transit and nothing else, so no POI list, no outdoor feature, no city things-to-do and no holiday page is generated for it. The reason is that only the pair form was measured here.",
+ "the_pair_form_that_was_measured": "{A} {B} juna and {A} {B} bussi. Finnish puts the PAIR BEFORE THE MODE and uses no preposition at all, which is the seventh phrasing correction of this research programme and the only one found in Finnish",
+ "depth_is": "NOT a depth and NOT a floor. The probe used the bare nouns juna and bussi as roots, which was the WRONG root: it returned mostly brand and product noise (lego juna, brio juna, flex bussi, and a television presenter). The four pair rows surfaced anyway, which is what made the phrasing correction visible. The FAMILY is proven in Finnish; its DEPTH is not. A probe on the corrected root must run before the 752 Finnish pairs are treated as uniformly admissible, and until it does this market rests on four measured rows.",
+ "settlement_pairs_held_on_disk": 752,
+ "gtfs_feed_and_licence": "Digitransit / HSL (Finland), CC BY 4.0",
+ "families": {
+  "transport.city-pair-transit": {
+   "verdict": "MEASURED",
+   "keywords": [
+    {
+     "keyword": "helsinki turku juna",
+     "volume": 800,
+     "kd": 0
+    },
+    {
+     "keyword": "turku helsinki juna",
+     "volume": 800,
+     "kd": 0
+    },
+    {
+     "keyword": "helsinki porvoo bussi",
+     "volume": 800,
+     "kd": 0
+    },
+    {
+     "keyword": "porvoo helsinki bussi",
+     "volume": 700,
+     "kd": 0
+    }
+   ]
+  }
+ },
+ "serp_evidence": {
+  "transport.city-pair-transit": {
+   "class": "OPEN_SPECIALIST_PAGE_WINS",
+   "evidence": "keyword difficulty 0 to 2 across every pair row returned, which is the lowest band read for any family in this inventory outside the pulse cluster. No knowledge card and no aggregator lock observed on the pair form."
+  }
+ },
+ "families_admitted": [
+  "transport.city-pair-transit"
+ ],
+ "families_thin": [],
+ "families_refused": [
+  "every other family in the manifest. Nothing but the pair form was measured in this language, so nothing but the pair family is admitted. This market does NOT inherit the family set of any market that shares a region or a language group."
+ ],
+ "what_the_measurement_settles": "The origin-destination pair axis carries real demand at keyword difficulty 0 to 2 in this language, on small domestic pairs rather than only on famous corridors, which is the shape of the settlement pairs the national GTFS feed produced.",
+ "duplication_risk_measured_not_assumed": "LOW. Each page states a different scheduled journey time and direct-service count read from stop_times, so the differentiating facts are per pair rather than templated.",
+ "implementation_cost": "none beyond market registration: the pairs are already built and gated in data/atlas/sources/transport/_gtfs-pair-candidates.jsonl.gz",
+ "blocking_dependency": "none",
+ "licence_and_provenance": "Digitransit / HSL (Finland), CC BY 4.0, via the Mobility Database, with GeoNames (CC BY 4.0) for the settlements"
+}

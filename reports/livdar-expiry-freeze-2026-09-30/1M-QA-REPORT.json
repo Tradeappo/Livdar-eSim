@@ -1,9 +1,9 @@
 {
- "manifest_rows": 423763,
- "distinct_urls": 423763,
+ "manifest_rows": 427121,
+ "distinct_urls": 427121,
  "checks": {
-  "title_over_65_chars": 37944,
-  "meta_over_165_chars": 7759,
+  "title_over_65_chars": 38742,
+  "meta_over_165_chars": 11117,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 204,
   "duplicate_title_same_tokens": 259,
@@ -12095,8 +12095,29 @@
     "it carries figures from Wikidata P197 adjacent station (CC0 1.0) with GeoNames (CC BY 4.0), a named source with provenance"
    ]
   },
+  "transport.city-pair-transit|da": {
+   "rows": 1628,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
   "transport.city-pair-transit|en": {
    "rows": 1762,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|fi": {
+   "rows": 589,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|nb": {
+   "rows": 1141,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12440,7 +12461,7 @@
  "title_length": {
   "min": 13,
   "max": 207,
-  "mean": 42.8
+  "mean": 42.9
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
