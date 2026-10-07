@@ -85,7 +85,15 @@ add(family='pulse.subdivision-holidays', domain='seasonality',
     status='IN THE CATALOGUE, ZERO PAGES, 43 rows generated',
     head_volume=202000, head_keyword='feiertage nrw 2026 (de-DE)',
     tail_volume_sampled=1700, tail_example='festivos extremadura 2026 (es-ES)',
-    entities_with_demand=182, entity='country-subdivision', years=PULSE_YEARS, languages=5,
+    entities_with_demand=58, entity='subdivision with MEASURED demand', years=PULSE_YEARS, languages=5,
+    depth_probe=('NOT RUN for this family, but corrected by inference from the school-holiday '
+                 'probe, which is the same axis: the count is now the subdivisions whose own '
+                 'keyword was READ, 16 German states plus 16 Polish voivodeships plus 19 '
+                 'Spanish subdivisions plus 4 British nations plus 3 Dutch regions, which is 58. '
+                 'It was 182, taken from the OpenHolidays subdivision supply. A depth probe per '
+                 'language should still be run before this number is trusted.'),
+    entity_supply_on_disk='182 subdivisions in the OpenHolidays store (CH 115, ES 26, DE 17, IT 14, FR 10), of which 58 have a measured keyword',
+    sample_truncated='no',
     languages_where_intent_exists='de 16 states, pl 16 voivodeships, es 19 subdivisions, gb 4 nations, nl 3 regions',
     serp_feasibility=F_OPEN_PROVEN,
     serp_evidence='same SERP as above, sampled directly on a subdivision keyword',
@@ -98,8 +106,20 @@ add(family='pulse.school-holidays', domain='seasonality, travel planning',
     status='IN THE CATALOGUE, ZERO PAGES, 86 rows generated, source_state MISSING_ACQUIRABLE for the full set',
     head_volume=1920000, head_keyword='vacances scolaires 2026 (fr-FR)',
     tail_volume_sampled=900, tail_example='schoolvakanties zuid 2026 (nl-NL)',
-    entities_with_demand=232, entity='country-subdivision', years=PULSE_YEARS,
+    entities_with_demand=17, entity='subdivision or city with MEASURED demand', years=PULSE_YEARS,
     languages=6,
+    depth_probe=('RUN 2026-10-07 and it CORRECTED this row. matching-terms for "vacances '
+                 'scolaires" in French, floor 2,000 a month, limit raised to 600, returned 106 '
+                 'rows: the tail TERMINATED. Those 106 resolve to 14 cities and academies '
+                 '(paris toulouse rennes caen montpellier marseille nantes bordeaux nice '
+                 'grenoble rouen lille lyon strasbourg) plus the three zones A B C, times five '
+                 'years and seven holiday periods, with the rest being phrasing variants. So '
+                 'the largest family in the project, 1,920,000 a month on its head keyword, '
+                 'supports about 120 pages in French and not thousands. The entity count here '
+                 'was 232 country-subdivision pairs taken from the SOURCE; it is now 17, taken '
+                 'from the demand.'),
+    entity_supply_on_disk='232 country-subdivision school pairs in the OpenHolidays store, of which 17 have measured French demand',
+    sample_truncated='no, the depth probe removed the limit',
     languages_where_intent_exists='fr zones A B C plus five cities, de 16 states, nl 3 regions, pl 16 voivodeships, gb counties, it weak',
     serp_feasibility=F_OPEN_PROVEN,
     serp_evidence='the German school-holiday SERP shares its winners with the holiday SERP; schulferien.eu at DR 27 on 3 backlinks holds position 4 on brueckentage 2026 nrw',
@@ -138,7 +158,13 @@ add(family='pulse.bridge-plans-subdivision', domain='seasonality, travel plannin
     status='IN THE CATALOGUE as pulse.bridge-days-subdivision, ZERO ROWS GENERATED',
     head_volume=9900, head_keyword='brueckentage 2026 nrw (de-DE)',
     tail_volume_sampled=1800, tail_example='brueckentage 2026 rlp (de-DE)',
-    entities_with_demand=187, entity='country-subdivision', years=PULSE_YEARS, languages=3,
+    entities_with_demand=16, entity='subdivision with MEASURED bridge-day demand', years=PULSE_YEARS, languages=3,
+    depth_probe=('NOT RUN. Corrected from the measured readings instead: the German sample '
+                 'returned brueckentage for nrw, niedersachsen, bayern, bw, hessen, berlin and '
+                 'rlp, seven states, and the German state set is 16. It was 187, taken from the '
+                 'subdivision supply in the store.'),
+    entity_supply_on_disk='187 country-subdivision pairs with long weekend and bridge day records, of which 7 were read directly',
+    sample_truncated='no',
     languages_where_intent_exists='de, and the measurement only covers de so far',
     serp_feasibility=F_OPEN_PROVEN, serp_evidence='brueckentage 2026 nrw sampled directly',
     parent_topic='its own', overlap_with_existing='none live',
@@ -457,6 +483,8 @@ def main():
         r['commercial_value'] = commercial(r.get('cpc_hi', 0))
         r.setdefault('entity_supply_on_disk', '')
         r.setdefault('sample_truncated', 'no')
+        r.setdefault('depth_probe', 'NOT RUN: the entity count is a truncated sample and the '
+                                    'expected page count is unverified')
         # expected_raw_candidates is built from entities whose demand was MEASURED, never from
         # the supply on disk. Where the sample was truncated the measured count is a FLOOR and
         # the row says so, because the honest statement is that the entity supply is large and
@@ -474,7 +502,7 @@ def main():
             'tail_example', 'entities_with_demand', 'entity', 'years', 'languages',
             'languages_where_intent_exists', 'serp_feasibility', 'serp_evidence', 'parent_topic',
             'overlap_with_existing', 'cannibalisation_risk', 'cpc_hi', 'commercial_value',
-            'data_source', 'entity_supply_on_disk', 'sample_truncated',
+            'data_source', 'entity_supply_on_disk', 'sample_truncated', 'depth_probe',
             'information_gain', 'expected_raw_candidates',
             'expected_final_valid', 'expected_acceptance_rate', 'acceptance_basis', 'rank_score']
     with open(OUT_CSV, 'w', newline='', encoding='utf-8') as fh:
@@ -560,12 +588,37 @@ def main():
                 'the reset, which costs only time, or the commercial and official datasets named '
                 'in the source-gap list, chiefly visa rules, school-holiday coverage beyond 31 '
                 'countries, transport timetables and the published Mietspiegel documents.')},
+        'the_grand_total_after_two_corrections': {
+            'existing_final_distinct_valid': 401393,
+            'country_expansion_measured_2026_10_06': 90498,
+            'this_matrix_on_measured_entity_counts': 5775,
+            'the_feature_classes_are_UNDERSTATED_here': (
+                'ski area, named hike, castle, waterfall and beach total 143 in this matrix '
+                'because their samples were truncated and no depth probe has been run on them. '
+                'The lake probe says one class in one language supports about 95 entities, so '
+                'five classes across the four proven languages is nearer 1,000 to 1,200. Add '
+                'that, not the 143.'),
+            'identified_total': 'about 498,000 to 499,000',
+            'gap_to_one_million': 'about 501,000, with no identified path',
+            'two_corrections_were_needed_to_reach_this_number': (
+                'first I claimed 30,000 to 60,000 pages from the outdoor layer by applying a '
+                'truncated head hit rate to 1,281,126 features; the lake depth probe returned '
+                '132 rows against a limit of 400 and refuted it. Then the school-holiday row '
+                'claimed 5,220 pages from 232 SOURCE pairs times years times languages; the '
+                'French depth probe returned 106 rows against a limit of 600 and put the real '
+                'French entity count at 17. Both errors were the same mistake: multiplying the '
+                'supply in a store by the axes instead of counting the entities whose demand was '
+                'actually read. Every row now carries a depth_probe column and the two rows '
+                'without one say so.')},
         'the_honest_headline': (
-            'the gap to a million is about 500,000 pages and the families measured here do not '
-            'close it. They are worth tens of thousands, at a value per page far above the '
-            'existing inventory. The pulse cluster alone carries more measured search volume on '
-            'its top keyword per market, 3.7 million a month across seven markets, than the whole '
-            'current inventory of 401,393 pages was ever measured to carry.'),
+            'the families measured here are worth about 5,775 pages on measured entity counts, '
+            'call it 6,800 once the five feature classes get their depth probes. They do not '
+            'close a 500,000 gap and nothing measured in this project does. What they do carry '
+            'is value per page far above the existing inventory: the pulse cluster alone reads '
+            '3.7 million searches a month across the top keyword of seven markets, against an '
+            'inventory of 401,393 pages whose median measured volume is in the tens. The right '
+            'conclusion is to build these because they are worth more each, not because they '
+            'add up to a million.'),
         'ranked': [{k: r[k] for k in ('family', 'rank_score', 'expected_final_valid',
                                       'commercial_value', 'serp_feasibility', 'head_volume',
                                       'entities_with_demand', 'status')} for r in R],

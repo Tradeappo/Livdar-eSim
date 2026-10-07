@@ -14,7 +14,7 @@
   },
   "commercial_value": "from the measured CPC ceiling in cents: 150+ is 1.00, 60 to 149 is 0.70, 25 to 59 is 0.45, 10 to 24 is 0.25, under 10 is 0.10"
  },
- "total_expected_final_valid_across_admitted": 15429,
+ "total_expected_final_valid_across_admitted": 5775,
  "what_this_total_is_and_is_not": "it is the sum of entities x years x languages x a stated acceptance rate, per family, from measured entity counts. It is NOT a promise and it is NOT comparable to the 401,393 that exists: that number came from a run and this one comes from a measurement of demand plus an estimate of yield. Every row names the factors so the arithmetic can be checked and corrected.",
  "what_actually_binds_the_admitted_count": {
   "the_finding": "expected_final_valid above is built from entities whose demand was MEASURED, and most of those samples were truncated at the call limit. The entity SUPPLY on disk is two orders of magnitude larger than the measured demand count.",
@@ -53,37 +53,26 @@
   "the_corrected_answer_to_the_500k_gap": "it is not closed and it is not closeable from this entity model at this quality bar. Existing 401,393, plus 90,498 from country expansion, plus 15,429 from this matrix, plus 1,000 to 2,500 from the named feature cluster, is about 510,000. The seven datasets named in tail-depth-probe-2026-10-07.json would add roughly 3,000 to 9,000 more between them. Reaching a million would need either a different entity model or pages without measured per-entity demand, and the brief forbids the second. That tension is the finding.",
   "the_superseded_gap_answer": "it does not close it this cycle. The measurement budget closes perhaps 50,000 to 75,000 of it. Closing the rest needs either a second measurement cycle after the reset, which costs only time, or the commercial and official datasets named in the source-gap list, chiefly visa rules, school-holiday coverage beyond 31 countries, transport timetables and the published Mietspiegel documents."
  },
- "the_honest_headline": "the gap to a million is about 500,000 pages and the families measured here do not close it. They are worth tens of thousands, at a value per page far above the existing inventory. The pulse cluster alone carries more measured search volume on its top keyword per market, 3.7 million a month across seven markets, than the whole current inventory of 401,393 pages was ever measured to carry.",
+ "the_grand_total_after_two_corrections": {
+  "existing_final_distinct_valid": 401393,
+  "country_expansion_measured_2026_10_06": 90498,
+  "this_matrix_on_measured_entity_counts": 5775,
+  "the_feature_classes_are_UNDERSTATED_here": "ski area, named hike, castle, waterfall and beach total 143 in this matrix because their samples were truncated and no depth probe has been run on them. The lake probe says one class in one language supports about 95 entities, so five classes across the four proven languages is nearer 1,000 to 1,200. Add that, not the 143.",
+  "identified_total": "about 498,000 to 499,000",
+  "gap_to_one_million": "about 501,000, with no identified path",
+  "two_corrections_were_needed_to_reach_this_number": "first I claimed 30,000 to 60,000 pages from the outdoor layer by applying a truncated head hit rate to 1,281,126 features; the lake depth probe returned 132 rows against a limit of 400 and refuted it. Then the school-holiday row claimed 5,220 pages from 232 SOURCE pairs times years times languages; the French depth probe returned 106 rows against a limit of 600 and put the real French entity count at 17. Both errors were the same mistake: multiplying the supply in a store by the axes instead of counting the entities whose demand was actually read. Every row now carries a depth_probe column and the two rows without one say so."
+ },
+ "the_honest_headline": "the families measured here are worth about 5,775 pages on measured entity counts, call it 6,800 once the five feature classes get their depth probes. They do not close a 500,000 gap and nothing measured in this project does. What they do carry is value per page far above the existing inventory: the pulse cluster alone reads 3.7 million searches a month across the top keyword of seven markets, against an inventory of 401,393 pages whose median measured volume is in the tens. The right conclusion is to build these because they are worth more each, not because they add up to a million.",
  "ranked": [
   {
-   "family": "pulse.school-holidays",
-   "rank_score": 5220.0,
-   "expected_final_valid": 5220,
-   "commercial_value": 1.0,
-   "serp_feasibility": 1.0,
-   "head_volume": 1920000,
-   "entities_with_demand": 232,
-   "status": "IN THE CATALOGUE, ZERO PAGES, 86 rows generated, source_state MISSING_ACQUIRABLE for the full set"
-  },
-  {
    "family": "pulse.subdivision-holidays",
-   "rank_score": 2707.6,
-   "expected_final_valid": 3868,
+   "rank_score": 862.4,
+   "expected_final_valid": 1232,
    "commercial_value": 0.7,
    "serp_feasibility": 1.0,
    "head_volume": 202000,
-   "entities_with_demand": 182,
+   "entities_with_demand": 58,
    "status": "IN THE CATALOGUE, ZERO PAGES, 43 rows generated"
-  },
-  {
-   "family": "pulse.bridge-plans-subdivision",
-   "rank_score": 596.0,
-   "expected_final_valid": 2384,
-   "commercial_value": 0.25,
-   "serp_feasibility": 1.0,
-   "head_volume": 9900,
-   "entities_with_demand": 187,
-   "status": "IN THE CATALOGUE as pulse.bridge-days-subdivision, ZERO ROWS GENERATED"
   },
   {
    "family": "weather.city-best-time",
@@ -106,6 +95,16 @@
    "status": "IN THE CATALOGUE, ZERO PAGES, 3,984 rows generated"
   },
   {
+   "family": "pulse.school-holidays",
+   "rank_score": 382.0,
+   "expected_final_valid": 382,
+   "commercial_value": 1.0,
+   "serp_feasibility": 1.0,
+   "head_volume": 1920000,
+   "entities_with_demand": 17,
+   "status": "IN THE CATALOGUE, ZERO PAGES, 86 rows generated, source_state MISSING_ACQUIRABLE for the full set"
+  },
+  {
    "family": "pulse.bridge-days",
    "rank_score": 193.5,
    "expected_final_valid": 430,
@@ -124,6 +123,16 @@
    "head_volume": 705000,
    "entities_with_demand": 43,
    "status": "IN THE CATALOGUE, ZERO PAGES, blocked by a one-field required_data cell"
+  },
+  {
+   "family": "pulse.bridge-plans-subdivision",
+   "rank_score": 51.0,
+   "expected_final_valid": 204,
+   "commercial_value": 0.25,
+   "serp_feasibility": 1.0,
+   "head_volume": 9900,
+   "entities_with_demand": 16,
+   "status": "IN THE CATALOGUE as pulse.bridge-days-subdivision, ZERO ROWS GENERATED"
   },
   {
    "family": "property.city-rent-index",
