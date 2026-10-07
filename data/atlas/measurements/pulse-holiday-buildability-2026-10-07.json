@@ -1,0 +1,23 @@
+{
+  "measured_at": "2026-10-07T13:30:00Z",
+  "question": "The highest volume family measured in this session is German public holidays by federal state and year (feiertage nrw 2026 at 202,000, bayern 2026 at 149,000), on the most open SERP measured (a DR 17 site ranks 10 with zero page backlinks). Is the data on disk to build it?",
+  "answer": "YES. It was already there.",
+  "my_error_and_its_correction": {
+    "claim_made": "The pulse regional list has no DE entries at all, so German regional public holidays are missing and the pulse materialiser is dropping them.",
+    "why_it_was_wrong": "Two mistakes in one check. I read the key 'subdivision' (singular) when the regional records use 'subdivisions' (plural, a list), and I printed only the top 8 countries by count, which stopped at NZ with 24. DE has 22 and fell just outside the printed window.",
+    "truth": "pulse-entities.json regional holds 22 DE entries covering all 16 federal states: DE-BY 10, DE-BW 6, DE-BB 6, DE-SL 6, DE-ST 4, DE-MV 4, DE-NW 4, DE-RP 4, DE-TH 4, DE-SN 4, DE-BE 2, DE-HE 2, DE-SH 2, DE-HH 2, DE-HB 2, DE-NI 2. The named holidays are correct: Heilige Drei Koenige, Fronleichnam, Friedensfest, Internationaler Frauentag, Ostersonntag, Pfingstsonntag.",
+    "the_materialiser_is_not_defective": "The regional branch in pulse-materialise.py appends on subdivisions and not nationwide, independently of whether the country was already claimed by another source, which is correct and is what produced these 22 rows."
+  },
+  "what_is_actually_on_disk": {
+    "national": 1081, "regional": 623, "school": 1502, "long_weekends": 687,
+    "bridge_days": 233, "long_weekends_subdivision": 3539, "bridge_days_subdivision": 1052,
+    "bridge_plans": 348,
+    "regional_by_country": {"PT":282,"CH":70,"CA":46,"ES":44,"AU":42,"GB":39,"IT":24,"NZ":24,"DE":22,"FR":16,"US":12,"BR":2}
+  },
+  "the_real_constraint": {
+    "finding": "The limit on this family is not missing data and not a gate. It is the YEAR WINDOW. The holiday sources cover 2026 and 2027 only.",
+    "arithmetic": "16 German federal states x 2 years is 32 pages, plus the national page per year. The measured demand is enormous per page (202,000 on one keyword) but the page count is tiny.",
+    "conclusion": "This family is HIGH VOLUME and LOW PAGE COUNT. It is worth building for its traffic and it is not a path to a million, exactly as recorded in the capacity ceiling. Extending the year window backwards is possible (the keyword set shows measured demand for 2016, 2019, 2020, 2023, 2024, 2025) and forwards, and would multiply the page count by the number of years, but a page about 2019 public holidays serves almost nobody and would be padding the count rather than serving a reader."
+  },
+  "cannibalisation_warning_carried_forward": "parent_topic repeatedly redirects a public holiday year page to its school holiday sibling: feiertage niedersachsen 2026 has parent herbstferien niedersachsen 2026, and feiertage bayern 2025 has parent schulferien bayern 2025. Public and school holidays compete for one SERP and must be ONE page per region and year, not two."
+}
