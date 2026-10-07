@@ -1,0 +1,50 @@
+{
+ "measured_at": "2026-10-07",
+ "graph_nodes": 7312,
+ "graph_edges": 21480,
+ "RAW_candidates_from_graph": 14832,
+ "REJECTED": {
+  "endpoint_city_below_population_floor": 4381,
+  "air_edge_endpoint_has_no_city": 855,
+  "access_city_below_population_floor": 834,
+  "air_edge_is_within_one_city": 50,
+  "url_collision_with_another_pair": 23,
+  "airport_too_far_from_city_to_be_access": 5,
+  "single_operator_corridor_in_a_crowded_distance_band": 4,
+  "endpoints_are_the_same_urban_area": 3
+ },
+ "REJECTED_total": 6155,
+ "FINAL_NET": 14805,
+ "funnel_note": "RAW counts candidates built from graph evidence. Some rejections happen BEFORE a candidate is built (an air edge whose endpoint has no city never becomes a candidate), so RAW minus REJECTED does not equal FINAL by construction. The reconciling identity is stated per stage below instead.",
+ "stage_reconciliation": {
+  "edges_air": 18126,
+  "air_edges_dropped_before_candidacy": 905,
+  "distinct_city_corridors": 16701,
+  "corridors_rejected": 4384,
+  "candidates_built": 14832,
+  "candidates_rejected_by_gates": 27,
+  "FINAL_NET": 14805
+ },
+ "final_by_pair_type": {
+  "city-city": 12291,
+  "airport-city": 2514
+ },
+ "final_by_route_confidence": {
+  "high": 5304,
+  "medium": 3279,
+  "low": 6222
+ },
+ "final_by_duplicate_risk": {
+  "LOW": 14007,
+  "MEDIUM": 778,
+  "HIGH": 20
+ },
+ "gates_applied": {
+  "min_city_population": 20000,
+  "min_pair_distance_km": 25.0,
+  "max_airport_access_km": 60.0,
+  "min_statable_facts": 3,
+  "direction": "canonicalised to one page per unordered pair",
+  "url_collision": "a pair sharing a URL with another is dropped, never silently merged"
+ }
+}

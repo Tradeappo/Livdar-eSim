@@ -1,0 +1,48 @@
+{
+ "measured_at": "2026-10-07",
+ "nodes_total": 7312,
+ "nodes_by_type": {
+  "airport": 4133,
+  "city": 3179
+ },
+ "edges_total": 21480,
+ "edges_by_mode": {
+  "air": 18126,
+  "airport_access": 3354
+ },
+ "air_edge_confidence": {
+  "low": 9998,
+  "medium": 4622,
+  "high": 3506
+ },
+ "airport_city_match": {
+  "by_municipality": 2413,
+  "by_proximity_60km": 941,
+  "no_city_found": 779
+ },
+ "air_rows_read": 67663,
+ "air_rows_dropped_airport_not_current": 3070,
+ "air_rows_dropped_multi_stop": 11,
+ "sources": {
+  "ourairports": {
+   "licence": "Public Domain",
+   "role": "airport nodes, city access"
+  },
+  "openflights": {
+   "licence": "ODbL 1.0 with Database Contents License",
+   "role": "air corridor edges",
+   "freshness": "OpenFlights routes.dat, last broad refresh 2014; corridor evidence only"
+  },
+  "geonames": {
+   "licence": "CC BY 4.0",
+   "role": "city nodes"
+  }
+ },
+ "what_is_deliberately_absent": [
+  "live schedules",
+  "fares",
+  "real-time availability",
+  "current delays",
+  "any claim that a specific flight operates today"
+ ]
+}
