@@ -4,10 +4,10 @@ Built 2026-10-07. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **423,763**
+- FINAL DISTINCT VALID CANDIDATES: **427,121**
 - target: 1,000,000
-- shortfall: **576,237** (42.4 per cent of target)
-- rejected and kept visible: 625,144
+- shortfall: **572,879** (42.7 per cent of target)
+- rejected and kept visible: 623,899
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 881,212 | same url_pattern |
-| after semantic dedupe | 881,210 | same market, family, template signature and entity |
-| FINAL DISTINCT | 423,763 | what is in the manifest |
+| after exact dedupe | 882,723 | same url_pattern |
+| after semantic dedupe | 882,721 | same market, family, template signature and entity |
+| FINAL DISTINCT | 427,121 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -40,7 +40,10 @@ The target was not reached. The rest of this report is about why, which of the g
 | tr-TR | 13,487 |
 | es-MX | 12,161 |
 | en-AU | 8,244 |
+| da-DK | 1,628 |
+| nb-NO | 1,141 |
 | zh-Hant-TW | 800 |
+| fi-FI | 589 |
 
 ### By surface
 
@@ -50,8 +53,8 @@ The target was not reached. The rest of this report is about why, which of the g
 | outdoors | 73,116 |
 | areas | 41,069 |
 | stay | 34,442 |
+| transport | 23,844 |
 | climate | 23,602 |
-| transport | 20,486 |
 | move | 15,587 |
 | pulse | 15,243 |
 | work | 4,971 |
@@ -70,7 +73,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | MISSING_DATA | 63,664 |
 | BLOCKED_BY_LICENCE | 40,324 |
 | EXPERIMENT_ONLY | 25,194 |
-| TRANSPORT_PAIR | 15,972 |
+| TRANSPORT_PAIR | 19,330 |
 | NOT_IMPLEMENTED | 9,880 |
 | VISA_POLICY_CELL | 226 |
 | VALIDATED | 50 |
@@ -80,7 +83,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 347,552 |
+| SOURCE_AVAILABLE | 350,910 |
 | LICENCE_REQUIRED | 40,324 |
 | READY_NOW | 25,290 |
 | FEED_REQUIRED | 10,597 |
@@ -89,7 +92,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | serp_feasibility | candidates |
 | --- | --- |
-| viable | 197,748 |
+| viable | 201,106 |
 | unsampled_needs_serp_check | 105,117 |
 | competitive | 52,885 |
 | strong_opportunity | 42,555 |
@@ -103,8 +106,8 @@ The target was not reached. The rest of this report is about why, which of the g
 | OK | 98,808 |
 | LICENCE_REQUIRED | 40,324 |
 | CC0_PLUS_ATTRIBUTION_REQUIRED | 11,222 |
+| MIXED_OPEN_ATTRIBUTION_REQUIRED | 5,120 |
 | CC0_NO_CONDITIONS | 2,157 |
-| MIXED_OPEN_ATTRIBUTION_REQUIRED | 1,762 |
 | PUBLIC_DOMAIN_PLUS_ATTRIBUTION_REQUIRED | 384 |
 | OGL_V3_ATTRIBUTION_REQUIRED | 226 |
 
@@ -116,7 +119,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | --- | --- |
 | shape_measured_2026_10_01 | 268,196 |
 | measured_in_this_market | 132,757 |
-| shape_measured_2026_10_07_open_serp | 16,435 |
+| shape_measured_2026_10_07_open_serp | 19,793 |
 | family_measured_elsewhere | 6,375 |
 
 ### The twenty largest families
@@ -150,18 +153,18 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 197,811 | 88,193 | 5,567 | 882 | 6,732 | 70,951 | 6,334 | 0 | 19,152 |
-| en-GB | 36,837 | 26,766 | 1,307 | 240 | 0 | 2 | 5,063 | 0 | 3,459 |
-| de-DE | 99,635 | 48,961 | 8,248 | 195 | 2,532 | 8,470 | 24,102 | 0 | 7,127 |
+| en-US | 194,653 | 88,193 | 5,567 | 882 | 6,732 | 67,593 | 6,414 | 0 | 19,272 |
+| en-GB | 36,887 | 26,766 | 1,307 | 240 | 0 | 2 | 5,073 | 0 | 3,499 |
+| de-DE | 100,146 | 48,961 | 8,248 | 195 | 2,532 | 8,470 | 24,573 | 0 | 7,167 |
 | ja-JP | 95,014 | 39,969 | 3,058 | 553 | 34,865 | 4,956 | 547 | 248 | 10,818 |
-| zh-Hant-TW | 5,821 | 800 | 570 | 40 | 430 | 48 | 3,772 | 0 | 161 |
-| it-IT | 57,838 | 26,309 | 4,695 | 133 | 14,908 | 2,450 | 3,568 | 0 | 5,775 |
-| es-ES | 98,236 | 33,089 | 4,976 | 150 | 34,360 | 7,936 | 2,665 | 0 | 15,060 |
-| fr-FR | 132,394 | 55,523 | 6,555 | 143 | 41,764 | 10,432 | 2,247 | 248 | 15,482 |
-| nl-NL | 93,767 | 24,335 | 4,993 | 57 | 40,951 | 9,762 | 794 | 0 | 12,875 |
-| pl-PL | 89,546 | 23,725 | 4,932 | 101 | 40,735 | 6,802 | 796 | 0 | 12,455 |
-| pt-BR | 80,487 | 22,201 | 3,993 | 677 | 35,117 | 4,358 | 1,050 | 0 | 13,091 |
-| **all 11** | **987,386** | **389,871** | | | | | | | |
+| zh-Hant-TW | 5,861 | 800 | 570 | 40 | 430 | 48 | 3,812 | 0 | 161 |
+| it-IT | 57,869 | 26,309 | 4,695 | 133 | 14,913 | 2,445 | 3,599 | 0 | 5,775 |
+| es-ES | 98,247 | 33,089 | 4,976 | 150 | 34,364 | 7,932 | 2,676 | 0 | 15,060 |
+| fr-FR | 132,398 | 55,523 | 6,555 | 143 | 41,779 | 10,417 | 2,251 | 248 | 15,482 |
+| nl-NL | 93,767 | 24,335 | 4,993 | 57 | 40,966 | 9,747 | 794 | 0 | 12,875 |
+| pl-PL | 89,546 | 23,725 | 4,932 | 101 | 40,740 | 6,797 | 796 | 0 | 12,455 |
+| pt-BR | 80,492 | 22,201 | 3,993 | 677 | 35,122 | 4,353 | 1,055 | 0 | 13,091 |
+| **all 11** | **984,880** | **389,871** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -169,7 +172,7 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 363,212 |
+| NATIVE_LOCALE | 366,570 |
 | VALID_LOCALIZATION | 60,551 |
 
 - flagged LOCAL_SERP_UNVERIFIED: 105,117. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
@@ -6567,17 +6570,17 @@ swiss | 2 |
 
 | gate | rejected |
 | --- | --- |
-| localization:TRANSLATION_ONLY | 260,026 |
-| localization:LOCAL_INTENT_MISSING | 126,664 |
-| localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 50,938 |
-| REJECTED_QUALITY: no defensible uniqueness basis | 46,071 |
-| REFUSED_MEASURED_CANNIBALISATION: "X travel guide" reads 250 to 2,400 in en-US at CPC 20 to 120 cents, the best commercial signal of the three, but its parent topics are "things to do in bangkok", "visiting paris", "what to see in rome", "barcelona travel" and "amsterdam travel", which is the topic activities.city-things-to-do already holds with 30,040 pairs. Outside English it is dead: "X reisefuehrer" reads 10 in German for every city tested and "guida di viaggio X" reads 0 to 30 in Italian. The commercial signal is real and belongs in the things-to-do title and copy, not on a second URL competing with it. | 29,448 |
-| REFUSED_FABRICATED_PRECISION: the entity is city-date and the only source is NASA POWER MONTHLY normals. A daily figure derived from a monthly mean is a precision the source does not carry, so no keyword was measured for it: the page could not be honest whatever the volume turned out to be. | 27,083 |
-| REFUSED_MEASURED_CANNIBALISATION: "X climate" reads 150 to 2,000 a month, but its parent_topic points elsewhere in eleven of fifteen English readings and in almost every German, French and Italian one: amsterdam climate to "amsterdam", clima roma to "meteo", rom klima to "klimatabelle rom", climat lisbonne to "quand partir a lisbonne". The query is absorbed by the city itself, by weather.city-month which already holds 22,927 pages from the same NASA POWER store, or by the best-time intent. The annual shape belongs as a section on the month pages parent, not as its own URL. | 27,083 |
-| REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: this city was either measured and read below the floor, or has not been measured. Akron, Tulsa, Konstanz, Leipzig, Rostock, Lille, Marseille and Strasbourg all read zero for this intent while Sedona read 2,400, so the city is admitted on its own reading and on nothing else. | 14,094 |
+| localization:TRANSLATION_ONLY | 260,075 |
+| localization:LOCAL_INTENT_MISSING | 123,257 |
+| localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 51,590 |
+| REJECTED_QUALITY: no defensible uniqueness basis | 46,218 |
+| REFUSED_MEASURED_CANNIBALISATION: "X travel guide" reads 250 to 2,400 in en-US at CPC 20 to 120 cents, the best commercial signal of the three, but its parent topics are "things to do in bangkok", "visiting paris", "what to see in rome", "barcelona travel" and "amsterdam travel", which is the topic activities.city-things-to-do already holds with 30,040 pairs. Outside English it is dead: "X reisefuehrer" reads 10 in German for every city tested and "guida di viaggio X" reads 0 to 30 in Italian. The commercial signal is real and belongs in the things-to-do title and copy, not on a second URL competing with it. | 29,539 |
+| REFUSED_FABRICATED_PRECISION: the entity is city-date and the only source is NASA POWER MONTHLY normals. A daily figure derived from a monthly mean is a precision the source does not carry, so no keyword was measured for it: the page could not be honest whatever the volume turned out to be. | 27,174 |
+| REFUSED_MEASURED_CANNIBALISATION: "X climate" reads 150 to 2,000 a month, but its parent_topic points elsewhere in eleven of fifteen English readings and in almost every German, French and Italian one: amsterdam climate to "amsterdam", clima roma to "meteo", rom klima to "klimatabelle rom", climat lisbonne to "quand partir a lisbonne". The query is absorbed by the city itself, by weather.city-month which already holds 22,927 pages from the same NASA POWER store, or by the best-time intent. The annual shape belongs as a section on the month pages parent, not as its own URL. | 27,174 |
+| REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: this city was either measured and read below the floor, or has not been measured. Akron, Tulsa, Konstanz, Leipzig, Rostock, Lille, Marseille and Strasbourg all read zero for this intent while Sedona read 2,400, so the city is admitted on its own reading and on nothing else. | 14,174 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: the best-time intent was measured in es and refused at city level (5 of 72 cities clear 50 a month). It is a country question in this language, not a city one. | 3,878 |
 | REJECTED_QUALITY: indexability floor 10 | 3,867 |
-| REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 3,615 |
+| REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 3,666 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: the best-time intent was measured in pl and refused at city level (rzym 10, paryz 0, barcelona 0, londyn 0, nowy jork 0). It is a country question in this language, not a city one. | 3,155 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: the best-time intent was measured in pt and refused at city level (roma 20, paris 10, nova york 0, lisboa 0, barcelona 0). It is a country question in this language, not a city one. | 3,040 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: no best-time phrasing has been measured in nl beyond a head probe, so no city in it can be admitted yet. The queue is in best-time-keyword-queue-2026-10-06.json. | 3,029 |
@@ -6703,9 +6706,24 @@ swiss | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 23 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-hostel is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 22 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/museum/weimar/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 22 |
+| REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: no best-time phrasing has been measured in fi beyond a head probe, so no city in it can be admitted yet. The queue is in best-time-keyword-queue-2026-10-06.json. | 21 |
 | REJECTED_UNSUPPORTED_SUPERLATIVE: the family id itself claims ['best'], which appears in the URL segment and in the rendered title, and no methodology document exists for it. Its sources (geonames-cities; neighbourhood-facts-verified; rent-index-ve) support a factual comparison and not a ranking. areas.city-index already lists a city's areas from the same verified facts without ranking them, so this page is that one plus an unearned superlative. | 21 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-university is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. activities.city-things-to-do is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. weather.city-month is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. health.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.city-getting-around is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. property.city-buy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-calendar is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. relocation.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. rents.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. services.city-practical is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-salaries is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. stay.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 21 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.lighthouse is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 20 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-hospital is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 20 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/museum/amsterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 20 |
@@ -6733,8 +6751,38 @@ swiss | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/museum/naples-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/kobe/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/theatre/chicago/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 16 |
+| REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: no best-time phrasing has been measured in nb beyond a head probe, so no city in it can be admitted yet. The queue is in best-time-keyword-queue-2026-10-06.json. | 15 |
+| REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: no best-time phrasing has been measured in da beyond a head probe, so no city in it can be admitted yet. The queue is in best-time-keyword-queue-2026-10-06.json. | 15 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.bicycle-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. activities.city-things-to-do is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. activities.city-things-to-do is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. weather.city-month is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. health.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.city-getting-around is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. weather.city-month is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. health.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.city-getting-around is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. property.city-buy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. property.city-buy is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-calendar is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-calendar is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-university is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. relocation.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. relocation.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. rents.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. rents.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. services.city-practical is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-salaries is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. services.city-practical is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-salaries is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. stay.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. stay.city-type is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/theatre/rome-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/sapporo/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/dallas-us-texas/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 15 |
@@ -6805,7 +6853,15 @@ swiss | 2 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/theatre/philadelphia-us-pennsylvania/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/theatre/portland-us-oregon/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 9 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-sports_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.route-from-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-home is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city-vs-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-universities is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. safety.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-jobs-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-sports_centre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. sport.city-activity is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-window is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/malaga-es/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/museum/rotterdam-nl/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/museum/genoa-it/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 8 |
@@ -6904,7 +6960,16 @@ swiss | 2 |
 | REJECTED_DUPLICATE: this URL is already claimed by outdoors.peak for entity n256041922, so the two would be the same page | 5 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-gallery is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.tower is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.route-from-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-home is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city-vs-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-universities is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. safety.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-nightclub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-jobs-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. sport.city-activity is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-window is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-library is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/theatre/fukuoka/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
 | REJECTED_PARENT_REMOVED: this page declares /nl/areas/santa-teresa-br-rio-de-janeiro/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 5 |
@@ -7079,11 +7144,21 @@ swiss | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.wilderness_hut is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-mall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.tower is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. transport.route-from-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-nightclub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.ruins is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-theatre is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.ruins is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. comparisons.city-vs-home is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. cost-of-living.city-vs-market is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-universities is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. safety.city is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. education.city-schools is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. work.city-jobs-category is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.area-gallery is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. sport.city-activity is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. events.city-window is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/areas/bremen-de/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/theatre/dusseldorf/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
 | REJECTED_PARENT_REMOVED: this page declares /pt/places/museum/salt-lake-city/ as its parent and that page is not in the final set, so the breadcrumb and the internal link would both point at nothing | 3 |
@@ -7725,7 +7800,10 @@ swiss | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.camp_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.beach_resort is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.running-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. tools.net-pay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.waterfall is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-parking is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
@@ -7735,7 +7813,10 @@ swiss | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.observatory is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. neighbourhoods.city-where-to-stay is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: da-DK was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: fi-FI was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: nb-NO was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: tr-TR was admitted after the research freeze, so it inherits no family from the markets that share its language. destinations.country-hub is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-beach is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-aquarium is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 1 |
@@ -8319,12 +8400,12 @@ swiss | 2 |
 
 ## 6. QA at scale
 
-- rows checked: 423,763, distinct URLs 423,763
+- rows checked: 427,121, distinct URLs 427,121
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 37,944 |
-| meta_over_165_chars | 7,759 |
+| title_over_65_chars | 38,742 |
+| meta_over_165_chars | 11,117 |
 | title_under_15_chars | 28 |
 | duplicate_title_exact | 204 |
 | duplicate_title_same_tokens | 259 |
@@ -8352,7 +8433,7 @@ swiss | 2 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
 
-- title length: min 13, max 207, mean 42.8
+- title length: min 13, max 207, mean 42.9
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -8403,7 +8484,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-423,763 candidates survive the gates. The target is 1,000,000.
+427,121 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

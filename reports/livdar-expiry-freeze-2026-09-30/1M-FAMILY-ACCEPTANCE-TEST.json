@@ -1,13 +1,13 @@
 {
  "measuredOn": "2026-10-01",
  "families": 215,
- "pages": 423763,
+ "pages": 427121,
  "verdicts": {
   "ACCEPTED": 181,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 315536,
+  "ACCEPTED": 318894,
   "ACCEPTED_WITH_AN_UNKNOWN": 108227
  },
  "most_common_failed_condition": {},
@@ -8531,9 +8531,12 @@
    "every_page_is_low_completeness": false
   },
   "transport.city-pair-transit": {
-   "pages": 1762,
+   "pages": 5120,
    "markets": [
-    "en-US"
+    "da-DK",
+    "en-US",
+    "fi-FI",
+    "nb-NO"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -8551,15 +8554,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 1762,
-    "unique_data_point_count": 11,
-    "distinct_entity_count": 1762,
-    "template_ratio": 1762.0,
+    "unique_fact_count": 5120,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 5120,
+    "template_ratio": 5120.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "Abbots Langley to Hemel Hempstead by public transport, from the published timetables of Carousel Buses Ltd (OGL v3.0) via the Mobility Database. 25 minutes is the median scheduled journey time; 12 minutes on the fastest scheduled service; 21,181 direct services in the published timetable; served by bus; 6 km apart in a straight line; routes 20, 320; operated by Carousel Buses Ltd. The journey time"
+    "information_gain_reason": "Aabenraa til Assens by public transport, from the published timetables of Rejseplanen (Denmark) (Rejseplanen open data terms) via the Mobility Database. 58 minutes is the median scheduled journey time; 1 stop-to-stop connections make up this corridor; 61 direct services in the published timetable; served by train; 40 km apart in a straight line; operated by Rejseplanen (Denmark). The journey time "
    },
    "every_page_is_low_completeness": false
   },
