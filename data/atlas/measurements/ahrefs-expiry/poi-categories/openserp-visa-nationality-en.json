@@ -1,0 +1,65 @@
+{
+ "meta": {
+  "tool": "keywords-explorer-matching-terms", "country": "us",
+  "keywords": "visa for citizens,visa requirements for,visa free countries for",
+  "match_mode": "terms", "terms": "all",
+  "where": "volume>=100 AND serp_domain_rating_top10_min<=35", "limit": 1000,
+  "captured": "2026-10-07", "rows_returned": 198, "units_cost": 4752,
+  "depth_probe": "198 rows against a limit of 1000 and a floor of 100 monthly searches, so 198 is the true tail depth for the nationality x destination phrasing in English",
+  "capture_policy": "the response printed inline rather than persisting to disk. This record keeps the derived counts, every row that bears on admission or exclusion, and the full high-CPC set, rather than a hand transcription of all 198."
+ },
+ "verdict": "ADMIT the nationality x destination axis, with the segment B exclusion enforced and the origin-nationality skew acknowledged",
+ "derived": {
+  "true_tail_depth": 198,
+  "dominant_origin": "United States. Roughly three quarters of the tail is 'for us citizens' or 'do us citizens need a visa for', which confirms the brief's instruction to prioritise wealthy origin nationalities: that is where the measured demand actually is.",
+  "other_origins_that_clear_the_floor": ["indian", "nigerian", "turkish", "jamaican", "ghanaian", "russian", "colombian", "mexican", "chinese", "canadian", "uk", "maltese", "grenadian", "saint kitts and nevis", "us green card holders"],
+  "two_phrasings_one_page": "both '{destination} visa for us citizens' and 'do us citizens need a visa for {destination}' carry volume for the same pairs (turkey 700 and 600, spain 600 and 600, singapore 1,000 and 500, morocco 400 and 300, south africa 400 and 250, portugal 300 and 300). They are the same question and must resolve to one page, not two."
+ },
+ "highest_cpc_rows_usd": [
+  {"keyword": "visa free countries for ghana", "volume": 150, "kd": 6, "cpc": 30.00, "parent_topic": "ghana passport visa free countries"},
+  {"keyword": "do us citizens need a visa for greece", "volume": 250, "kd": 12, "cpc": 7.00, "parent_topic": "is greece safe"},
+  {"keyword": "visa free countries for jamaicans", "volume": 150, "kd": 8, "cpc": 7.00, "parent_topic": "jamaica visa free countries"},
+  {"keyword": "india e-visa for us citizens", "volume": 100, "kd": 0, "cpc": 7.00, "parent_topic": "e visa india"},
+  {"keyword": "namibia visa for us citizens", "volume": 300, "kd": 28, "cpc": 4.50, "parent_topic": "namibia visa"},
+  {"keyword": "visa requirements for barbados", "volume": 100, "kd": 22, "cpc": 3.50, "parent_topic": "barbados visa"},
+  {"keyword": "japan visa for chinese citizens", "volume": 100, "kd": 35, "cpc": 3.50, "parent_topic": "japan visa for chinese citizens"},
+  {"keyword": "zimbabwe visa for us citizens", "volume": 350, "kd": 19, "cpc": 3.00, "parent_topic": "zimbabwe visa"},
+  {"keyword": "vietnam e visa for us citizens", "volume": 150, "kd": 15, "cpc": 3.00, "parent_topic": "vietnam visa"},
+  {"keyword": "do us citizens need visa for india", "volume": 150, "kd": 14, "cpc": 3.00, "parent_topic": "india"}
+ ],
+ "head_rows": [
+  {"keyword": "uk visa for us citizens", "volume": 3600, "kd": 58, "cpc": 2.50},
+  {"keyword": "vietnam visa for us citizens", "volume": 3400, "kd": 0, "cpc": 2.50, "note": "KD 0 at a 2.50 CPC on an enterable SERP. The single best visa cell measured."},
+  {"keyword": "indian visa for us citizens", "volume": 2300, "kd": 55, "cpc": 2.50},
+  {"keyword": "do us citizens need a visa for japan", "volume": 2100, "kd": 40, "cpc": 0.07},
+  {"keyword": "india visa for us citizens", "volume": 1900, "kd": 8, "cpc": 2.50},
+  {"keyword": "visa requirements for canada travel", "volume": 1700, "kd": 0, "cpc": null},
+  {"keyword": "egypt visa for us citizens", "volume": 1600, "kd": 29, "cpc": 2.00},
+  {"keyword": "cambodia visa for us citizens", "volume": 1200, "kd": 0, "cpc": 1.60},
+  {"keyword": "singapore visa for us citizens", "volume": 1000, "kd": 52, "cpc": 0.70}
+ ],
+ "segment_b_exclusions": {
+  "rule": "REFUSE. These are United States immigration and residency-by-investment intents, which is a legal-advice market Livdar must not enter. The earlier visa harvest already identified segment B; this call confirms it reaches down into the tail, so the exclusion has to be a gate rather than a note.",
+  "rows": [
+   {"keyword": "requirements for k1 visa", "volume": 100, "cpc": 0.60},
+   {"keyword": "requirements for fiance visa", "volume": 100, "cpc": 0.15},
+   {"keyword": "requirements for eb 5 visa", "volume": 100, "cpc": 0.80},
+   {"keyword": "h2b visa requirements for employer", "volume": 100, "cpc": 0.90},
+   {"keyword": "requirements for us visa", "volume": 150, "kd": 75, "cpc": 0.05},
+   {"keyword": "us visa for russian citizens", "volume": 100, "cpc": 0.80},
+   {"keyword": "portugal golden visa for us citizens", "volume": 100, "cpc": 3.00, "note": "residency by investment, not travel entry"},
+   {"keyword": "portugal golden visa for uk citizens", "volume": 100, "note": "same"},
+   {"keyword": "uk work visa for us citizens", "volume": 400, "cpc": 1.90, "note": "work authorisation, not travel entry"},
+   {"keyword": "canada work visa for us citizens", "volume": 100, "cpc": 0.70, "note": "same"},
+   {"keyword": "new zealand work visa for us citizens", "volume": 200, "cpc": 0.30, "note": "same"},
+   {"keyword": "australia working holiday visa for us citizens", "volume": 100, "cpc": 0.80, "note": "same"}
+  ]
+ },
+ "cardinality_reality_check": {
+  "note": "This is the gate the brief demands: source supply is not the same as measured search, and neither is the same as final page yield.",
+  "matrix_size_if_fanned_out": "roughly 200 nationalities x 200 destinations = 40,000 cells",
+  "cells_with_measured_demand_at_this_floor": "about 200, nearly all of them US-origin",
+  "cells_with_an_authoritative_source_built": 226,
+  "binding_constraint": "NOT demand and NOT the matrix size. It is the authoritative source per origin nationality. Only the UK FCDO is ingested, which gives 226 destination cells from one origin. A second origin needs a second government source read and classified the same conservative way, and there is no single authoritative source that covers all origins. So this axis grows one government dataset at a time, and claiming 40,000 cells would be fabricating policy for 39,800 of them."
+ }
+}

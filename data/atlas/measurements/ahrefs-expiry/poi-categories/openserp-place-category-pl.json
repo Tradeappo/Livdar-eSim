@@ -1,0 +1,65 @@
+{
+ "meta": {
+  "tool": "keywords-explorer-matching-terms", "country": "pl",
+  "keywords": "restauracje w,co zobaczyc w,muzea w",
+  "match_mode": "terms", "terms": "all",
+  "where": "volume>=200 AND serp_domain_rating_top10_min<=30", "limit": 1000,
+  "captured": "2026-10-07", "rows_returned": 213, "units_cost": 5112,
+  "depth_probe": "213 rows against a limit of 1000 and a floor of 200 monthly searches, so 213 is the true tail depth for these three Polish categories",
+  "capture_policy": "the response printed inline rather than persisting to disk, so this record keeps the derived counts and the decisive rows rather than a hand transcription of all 213."
+ },
+ "verdict": "ADMIT. Polish is the most open market measured after German: almost the entire tail sits at keyword difficulty 0.",
+ "derived": {
+  "true_tail_depth": 213,
+  "dominant_family": "co zobaczyc w {place} and the near-identical co warto zobaczyc w {place}, which together carry most of the tail",
+  "difficulty": "the overwhelming majority of rows are KD 0 to 3. Only four rows exceeded KD 30 (co zobaczyc w londynie 45, muzea w gdansku 62, co zobaczyc w trojmiescie 42, co zobaczyc w bergamo 36).",
+  "two_phrasings_one_page": "co zobaczyc w warszawie 1,700 and co warto zobaczyc w warszawie 2,800 are the same question, and both usually carry the same parent topic (atrakcje warszawa). Also co mozna zobaczyc w warszawie 500. Three phrasings, one page.",
+  "polish_cities": ["warszawa 2800+1700+500", "gdansk 1700+1500+400", "krakow 1500+1000+450", "lodz 1500+800+300", "lublin 1000+400", "gdynia 900+350+200", "katowice 900", "szczecin 900+800", "bydgoszcz 700+600", "bialystok 600+450", "torun 600+500+200", "poznan 400+700+250", "olsztyn 450+350", "kielce 400+350", "czestochowa 350+300", "rzeszow 250+200", "opole 250+200", "elblag 200+200", "zamosc 200+200", "gniezno 200+200", "gliwice 200", "walbrzych 200", "jelenia gora 300+250", "zielona gora 200", "koszalin 200"],
+  "polish_resort_and_spa_towns_that_clear_the_floor": ["kolobrzeg 800+500", "swinoujscie 600+500+200", "karpacz 600+500+250", "szklarska poreba 600+500", "zakopane 600+500+250", "sopot 500+250", "kazimierz dolny 300+300", "miedzyzdroje 250+250", "mikolajki 200", "krynica zdroj 200", "szczawnica 250+200", "szczyrk 200", "leba 200", "ustka 200+200", "gizycko 200", "nalenczow 200", "wisla 350", "sandomierz 450+200", "bieszczady 400+250"],
+  "foreign_destinations_in_the_polish_tail": ["barcelona", "wieden", "rzym", "budapeszt", "kopenhaga", "berlin", "londyn", "praga", "mediolan", "paryz", "malaga", "wenecja", "alicante", "bukareszt", "oslo", "ateny", "nowy jork", "madryt", "lizbona", "neapol", "sztokholm", "katania", "palermo", "bolonia", "wilno", "tallin", "helsinki", "bratyslawa", "stambul", "nicea", "bruksela", "monachium", "edynburg", "amsterdam", "porto", "bari", "tokio", "bangkok", "dubaj", "ostrawa"],
+  "reading": "the Polish tail is roughly half domestic and half foreign, which means this family feeds both the market axis and the destination axis from one dataset."
+ },
+ "duration_axis_confirmation": {
+  "finding": "Polish independently carries the place x duration axis, which the German band probe surfaced and the English corrected probe sized. Three languages reaching it separately makes it a real axis rather than an artefact of one phrasing.",
+  "rows": [
+   {"keyword": "wroclaw co zobaczyc w 1 dzien", "volume": 900, "kd": 0},
+   {"keyword": "co warto zobaczyc w lodzi w jeden dzien", "volume": 450, "kd": 0},
+   {"keyword": "co zobaczyc w poznaniu w jeden dzien", "volume": 350, "kd": 0},
+   {"keyword": "co warto zobaczyc w warszawie w jeden dzien", "volume": 350, "kd": 0},
+   {"keyword": "praga co zobaczyc w jeden dzien", "volume": 350, "kd": 0},
+   {"keyword": "wiedzen co zobaczyc w 1 dzien", "volume": 300, "kd": 0},
+   {"keyword": "barcelona co zobaczyc w 3 dni", "volume": 250, "kd": 0},
+   {"keyword": "co zobaczyc w rzymie przez 3 dni", "volume": 250, "kd": 0},
+   {"keyword": "bieszczady w 3 dni co zobaczyc", "volume": 250, "kd": 0},
+   {"keyword": "malta co zobaczyc w 3 dni", "volume": 250, "kd": 0},
+   {"keyword": "berlin co warto zobaczyc w jeden dzien", "volume": 250, "kd": 0},
+   {"keyword": "barcelona co zobaczyc w 4 dni", "volume": 200, "kd": 0},
+   {"keyword": "lodz co zobaczyc w jeden dzien", "volume": 200, "kd": 0},
+   {"keyword": "wenecja co zobaczyc w 1 dzien", "volume": 200, "kd": 0}
+  ]
+ },
+ "commercial_note": {
+  "finding": "Polish restauracje w {city} is the highest-CPC restaurant family of the five languages measured, roughly twice the German and Spanish level.",
+  "rows": [
+   {"keyword": "restauracje w warszawie", "volume": 500, "kd": 3, "cpc_usd": 0.25},
+   {"keyword": "restauracje w sopocie", "volume": 200, "kd": 0, "cpc_usd": 0.25},
+   {"keyword": "muzea w poznaniu", "volume": 200, "kd": 11, "cpc_usd": 0.25},
+   {"keyword": "najlepsze restauracje w warszawie", "volume": 800, "kd": 3, "cpc_usd": 0.20},
+   {"keyword": "restauracje w poznaniu", "volume": 300, "kd": 1, "cpc_usd": 0.20},
+   {"keyword": "restauracje w katowicach", "volume": 200, "kd": 4, "cpc_usd": 0.20},
+   {"keyword": "najlepsze restauracje w szczecinie", "volume": 200, "kd": 0, "cpc_usd": 0.20},
+   {"keyword": "najlepsze restauracje w zakopanem", "volume": 200, "kd": 0, "cpc_usd": 0.20},
+   {"keyword": "najlepsze restauracje w krakowie", "volume": 800, "kd": 0, "cpc_usd": 0.15},
+   {"keyword": "restauracje w krakowie", "volume": 450, "kd": 0, "cpc_usd": 0.15},
+   {"keyword": "restauracje w gdansku", "volume": 200, "kd": 1, "cpc_usd": 0.15},
+   {"keyword": "restauracje w szczecinie", "volume": 200, "kd": 6, "cpc_usd": 0.15},
+   {"keyword": "restauracje w lodzi", "volume": 200, "kd": 0, "cpc_usd": 0.15}
+  ]
+ },
+ "excluded_from_the_family": [
+  {"keyword": "restauracje w poblizu", "volume": 350, "reason": "near me, resolves to the user location, cannot be a page about a named place"},
+  {"keyword": "restauracje w pobliżu mojej lokalizacji", "volume": 200, "reason": "same"},
+  {"keyword": "restauracje w polsce z gwiazdka michelin", "volume": 200, "reason": "a national award list, not a place x category cell. Also restauracje z gwiazdkami michelin w polsce 200. Separable as its own small family if a licensed Michelin source existed, which it does not."},
+  {"keyword": "muzea w polsce", "volume": 450, "reason": "country-level aggregation, not a city cell. Also najlepsze muzea w polsce 200, najciekawsze muzea w polsce 200."}
+ ]
+}
