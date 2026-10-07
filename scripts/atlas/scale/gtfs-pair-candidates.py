@@ -188,10 +188,18 @@ for f in sorted(glob.glob(NAT + 'pairs-*.json.gz')):
         e['stop_pairs'] += 1
         e['countries'].update([p_.get('a_country'), p_.get('b_country')])
         e['sep_km'] = sep
+        # kind and settlement must travel with the endpoint. Without them qualified() sees
+        # every national node as a settlement and leaves station names bare, which is what
+        # produced 90,424 url_collision rejections: "Hauptbahnhof", "Bahnhof" and
+        # "Bus Station" repeat in every town that has one.
         e['a'] = {'id': ida, 'name': p_['a_name'], 'country': p_.get('a_country'),
-                  'lat': p_['a_lat'], 'lon': p_['a_lon'], 'pop': 0}
+                  'lat': p_['a_lat'], 'lon': p_['a_lon'], 'pop': 0,
+                  'kind': p_.get('a_kind', 'settlement'),
+                  'settlement': p_.get('a_settlement')}
         e['b'] = {'id': idb, 'name': p_['b_name'], 'country': p_.get('b_country'),
-                  'lat': p_['b_lat'], 'lon': p_['b_lon'], 'pop': 0}
+                  'lat': p_['b_lat'], 'lon': p_['b_lon'], 'pop': 0,
+                  'kind': p_.get('b_kind', 'settlement'),
+                  'settlement': p_.get('b_settlement')}
 
 # ---- emit ------------------------------------------------------------------------------------
 MODE_WORD = {'bus': 'bus', 'rail': 'train', 'subway': 'metro', 'tram': 'tram',
@@ -304,6 +312,27 @@ def class_b_signals(e, med, sep):
     sig['substantial_journey'] = med >= CLASS_B_MIN_DURATION_S
     return sig
 
+def qualified(n):
+    """A node's reader-facing name and its slug, made unambiguous.
+
+    A station node's own name is NOT unique: "Hauptbahnhof", "Bahnhof", "Bus Station" and
+    "Rail Station" repeat in every town that has one. The first run of this builder dropped
+    90,424 pairs on url_collision_on_settlement_names for exactly that reason, which is the
+    URL scheme failing rather than the data.
+
+    So a station is qualified by the settlement it serves, unless its own name already
+    contains that settlement (London Euston needs nothing; Hauptbahnhof needs Koeln). A
+    settlement node is already unique by the shared identity module and is left alone.
+    """
+    name, kind = n['name'], n.get('kind', 'settlement')
+    if kind != 'station':
+        return name, slugify(name)
+    town = (n.get('settlement') or '').strip()
+    if not town or slugify(town) in slugify(name):
+        return name, slugify(name)
+    return f'{name}, {town}', f'{slugify(name)}-{slugify(town)}'
+
+
 rows, seen = [], set()
 for (_ka, _kb), e in sorted(P.items()):
     a, b = e['a'], e['b']
@@ -323,16 +352,17 @@ for a, b, e in rows:
     # domestic, and in a country whose own language was measured on the pair form
     loc = PAIR_LOCALE.get(a['country']) if a['country'] == b['country'] else None
     med = int(statistics.median(e['durations']))
+    a_name, a_slug = qualified(a)
+    b_name, b_slug = qualified(b)
     if loc:
         market, lang, joiner, query_form = loc
-        name = (f"{a['name']} {joiner} {b['name']}" if joiner
-                else f"{a['name']} {b['name']}")
+        name = (f"{a_name} {joiner} {b_name}" if joiner else f"{a_name} {b_name}")
     else:
         # cross-border, or a country with no native language in this inventory. It stays
         # English and takes its chances with the localisation gate rather than being given a
         # locale it has no claim to.
         market, lang, joiner, query_form = 'en-US', 'en', 'to', None
-        name = f"{a['name']} to {b['name']}"
+        name = f"{a_name} to {b_name}"
     admission = 'A' if lang in CLASS_A else 'B'
     sig = class_b_signals(e, med, e['sep_km'])
     nsig = sum(1 for v in sig.values() if v)
@@ -343,7 +373,7 @@ for a, b, e in rows:
     stats['admitted_class_%s:%s' % (admission, lang)] += 1
     joiner_slug = URL_JOINER.get(lang, '-to-')
     url = (f"/{lang}/transport/public-transport/"
-           f"{slugify(a['name'])}{joiner_slug}{slugify(b['name'])}/")
+           f"{a_slug}{joiner_slug}{b_slug}/")
     if url in seen:
         # two different gazetteer ids whose names slug the same: a real collision, and the
         # honest fix is to drop the second rather than mint a near-identical URL
@@ -374,8 +404,13 @@ for a, b, e in rows:
         'entity_name': name,
         # the query form this locale was actually measured on, carried onto the row so intent
         # ownership is a recorded fact rather than an assumption downstream
-        'measured_local_query_form': (query_form.format(a=a['name'].lower(), b=b['name'].lower())
-                                      if query_form else ''),
+        # The query form this locale was measured on (Class A) or is admitted under
+        # (Class B), with the real place names and the pair's own primary mode substituted,
+        # so intent ownership is a recorded fact rather than an assumption downstream.
+        'measured_local_query_form': (
+            query_form.format(a=a_name.lower(), b=b_name.lower(),
+                              mode=(mw[0] if mw else 'transport'))
+            if query_form else ''),
         'country': a['country'], 'destination_country': b['country'],
         'city': a['name'], 'cls': 'settlement-settlement',
         'n': len(e['route_names']) or e['stop_pairs'],
