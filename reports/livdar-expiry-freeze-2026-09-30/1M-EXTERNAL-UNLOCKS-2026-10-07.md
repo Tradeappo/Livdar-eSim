@@ -12,7 +12,7 @@ answer, including the exact mirror this project's own ingest scripts already poi
 | # | unlock | expected RAW | expected FINAL | external action required | licence | download | effort | blocker |
 |---|---|---|---|---|---|---|---|---|
 | 1 | OSM country capture, remaining countries | ~55,000 pages' worth of entities | **~25,000 verified-path countries, ~55,000 if all paths resolve** | **NONE** | ODbL 1.0 | 0.25 to 6.4 GB per country | low, the pipeline exists and is resumable | none; 4 countries capturing now |
-| 2 | Per-city demand measurement (Ahrefs) | 343,467 rows currently dropped | **unknown, but this is the single largest converter** | none, quota resets 2026-10-08T00:00Z | Ahrefs ToS, internal use | n/a | low | quota, which resets |
+| 2 | ~~Per-city demand measurement (Ahrefs)~~ | 343,467 rows dropped | **UNREACHABLE** | **the paid subscription is expiring and is NOT being renewed** | n/a | n/a | n/a | **SUBSCRIPTION, permanent** |
 | 3 | Spain NAP GTFS | 111 feeds | ~8,000 to 25,000 pairs | **free account registration** | mostly CC BY 4.0 / Licence Ouverte equivalents | ~2 to 5 GB total | medium | account |
 | 4 | DELFI Germany GTFS | 1 national aggregate | ~10,000 to 30,000 pairs | **free account registration** | CC BY 4.0 (DELFI terms) | ~1.5 GB | medium | account |
 | 5 | Trafiklab Sweden GTFS | 59 feeds | ~3,000 to 8,000 pairs | **free API key** | CC0 / NLOD equivalents | ~1 GB | medium | API key |
@@ -143,5 +143,46 @@ unlocks 7, 8, 10, all unblocked, from the same PBFs       ~10,500 to 15,500
 TRANSLATION_ONLY, correctly and permanently unavailable  260,075
 ```
 
-Unlock 2 is the one that decides whether a million is reachable, and it is the one that
-costs nothing but the quota that resets tonight.
+## CORRECTION, same day, and it changes the conclusion
+
+Unlock 2 is withdrawn. I had read `usage_reset_date` as a renewal and it is not: the paid
+Ahrefs subscription is expiring and is not being renewed. A monthly quota rollover and a
+subscription renewal are different things and I conflated them.
+
+So the largest lever in this document is **permanently unavailable**, not merely queued.
+The 183,696-city upper bound in `TIER4-DEPTH-PROBE-PLAN.csv` cannot be collected, and the
+94 cells capped below tier 4 will stay capped. The plan file is kept because it is a
+correct piece of analysis and because it tells any future holder of a keyword tool
+exactly what to measure first, in ranked order, with each cell's query root already
+recovered. It is a specification, not a queued task.
+
+What this does NOT change: every measurement already saved in
+`data/atlas/measurements/` and this folder remains valid and remains the evidence base.
+The tier caps that ARE measured stay measured. Nothing already counted depends on
+further Ahrefs access.
+
+### The honest Ahrefs-free ceiling
+
+| path | expected FINAL | rests on |
+|---|---|---|
+| FINAL now | 427,121 | measured |
+| ferry pairs, DK NO FI GB IE | ~2,000 to 4,000 | the pair family is ALREADY measured in en, da, nb and fi |
+| ski areas, de-DE and AT | ~2,000 to 5,000 | `winterberg skigebiet` 9,200 de-DE, already saved |
+| Wikidata 2-fact enrichment, task 99 | ~7,874 | measured on a 372 stratified sample |
+| outdoor parent-polygon recovery | ~6,527 | gate diagnostic, measured |
+| country capture, ZA AR UA CZ and the four on another mirror | modest, see below | saved destination evidence only |
+| **reachable without any keyword tool** | **~445,000 to 460,000** | |
+
+The country-capture row needs stating plainly rather than left at the plan's number. The
+306,725 in `1M-COUNTRY-PLAN.csv` comes from an 11.72-pages-per-gazetteer-city benchmark,
+which is an extrapolation and not measured demand. A newly captured country's cities are
+mostly tier 3 and tier 4 and are not in any market, so they enter as destination pages
+and are gated by the saved cross-language destination evidence, which covers 2,071
+cities. Capture gives the SOURCE; without a keyword tool nothing new gives the DEMAND. So
+the captures running now are worth doing, and their yield is bounded by evidence already
+on disk rather than by how many countries get captured.
+
+**One million is not reachable with the sources and tooling now available.** The gap
+closes only with a keyword tool to lift the tier caps, or with the three free national
+GTFS accounts, which remain the only items that need you and the only ones that still
+add materially.

@@ -45,6 +45,13 @@ types rather than a translation. This is the same correction that has fired seve
 in this programme, most recently in Finnish, where the pair goes BEFORE the mode.
 
 This script spends NO units. It writes the plan; the probe runs from it.
+
+STATUS, 2026-10-07: THE PROBE CANNOT BE RUN. The paid Ahrefs subscription is expiring and
+is not being renewed. usage_reset_date is a monthly quota rollover, not a renewal, and
+reading it as one was my error. This file is therefore a SPECIFICATION rather than a
+queued task: it records, in ranked order, exactly which cells to measure and the query
+root each one needs, for whoever next holds a keyword tool. Nothing already counted in
+FINAL depends on it.
 """
 import csv, json, glob, collections, os, sys
 
