@@ -69,12 +69,33 @@ def read_text(name, family, lang, country, dr, floor, layout):
 
 # ---------------------------------------------------------------- json harvests
 JSON = [
-    ('poi-categories/openserp-food-en.json', 'poi.place-x-food', 'en', 'us'),
-    ('poi-categories/openserp-gyms-coworking-en.json', 'poi.place-x-fitness-and-workspace', 'en', 'us'),
-    ('poi-categories/openserp-outdoor-leisure-en.json', 'poi.place-x-outdoor-leisure', 'en', 'us'),
     ('poi-categories/openserp-attractions-en.json', 'poi.place-x-attractions', 'en', 'us'),
-    ('poi-categories/openserp-place-category-es.json', 'poi.place-x-category', 'es', 'es'),
+    ('poi-categories/openserp-cosa-vedere-it-band-150-400.json', 'activities.city-things-to-do', 'it', 'it'),
+    ('poi-categories/openserp-place-category-pl.json', 'activities.city-things-to-do', 'pl', 'pl'),
+    ('poi-categories/openserp-device-esim-en.json', 'commercial.esim-device-and-carrier', 'en', 'us'),
+    ('poi-categories/openserp-distance-pairs-en.json', 'transport.origin-destination-pair', 'en', 'us'),
+    ('poi-categories/openserp-food-en.json', 'poi.place-x-food', 'en', 'us'),
+    ('poi-categories/openserp-gezilecek-tr-band-150-700.json', 'activities.city-things-to-do', 'tr', 'tr'),
+    ('poi-categories/openserp-gyms-coworking-en.json', 'poi.place-x-fitness-and-workspace', 'en', 'us'),
+    ('poi-categories/openserp-itinerary-duration-en-corrected.json', 'temporal.place-x-duration', 'en', 'us'),
+    ('poi-categories/openserp-itinerary-duration-en.json', 'temporal.place-x-duration.refuted-phrasing', 'en', 'us'),
+    ('poi-categories/openserp-outdoor-leisure-en.json', 'poi.place-x-outdoor-leisure', 'en', 'us'),
     ('poi-categories/openserp-place-category-de.json', 'poi.place-x-category', 'de', 'de'),
+    ('poi-categories/openserp-place-category-es.json', 'poi.place-x-category', 'es', 'es'),
+    ('poi-categories/openserp-place-category-it.json', 'activities.city-things-to-do', 'it', 'it'),
+    ('poi-categories/openserp-que-ver-en-es-band-150-700.json', 'activities.city-things-to-do', 'es', 'es'),
+    ('poi-categories/openserp-que-ver-en-es-deep.json', 'activities.city-things-to-do', 'es', 'es'),
+    ('poi-categories/openserp-sehenswuerdigkeiten-de-band-200-550.json', 'activities.city-things-to-do', 'de', 'de'),
+    ('poi-categories/openserp-sehenswuerdigkeiten-de-deep.json', 'activities.city-things-to-do', 'de', 'de'),
+    ('poi-categories/openserp-things-to-do-nl.json', 'activities.city-things-to-do', 'nl', 'nl'),
+    ('poi-categories/openserp-things-to-do-pt-br.json', 'activities.city-things-to-do', 'pt', 'br'),
+    ('poi-categories/openserp-things-to-do-tr.json', 'activities.city-things-to-do', 'tr', 'tr'),
+    ('poi-categories/openserp-visa-nationality-en.json', 'policy.visa-nationality-x-destination', 'en', 'us'),
+    ('poi-categories/openserp-things-to-do-sv.json', 'activities.city-things-to-do', 'sv', 'se'),
+    ('poi-categories/openserp-distance-pairs-de.json', 'transport.origin-destination-pair.refuted', 'de', 'de'),
+    ('poi-categories/openserp-route-pairs-en.json', 'transport.origin-destination-pair', 'en', 'us'),
+    ('poi-categories/openserp-things-to-do-ja.json', 'activities.city-things-to-do', 'ja', 'jp'),
+    ('poi-categories/openserp-things-to-do-en-band-300-2000.json', 'activities.city-things-to-do', 'en', 'us'),
 ]
 
 def read_json(rel, family, lang, country):
@@ -92,15 +113,25 @@ def read_json(rel, family, lang, country):
     floor = int(m.group(1)) if m else None
     out = []
     # the German file carries a place column instead of a full keyword
-    for r in doc.get('rows', []) + doc.get('place_category_rows', []):
+    collected = list(doc.get('rows', [])) + list(doc.get('place_category_rows', []))
+    # Three records are analytic rather than row dumps, because their API response
+    # printed inline instead of persisting and only the decisive rows were kept.
+    # Their rows live in named sub-lists, so gather those too rather than dropping them.
+    for key in ('rows_at_cpc_3_usd_or_more', 'highest_cpc_rows_usd', 'head_rows'):
+        collected += list(doc.get(key, []))
+    for sub in ('duration_axis_confirmation', 'commercial_note'):
+        collected += list((doc.get(sub) or {}).get('rows', []))
+    for r in collected:
         kw = r.get('keyword')
         if kw is None and r.get('category') and r.get('place'):
             kw = '%s in %s' % (r['category'], r['place'])
         cents = r.get('cpc') if r.get('cpc') is not None else r.get('cpc_cents')
+        if cents is None and r.get('cpc_usd') is not None:
+            cents = round(float(r['cpc_usd']) * 100)
         out.append({
             'family': family, 'language': lang, 'country': country,
             'keyword': kw, 'volume': r.get('volume'),
-            'kd': r.get('difficulty'),
+            'kd': r.get('difficulty') if r.get('difficulty') is not None else r.get('kd'),
             'cpc_usd': None if cents is None else round(cents / 100.0, 2),
             'parent_topic': r.get('parent_topic') or '',
             'segment': r.get('note') or r.get('collision_class') or '',
