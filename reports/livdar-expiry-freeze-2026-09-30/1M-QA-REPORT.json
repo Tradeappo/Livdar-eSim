@@ -1,13 +1,13 @@
 {
- "manifest_rows": 422001,
- "distinct_urls": 422001,
+ "manifest_rows": 423763,
+ "distinct_urls": 423763,
  "checks": {
-  "title_over_65_chars": 37157,
-  "meta_over_165_chars": 5997,
+  "title_over_65_chars": 37944,
+  "meta_over_165_chars": 7759,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 204,
   "duplicate_title_same_tokens": 259,
-  "destination_rows": 65832,
+  "destination_rows": 67592,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
@@ -12095,6 +12095,13 @@
     "it carries figures from Wikidata P197 adjacent station (CC0 1.0) with GeoNames (CC BY 4.0), a named source with provenance"
    ]
   },
+  "transport.city-pair-transit|en": {
+   "rows": 1762,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
   "transport.route-from-market|de": {
    "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -12433,7 +12440,7 @@
  "title_length": {
   "min": 13,
   "max": 207,
-  "mean": 42.7
+  "mean": 42.8
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
