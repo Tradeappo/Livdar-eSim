@@ -1,0 +1,34 @@
+{
+  "measured_at": "2026-10-07T13:55:00Z",
+  "purpose": "Section 9. Pair-family intent per language, so the language fan-out is EARNED rather than assumed. Each probe uses the canonical phrasing for that language, found by reading parent_topic, not a translation of the English pattern.",
+  "canonical_phrasing_per_language": {
+    "en": "{origin} to {destination}. 'how to get from X to Y' exists but parent_topic collapses it to the bare pair, so the question wording is a minor variant and not the family.",
+    "de": "{mode} {origin} {destination}, for example 'flug berlin paris' and 'berlin hamburg zug'. The preposition form 'von berlin nach X' returns a fraction of the rows.",
+    "fr": "{mode} {origin} {destination}, for example 'vol paris rome'.",
+    "it": "{mode} {origin} {destination}, for example 'volo roma parigi'.",
+    "es": "{mode}s {origin} {destination}, for example 'vuelos madrid paris'."
+  },
+  "probes": [
+    {"lang":"en","origin":"London","term":"london to","country":"gb","floor":2000,"rows":156,
+     "distinct_destinations_approx":120,"head":{"eurostar london to paris":30000,"london to paris":24000,"london to amsterdam":15000,"london to dubai":14000}},
+    {"lang":"en","origin":"Manchester","term":"manchester to","country":"gb","floor":2000,"rows":28,
+     "distinct_destinations_approx":22,"head":{"manchester to london":9200,"manchester to islamabad":4900}},
+    {"lang":"en","origin":"Heathrow","term":"heathrow to","country":"gb","floor":700,"rows":20,
+     "note":"AIRPORT as origin. Three distinct sub-families appear: airport to airport transfer (heathrow to gatwick 2,600), airport to station ground access (paddington 1,000, kings cross 900, reading 700), and airport to destination city (delhi 1,500, new york 1,300, dubai 1,100). The airport-to-airport transfer family was not previously modelled."},
+    {"lang":"de","origin":"Berlin","term":"flug berlin","country":"de","floor":500,"rows":48,
+     "distinct_destinations_approx":47,"head":{"flug berlin paris":2700,"flug berlin münchen":1900,"flug berlin london":1600,"flug berlin wien":1600}},
+    {"lang":"fr","origin":"Paris","term":"vol paris","country":"fr","floor":1000,"rows":146,
+     "distinct_destinations_approx":140,"head":{"vol paris new york":13000,"vol paris nice":12000,"vol paris marrakech":11000,"vol paris dubai":8600}},
+    {"lang":"it","origin":"Roma","term":"volo roma","country":"it","floor":1500,"rows":17,
+     "head":{"volo roma new york":6500,"volo roma parigi":6200,"volo roma catania":3800}},
+    {"lang":"es","origin":"Madrid","term":"vuelos madrid","country":"es","floor":1500,"rows":35,
+     "head":{"vuelos madrid tenerife":7100,"vuelos madrid paris":5700,"vuelos madrid roma":5500}}
+  ],
+  "verdict": {
+    "languages_with_proven_pair_intent": ["en","de","fr","it","es"],
+    "not_yet_probed": ["nl","pl","pt","tr","ja","zh-Hant"],
+    "why_this_matters": "The localisation gate rejects 263,742 pages as TRANSLATION_ONLY, and that rejection is correct where a page only changes language. It does NOT apply to this family: 'vol paris rome' at 7,500 and 'volo roma parigi' at 6,200 are two independent measured queries from two different origin markets about the same corridor. Each has native demand, so each is VALID_LOCALIZATION rather than a translation.",
+    "fan_out_rule_adopted": "A pair belongs to a language when an ENDPOINT COUNTRY'S OWN language is that language. Measured on the 14,805 pilot this gives 1.20 languages per pair, not 7.74.",
+    "a_mistake_i_caught": "My first fan-out computation used the destination-evidence map, which records which languages show INTEREST in a country rather than which are SPOKEN there. It returned 7.74 languages per pair and would have assigned 11 languages to Paris-Nice, which is exactly the translation-clone trap the brief forbids. Recomputed on the own-language rule."
+  }
+}
