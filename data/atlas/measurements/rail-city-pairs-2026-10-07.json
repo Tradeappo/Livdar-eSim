@@ -1,0 +1,19 @@
+{
+ "measured_at": "2026-10-07",
+ "stations": 115459,
+ "stations_mapped_to_city": 99504,
+ "cities_with_rail": 17138,
+ "cities_with_rail_above_pop_floor": 4259,
+ "direct_city_links": 19021,
+ "bounds": {
+  "pop_floor": 50000,
+  "min_km": 25.0,
+  "max_km": 800.0,
+  "max_hops": 12
+ },
+ "rail_city_pairs": 84049,
+ "rejected": {
+  "same_urban_area": 22148,
+  "beyond_800km_rail_is_rarely_the_answer": 3448
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "measured_at": "2026-10-07",
+ "stations": 115459,
+ "stations_mapped_to_a_city": 99593,
+ "cities_with_rail": 17136,
+ "cities_above_pop_floor": 4264,
+ "RAW_candidates": 83817,
+ "REJECTED": {
+  "long_indirect_path_in_a_crowded_distance_band": 36841,
+  "endpoints_are_the_same_urban_area": 22074,
+  "beyond_800km_where_rail_is_rarely_the_answer": 3466,
+  "url_collision_with_another_pair": 120
+ },
+ "REJECTED_total": 62501,
+ "FINAL_NET": 46856,
+ "final_by_route_confidence": {
+  "high": 5388,
+  "medium": 27631,
+  "low": 13837
+ },
+ "final_by_duplicate_risk": {
+  "HIGH": 20117,
+  "LOW": 13024,
+  "MEDIUM": 13715
+ },
+ "final_by_hop_count": {
+  "1": 610,
+  "2": 1676,
+  "3": 3102,
+  "4": 4829,
+  "5": 6277,
+  "6": 7698,
+  "7": 8827,
+  "8": 2335,
+  "9": 2371,
+  "10": 2442,
+  "11": 2895,
+  "12": 3794
+ },
+ "bounds": {
+  "pop_floor": 50000,
+  "min_km": 25.0,
+  "max_km": 800.0,
+  "max_hops": 12,
+  "station_to_city_max_km": 15.0
+ },
+ "source_completeness": "PARTIAL, mean station degree 1.66; every count is a floor"
+}

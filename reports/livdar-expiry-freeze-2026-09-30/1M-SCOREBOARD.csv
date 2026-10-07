@@ -1,14 +1,17 @@
 line,status,raw,rejected,final_net,evidence,note
-"CURRENT FINAL (1M-SUMMARY.json, funnel reconciles)",MATERIALISED,946225,544832,401393,reports/.../1M-SUMMARY.json,FINAL_DISTINCT_CANDIDATES. Authoritative baseline.
-"transport pairs, air, pilot",MATERIALISED,14832,6155,14805,data/atlas/sources/transport/_pair-candidates.jsonl.gz,"12,291 city-city corridors and 2,514 airport-city access, English scoped, every gate applied."
-"visa cells, GB nationality",MATERIALISED,226,0,226,data/atlas/sources/visa/govuk-entry-requirements.jsonl.gz,"FCDO authoritative, OGL v3, dated. Duplicate test passed: zero near-duplicate pairs."
-"transport pairs, bounded one transfer",MEASURED NOT MATERIALISED,156048,390968,"88,044 pairs available",computed from the graph with bounds,"Both endpoints 100,000+, no direct corridor, detour under 1.4x, at least 200km. NOT counted as FINAL."
-"transport pairs, language fan-out",PROJECTED,,,"~86,256",1.20 languages per pair measured on the pilot,PROJECTION from measured rates. Not counted as FINAL.
-"transport pairs, rail",IN PROGRESS,,,unknown,"280,733 Wikidata P197 adjacency statements exist",Fetch running. The largest single unknown. Nothing claimed.
+"CURRENT FINAL (1M-SUMMARY.json, funnel reconciles)",MATERIALISED,946225,544832,401393,reports/.../1M-SUMMARY.json,Authoritative baseline.
+"transport pairs, air",MATERIALISED,14832,6155,14805,data/atlas/sources/transport/_pair-candidates.jsonl.gz,"12,291 city-city corridors, 2,514 airport-city access. English scoped."
+"transport pairs, rail",MATERIALISED,83817,62501,46856,data/atlas/sources/transport/_rail-pair-candidates.jsonl.gz,"Wikidata P197, CC0. Bounds: both cities 50,000+, 25-800km, max 12 city hops. Biggest rejection is 36,841 long indirect paths in a crowded distance band."
+"visa cells, GB nationality",MATERIALISED,226,0,226,data/atlas/sources/visa/govuk-entry-requirements.jsonl.gz,"FCDO authoritative, OGL v3, dated per cell."
+MATERIALISED SUBTOTAL,MATERIALISED,,,463280,sum of the rows above,
+"GAP TO 1,000,000",,,,536720,,
+"transport pairs, air bounded one transfer",MEASURED NOT MATERIALISED,156048,390968,"88,044 available",computed from the graph with bounds,NOT counted as FINAL.
+language fan-out across air and rail pairs,PROJECTED,,,"~74,000 additional",1.20 languages per pair measured on the air pilot,"PROJECTION. Pair intent proven in en, de, fr, it, es, pl and nl. NOT counted as FINAL."
+POI place x category cells already derived but not in the manifest,ON DISK NOT ADMITTED,501887,,"~360,000 not reaching the manifest",data/atlas/sources/osm-poi/_aggregations.jsonl.gz,"Largest single untapped pool. Most are blocked by the localisation gate, where TRANSLATION_ONLY is correctly unavailable but class B may not be."
 country expansion,MEASURED EARLIER,,,"90,498",earlier measurement,Not re-verified this session.
-localisation class B recovery,UPPER BOUND ONLY,,,"up to 104,664",1M-SUMMARY localization_classes,"LOCAL_INTENT_MISSING 54,986 plus LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION 49,678. Needs a hard utility gate. TRANSLATION_ONLY 263,742 is NOT available."
-Wikidata enrichment of factless notables,MEASURED YIELD,40123,,"7,874","372 stratified sample, 0.00 facts before, 1.04 after","19.6 percent gain two or more facts, which is the own-page bar."
-outdoor features failing only the parent gate,MEASURED,,,"6,527",gate diagnostic,"Fix is to extend the parent layer, not relax the gate."
-place x class aggregation expansion,MEASURED,11103,,"2,166",aggregate-only pool grouped at a 5 entity floor,
-region x year holidays,MEASURED,,,"10,000 to 30,000",data on disk for 2026 and 2027,"Highest volume family found, smallest page count. Year window is the bound."
-esim commercial family,MEASURED,,,"~2,000",CPC up to 9.00 USD on buy esim,"COMMERCIAL_ONLY. Built for value, not scale."
+localisation class B recovery,UPPER BOUND ONLY,,,"up to 104,664",1M-SUMMARY localization_classes,"TRANSLATION_ONLY 263,742 is NOT available."
+Wikidata enrichment of factless notables,MEASURED YIELD,40123,,"7,874","372 stratified sample, 0.00 to 1.04 facts",
+outdoor features failing only the parent gate,MEASURED,,,"6,527",gate diagnostic,"Extend the parent layer, do not relax the gate."
+place x class aggregation expansion,MEASURED,11103,,"2,166",5 entity floor,
+region x year holidays,MEASURED,,,"10,000 to 30,000",on disk for 2026 and 2027,Year window is the bound.
+esim commercial family,MEASURED,,,"~2,000",CPC up to 9.00 USD,"COMMERCIAL_ONLY, built for value not scale."
