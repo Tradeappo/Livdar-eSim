@@ -1,0 +1,50 @@
+{
+ "captured": "2026-10-07",
+ "method": "keywords-explorer-matching-terms, match_mode=terms, terms=all, country=us, filtered to serp_domain_rating_top10_min<=30 so every row is an enterable SERP, volume>=100, limit 500. A limit far above the expected row count makes the returned count a true tail depth rather than a truncated sample.",
+ "record_type": "REFUTATION. These are POI categories named in the brief that the measurement says do not support a place x category page family. They are recorded so they are not researched again.",
+ "refuted": [
+  {
+   "category": "parking",
+   "call": {"keywords": "ev charging in,parking in,car parks in,charging stations in,supermarkets in", "rows_returned": 210, "units_cost": 5040},
+   "verdict": "NOT A PLACE x CATEGORY FAMILY",
+   "evidence": "210 rows is the true tail depth for all five categories together. The parking rows that carry a place are overwhelmingly airport and cruise-port specific (parking in newark airport 700, parking in atlanta airport 500, cruise parking in galveston 350 and eight further Galveston variants), which is a few hundred transport terminals, not a city inventory. The rest of the tail is not about places at all: parking law questions (who has the right of way in a parking lot 350, is parallel parking on the driving test in texas 250), collision and personal-injury intent (who is at fault in a parking lot accident, CPC 5.00; slip and fall in parking lot, CPC 4.50), sign-meaning questions (head in parking only 350 and six further head in parking variants), and sign language (parking in asl, parking lot in asl, parking garage in asl).",
+   "ceiling": "a few hundred airport and port terminal pages at most, which the transport axis already covers better"
+  },
+  {
+   "category": "ev charging",
+   "call": "same call as parking",
+   "verdict": "DEAD",
+   "evidence": "four rows in the entire tail, and every one is a national statistic rather than a place: how many ev charging stations in the us 200, how many electric charging stations in the us 100, how many charging stations are there in the us 100, ev charging points in uk 100 at KD 66. Plus invest in electric car charging stations 150, which is investment intent. There is no {city} x ev charging demand at or above 100 monthly searches on an enterable SERP.",
+   "ceiling": "0"
+  },
+  {
+   "category": "supermarkets",
+   "call": "same call as parking",
+   "verdict": "DEAD, AND BRAND-OWNED",
+   "evidence": "two rows. supermarkets in florida 200 at KD 48, whose parent topic is publix, so the intent resolves to a brand, not a list. And marsh supermarkets muncie in 200, where in is the state abbreviation for Indiana rather than the preposition. That second row is a fresh instance of the named-entity collision the gate already catches in other languages.",
+   "ceiling": "0"
+  },
+  {
+   "category": "nightlife",
+   "call": {"keywords": "beaches in,nightlife in,markets in,marinas in,parks in", "rows_returned": 500, "units_cost": 12000},
+   "verdict": "DEAD IN ENGLISH",
+   "evidence": "2 rows out of 500 carry nightlife at all, against 283 for beaches and 200 for parks in the same call. The seed loses every contest for tail space.",
+   "ceiling": "0"
+  },
+  {
+   "category": "markets",
+   "call": "same call as nightlife",
+   "verdict": "SEASONAL ONLY, NOT A PLACE x CATEGORY FAMILY",
+   "evidence": "15 rows, and the volume sits in Christmas markets (best christmas markets in europe 4800 at KD 2), which is a seasonal event family on an aggregation axis, not a per-city market inventory.",
+   "ceiling": "a seasonal aggregation family, measured separately; 0 as place x category"
+  },
+  {
+   "category": "marinas",
+   "call": "same call as nightlife",
+   "verdict": "DEAD IN ENGLISH",
+   "evidence": "0 rows out of 500 at a floor of 100 monthly searches on an enterable SERP.",
+   "ceiling": "0"
+  }
+ ],
+ "transcription_note": "For the parking call the API response printed inline rather than persisting to disk, and the 210 rows were not transcribed verbatim. The per-seed counts, the collision classes and the representative rows above are taken from that response. The nightlife, markets and marinas verdicts come from the persisted file openserp-outdoor-leisure-en.json in this directory, which holds all 500 rows."
+}

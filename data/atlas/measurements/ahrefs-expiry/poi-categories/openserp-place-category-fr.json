@@ -1,0 +1,48 @@
+{
+ "meta": {
+  "tool": "keywords-explorer-matching-terms", "country": "fr",
+  "keywords": "restaurants a,musees de,bars a,plages de",
+  "match_mode": "terms", "terms": "all",
+  "where": "volume>=100 AND serp_domain_rating_top10_min<=30", "limit": 500,
+  "captured": "2026-10-07", "rows_returned": 83, "units_cost": 1992,
+  "depth_probe": "83 rows against a limit of 500 and a floor of 100 monthly searches, so 83 is the true tail depth for these four French categories",
+  "capture_policy": "the response printed inline rather than persisting to disk. For a refuted family this record keeps the verdict, the counts and the decisive rows rather than a hand transcription of all 83, because the row detail changes nothing once the family is refused. Families that passed were captured verbatim from persisted responses."
+ },
+ "verdict": "FRENCH DOES NOT REPLICATE THE GERMAN OR SPANISH PATTERN FOR RESTAURANTS AND BARS",
+ "findings": [
+  {
+   "family": "restaurants a {place}",
+   "verdict": "REFUSED for domestic French places",
+   "evidence": "the tail is almost entirely foreign neighbourhoods, and the parent topic gives the reason: restaurants a north end 500, restaurants a covent garden 500, restaurants a prenzlauer berg 400, restaurants a east village 350, restaurants a hayes valley 350, restaurants a wannsee 300, restaurants a pilsen 300, restaurants a buckhead 250, restaurants a little five points 250, restaurants a west village 250, restaurants a atlantic station 200, restaurants a harlem 200, restaurants a leith 200, restaurants a temple bar 200, restaurants a rembrandtplein 150, restaurants a kreuzberg 150, restaurants a adams morgan 150, restaurants a dupont circle 150, restaurants a kowloon tong 150, restaurants a noe valley 150, restaurants a mission bay park 150, restaurants a pacific beach 150, restaurants a soho 100, restaurants a lantau island 100, restaurants a hung hom 100, restaurants a grassmarket 100, restaurants a east atlanta 100. Most carry the parent topic restaurants pres de {place}, which is proximity intent from a traveller already there. Only four domestic French rows clear the floor: meilleurs restaurants a paris 200, restaurants a montmartre 150, restaurants a montparnasse 100, restaurants a provins 100.",
+   "reading": "French domestic restaurant search does not go to list pages at this volume. The demand that exists is travel and expatriate demand about cities outside France, which the destination axis already owns. Building restaurants a {french city} would be building for measured silence."
+  },
+  {
+   "family": "plages de {place}",
+   "verdict": "ADMITTED at region and island level only",
+   "evidence": "les plus belles plages de france 400, plages de normandie 300, plus belles plages de sardaigne 300, les plus belles plages de corse 250, les plus belles plages de sicile 250, plages ile de re 200, les plus belles plages de bretagne 200, les plus belles plages de guadeloupe 200, carte des plages du nord de la france 200, plages de royan 150, les plus belles plages de la reunion 150, les plus belles plages de normandie 150, plages de malaga 100, les plus belles plages de crete 100, les plus belles plages de narbonne 100, les plus belles plages de minorque 100, les plages de biarritz 100, les plus belles plages de corse du sud 100, les plus belles plages de croatie 100, plages de sardaigne 100.",
+   "reading": "the same region-level shape English beaches shows. Low cardinality: a few hundred regions and islands, not a city inventory."
+  },
+  {
+   "family": "musees de {place}",
+   "verdict": "REFUSED",
+   "evidence": "the volume is an institution name rather than a list: musees de la ville de paris 200 and quels sont les 14 musees de la ville de paris 200 both resolve to the City of Paris museum network. The rest is foreign (musees de florence 150, musees royaux des beaux-arts de belgique 100) or a map request (carte des musees de paris 100, plan de paris avec monuments et musees 100)."
+  }
+ ],
+ "new_named_entity_collisions": [
+  {"keyword": "machine a cafe 19 bars", "volume": 150, "collision": "bar is the unit of pressure. An espresso machine rated at 19 bars has nothing to do with a drinking establishment. Also machine a cafe 15 bars 100 and combien de bar pour un bon cafe as a parent topic."},
+  {"keyword": "mairie de six fours les plages", "volume": 150, "collision": "Six-Fours-les-Plages is a commune whose own name ends in les-Plages, so the place name contains the category word. Three further rows are the same commune: salle de sport six fours les plages 150, location rez de jardin six-fours-les-plages 200."},
+  {"keyword": "robe de plages", "volume": 150, "collision": "beach dress. Apparel, not a place."},
+  {"keyword": "hotel playas de guardamar", "volume": 3100, "country": "es", "collision": "a hotel trading under a name that contains playas de. Brand, not a beach list."},
+  {"keyword": "se puede fumar en las terrazas de los bares", "volume": 2500, "country": "es", "collision": "smoking law question. Also interdiction de fumer sur les plages 150 in French. Regulation intent, not a venue list."},
+  {"keyword": "camping les plages de l'ain", "volume": 700, "collision": "a campsite trading under a name containing les plages de. Brand, not a beach list. Also vvf les plages de guerande la turballe 150."}
+ ],
+ "comparison": {
+  "note": "same method, same floor, same open-SERP filter, four categories each, so the depths are directly comparable",
+  "true_tail_depth_or_floor": {
+   "es": "500 (capped, so deeper); restaurantes alone 336 rows, city volumes 1,200 to 2,400",
+   "en_food": "300 (capped, so deeper); 561,500 total volume",
+   "de": "259 (true depth); restaurants 116 rows, city volumes 100 to 700",
+   "fr": "83 (true depth); 4 domestic restaurant rows"
+  }
+ }
+}

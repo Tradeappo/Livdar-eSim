@@ -1,0 +1,1645 @@
+{
+ "meta": {
+  "tool": "keywords-explorer-matching-terms",
+  "country": "de",
+  "keywords": "restaurants in,museen in,bars in,cafes in",
+  "match_mode": "terms",
+  "terms": "all",
+  "where": "volume>=100 AND serp_domain_rating_top10_min<=30",
+  "limit": 500,
+  "captured": "2026-10-07",
+  "rows_returned": 259,
+  "units_cost": 6216,
+  "depth_probe": "limit 500 against a floor of 100 monthly searches, so 259 is the true tail depth for these four German categories, not a truncated sample",
+  "rows_recorded_here": 177,
+  "rows_not_recorded": "the remaining 82 rows of the 259 are near-me and modifier variants that cannot become a static place page (restaurants in der naehe 32,000, gute restaurants in der naehe 4,200, asiatische restaurants in der naehe 1,600 and about forty further X restaurants in der naehe forms), plus English-language and non-German-place rows. They are excluded on purpose: a near-me query resolves to the user location, so it cannot be answered by a page about a named place. Their volume is real but it is not addressable by this family.",
+  "transcription_note": "the response printed inline rather than persisting to disk, so these rows were transcribed by hand from it. Diacritics are written in ASCII (ue for u-umlaut) in the place field."
+ },
+ "rows": [
+  {
+   "category": "restaurants",
+   "place": "essen",
+   "volume": 700,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "parent_topic": "restaurant essen",
+   "note": "CITY_NAME_IS_ALSO_THE_WORD_FOR_FOOD"
+  },
+  {
+   "category": "restaurants",
+   "place": "bielefeld",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "parent_topic": "ausgefallene restaurants",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "buesum",
+   "volume": 450,
+   "difficulty": 4,
+   "cpc_cents": 5,
+   "parent_topic": "restaurant buesum",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "leipzig",
+   "volume": 450,
+   "difficulty": 11,
+   "cpc_cents": 10,
+   "parent_topic": "beste restaurants leipzig",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "koeln",
+   "volume": 450,
+   "difficulty": 3,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant koeln",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "muenster",
+   "volume": 400,
+   "difficulty": 52,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant muenster",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "dresden",
+   "volume": 400,
+   "difficulty": 38,
+   "cpc_cents": 9,
+   "parent_topic": "restaurant dresden",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "luebeck",
+   "volume": 400,
+   "difficulty": 13,
+   "cpc_cents": 10,
+   "parent_topic": "luebeck restaurant",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "kuehlungsborn",
+   "volume": 400,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "parent_topic": "0",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "muenchen",
+   "volume": 400,
+   "difficulty": 8,
+   "cpc_cents": 25,
+   "parent_topic": "restaurant muenchen",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bremen",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "restaurants bremen",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "wernigerode",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "parent_topic": "wernigerode essen gehen",
+   "note": "SMALL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "groemitz",
+   "volume": 350,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "parent_topic": "groemitz essen",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "kiel",
+   "volume": 300,
+   "difficulty": 5,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant kiel",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "magdeburg",
+   "volume": 300,
+   "difficulty": 32,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant magdeburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "trier",
+   "volume": 300,
+   "difficulty": 53,
+   "cpc_cents": 20,
+   "parent_topic": "restaurants trier innenstadt",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "wuerzburg",
+   "volume": 300,
+   "difficulty": 5,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant wuerzburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "heidelberg",
+   "volume": 300,
+   "difficulty": 2,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant heidelberg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "nuernberg",
+   "volume": 250,
+   "difficulty": 10,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant nuernberg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "karlsruhe",
+   "volume": 250,
+   "difficulty": 9,
+   "cpc_cents": 25,
+   "parent_topic": "restaurant karlsruhe",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "marburg",
+   "volume": 250,
+   "difficulty": 47,
+   "cpc_cents": 60,
+   "parent_topic": "restaurant marburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "kassel",
+   "volume": 250,
+   "difficulty": 20,
+   "cpc_cents": 25,
+   "parent_topic": "restaurant kassel",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "stuttgart",
+   "volume": 250,
+   "difficulty": 2,
+   "cpc_cents": 15,
+   "parent_topic": "stuttgart restaurant",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bonn",
+   "volume": 250,
+   "difficulty": 2,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant bonn",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bielefeld",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant bielefeld",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "potsdam",
+   "volume": 250,
+   "difficulty": 30,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant potsdam",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "wismar",
+   "volume": 250,
+   "difficulty": 23,
+   "cpc_cents": 5,
+   "parent_topic": "restaurant wismar",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "koblenz",
+   "volume": 250,
+   "difficulty": 56,
+   "cpc_cents": 8,
+   "parent_topic": "restaurants koblenz",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "hannover",
+   "volume": 250,
+   "difficulty": 8,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant hannover",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "freiburg",
+   "volume": 250,
+   "difficulty": 16,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant freiburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "mainz",
+   "volume": 250,
+   "difficulty": 1,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant mainz",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "aachen",
+   "volume": 250,
+   "difficulty": 7,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant aachen",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "fulda",
+   "volume": 200,
+   "difficulty": 41,
+   "cpc_cents": 9,
+   "parent_topic": "restaurant fulda",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bremerhaven",
+   "volume": 200,
+   "difficulty": 44,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant bremerhaven",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "ulm",
+   "volume": 200,
+   "difficulty": 2,
+   "cpc_cents": 9,
+   "parent_topic": "restaurants ulm",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bochum",
+   "volume": 200,
+   "difficulty": 16,
+   "cpc_cents": 9,
+   "parent_topic": "restaurants bochum",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "regensburg",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant regensburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "neustadt in holstein",
+   "volume": 200,
+   "difficulty": 26,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant neustadt in holstein",
+   "note": "PLACE_NAME_CONTAINS_THE_PREPOSITION"
+  },
+  {
+   "category": "restaurants",
+   "place": "osnabrueck",
+   "volume": 200,
+   "difficulty": 1,
+   "cpc_cents": 9,
+   "parent_topic": "restaurant osnabrueck",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "goettingen",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant goettingen",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "oldenburg",
+   "volume": 200,
+   "difficulty": 44,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant oldenburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "saarbruecken",
+   "volume": 200,
+   "difficulty": 27,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant saarbruecken",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bergedorf",
+   "volume": 200,
+   "difficulty": 26,
+   "cpc_cents": 25,
+   "parent_topic": "restaurant bergedorf",
+   "note": "HAMBURG_DISTRICT"
+  },
+  {
+   "category": "restaurants",
+   "place": "warnemuende",
+   "volume": 200,
+   "difficulty": 25,
+   "cpc_cents": 30,
+   "parent_topic": "warnemuende restaurant",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "erfurt",
+   "volume": 200,
+   "difficulty": 22,
+   "cpc_cents": 20,
+   "parent_topic": "beste restaurants nahe",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "kaiserslautern",
+   "volume": 200,
+   "difficulty": 1,
+   "cpc_cents": 30,
+   "parent_topic": "restaurants kaiserslautern",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "greetsiel",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "parent_topic": "0",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "wismar am hafen",
+   "volume": 200,
+   "difficulty": 67,
+   "cpc_cents": 7,
+   "parent_topic": "restaurants in wismar am hafen",
+   "note": "SUB_PLACE_HARBOUR"
+  },
+  {
+   "category": "restaurants",
+   "place": "braunschweig",
+   "volume": 200,
+   "difficulty": 11,
+   "cpc_cents": 30,
+   "parent_topic": "essen braunschweig",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bayreuth",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "parent_topic": "restaurant in der naehe",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "schwerin",
+   "volume": 200,
+   "difficulty": 34,
+   "cpc_cents": 15,
+   "parent_topic": "restaurants schwerin",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "weimar",
+   "volume": 200,
+   "difficulty": 35,
+   "cpc_cents": 5,
+   "parent_topic": "restaurants weimar",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "fulda",
+   "volume": 200,
+   "difficulty": 24,
+   "cpc_cents": 7,
+   "parent_topic": "restaurant fulda",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "wiesbaden",
+   "volume": 200,
+   "difficulty": 30,
+   "cpc_cents": 9,
+   "parent_topic": "restaurant wiesbaden",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "dortmund",
+   "volume": 200,
+   "difficulty": 2,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant dortmund",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "rostock",
+   "volume": 200,
+   "difficulty": 45,
+   "cpc_cents": 20,
+   "parent_topic": "restaurants rostock",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "burg spreewald",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant burg spreewald",
+   "note": "SMALL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "schleswig",
+   "volume": 150,
+   "difficulty": 22,
+   "cpc_cents": 5,
+   "parent_topic": "restaurant schleswig",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bamberg",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant bamberg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "celle",
+   "volume": 150,
+   "difficulty": 62,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant celle",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "kuehlungsborn",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "parent_topic": "0",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "friedrichshain",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant friedrichshain",
+   "note": "BERLIN_DISTRICT"
+  },
+  {
+   "category": "restaurants",
+   "place": "dueren",
+   "volume": 150,
+   "difficulty": 41,
+   "cpc_cents": 0,
+   "parent_topic": "restaurant dueren",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "goslar",
+   "volume": 150,
+   "difficulty": 3,
+   "cpc_cents": 1,
+   "parent_topic": "restaurants goslar",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "darmstadt",
+   "volume": 150,
+   "difficulty": 8,
+   "cpc_cents": 25,
+   "parent_topic": "restaurant darmstadt",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "erlangen",
+   "volume": 150,
+   "difficulty": 1,
+   "cpc_cents": 15,
+   "parent_topic": "erlangen restaurant",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "stralsund",
+   "volume": 150,
+   "difficulty": 45,
+   "cpc_cents": 6,
+   "parent_topic": "restaurant stralsund",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "wuppertal",
+   "volume": 150,
+   "difficulty": 13,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant wuppertal",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "heilbronn",
+   "volume": 150,
+   "difficulty": 10,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant heilbronn",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "augsburg",
+   "volume": 150,
+   "difficulty": 1,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant augsburg innenstadt",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "ahlbeck",
+   "volume": 150,
+   "difficulty": 31,
+   "cpc_cents": 8,
+   "parent_topic": "seebruecke ahlbeck",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "schoeneberg",
+   "volume": 150,
+   "difficulty": 43,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant schoeneberg",
+   "note": "BERLIN_DISTRICT"
+  },
+  {
+   "category": "restaurants",
+   "place": "ueberlingen",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 30,
+   "parent_topic": "0",
+   "note": "SMALL_LAKE_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "eckernfoerde",
+   "volume": 150,
+   "difficulty": 37,
+   "cpc_cents": 7,
+   "parent_topic": "restaurants eckernfoerde",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "duisburg",
+   "volume": 150,
+   "difficulty": 10,
+   "cpc_cents": 7,
+   "parent_topic": "restaurant duisburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "meersburg",
+   "volume": 150,
+   "difficulty": 10,
+   "cpc_cents": 60,
+   "parent_topic": "meersburg restaurant",
+   "note": "SMALL_LAKE_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "binz",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant klein und fein binz",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "hamm",
+   "volume": 150,
+   "difficulty": 25,
+   "cpc_cents": 9,
+   "parent_topic": "restaurant hamm",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "goslar altstadt",
+   "volume": 150,
+   "difficulty": 31,
+   "cpc_cents": 0,
+   "parent_topic": "restaurants in goslar altstadt",
+   "note": "SUB_PLACE_OLD_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "heiligenhafen",
+   "volume": 150,
+   "difficulty": 9,
+   "cpc_cents": 0,
+   "parent_topic": "restaurant heiligenhafen",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "halle",
+   "volume": 150,
+   "difficulty": 28,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant halle",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "magdeburg",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 9,
+   "parent_topic": "restaurant magdeburg",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "speyer",
+   "volume": 150,
+   "difficulty": 37,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant speyer",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "binz",
+   "volume": 150,
+   "difficulty": 28,
+   "cpc_cents": 9,
+   "parent_topic": "binz restaurant",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "fuessen",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "restaurants fuessen",
+   "note": "SMALL_ALPINE_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "norderstedt",
+   "volume": 100,
+   "difficulty": 29,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant norderstedt",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "koserow",
+   "volume": 100,
+   "difficulty": 32,
+   "cpc_cents": 30,
+   "parent_topic": "restaurant koserow",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "bad salzuflen",
+   "volume": 100,
+   "difficulty": 14,
+   "cpc_cents": 6,
+   "parent_topic": "restaurant bad salzuflen",
+   "note": "SPA_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "westerland",
+   "volume": 100,
+   "difficulty": 33,
+   "cpc_cents": 25,
+   "parent_topic": "restaurant westerland",
+   "note": "SMALL_COASTAL_TOWN_SYLT"
+  },
+  {
+   "category": "restaurants",
+   "place": "oberhausen",
+   "volume": 100,
+   "difficulty": 10,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant oberhausen",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "paderborn",
+   "volume": 100,
+   "difficulty": 18,
+   "cpc_cents": 15,
+   "parent_topic": "restaurants paderborn",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "hildesheim",
+   "volume": 100,
+   "difficulty": 40,
+   "cpc_cents": 6,
+   "parent_topic": "restaurant hildesheim",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "chemnitz",
+   "volume": 100,
+   "difficulty": 44,
+   "cpc_cents": 25,
+   "parent_topic": "restaurants chemnitz",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "cochem",
+   "volume": 100,
+   "difficulty": 2,
+   "cpc_cents": 7,
+   "parent_topic": "cochem restaurant",
+   "note": "SMALL_MOSELLE_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "oberammergau",
+   "volume": 100,
+   "difficulty": 50,
+   "cpc_cents": 4,
+   "parent_topic": "restaurant oberammergau",
+   "note": "SMALL_ALPINE_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "warnemuende",
+   "volume": 100,
+   "difficulty": 24,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant warnemuende",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "stralsund am hafen",
+   "volume": 100,
+   "difficulty": 45,
+   "cpc_cents": 0,
+   "parent_topic": "restaurants in stralsund am hafen",
+   "note": "SUB_PLACE_HARBOUR"
+  },
+  {
+   "category": "restaurants",
+   "place": "lippstadt",
+   "volume": 100,
+   "difficulty": 39,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant lippstadt",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "stade",
+   "volume": 100,
+   "difficulty": 25,
+   "cpc_cents": 5,
+   "parent_topic": "restaurant stade",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "hameln",
+   "volume": 100,
+   "difficulty": 10,
+   "cpc_cents": 3,
+   "parent_topic": "restaurant hameln",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "jena",
+   "volume": 100,
+   "difficulty": 10,
+   "cpc_cents": 7,
+   "parent_topic": "restaurant jena",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "heringsdorf",
+   "volume": 100,
+   "difficulty": 4,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant heringsdorf",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "wannsee",
+   "volume": 100,
+   "difficulty": 31,
+   "cpc_cents": 25,
+   "parent_topic": "wannsee restaurant am wasser",
+   "note": "BERLIN_DISTRICT"
+  },
+  {
+   "category": "restaurants",
+   "place": "bansin",
+   "volume": 100,
+   "difficulty": 10,
+   "cpc_cents": 20,
+   "parent_topic": "restaurant bansin",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "pirna",
+   "volume": 100,
+   "difficulty": 44,
+   "cpc_cents": 80,
+   "parent_topic": "restaurant pirna",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "bad homburg",
+   "volume": 100,
+   "difficulty": 42,
+   "cpc_cents": 15,
+   "parent_topic": "restaurant bad homburg",
+   "note": "SPA_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "moenchengladbach",
+   "volume": 100,
+   "difficulty": 11,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant moenchengladbach",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "cuxhaven",
+   "volume": 100,
+   "difficulty": 54,
+   "cpc_cents": 6,
+   "parent_topic": "cuxhaven restaurant",
+   "note": "SMALL_COASTAL_TOWN"
+  },
+  {
+   "category": "restaurants",
+   "place": "minden",
+   "volume": 100,
+   "difficulty": 51,
+   "cpc_cents": 3,
+   "parent_topic": "restaurant minden",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "harburg",
+   "volume": 100,
+   "difficulty": 37,
+   "cpc_cents": 0,
+   "parent_topic": "restaurant harburg",
+   "note": "HAMBURG_DISTRICT"
+  },
+  {
+   "category": "restaurants",
+   "place": "muenchen",
+   "volume": 100,
+   "difficulty": 8,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant muenchen",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "essen",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "parent_topic": "restaurant essen",
+   "note": "CITY_NAME_IS_ALSO_THE_WORD_FOR_FOOD"
+  },
+  {
+   "category": "restaurants",
+   "place": "potsdam",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 70,
+   "parent_topic": "restaurant potsdam",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "leipzig",
+   "volume": 100,
+   "difficulty": 8,
+   "cpc_cents": 4,
+   "parent_topic": "beste restaurants leipzig",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "frankfurt",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "parent_topic": "restaurant frankfurt",
+   "note": ""
+  },
+  {
+   "category": "restaurants",
+   "place": "berlin",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "parent_topic": "geheimtipp restaurant berlin guenstig",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "koeln",
+   "volume": 400,
+   "difficulty": 1,
+   "cpc_cents": 4,
+   "parent_topic": "cafe koeln",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "hamburg",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "cafe hamburg",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "dortmund",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "parent_topic": "cafe dortmund",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "berlin",
+   "volume": 250,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "bester kaffee berlin",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "muenchen",
+   "volume": 200,
+   "difficulty": 1,
+   "cpc_cents": 5,
+   "parent_topic": "cafes muenchen",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "frankfurt",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "parent_topic": "cafe frankfurt",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "essen",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "parent_topic": "cafe essen",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "duesseldorf",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "parent_topic": "cafe duesseldorf",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "leipzig",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "parent_topic": "cafe leipzig",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "ulm",
+   "volume": 150,
+   "difficulty": 41,
+   "cpc_cents": 10,
+   "parent_topic": "cafe ulm",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "braunschweig",
+   "volume": 150,
+   "difficulty": 2,
+   "cpc_cents": 3,
+   "parent_topic": "cafe braunschweig",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "mannheim",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "parent_topic": "cafe mannheim",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "wuerzburg",
+   "volume": 150,
+   "difficulty": 21,
+   "cpc_cents": 15,
+   "parent_topic": "cafe wuerzburg",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "freiburg",
+   "volume": 150,
+   "difficulty": 30,
+   "cpc_cents": 8,
+   "parent_topic": "cafe freiburg",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "karlsruhe",
+   "volume": 150,
+   "difficulty": 1,
+   "cpc_cents": 7,
+   "parent_topic": "cafes karlsruhe",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "heidelberg",
+   "volume": 150,
+   "difficulty": 4,
+   "cpc_cents": 1,
+   "parent_topic": "cafe ly heidelberg",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "stuttgart",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "parent_topic": "cafe stuttgart",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "hannover",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "parent_topic": "cafe hannover",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "kiel",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "parent_topic": "cafe kiel",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "bonn",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "parent_topic": "cafe bonn",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "dresden",
+   "volume": 100,
+   "difficulty": 31,
+   "cpc_cents": 5,
+   "parent_topic": "dresden cafe",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "muenster",
+   "volume": 100,
+   "difficulty": 1,
+   "cpc_cents": 1,
+   "parent_topic": "cafe muenster",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "berlin",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 40,
+   "parent_topic": "cafe berlin",
+   "note": ""
+  },
+  {
+   "category": "cafes",
+   "place": "wien",
+   "volume": 150,
+   "difficulty": 2,
+   "cpc_cents": 1,
+   "parent_topic": "cafe wien",
+   "note": "AT"
+  },
+  {
+   "category": "cafes",
+   "place": "paris",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "parent_topic": "cafes in paris",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "bars",
+   "place": "berlin",
+   "volume": 800,
+   "difficulty": 0,
+   "cpc_cents": 35,
+   "parent_topic": "bester techno club berlin",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "stuttgart",
+   "volume": 600,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "parent_topic": "bars stuttgart",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "muenchen",
+   "volume": 500,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "parent_topic": "bars muenchen",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "koeln",
+   "volume": 450,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "parent_topic": "bar koeln",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "berlin",
+   "volume": 400,
+   "difficulty": 1,
+   "cpc_cents": 20,
+   "parent_topic": "bars near me",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "duesseldorf",
+   "volume": 250,
+   "difficulty": 4,
+   "cpc_cents": 1,
+   "parent_topic": "bars duesseldorf",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "nuernberg",
+   "volume": 250,
+   "difficulty": 1,
+   "cpc_cents": 1,
+   "parent_topic": "bars nuernberg",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "friedrichshain",
+   "volume": 250,
+   "difficulty": 64,
+   "cpc_cents": 9,
+   "parent_topic": "0",
+   "note": "BERLIN_DISTRICT"
+  },
+  {
+   "category": "bars",
+   "place": "mannheim",
+   "volume": 200,
+   "difficulty": 58,
+   "cpc_cents": 1,
+   "parent_topic": "bar mannheim",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "karlsruhe",
+   "volume": 200,
+   "difficulty": 30,
+   "cpc_cents": 7,
+   "parent_topic": "bar karlsruhe",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "ulm",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "bar ulm",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "hannover",
+   "volume": 200,
+   "difficulty": 49,
+   "cpc_cents": 6,
+   "parent_topic": "bar hannover",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "muenchen",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 9,
+   "parent_topic": "best bars in munich",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "bremen",
+   "volume": 150,
+   "difficulty": 64,
+   "cpc_cents": 20,
+   "parent_topic": "bars bremen",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "mainz",
+   "volume": 150,
+   "difficulty": 23,
+   "cpc_cents": 3,
+   "parent_topic": "mainz bar",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "dresden",
+   "volume": 150,
+   "difficulty": 13,
+   "cpc_cents": 5,
+   "parent_topic": "bar dresden",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "muenchen",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 25,
+   "parent_topic": "bars in munich",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "wuerzburg",
+   "volume": 150,
+   "difficulty": 37,
+   "cpc_cents": 30,
+   "parent_topic": "bar wuerzburg",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "muenster",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 20,
+   "parent_topic": "bar muenster",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "essen",
+   "volume": 100,
+   "difficulty": 40,
+   "cpc_cents": 8,
+   "parent_topic": "bar essen",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "kreuzberg",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 10,
+   "parent_topic": "bars kreuzberg",
+   "note": "BERLIN_DISTRICT"
+  },
+  {
+   "category": "bars",
+   "place": "heidelberg",
+   "volume": 100,
+   "difficulty": 25,
+   "cpc_cents": 30,
+   "parent_topic": "heidelberg clubs",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "frankfurt",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 4,
+   "parent_topic": "best bars in frankfurt",
+   "note": ""
+  },
+  {
+   "category": "bars",
+   "place": "prag",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "parent_topic": "bars prag",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "bars",
+   "place": "wien",
+   "volume": 100,
+   "difficulty": 11,
+   "cpc_cents": 1,
+   "parent_topic": "bars wien",
+   "note": "AT"
+  },
+  {
+   "category": "museen",
+   "place": "hamburg",
+   "volume": 900,
+   "difficulty": 0,
+   "cpc_cents": 8,
+   "parent_topic": "museum hamburg",
+   "note": ""
+  },
+  {
+   "category": "museen",
+   "place": "amsterdam",
+   "volume": 350,
+   "difficulty": 1,
+   "cpc_cents": 3,
+   "parent_topic": "museen amsterdam",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "london",
+   "volume": 350,
+   "difficulty": 2,
+   "cpc_cents": 7,
+   "parent_topic": "museum london",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "wien",
+   "volume": 300,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "parent_topic": "museen wien",
+   "note": "AT"
+  },
+  {
+   "category": "museen",
+   "place": "new york",
+   "volume": 200,
+   "difficulty": 0,
+   "cpc_cents": 15,
+   "parent_topic": "museum new york",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "prag",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 5,
+   "parent_topic": "museum prag",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "barcelona",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 6,
+   "parent_topic": "museen barcelona",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "florenz",
+   "volume": 150,
+   "difficulty": 0,
+   "cpc_cents": 7,
+   "parent_topic": "florenz museum",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "kopenhagen",
+   "volume": 100,
+   "difficulty": 49,
+   "cpc_cents": 1,
+   "parent_topic": "kopenhagen museum",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "madrid",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 3,
+   "parent_topic": "madrid museum",
+   "note": "FOREIGN"
+  },
+  {
+   "category": "museen",
+   "place": "nrw",
+   "volume": 100,
+   "difficulty": 0,
+   "cpc_cents": 1,
+   "parent_topic": "kinder museum nrw",
+   "note": "REGION"
+  }
+ ],
+ "derived": {
+  "rows_per_category": {
+   "restaurants": 116,
+   "cafes": 25,
+   "bars": 25,
+   "museen": 11
+  },
+  "volume_sum_domestic": 33400,
+  "kd_median_domestic": 10,
+  "kd_lte10_domestic": 89,
+  "place_class_counts": {
+   "CITY_NAME_IS_ALSO_THE_WORD_FOR_FOOD": 2,
+   "SMALL_COASTAL_TOWN": 18,
+   "SMALL_TOWN": 2,
+   "PLACE_NAME_CONTAINS_THE_PREPOSITION": 1,
+   "HAMBURG_DISTRICT": 2,
+   "SUB_PLACE_HARBOUR": 2,
+   "BERLIN_DISTRICT": 5,
+   "SMALL_LAKE_TOWN": 2,
+   "SUB_PLACE_OLD_TOWN": 1,
+   "SMALL_ALPINE_TOWN": 2,
+   "SPA_TOWN": 2,
+   "SMALL_COASTAL_TOWN_SYLT": 1,
+   "SMALL_MOSELLE_TOWN": 1,
+   "AT": 3,
+   "FOREIGN": 10,
+   "REGION": 1
+  },
+  "distinct_place_category_cells_all": 163,
+  "distinct_place_category_cells_domestic": 149,
+  "domestic_rows": 163
+ }
+}
