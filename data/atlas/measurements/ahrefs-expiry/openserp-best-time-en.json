@@ -1,0 +1,28 @@
+{
+ "measured_at": "2026-10-07",
+ "family": "temporal.best-time",
+ "lang": "en",
+ "country": "us",
+ "method": "matching-terms phrase \"best time to visit\", where volume>=400 AND serp_domain_rating_top10_min<=35",
+ "rows_returned_by_ahrefs": 228,
+ "rows_saved": 185,
+ "truncated": false,
+ "total_monthly_volume_saved": 249250,
+ "kd_0_to_5_share": 99.5,
+ "entity_types_observed": [
+  "country",
+  "us state",
+  "city",
+  "national park",
+  "island",
+  "region",
+  "landmark"
+ ],
+ "why_this_is_the_strongest_family_found": "Open SERPs at scale on a family whose DATA IS ALREADY ON DISK. Livdar holds NASA POWER monthly climate normals for 31,715 cities, which is exactly what a best-time page needs: temperature, rainfall and daylight by month, per entity, from a named source. The entity axis is destination, not city alone, so it extends to states, parks and islands.",
+ "existing_families_this_confirms": [
+  "climate.region-when-to-go",
+  "weather.city-best-time",
+  "weather.city-month (22,927 already final)"
+ ],
+ "tag": "IMMEDIATE_1M"
+}
