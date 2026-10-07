@@ -1,0 +1,33 @@
+{
+  "measured_at": "2026-10-07T12:45:00Z",
+  "question": "Does the ordered pair model that carries rome2rio to 1,850,129 organic keywords have measured demand in Livdar's own market languages, or is it only visible in a competitor's aggregate?",
+  "probe_1": {
+    "term": "how to get from", "country": "us", "floor": 300, "rows": 52,
+    "finding": "The explicit question phrasing is SMALL. But parent_topic collapses almost every row to a shorter canonical form: 'how to get from london to paris' has parent 'london to paris', 'how to get from athens to santorini' has parent 'athens to santorini', 'how to get from split to dubrovnik' has parent 'split to dubrovnik'. The family's canonical phrasing is the BARE PAIR, which is exactly rome2rio's URL shape /s/London/Paris.",
+    "lesson": "Probing the question phrasing would have undercounted this family by an order of magnitude, the same error as the prepositional waterfall probe."
+  },
+  "probe_2": {
+    "term": "london to", "country": "gb", "floor": 2000, "limit": 900, "rows": 156, "truncated": false,
+    "distinct_destinations_approx": 120,
+    "destination_types_observed": "cities (paris 24,000, amsterdam 15,000, dubai 14,000, edinburgh 12,000, manchester 12,000, brighton 10,000, new york 9,800, birmingham 9,000, istanbul 8,200), countries (turkey, thailand, spain, italy, greece, portugal, japan, australia, switzerland, vietnam, egypt, morocco, montenegro, iceland, malta, maldives, india), regions (scotland, cornwall), airports (stansted 3,900, luton 3,500, gatwick 2,000), islands (bali 5,800, tenerife 3,200, phuket 2,400)",
+    "mode_fan_out": "The same pair appears with train, flights, eurostar, bus and cycle qualifiers, and parent_topic collapses them, so ONE pair page absorbs the mode variants rather than needing one page per mode."
+  },
+  "probe_3": {
+    "term": "manchester to", "country": "gb", "floor": 2000, "limit": 900, "rows": 28, "truncated": false,
+    "distinct_destinations_approx": 22
+  },
+  "size_distribution": {
+    "method": "Two origins of different rank probed at the SAME floor so the comparison is clean. This is a stratified sample, not an extrapolation from one head keyword.",
+    "london": 120, "manchester": 22, "ratio": 5.5,
+    "reading": "Pairs per origin follows a steep power law in origin size. The family is NOT 56,317 squared and is not claimed to be. At a 2,000 floor the family is of the order of thousands. The real family size lives at the long tail floor, and rome2rio's 1,850,129 keywords is the measurement of that."
+  },
+  "the_architectural_point": {
+    "observation": "rome2rio does NOT gate on measured per pair volume, and could not: at its page count no keyword tool could price every pair. It generates pairs from its transport graph and lets UTILITY carry them.",
+    "admission_class": "B, FAMILY_INTENT_PROVEN plus ENTITY_UTILITY_PROVEN. The family intent is proven overwhelmingly. The per pair utility is proven by the itinerary data itself.",
+    "the_gate": "A pair page exists if and only if the transport graph yields a real itinerary between A and B. That is a hard, checkable DATA gate, not a demand gate, and it is the gate the market leader effectively uses.",
+    "why_each_page_exists": "Because there is a real computed way to get from A to B, with named operators, durations, frequencies and transfer points, and that answer differs for every pair. This is the answer to brief O for this family.",
+    "why_it_is_not_a_doorway": "Measured on rome2rio's own top pages: most pair pages rank for exactly ONE keyword and still pull 2,000 to 71,000 traffic each. A doorway page ranks for nothing and serves no one. These answer one specific question completely, which is the opposite shape."
+  },
+  "acquisition_required": "Transport routing data. GTFS feeds are openly licensed for most of Europe and much of the Americas. The node set is already on disk: 56,317 cities, 3,244 airports, 5,592 venues.",
+  "tag": "LONG_SCALE_100M"
+}

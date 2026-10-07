@@ -1,0 +1,49 @@
+{
+  "measured_at": "2026-10-07T12:22:00Z",
+  "method": "A read-only script replicating outdoor-feature-candidates.py gate for gate, writing nothing, attributing every one of the 1,281,126 features to the FIRST gate it fails.",
+  "hypothesis_tested": "91,068 non-trail outdoor features carry 2 or more attributes yet appear in neither _feature-candidates nor _aggregate-only-features, so a gate defect is silently discarding entities that meet the stated bar. Birnhorn (AT peak, Wikidata Q683611, ele 2634, prominence 1659) was the worked example.",
+  "verdict": "LARGELY REFUTED. The gate chain is sound. I raised this as a defect of the same class as the 1,314,927 unattributable POI and it is not one.",
+  "rejects_among_non_trail_features_with_2_or_more_attributes": {
+    "not_notable_no_wikidata_or_wikipedia": 67474,
+    "no_market_and_no_destination_evidence": 15436,
+    "class_is_not_a_destination_pier": 1830,
+    "inside_no_parent_polygon": 1559,
+    "class_is_not_a_destination_slipway": 1495,
+    "class_is_not_a_destination_picnic_site": 1427,
+    "class_is_not_a_destination_spring": 1206,
+    "class_is_not_a_destination_cliff": 878,
+    "class_is_not_a_destination_ranger_station": 363,
+    "notable_but_no_fact_a_reader_came_for": 132,
+    "class_is_not_a_destination_sinkhole": 69,
+    "class_is_not_a_destination_bay": 32,
+    "class_is_not_a_destination_dune": 2
+  },
+  "why_the_hypothesis_was_wrong": "I counted attributes and assumed 2 or more attributes meant the entity met the bar. It does not. The bar is three gates, not one: NOTABLE (a Wikidata item or a Wikipedia article), MEASURABLE (a number or a practical fact), and PARENT (a containment polygon). 67,474 of the 91,068 are camp sites (31,417) and caravan sites (13,035) whose two attributes are a website and a phone number and which carry no encyclopedia entry at all. A campsite with a phone number is a directory listing, not a page, and the NOTABLE gate is the reason this inventory is not a business directory.",
+  "the_genuinely_recoverable_group": {
+    "count_all_features": 6527,
+    "count_among_2_plus_attribute_features": 1559,
+    "gate": "inside_no_parent_polygon",
+    "composition": "904 peaks, 234 mountain huts, 45 wilderness huts, 24 caves, 10 viewpoints and the remainder scattered. Birnhorn is one of the 904.",
+    "cause": "The parent layer holds no polygon between 0.05 and 20,000 km2 that covers the point, so the feature cannot be placed in a hierarchy a reader recognises.",
+    "fix": "Extend the parent layer where it is sparse, NOT relax the parent gate. A page that cannot say where the thing is has not earned its place.",
+    "honest_size": "6,527 is the ceiling on this recovery, against the 91,068 I first reported. I am correcting my own figure by a factor of 14."
+  },
+  "full_reject_ledger_all_features": {
+    "passed_all_three_gates": 101353,
+    "not_notable_no_wikidata_or_wikipedia": 591886,
+    "class_is_not_a_destination_trail_route": 234149,
+    "no_market_and_no_destination_evidence": 153437,
+    "class_is_not_a_destination_spring": 50917,
+    "notable_but_no_fact_a_reader_came_for": 40123,
+    "class_is_not_a_destination_bay": 27513,
+    "class_is_not_a_destination_cliff": 24857,
+    "class_is_not_a_destination_pier": 20394,
+    "class_is_not_a_destination_picnic_site": 16967,
+    "class_is_not_a_destination_slipway": 9486,
+    "inside_no_parent_polygon": 6527,
+    "class_is_not_a_destination_sinkhole": 1758,
+    "class_is_not_a_destination_ranger_station": 1676,
+    "class_is_not_a_destination_dune": 83
+  },
+  "note_on_the_40123": "notable_but_no_fact_a_reader_came_for is the 40,123 that hold a Wikidata item or a Wikipedia article and no number and no practical fact. These are the real enrichment target, and they are the measured version of the 55,173 figure I quoted from attribute counting alone."
+}

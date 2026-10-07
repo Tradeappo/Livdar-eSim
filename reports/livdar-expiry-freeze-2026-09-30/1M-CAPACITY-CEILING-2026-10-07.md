@@ -60,15 +60,32 @@ gated, not assumed.
 | current FINAL | 401,393 | built | measured |
 | country expansion | 90,498 | measured earlier | measured |
 | localisation class B recovery | up to 104,664 | needs a hard utility gate | upper bound only |
-| outdoor entities meeting the attribute bar but dropped | 91,068 | diagnostic running | upper bound only |
-| notable but fact poor, via Wikidata enrichment | 55,173 | not run | upper bound only |
+| outdoor features failing only the parent polygon gate | 6,527 | measured by diagnostic | measured |
+| notable, holding no fact, via Wikidata enrichment | 40,123 | not run | upper bound only |
 | licence required | 39,284 | needs licences | blocked externally |
 | region x year x month holidays | 10,000 to 30,000 | measured demand, largest found | measured |
 | feed required | 9,747 | needs feeds | blocked externally |
 | outdoor place x class aggregation expansion | 2,166 | computed from inventory | measured |
-| **optimistic sum if every path yields 100 percent** | **~824,000** | | |
+| **optimistic sum if every path yields 100 percent** | **~724,000** | | |
 
-No path yields 100 percent. Three of the five largest are upper bounds, not forecasts.
+No path yields 100 percent. The two largest remaining are upper bounds, not forecasts.
+
+### Correction to this table, made the same day
+
+The row that read "outdoor entities meeting the attribute bar but dropped, 91,068" was
+my own error and the diagnostic refuted it. I counted attributes and assumed 2 or more
+meant the entity met the bar. The bar is three gates, not one: NOTABLE (a Wikidata item
+or a Wikipedia article), MEASURABLE (a number or a practical fact) and PARENT (a
+containment polygon). Of the 91,068, 67,474 are camp sites and caravan sites whose two
+attributes are a website and a phone number and which carry no encyclopedia entry at
+all, and 15,436 fail destination evidence. A campsite with a phone number is a directory
+listing, not a page, and the NOTABLE gate is the reason this inventory is not a business
+directory. Only 6,527 features fail on a missing parent polygon, and the fix for those
+is to extend the parent layer, not to relax the gate. I am correcting my own figure by a
+factor of 14, and the ceiling falls from roughly 824,000 to roughly 724,000.
+
+The full reject ledger is in
+`data/atlas/measurements/outdoor-gate-reject-diagnostic-2026-10-07.json`.
 
 ## 4. The finding
 

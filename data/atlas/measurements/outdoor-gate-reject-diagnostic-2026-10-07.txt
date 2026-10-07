@@ -1,0 +1,47 @@
+
+PASSED all gates: 101,353
+
+=== ALL rejects ===
+     591886  not_notable_no_wikidata_or_wikipedia
+     234149  class_is_not_a_destination:trail_route
+     153437  no_market_and_no_destination_evidence
+      50917  class_is_not_a_destination:spring
+      40123  notable_but_no_fact_a_reader_came_for
+      27513  class_is_not_a_destination:bay
+      24857  class_is_not_a_destination:cliff
+      20394  class_is_not_a_destination:pier
+      16967  class_is_not_a_destination:picnic_site
+       9486  class_is_not_a_destination:slipway
+       6527  inside_no_parent_polygon
+       1758  class_is_not_a_destination:sinkhole
+       1676  class_is_not_a_destination:ranger_station
+         83  class_is_not_a_destination:dune
+
+=== rejects AMONG non-trail features carrying 2+ attributes ===
+      67474  not_notable_no_wikidata_or_wikipedia
+      15436  no_market_and_no_destination_evidence
+       1830  class_is_not_a_destination:pier
+       1559  inside_no_parent_polygon
+       1495  class_is_not_a_destination:slipway
+       1427  class_is_not_a_destination:picnic_site
+       1206  class_is_not_a_destination:spring
+        878  class_is_not_a_destination:cliff
+        363  class_is_not_a_destination:ranger_station
+        132  notable_but_no_fact_a_reader_came_for
+         69  class_is_not_a_destination:sinkhole
+         32  class_is_not_a_destination:bay
+          2  class_is_not_a_destination:dune
+
+=== that group, by cls ===
+  camp_site                35155  not_notable_no_wikidata_or_wikipedia=31417, no_market_and_no_destination_evidence=3737, inside_no_parent_polygon=1
+  caravan_site             14201  not_notable_no_wikidata_or_wikipedia=13035, no_market_and_no_destination_evidence=1165, inside_no_parent_polygon=1
+  peak                      9593  no_market_and_no_destination_evidence=5085, not_notable_no_wikidata_or_wikipedia=3604, inside_no_parent_polygon=904
+  tower                     5003  not_notable_no_wikidata_or_wikipedia=3890, no_market_and_no_destination_evidence=984, notable_but_no_fact_a_reader_came_for=70
+  cave                      3695  not_notable_no_wikidata_or_wikipedia=3290, no_market_and_no_destination_evidence=379, inside_no_parent_polygon=24
+  mountain_hut              2667  not_notable_no_wikidata_or_wikipedia=1495, no_market_and_no_destination_evidence=938, inside_no_parent_polygon=234
+  wilderness_hut            2631  not_notable_no_wikidata_or_wikipedia=2130, no_market_and_no_destination_evidence=456, inside_no_parent_polygon=45
+  viewpoint                 2186  not_notable_no_wikidata_or_wikipedia=1796, no_market_and_no_destination_evidence=378, inside_no_parent_polygon=10
+  pier                      1830  class_is_not_a_destination=1830
+  slipway                   1495  class_is_not_a_destination=1495
+
+[exited with code 0]
