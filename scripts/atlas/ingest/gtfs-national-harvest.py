@@ -55,10 +55,44 @@ FEEDS = {
                             'CC BY 4.0', 'Helsinki Regional Transport (HSL) via Digitransit'),
     'rejseplanen-denmark': ('https://www.rejseplanen.info/labs/GTFS.zip', 'DK',
                             'Rejseplanen open data terms', 'Rejseplanen (Denmark)'),
+    # Added 2026-10-07. All keyless, all licence-checked by hand. ONLY countries whose pair
+    # family is already measured are harvested for page generation: GB and IE in English, and
+    # DK, NO, FI in their own languages. The rest are acquired as GRAPH EVIDENCE for pairs whose
+    # other endpoint is in an admitted market, and are NOT page sources on their own, because
+    # the German pair axis was measured on 2026-10-07 and REFUTED (2 of 500 German rows named
+    # two real places) and fr, es, it and pl were never measured at all. With the Ahrefs
+    # subscription ending there is no way to measure them, so they stay out of the page set.
+    'bods-great-britain': ('https://data.bus-data.dft.gov.uk/timetable/download/gtfs-file/all/',
+                           'GB', 'Open Government Licence v3.0',
+                           'Bus Open Data Service, Department for Transport'),
 }
 
 STOP_TO_CITY_KM = 20.0
 MIN_CITY_POP = 1000
+
+# ---------------------------------------------------------------------------------------------
+# THE NODE SET IS HETEROGENEOUS, and this is the change that decides whether a national feed is
+# worth five thousand pages or a hundred thousand.
+#
+# Collapsing every stop onto its settlement answers "Oslo to Bergen" and throws away the rest.
+# The category leader at this scale does not do that: the pair members in rome2rio's top pages
+# are rail stations (New-York-Penn-Station, Gare-de-Paris-Nord), airports (Nice-Airport), ferry
+# terminals and bus terminals, not only cities. And the 2026-10-07 Norwegian measurement found
+# the SAME shape in the demand, unprompted:
+#
+#     tog fra gardermoen til oslo s      300 KD 2    airport  -> station
+#     tog fra vaernes til trondheim      300 KD 1    airport  -> city
+#     tog fra oslo s til gardermoen      150 KD 0    station  -> airport
+#     tog fra trondheim til vaernes      150 KD 0    city     -> airport
+#
+# So station and airport endpoints are MEASURED endpoints, not a speculative widening. A stop
+# is kept as its own node when it is a real named interchange; everything else still collapses
+# onto its settlement, because a roadside pole is not a destination.
+#
+# MAJOR_NODE_ROUTES is the interchange test: a stop where this many distinct routes meet is a
+# place people change at and name. GTFS location_type 1 means the feed itself calls it a
+# station, which is the publisher's own judgement and is trusted.
+MAJOR_NODE_ROUTES = 8
 MAX_STOPS_PER_TRIP_SETTLEMENTS = 60   # a trip touching more settlements than this is a data
                                       # artefact, not a service, and its pair count explodes
 
@@ -179,7 +213,7 @@ def harvest(key, url, country, licence, provider):
     try:
         z = zipfile.ZipFile(zp)
         # ---- stops, resolved to settlements as they are read
-        stop_city, nstops, unres = {}, 0, 0
+        stop_city, stop_raw, nstops, unres = {}, {}, 0, 0
         for s in stream(z, 'stops.txt'):
             nstops += 1
             try:
@@ -189,6 +223,11 @@ def harvest(key, url, country, licence, provider):
             c = nearest_city(lat, lon)
             if c:
                 stop_city[s['stop_id']] = c
+                stop_raw[s['stop_id']] = {
+                    'name': (s.get('stop_name') or '').strip(),
+                    'location_type': (s.get('location_type') or '0').strip() or '0',
+                    'parent': (s.get('parent_station') or '').strip(),
+                    'lat': lat, 'lon': lon}
             else:
                 unres += 1
         print(f'{key}: {nstops:,} stops, {len(stop_city):,} resolved to a settlement, '
@@ -205,6 +244,36 @@ def harvest(key, url, country, licence, provider):
         trip_route = {}
         for t in stream(z, 'trips.txt'):
             trip_route[t['trip_id']] = t.get('route_id')
+        # distinct routes per stop, for the interchange test. One extra streaming pass over
+        # stop_times rather than holding it, because a national feed's stop_times is gigabytes.
+        stop_routes = collections.defaultdict(set)
+        for r in stream(z, 'stop_times.txt'):
+            sid = r.get('stop_id')
+            if sid in stop_raw:
+                rid = trip_route.get(r.get('trip_id'))
+                if rid:
+                    stop_routes[sid].add(rid)
+        # NODE IDENTITY per stop: its own named node when it is an interchange or the feed calls
+        # it a station, otherwise its settlement.
+        node_of = {}
+        nodekinds = collections.Counter()
+        for sid, raw in stop_raw.items():
+            city = stop_city[sid]
+            major = (raw['location_type'] == '1' or len(stop_routes.get(sid, ())) >= MAJOR_NODE_ROUTES)
+            if major and raw['name']:
+                node_of[sid] = {'id': f"stn:{sid}", 'name': raw['name'], 'kind': 'station',
+                                'country': city['country'], 'lat': raw['lat'], 'lon': raw['lon'],
+                                'settlement_id': city['id'], 'settlement': city['name'],
+                                'routes': len(stop_routes.get(sid, ()))}
+                nodekinds['station'] += 1
+            else:
+                node_of[sid] = {'id': city['id'], 'name': city['name'], 'kind': 'settlement',
+                                'country': city['country'], 'lat': city['lat'], 'lon': city['lon'],
+                                'settlement_id': city['id'], 'settlement': city['name'],
+                                'routes': len(stop_routes.get(sid, ()))}
+                nodekinds['settlement'] += 1
+        print(f'{key}: nodes {dict(nodekinds)}, interchange threshold {MAJOR_NODE_ROUTES} routes',
+              flush=True)
         agencies = [a.get('agency_name') for a in stream(z, 'agency.txt') if a.get('agency_name')]
 
         # ---- stop_times, streamed and flushed per trip
@@ -223,7 +292,7 @@ def harvest(key, url, country, licence, provider):
             # stops in the same settlement onto its first and last call
             seq = []
             for _, sid, tm in rows:
-                c = stop_city.get(sid)
+                c = node_of.get(sid)
                 if not c: continue
                 if seq and seq[-1][0]['id'] == c['id']:
                     seq[-1][2] = tm if tm is not None else seq[-1][2]
@@ -285,8 +354,14 @@ def harvest(key, url, country, licence, provider):
            'stop_times_grouped_by_trip': not noncontig,
            'pairs': [{'a_id': v['a']['id'], 'a_name': v['a']['name'],
                       'a_country': v['a']['country'], 'a_lat': v['a']['lat'], 'a_lon': v['a']['lon'],
+                      'a_kind': v['a'].get('kind', 'settlement'),
+                      'a_settlement_id': v['a'].get('settlement_id'),
+                      'a_settlement': v['a'].get('settlement'),
                       'b_id': v['b']['id'], 'b_name': v['b']['name'],
                       'b_country': v['b']['country'], 'b_lat': v['b']['lat'], 'b_lon': v['b']['lon'],
+                      'b_kind': v['b'].get('kind', 'settlement'),
+                      'b_settlement_id': v['b'].get('settlement_id'),
+                      'b_settlement': v['b'].get('settlement'),
                       'trips': v['trips'], 'routes': len(v['routes']),
                       'modes': sorted(v['modes']),
                       'median_duration_s': int(statistics.median(v['durations'])) if v['durations'] else None,
