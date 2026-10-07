@@ -1449,7 +1449,20 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # policy cells had passed no gate at all and were NOT final candidates whatever an
              # interim scoreboard said. From here every gate applies to them as it does to a
              # POI list.
-             ROOT + 'data/atlas/sources/transport/_manifest-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/transport/_manifest-candidates.jsonl.gz',
+             # Pulse, built 2026-10-07 by pulse-candidates.py. 226 rows and not the 9,065 the
+             # holiday store holds, because the measurement admits each market on its OWN
+             # country and the 43 countries in the store are source supply.
+             ROOT + 'data/atlas/sources/events/_pulse-candidates.jsonl.gz',
+             # Airport car parks, built 2026-10-07 by airport-parking-candidates.py. 50 rows
+             # after the association gate replaced a 6 km radius that was listing the city
+             # rather than the airport.
+             ROOT + 'data/atlas/sources/transport/_airport-parking-candidates.jsonl.gz',
+             # GTFS settlement pairs, built 2026-10-07 by gtfs-pair-candidates.py from 81
+             # openly licensed Mobility Database feeds. 3,238,241 directly-served STOP pairs
+             # collapsed to 4,217 settlement pairs, which is the gate working: a stop pair
+             # inside one bus network is a real connection and a page nobody would ever type.
+             ROOT + 'data/atlas/sources/transport/_gtfs-pair-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1465,6 +1478,17 @@ print(f'  outdoor candidates loaded {len(agg) - _outdoor_before:,}', file=sys.st
 # carries the archetype its own SERP showed. Shapes not yet sampled keep NOT_SAMPLED,
 # which the feasibility function treats as absence of evidence rather than bad news.
 SHAPE_SERP = {
+    # Pulse is the most open SERP measured anywhere in this inventory. "feiertage nrw 2026" at
+    # 202,000 is held at position 9 by ferien-nrw.com at DOMAIN RATING 1 with ZERO backlinks,
+    # and there is no knowledge card. Difficulty ran 0 to 6 across every head term measured,
+    # the lowest of any family here.
+    'pulse_country_holidays': 'OPEN_SPECIALIST_PAGE_WINS',
+    'pulse_subdivision_holidays': 'OPEN_SPECIALIST_PAGE_WINS',
+    'pulse_school_holidays': 'OPEN_SPECIALIST_PAGE_WINS',
+    'pulse_long_weekends': 'OPEN_SPECIALIST_PAGE_WINS',
+    'pulse_bridge_plan': 'OPEN_SPECIALIST_PAGE_WINS',
+    'airport_parking': 'OPEN_SPECIALIST_PAGE_WINS',
+    'transport_pair_transit': 'OPEN_SPECIALIST_PAGE_WINS',
     'city_category': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'city_cuisine': 'OPEN_LOCAL_PACK_ABOVE_ORGANIC',
     'area_category': 'OPEN_LOCAL_PACK_ABOVE_ORGANIC',
@@ -1590,6 +1614,35 @@ SHAPE_WIRING = {
     'region_what_to_see': ('destinations', 'AGGREGATION', 'region', 75),
     'region_cities': ('destinations', 'AGGREGATION', 'region', 70),
     'region_best_time': ('climate', 'AGGREGATION', 'region', 60),
+    # ---- Pulse, measured 2026-09-24 (ahrefs-holidays-*) and 2026-10-01 (pulse local phrasing).
+    # The demand scores ARE close to the measured ceilings here, which is unusual in this table
+    # and is justified: unlike the POI and pair families, every pulse page's own keyword shape
+    # was read on its own market head term. The subdivision families score HIGHER than the
+    # country ones, which looks wrong and is the measurement: "feiertage nrw 2026" at 202,000
+    # beats the unqualified "feiertage 2026" at 90,000 by more than two to one, so the state
+    # page is the primary page and the national one answers the smaller half of the demand.
+    'pulse_country_holidays': ('pulse', 'AGGREGATION', 'country_year', 62),
+    'pulse_subdivision_holidays': ('pulse', 'AGGREGATION', 'subdivision_year', 75),
+    'pulse_school_holidays': ('pulse', 'AGGREGATION', 'school_subdivision_year', 78),
+    'pulse_long_weekends': ('pulse', 'AGGREGATION', 'country_year', 58),
+    # The strongest information gain in the cluster: bridge_plans already computes the maximum
+    # consecutive days off a named state reaches in a named year, which is the actual question
+    # behind the query rather than a restatement of the holiday list.
+    'pulse_bridge_plan': ('pulse', 'AGGREGATION', 'subdivision_year', 70),
+    # Airport car parks. 52 and not higher: the 2026-10-07 open-SERP measurement found the
+    # parking tail is 210 rows of parking law, collision and sign-meaning intent, and the ONLY
+    # rows carrying a place were airport and cruise terminals. So the family is admitted at
+    # exactly the cut the measurement supports and no wider.
+    'airport_parking': ('transport', 'ENTITY', 'airport_parking', 52),
+    # GTFS settlement pairs. Scored 54, ABOVE the 50 air pairs and the 46 rail pairs, and this
+    # is the one place in this table where a pair family earns more than the measured family
+    # ceiling would suggest. The reason is information gain rather than demand: the air pairs
+    # rest on a 2014 OpenFlights snapshot and the rail pairs on a Wikidata adjacency graph, so
+    # those pages can say only that two places are connected and how far apart they are. These
+    # carry a real scheduled journey time and a real direct-service count, read out of
+    # stop_times and attributed to the agency that published it. Not higher than 54, because
+    # no per-pair volume was measured for any of the 4,217.
+    'transport_pair_transit': ('transport', 'ENTITY', 'city_pair_transit', 54),
 }
 WD_LICENCE = ('Wikidata (CC0 1.0, public domain dedication, no share-alike)', 'CC0_NO_CONDITIONS')
 OSM_LICENCE = ('OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
@@ -1607,10 +1660,39 @@ SHAPE_LICENCE = {
                             '(CC BY 4.0)', 'CC0_PLUS_ATTRIBUTION_REQUIRED'),
     'visa_requirement': ('UK FCDO entry requirements (Open Government Licence v3.0)',
                          'OGL_V3_ATTRIBUTION_REQUIRED'),
+    # The holiday registers are four different licences and the row records the union, because
+    # a pulse page for Germany rests on OpenHolidays and one for the United Kingdom on GOV.UK.
+    'pulse_country_holidays': (
+        'Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL '
+        'v3.0), Cabinet Office of Japan', 'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    'pulse_subdivision_holidays': (
+        'Public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v3.0)',
+        'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    'pulse_school_holidays': ('OpenHolidays school holiday register (ODbL 1.0)',
+                              'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    'pulse_long_weekends': (
+        'Derived from the public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), '
+        'GOV.UK (OGL v3.0)', 'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    'pulse_bridge_plan': (
+        'Derived from the public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v3.0)',
+        'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    'airport_parking': ('OurAirports (public domain) with OpenStreetMap named car parks '
+                        '(ODbL 1.0, share-alike, attribution required)',
+                        'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    # The row carries the union of the licences of the feeds that evidence that pair, and
+    # gtfs-pair-candidates.py records them per row, so this is the family-level statement.
+    'transport_pair_transit': (
+        'Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, '
+        'CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames '
+        '(CC BY 4.0) for the settlements', 'MIXED_OPEN_ATTRIBUTION_REQUIRED'),
 }
 SHAPE_RECORD_PREFIX = {
     'transport_pair': 'transport-air:', 'transport_airport_access': 'transport-access:',
     'transport_pair_rail': 'transport-rail:', 'visa_requirement': 'visa-fcdo:',
+    'pulse_country_holidays': 'pulse-holidays:', 'pulse_subdivision_holidays': 'pulse-holreg:',
+    'pulse_school_holidays': 'pulse-school:', 'pulse_long_weekends': 'pulse-lw:',
+    'pulse_bridge_plan': 'pulse-bplan:', 'airport_parking': 'apark-osm:',
+    'transport_pair_transit': 'transport-gtfs:',
 }
 
 # A feature page's parent is the list of its own class inside its own containment parent, where
@@ -1735,6 +1817,49 @@ for a in agg:
         # flag and lose the points, because an unclassified requirement is a weaker page
         if a.get('cls') in ('unclassified', 'stated_in_source_but_not_machine_classified'):
             q = max(30, q - 20)
+    elif shape.startswith('pulse_'):
+        fid = {'pulse_country_holidays': 'pulse.country-holidays',
+               'pulse_subdivision_holidays': 'pulse.subdivision-holidays',
+               'pulse_school_holidays': 'pulse.school-holidays',
+               'pulse_long_weekends': 'pulse.long-weekends',
+               'pulse_bridge_plan': 'pulse.bridge-days-subdivision'}[shape]
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = {
+            'pulse_country_holidays': f'see which days are public holidays in {ename}',
+            'pulse_subdivision_holidays': (f'see which public holidays {ename} keeps that the '
+                                           f'rest of the country does not'),
+            'pulse_school_holidays': f'find the school holiday dates for {ename}',
+            'pulse_long_weekends': (f'find which {ename} holidays fall next to a weekend and '
+                                    f'which working day bridges to one'),
+            'pulse_bridge_plan': (f'plan the longest run of days off {ename} allows, and which '
+                                  f'single days to book'),
+        }[shape]
+        # n is the count the page answers with: holidays, holiday periods or long weekends.
+        # enriched is the DIFFERENTIATING count - the days beyond the national list, the total
+        # holiday days, the number of bridge days - which is what the page is for.
+        q = min(100, 55 + min(20, a.get('n') or 0) + min(15, a.get('enriched') or 0))
+        # en-US is admitted and the matrix calls it weak, so it loses the points rather than
+        # the page
+        if a.get('pulse_weak_market'):
+            q = max(30, q - 12)
+    elif shape == 'transport_pair_transit':
+        fid = 'transport.city-pair-transit'
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"get from {ename} by public transport: how long the scheduled journey "
+                  f"takes, how many direct services run and which modes serve it")
+        # the route count is the shape of the corridor and the feed count is independent
+        # corroboration, so a pair two agencies both publish scores higher than one
+        q = min(100, 50 + min(25, a.get('n') or 0) * 2 + min(15, a.get('enriched') or 0) * 3)
+    elif shape == 'airport_parking':
+        fid = 'transport.airport-parking'
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f'find where to park at {ename}: which car parks there are, how far each is '
+                  f'from the terminal and who runs it')
+        # the lot count is the page; a two-lot page is a comparison and a ten-lot page is a guide
+        q = min(100, 45 + min(30, a.get('n') or 0) * 3)
     elif ptype == 'ENTITY':
         fid = f'poi.{cls}-notable'
         eid = a['entity_id']

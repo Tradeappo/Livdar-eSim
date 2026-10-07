@@ -1,0 +1,34 @@
+{
+ "builder": "scripts/atlas/scale/gtfs-pair-candidates.py",
+ "date": "2026-10-07",
+ "city_feeds_available": 102,
+ "national_feeds_available": 5,
+ "funnel": {
+  "feeds_read": 102,
+  "stops_resolved_to_a_settlement": 84555,
+  "stops_with_no_settlement_within_25km": 356,
+  "raw_stop_pairs": 3483942,
+  "rejected_both_stops_in_the_same_settlement": 1078611,
+  "rejected_settlements_closer_than_5km": 495918,
+  "rejected_no_usable_scheduled_duration": 3063,
+  "rejected_fewer_than_10_direct_trips": 1193652,
+  "rejected_stop_not_attributed_to_a_settlement": 9629,
+  "national_feeds_read": 5,
+  "raw_national_settlement_pairs": 15811,
+  "rejected_url_collision_on_settlement_names": 58,
+  "final_net": 21384
+ },
+ "final_net": 21384,
+ "gate": {
+  "stop_to_city_km": 25.0,
+  "min_city_population": 1000,
+  "min_city_separation_km": 5.0,
+  "min_direct_trips": 10,
+  "duration_bounds_s": [
+   120,
+   43200
+  ]
+ },
+ "why_the_collapse_is_the_point": "The harvest produced 3,483,942 directly-served STOP pairs and this builder emits 21,384 settlement pairs. A stop pair inside one bus network is a real connection and a worthless page: nobody types it, one small city feed yields 57,181 of them, and publishing them would be the arbitrary Cartesian product the brief forbids, differing only in that each row happens to be true. The unit a reader searches is the settlement pair, which is also the unit rome2rio built 1,850,129 keywords on.",
+ "what_this_family_adds_over_the_existing_pair_families": "transport.city-pair-air rests on a 2014 OpenFlights snapshot and transport.city-pair-rail on a Wikidata adjacency graph, so those pages can state only that two places are connected and how far apart they are. GTFS publishes stop_times, so these pages state a real scheduled duration and a real direct-service count attributed to the publishing agency. Fares are still refused: most feeds ship no fare_attributes and a fare is the one number that changes without notice."
+}

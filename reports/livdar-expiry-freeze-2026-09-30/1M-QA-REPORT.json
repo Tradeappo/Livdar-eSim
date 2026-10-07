@@ -1,17 +1,17 @@
 {
- "manifest_rows": 421764,
- "distinct_urls": 421764,
+ "manifest_rows": 422001,
+ "distinct_urls": 422001,
  "checks": {
-  "title_over_65_chars": 37071,
+  "title_over_65_chars": 37157,
   "meta_over_165_chars": 5997,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 204,
   "duplicate_title_same_tokens": 259,
-  "destination_rows": 65827,
+  "destination_rows": 65832,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 69,
+  "orphan_pages": 113,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
@@ -24,13 +24,15 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 205,
+  "duplicate_h1_within_a_market": 247,
   "declared_parent_is_not_a_valid_parent": 0,
   "declared_parent_is_valid_but_not_a_path_prefix": 23622,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
  "orphans_by_family": {
+  "pulse.school-holidays": 24,
+  "pulse.subdivision-holidays": 19,
   "destinations.country-hub": 9,
   "places.city-castle": 4,
   "places.city-swimming_pool": 4,
@@ -48,14 +50,12 @@
   "outdoors.hot_spring": 2,
   "outdoors.windmill": 2,
   "places.city-stadium": 2,
+  "pulse.country-holidays": 1,
   "outdoors.beach-in-region": 1,
   "places.city-camp_site": 1,
   "places.city-college": 1,
   "places.city-mall": 1,
-  "places.city-marina": 1,
-  "places.city-parking": 1,
-  "places.city-nature_reserve": 1,
-  "outdoors.bird_hide": 1
+  "places.city-marina": 1
  },
  "top_level_by_family": {},
  "saturated_templates": [],
@@ -409,85 +409,105 @@
  "duplicate_slug_examples": {},
  "duplicate_meta_examples": {},
  "duplicate_h1_examples": {
-  "Hoof Trail, Castle Ward": [
-   "/en/outdoors/trail/hoof-trail-castle-ward-r19611758/",
-   "/en/outdoors/trail/hoof-trail-r17057407/"
+  "Baden-Württemberg 2026": [
+   "/de/pulse/baden-wurttemberg/bridge-days-2026/",
+   "/de/pulse/baden-wurttemberg/public-holidays-2026/",
+   "/de/pulse/baden-wurttemberg/school-holidays-2026/"
   ],
-  "Atlanta to Bloomington, Atlanta, US": [
-   "/en/transport/rail/atlanta-bloomington/",
-   "/en/transport/route/atlanta-bloomington/"
+  "Baden-Württemberg 2027": [
+   "/de/pulse/baden-wurttemberg/bridge-days-2027/",
+   "/de/pulse/baden-wurttemberg/public-holidays-2027/",
+   "/de/pulse/baden-wurttemberg/school-holidays-2027/"
   ],
-  "Atlanta to Burlington, Atlanta, US": [
-   "/en/transport/rail/atlanta-burlington/",
-   "/en/transport/route/atlanta-burlington/"
+  "Bavaria 2026": [
+   "/de/pulse/bavaria/bridge-days-2026/",
+   "/de/pulse/bavaria/public-holidays-2026/",
+   "/de/pulse/bavaria/school-holidays-2026/"
   ],
-  "Atlanta to Charlotte, Atlanta, US": [
-   "/en/transport/rail/atlanta-charlotte/",
-   "/en/transport/route/atlanta-charlotte/"
+  "Bavaria 2027": [
+   "/de/pulse/bavaria/bridge-days-2027/",
+   "/de/pulse/bavaria/public-holidays-2027/",
+   "/de/pulse/bavaria/school-holidays-2027/"
   ],
-  "Atlanta to Columbus, Atlanta, US": [
-   "/en/transport/rail/atlanta-columbus/",
-   "/en/transport/route/atlanta-columbus/"
+  "Berlin 2026": [
+   "/de/pulse/berlin/bridge-days-2026/",
+   "/de/pulse/berlin/public-holidays-2026/",
+   "/de/pulse/berlin/school-holidays-2026/"
   ],
-  "Atlanta to Greensboro, Atlanta, US": [
-   "/en/transport/rail/atlanta-greensboro/",
-   "/en/transport/route/atlanta-greensboro/"
+  "Berlin 2027": [
+   "/de/pulse/berlin/bridge-days-2027/",
+   "/de/pulse/berlin/public-holidays-2027/",
+   "/de/pulse/berlin/school-holidays-2027/"
   ],
-  "Atlanta to Gulfport, Atlanta, US": [
-   "/en/transport/rail/atlanta-gulfport/",
-   "/en/transport/route/atlanta-gulfport/"
+  "Brandenburg 2026": [
+   "/de/pulse/brandenburg/bridge-days-2026/",
+   "/de/pulse/brandenburg/public-holidays-2026/",
+   "/de/pulse/brandenburg/school-holidays-2026/"
   ],
-  "Atlanta to Indianapolis, Atlanta, US": [
-   "/en/transport/rail/atlanta-indianapolis/",
-   "/en/transport/route/atlanta-indianapolis/"
+  "Brandenburg 2027": [
+   "/de/pulse/brandenburg/bridge-days-2027/",
+   "/de/pulse/brandenburg/public-holidays-2027/",
+   "/de/pulse/brandenburg/school-holidays-2027/"
   ],
-  "Atlanta to Louisville, Atlanta, US": [
-   "/en/transport/rail/atlanta-louisville/",
-   "/en/transport/route/atlanta-louisville/"
+  "Bremen 2026": [
+   "/de/pulse/bremen/bridge-days-2026/",
+   "/de/pulse/bremen/public-holidays-2026/",
+   "/de/pulse/bremen/school-holidays-2026/"
   ],
-  "Atlanta to Nashville, Atlanta, US": [
-   "/en/transport/rail/atlanta-nashville/",
-   "/en/transport/route/atlanta-nashville/"
+  "Bremen 2027": [
+   "/de/pulse/bremen/bridge-days-2027/",
+   "/de/pulse/bremen/public-holidays-2027/",
+   "/de/pulse/bremen/school-holidays-2027/"
   ],
-  "Atlanta to New Orleans, Atlanta, US": [
-   "/en/transport/rail/atlanta-new-orleans/",
-   "/en/transport/route/atlanta-new-orleans/"
+  "Hamburg 2026": [
+   "/de/pulse/hamburg/bridge-days-2026/",
+   "/de/pulse/hamburg/public-holidays-2026/",
+   "/de/pulse/hamburg/school-holidays-2026/"
   ],
-  "Atlanta to St. Louis, Atlanta, US": [
-   "/en/transport/rail/atlanta-st-louis/",
-   "/en/transport/route/atlanta-st-louis/"
+  "Hamburg 2027": [
+   "/de/pulse/hamburg/bridge-days-2027/",
+   "/de/pulse/hamburg/public-holidays-2027/",
+   "/de/pulse/hamburg/school-holidays-2027/"
   ],
-  "Atlanta to Valdosta, Atlanta, US": [
-   "/en/transport/rail/atlanta-valdosta/",
-   "/en/transport/route/atlanta-valdosta/"
+  "Hesse 2026": [
+   "/de/pulse/hesse/bridge-days-2026/",
+   "/de/pulse/hesse/public-holidays-2026/",
+   "/de/pulse/hesse/school-holidays-2026/"
   ],
-  "Austin to Grapevine, Austin, US": [
-   "/en/transport/rail/austin-grapevine/",
-   "/en/transport/route/austin-grapevine/"
+  "Hesse 2027": [
+   "/de/pulse/hesse/bridge-days-2027/",
+   "/de/pulse/hesse/public-holidays-2027/",
+   "/de/pulse/hesse/school-holidays-2027/"
   ],
-  "Baltimore to Charlotte, Baltimore, US": [
-   "/en/transport/rail/baltimore-charlotte/",
-   "/en/transport/route/baltimore-charlotte/"
+  "Lower Saxony 2026": [
+   "/de/pulse/lower-saxony/bridge-days-2026/",
+   "/de/pulse/lower-saxony/public-holidays-2026/",
+   "/de/pulse/lower-saxony/school-holidays-2026/"
   ],
-  "Baltimore to Cleveland, Baltimore, US": [
-   "/en/transport/rail/baltimore-cleveland/",
-   "/en/transport/route/baltimore-cleveland/"
+  "Lower Saxony 2027": [
+   "/de/pulse/lower-saxony/bridge-days-2027/",
+   "/de/pulse/lower-saxony/public-holidays-2027/",
+   "/de/pulse/lower-saxony/school-holidays-2027/"
   ],
-  "Birmingham to Atlanta, Birmingham, US": [
-   "/en/transport/rail/birmingham-atlanta/",
-   "/en/transport/route/birmingham-atlanta/"
+  "Mecklenburg-Western Pomerania 2026": [
+   "/de/pulse/mecklenburg-western-pomerania/bridge-days-2026/",
+   "/de/pulse/mecklenburg-western-pomerania/public-holidays-2026/",
+   "/de/pulse/mecklenburg-western-pomerania/school-holidays-2026/"
   ],
-  "Birmingham to Orlando, Birmingham, US": [
-   "/en/transport/rail/birmingham-orlando/",
-   "/en/transport/route/birmingham-orlando/"
+  "Mecklenburg-Western Pomerania 2027": [
+   "/de/pulse/mecklenburg-western-pomerania/bridge-days-2027/",
+   "/de/pulse/mecklenburg-western-pomerania/public-holidays-2027/",
+   "/de/pulse/mecklenburg-western-pomerania/school-holidays-2027/"
   ],
-  "Boston to Buffalo, Boston, US": [
-   "/en/transport/rail/boston-buffalo/",
-   "/en/transport/route/boston-buffalo/"
+  "North Rhine-Westphalia 2026": [
+   "/de/pulse/north-rhine-westphalia/bridge-days-2026/",
+   "/de/pulse/north-rhine-westphalia/public-holidays-2026/",
+   "/de/pulse/north-rhine-westphalia/school-holidays-2026/"
   ],
-  "Chicago to Buffalo, Chicago, US": [
-   "/en/transport/rail/chicago-buffalo/",
-   "/en/transport/route/chicago-buffalo/"
+  "North Rhine-Westphalia 2027": [
+   "/de/pulse/north-rhine-westphalia/bridge-days-2027/",
+   "/de/pulse/north-rhine-westphalia/public-holidays-2027/",
+   "/de/pulse/north-rhine-westphalia/school-holidays-2027/"
   ]
  },
  "invalid_hierarchy_examples": [],
@@ -11158,6 +11178,153 @@
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
    ]
   },
+  "pulse.bridge-days-subdivision|de": {
+   "rows": 32,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Derived from the public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|de": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|en": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|es": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|fr": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|it": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|nl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|pl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.country-holidays|pt": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), Cabinet Office of Japan, a named source with provenance"
+   ]
+  },
+  "pulse.long-weekends|de": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Derived from the public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.long-weekends|fr": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Derived from the public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.long-weekends|nl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Derived from the public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.long-weekends|pl": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Derived from the public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.long-weekends|pt": {
+   "rows": 2,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Derived from the public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (MIT), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.school-holidays|de": {
+   "rows": 32,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenHolidays school holiday register (ODbL 1.0), a named source with provenance"
+   ]
+  },
+  "pulse.school-holidays|fr": {
+   "rows": 39,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenHolidays school holiday register (ODbL 1.0), a named source with provenance"
+   ]
+  },
+  "pulse.school-holidays|nl": {
+   "rows": 23,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenHolidays school holiday register (ODbL 1.0), a named source with provenance"
+   ]
+  },
+  "pulse.school-holidays|pl": {
+   "rows": 16,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenHolidays school holiday register (ODbL 1.0), a named source with provenance"
+   ]
+  },
+  "pulse.subdivision-holidays|de": {
+   "rows": 32,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.subdivision-holidays|en": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
+  "pulse.subdivision-holidays|es": {
+   "rows": 19,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v3.0), a named source with provenance"
+   ]
+  },
   "relocation.city|de": {
    "rows": 332,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -11835,6 +12002,13 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names OurAirports (public domain) with GeoNames (CC BY 4.0) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "transport.airport-parking|en": {
+   "rows": 13,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OurAirports (public domain) with OpenStreetMap named car parks (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "transport.city-getting-around|de": {

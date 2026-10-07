@@ -149,6 +149,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | poi.attraction-notable | 18 | 38 | 26 | 11 |  | 11 | 5 | 20 | 6 | 8 | 2 |
 | outdoors.beach | 79 | 7 | 4 | 2 |  | 9 | 22 | 7 | 4 |  | 7 |
 | places.area-market |  |  | 11 | 2 |  | 12 | 6 | 77 | 3 |  | 28 |
+| pulse.school-holidays |  |  | 32 |  |  |  |  | 39 | 23 | 16 |  |
 | poi.gallery-notable | 44 | 27 | 8 | 1 |  | 8 | 2 | 4 | 4 | 9 |  |
 | outdoors.canoe-trail | 62 | 1 |  |  |  |  |  |  | 30 | 6 |  |
 | places.area-marina |  |  | 60 |  |  | 2 |  | 2 | 9 | 1 |  |
@@ -156,6 +157,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.city-mall | 7 | 1 | 1 | 16 |  | 6 | 2 |  | 8 | 7 | 10 |
 | places.city-park | 29 | 2 |  | 7 |  | 3 | 3 | 5 |  | 2 | 6 |
 | poi.theatre-notable | 20 |  | 2 | 3 |  | 3 | 2 | 23 | 6 | 1 |  |
+| pulse.subdivision-holidays |  | 4 | 32 |  |  |  | 19 |  |  |  |  |
 | comparisons.city-vs-city | 5 | 6 |  | 15 |  |  |  |  |  |  | 24 |
 | places.city-viewpoint | 6 | 1 | 14 | 10 |  | 1 | 5 | 1 | 3 | 3 |  |
 | outdoors.camp_site-in-region |  |  | 12 |  |  | 33 |  |  |  |  |  |
@@ -163,6 +165,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-mall | 1 |  |  | 15 |  | 1 | 1 |  | 1 | 2 | 6 |
 | outdoors.glacier | 33 |  |  |  |  |  |  |  |  |  |  |
 | outdoors.aqueduct | 2 |  | 4 |  |  | 13 | 7 | 6 |  |  |  |
+| pulse.bridge-days-subdivision |  |  | 32 |  |  |  |  |  |  |  |  |
 | outdoors.geyser | 29 |  | 2 |  |  |  |  |  |  |  |  |
 | relocation.country | 3 | 3 | 4 | 2 |  | 4 | 4 | 2 | 2 | 1 | 4 |
 | places.area-viewpoint | 5 |  | 5 | 5 |  | 1 | 4 | 1 | 1 | 4 |  |
@@ -177,12 +180,15 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-garden | 12 | 1 |  |  |  |  |  | 3 |  |  |  |
 | poi.archaeological_site-notable | 1 | 1 | 1 | 2 |  | 12 |  |  |  |  |  |
 | poi.art_museum-notable |  | 8 |  | 8 |  |  | 1 |  |  |  |  |
+| pulse.country-holidays | 2 | 2 | 2 |  |  | 2 | 1 | 2 | 2 | 2 | 2 |
 | places.city-zoo | 2 |  |  | 1 |  | 1 |  |  | 8 | 2 |  |
+| transport.airport-parking | 13 |  |  |  |  |  |  |  |  |  |  |
 | comparisons.country-vs-country | 12 |  |  |  |  |  |  |  |  |  |  |
 | poi.theme_park-notable | 4 | 1 | 1 | 5 |  |  |  |  | 1 |  |  |
 | destinations.country-hub | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | places.city-golf_course | 6 |  |  | 4 |  |  |  |  |  |  |  |
 | places.city-water_park | 1 |  | 6 |  |  | 2 |  |  |  |  | 1 |
+| pulse.long-weekends |  |  | 2 |  |  |  |  | 2 | 2 | 2 | 2 |
 | places.city-castle |  |  |  | 1 |  | 1 | 5 | 1 | 1 |  |  |
 | places.city-swimming_pool |  |  | 1 |  |  | 2 | 1 |  | 1 | 3 |  |
 | outdoors.beach_resort | 4 |  |  | 1 |  | 2 |  |  | 1 |  |  |

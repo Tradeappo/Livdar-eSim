@@ -4,10 +4,10 @@ Built 2026-10-07. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **421,764**
+- FINAL DISTINCT VALID CANDIDATES: **422,001**
 - target: 1,000,000
-- shortfall: **578,236** (42.2 per cent of target)
-- rejected and kept visible: 605,483
+- shortfall: **577,999** (42.2 per cent of target)
+- rejected and kept visible: 605,522
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 859,552 | same url_pattern |
-| after semantic dedupe | 859,550 | same market, family, template signature and entity |
-| FINAL DISTINCT | 421,764 | what is in the manifest |
+| after exact dedupe | 859,828 | same url_pattern |
+| after semantic dedupe | 859,826 | same market, family, template signature and entity |
+| FINAL DISTINCT | 422,001 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,16 +27,16 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
-| en-US | 86,416 |
-| fr-FR | 55,480 |
-| de-DE | 48,861 |
+| en-US | 86,431 |
+| fr-FR | 55,523 |
+| de-DE | 48,961 |
 | ja-JP | 39,969 |
-| es-ES | 33,069 |
-| en-GB | 26,760 |
-| it-IT | 26,307 |
-| nl-NL | 24,308 |
-| pl-PL | 23,705 |
-| pt-BR | 22,197 |
+| es-ES | 33,089 |
+| en-GB | 26,766 |
+| it-IT | 26,309 |
+| nl-NL | 24,335 |
+| pl-PL | 23,725 |
+| pt-BR | 22,201 |
 | tr-TR | 13,487 |
 | es-MX | 12,161 |
 | en-AU | 8,244 |
@@ -51,9 +51,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | areas | 41,069 |
 | stay | 34,442 |
 | climate | 23,602 |
-| transport | 18,711 |
+| transport | 18,724 |
 | move | 15,587 |
-| pulse | 15,019 |
+| pulse | 15,243 |
 | work | 4,971 |
 | poi | 2,986 |
 | tools | 1,594 |
@@ -66,7 +66,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | status | candidates |
 | --- | --- |
-| POI_AGGREGATION | 268,196 |
+| POI_AGGREGATION | 268,433 |
 | MISSING_DATA | 63,664 |
 | BLOCKED_BY_LICENCE | 40,324 |
 | EXPERIMENT_ONLY | 25,194 |
@@ -80,7 +80,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 345,553 |
+| SOURCE_AVAILABLE | 345,790 |
 | LICENCE_REQUIRED | 40,324 |
 | READY_NOW | 25,290 |
 | FEED_REQUIRED | 10,597 |
@@ -89,7 +89,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | serp_feasibility | candidates |
 | --- | --- |
-| viable | 195,749 |
+| viable | 195,986 |
 | unsampled_needs_serp_check | 105,117 |
 | competitive | 52,885 |
 | strong_opportunity | 42,555 |
@@ -99,7 +99,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | licence_status | candidates |
 | --- | --- |
-| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 268,643 |
+| ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 268,880 |
 | OK | 98,808 |
 | LICENCE_REQUIRED | 40,324 |
 | CC0_PLUS_ATTRIBUTION_REQUIRED | 11,222 |
@@ -115,7 +115,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | --- | --- |
 | shape_measured_2026_10_01 | 268,196 |
 | measured_in_this_market | 132,757 |
-| shape_measured_2026_10_07_open_serp | 14,436 |
+| shape_measured_2026_10_07_open_serp | 14,673 |
 | family_measured_elsewhere | 6,375 |
 
 ### The twenty largest families
@@ -149,18 +149,18 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 176,375 | 86,416 | 5,567 | 882 | 6,732 | 51,292 | 6,334 | 0 | 19,152 |
-| en-GB | 36,831 | 26,760 | 1,307 | 240 | 0 | 2 | 5,063 | 0 | 3,459 |
-| de-DE | 99,535 | 48,861 | 8,248 | 195 | 2,532 | 8,470 | 24,102 | 0 | 7,127 |
+| en-US | 176,427 | 86,431 | 5,567 | 882 | 6,732 | 51,329 | 6,334 | 0 | 19,152 |
+| en-GB | 36,837 | 26,766 | 1,307 | 240 | 0 | 2 | 5,063 | 0 | 3,459 |
+| de-DE | 99,635 | 48,961 | 8,248 | 195 | 2,532 | 8,470 | 24,102 | 0 | 7,127 |
 | ja-JP | 95,014 | 39,969 | 3,058 | 553 | 34,865 | 4,956 | 547 | 248 | 10,818 |
 | zh-Hant-TW | 5,821 | 800 | 570 | 40 | 430 | 48 | 3,772 | 0 | 161 |
-| it-IT | 57,836 | 26,307 | 4,695 | 133 | 14,908 | 2,450 | 3,568 | 0 | 5,775 |
-| es-ES | 98,216 | 33,069 | 4,976 | 150 | 34,360 | 7,936 | 2,665 | 0 | 15,060 |
-| fr-FR | 132,351 | 55,480 | 6,555 | 143 | 41,764 | 10,432 | 2,247 | 248 | 15,482 |
-| nl-NL | 93,740 | 24,308 | 4,993 | 57 | 40,951 | 9,762 | 794 | 0 | 12,875 |
-| pl-PL | 89,526 | 23,705 | 4,932 | 101 | 40,735 | 6,802 | 796 | 0 | 12,455 |
-| pt-BR | 80,483 | 22,197 | 3,993 | 677 | 35,117 | 4,358 | 1,050 | 0 | 13,091 |
-| **all 11** | **965,728** | **387,872** | | | | | | | |
+| it-IT | 57,838 | 26,309 | 4,695 | 133 | 14,908 | 2,450 | 3,568 | 0 | 5,775 |
+| es-ES | 98,236 | 33,089 | 4,976 | 150 | 34,360 | 7,936 | 2,665 | 0 | 15,060 |
+| fr-FR | 132,394 | 55,523 | 6,555 | 143 | 41,764 | 10,432 | 2,247 | 248 | 15,482 |
+| nl-NL | 93,767 | 24,335 | 4,993 | 57 | 40,951 | 9,762 | 794 | 0 | 12,875 |
+| pl-PL | 89,546 | 23,725 | 4,932 | 101 | 40,735 | 6,802 | 796 | 0 | 12,455 |
+| pt-BR | 80,487 | 22,201 | 3,993 | 677 | 35,117 | 4,358 | 1,050 | 0 | 13,091 |
+| **all 11** | **966,002** | **388,109** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -168,7 +168,7 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 361,213 |
+| NATIVE_LOCALE | 361,450 |
 | VALID_LOCALIZATION | 60,551 |
 
 - flagged LOCAL_SERP_UNVERIFIED: 105,117. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
@@ -6567,7 +6567,7 @@ swiss | 2 |
 | gate | rejected |
 | --- | --- |
 | localization:TRANSLATION_ONLY | 260,026 |
-| localization:LOCAL_INTENT_MISSING | 107,005 |
+| localization:LOCAL_INTENT_MISSING | 107,042 |
 | localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 50,938 |
 | REJECTED_QUALITY: no defensible uniqueness basis | 46,071 |
 | REFUSED_MEASURED_CANNIBALISATION: "X travel guide" reads 250 to 2,400 in en-US at CPC 20 to 120 cents, the best commercial signal of the three, but its parent topics are "things to do in bangkok", "visiting paris", "what to see in rome", "barcelona travel" and "amsterdam travel", which is the topic activities.city-things-to-do already holds with 30,040 pairs. Outside English it is dead: "X reisefuehrer" reads 10 in German for every city tested and "guida di viaggio X" reads 0 to 30 in Italian. The commercial signal is real and belongs in the things-to-do title and copy, not on a second URL competing with it. | 29,448 |
@@ -7245,6 +7245,7 @@ swiss | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.ski-trail is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-garden is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.observatory is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. pulse.country-holidays is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: en-AU was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.caravan_site is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. outdoors.castle is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET: es-MX was admitted after the research freeze, so it inherits no family from the markets that share its language. places.city-water_park is not covered by any category its own keyword measurement admitted, so there is no evidence this market wants this page type. A shared language is not shared demand. | 2 |
@@ -8317,20 +8318,20 @@ swiss | 2 |
 
 ## 6. QA at scale
 
-- rows checked: 421,764, distinct URLs 421,764
+- rows checked: 422,001, distinct URLs 422,001
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 37,071 |
+| title_over_65_chars | 37,157 |
 | meta_over_165_chars | 5,997 |
 | title_under_15_chars | 28 |
 | duplicate_title_exact | 204 |
 | duplicate_title_same_tokens | 259 |
-| destination_rows | 65,827 |
+| destination_rows | 65,832 |
 | destination_rows_with_no_locale_specific_fact | 0 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
-| orphan_pages | 69 |
+| orphan_pages | 113 |
 | top_level_pages_whose_parent_is_the_locale_home | 0 |
 | intent_owners_claimed_by_more_than_one_url | 0 |
 | urls_sharing_a_cannibalization_key | 0 |
@@ -8343,7 +8344,7 @@ swiss | 2 |
 | urls_containing_a_latin_character_with_a_diacritic | 0 |
 | duplicate_canonicals | 0 |
 | duplicate_meta_within_a_market | 0 |
-| duplicate_h1_within_a_market | 205 |
+| duplicate_h1_within_a_market | 247 |
 | declared_parent_is_not_a_valid_parent | 0 |
 | declared_parent_is_valid_but_not_a_path_prefix | 23,622 |
 | family_locale_cells_failing_the_usefulness_test | 0 |
@@ -8401,7 +8402,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-421,764 candidates survive the gates. The target is 1,000,000.
+422,001 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

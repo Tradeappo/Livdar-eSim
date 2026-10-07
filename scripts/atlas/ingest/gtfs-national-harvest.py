@@ -1,0 +1,306 @@
+#!/usr/bin/env python3
+"""
+Harvest NATIONAL GTFS feeds straight to settlement pairs.
+
+WHY A SECOND HARVESTER. gtfs-harvest.py reduces a feed to STOP pairs and a later stage
+collapses those onto settlements. That works for a city bus network and cannot work for a
+national feed: Entur's Norway aggregate is 540 MB zipped, its stop_times has tens of
+millions of rows, and one long-distance train touching 40 stops yields 780 stop pairs
+before anything is collapsed. Loading that into a list of dicts is how the manifest stage
+got itself OOM-killed twice.
+
+So this one collapses FIRST. The gazetteer is loaded once, every stop is resolved to a
+settlement as stops.txt is read, and stop_times is streamed trip by trip and reduced to a
+SETTLEMENT sequence before any pair is generated. A train calling at 40 stops across 12
+towns produces 66 settlement pairs, not 780 stop pairs, and nothing larger than one trip
+is ever held in memory.
+
+WHY NATIONAL FEEDS MATTER. The 105 openly licensed feeds in the Mobility Database with a
+recognised licence are almost entirely local bus operators: Cardiff Bus, Oxford Bus,
+Brighton and Hove. Their settlement pairs are a town and its neighbouring villages, and
+29 feeds yielded 1,929 of them. Intercity rail and coach is where the pair axis lives, and
+the national aggregates carry it. These endpoints need no API key, which is the reason they
+are reachable at all from this container: the national access points that DO require a free
+registration (Spain NAP, Trafiklab Sweden, DELFI Germany) are the external dependency
+recorded in the capacity report.
+
+Every feed here was checked for licence by hand, because a national aggregate is exactly
+the case where getting a licence wrong is expensive:
+
+  Entur (Norway)          NLOD 2.0, open, attribution. entur.org/for-utviklere
+  OVapi (Netherlands)     CC0 / open OV data, gtfs.ovapi.nl
+  TFI (Ireland)           Irish PSI / CC BY 4.0, transportforireland.ie
+  Digitransit HSL         CC BY 4.0, Helsinki region
+  Rejseplanen (Denmark)   open, rejseplanen.info/labs
+
+Output: one data/atlas/sources/transport/gtfs-national/pairs-<key>.json.gz per feed, in the
+same settlement-pair shape gtfs-pair-candidates.py reads.
+"""
+import json, gzip, os, sys, csv, io, zipfile, urllib.request, collections, math, statistics, glob
+
+ROOT = '/home/user/Livdar-eSim/'
+OUT = ROOT + 'data/atlas/sources/transport/gtfs-national/'
+TMP = '/tmp/gtfs-nat/'
+os.makedirs(OUT, exist_ok=True); os.makedirs(TMP, exist_ok=True)
+
+FEEDS = {
+    'entur-norway': ('https://storage.googleapis.com/marduk-production/outbound/gtfs/'
+                     'rb_norway-aggregated-gtfs.zip', 'NO', 'NLOD 2.0',
+                     'Entur (national Norwegian journey planner data)'),
+    'ovapi-netherlands': ('https://gtfs.ovapi.nl/nl/gtfs-nl.zip', 'NL', 'CC0 1.0',
+                          'OVapi / Dutch national OV data'),
+    'tfi-ireland': ('https://www.transportforireland.ie/transitData/Data/GTFS_All.zip', 'IE',
+                    'CC BY 4.0', 'Transport for Ireland'),
+    'digitransit-finland': ('https://infopalvelut.storage.hsldev.com/gtfs/hsl.zip', 'FI',
+                            'CC BY 4.0', 'Helsinki Regional Transport (HSL) via Digitransit'),
+    'rejseplanen-denmark': ('https://www.rejseplanen.info/labs/GTFS.zip', 'DK',
+                            'Rejseplanen open data terms', 'Rejseplanen (Denmark)'),
+}
+
+STOP_TO_CITY_KM = 20.0
+MIN_CITY_POP = 1000
+MAX_STOPS_PER_TRIP_SETTLEMENTS = 60   # a trip touching more settlements than this is a data
+                                      # artefact, not a service, and its pair count explodes
+
+# ---------------------------------------------------------------- gazetteer, loaded once
+cities = []
+for f in sorted(glob.glob(ROOT + 'data/atlas/entities/cities/*.json')):
+    d = json.load(open(f))
+    lst = d if isinstance(d, list) else (d.get('cities') or list(d.values())[0])
+    for c in lst:
+        if c and c.get('id') and c.get('lat') is not None and c.get('lon') is not None:
+            p = c.get('population') or 0
+            if p >= MIN_CITY_POP:
+                cities.append({'id': str(c['id']), 'name': c.get('name') or c.get('ascii'),
+                               'country': c.get('country'), 'pop': p,
+                               'lat': float(c['lat']), 'lon': float(c['lon'])})
+CELL = 0.25
+GRID = collections.defaultdict(list)
+for c in cities:
+    GRID[(int(c['lat'] / CELL), int(c['lon'] / CELL))].append(c)
+print(f'gazetteer: {len(cities):,} settlements at or above {MIN_CITY_POP} people', file=sys.stderr)
+
+
+def km(a, b, c, d):
+    p = math.pi / 180
+    return 6371 * 2 * math.asin(math.sqrt(max(0.0,
+        math.sin((c - a) * p / 2) ** 2 +
+        math.cos(a * p) * math.cos(c * p) * math.sin((d - b) * p / 2) ** 2)))
+
+
+def nearest_city(lat, lon):
+    gi, gj = int(lat / CELL), int(lon / CELL)
+    sp = int(STOP_TO_CITY_KM / 111.0 / CELL) + 1
+    best = None
+    for i in range(gi - sp, gi + sp + 1):
+        for j in range(gj - sp, gj + sp + 1):
+            for c in GRID.get((i, j), ()):
+                d = km(lat, lon, c['lat'], c['lon'])
+                if d <= STOP_TO_CITY_KM and (best is None or d < best[1]):
+                    best = (c, d)
+    return best[0] if best else None
+
+
+def secs(t):
+    try:
+        h, m, s = (int(x) for x in t.split(':'))
+        return h * 3600 + m * 60 + s
+    except Exception:
+        return None
+
+
+RAIL_LIKE = {'0': 'tram', '1': 'subway', '2': 'rail', '4': 'ferry', '5': 'cable_tram',
+             '6': 'aerial_lift', '7': 'funicular', '11': 'trolleybus', '12': 'monorail'}
+BUS = {'3': 'bus'}
+
+# ---------------------------------------------------------------------------------------------
+# Extended GTFS route types. The basic set is 0 to 12; the Google "extended" hierarchy uses
+# three and four digit codes and the European national feeds use it throughout. Entur's Norway
+# aggregate returned ZERO settlement pairs on the first run for exactly this reason: every trip
+# was discarded as an unwanted mode because its route_type was 100 (rail) or 700 (bus) rather
+# than 2 or 3. A silent zero is the worst failure mode here, so the mapping is explicit.
+EXT_RANGES = (
+    (100, 199, 'rail'), (200, 299, 'coach'), (300, 399, 'rail'), (400, 499, 'subway'),
+    (500, 599, 'subway'), (600, 699, 'subway'), (700, 799, 'bus'), (800, 899, 'trolleybus'),
+    (900, 999, 'tram'), (1000, 1099, 'ferry'), (1200, 1299, 'ferry'), (1300, 1399, 'aerial_lift'),
+    (1400, 1499, 'funicular'), (1500, 1599, None), (1700, 1799, None),
+)
+
+
+def mode_of(rt):
+    """The travel mode of a GTFS route_type, basic or extended. None means not a mode this
+    pair axis covers: a taxi or a 'miscellaneous' service is not something a reader plans a
+    named journey around."""
+    rt = (rt or '').strip()
+    if rt in RAIL_LIKE:
+        return RAIL_LIKE[rt]
+    if rt in BUS:
+        return BUS[rt]
+    try:
+        n = int(rt)
+    except Exception:
+        return None
+    for lo, hi, m in EXT_RANGES:
+        if lo <= n <= hi:
+            return m
+    return None
+
+
+def stream(z, name):
+    """Yield rows of a GTFS member without materialising the file."""
+    try:
+        fh = z.open(name)
+    except KeyError:
+        return
+    with io.TextIOWrapper(fh, encoding='utf-8-sig', errors='replace') as t:
+        for row in csv.DictReader(t):
+            yield row
+
+
+def harvest(key, url, country, licence, provider):
+    done = OUT + f'.done-{key}'
+    if os.path.exists(done):
+        print(f'{key}: already done', flush=True); return
+    zp = TMP + f'{key}.zip'
+    if not os.path.exists(zp):
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'livdar-atlas/1.0 (atlas@livdar)'})
+            with urllib.request.urlopen(req, timeout=900) as r, open(zp, 'wb') as f:
+                n = 0
+                while True:
+                    b = r.read(1 << 22)
+                    if not b: break
+                    f.write(b); n += len(b)
+            print(f'{key}: downloaded {n/1e6:.0f} MB', flush=True)
+        except Exception as e:
+            print(f'{key}: DOWNLOAD FAIL {type(e).__name__}: {str(e)[:120]}', flush=True)
+            if os.path.exists(zp): os.remove(zp)
+            return
+    try:
+        z = zipfile.ZipFile(zp)
+        # ---- stops, resolved to settlements as they are read
+        stop_city, nstops, unres = {}, 0, 0
+        for s in stream(z, 'stops.txt'):
+            nstops += 1
+            try:
+                lat, lon = float(s['stop_lat']), float(s['stop_lon'])
+            except Exception:
+                continue
+            c = nearest_city(lat, lon)
+            if c:
+                stop_city[s['stop_id']] = c
+            else:
+                unres += 1
+        print(f'{key}: {nstops:,} stops, {len(stop_city):,} resolved to a settlement, '
+              f'{unres:,} with none within {STOP_TO_CITY_KM:.0f} km', flush=True)
+
+        # ---- route type per trip, so a pair knows its mode
+        rtype = {}
+        for r in stream(z, 'routes.txt'):
+            rtype[r['route_id']] = (r.get('route_type') or '').strip()
+        rname = {}
+        for r in stream(z, 'routes.txt'):
+            rname[r['route_id']] = ((r.get('route_short_name') or '').strip() or
+                                    (r.get('route_long_name') or '').strip())
+        trip_route = {}
+        for t in stream(z, 'trips.txt'):
+            trip_route[t['trip_id']] = t.get('route_id')
+        agencies = [a.get('agency_name') for a in stream(z, 'agency.txt') if a.get('agency_name')]
+
+        # ---- stop_times, streamed and flushed per trip
+        P = collections.defaultdict(lambda: {'trips': 0, 'durations': [], 'modes': set(),
+                                             'routes': set()})
+        stats = collections.Counter()
+
+        def flush(tid, rows):
+            if not tid or len(rows) < 2: return
+            rid = trip_route.get(tid)
+            mode = mode_of(rtype.get(rid, ''))
+            if not mode:
+                stats['trip_mode_not_wanted:' + str(rtype.get(rid, ''))] += 1; return
+            rows.sort(key=lambda x: x[0])
+            # reduce the stop sequence to a SETTLEMENT sequence, collapsing consecutive
+            # stops in the same settlement onto its first and last call
+            seq = []
+            for _, sid, tm in rows:
+                c = stop_city.get(sid)
+                if not c: continue
+                if seq and seq[-1][0]['id'] == c['id']:
+                    seq[-1][2] = tm if tm is not None else seq[-1][2]
+                    continue
+                seq.append([c, tm, tm])
+            if len(seq) < 2:
+                stats['trip_touches_fewer_than_2_settlements'] += 1; return
+            if len(seq) > MAX_STOPS_PER_TRIP_SETTLEMENTS:
+                stats['trip_touches_too_many_settlements'] += 1; return
+            stats['trips_used'] += 1
+            for i in range(len(seq)):
+                for j in range(i + 1, len(seq)):
+                    a, b = seq[i][0], seq[j][0]
+                    k = (a['id'], b['id']) if a['id'] < b['id'] else (b['id'], a['id'])
+                    e = P[k]
+                    e['trips'] += 1
+                    ta, tb = seq[i][2], seq[j][1]
+                    if ta is not None and tb is not None and 0 < tb - ta <= 24 * 3600:
+                        e['durations'].append(tb - ta)
+                    e['modes'].add(mode)
+                    if rid: e['routes'].add(rid)
+                    e['a'], e['b'] = a, b
+
+        cur, buf, noncontig = None, [], 0
+        seen_trips = set()
+        for r in stream(z, 'stop_times.txt'):
+            tid = r.get('trip_id')
+            if tid != cur:
+                if cur is not None:
+                    flush(cur, buf)
+                    if cur in seen_trips: noncontig += 1
+                    seen_trips.add(cur)
+                cur, buf = tid, []
+            try:
+                sq = int(r.get('stop_sequence') or 0)
+            except Exception:
+                sq = 0
+            buf.append((sq, r.get('stop_id'),
+                        secs(r.get('departure_time') or r.get('arrival_time') or '')))
+        flush(cur, buf)
+        z.close()
+        if noncontig:
+            # stop_times was not grouped by trip. Every real feed groups it; if one does not,
+            # the trips were split and their pairs undercounted, so say so rather than
+            # reporting a number that looks fine.
+            print(f'{key}: WARNING stop_times not grouped by trip_id, {noncontig:,} trips '
+                  f'were split and their durations are unreliable', flush=True)
+    except Exception as e:
+        print(f'{key}: PARSE FAIL {type(e).__name__}: {str(e)[:160]}', flush=True)
+        if os.path.exists(zp): os.remove(zp)
+        return
+    finally:
+        if os.path.exists(zp): os.remove(zp)
+
+    out = {'key': key, 'country': country, 'licence': licence, 'provider': provider,
+           'agencies': agencies[:8], 'source_url': url,
+           'stops_in_feed': nstops, 'stops_resolved': len(stop_city),
+           'settlement_pairs': len(P), 'trip_stats': dict(stats),
+           'stop_times_grouped_by_trip': not noncontig,
+           'pairs': [{'a_id': v['a']['id'], 'a_name': v['a']['name'],
+                      'a_country': v['a']['country'], 'a_lat': v['a']['lat'], 'a_lon': v['a']['lon'],
+                      'b_id': v['b']['id'], 'b_name': v['b']['name'],
+                      'b_country': v['b']['country'], 'b_lat': v['b']['lat'], 'b_lon': v['b']['lon'],
+                      'trips': v['trips'], 'routes': len(v['routes']),
+                      'modes': sorted(v['modes']),
+                      'median_duration_s': int(statistics.median(v['durations'])) if v['durations'] else None,
+                      'min_duration_s': min(v['durations']) if v['durations'] else None}
+                     for v in P.values()]}
+    with gzip.open(OUT + f'pairs-{key}.json.gz', 'wt', encoding='utf-8') as f:
+        json.dump(out, f, ensure_ascii=False)
+    open(done, 'w').close()
+    print(f'{key}: SETTLEMENT PAIRS {len(P):,}  (trips used {stats["trips_used"]:,})', flush=True)
+
+
+if __name__ == '__main__':
+    only = sys.argv[1:] or list(FEEDS)
+    for k in only:
+        url, cc, lic, prov = FEEDS[k]
+        harvest(k, url, cc, lic, prov)
+    print('NATIONAL HARVEST DONE', flush=True)

@@ -33,6 +33,13 @@ Output: data/atlas/sources/transport/gtfs/pairs-<mdb_id>.json.gz per feed, each 
 the stops it kept and the directly served pairs with their measured durations.
 """
 import json, gzip, os, sys, csv, io, zipfile, urllib.request, collections, time, statistics
+import socket
+
+# A per-request timeout is not enough. One French feed host accepted the connection and then
+# trickled bytes, which resets urlopen's timer on every read and hangs the run indefinitely:
+# the harvest sat on feed 28 of 105 for thirty-five minutes. A default socket timeout bounds
+# the individual read instead, so a host that stops sending raises rather than stalling.
+socket.setdefaulttimeout(90)
 
 ROOT = '/home/user/Livdar-eSim/'
 SEL = sys.argv[1] if len(sys.argv) > 1 else (
@@ -52,6 +59,38 @@ FEEDS = json.load(open(SEL))
 RAIL_LIKE = {'0': 'tram', '1': 'subway', '2': 'rail', '4': 'ferry', '5': 'cable_tram',
              '6': 'aerial_lift', '7': 'funicular', '11': 'trolleybus', '12': 'monorail'}
 BUS = {'3': 'bus'}
+
+# ---------------------------------------------------------------------------------------------
+# Extended GTFS route types. The basic set is 0 to 12; the Google "extended" hierarchy uses
+# three and four digit codes and the European national feeds use it throughout. Entur's Norway
+# aggregate returned ZERO settlement pairs on the first run for exactly this reason: every trip
+# was discarded as an unwanted mode because its route_type was 100 (rail) or 700 (bus) rather
+# than 2 or 3. A silent zero is the worst failure mode here, so the mapping is explicit.
+EXT_RANGES = (
+    (100, 199, 'rail'), (200, 299, 'coach'), (300, 399, 'rail'), (400, 499, 'subway'),
+    (500, 599, 'subway'), (600, 699, 'subway'), (700, 799, 'bus'), (800, 899, 'trolleybus'),
+    (900, 999, 'tram'), (1000, 1099, 'ferry'), (1200, 1299, 'ferry'), (1300, 1399, 'aerial_lift'),
+    (1400, 1499, 'funicular'), (1500, 1599, None), (1700, 1799, None),
+)
+
+
+def mode_of(rt):
+    """The travel mode of a GTFS route_type, basic or extended. None means not a mode this
+    pair axis covers: a taxi or a 'miscellaneous' service is not something a reader plans a
+    named journey around."""
+    rt = (rt or '').strip()
+    if rt in RAIL_LIKE:
+        return RAIL_LIKE[rt]
+    if rt in BUS:
+        return BUS[rt]
+    try:
+        n = int(rt)
+    except Exception:
+        return None
+    for lo, hi, m in EXT_RANGES:
+        if lo <= n <= hi:
+            return m
+    return None
 
 
 def rd(z, name):
@@ -165,8 +204,7 @@ def harvest(feed):
         if not t: continue
         rt = routes.get(t.get('route_id') or '')
         if not rt: continue
-        rtype = (rt.get('route_type') or '').strip()
-        mode = RAIL_LIKE.get(rtype) or BUS.get(rtype)
+        mode = mode_of(rt.get('route_type'))
         if not mode:
             continue
         try:

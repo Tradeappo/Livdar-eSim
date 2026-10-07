@@ -1,0 +1,106 @@
+{
+ "measurement": "Does the GTFS settlement-pair family have demand in the LOCAL language of the countries whose feeds were harvested",
+ "date": "2026-10-07",
+ "why_this_question_was_worth_the_last_units": "The GTFS harvest produced settlement pairs in NO 2,712, NL 7,509, DK 2,865, FI 752, IE 1,973 plus 38 British city feeds. Emitted in English, every pair outside GB and IE is a cross-language page about a country whose own language is not English, so the localisation gate classifies it LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION or LOCAL_INTENT_MISSING and rejects it: airport parking lost 37 of 50 rows to exactly that. Whether these ~14,000 pairs are publishable at all therefore turns on one question, and it is answerable only with a per-language measurement.",
+ "method": "keywords-explorer matching-terms, match_mode=terms, terms=all, select=keyword,volume,difficulty, per country, on the ORIGIN-DESTINATION form specifically rather than the family root.",
+ "units_spent": 5355,
+ "units_remaining_after": 733,
+ "note_on_the_window": "The subscription did not expire. usage_reset_date is 2026-10-08T00:00:00Z and the workspace limit is 2,000,000 with 1,993,912 used, so this was a quota floor rather than an expiry, and the quota resets.",
+
+ "THE_DECISION_THIS_CHANGES": "The pair axis is ADMITTED in Danish, Norwegian and Finnish and REFUSED in Dutch. That is the opposite of what pair count alone would have chosen: Dutch has the most pairs on disk (7,509) and is the one language refused, while Finnish has the fewest (752) and is admitted.",
+
+ "languages": {
+  "da": {
+   "verdict": "ADMIT",
+   "pair_form": "tog fra {A} til {B}, and the reversed tog til {B} fra {A}, both of which appear as separate keywords",
+   "rows_returned": 50,
+   "volume_floor": 40,
+   "depth_is": "FLOOR, not a depth: the call hit its own limit of 50 at a floor of 40, so the tail continues below what was read",
+   "difficulty": "0 to 1 on all but two rows",
+   "domestic_pairs_present": true,
+   "evidence": [
+    "tog fra aalborg til kobenhavn 350 KD 0",
+    "tog til berlin fra kobenhavn 350 KD 1",
+    "tog fra kobenhavn til hamborg 300 KD 0",
+    "tog fra arhus til kobenhavn 200 KD 0",
+    "tog fra frederikshavn til skagen 200 KD 0",
+    "tog fra bronderslev til aalborg 150 KD 0",
+    "tog fra holbaek til kobenhavn 150 KD 0",
+    "tog fra kalundborg til kobenhavn 100 KD 0",
+    "tog fra silkeborg til arhus 100 KD 0",
+    "tog fra hjorring til aalborg 100 KD 0",
+    "tog fra sonderborg til kobenhavn 100 KD 0",
+    "tog fra helsingor til kobenhavn 100 KD 0",
+    "bus fra aalborg til kobenhavn 150 KD 0",
+    "bus fra arhus til kobenhavn 150 KD 0"
+   ],
+   "why_this_matches_the_data_held": "These are small-town-to-regional-hub pairs, which is exactly the shape of the 2,865 settlement pairs the Rejseplanen feed produced. The demand is not concentrated on a handful of famous corridors; it reaches Bronderslev, Kalundborg, Hjorring and Sonderborg."
+  },
+  "no": {
+   "verdict": "ADMIT",
+   "pair_form": "tog fra {A} til {B} and buss fra {A} til {B}, plus the reversed form",
+   "rows_returned": 50,
+   "volume_floor": 40,
+   "depth_is": "FLOOR, not a depth: limit of 50 reached at a floor of 40",
+   "difficulty": "0 to 2 on all but four rows; two rows at 76 and three bus rows at 28 to 31",
+   "domestic_pairs_present": true,
+   "evidence": [
+    "tog fra oslo til stockholm 500 KD 0",
+    "tog fra bergen til oslo 350 KD 0",
+    "tog fra trondheim til oslo 350 KD 2",
+    "tog fra vaernes til trondheim 300 KD 1",
+    "tog fra gardermoen til oslo s 300 KD 2",
+    "tog fra stavanger til oslo 300 KD 2",
+    "tog fra oslo til bergen 300 KD 0",
+    "tog fra moss til oslo 150 KD 0",
+    "tog fra fredrikstad til oslo 150 KD 0",
+    "tog fra andalsnes til oslo 150 KD 0",
+    "tog fra hamar til oslo 100 KD 0",
+    "tog fra sarpsborg til oslo 100 KD 0",
+    "tog fra voss til bergen 100 KD 1",
+    "tog fra porsgrunn til oslo 100 KD 0",
+    "tog fra sandefjord til oslo 100 KD 2",
+    "buss fra bergen til stavanger 200 KD 0",
+    "buss fra bergen til haugesund 100 KD 5"
+   ],
+   "why_this_matches_the_data_held": "Same shape as Danish and the same match to the 2,712 pairs Entur produced. Airport access appears inside the pair form rather than as a separate family: vaernes to trondheim and gardermoen to oslo s are airport-to-city pairs phrased exactly like any other pair."
+  },
+  "fi": {
+   "verdict": "ADMIT, with a phrasing correction",
+   "pair_form": "{A} {B} juna and {A} {B} bussi: Finnish puts the PAIR BEFORE THE MODE and uses no preposition at all",
+   "rows_returned": 25,
+   "volume_floor": 150,
+   "depth_is": "not a depth. The probe used the bare nouns juna and bussi as roots, which was the WRONG root and returned mostly brand and product noise: lego juna, brio juna, flex bussi, susanna penttila bussi. The pair rows surfaced anyway and that is what makes the correction visible.",
+   "difficulty": "0 on every pair row returned",
+   "evidence": [
+    "helsinki turku juna 800 KD 0",
+    "turku helsinki juna 800 KD 0",
+    "helsinki porvoo bussi 800 KD 0",
+    "porvoo helsinki bussi 700 KD 0"
+   ],
+   "the_correction": "This is the seventh phrasing correction of the session and the only one found in Finnish. A Finnish pair page titled with a preposition form translated from Danish or Norwegian would be answering a query nobody types. Both directions carry the same volume (800 and 800, 800 and 700), which also says the Finnish pair is genuinely unordered and should be ONE page, not two.",
+   "caveat": "Only four pair rows were read, all involving Helsinki, Turku or Porvoo. The family is proven; its DEPTH in Finnish is not, and a proper probe on the corrected root should run before the 752 Finnish pairs are treated as all admissible."
+  },
+  "nl": {
+   "verdict": "REFUSE at the pair level",
+   "pair_form_probed": "trein van {A} naar {B} and bus van {A} naar {B}",
+   "rows_returned": 50,
+   "volume_floor": 40,
+   "difficulty": "0 on most rows, so the SERP is open; openness is not the reason for the refusal",
+   "why_refused": "The Dutch pair demand is for INTERNATIONAL pairs out of the Netherlands, and the Dutch GTFS feed is domestic. trein van amsterdam naar londen 400, amsterdam naar parijs 300, rotterdam naar parijs 200, rotterdam naar londen 200, brussel naar rotterdam 200. The domestic Dutch pairs that the ovapi feed actually evidences are almost absent from the tail: the only ones above the floor are a cross-border pair, breda to antwerpen 100, venlo to dusseldorf 90 and arnhem to dusseldorf 90, plus two numbered city bus routes. So the 7,509 Dutch settlement pairs on disk are not the pairs Dutch readers search, and emitting them would be supplying pages against demand that is not there.",
+   "the_asymmetry_worth_recording": "The Netherlands is the one country where the pair axis fails for a reason that is about the COUNTRY rather than the language: it is small and dense and has a single national journey planner, so a Dutch reader does not search for a domestic train pair, they search for the international one. Denmark and Norway are long and thin with regional hubs, and their domestic pair demand is real. Pair-axis viability tracks country geography, not language popularity.",
+   "what_IS_available_in_nl_and_is_a_different_family": "trein naar {destination} is large and open: trein naar parijs 15,000 KD 22, trein naar londen 13,000 KD 25, trein naar berlijn 5,900 KD 10, trein naar praag 2,100 KD 0, trein naar wenen 2,100 KD 0, trein naar barcelona 2,200 KD 0, trein naar milaan 1,600 KD 2, trein naar keulen 1,200 KD 0, trein naar dusseldorf 1,300 KD 0. This is a DESTINATION family with the origin implied as the reader's own country, not a pair family, and the project holds no international rail connectivity to support it. Recorded as an opportunity with a named missing source rather than built."
+  },
+  "en": {
+   "verdict": "no change needed",
+   "reason": "GB and IE are English-speaking, so the 38 British city feeds and the 1,973 Irish pairs are already NATIVE_LOCALE and pass the localisation gate without any of this."
+  }
+ },
+
+ "what_admitting_da_no_fi_actually_requires": "da-DK, nb-NO and fi-FI are NOT current Livdar markets. The market table holds en-US, de-DE, fr-FR, it-IT, es-ES, nl-NL, pl-PL, pt-BR, en-GB, ja-JP, zh-Hant-TW, tr-TR, en-AU, es-MX. Admitting these three pair families means ADDING THREE MARKETS, which is a URL space, hreflang and canonical decision and not only a candidate-generation one. The measurement supports it on the family gate and the source gate; it is flagged here as a decision rather than taken unilaterally.",
+
+ "refusals_recorded_so_they_are_not_re-measured": [
+  "nl pair level: demand is international, the held feed is domestic",
+  "fi bare-noun roots juna and bussi: return lego juna, brio juna, flex bussi and a television presenter; the correct root is the pair itself"
+ ]
+}

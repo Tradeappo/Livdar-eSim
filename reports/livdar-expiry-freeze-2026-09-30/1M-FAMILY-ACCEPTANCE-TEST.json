@@ -1,13 +1,13 @@
 {
  "measuredOn": "2026-10-01",
- "families": 208,
- "pages": 421764,
+ "families": 214,
+ "pages": 422001,
  "verdicts": {
-  "ACCEPTED": 174,
+  "ACCEPTED": 180,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 313537,
+  "ACCEPTED": 313774,
   "ACCEPTED_WITH_AN_UNKNOWN": 108227
  },
  "most_common_failed_condition": {},
@@ -7722,6 +7722,188 @@
    },
    "every_page_is_low_completeness": false
   },
+  "pulse.bridge-days-subdivision": {
+   "pages": 32,
+   "markets": [
+    "de-DE"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 32,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 32,
+    "template_ratio": 32.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "The 2026 bridge days of Baden-Württemberg: which single working days, taken off, join a public holiday to a weekend, and the longest run this subdivision can reach. Computed from the national list plus the regional observances Baden-Württemberg itself keeps, which is why the answer differs from the neighbouring state. 4 bridge days in Baden-Württemberg in 2026; 9 long weekends; up to 4 consecutive"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "pulse.country-holidays": {
+   "pages": 17,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "en-US",
+    "es-ES",
+    "fr-FR",
+    "it-IT",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 17,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 17,
+    "template_ratio": 17.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "The dated public holiday list for Brasil in 2026, from Nager.Date public holiday API (MIT). 14 public holidays in 2026; 2 of them fall on a Saturday or Sunday; 12 fall on a working day; first is New Year's Day on 2026-01-01; last is Christmas Day on 2026-12-25. What this page deliberately does NOT claim: shop or office opening hours on the day, transport timetables, whether any individual employer"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "pulse.long-weekends": {
+   "pages": 10,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 10,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 10,
+    "template_ratio": 10.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Which 2026 public holidays in Brasil fall next to a weekend, and the single working days that bridge to one. Computed from the dated holiday list in Nager.Date public holiday API (MIT) by taking the weekday of each date; the derivation is recorded on every row rather than copied from anywhere. 12 long weekends in Brasil in 2026; the longest runs 4 days, 2026-01-01 to 2026-01-04; 4 single working d"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "pulse.school-holidays": {
+   "pages": 110,
+   "markets": [
+    "de-DE",
+    "fr-FR",
+    "nl-NL",
+    "pl-PL"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 110,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 110,
+    "template_ratio": 110.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "The school holiday dates for Auvergne-Rhône-Alpes in 2026, from OpenHolidays API (ODbL 1.0, share-alike, attribution required). 6 school holiday periods in Auvergne-Rhône-Alpes in 2026; 133 days of school holiday in total; the longest is Vacances d'été, 2026-07-05 to 2026-08-31; Vacances de Noël: 2025-12-21 to 2026-01-04; Vacances d'hiver: 2026-02-08 to 2026-02-22; Vacances de printemps: 2026-04-0"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "pulse.subdivision-holidays": {
+   "pages": 55,
+   "markets": [
+    "de-DE",
+    "en-GB",
+    "es-ES"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 55,
+    "unique_data_point_count": 12,
+    "distinct_entity_count": 55,
+    "template_ratio": 55.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "The public holidays of Andalusia in 2026, from OpenHolidays API (ODbL 1.0, share-alike, attribution required), and specifically the 2 this subdivision keeps that the rest of the country does not. 12 public holidays in Andalusia in 2026; 2 of them are kept in Andalusia and not nationwide; Día de Andalucía on 2026-02-28, a sábado; Jueves Santo on 2026-04-02, a jueves. What this page deliberately doe"
+   },
+   "every_page_is_low_completeness": false
+  },
   "relocation.city": {
    "pages": 3687,
    "markets": [
@@ -8202,6 +8384,39 @@
     "information_gain_reason": "Aberdeen International Airport to Aberdeen is one origin-destination pair evidenced by ourairports (Public Domain), geonames (CC BY 4.0). 8.8 km from the airport to the city; IATA code ABZ; classified by OurAirports as a large airport. Canonical direction: unordered; one page per pair. What this page deliberately does NOT claim: live schedules, fares, real-time availability or current delays, none"
    },
    "every_page_is_low_completeness": true
+  },
+  "transport.airport-parking": {
+   "pages": 13,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 13,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 13,
+    "template_ratio": 13.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Car parking at Albuquerque International Sunport (ABQ): 6 distinct named car parks recorded in OpenStreetMap within 6 km of the airport reference point, each with its own name and its own measured distance (Allegiant 1.24 km, Southwest 1.25 km, Delta 1.28 km, American 1.30 km). What this page deliberately does NOT claim: prices, live availability, booking, or the number of spaces, none of which th"
+   },
+   "every_page_is_low_completeness": false
   },
   "transport.city-getting-around": {
    "pages": 2637,
