@@ -4,10 +4,10 @@ Built 2026-10-07. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **422,001**
+- FINAL DISTINCT VALID CANDIDATES: **423,763**
 - target: 1,000,000
-- shortfall: **577,999** (42.2 per cent of target)
-- rejected and kept visible: 605,522
+- shortfall: **576,237** (42.4 per cent of target)
+- rejected and kept visible: 625,144
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 859,828 | same url_pattern |
-| after semantic dedupe | 859,826 | same market, family, template signature and entity |
-| FINAL DISTINCT | 422,001 | what is in the manifest |
+| after exact dedupe | 881,212 | same url_pattern |
+| after semantic dedupe | 881,210 | same market, family, template signature and entity |
+| FINAL DISTINCT | 423,763 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,7 +27,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
-| en-US | 86,431 |
+| en-US | 88,193 |
 | fr-FR | 55,523 |
 | de-DE | 48,961 |
 | ja-JP | 39,969 |
@@ -51,7 +51,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | areas | 41,069 |
 | stay | 34,442 |
 | climate | 23,602 |
-| transport | 18,724 |
+| transport | 20,486 |
 | move | 15,587 |
 | pulse | 15,243 |
 | work | 4,971 |
@@ -70,7 +70,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | MISSING_DATA | 63,664 |
 | BLOCKED_BY_LICENCE | 40,324 |
 | EXPERIMENT_ONLY | 25,194 |
-| TRANSPORT_PAIR | 14,210 |
+| TRANSPORT_PAIR | 15,972 |
 | NOT_IMPLEMENTED | 9,880 |
 | VISA_POLICY_CELL | 226 |
 | VALIDATED | 50 |
@@ -80,7 +80,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 345,790 |
+| SOURCE_AVAILABLE | 347,552 |
 | LICENCE_REQUIRED | 40,324 |
 | READY_NOW | 25,290 |
 | FEED_REQUIRED | 10,597 |
@@ -89,7 +89,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | serp_feasibility | candidates |
 | --- | --- |
-| viable | 195,986 |
+| viable | 197,748 |
 | unsampled_needs_serp_check | 105,117 |
 | competitive | 52,885 |
 | strong_opportunity | 42,555 |
@@ -104,6 +104,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | LICENCE_REQUIRED | 40,324 |
 | CC0_PLUS_ATTRIBUTION_REQUIRED | 11,222 |
 | CC0_NO_CONDITIONS | 2,157 |
+| MIXED_OPEN_ATTRIBUTION_REQUIRED | 1,762 |
 | PUBLIC_DOMAIN_PLUS_ATTRIBUTION_REQUIRED | 384 |
 | OGL_V3_ATTRIBUTION_REQUIRED | 226 |
 
@@ -115,7 +116,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | --- | --- |
 | shape_measured_2026_10_01 | 268,196 |
 | measured_in_this_market | 132,757 |
-| shape_measured_2026_10_07_open_serp | 14,673 |
+| shape_measured_2026_10_07_open_serp | 16,435 |
 | family_measured_elsewhere | 6,375 |
 
 ### The twenty largest families
@@ -149,7 +150,7 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 176,427 | 86,431 | 5,567 | 882 | 6,732 | 51,329 | 6,334 | 0 | 19,152 |
+| en-US | 197,811 | 88,193 | 5,567 | 882 | 6,732 | 70,951 | 6,334 | 0 | 19,152 |
 | en-GB | 36,837 | 26,766 | 1,307 | 240 | 0 | 2 | 5,063 | 0 | 3,459 |
 | de-DE | 99,635 | 48,961 | 8,248 | 195 | 2,532 | 8,470 | 24,102 | 0 | 7,127 |
 | ja-JP | 95,014 | 39,969 | 3,058 | 553 | 34,865 | 4,956 | 547 | 248 | 10,818 |
@@ -160,7 +161,7 @@ A second language is not free inventory. Every row whose language is not the lan
 | nl-NL | 93,767 | 24,335 | 4,993 | 57 | 40,951 | 9,762 | 794 | 0 | 12,875 |
 | pl-PL | 89,546 | 23,725 | 4,932 | 101 | 40,735 | 6,802 | 796 | 0 | 12,455 |
 | pt-BR | 80,487 | 22,201 | 3,993 | 677 | 35,117 | 4,358 | 1,050 | 0 | 13,091 |
-| **all 11** | **966,002** | **388,109** | | | | | | | |
+| **all 11** | **987,386** | **389,871** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -168,7 +169,7 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 361,450 |
+| NATIVE_LOCALE | 363,212 |
 | VALID_LOCALIZATION | 60,551 |
 
 - flagged LOCAL_SERP_UNVERIFIED: 105,117. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
@@ -6567,7 +6568,7 @@ swiss | 2 |
 | gate | rejected |
 | --- | --- |
 | localization:TRANSLATION_ONLY | 260,026 |
-| localization:LOCAL_INTENT_MISSING | 107,042 |
+| localization:LOCAL_INTENT_MISSING | 126,664 |
 | localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 50,938 |
 | REJECTED_QUALITY: no defensible uniqueness basis | 46,071 |
 | REFUSED_MEASURED_CANNIBALISATION: "X travel guide" reads 250 to 2,400 in en-US at CPC 20 to 120 cents, the best commercial signal of the three, but its parent topics are "things to do in bangkok", "visiting paris", "what to see in rome", "barcelona travel" and "amsterdam travel", which is the topic activities.city-things-to-do already holds with 30,040 pairs. Outside English it is dead: "X reisefuehrer" reads 10 in German for every city tested and "guida di viaggio X" reads 0 to 30 in Italian. The commercial signal is real and belongs in the things-to-do title and copy, not on a second URL competing with it. | 29,448 |
@@ -8318,16 +8319,16 @@ swiss | 2 |
 
 ## 6. QA at scale
 
-- rows checked: 422,001, distinct URLs 422,001
+- rows checked: 423,763, distinct URLs 423,763
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 37,157 |
-| meta_over_165_chars | 5,997 |
+| title_over_65_chars | 37,944 |
+| meta_over_165_chars | 7,759 |
 | title_under_15_chars | 28 |
 | duplicate_title_exact | 204 |
 | duplicate_title_same_tokens | 259 |
-| destination_rows | 65,832 |
+| destination_rows | 67,592 |
 | destination_rows_with_no_locale_specific_fact | 0 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
@@ -8351,7 +8352,7 @@ swiss | 2 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
 
-- title length: min 13, max 207, mean 42.7
+- title length: min 13, max 207, mean 42.8
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -8402,7 +8403,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-422,001 candidates survive the gates. The target is 1,000,000.
+423,763 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

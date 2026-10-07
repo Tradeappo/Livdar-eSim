@@ -1,13 +1,13 @@
 {
  "measuredOn": "2026-10-01",
- "families": 214,
- "pages": 422001,
+ "families": 215,
+ "pages": 423763,
  "verdicts": {
-  "ACCEPTED": 180,
+  "ACCEPTED": 181,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 313774,
+  "ACCEPTED": 315536,
   "ACCEPTED_WITH_AN_UNKNOWN": 108227
  },
  "most_common_failed_condition": {},
@@ -8527,6 +8527,39 @@
     "near_duplicate_token_score": 0.0043,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "Abington to Harrisburg is one origin-destination pair evidenced by wikidata P197 adjacent station (CC0 1.0), geonames (CC BY 4.0). 151 km apart in a straight line; 9 city hops along the recorded rail path; 8 recorded station(s) at Abington and 1 at Harrisburg; the recorded path runs through Middletown, Elizabethtown, Lancaster, Lionville, Paoli, Ardmore. Canonical direction: unordered; one page pe"
+   },
+   "every_page_is_low_completeness": false
+  },
+  "transport.city-pair-transit": {
+   "pages": 1762,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 1762,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 1762,
+    "template_ratio": 1762.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Abbots Langley to Hemel Hempstead by public transport, from the published timetables of Carousel Buses Ltd (OGL v3.0) via the Mobility Database. 25 minutes is the median scheduled journey time; 12 minutes on the fastest scheduled service; 21,181 direct services in the published timetable; served by bus; 6 km apart in a straight line; routes 20, 320; operated by Carousel Buses Ltd. The journey time"
    },
    "every_page_is_low_completeness": false
   },
