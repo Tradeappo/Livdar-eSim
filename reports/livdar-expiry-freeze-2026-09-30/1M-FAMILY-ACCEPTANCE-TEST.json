@@ -1,20 +1,20 @@
 {
  "measuredOn": "2026-10-01",
- "families": 204,
- "pages": 401393,
+ "families": 208,
+ "pages": 421764,
  "verdicts": {
-  "ACCEPTED": 170,
+  "ACCEPTED": 174,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 301132,
-  "ACCEPTED_WITH_AN_UNKNOWN": 100261
+  "ACCEPTED": 313537,
+  "ACCEPTED_WITH_AN_UNKNOWN": 108227
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
  "by_family": {
   "activities.city-things-to-do": {
-   "pages": 30040,
+   "pages": 30300,
    "markets": [
     "de-DE",
     "en-AU",
@@ -47,10 +47,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 30040,
+    "unique_fact_count": 30300,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 16009,
-    "template_ratio": 30040.0,
+    "distinct_entity_count": 16006,
+    "template_ratio": 30300.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0014,
@@ -220,7 +220,7 @@
    "every_page_is_low_completeness": true
   },
   "comparisons.city-vs-home": {
-   "pages": 740,
+   "pages": 1532,
    "markets": [
     "de-DE",
     "en-GB",
@@ -237,7 +237,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (18 of 740 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (18 of 1532 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -253,10 +253,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 740,
+    "unique_fact_count": 1532,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 740,
-    "template_ratio": 740.0,
+    "distinct_entity_count": 1532,
+    "template_ratio": 1532.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -301,7 +301,7 @@
    "every_page_is_low_completeness": true
   },
   "cost-of-living.city": {
-   "pages": 2967,
+   "pages": 3295,
    "markets": [
     "de-DE",
     "en-GB",
@@ -318,7 +318,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (40 of 2967 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (40 of 3295 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -334,20 +334,20 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2967,
+    "unique_fact_count": 3295,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2967,
-    "template_ratio": 2967.0,
+    "distinct_entity_count": 3295,
+    "template_ratio": 3295.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0045,
+    "near_duplicate_token_score": 0.004,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "cost-of-living.city for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from MISSING_ACQUIRABLE; nl market demand measured for this family"
    },
    "every_page_is_low_completeness": true
   },
   "cost-of-living.city-vs-market": {
-   "pages": 740,
+   "pages": 1532,
    "markets": [
     "de-DE",
     "en-GB",
@@ -364,7 +364,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (18 of 740 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (18 of 1532 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -380,10 +380,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 740,
+    "unique_fact_count": 1532,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 740,
-    "template_ratio": 740.0,
+    "distinct_entity_count": 1532,
+    "template_ratio": 1532.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -521,7 +521,7 @@
    "every_page_is_low_completeness": false
   },
   "education.city-schools": {
-   "pages": 259,
+   "pages": 842,
    "markets": [
     "de-DE",
     "en-GB",
@@ -538,7 +538,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (120 of 259 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (373 of 842 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -554,10 +554,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 259,
+    "unique_fact_count": 842,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 259,
-    "template_ratio": 259.0,
+    "distinct_entity_count": 842,
+    "template_ratio": 842.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -567,7 +567,7 @@
    "every_page_is_low_completeness": false
   },
   "education.city-universities": {
-   "pages": 709,
+   "pages": 1448,
    "markets": [
     "de-DE",
     "en-GB",
@@ -599,10 +599,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 709,
+    "unique_fact_count": 1448,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 709,
-    "template_ratio": 709.0,
+    "distinct_entity_count": 1448,
+    "template_ratio": 1448.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -702,7 +702,7 @@
    "every_page_is_low_completeness": true
   },
   "events.city-window": {
-   "pages": 805,
+   "pages": 1659,
    "markets": [
     "de-DE",
     "en-GB",
@@ -720,7 +720,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (374 of 805 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (534 of 1659 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -736,10 +736,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 805,
+    "unique_fact_count": 1659,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 805,
-    "template_ratio": 805.0,
+    "distinct_entity_count": 1659,
+    "template_ratio": 1659.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -749,7 +749,7 @@
    "every_page_is_low_completeness": true
   },
   "health.city": {
-   "pages": 2811,
+   "pages": 3130,
    "markets": [
     "de-DE",
     "en-GB",
@@ -781,10 +781,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2811,
+    "unique_fact_count": 3130,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2811,
-    "template_ratio": 2811.0,
+    "distinct_entity_count": 3130,
+    "template_ratio": 3130.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0045,
@@ -3756,10 +3756,9 @@
    "every_page_is_low_completeness": false
   },
   "places.area-marina": {
-   "pages": 78,
+   "pages": 74,
    "markets": [
     "de-DE",
-    "en-US",
     "fr-FR",
     "it-IT",
     "nl-NL",
@@ -3781,10 +3780,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 78,
+    "unique_fact_count": 74,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 78,
-    "template_ratio": 78.0,
+    "distinct_entity_count": 74,
+    "template_ratio": 74.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3794,12 +3793,9 @@
    "every_page_is_low_completeness": false
   },
   "places.area-market": {
-   "pages": 190,
+   "pages": 147,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -3824,15 +3820,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 190,
+    "unique_fact_count": 147,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 190,
-    "template_ratio": 190.0,
+    "distinct_entity_count": 147,
+    "template_ratio": 147.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "13 named market entities inside Jack London Square, a neighbourhood of Oakland, California (OSM place node, 1.0km radius), against 22 in the whole city: a neighbourhood-level list that the city page cannot answer"
+    "information_gain_reason": "16 named market entities inside Bordeaux, Port de la Lune, a quarter of Bordeaux (OSM polygon), against 23 in the whole city: a neighbourhood-level list that the city page cannot answer"
    },
    "every_page_is_low_completeness": false
   },
@@ -3914,12 +3910,9 @@
    "every_page_is_low_completeness": true
   },
   "places.area-nightclub": {
-   "pages": 413,
+   "pages": 300,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -3945,10 +3938,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 413,
+    "unique_fact_count": 300,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 413,
-    "template_ratio": 413.0,
+    "distinct_entity_count": 300,
+    "template_ratio": 300.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -3958,7 +3951,7 @@
    "every_page_is_low_completeness": false
   },
   "places.area-opening": {
-   "pages": 7913,
+   "pages": 7787,
    "markets": [
     "de-DE",
     "en-AU",
@@ -3991,10 +3984,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 7913,
+    "unique_fact_count": 7787,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 7913,
-    "template_ratio": 359.68,
+    "distinct_entity_count": 7787,
+    "template_ratio": 353.95,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0045,
@@ -4045,12 +4038,9 @@
    "every_page_is_low_completeness": true
   },
   "places.area-parking": {
-   "pages": 497,
+   "pages": 434,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -4076,10 +4066,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 497,
+    "unique_fact_count": 434,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 497,
-    "template_ratio": 497.0,
+    "distinct_entity_count": 434,
+    "template_ratio": 434.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0235,
@@ -4351,12 +4341,9 @@
    "every_page_is_low_completeness": false
   },
   "places.area-supermarket": {
-   "pages": 8662,
+   "pages": 7495,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -4382,10 +4369,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 8662,
+    "unique_fact_count": 7495,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 8662,
-    "template_ratio": 8662.0,
+    "distinct_entity_count": 7495,
+    "template_ratio": 7495.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,
@@ -5859,12 +5846,9 @@
    "every_page_is_low_completeness": false
   },
   "places.city-marina": {
-   "pages": 192,
+   "pages": 155,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -5888,10 +5872,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 192,
+    "unique_fact_count": 155,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 192,
-    "template_ratio": 192.0,
+    "distinct_entity_count": 155,
+    "template_ratio": 155.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -5901,12 +5885,9 @@
    "every_page_is_low_completeness": false
   },
   "places.city-market": {
-   "pages": 500,
+   "pages": 359,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -5932,15 +5913,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 500,
+    "unique_fact_count": 359,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 500,
-    "template_ratio": 500.0,
+    "distinct_entity_count": 359,
+    "template_ratio": 359.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 distinct named market entities in Chicago from OSM, 8 with hours, website or phone: a list a person searching \"market in Chicago\" cannot get from any single venue page"
+    "information_gain_reason": "10 distinct named market entities in Rezé from OSM, 10 with hours, website or phone: a list a person searching \"market in Rezé\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
@@ -6066,12 +6047,9 @@
    "every_page_is_low_completeness": false
   },
   "places.city-nightclub": {
-   "pages": 257,
+   "pages": 181,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -6097,20 +6075,20 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 257,
+    "unique_fact_count": 181,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 257,
-    "template_ratio": 257.0,
+    "distinct_entity_count": 181,
+    "template_ratio": 181.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
     "near_duplicate_worst_language": "",
-    "information_gain_reason": "10 distinct named nightclub entities in Aberdeen from OSM, 6 with hours, website or phone: a list a person searching \"nightclub in Aberdeen\" cannot get from any single venue page"
+    "information_gain_reason": "10 distinct named nightclub entities in Białystok from OSM, 10 with hours, website or phone: a list a person searching \"nightclub in Białystok\" cannot get from any single venue page"
    },
    "every_page_is_low_completeness": false
   },
   "places.city-opening": {
-   "pages": 4111,
+   "pages": 3951,
    "markets": [
     "de-DE",
     "en-AU",
@@ -6142,10 +6120,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 4111,
+    "unique_fact_count": 3951,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 4111,
-    "template_ratio": 171.29,
+    "distinct_entity_count": 3951,
+    "template_ratio": 164.62,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6197,12 +6175,9 @@
    "every_page_is_low_completeness": false
   },
   "places.city-parking": {
-   "pages": 258,
+   "pages": 225,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -6228,10 +6203,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 258,
+    "unique_fact_count": 225,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 258,
-    "template_ratio": 258.0,
+    "distinct_entity_count": 225,
+    "template_ratio": 225.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -6629,12 +6604,9 @@
    "every_page_is_low_completeness": false
   },
   "places.city-supermarket": {
-   "pages": 2202,
+   "pages": 1748,
    "markets": [
     "de-DE",
-    "en-AU",
-    "en-GB",
-    "en-US",
     "es-ES",
     "fr-FR",
     "it-IT",
@@ -6660,10 +6632,10 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 2202,
+    "unique_fact_count": 1748,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 2202,
-    "template_ratio": 2202.0,
+    "distinct_entity_count": 1748,
+    "template_ratio": 1748.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7673,8 +7645,41 @@
    },
    "every_page_is_low_completeness": false
   },
+  "policy.visa-nationality-destination": {
+   "pages": 226,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 226,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 226,
+    "template_ratio": 45.2,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "The entry requirement for British citizens travelling to Afghanistan, read from UK Foreign, Commonwealth and Development Office on 2026-07-30T10:36:13Z and dated on the page. requirement as published: stated in source but not machine classified; policy as published on 2026-07-30T10:36:13Z. This is policy information as published, NOT legal advice and NOT a guarantee of entry."
+   },
+   "every_page_is_low_completeness": false
+  },
   "property.city-buy": {
-   "pages": 2989,
+   "pages": 3110,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7690,7 +7695,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (960 of 2989 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (960 of 3110 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7705,20 +7710,20 @@
     "2_measured_demand"
    ],
    "contract": {
-    "unique_fact_count": 2989,
+    "unique_fact_count": 3110,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2989,
-    "template_ratio": 2989.0,
+    "distinct_entity_count": 3110,
+    "template_ratio": 3110.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0036,
+    "near_duplicate_token_score": 0.0032,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "property.city-buy for A Coruña (ES) in es-ES: city-level local data and local-language demand; 2 source fields from MISSING_ACQUIRABLE; es market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },
   "relocation.city": {
-   "pages": 3221,
+   "pages": 3687,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7735,7 +7740,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (40 of 3221 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (40 of 3687 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7751,20 +7756,20 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3221,
+    "unique_fact_count": 3687,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3221,
-    "template_ratio": 3221.0,
+    "distinct_entity_count": 3687,
+    "template_ratio": 3687.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0036,
+    "near_duplicate_token_score": 0.0032,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "relocation.city for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 3 source fields from MISSING_ACQUIRABLE; nl market demand measured for this family"
    },
    "every_page_is_low_completeness": true
   },
   "relocation.country": {
-   "pages": 15,
+   "pages": 29,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7795,10 +7800,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 15,
+    "unique_fact_count": 29,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 14,
-    "template_ratio": 15.0,
+    "distinct_entity_count": 18,
+    "template_ratio": 29.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7894,7 +7899,7 @@
    "every_page_is_low_completeness": false
   },
   "safety.city": {
-   "pages": 654,
+   "pages": 1093,
    "markets": [
     "de-DE",
     "en-GB",
@@ -7911,7 +7916,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (387 of 654 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (571 of 1093 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -7927,10 +7932,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 654,
+    "unique_fact_count": 1093,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 654,
-    "template_ratio": 654.0,
+    "distinct_entity_count": 1093,
+    "template_ratio": 1093.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -7986,7 +7991,7 @@
    "every_page_is_low_completeness": true
   },
   "sport.city-activity": {
-   "pages": 690,
+   "pages": 1016,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8003,7 +8008,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (426 of 690 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (616 of 1016 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8019,10 +8024,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 690,
+    "unique_fact_count": 1016,
     "unique_data_point_count": 11,
-    "distinct_entity_count": 690,
-    "template_ratio": 690.0,
+    "distinct_entity_count": 1016,
+    "template_ratio": 1016.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8032,7 +8037,7 @@
    "every_page_is_low_completeness": true
   },
   "stay.city-type": {
-   "pages": 20333,
+   "pages": 20519,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8065,13 +8070,13 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 20333,
+    "unique_fact_count": 20519,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 8639,
-    "template_ratio": 20333.0,
+    "distinct_entity_count": 8710,
+    "template_ratio": 20519.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0026,
+    "near_duplicate_token_score": 0.0025,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "stay.city-type for 's-Hertogenbosch (NL) in es-ES: city-level local data and local-language demand; 2 source fields from BLOCKED_COMMERCIAL; es market demand measured for this family"
    },
@@ -8122,7 +8127,7 @@
    "every_page_is_low_completeness": false
   },
   "taxes.country-remote-work": {
-   "pages": 13,
+   "pages": 26,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8153,10 +8158,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 13,
+    "unique_fact_count": 26,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 13,
-    "template_ratio": 13.0,
+    "distinct_entity_count": 18,
+    "template_ratio": 26.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8165,8 +8170,41 @@
    },
    "every_page_is_low_completeness": false
   },
+  "transport.airport-city-access": {
+   "pages": 384,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 384,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 384,
+    "template_ratio": 384.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0,
+    "near_duplicate_worst_language": "",
+    "information_gain_reason": "Aberdeen International Airport to Aberdeen is one origin-destination pair evidenced by ourairports (Public Domain), geonames (CC BY 4.0). 8.8 km from the airport to the city; IATA code ABZ; classified by OurAirports as a large airport. Canonical direction: unordered; one page per pair. What this page deliberately does NOT claim: live schedules, fares, real-time availability or current delays, none"
+   },
+   "every_page_is_low_completeness": true
+  },
   "transport.city-getting-around": {
-   "pages": 2532,
+   "pages": 2637,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8183,7 +8221,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (960 of 2532 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (960 of 2637 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8199,10 +8237,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 2532,
+    "unique_fact_count": 2637,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 2532,
-    "template_ratio": 2532.0,
+    "distinct_entity_count": 2637,
+    "template_ratio": 2637.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8211,8 +8249,74 @@
    },
    "every_page_is_low_completeness": false
   },
+  "transport.city-pair-air": {
+   "pages": 2604,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 2604,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 2604,
+    "template_ratio": 2604.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0069,
+    "near_duplicate_worst_language": "en",
+    "information_gain_reason": "Aberdeen to Amsterdam is one origin-destination pair evidenced by openflights (ODbL 1.0), ourairports (Public Domain), geonames (CC BY 4.0). 694 km apart in a straight line; 2 airports evidence this corridor; 1 airline route records across those airports. Canonical direction: unordered; one page per pair. What this page deliberately does NOT claim: live schedules, fares, real-time availability or "
+   },
+   "every_page_is_low_completeness": false
+  },
+  "transport.city-pair-rail": {
+   "pages": 11222,
+   "markets": [
+    "en-US"
+   ],
+   "verdict": "ACCEPTED",
+   "conditions": {
+    "1_real_entities": "PASS",
+    "2_measured_demand": "PASS",
+    "3_pages_differ": "PASS",
+    "4_distinct_data": "PASS",
+    "5_valid_hierarchy": "PASS",
+    "6_owns_its_intent": "PASS",
+    "7_serp_sampled": "PASS",
+    "8_licence_permits": "PASS",
+    "9_useful_without_google": "PASS",
+    "10_honest_localisation": "PASS"
+   },
+   "failed": [],
+   "unknown": [],
+   "contract": {
+    "unique_fact_count": 11222,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 11222,
+    "template_ratio": 11222.0,
+    "similarity_score": 0.0,
+    "similarity_worst_language": "",
+    "near_duplicate_token_score": 0.0043,
+    "near_duplicate_worst_language": "en",
+    "information_gain_reason": "Abington to Harrisburg is one origin-destination pair evidenced by wikidata P197 adjacent station (CC0 1.0), geonames (CC BY 4.0). 151 km apart in a straight line; 9 city hops along the recorded rail path; 8 recorded station(s) at Abington and 1 at Harrisburg; the recorded path runs through Middletown, Elizabethtown, Lancaster, Lionville, Paoli, Ardmore. Canonical direction: unordered; one page pe"
+   },
+   "every_page_is_low_completeness": false
+  },
   "transport.route-from-market": {
-   "pages": 1327,
+   "pages": 1864,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8229,7 +8333,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (651 of 1327 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (971 of 1864 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8245,10 +8349,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 1327,
-    "unique_data_point_count": 12,
-    "distinct_entity_count": 1217,
-    "template_ratio": 1327.0,
+    "unique_fact_count": 1864,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 1708,
+    "template_ratio": 1864.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8258,7 +8362,7 @@
    "every_page_is_low_completeness": false
   },
   "visas.country-work-permit": {
-   "pages": 3,
+   "pages": 5,
    "markets": [
     "en-GB"
    ],
@@ -8280,10 +8384,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3,
+    "unique_fact_count": 5,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3,
-    "template_ratio": 3.0,
+    "distinct_entity_count": 5,
+    "template_ratio": 5.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8293,7 +8397,7 @@
    "every_page_is_low_completeness": false
   },
   "weather.city-month": {
-   "pages": 22927,
+   "pages": 23353,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8325,10 +8429,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 22927,
+    "unique_fact_count": 23353,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 6020,
-    "template_ratio": 22927.0,
+    "distinct_entity_count": 6441,
+    "template_ratio": 23353.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0014,
@@ -8338,7 +8442,7 @@
    "every_page_is_low_completeness": false
   },
   "work.city-jobs-category": {
-   "pages": 731,
+   "pages": 1460,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8355,7 +8459,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (188 of 731 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (271 of 1460 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8371,10 +8475,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 731,
+    "unique_fact_count": 1460,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 731,
-    "template_ratio": 731.0,
+    "distinct_entity_count": 1460,
+    "template_ratio": 1460.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0,
@@ -8384,7 +8488,7 @@
    "every_page_is_low_completeness": true
   },
   "work.city-salaries": {
-   "pages": 3190,
+   "pages": 3511,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8401,7 +8505,7 @@
    "verdict": "ACCEPTED_WITH_AN_UNKNOWN",
    "conditions": {
     "1_real_entities": "PASS",
-    "2_measured_demand": "UNKNOWN (40 of 3190 pages rest on demand measured for this family in another market, not this one)",
+    "2_measured_demand": "UNKNOWN (40 of 3511 pages rest on demand measured for this family in another market, not this one)",
     "3_pages_differ": "PASS",
     "4_distinct_data": "PASS",
     "5_valid_hierarchy": "PASS",
@@ -8417,10 +8521,10 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 3190,
+    "unique_fact_count": 3511,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 3190,
-    "template_ratio": 3190.0,
+    "distinct_entity_count": 3511,
+    "template_ratio": 3511.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
     "near_duplicate_token_score": 0.0036,

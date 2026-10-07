@@ -1,0 +1,153 @@
+{
+ "captured": "2026-10-07",
+ "purpose": "The five POI categories refuted in ENGLISH, measured in each remaining language instead of extrapolated. The English refutation covered 2,131 manifest rows; the same classes carry 11,118 rows in nine other languages and extending an English finding to them would be the unmeasured extrapolation the brief forbids.",
+ "method": "keywords-explorer-matching-terms, match_mode=terms, terms=all, serp_domain_rating_top10_min<=30 so every returned row is an enterable SERP. A high volume floor keeps the call cheap and the returned count is still the answer: a category with no tail returns no rows.",
+ "capture_policy": "these responses printed inline rather than persisting to disk, so each record keeps the verdict, the counts and the decisive rows rather than a full transcription.",
+ "units_spent": {"tr": 9600, "de": 575, "es": 1173, "it": 667, "ja": 6900, "pl": 2438, "total": 21353},
+
+ "verdict_summary": "Supermarkets, marinas and markets are REFUSED as place x category in every language measured. Nightclubs are ADMITTED in Spanish and thin-but-real in Polish, so the English refutation does NOT transfer. Parking is REFUSED as city x parking but turns out to be a large and open family on a different axis, which is the single most valuable finding of this round.",
+
+ "by_language": {
+  "tr": {
+   "rows": 400, "floor": 300, "note": "capped at 400, so deeper",
+   "per_category": {"market": 185, "parking": 73, "marina": 129, "nightclub": 10, "supermarket": 1},
+   "supermarket": "REFUSED. 1 row in the whole tail.",
+   "market": "REFUSED, severe collision. pazar is Turkish for market AND for Sunday AND the name of a district. pazar gunu hava durumu (Sunday weather) 24,000, pazar gunu dizileri (Sunday TV series) 8,300 and 5,700, pazar arabasi (shopping trolley) 17,000, tokat pazar hava durumu 6,100, usko pazar (a brand) 54,000. The category word cannot be used as a seed in Turkish at all.",
+   "marina": "REFUSED as a category, REAL as named entities, and several are shopping malls rather than harbours: ist marina 8,600 (IstMarina is a mall), atakoy marina 3,800, pendik marina 3,700, ece marina 4,100.",
+   "parking": "REFUSED as city x parking. The volume is AIRPORT parking: istanbul havalimani otopark ucreti 19,000 at KD 2, sabiha gokcen otopark ucreti 7,000, istanbul havalimani otopark 5,400 at KD 6.",
+   "nightclub": "THIN. 10 rows, the head being the generic gece kulubu 3,600."
+  },
+  "de": {
+   "rows": 25, "floor": 200, "note": "true depth, and the cheapest decisive answer of the round at 575 units",
+   "supermarket": "REFUSED. 0 rows.",
+   "market": "REFUSED as a category. The tail is EVENT and near-me intent: maerkte und feste heute in der naehe 3,200, maerkte in der naehe 3,000, maerkte und feste in berlin heute dieses wochenende 1,300, maerkte am sonntag in bayern heute 400. This is a regional weekend-event calendar, which is a different family and one the pulse store could serve.",
+   "marina": "REFUSED as a category, REAL as named entities and this is a genuine small family: yachthafen meppen 1,000, barth 700, groemitz 450, magdeburg 450, waltrop 400, seelze 300, ruenthe 250, damp 250, burgtiefe 250, heidanger 200. Eleven of 25 rows, most at KD 0 to 5.",
+   "parking": "REFUSED. parkplaetze in der naehe 700 carries the parent topic parkopedia, which is a competitor brand owning the intent.",
+   "nightclub": "REFUSED. Generic nachtclub 1,700, and nachtclub berlin sits at KD 78."
+  },
+  "es": {
+   "rows": 51, "floor": 200,
+   "supermarket": "REFUSED as a list, REDIRECTED to a family that already exists. Every row is an OPENING HOURS question: supermercados abiertos hoy en leon 400, en jerez de la frontera 250, en alicante 200, en logrono 200. The manifest already carries places.city-opening, which is where this demand belongs.",
+   "market": "REFUSED as a category. Regional weekend events again: mercados en asturias este fin de semana 1,100, ferias y mercados en gipuzkoa hoy 600, en mallorca hoy 450, en cantabria este fin de semana 400. Plus Christmas markets.",
+   "marina": "REFUSED. One named marina, Getxo, and its cinema.",
+   "parking": "REFUSED as city x parking. The volume is parking TECHNIQUE (aparcamiento en bateria 1,600, en linea 600, en paralelo 300, which are manoeuvres taught for a driving test) plus airport parking (aeropuerto de sevilla 250, de malaga 200).",
+   "nightclub": "ADMITTED. THE ENGLISH REFUTATION DOES NOT TRANSFER. discotecas en madrid 800 at KD 3, valencia 600 at KD 0, barcelona 600, sevilla 600 at KD 2, granada 300, ibiza 350, benidorm 250, alicante 250, bilbao 200, cadiz 200, malaga 200 at KD 1, salou 200. Twelve cities clear the floor and most sit at KD 0 to 3.",
+   "new_axis_found": "AGE SEGMENT. discotecas para mayores de 50 en madrid 400, para mayores de 60 anos en madrid 250, en malaga para mayores de 40 200, en benidorm para mayores de 60 anos 200 and de 50 anos 200. A real second dimension on the nightclub family, and one no other language showed."
+  },
+  "it": {
+   "rows": 29, "floor": 200,
+   "supermarket": "REFUSED. Everything is near-me and cannot be a page about a named place: supermercati vicino a me 16,000, aperti oggi vicino a me 3,500, aperti h24 vicino a me 1,400, aperti il 26 dicembre vicino a me 6,200. The last one is a dated opening-hours query, which belongs to places.city-opening.",
+   "market": "REFUSED, collision. mercati in Italian is FINANCIAL markets: a che ora aprono i mercati finanziari 250, a che ora chiudono 200, both with stock-exchange parent topics.",
+   "marina": "REFUSED. porto turistico 250 generic and Manfredonia 200.",
+   "parking": "THIN BUT REAL, and airport-led: parcheggi a malpensa 500, a linate 250, plus city centres verona 350, firenze 250, milano 200, roma 200. Six cells.",
+   "nightclub": "THIN. discoteche a roma 450, milano 350, torino 200. Three cities, against twelve in Spanish."
+  },
+  "ja": {
+   "rows": 300, "floor": 500, "note": "capped at 300, so deeper",
+   "supermarket": "REFUSED, and the worst collision measured in any language. The katakana prefix for super attaches to everything: super bathhouse 71,000, the Gyomu Super chain 61,000, a Rakuten travel sale 53,000, the band Super Eight 22,000, Dragon Ball Super 23,000, the Super Cub motorcycle, supermoon, supervisor, Super Mario, the Super Bowl, and the Rolex Submariner at 19,000. The seed is unusable in Japanese.",
+   "market": "REFUSED as a category, and three separate collisions. Rakuten Ichiba is the largest e-commerce site in Japan (18,000 for its purchase history alone), Megane Ichiba is an eyewear chain, and the word also means the financial market. What IS real is NAMED food markets as entities: Toyosu 26,000, Hirome 19,000, Nishiki 11,000, Nijo 11,000, Kuromon 9,800.",
+   "marina": "REFUSED as a category, REAL as named entities: Zushi Marina 7,800, Hayama Marina 2,600. Also collides with the Rolex Submariner.",
+   "nightclub": "REFUSED. One row, generic, at KD 31.",
+   "parking": "THE FINDING OF THE ROUND. See attraction_x_parking below."
+  },
+  "pl": {
+   "rows": 106, "floor": 200,
+   "supermarket": "REFUSED. 0 rows.",
+   "marina": "REFUSED, and the collision is a person: Marina Luczenko-Szczesna is a Polish singer, carrying marina szczesna 1,400, marina aleksandrowa 1,100, marina luczenko kiedys 400, marina luczenko slub 250. Also the Aqua Marina paddleboard brand (sup aqua marina 1,200 and eight further rows), hotels trading as Marina Club, and foreign places (Dubai Marina, Marina Bay Sands, Agia Marina, Marina di Venezia).",
+   "market": "THIN, AND A DIFFERENT FAMILY. targi means a trade fair, not a food market: targi w kielcach 350 at KD 5, targi w warszawie 200, targi w szepietowie 200. A trade-fair calendar is a real family and not this one.",
+   "parking": "THIN, airport-led: parkingi w modlinie 200, parkingi przy lotnisku w gdansku 200.",
+   "nightclub": "THIN BUT REAL. klub nocny warszawa 450, wroclaw 200 at KD 10, zakopane 200, krakow 200 at KD 20. Four cities."
+  }
+ },
+
+ "attraction_x_parking": {
+  "finding": "Parking is not a city x category family in any language. It is an ATTRACTION x PARKING family, and in Japanese it is large, open and almost entirely at low difficulty.",
+  "airport_parking_ja": [
+   {"keyword": "羽田空港 駐車場 予約", "volume": 33000, "kd": 24, "note": "Haneda, booking"},
+   {"keyword": "羽田空港 駐車場", "volume": 33000, "kd": 31, "note": "Haneda"},
+   {"keyword": "成田空港 駐車場", "volume": 22000, "kd": 30, "note": "Narita"},
+   {"keyword": "新千歳空港 駐車場", "volume": 17000, "kd": 18, "note": "New Chitose"},
+   {"keyword": "伊丹空港 駐車場", "volume": 13000, "kd": 6, "note": "Itami"},
+   {"keyword": "セントレア 駐車場", "volume": 12000, "kd": 19, "note": "Chubu Centrair"},
+   {"keyword": "福岡空港 駐車場", "volume": 10000, "kd": 0, "note": "Fukuoka, KD ZERO"},
+   {"keyword": "関空 駐車場", "volume": 8700, "kd": 4, "note": "Kansai"},
+   {"keyword": "羽田空港 駐車場 空き状況", "volume": 8600, "kd": 26, "note": "availability"},
+   {"keyword": "羽田空港 駐車場 予約 裏ワザ", "volume": 8000, "kd": 1, "note": "booking tricks"},
+   {"keyword": "那覇空港 駐車場", "volume": 7000, "kd": 7, "note": "Naha"},
+   {"keyword": "神戸空港 駐車場", "volume": 6500, "kd": 0, "note": "Kobe, KD ZERO"},
+   {"keyword": "鹿児島空港 駐車場", "volume": 4900, "kd": 2, "note": "Kagoshima"},
+   {"keyword": "成田空港 駐車場 料金", "volume": 4500, "kd": 0, "note": "Narita fees, KD ZERO"},
+   {"keyword": "関西空港 駐車場", "volume": 3700, "kd": 3, "note": "Kansai"},
+   {"keyword": "広島空港 駐車場", "volume": 3200, "kd": 1, "note": "Hiroshima"},
+   {"keyword": "福岡空港 駐車場 安い", "volume": 3100, "kd": 0, "note": "cheap, KD ZERO"},
+   {"keyword": "中部国際空港 駐車場", "volume": 3100, "kd": 11},
+   {"keyword": "熊本空港 駐車場", "volume": 2600, "kd": 9, "note": "Kumamoto"},
+   {"keyword": "那覇空港 駐車場 料金", "volume": 2600, "kd": 0, "note": "KD ZERO"},
+   {"keyword": "千歳空港 駐車場", "volume": 5400, "kd": 20}
+  ],
+  "attraction_parking_ja": [
+   {"keyword": "エキスポシティ 駐車場", "volume": 9800, "kd": 0, "note": "Expocity mall, KD ZERO"},
+   {"keyword": "伊勢神宮 駐車場", "volume": 9100, "kd": 5, "note": "Ise Grand Shrine"},
+   {"keyword": "万博 駐車場", "volume": 5900, "kd": 0, "note": "Expo, KD ZERO"},
+   {"keyword": "ららぽーと豊洲 駐車場", "volume": 5300, "kd": 0, "note": "KD ZERO"},
+   {"keyword": "usj 駐車場", "volume": 5300, "kd": 0, "note": "Universal Studios Japan, KD ZERO"},
+   {"keyword": "おかげ横丁 駐車場", "volume": 4900, "kd": 7},
+   {"keyword": "名古屋駅 駐車場", "volume": 4900, "kd": 0, "note": "Nagoya station, KD ZERO"},
+   {"keyword": "万博記念公園 駐車場", "volume": 4800, "kd": 34},
+   {"keyword": "みなとみらい 駐車場", "volume": 4700, "kd": 14},
+   {"keyword": "御殿場アウトレット 駐車場", "volume": 4600, "kd": 0, "note": "KD ZERO"},
+   {"keyword": "奈良公園 駐車場", "volume": 4300, "kd": 0, "note": "Nara Park, KD ZERO"},
+   {"keyword": "京都駅 駐車場", "volume": 4300, "kd": 0, "note": "Kyoto station, KD ZERO"},
+   {"keyword": "太宰府天満宮 駐車場", "volume": 4200, "kd": 1},
+   {"keyword": "江ノ島 駐車場", "volume": 4100, "kd": 0, "note": "Enoshima, KD ZERO"},
+   {"keyword": "paypayドーム 駐車場", "volume": 4100, "kd": 0, "note": "stadium, KD ZERO"},
+   {"keyword": "名古屋港水族館 駐車場", "volume": 3900, "kd": 6},
+   {"keyword": "清水寺 駐車場", "volume": 3900, "kd": 0, "note": "Kiyomizu-dera, KD ZERO"},
+   {"keyword": "名古屋城 駐車場", "volume": 3800, "kd": 0, "note": "Nagoya Castle, KD ZERO"},
+   {"keyword": "昭和記念公園 駐車場", "volume": 3800, "kd": 0, "note": "KD ZERO"},
+   {"keyword": "なんばパークス 駐車場", "volume": 3700, "kd": 1},
+   {"keyword": "渋谷 駐車場", "volume": 3600, "kd": 3},
+   {"keyword": "成田山新勝寺 駐車場", "volume": 3400, "kd": 3},
+   {"keyword": "大宮駅 駐車場", "volume": 3400, "kd": 2},
+   {"keyword": "新潟駅 駐車場", "volume": 3400, "kd": 0, "note": "KD ZERO"},
+   {"keyword": "海遊館 駐車場", "volume": 3300, "kd": 5},
+   {"keyword": "京都水族館 駐車場", "volume": 3300, "kd": 2},
+   {"keyword": "東武動物公園 駐車場", "volume": 3300, "kd": 0},
+   {"keyword": "西宮ガーデンズ 駐車場", "volume": 3200, "kd": 0},
+   {"keyword": "ソラマチ 駐車場", "volume": 3200, "kd": 0},
+   {"keyword": "鳥羽水族館 駐車場", "volume": 3100, "kd": 0},
+   {"keyword": "三角市場", "volume": 3100, "kd": 0},
+   {"keyword": "ディズニー 駐車場 料金", "volume": 3500, "kd": 0, "note": "Disney, KD ZERO"},
+   {"keyword": "レゴランド 駐車場", "volume": 2700, "kd": 0, "note": "Legoland, KD ZERO"},
+   {"keyword": "ジブリパーク 駐車場", "volume": 2800, "kd": 0, "note": "Ghibli Park, KD ZERO"},
+   {"keyword": "サンリオピューロランド 駐車場", "volume": 2800, "kd": 0},
+   {"keyword": "東山動物園 駐車場", "volume": 2600, "kd": 0},
+   {"keyword": "嵐山 駐車場", "volume": 2600, "kd": 3, "note": "Arashiyama"},
+   {"keyword": "宮島口 駐車場", "volume": 2900, "kd": 1},
+   {"keyword": "豊田スタジアム 駐車場", "volume": 2700, "kd": 14},
+   {"keyword": "浅草 駐車場", "volume": 2700, "kd": 0, "note": "Asakusa, KD ZERO"},
+   {"keyword": "ユニバーサルスタジオジャパン 駐車場", "volume": 2500, "kd": 0},
+   {"keyword": "中華街 駐車場", "volume": 2600, "kd": 0, "note": "Yokohama Chinatown"},
+   {"keyword": "横浜 駐車場", "volume": 2600, "kd": 1},
+   {"keyword": "岡山駅 駐車場", "volume": 2800, "kd": 0},
+   {"keyword": "金沢駅 駐車場", "volume": 2800, "kd": 3},
+   {"keyword": "グランフロント大阪 駐車場", "volume": 2800, "kd": 2},
+   {"keyword": "天神 駐車場", "volume": 2900, "kd": 0},
+   {"keyword": "三宮 駐車場", "volume": 2700, "kd": 0},
+   {"keyword": "コスモスクエア 駐車場", "volume": 2700, "kd": 0},
+   {"keyword": "鍛冶橋駐車場", "volume": 2600, "kd": 0}
+  ],
+  "corroboration_in_other_languages": "the same shape appears everywhere the parking seed was measured, which is why it is an axis rather than a Japanese quirk: Turkish istanbul havalimani otopark ucreti 19,000 and sabiha gokcen 7,000; Spanish aparcamiento en aeropuerto de sevilla 250 and de malaga 200; Italian parcheggi a malpensa 500 and a linate 250; Polish parkingi w modlinie 200 and przy lotnisku w gdansku 200; and the English harvest found parking in newark airport 700, atlanta airport 500, philadelphia 250, lax 300, jfk 200 plus eleven Galveston cruise-terminal variants.",
+  "why_it_is_high_cardinality": "the entity is any destination people DRIVE to and must park at: airports, major stations, temples and shrines, castles, parks, aquariums, zoos, theme parks, stadiums, outlet malls and shopping centres. Livdar already holds most of these as named POI entities with coordinates, and the airports as a register of 4,133.",
+  "what_a_page_needs": "real car park facts per entity: how many spaces, the fee structure, whether booking is possible, the walking distance to the entrance. OSM carries amenity=parking polygons with capacity and fee tags, which is the source that would support this, and nothing on disk has been checked for coverage yet.",
+  "honest_caveat": "demand is proven; the DATA is not. This is recorded as a measured axis with an unverified source, not as buildable capacity."
+ },
+
+ "consequences_for_the_manifest": {
+  "english_refusal_stands": "the 3,171 English cells already dropped are correctly dropped.",
+  "do_not_extend_the_refusal_to_nightclubs": "Spanish nightclubs are admitted on measurement and Polish nightclubs are thin but real. Refusing them in those languages would have been wrong.",
+  "supermarket_marina_market_can_now_be_refused_in_all_measured_languages": "supermarkets return 0 or 1 rows in de, pl, tr and are pure collision in ja and near-me in it, and in es they are an opening-hours question that an existing family already serves. Marinas are named entities, never a category list. Markets are events, trade fairs, financial markets or an e-commerce brand depending on the language, and never a per-city inventory.",
+  "rows_this_justifies_refusing": "supermarket, marina and market classes in de, es, it, ja, pl and tr, on top of the English refusal. Nightclub and parking classes are NOT refused.",
+  "languages_still_unmeasured": ["nl", "pt", "fr"]
+ }
+}

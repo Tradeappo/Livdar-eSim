@@ -1,0 +1,30 @@
+{
+ "captured": "2026-10-07",
+ "purpose": "the last three of the nine languages for the five categories refuted in English",
+ "nl": {
+  "rows": 44,
+  "floor": 200,
+  "units": 1012,
+  "supermarket": "REFUSED. supermarkten in de buurt 500 is near-me and nothing else clears the floor.",
+  "market": "REFUSED as a category. Event intent again (wat te doen in drenthe vandaag markten 1,100, markten en braderieen vandaag in friesland 600) plus near-me, plus markten in amsterdam 250 whose parent is a single named market.",
+  "marina": "ADMITTED AS NAMED ENTITIES, and this is the strongest marina family in any language. The Netherlands is a boating country and it shows: jachthaven naarden 1,100, kortenhoef 700, strijensas 500, bruinisse 450, nieuwboer 400, oversteeg 300, biesbosch 300, sonse 300, drimmelen 250, strand horst 250, wartena 250, hindeloopen 200, andijk 200, uitgeest 200, wolderwijd 200, zuidwesthoek 200, loosdrecht 200. Seventeen named marinas, almost all at KD 0.",
+  "parking": "ADMITTED AS CITY X PARKING, and the English refutation does NOT transfer. parkeren in maastricht 450, parijs 400, antwerpen 350, zwolle 300, amersfoort 300, brugge 300, delft 250, gouda 200, gent 200, breda 200, keulen 200, dusseldorf 200. Twelve cities, and the Dutch tail reaches Belgian and German cities too.",
+  "nightclub": "THIN. nachtclub amsterdam 200 only."
+ },
+ "pt": {
+  "rows": 102,
+  "floor": 400,
+  "units": 2346,
+  "supermarket": "REFUSED. supermercados em promocao hoje 500 is a promotions query.",
+  "market": "REFUSED. os mercados vao fechar aos domingos em sao paulo 1,100 is a trading-hours news question.",
+  "marina": "REFUSED, and the collision is the worst of any language: Marina is a common Portuguese given name and several Brazilian celebrities carry it. marina lima 18,000, marina abramovic 12,000, marina sena with roughly twenty variants, marina ruy barbosa with roughly ten, plus a perfume brand (marina de bourbon 5,900), a bed-linen brand, a shoe brand and a large amount of adult content. The seed is unusable in Portuguese.",
+  "parking": "THIN, airport-led. estacionamento em guarulhos 600 at KD 5, whose parent is the Guarulhos airport car park.",
+  "nightclub": "ADMITTED, THIN. baladas em sp 1,900, baladas em sp hoje 900, baladas em balneario camboriu 500, baladas em sao paulo 450, baladas em curitiba 450. Four or five cities, so Portuguese joins Spanish and Polish in carrying this family."
+ },
+ "fr": {
+  "rows": 6,
+  "floor": 200,
+  "units": 138,
+  "verdict": "ALL FIVE CATEGORIES REFUSED. Six rows in the entire tail at a floor of 200, and the cheapest decisive answer of the whole round at 138 units. port de plaisance 700 generic and benodet 400, parking a velo 300 (bicycle parking), parking gratuit a proximite 300 and a proximite gratuit 250 (both near-me), and an Ibis hotel. This matches the earlier French place x category refutation exactly: French demand does not go to list pages."
+ }
+}

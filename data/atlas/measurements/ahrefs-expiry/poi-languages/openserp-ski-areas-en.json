@@ -1,0 +1,464 @@
+{
+ "meta": {
+  "tool": "keywords-explorer-matching-terms",
+  "country": "us",
+  "keywords": "ski resort,snow report,piste map",
+  "match_mode": "terms",
+  "terms": "all",
+  "where": "volume>=500 AND serp_domain_rating_top10_min<=30",
+  "limit": 200,
+  "captured": "2026-10-07",
+  "rows_returned": 162,
+  "units_cost": 3888,
+  "depth_probe": "162 rows against a limit of 200, so close to the true depth at a floor of 500",
+  "capture_policy": "printed inline; this record keeps the verdict and 72 decisive rows"
+ },
+ "verdict": "ADMIT the ski area as a NAMED ENTITY family. REFUSE the snow report half.",
+ "two_halves": {
+  "entity_page": "ADMIT. {resort} ski resort is a named entity with durable facts: elevation, vertical drop, number of lifts and runs, season dates, which pass covers it. 24,000 for Brighton, 21,000 Mammoth, 14,000 Steamboat, 12,000 Vail, 11,000 Whistler, and a long tail of small North American and European areas at KD 0 to 13.",
+  "snow_report": "REFUSE. A snow report is live state: depth, open lifts, last snowfall. The brief forbids fabricating live conditions, and a stale snow report is worse than no page. The demand is real (mammoth snow report 10,000, big sky 7,500, deer valley 6,400 at a 1.80 USD CPC) but it needs a live feed Livdar does not have and should not invent."
+ },
+ "commercial": "strong and consistent. CPC runs 0.45 to 1.20 USD across the entity half, with outliers at 4.00 and 5.00. Only two rows in the whole tail exceed KD 40, and both are the generic ones (ski resort near me 70, colorado ski resort 82).",
+ "geography": "global. North America dominates but the tail reaches Zermatt, Chamonix, St Moritz, Megeve, Cortina, Bansko, Gudauri, Niseko, Naeba, Kiroro and Hokkaido.",
+ "source": "OpenStreetMap carries site=piste relations and landuse=winter_sports under ODbL, which is the licence the POI corpus already uses. Elevation comes from the same terrain data the outdoor peak layer uses.",
+ "cardinality": "roughly two thousand ski areas worldwide with a name and a lift system; the measured tail reaches 162 at 500 searches or more in English alone.",
+ "collisions_to_gate": [
+  "utah ski resort crossword 900 and crossword clue 600, which are crossword puzzle answers",
+  "what is a ski resort 1,300, a definition question",
+  "brighton ski resort 24,000 carries the parent topic brighton parking, which is the parking axis reaching into this family"
+ ],
+ "rows": [
+  {
+   "keyword": "brighton ski resort",
+   "volume": 24000,
+   "kd": 20,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "mammoth ski resort",
+   "volume": 21000,
+   "kd": 0,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "steamboat ski resort",
+   "volume": 14000,
+   "kd": 0,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "vail ski resort",
+   "volume": 12000,
+   "kd": 1,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "whistler ski resort",
+   "volume": 11000,
+   "kd": 24,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "mammoth snow report",
+   "volume": 10000,
+   "kd": 19,
+   "cpc_usd": 0.05
+  },
+  {
+   "keyword": "aspen ski resort",
+   "volume": 8000,
+   "kd": 0,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "big sky snow report",
+   "volume": 7500,
+   "kd": 15,
+   "cpc_usd": 0.04
+  },
+  {
+   "keyword": "winterplace ski resort",
+   "volume": 7300,
+   "kd": 1,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "deer valley snow report",
+   "volume": 6400,
+   "kd": 0,
+   "cpc_usd": 1.8
+  },
+  {
+   "keyword": "palisades snow report",
+   "volume": 5600,
+   "kd": 0,
+   "cpc_usd": 0.06
+  },
+  {
+   "keyword": "copper mountain ski resort",
+   "volume": 5300,
+   "kd": 0,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "alpine meadows ski resort",
+   "volume": 4900,
+   "kd": 0,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "sunday river ski resort",
+   "volume": 4300,
+   "kd": 3,
+   "cpc_usd": 0.09
+  },
+  {
+   "keyword": "bretton woods ski resort",
+   "volume": 3800,
+   "kd": 0,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "alyeska ski resort",
+   "volume": 3500,
+   "kd": 1,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "okemo ski resort",
+   "volume": 3400,
+   "kd": 0,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "homewood ski resort",
+   "volume": 3200,
+   "kd": 3,
+   "cpc_usd": 0.25
+  },
+  {
+   "keyword": "blue knob ski resort",
+   "volume": 2700,
+   "kd": 0,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "beaver creek ski resort",
+   "volume": 2600,
+   "kd": 0,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "snoqualmie ski resort",
+   "volume": 2500,
+   "kd": 0,
+   "cpc_usd": 1.1
+  },
+  {
+   "keyword": "bogus basin ski resort",
+   "volume": 2400,
+   "kd": 9,
+   "cpc_usd": 0.45
+  },
+  {
+   "keyword": "zermatt ski resort",
+   "volume": 2400,
+   "kd": 28,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "tremblant ski resort",
+   "volume": 2400,
+   "kd": 5,
+   "cpc_usd": 0.45
+  },
+  {
+   "keyword": "fernie ski resort",
+   "volume": 2300,
+   "kd": 0,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "northstar snow report",
+   "volume": 2300,
+   "kd": 0,
+   "cpc_usd": 1.4
+  },
+  {
+   "keyword": "red lodge ski resort",
+   "volume": 2300,
+   "kd": 0,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "angel fire ski resort",
+   "volume": 2200,
+   "kd": 0,
+   "cpc_usd": 0.09
+  },
+  {
+   "keyword": "mt bachelor ski resort",
+   "volume": 2200,
+   "kd": 5,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "brundage ski resort",
+   "volume": 2100,
+   "kd": 2,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "sugar bowl ski resort",
+   "volume": 2000,
+   "kd": 8,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "chamonix ski resort",
+   "volume": 1900,
+   "kd": 13,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "alta sierra ski resort",
+   "volume": 1900,
+   "kd": 0,
+   "cpc_usd": 1.2
+  },
+  {
+   "keyword": "whiteface mountain ski resort",
+   "volume": 1600,
+   "kd": 6,
+   "cpc_usd": 0.4
+  },
+  {
+   "keyword": "roundtop ski resort",
+   "volume": 1600,
+   "kd": 3,
+   "cpc_usd": 0.4
+  },
+  {
+   "keyword": "niseko snow report",
+   "volume": 1400,
+   "kd": 9,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "belleayre ski resort",
+   "volume": 1400,
+   "kd": 1,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "taos snow report",
+   "volume": 1300,
+   "kd": 0,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "bluewood ski resort",
+   "volume": 1300,
+   "kd": 0,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "bryce ski resort",
+   "volume": 1200,
+   "kd": 0,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "swain ski resort",
+   "volume": 1200,
+   "kd": 0,
+   "cpc_usd": 0.01
+  },
+  {
+   "keyword": "smugglers notch ski resort",
+   "volume": 1100,
+   "kd": 15,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "caberfae ski resort",
+   "volume": 1100,
+   "kd": 2,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "whitewater ski resort",
+   "volume": 1100,
+   "kd": 0,
+   "cpc_usd": 1.3
+  },
+  {
+   "keyword": "sun peaks ski resort",
+   "volume": 1000,
+   "kd": 0,
+   "cpc_usd": 0.25
+  },
+  {
+   "keyword": "anthony lakes ski resort",
+   "volume": 1000,
+   "kd": 1,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "silver mountain ski resort",
+   "volume": 1000,
+   "kd": 10,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "mt baldy ski resort",
+   "volume": 1000,
+   "kd": 0,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "hunter ski resort",
+   "volume": 1000,
+   "kd": 0,
+   "cpc_usd": 1.1
+  },
+  {
+   "keyword": "taos ski valley resort",
+   "volume": 1000,
+   "kd": 0,
+   "cpc_usd": 1.0
+  },
+  {
+   "keyword": "echo mountain ski resort",
+   "volume": 900,
+   "kd": 0,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "loon ski resort",
+   "volume": 900,
+   "kd": 13,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "pine knob ski resort",
+   "volume": 900,
+   "kd": 1,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "naeba ski resort",
+   "volume": 900,
+   "kd": 2,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "hokkaido ski resort",
+   "volume": 800,
+   "kd": 2,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "cherry peak ski resort",
+   "volume": 800,
+   "kd": 0,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "gudauri ski resort",
+   "volume": 800,
+   "kd": 10,
+   "cpc_usd": 0.45
+  },
+  {
+   "keyword": "liberty mountain ski resort",
+   "volume": 800,
+   "kd": 0,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "megeve ski resort",
+   "volume": 800,
+   "kd": 0,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "bansko ski resort",
+   "volume": 700,
+   "kd": 0,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "kiroro ski resort",
+   "volume": 700,
+   "kd": 2,
+   "cpc_usd": 1.1
+  },
+  {
+   "keyword": "catamount ski resort",
+   "volume": 700,
+   "kd": 0,
+   "cpc_usd": 1.6
+  },
+  {
+   "keyword": "powder mountain ski resort",
+   "volume": 700,
+   "kd": 13,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "monarch mountain ski resort",
+   "volume": 700,
+   "kd": 0,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "st moritz ski resort",
+   "volume": 700,
+   "kd": 4,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "cortina ski resort",
+   "volume": 700,
+   "kd": 1,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "monarch snow report",
+   "volume": 700,
+   "kd": 15,
+   "cpc_usd": 5.0
+  },
+  {
+   "keyword": "terry peak ski resort",
+   "volume": 600,
+   "kd": 9,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "mt. bachelor ski resort",
+   "volume": 600,
+   "kd": 6,
+   "cpc_usd": 1.7
+  },
+  {
+   "keyword": "atatash ski resort",
+   "volume": 500,
+   "kd": 9,
+   "cpc_usd": 1.2
+  },
+  {
+   "keyword": "montage mtn ski resort",
+   "volume": 500,
+   "kd": 5,
+   "cpc_usd": 4.0
+  },
+  {
+   "keyword": "snow report breckenridge",
+   "volume": 600,
+   "kd": 0,
+   "cpc_usd": 1.4
+  }
+ ]
+}

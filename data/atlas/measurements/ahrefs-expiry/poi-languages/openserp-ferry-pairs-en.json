@@ -1,0 +1,469 @@
+{
+ "meta": {
+  "tool": "keywords-explorer-matching-terms",
+  "country": "us",
+  "keywords": "ferry from,ferry to",
+  "match_mode": "terms",
+  "terms": "all",
+  "where": "volume>=300 AND serp_domain_rating_top10_min<=30",
+  "limit": 250,
+  "captured": "2026-10-07",
+  "rows_returned": 219,
+  "units_cost": 5256,
+  "depth_probe": "219 rows against a limit of 250, so this is close to the true depth at a floor of 300",
+  "capture_policy": "printed inline; this record keeps the verdict, the counts and 74 decisive rows"
+ },
+ "verdict": "ADMIT. A FOURTH TRANSPORT PAIR MODE, open and commercially strong, and one Livdar has not built.",
+ "why_it_matters": "the air and rail pair axes are already built and wired into the manifest. Ferry is the same shape, it is measured here for the first time, and almost every row names two real places rather than one. It is also the most commercially valuable of the three: the median CPC runs well above the air and rail pairs and the head reaches 3.00 USD.",
+ "difficulty": "mostly KD 0 to 15. The exceptions are the famous crossings where an operator owns the SERP (martha's vineyard 40, statue of liberty 53, staten island 45, newfoundland 52).",
+ "geography": "the tail is global, not American: Greek islands (athens to milos, santorini to mykonos, paros, crete), the Adriatic (split to hvar, dubrovnik, bari), the Amalfi coast (naples to positano, sorrento to capri, salerno), the Baltic (helsinki to tallinn, copenhagen to oslo), the Channel (dover to calais, england to france), the Irish Sea (holyhead to dublin, ireland to scotland, belfast), Gibraltar (tarifa to tangier, spain to morocco), the Balearics (mallorca to ibiza), the Caribbean (st thomas to st john and to tortola, aruba to curacao, st martin to st barts), Japan and Korea (busan to fukuoka), and Puget Sound and New England.",
+ "source": "OpenStreetMap carries route=ferry relations under ODbL 1.0, which is already the licence the POI corpus uses, and the transport graph builder already knows how to turn a route relation into node and edge records. This is the cheapest new pair mode to add.",
+ "cardinality": "every scheduled ferry crossing worldwide. OSM ferry routes number in the thousands, and the measured demand reaches 219 pairs at 300 searches or more in English alone.",
+ "canonicalisation": "the same rule the air and rail pairs use. Both directions appear as separate keywords with separate parent topics (split to hvar 900 and hvar to split 400; naples to capri and capri to naples; santorini to mykonos and mykonos to athens), but the answer set is identical, so one page per crossing naming both directions.",
+ "rows": [
+  {
+   "keyword": "ferry to martha's vineyard",
+   "volume": 7200,
+   "kd": 40,
+   "cpc_usd": 0.04
+  },
+  {
+   "keyword": "ferry to nantucket",
+   "volume": 6300,
+   "kd": 0,
+   "cpc_usd": 0.25
+  },
+  {
+   "keyword": "port angeles to victoria ferry",
+   "volume": 3300,
+   "kd": 1,
+   "cpc_usd": 0.4
+  },
+  {
+   "keyword": "ferry to bahamas",
+   "volume": 1900,
+   "kd": 0,
+   "cpc_usd": 0.06
+  },
+  {
+   "keyword": "seattle to bremerton ferry",
+   "volume": 1700,
+   "kd": 0,
+   "cpc_usd": 0.02
+  },
+  {
+   "keyword": "ferry from florida to bahamas",
+   "volume": 1700,
+   "kd": 0,
+   "cpc_usd": 0.07
+  },
+  {
+   "keyword": "ferry to bimini",
+   "volume": 1600,
+   "kd": 2,
+   "cpc_usd": 0.15
+  },
+  {
+   "keyword": "hyannis to nantucket ferry",
+   "volume": 1600,
+   "kd": 12,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "vancouver to victoria ferry",
+   "volume": 1600,
+   "kd": 0,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "miami to bahamas ferry",
+   "volume": 1400,
+   "kd": 2,
+   "cpc_usd": 0.1
+  },
+  {
+   "keyword": "ferry from st thomas to st john",
+   "volume": 1300,
+   "kd": 0,
+   "cpc_usd": 0.03
+  },
+  {
+   "keyword": "edmonds to kingston ferry",
+   "volume": 1300,
+   "kd": 3,
+   "cpc_usd": 0.06
+  },
+  {
+   "keyword": "ferry to key west",
+   "volume": 1300,
+   "kd": 8,
+   "cpc_usd": 0.03
+  },
+  {
+   "keyword": "ferry to france",
+   "volume": 1200,
+   "kd": 0,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "boston to salem ferry",
+   "volume": 1200,
+   "kd": 0,
+   "cpc_usd": 0.35
+  },
+  {
+   "keyword": "ferry boston to provincetown",
+   "volume": 1100,
+   "kd": 20,
+   "cpc_usd": 0.15
+  },
+  {
+   "keyword": "ferry from boston to salem",
+   "volume": 1100,
+   "kd": 5,
+   "cpc_usd": 0.4
+  },
+  {
+   "keyword": "ferry to isla mujeres",
+   "volume": 1100,
+   "kd": 21,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "helsinki to tallinn ferry",
+   "volume": 1000,
+   "kd": 12,
+   "cpc_usd": 0.45
+  },
+  {
+   "keyword": "ferry to vieques",
+   "volume": 1000,
+   "kd": 12,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "kingston to edmonds ferry",
+   "volume": 1000,
+   "kd": 4,
+   "cpc_usd": 0.05
+  },
+  {
+   "keyword": "st thomas to st john ferry",
+   "volume": 1000,
+   "kd": 4,
+   "cpc_usd": 0.15
+  },
+  {
+   "keyword": "split to hvar ferry",
+   "volume": 900,
+   "kd": 2,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "naples to positano ferry",
+   "volume": 900,
+   "kd": 0,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "tallinn to helsinki ferry",
+   "volume": 900,
+   "kd": 6,
+   "cpc_usd": 0.4
+  },
+  {
+   "keyword": "seattle to vancouver ferry",
+   "volume": 900,
+   "kd": 0,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "ferry from sorrento to capri",
+   "volume": 900,
+   "kd": 6,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "ferry from washington to alaska",
+   "volume": 800,
+   "kd": 9,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "ferry from ireland to scotland",
+   "volume": 700,
+   "kd": 2,
+   "cpc_usd": 0.15
+  },
+  {
+   "keyword": "athens to milos ferry",
+   "volume": 700,
+   "kd": 1,
+   "cpc_usd": 1.1
+  },
+  {
+   "keyword": "miami to key west ferry",
+   "volume": 700,
+   "kd": 0,
+   "cpc_usd": 0.25
+  },
+  {
+   "keyword": "ferry from cancun to isla mujeres",
+   "volume": 700,
+   "kd": 9,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "ferry from st thomas to tortola",
+   "volume": 600,
+   "kd": 1,
+   "cpc_usd": 0.07
+  },
+  {
+   "keyword": "ferry from bellingham to alaska",
+   "volume": 600,
+   "kd": 12,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "maui to lanai ferry",
+   "volume": 600,
+   "kd": 2,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "ferry to st john's island",
+   "volume": 600,
+   "kd": 7,
+   "cpc_usd": 3.0
+  },
+  {
+   "keyword": "ferry from spain to morocco",
+   "volume": 600,
+   "kd": 6,
+   "cpc_usd": 0.08
+  },
+  {
+   "keyword": "sorrento to capri ferry",
+   "volume": 600,
+   "kd": 7,
+   "cpc_usd": 0.25
+  },
+  {
+   "keyword": "holyhead to dublin ferry",
+   "volume": 500,
+   "kd": 6,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "copenhagen to oslo ferry",
+   "volume": 500,
+   "kd": 0,
+   "cpc_usd": 0.1
+  },
+  {
+   "keyword": "naples to amalfi coast ferry",
+   "volume": 500,
+   "kd": 1,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "santorini to mykonos ferry",
+   "volume": 500,
+   "kd": 0,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "dubrovnik to split ferry",
+   "volume": 500,
+   "kd": 1,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "crete to santorini ferry",
+   "volume": 500,
+   "kd": 0,
+   "cpc_usd": 0.25
+  },
+  {
+   "keyword": "naples to ischia ferry",
+   "volume": 500,
+   "kd": 2,
+   "cpc_usd": 0.35
+  },
+  {
+   "keyword": "paros to athens ferry",
+   "volume": 450,
+   "kd": 0,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "tarifa to tangier ferry",
+   "volume": 450,
+   "kd": 0,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "santorini to athens ferry",
+   "volume": 450,
+   "kd": 0,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "dover to calais ferry",
+   "volume": 450,
+   "kd": 23,
+   "cpc_usd": 0.35
+  },
+  {
+   "keyword": "muskegon to milwaukee ferry",
+   "volume": 450,
+   "kd": 0,
+   "cpc_usd": 0.1
+  },
+  {
+   "keyword": "busan to fukuoka ferry",
+   "volume": 400,
+   "kd": 0,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "positano to capri ferry",
+   "volume": 400,
+   "kd": 1,
+   "cpc_usd": 1.0
+  },
+  {
+   "keyword": "fukuoka to busan ferry",
+   "volume": 400,
+   "kd": 1,
+   "cpc_usd": 0.3
+  },
+  {
+   "keyword": "cancun to cozumel ferry",
+   "volume": 400,
+   "kd": 8,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "hingham ferry to boston",
+   "volume": 400,
+   "kd": 1,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "hvar to split ferry",
+   "volume": 400,
+   "kd": 2,
+   "cpc_usd": 0.8
+  },
+  {
+   "keyword": "ferry from athens to crete",
+   "volume": 400,
+   "kd": 0,
+   "cpc_usd": 0.1
+  },
+  {
+   "keyword": "ferry naples to capri",
+   "volume": 350,
+   "kd": 0,
+   "cpc_usd": 1.0
+  },
+  {
+   "keyword": "malta to sicily ferry",
+   "volume": 350,
+   "kd": 0,
+   "cpc_usd": 0.07
+  },
+  {
+   "keyword": "dubrovnik to hvar ferry",
+   "volume": 350,
+   "kd": 0,
+   "cpc_usd": 1.2
+  },
+  {
+   "keyword": "ferry from salerno to amalfi",
+   "volume": 350,
+   "kd": 0,
+   "cpc_usd": 0.5
+  },
+  {
+   "keyword": "mallorca to ibiza ferry",
+   "volume": 350,
+   "kd": 0,
+   "cpc_usd": 0.1
+  },
+  {
+   "keyword": "ferry from belfast to scotland",
+   "volume": 350,
+   "kd": 0,
+   "cpc_usd": 0.1
+  },
+  {
+   "keyword": "ferry from maine to nova scotia",
+   "volume": 350,
+   "kd": 1,
+   "cpc_usd": 0.25
+  },
+  {
+   "keyword": "ferry from england to france",
+   "volume": 350,
+   "kd": 24,
+   "cpc_usd": 0.15
+  },
+  {
+   "keyword": "capri to naples ferry",
+   "volume": 300,
+   "kd": 3,
+   "cpc_usd": 0.9
+  },
+  {
+   "keyword": "hingham to boston ferry",
+   "volume": 300,
+   "kd": 1,
+   "cpc_usd": 3.0
+  },
+  {
+   "keyword": "bari to dubrovnik ferry",
+   "volume": 300,
+   "kd": 0,
+   "cpc_usd": 0.2
+  },
+  {
+   "keyword": "aruba to curacao ferry",
+   "volume": 300,
+   "kd": 0,
+   "cpc_usd": 0.7
+  },
+  {
+   "keyword": "venice to croatia ferry",
+   "volume": 300,
+   "kd": 0,
+   "cpc_usd": 0.08
+  },
+  {
+   "keyword": "ferry from st martin to st barts",
+   "volume": 300,
+   "kd": 0,
+   "cpc_usd": 0.6
+  },
+  {
+   "keyword": "ibiza to mallorca ferry",
+   "volume": 300,
+   "kd": 0,
+   "cpc_usd": 0.15
+  },
+  {
+   "keyword": "ferry to sardinia",
+   "volume": 300,
+   "kd": 8,
+   "cpc_usd": 0.15
+  },
+  {
+   "keyword": "bridgeport to port jefferson ferry",
+   "volume": 300,
+   "kd": 0,
+   "cpc_usd": 0.08
+  }
+ ]
+}

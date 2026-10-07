@@ -1,17 +1,17 @@
 {
- "manifest_rows": 401393,
- "distinct_urls": 401393,
+ "manifest_rows": 421764,
+ "distinct_urls": 421764,
  "checks": {
-  "title_over_65_chars": 31064,
-  "meta_over_165_chars": 5892,
+  "title_over_65_chars": 37071,
+  "meta_over_165_chars": 5997,
   "title_under_15_chars": 28,
-  "duplicate_title_exact": 0,
-  "duplicate_title_same_tokens": 55,
-  "destination_rows": 59602,
+  "duplicate_title_exact": 204,
+  "duplicate_title_same_tokens": 259,
+  "destination_rows": 65827,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 76,
+  "orphan_pages": 69,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
@@ -24,7 +24,7 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 1,
+  "duplicate_h1_within_a_market": 205,
   "declared_parent_is_not_a_valid_parent": 0,
   "declared_parent_is_valid_but_not_a_path_prefix": 23622,
   "family_locale_cells_failing_the_usefulness_test": 0
@@ -32,11 +32,10 @@
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
  "orphans_by_family": {
   "destinations.country-hub": 9,
-  "taxes.country-remote-work": 6,
-  "relocation.country": 5,
   "places.city-castle": 4,
   "places.city-swimming_pool": 4,
   "places.city-theme_park": 4,
+  "taxes.country-remote-work": 3,
   "places.city-garden": 3,
   "outdoors.wilderness_hut": 3,
   "neighbourhoods.city-where-to-stay": 3,
@@ -55,7 +54,8 @@
   "places.city-mall": 1,
   "places.city-marina": 1,
   "places.city-parking": 1,
-  "places.city-nature_reserve": 1
+  "places.city-nature_reserve": 1,
+  "outdoors.bird_hide": 1
  },
  "top_level_by_family": {},
  "saturated_templates": [],
@@ -133,157 +133,157 @@
    "url_b": "/en/places/fast-food/san-diego-us/village-of-la-jolla/"
   },
   {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Bloomington, Atlanta, US: what to know before you go",
+   "a": "c_a2551027ce71",
+   "b": "c_46191d3d9cb5",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-bloomington/"
+  },
+  {
    "kind": "same_tokens_after_stopwords",
    "market": "en-US",
-   "title": "coffee shop restaurant in Village of La Jolla, San Diego, US",
-   "a": "c_1a49d48109c2",
-   "b": "c_9c6ea0965b6d",
+   "title": "Atlanta to Bloomington, Atlanta, US: what to know before you go",
+   "a": "c_a2551027ce71",
+   "b": "c_46191d3d9cb5",
    "url_a": "",
-   "url_b": "/en/places/food/coffee-shop/san-diego-us/village-of-la-jolla/"
+   "url_b": "/en/transport/rail/atlanta-bloomington/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Burlington, Atlanta, US: what to know before you go",
+   "a": "c_d4a2e6ecb71d",
+   "b": "c_6a7f4c5943a7",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-burlington/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "ja-JP",
-   "title": "What to see in Кунашир, JP",
-   "a": "c_eddafd61af5c",
-   "b": "c_9d8da1eaa0a5",
+   "market": "en-US",
+   "title": "Atlanta to Burlington, Atlanta, US: what to know before you go",
+   "a": "c_d4a2e6ecb71d",
+   "b": "c_6a7f4c5943a7",
    "url_a": "",
-   "url_b": "/ja/destinations/region/кунашир-r2409701/"
+   "url_b": "/en/transport/rail/atlanta-burlington/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Charlotte, Atlanta, US: what to know before you go",
+   "a": "c_54c8789ace26",
+   "b": "c_e369e0686235",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-charlotte/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "ja-JP",
-   "title": "What to see in Шикотан, JP",
-   "a": "c_eddafd61af5c",
-   "b": "c_d1ee306c4c5a",
+   "market": "en-US",
+   "title": "Atlanta to Charlotte, Atlanta, US: what to know before you go",
+   "a": "c_54c8789ace26",
+   "b": "c_e369e0686235",
    "url_a": "",
-   "url_b": "/ja/destinations/region/шикотан-r1390077/"
+   "url_b": "/en/transport/rail/atlanta-charlotte/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Columbus, Atlanta, US: what to know before you go",
+   "a": "c_aa52ce5abb78",
+   "b": "c_f048aaabe796",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-columbus/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "ja-JP",
-   "title": "What to see in охранная зона Курильского заповедника, JP",
-   "a": "c_eddafd61af5c",
-   "b": "c_94fc1302d1bb",
+   "market": "en-US",
+   "title": "Atlanta to Columbus, Atlanta, US: what to know before you go",
+   "a": "c_aa52ce5abb78",
+   "b": "c_f048aaabe796",
    "url_a": "",
-   "url_b": "/ja/destinations/region/охранная-зона-курильского-заповедника-r5172909/"
+   "url_b": "/en/transport/rail/atlanta-columbus/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Greensboro, Atlanta, US: what to know before you go",
+   "a": "c_ed72bf50cb30",
+   "b": "c_4dbe6ebf9651",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-greensboro/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "ja-JP",
-   "title": "Стокап, Островной заказник: volcano",
-   "a": "c_f0fd64ad5e05",
-   "b": "c_8ced00071734",
+   "market": "en-US",
+   "title": "Atlanta to Greensboro, Atlanta, US: what to know before you go",
+   "a": "c_ed72bf50cb30",
+   "b": "c_4dbe6ebf9651",
    "url_a": "",
-   "url_b": "/ja/outdoors/volcano/стокап-n1642980822/"
+   "url_b": "/en/transport/rail/atlanta-greensboro/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Gulfport, Atlanta, US: what to know before you go",
+   "a": "c_2d1eeebac429",
+   "b": "c_106161d40353",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-gulfport/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "tr-TR",
-   "title": "supermarket in الهلالية, Nusaybin, TR",
-   "a": "c_e76a7dd5ec06",
-   "b": "c_91625b5ba60d",
+   "market": "en-US",
+   "title": "Atlanta to Gulfport, Atlanta, US: what to know before you go",
+   "a": "c_2d1eeebac429",
+   "b": "c_106161d40353",
    "url_a": "",
-   "url_b": "/tr/places/supermarket/nusaybin/الهلالية/"
+   "url_b": "/en/transport/rail/atlanta-gulfport/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Indianapolis, Atlanta, US: what to know before you go",
+   "a": "c_31881cf0bf50",
+   "b": "c_a1c0a53a8b24",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-indianapolis/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "tr-TR",
-   "title": "clinic in Nusaybin, TR",
-   "a": "c_4da25b131279",
-   "b": "c_7c89d64d85a9",
+   "market": "en-US",
+   "title": "Atlanta to Indianapolis, Atlanta, US: what to know before you go",
+   "a": "c_31881cf0bf50",
+   "b": "c_a1c0a53a8b24",
    "url_a": "",
-   "url_b": "/tr/places/clinic/nusaybin/"
+   "url_b": "/en/transport/rail/atlanta-indianapolis/"
+  },
+  {
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Louisville, Atlanta, US: what to know before you go",
+   "a": "c_275cc6fa0b37",
+   "b": "c_78b1a3a4444d",
+   "url_a": "",
+   "url_b": "/en/transport/rail/atlanta-louisville/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "tr-TR",
-   "title": "school in Nusaybin, TR",
-   "a": "c_ec7001d204b7",
-   "b": "c_3554f3b84a09",
+   "market": "en-US",
+   "title": "Atlanta to Louisville, Atlanta, US: what to know before you go",
+   "a": "c_275cc6fa0b37",
+   "b": "c_78b1a3a4444d",
    "url_a": "",
-   "url_b": "/tr/places/school/nusaybin/"
+   "url_b": "/en/transport/rail/atlanta-louisville/"
   },
   {
-   "kind": "same_tokens_after_stopwords",
-   "market": "tr-TR",
-   "title": "supermarket in Nusaybin, TR",
-   "a": "c_e76a7dd5ec06",
-   "b": "c_f2d750001beb",
+   "kind": "exact_title",
+   "market": "en-US",
+   "title": "Atlanta to Nashville, Atlanta, US: what to know before you go",
+   "a": "c_91793d73c518",
+   "b": "c_69bcd075df1e",
    "url_a": "",
-   "url_b": "/tr/places/supermarket/nusaybin/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "Cómpeta - Canillas de Aceituno, Parque Natural Sierra de Tejeda, Almijara y Alhama, ES: hiking trail",
-   "a": "c_a0fcb4195f37",
-   "b": "c_896c2d4c2f0f",
-   "url_a": "",
-   "url_b": "/es/outdoors/trail/competa-canillas-de-aceituno-r6172432/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "Frigiliana - Cómpeta, Parque Natural Sierra de Tejeda, Almijara y Alhama, ES: hiking trail",
-   "a": "c_0066c47fcf47",
-   "b": "c_ab17b45eb56c",
-   "url_a": "",
-   "url_b": "/es/outdoors/trail/frigiliana-competa-r6172439/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "Nerja - Frigiliana, Parque Natural Sierra de Tejeda, Almijara y Alhama, ES: hiking trail",
-   "a": "c_3862d2dd959c",
-   "b": "c_8378626db955",
-   "url_a": "",
-   "url_b": "/es/outdoors/trail/nerja-frigiliana-r1574719/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "Puerto de la Ragua-Laroles, Parque Nacional de Sierra Nevada, ES: hiking trail",
-   "a": "c_347cc9c6e51c",
-   "b": "c_0ff92bc30bb0",
-   "url_a": "",
-   "url_b": "/es/outdoors/trail/puerto-de-la-ragua-laroles-r9227901/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "Variante 2 (1/2), Parque Natural de la Sierra de Cazorla, Segura y las Villas, ES: hiking trail",
-   "a": "c_acdecf82f1e4",
-   "b": "c_c1f1bfcee5e4",
-   "url_a": "",
-   "url_b": "/es/outdoors/trail/variante-2-1-2-r3295952/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-ES",
-   "title": "Álora - Pizarra, Málaga, ES: hiking trail",
-   "a": "c_42d41b5cb08a",
-   "b": "c_6e4ee964c04e",
-   "url_a": "",
-   "url_b": "/es/outdoors/trail/alora-pizarra-r6390889/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "es-MX",
-   "title": "Старо Нагоричане, MK: city things to do",
-   "a": "c_527486d8028b",
-   "b": "c_91543734507d",
-   "url_a": "",
-   "url_b": "/es/areas/city-things-to-do/старо-нагоричане/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "nl-NL",
-   "title": "Bus transfer Afsluitdijk West-Oost, Wieringen, NL: foot trail",
-   "a": "c_6fe48885a18f",
-   "b": "c_3f49fcb686ca",
-   "url_a": "",
-   "url_b": "/nl/outdoors/trail/bus-transfer-afsluitdijk-west-oost-r9792223/"
+   "url_b": "/en/transport/rail/atlanta-nashville/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -412,27 +412,103 @@
   "Hoof Trail, Castle Ward": [
    "/en/outdoors/trail/hoof-trail-castle-ward-r19611758/",
    "/en/outdoors/trail/hoof-trail-r17057407/"
+  ],
+  "Atlanta to Bloomington, Atlanta, US": [
+   "/en/transport/rail/atlanta-bloomington/",
+   "/en/transport/route/atlanta-bloomington/"
+  ],
+  "Atlanta to Burlington, Atlanta, US": [
+   "/en/transport/rail/atlanta-burlington/",
+   "/en/transport/route/atlanta-burlington/"
+  ],
+  "Atlanta to Charlotte, Atlanta, US": [
+   "/en/transport/rail/atlanta-charlotte/",
+   "/en/transport/route/atlanta-charlotte/"
+  ],
+  "Atlanta to Columbus, Atlanta, US": [
+   "/en/transport/rail/atlanta-columbus/",
+   "/en/transport/route/atlanta-columbus/"
+  ],
+  "Atlanta to Greensboro, Atlanta, US": [
+   "/en/transport/rail/atlanta-greensboro/",
+   "/en/transport/route/atlanta-greensboro/"
+  ],
+  "Atlanta to Gulfport, Atlanta, US": [
+   "/en/transport/rail/atlanta-gulfport/",
+   "/en/transport/route/atlanta-gulfport/"
+  ],
+  "Atlanta to Indianapolis, Atlanta, US": [
+   "/en/transport/rail/atlanta-indianapolis/",
+   "/en/transport/route/atlanta-indianapolis/"
+  ],
+  "Atlanta to Louisville, Atlanta, US": [
+   "/en/transport/rail/atlanta-louisville/",
+   "/en/transport/route/atlanta-louisville/"
+  ],
+  "Atlanta to Nashville, Atlanta, US": [
+   "/en/transport/rail/atlanta-nashville/",
+   "/en/transport/route/atlanta-nashville/"
+  ],
+  "Atlanta to New Orleans, Atlanta, US": [
+   "/en/transport/rail/atlanta-new-orleans/",
+   "/en/transport/route/atlanta-new-orleans/"
+  ],
+  "Atlanta to St. Louis, Atlanta, US": [
+   "/en/transport/rail/atlanta-st-louis/",
+   "/en/transport/route/atlanta-st-louis/"
+  ],
+  "Atlanta to Valdosta, Atlanta, US": [
+   "/en/transport/rail/atlanta-valdosta/",
+   "/en/transport/route/atlanta-valdosta/"
+  ],
+  "Austin to Grapevine, Austin, US": [
+   "/en/transport/rail/austin-grapevine/",
+   "/en/transport/route/austin-grapevine/"
+  ],
+  "Baltimore to Charlotte, Baltimore, US": [
+   "/en/transport/rail/baltimore-charlotte/",
+   "/en/transport/route/baltimore-charlotte/"
+  ],
+  "Baltimore to Cleveland, Baltimore, US": [
+   "/en/transport/rail/baltimore-cleveland/",
+   "/en/transport/route/baltimore-cleveland/"
+  ],
+  "Birmingham to Atlanta, Birmingham, US": [
+   "/en/transport/rail/birmingham-atlanta/",
+   "/en/transport/route/birmingham-atlanta/"
+  ],
+  "Birmingham to Orlando, Birmingham, US": [
+   "/en/transport/rail/birmingham-orlando/",
+   "/en/transport/route/birmingham-orlando/"
+  ],
+  "Boston to Buffalo, Boston, US": [
+   "/en/transport/rail/boston-buffalo/",
+   "/en/transport/route/boston-buffalo/"
+  ],
+  "Chicago to Buffalo, Chicago, US": [
+   "/en/transport/rail/chicago-buffalo/",
+   "/en/transport/route/chicago-buffalo/"
   ]
  },
  "invalid_hierarchy_examples": [],
  "usefulness_test_failures": {},
  "usefulness_test_by_family_and_locale": {
   "activities.city-things-to-do|de": {
-   "rows": 772,
+   "rows": 891,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|en": {
-   "rows": 4052,
+   "rows": 4120,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|es": {
-   "rows": 12479,
+   "rows": 12448,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -446,7 +522,7 @@
    ]
   },
   "activities.city-things-to-do|it": {
-   "rows": 1039,
+   "rows": 1135,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -474,7 +550,7 @@
    ]
   },
   "activities.city-things-to-do|pt": {
-   "rows": 923,
+   "rows": 931,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -684,7 +760,7 @@
    ]
   },
   "comparisons.city-vs-home|de": {
-   "rows": 81,
+   "rows": 232,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -692,7 +768,7 @@
    ]
   },
   "comparisons.city-vs-home|en": {
-   "rows": 171,
+   "rows": 375,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -700,7 +776,7 @@
    ]
   },
   "comparisons.city-vs-home|es": {
-   "rows": 48,
+   "rows": 85,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -708,7 +784,7 @@
    ]
   },
   "comparisons.city-vs-home|fr": {
-   "rows": 30,
+   "rows": 53,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -716,7 +792,7 @@
    ]
   },
   "comparisons.city-vs-home|it": {
-   "rows": 40,
+   "rows": 260,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -724,7 +800,7 @@
    ]
   },
   "comparisons.city-vs-home|ja": {
-   "rows": 120,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -732,7 +808,7 @@
    ]
   },
   "comparisons.city-vs-home|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -748,7 +824,7 @@
    ]
   },
   "comparisons.city-vs-home|pt": {
-   "rows": 194,
+   "rows": 289,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it computes an answer the visitor supplies the inputs for, which is useful with or without a search engine",
@@ -779,7 +855,7 @@
    ]
   },
   "cost-of-living.city|en": {
-   "rows": 885,
+   "rows": 1004,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -800,7 +876,7 @@
    ]
   },
   "cost-of-living.city|it": {
-   "rows": 144,
+   "rows": 298,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -828,7 +904,7 @@
    ]
   },
   "cost-of-living.city|pt": {
-   "rows": 699,
+   "rows": 754,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -842,49 +918,49 @@
    ]
   },
   "cost-of-living.city-vs-market|de": {
-   "rows": 81,
+   "rows": 232,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|en": {
-   "rows": 171,
+   "rows": 375,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|es": {
-   "rows": 48,
+   "rows": 85,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|fr": {
-   "rows": 30,
+   "rows": 53,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|it": {
-   "rows": 40,
+   "rows": 260,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|ja": {
-   "rows": 120,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
    ]
   },
   "cost-of-living.city-vs-market|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
@@ -898,7 +974,7 @@
    ]
   },
   "cost-of-living.city-vs-market|pt": {
-   "rows": 194,
+   "rows": 289,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; cost-of-living-city-verified, a named source with provenance"
@@ -1094,49 +1170,49 @@
    ]
   },
   "education.city-schools|de": {
-   "rows": 61,
+   "rows": 91,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|en": {
-   "rows": 23,
+   "rows": 286,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|es": {
-   "rows": 37,
+   "rows": 76,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|fr": {
-   "rows": 22,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|it": {
-   "rows": 27,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|ja": {
-   "rows": 12,
+   "rows": 81,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-schools|nl": {
-   "rows": 13,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -1150,7 +1226,7 @@
    ]
   },
   "education.city-schools|pt": {
-   "rows": 39,
+   "rows": 116,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -1164,49 +1240,49 @@
    ]
   },
   "education.city-universities|de": {
-   "rows": 81,
+   "rows": 232,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|en": {
-   "rows": 171,
+   "rows": 375,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|es": {
-   "rows": 56,
+   "rows": 258,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|fr": {
-   "rows": 24,
+   "rows": 38,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|it": {
-   "rows": 29,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|ja": {
-   "rows": 120,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
    ]
   },
   "education.city-universities|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -1220,7 +1296,7 @@
    ]
   },
   "education.city-universities|pt": {
-   "rows": 172,
+   "rows": 212,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; school-data-verified, a named source with provenance"
@@ -1388,49 +1464,49 @@
    ]
   },
   "events.city-window|de": {
-   "rows": 81,
+   "rows": 232,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|en": {
-   "rows": 170,
+   "rows": 247,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|es": {
-   "rows": 56,
+   "rows": 258,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|fr": {
-   "rows": 30,
+   "rows": 53,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|it": {
-   "rows": 40,
+   "rows": 260,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|ja": {
-   "rows": 120,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1444,14 +1520,14 @@
    ]
   },
   "events.city-window|pt": {
-   "rows": 172,
+   "rows": 212,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-window|tr": {
-   "rows": 64,
+   "rows": 143,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1479,7 +1555,7 @@
    ]
   },
   "health.city|es": {
-   "rows": 158,
+   "rows": 323,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1493,7 +1569,7 @@
    ]
   },
   "health.city|it": {
-   "rows": 144,
+   "rows": 298,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -5287,14 +5363,6 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
-  "places.area-marina|en": {
-   "rows": 4,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
   "places.area-marina|fr": {
    "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -5333,14 +5401,6 @@
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
     "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
-   ]
-  },
-  "places.area-market|en": {
-   "rows": 43,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "places.area-market|es": {
@@ -5495,14 +5555,6 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
-  "places.area-nightclub|en": {
-   "rows": 113,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
   "places.area-nightclub|es": {
    "rows": 60,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -5576,7 +5628,7 @@
    ]
   },
   "places.area-opening|en": {
-   "rows": 3270,
+   "rows": 3144,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -5713,14 +5765,6 @@
   },
   "places.area-parking|de": {
    "rows": 85,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "places.area-parking|en": {
-   "rows": 63,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -6257,14 +6301,6 @@
   },
   "places.area-supermarket|de": {
    "rows": 1114,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "places.area-supermarket|en": {
-   "rows": 1167,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -8628,14 +8664,6 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
-  "places.city-marina|en": {
-   "rows": 37,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
   "places.city-marina|es": {
    "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -8686,14 +8714,6 @@
   },
   "places.city-market|de": {
    "rows": 48,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "places.city-market|en": {
-   "rows": 141,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -8948,14 +8968,6 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
-  "places.city-nightclub|en": {
-   "rows": 76,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
   "places.city-nightclub|es": {
    "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -9029,7 +9041,7 @@
    ]
   },
   "places.city-opening|en": {
-   "rows": 1478,
+   "rows": 1318,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -9174,14 +9186,6 @@
   },
   "places.city-parking|de": {
    "rows": 54,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "places.city-parking|en": {
-   "rows": 33,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -9929,14 +9933,6 @@
   },
   "places.city-supermarket|de": {
    "rows": 172,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
-    "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
-   ]
-  },
-  "places.city-supermarket|en": {
-   "rows": 454,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -11092,6 +11088,13 @@
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
+  "policy.visa-nationality-destination|en": {
+   "rows": 226,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from UK FCDO entry requirements (Open Government Licence v3.0), a named source with provenance"
+   ]
+  },
   "property.city-buy|de": {
    "rows": 195,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -11100,7 +11103,7 @@
    ]
   },
   "property.city-buy|en": {
-   "rows": 1123,
+   "rows": 1244,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -11156,14 +11159,14 @@
    ]
   },
   "relocation.city|de": {
-   "rows": 205,
+   "rows": 332,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "relocation.city|en": {
-   "rows": 1123,
+   "rows": 1244,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11177,14 +11180,14 @@
    ]
   },
   "relocation.city|fr": {
-   "rows": 149,
+   "rows": 158,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "relocation.city|it": {
-   "rows": 144,
+   "rows": 298,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11212,7 +11215,7 @@
    ]
   },
   "relocation.city|pt": {
-   "rows": 699,
+   "rows": 754,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified; visa-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11226,21 +11229,21 @@
    ]
   },
   "relocation.country|de": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
-   ]
-  },
-  "relocation.country|en": {
    "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
    ]
   },
+  "relocation.country|en": {
+   "rows": 6,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
+   ]
+  },
   "relocation.country|es": {
-   "rows": 2,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
@@ -11254,21 +11257,21 @@
    ]
   },
   "relocation.country|it": {
-   "rows": 1,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
    ]
   },
   "relocation.country|ja": {
-   "rows": 1,
+   "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
    ]
   },
   "relocation.country|nl": {
-   "rows": 1,
+   "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
@@ -11282,7 +11285,7 @@
    ]
   },
   "relocation.country|pt": {
-   "rows": 2,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; cost-of-living-verified, a named source with provenance"
@@ -11415,49 +11418,49 @@
    ]
   },
   "safety.city|de": {
-   "rows": 71,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|en": {
-   "rows": 134,
+   "rows": 330,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|es": {
-   "rows": 48,
+   "rows": 85,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|fr": {
-   "rows": 24,
+   "rows": 38,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|it": {
-   "rows": 29,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|ja": {
-   "rows": 120,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
    ]
   },
   "safety.city|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -11471,7 +11474,7 @@
    ]
   },
   "safety.city|pt": {
-   "rows": 172,
+   "rows": 212,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -11555,49 +11558,49 @@
    ]
   },
   "sport.city-activity|de": {
-   "rows": 71,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|en": {
-   "rows": 170,
+   "rows": 253,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|es": {
-   "rows": 48,
+   "rows": 85,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|fr": {
-   "rows": 24,
+   "rows": 38,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|it": {
-   "rows": 29,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|ja": {
-   "rows": 120,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "sport.city-activity|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11611,7 +11614,7 @@
    ]
   },
   "sport.city-activity|pt": {
-   "rows": 172,
+   "rows": 212,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; sport-routes-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11625,14 +11628,14 @@
    ]
   },
   "stay.city-type|de": {
-   "rows": 3609,
+   "rows": 3786,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|en": {
-   "rows": 1561,
+   "rows": 1570,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11765,21 +11768,21 @@
    ]
   },
   "taxes.country-remote-work|de": {
-   "rows": 1,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from tax-rules-verified; visa-rules-verified, a named source with provenance"
    ]
   },
   "taxes.country-remote-work|en": {
-   "rows": 3,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from tax-rules-verified; visa-rules-verified, a named source with provenance"
    ]
   },
   "taxes.country-remote-work|es": {
-   "rows": 2,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from tax-rules-verified; visa-rules-verified, a named source with provenance"
@@ -11793,7 +11796,7 @@
    ]
   },
   "taxes.country-remote-work|it": {
-   "rows": 1,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from tax-rules-verified; visa-rules-verified, a named source with provenance"
@@ -11807,7 +11810,7 @@
    ]
   },
   "taxes.country-remote-work|nl": {
-   "rows": 1,
+   "rows": 2,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from tax-rules-verified; visa-rules-verified, a named source with provenance"
@@ -11821,10 +11824,17 @@
    ]
   },
   "taxes.country-remote-work|pt": {
-   "rows": 2,
+   "rows": 4,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from tax-rules-verified; visa-rules-verified, a named source with provenance"
+   ]
+  },
+  "transport.airport-city-access|en": {
+   "rows": 384,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names OurAirports (public domain) with GeoNames (CC BY 4.0) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "transport.city-getting-around|de": {
@@ -11884,7 +11894,7 @@
    ]
   },
   "transport.city-getting-around|tr": {
-   "rows": 189,
+   "rows": 294,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -11897,50 +11907,64 @@
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
    ]
   },
+  "transport.city-pair-air|en": {
+   "rows": 2604,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from OpenFlights routes (ODbL 1.0) with OurAirports (public domain) and GeoNames (CC BY 4.0), a named source with provenance"
+   ]
+  },
+  "transport.city-pair-rail|en": {
+   "rows": 11222,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata P197 adjacent station (CC0 1.0) with GeoNames (CC BY 4.0), a named source with provenance"
+   ]
+  },
   "transport.route-from-market|de": {
-   "rows": 71,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|en": {
-   "rows": 807,
+   "rows": 1101,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|es": {
-   "rows": 48,
+   "rows": 85,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|fr": {
-   "rows": 24,
+   "rows": 38,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|it": {
-   "rows": 29,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|ja": {
-   "rows": 120,
+   "rows": 161,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
    ]
   },
   "transport.route-from-market|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -11954,7 +11978,7 @@
    ]
   },
   "transport.route-from-market|pt": {
-   "rows": 172,
+   "rows": 212,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -11968,7 +11992,7 @@
    ]
   },
   "visas.country-work-permit|en": {
-   "rows": 3,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from visa-rules-verified; work-rules-verified, a named source with provenance"
@@ -11982,14 +12006,14 @@
    ]
   },
   "weather.city-month|en": {
-   "rows": 2858,
+   "rows": 2871,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
    ]
   },
   "weather.city-month|es": {
-   "rows": 3243,
+   "rows": 3656,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -12045,49 +12069,49 @@
    ]
   },
   "work.city-jobs-category|de": {
-   "rows": 71,
+   "rows": 95,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|en": {
-   "rows": 170,
+   "rows": 253,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|es": {
-   "rows": 56,
+   "rows": 258,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|fr": {
-   "rows": 24,
+   "rows": 38,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|it": {
-   "rows": 40,
+   "rows": 260,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|ja": {
-   "rows": 120,
+   "rows": 190,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-jobs-category|nl": {
-   "rows": 15,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12101,7 +12125,7 @@
    ]
   },
   "work.city-jobs-category|pt": {
-   "rows": 194,
+   "rows": 289,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified; work-rules-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12122,14 +12146,14 @@
    ]
   },
   "work.city-salaries|en": {
-   "rows": 1122,
+   "rows": 1124,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "work.city-salaries|es": {
-   "rows": 158,
+   "rows": 323,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12143,7 +12167,7 @@
    ]
   },
   "work.city-salaries|it": {
-   "rows": 144,
+   "rows": 298,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; salary-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12235,7 +12259,7 @@
  "title_length": {
   "min": 13,
   "max": 207,
-  "mean": 42.0
+  "mean": 42.7
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

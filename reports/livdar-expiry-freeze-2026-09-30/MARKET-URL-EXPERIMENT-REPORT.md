@@ -14,13 +14,13 @@ Every contest the ownership rule resolved in which a market under test was shut 
 
 | market | raw candidates | justified | justified pending a source | duplicate | insufficient | generic only | net new valid pages |
 |---|---|---|---|---|---|---|---|
-| en-AU | 16,982 | 0 | 19 | 4,399 | 248 | 12,316 | **0** |
-| es-MX | 26,391 | 2 | 16 | 5,915 | 240 | 20,218 | **2** |
+| en-AU | 17,200 | 0 | 5 | 4,456 | 248 | 12,491 | **0** |
+| es-MX | 27,951 | 3 | 18 | 6,266 | 256 | 21,408 | **3** |
 
-**NET NEW VALID PAGES, both markets: 2** out of 43,373 raw candidates.
+**NET NEW VALID PAGES, both markets: 3** out of 45,151 raw candidates.
 
-- `en-AU` reconciles: True. Of its 12,316 candidates with no surviving generic page, 5,431 had an owner dropped before a row was ever generated and 6,885 had an owner a later gate rejected. That leaves 4,666 genuine coexistence decisions.
-- `es-MX` reconciles: True. Of its 20,218 candidates with no surviving generic page, 7,816 had an owner dropped before a row was ever generated and 12,402 had an owner a later gate rejected. That leaves 6,173 genuine coexistence decisions.
+- `en-AU` reconciles: True. Of its 12,491 candidates with no surviving generic page, 5,678 had an owner dropped before a row was ever generated and 6,813 had an owner a later gate rejected. That leaves 4,709 genuine coexistence decisions.
+- `es-MX` reconciles: True. Of its 21,408 candidates with no surviving generic page, 7,892 had an owner dropped before a row was ever generated and 13,516 had an owner a later gate rejected. That leaves 6,543 genuine coexistence decisions.
 
 ## 3. Why the yield is what it is
 
@@ -53,9 +53,9 @@ The measures that do catch it are `shared_section_ratio`, which is 1.0 on every 
 
 ## 6. hreflang and canonical
 
-Design only, not deployed. 401,395 pages planned, 2 of them market pages. 344,653 of those pages are the only page for their entity and intent in any language and so carry NO hreflang at all: a lone self-annotation tells a crawler nothing the canonical does not, and it is the commonest way a cluster later turns non-reciprocal. The annotations sit on the 56,742 pages that genuinely have alternates.
+Design only, not deployed. 421,767 pages planned, 3 of them market pages. 364,491 of those pages are the only page for their entity and intent in any language and so carry NO hreflang at all: a lone self-annotation tells a crawler nothing the canonical does not, and it is the commonest way a cluster later turns non-reciprocal. The annotations sit on the 57,276 pages that genuinely have alternates.
 
-Reciprocity: 229,154 annotations checked, 0 pointing at a URL not in the plan, 0 not reciprocated. every annotation resolves and reciprocates
+Reciprocity: 232,748 annotations checked, 0 pointing at a URL not in the plan, 0 not reciprocated. every annotation resolves and reciprocates
 
 - **Canonical**: self on every page. A market page NEVER canonicals to the generic page: that would declare it a duplicate, and a duplicate should not exist rather than exist with a canonical pointing away. The two outcomes for a market candidate are "exists and self-canonicals" and "is not created".
 - **Why not en-US and en-GB**: no /en-us/ or /en-gb/ URL exists. The brief lists en, en-GB, en-US, en-AU, es, es-ES and es-MX, which describes a fully market-scoped space; this space is language-scoped, and the brief own rule - no hreflang alternative for a page that does not exist - rules those four out. Emitting hreflang="en-US" on /en/ would also stop /en/ serving British and Australian readers, which it does today.
@@ -71,9 +71,9 @@ What would have to be true before any of this is deployed:
 
 ## 7. The recommendation
 
-**2 net new valid pages.** Weigh that against the cost of a market-scoped routing layer before expanding.
+**3 net new valid pages.** Weigh that against the cost of a market-scoped routing layer before expanding.
 
-What is NOT zero: 35 candidates have measured, entity-specific demand and are waiting on one of the three sources in section 4. That is the real finding. The market-scoped URL question is not closed on demand - the demand is there and it is cheap to rank for - it is closed on CONTENT, and one source unlocks it. Flight routes and duration from the origin market is the strongest of the three and the one most specific to en-AU, because Sydney to Asia is a different journey from New York to Asia in a way a reader plans around.
+What is NOT zero: 23 candidates have measured, entity-specific demand and are waiting on one of the three sources in section 4. That is the real finding. The market-scoped URL question is not closed on demand - the demand is there and it is cheap to rank for - it is closed on CONTENT, and one source unlocks it. Flight routes and duration from the origin market is the strongest of the three and the one most specific to en-AU, because Sydney to Asia is a different journey from New York to Asia in a way a reader plans around.
 
 The order that follows from this, cheapest evidence first:
 
@@ -83,7 +83,7 @@ The order that follows from this, cheapest evidence first:
 
 ## 8. Where the inventory stands
 
-FINAL DISTINCT VALID: **401,393**. Funnel reconciles: True.
+FINAL DISTINCT VALID: **421,764**. Funnel reconciles: True.
 
 Market-scoped URLs were one candidate path to scale. This experiment closes it for now, on measurement rather than on preference, and the remaining paths are in 1M-GAP-TO-TARGET.csv with the measurement behind each.
 

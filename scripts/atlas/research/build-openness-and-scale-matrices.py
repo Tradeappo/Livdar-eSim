@@ -96,6 +96,10 @@ JSON = [
     ('poi-categories/openserp-route-pairs-en.json', 'transport.origin-destination-pair', 'en', 'us'),
     ('poi-categories/openserp-things-to-do-ja.json', 'activities.city-things-to-do', 'ja', 'jp'),
     ('poi-categories/openserp-things-to-do-en-band-300-2000.json', 'activities.city-things-to-do', 'en', 'us'),
+    ('poi-languages/five-categories-tr.json', 'poi.five-refuted-categories', 'tr', 'tr'),
+    ('poi-languages/openserp-entity-parking-en.json', 'poi.entity-x-parking', 'en', 'us'),
+    ('poi-languages/openserp-ferry-pairs-en.json', 'transport.ferry-pair', 'en', 'us'),
+    ('poi-languages/openserp-ski-areas-en.json', 'outdoors.ski-area', 'en', 'us'),
 ]
 
 def read_json(rel, family, lang, country):
