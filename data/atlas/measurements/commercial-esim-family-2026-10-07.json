@@ -1,0 +1,42 @@
+{
+  "measured_at": "2026-10-07T14:10:00Z",
+  "purpose": "Section 13 priority 5 and section 14 commercial value. The highest CPC family measured anywhere in this research, and it is Livdar's own product rather than an adjacent topic.",
+  "probe": {"term":"esim","country":"us","match_mode":"phrase","floor":1500,"rows":105,"truncated":false},
+  "cpc_is_in_usd_cents_divided_by_100_here": true,
+  "head_with_cpc_usd": {
+    "esim": {"volume":102000,"cpc":5.00},
+    "esim card": {"volume":24000,"cpc":3.00},
+    "esim iphone": {"volume":24000,"cpc":3.50},
+    "esim usa": {"volume":15000,"cpc":6.00},
+    "free esim trial": {"volume":16000,"cpc":3.50},
+    "att esim": {"volume":7300,"cpc":6.00},
+    "buy esim": {"volume":1500,"cpc":9.00},
+    "prepaid esim": {"volume":2100,"cpc":7.00},
+    "visible esim": {"volume":2000,"cpc":8.00},
+    "best esim for usa": {"volume":2000,"cpc":6.00},
+    "att prepaid esim": {"volume":1500,"cpc":8.00},
+    "does iphone 12 have esim": {"volume":1600,"cpc":25.00}
+  },
+  "the_country_axis": {
+    "shape": "esim {country} and {country} esim, both forms measured",
+    "measured": {"japan":7100,"italy":2000,"china":2000,"mexico":1900,"canada":1900,
+                 "uk":1900,"australia":1700,"france":1700,"usa":15000,"europe":2900},
+    "reading": "A per country page is justified by real per country content: which networks the eSIM lands on, supported bands, coverage, local operator names, data caps and price. That is not a country name swap, it is a different technical answer per country.",
+    "honest_size": "About 200 countries by the market languages. High value, modest count: of the order of 2,000 pages, not a scale driver."
+  },
+  "device_compatibility_axis": {
+    "shape": "does {device} have esim, {device} esim, is my phone esim compatible",
+    "measured": {"does iphone 12 have esim":{"volume":1600,"cpc":25.00},
+                 "does iphone 11 have esim":{"volume":2100,"cpc":8.00},
+                 "iphone 14 esim":{"volume":2000,"cpc":3.00},
+                 "is my phone esim compatible":{"volume":1500,"cpc":0.30}},
+    "reading": "A device by eSIM support family. The fact differs per device model and is verifiable from manufacturer specifications. CPC of 25.00 USD on one of these is the highest single CPC in this research.",
+    "honest_size": "Hundreds of device models by languages. Small count, exceptional commercial value, and it sits directly before the purchase."
+  },
+  "direct_competitors_sized_by_their_own_brand_volume": {
+    "holafly": 35000, "nomad": 27000, "airalo": 21000, "saily": 21000,
+    "ubigi": 7700, "gigsky": 2100, "maya": 1900, "roamless": 1800, "jetpac": 1700
+  },
+  "verdict": "This family will not close the gap to a million, and it is the single most valuable family measured. It should be built on commercial grounds, not scale grounds, which is exactly the separation brief C asked for between COMMERCIAL VALUE and SCALE VALUE.",
+  "tag": "COMMERCIAL_ONLY"
+}
