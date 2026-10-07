@@ -1,0 +1,54 @@
+{
+ "measured_on": "2026-10-07",
+ "method": "matching-terms in phrase mode, volume floor, ordered by volume descending",
+ "candidates": {
+  "destinations.country-hub": {
+   "domain": "country, travel planning", "language_measured": "de", "verdict": "ADMIT_AND_THIS_REHABILITATES_A_FAMILY_I_WOULD_HAVE_DISMISSED",
+   "entity_tail_sampled": [["urlaub in deutschland", 17000, 25], ["urlaub in daenemark", 4900, 60], ["urlaub in bayern", 3700, 30], ["urlaub in der tuerkei", 3600, 25], ["urlaub in kroatien", 3600, 40], ["urlaub in aegypten", 3500, 25], ["urlaub in den bergen", 3500, 40], ["urlaub in albanien", 3500, 20], ["urlaub in schweden", 3100, 35], ["urlaub in holland", 2900, 35], ["urlaub in polen", 2600, 25], ["urlaub in italien", 2600, 25], ["urlaub in oesterreich", 2300, 40], ["urlaub in suedtirol", 2200, 45], ["urlaub in norwegen", 2200, 35], ["urlaub in dubai", 2000, 25]],
+   "entities_with_demand_in_this_sample": 16,
+   "the_point": "destinations.country-hub holds 11 pages and I would have written it off with destinations.city-hub, which I refused yesterday on cannibalisation evidence. The two are not the same. The CITY hub shares a parent topic with activities.city-things-to-do and is dead outside English. The COUNTRY hub reads 2,000 to 4,900 a month in German at CPC 25 to 60 cents, which is the best commercial band of any travel family measured.",
+   "cpc_range_cents": [20, 60],
+   "cannibalisation_risk": "LOW. No live family answers a country-level travel question: relocation.country holds 15 pages and answers moving there, not visiting.",
+   "scale_verdict": "MODERATE: country x market, bounded by the 43 to 99 countries with measured destination demand",
+   "commercial_verdict": "HIGH for a travel family"},
+
+  "outdoors.region-daytrips": {
+   "domain": "region, outdoor, travel planning", "language_measured": "de", "verdict": "ADMIT",
+   "entity_tail_sampled": [["ausflugsziele in der naehe", 11000, 7], ["ausflugsziele nrw", 7500, 10], ["ausflugsziele thueringen", 3400, 10], ["ausflugsziele hessen", 2800, 5], ["ausflugsziele im umkreis von 30km", 2500, 30], ["ausflugsziele baden wuerttemberg", 2300, 7], ["ausflugsziele niedersachsen", 2300, 6], ["ausflugsziele brandenburg", 2200, 10]],
+   "entities_with_demand_in_this_sample": 6,
+   "the_axis": "SUBDIVISION again, the third family to land on it after holidays and school holidays. outdoors.region-feature-list is in the catalogue and generated zero rows.",
+   "data_source": "GeoNames admin1 and admin2 region stores are on disk, and the OSM outdoor and POI layers give the features to list per region",
+   "the_near_me_variant_is_refused": "ausflugsziele in der naehe at 11,000 and im umkreis von 30km at 2,500 are geolocation queries that need the reader's position, which a static page cannot answer honestly",
+   "scale_verdict": "MODERATE: the sixteen German states plus the equivalent subdivisions in the other markets",
+   "commercial_verdict": "LOW to MEDIUM at 5 to 30 cents"},
+
+  "areas.city-neighbourhood-index": {
+   "domain": "neighbourhood", "language_measured": "de", "verdict": "ADMIT_THE_INDEX_AXIS",
+   "city_index_axis": [["berlin stadtteile", 6300, 7], ["hamburg stadtteile", 5300, 8], ["stadtteile hamburg", 4000, 20], ["stadtteile berlin", 3500, 6], ["new york stadtteile", 2300, 25], ["muenchen stadtteile", 2100, 20], ["stadtteile new york", 1600, 20], ["koeln stadtteile", 1500, 15], ["stadtteile muenchen", 1500, 20], ["duesseldorf stadtteile", 1400, 10], ["frankfurt stadtteile", 1300, 4], ["berlin stadtteile karte", 1200, 4], ["london stadtteile", 1000, 15], ["berliner stadtteile", 1000, 10], ["stadtteile london", 900, 15], ["stadtteile koeln", 900, 15], ["stadtteile duesseldorf", 800, 20]],
+   "named_neighbourhood_axis": [["belgisches viertel koeln", 4200, 20], ["maerkisches viertel", 3300, 6], ["belgisches viertel", 2400, 15], ["hollaendisches viertel potsdam", 2300, 15], ["japanisches viertel duesseldorf", 1600, 25], ["juedisches viertel prag", 900, null], ["portugiesisches viertel hamburg", 800, 7]],
+   "entities_with_demand_in_this_sample": 17,
+   "note_the_foreign_cities": "new york stadtteile 2,300 and london stadtteile 1,000 from the German market, so this index carries a destination axis too",
+   "cannibalisation_risk": "neighbourhoods.guide already holds 825 pages on the NAMED neighbourhood axis, which the second list above belongs to. The city INDEX axis is the new one and areas.city-index is where it belongs.",
+   "noise_excluded": "viertel stunde 1,700 is a quarter of an hour, ein viertel 1,100 is a fraction, hip hop hood im viertel ist die hoelle los 1,000 is a song, viertel oldenburg 1,000 is a district name colliding with the generic word",
+   "scale_verdict": "LOW to MODERATE, the larger cities only",
+   "commercial_verdict": "MEDIUM at 4 to 25 cents"},
+
+  "visas.country-digital-nomad": {
+   "domain": "relocation", "language_measured": "en", "verdict": "DEMAND_CONFIRMED_BUT_THE_SOURCE_IS_NOT_HELD",
+   "head": [["digital nomad visa", 13000, 20], ["visa requirements for us citizens", 3200, 15]],
+   "entity_tail_sampled": [["spain digital nomad visa", 2900, 140], ["digital nomad visa spain", 2600, 100], ["japan digital nomad visa", 1900, 60], ["portugal digital nomad visa", 1300, 80], ["digital nomad visa italy", 1100, 70], ["spain digital nomad visa requirements", 900, 45], ["digital nomad visa portugal", 900, 100], ["thailand digital nomad visa", 800, 35], ["italy digital nomad visa", 700, 70], ["digital nomad visa japan", 600, 45], ["greece digital nomad visa", 400, 80], ["canada digital nomad visa", 400, 70], ["thailand visa requirements for us citizens", 400, 170], ["uk visa requirements for us citizens", 350, 200], ["mexico digital nomad visa", 300, 70], ["portugal visa requirements for us citizens", 300, 100], ["estonia digital nomad visa", 300, 30]],
+   "entities_with_demand_in_this_sample": 17,
+   "cpc_range_cents": [30, 200],
+   "why_it_is_not_admitted": "visas.country-digital-nomad, visas.country-residency, visas.country-visit and visas.country-work-permit all carry source_state MISSING_ACQUIRABLE in the catalogue. The brief rule is no source, no final. The demand is real and the CPC of 70 to 200 cents is among the highest in the project, so this is a HIGH PRIORITY SOURCE GAP to be named in the report, not a family to generate.",
+   "what_the_source_would_have_to_be": "the immigration authority of each country, which is why acquisition_type reads GOVERNMENT. A visa page built on anything less than the official rule is a liability, not an asset.",
+   "scale_verdict": "LOW to MODERATE if the source existed, maybe 50 to 100 countries",
+   "commercial_verdict": "VERY HIGH"},
+
+  "safety.country-is-it-safe": {
+   "domain": "safety", "language_measured": "en", "verdict": "REFUSE",
+   "entity_tail_sampled": [["is it safe to visit british virgin islands", 900, null], ["is it safe to visit egypt", 450, 5], ["is it safe to visit mexico", 350, 20], ["is it safe to visit israel", 350, 9], ["is it safe to visit chernobyl", 300, 6]],
+   "why_refused": "five entities between 300 and 900 a month in the whole returned set, against a hundred-plus country space, so the tail dies almost immediately. And safety.country-advice carries source_state MISSING_ACQUIRABLE: the honest source is each foreign ministry's travel advice, which changes weekly and which this project does not hold. A stale safety page is worse than no page."}
+ },
+ "units_spent_on_this_wave": 1272,
+ "licence_and_provenance": "Ahrefs Keywords Explorer matching-terms via the Ahrefs API v3 on 2026-10-07"
+}

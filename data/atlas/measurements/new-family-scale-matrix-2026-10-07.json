@@ -1,0 +1,357 @@
+{
+ "generated_on": "2026-10-07",
+ "candidates_measured": 30,
+ "admitted": 21,
+ "refused_or_blocked": 9,
+ "the_sort_key": "expected_final_valid x commercial_value x serp_feasibility",
+ "the_two_multiplier_scales": {
+  "serp_feasibility": {
+   "1.00": "a sub-DR-20 page with zero backlinks holds a top ten position",
+   "0.80": "a sub-DR-40 page with few backlinks holds one",
+   "0.55": "difficulty under 10 but NO SERP sampled yet",
+   "0.30": "mid-authority contest, or a CPC high enough that the SERP is fought over",
+   "0.05": "official or aggregator owned with no weak winner in the top ten"
+  },
+  "commercial_value": "from the measured CPC ceiling in cents: 150+ is 1.00, 60 to 149 is 0.70, 25 to 59 is 0.45, 10 to 24 is 0.25, under 10 is 0.10"
+ },
+ "total_expected_final_valid_across_admitted": 15429,
+ "what_this_total_is_and_is_not": "it is the sum of entities x years x languages x a stated acceptance rate, per family, from measured entity counts. It is NOT a promise and it is NOT comparable to the 401,393 that exists: that number came from a run and this one comes from a measurement of demand plus an estimate of yield. Every row names the factors so the arithmetic can be checked and corrected.",
+ "what_actually_binds_the_admitted_count": {
+  "the_finding": "expected_final_valid above is built from entities whose demand was MEASURED, and most of those samples were truncated at the call limit. The entity SUPPLY on disk is two orders of magnitude larger than the measured demand count.",
+  "entity_supply_counted_on_disk": {
+   "named trails": 125516,
+   "outdoor features in total": 1281126,
+   "peaks": 384962,
+   "trail routes": 234149,
+   "camp sites": 67504,
+   "archaeological sites": 66902,
+   "springs": 50917,
+   "viewpoints": 49212,
+   "ruins": 43588,
+   "caves": 37832,
+   "mountain passes": 36907,
+   "castles": 34726,
+   "monuments": 30127,
+   "bays": 27513,
+   "cliffs": 24857,
+   "beaches": 24721,
+   "waterfalls": 19197,
+   "mountain huts": 7279,
+   "beach resorts": 6252,
+   "lighthouses": 5012
+  },
+  "the_measured_hit_rates": {
+   "named ski areas above 2,100 a month in German": "28 of 40 submitted, 70 per cent",
+   "named waterfalls and gorges above 1,100 in German": "20 of 35, 57 per cent",
+   "named castles above 5,700 in German": "20 of 35, 57 per cent",
+   "named beaches above 1,000 in German": "15 of 35, 43 per cent",
+   "cities above 20 a month for best-time in English": "92 of 283, 33 per cent",
+   "cities above 50 for best-time in German": "41 of 137, 30 per cent"
+  },
+  "so_the_binding_constraint_is_the_MEASUREMENT_BUDGET": "per-entity demand cannot be inferred. The best-time tail probe settled that: Akron and Tulsa have things-to-do pages and read zero while Sedona has none and reads 2,400. So every entity must be measured, at 13 units a row with zero-volume rows free. About 500,000 Ahrefs units remain before the 2026-10-08 reset, which measures roughly 38,000 entities. At the 40 to 55 per cent hit rates above that admits 15,000 to 20,000 entities, and at two to three qualifying languages each that is 30,000 to 60,000 FINAL VALID pages from the outdoor layer alone, on top of the 15,429 in this matrix.",
+  "and_that_is_the_honest_answer_to_the_500k_gap": "it does not close it this cycle. The measurement budget closes perhaps 50,000 to 75,000 of it. Closing the rest needs either a second measurement cycle after the reset, which costs only time, or the commercial and official datasets named in the source-gap list, chiefly visa rules, school-holiday coverage beyond 31 countries, transport timetables and the published Mietspiegel documents."
+ },
+ "the_honest_headline": "the gap to a million is about 500,000 pages and the families measured here do not close it. They are worth tens of thousands, at a value per page far above the existing inventory. The pulse cluster alone carries more measured search volume on its top keyword per market, 3.7 million a month across seven markets, than the whole current inventory of 401,393 pages was ever measured to carry.",
+ "ranked": [
+  {
+   "family": "pulse.school-holidays",
+   "rank_score": 5220.0,
+   "expected_final_valid": 5220,
+   "commercial_value": 1.0,
+   "serp_feasibility": 1.0,
+   "head_volume": 1920000,
+   "entities_with_demand": 232,
+   "status": "IN THE CATALOGUE, ZERO PAGES, 86 rows generated, source_state MISSING_ACQUIRABLE for the full set"
+  },
+  {
+   "family": "pulse.subdivision-holidays",
+   "rank_score": 2707.6,
+   "expected_final_valid": 3868,
+   "commercial_value": 0.7,
+   "serp_feasibility": 1.0,
+   "head_volume": 202000,
+   "entities_with_demand": 182,
+   "status": "IN THE CATALOGUE, ZERO PAGES, 43 rows generated"
+  },
+  {
+   "family": "pulse.bridge-plans-subdivision",
+   "rank_score": 596.0,
+   "expected_final_valid": 2384,
+   "commercial_value": 0.25,
+   "serp_feasibility": 1.0,
+   "head_volume": 9900,
+   "entities_with_demand": 187,
+   "status": "IN THE CATALOGUE as pulse.bridge-days-subdivision, ZERO ROWS GENERATED"
+  },
+  {
+   "family": "weather.city-best-time",
+   "rank_score": 445.2,
+   "expected_final_valid": 636,
+   "commercial_value": 0.7,
+   "serp_feasibility": 1.0,
+   "head_volume": 6000,
+   "entities_with_demand": 159,
+   "status": "IN THE CATALOGUE, ZERO PAGES, 29,210 rows rejected on a SERP class copied from the wrong keyword"
+  },
+  {
+   "family": "pulse.long-weekends",
+   "rank_score": 411.3,
+   "expected_final_valid": 914,
+   "commercial_value": 0.45,
+   "serp_feasibility": 1.0,
+   "head_volume": 22000,
+   "entities_with_demand": 43,
+   "status": "IN THE CATALOGUE, ZERO PAGES, 3,984 rows generated"
+  },
+  {
+   "family": "pulse.bridge-days",
+   "rank_score": 193.5,
+   "expected_final_valid": 430,
+   "commercial_value": 0.45,
+   "serp_feasibility": 1.0,
+   "head_volume": 18000,
+   "entities_with_demand": 43,
+   "status": "IN THE CATALOGUE, ZERO PAGES, part of the 3,984"
+  },
+  {
+   "family": "pulse.country-holidays",
+   "rank_score": 127.9,
+   "expected_final_valid": 1279,
+   "commercial_value": 0.1,
+   "serp_feasibility": 1.0,
+   "head_volume": 705000,
+   "entities_with_demand": 43,
+   "status": "IN THE CATALOGUE, ZERO PAGES, blocked by a one-field required_data cell"
+  },
+  {
+   "family": "property.city-rent-index",
+   "rank_score": 38.0,
+   "expected_final_valid": 38,
+   "commercial_value": 1.0,
+   "serp_feasibility": 1.0,
+   "head_volume": 5700,
+   "entities_with_demand": 21,
+   "status": "NOT IN THE CATALOGUE as a distinct family"
+  },
+  {
+   "family": "pulse.country-month-holidays",
+   "rank_score": 27.5,
+   "expected_final_valid": 344,
+   "commercial_value": 0.1,
+   "serp_feasibility": 0.8,
+   "head_volume": 40000,
+   "entities_with_demand": 43,
+   "status": "NOT IN THE CATALOGUE; a new cut of held data"
+  },
+  {
+   "family": "outdoors.ski-area",
+   "rank_score": 19.2,
+   "expected_final_valid": 50,
+   "commercial_value": 0.7,
+   "serp_feasibility": 0.55,
+   "head_volume": 9200,
+   "entities_with_demand": 28,
+   "status": "NOT IN THE CATALOGUE"
+  },
+  {
+   "family": "destinations.country-hub",
+   "rank_score": 17.3,
+   "expected_final_valid": 45,
+   "commercial_value": 0.7,
+   "serp_feasibility": 0.55,
+   "head_volume": 17000,
+   "entities_with_demand": 16,
+   "status": "IN THE CATALOGUE, 11 PAGES"
+  },
+  {
+   "family": "work.salary-by-profession",
+   "rank_score": 11.6,
+   "expected_final_valid": 30,
+   "commercial_value": 0.7,
+   "serp_feasibility": 0.55,
+   "head_volume": 13000,
+   "entities_with_demand": 20,
+   "status": "NEW AXIS on a live family; work.city-salaries holds 3,190 pages on the city axis"
+  },
+  {
+   "family": "outdoors.waterfall-and-gorge",
+   "rank_score": 8.9,
+   "expected_final_valid": 36,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.55,
+   "head_volume": 5600,
+   "entities_with_demand": 20,
+   "status": "NOT IN THE CATALOGUE as its own family"
+  },
+  {
+   "family": "outdoors.castle",
+   "rank_score": 7.4,
+   "expected_final_valid": 30,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.55,
+   "head_volume": 68000,
+   "entities_with_demand": 20,
+   "status": "NOT IN THE CATALOGUE as its own family; places.city-category holds 5,575 pages across POI categories"
+  },
+  {
+   "family": "transport.airport-transfer",
+   "rank_score": 7.2,
+   "expected_final_valid": 24,
+   "commercial_value": 1.0,
+   "serp_feasibility": 0.3,
+   "head_volume": 2100,
+   "entities_with_demand": 16,
+   "status": "IN THE CATALOGUE as transport.airport-to-city, ZERO ROWS GENERATED"
+  },
+  {
+   "family": "utilities.country-electricity-price",
+   "rank_score": 7.2,
+   "expected_final_valid": 24,
+   "commercial_value": 1.0,
+   "serp_feasibility": 0.3,
+   "head_volume": 33000,
+   "entities_with_demand": 8,
+   "status": "NOT IN THE CATALOGUE; no utilities family exists at all"
+  },
+  {
+   "family": "outdoors.beach",
+   "rank_score": 6.9,
+   "expected_final_valid": 18,
+   "commercial_value": 0.7,
+   "serp_feasibility": 0.55,
+   "head_volume": 84000,
+   "entities_with_demand": 15,
+   "status": "NOT IN THE CATALOGUE as its own family"
+  },
+  {
+   "family": "areas.city-neighbourhood-index",
+   "rank_score": 5.0,
+   "expected_final_valid": 20,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.55,
+   "head_volume": 6300,
+   "entities_with_demand": 17,
+   "status": "PARTLY LIVE; neighbourhoods.guide holds 825 pages on the named-neighbourhood axis, the index axis is new"
+  },
+  {
+   "family": "solar.city-sun-times",
+   "rank_score": 3.1,
+   "expected_final_valid": 23,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.3,
+   "head_volume": 92000,
+   "entities_with_demand": 19,
+   "status": "NOT IN THE CATALOGUE"
+  },
+  {
+   "family": "outdoors.named-hike",
+   "rank_score": 2.2,
+   "expected_final_valid": 9,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.55,
+   "head_volume": 3100,
+   "entities_with_demand": 6,
+   "status": "IN THE CATALOGUE as sport.route, ZERO ROWS GENERATED"
+  },
+  {
+   "family": "outdoors.region-daytrips",
+   "rank_score": 1.7,
+   "expected_final_valid": 7,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.55,
+   "head_volume": 7500,
+   "entities_with_demand": 6,
+   "status": "IN THE CATALOGUE as outdoors.region-feature-list, ZERO ROWS GENERATED"
+  },
+  {
+   "family": "visas.country-digital-nomad",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 1.0,
+   "serp_feasibility": 0.3,
+   "head_volume": 13000,
+   "entities_with_demand": 17,
+   "status": "IN THE CATALOGUE, ZERO PAGES, source_state MISSING_ACQUIRABLE"
+  },
+  {
+   "family": "outdoors.national-park",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.05,
+   "head_volume": 340000,
+   "entities_with_demand": 43,
+   "status": "measured and refused"
+  },
+  {
+   "family": "climate.city-annual",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.25,
+   "serp_feasibility": 0.3,
+   "head_volume": 2000,
+   "entities_with_demand": 0,
+   "status": "measured and refused"
+  },
+  {
+   "family": "climate.city-day",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.1,
+   "serp_feasibility": 0.3,
+   "head_volume": 0,
+   "entities_with_demand": 0,
+   "status": "measured and refused"
+  },
+  {
+   "family": "destinations.city-hub",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.7,
+   "serp_feasibility": 0.3,
+   "head_volume": 2400,
+   "entities_with_demand": 0,
+   "status": "measured and refused"
+  },
+  {
+   "family": "tools.time-difference",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.45,
+   "serp_feasibility": 0.3,
+   "head_volume": 1100,
+   "entities_with_demand": 8,
+   "status": "measured and refused"
+  },
+  {
+   "family": "safety.country-is-it-safe",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.25,
+   "serp_feasibility": 0.3,
+   "head_volume": 900,
+   "entities_with_demand": 5,
+   "status": "measured and refused"
+  },
+  {
+   "family": "tools.net-pay-calculator",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.1,
+   "serp_feasibility": 0.3,
+   "head_volume": 1260000,
+   "entities_with_demand": 9,
+   "status": "ADMITTED AS ONE TOOL, REFUSED AS A SCALE PATH"
+  },
+  {
+   "family": "pulse.it-ponti",
+   "rank_score": 0.0,
+   "expected_final_valid": 0,
+   "commercial_value": 0.1,
+   "serp_feasibility": 0.3,
+   "head_volume": 20000,
+   "entities_with_demand": 3,
+   "status": "measured and refused"
+  }
+ ]
+}

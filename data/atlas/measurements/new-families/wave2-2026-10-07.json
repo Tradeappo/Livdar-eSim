@@ -1,0 +1,64 @@
+{
+ "measured_on": "2026-10-07",
+ "method": "keywords-explorer-matching-terms, match_mode phrase, volume floor, ordered by volume descending, so the tail is sampled and not extrapolated from a head keyword",
+ "candidates": {
+  "solar.city-sun-times": {
+   "domain": "climate, travel planning",
+   "language_measured": "de", "verdict": "ADMIT_WITH_A_SERP_CHECK_FIRST",
+   "head": [["sonnenuntergang", 92000, 7], ["sonnenuntergang heute", 58000, 7], ["sonnenaufgang", 42000, 7], ["sonnenaufgang morgen", 15000, 4]],
+   "entity_tail_sampled": [["sonnenuntergang berlin", 14000, 20], ["sonnenuntergang muenchen", 10000, 3], ["sonnenuntergang hamburg", 4800, 15], ["sonnenaufgang berlin", 4500, 8], ["sonnenuntergang koeln", 3300, 6], ["sonnenaufgang muenchen", 3100, 40], ["sonnenuntergang frankfurt", 2400, 5], ["sonnenuntergang stuttgart", 1900, null], ["sonnenuntergang hannover", 1600, null], ["sonnenaufgang hamburg", 1500, null], ["sonnenuntergang duesseldorf", 1500, 2], ["sonnenuntergang dortmund", 1400, null], ["sonnenuntergang nuernberg", 1400, 20], ["sonnenuntergang leipzig", 1300, 5], ["sonnenuntergang augsburg", 1300, 5], ["sonnenuntergang sylt", 1200, 20], ["sonnenuntergang dresden", 1200, null], ["sonnenuntergang bremen", 1100, null], ["sonnenuntergang kiel", 1000, null]],
+   "entities_with_demand_in_this_sample": 19,
+   "data_source": "computed_solar, already registered in sources.json, computable from the lat and lon this project holds for 31,715 cities. No feed and no licence cost.",
+   "information_gain": "a city page carrying today's times plus the year's shape, earliest and latest sunset, and the solstice dates, computed from the city's own coordinates",
+   "cannibalisation_risk": "low. No live family answers this. weather.city-month is monthly temperature and precipitation, not daylight.",
+   "the_honest_caveat": "the intent is dominated by heute and morgen, today and tomorrow, so a static page answers it badly. This needs a computed page that is correct on the day it is read, which is what timeanddate.com does, and that SERP has to be sampled before anything is built.",
+   "noise_excluded": "sonnenuntergang malen 3,100 is painting, bilder 2,600 is images, englisch 1,300 is translation. None is this intent.",
+   "expected_entities": "the measured tail runs from 14,000 for Berlin to 1,000 for Kiel across nineteen German cities, so the admissible set is the top fifty to one hundred cities per market, not all 31,715. Call it 500 to 1,500 pages across the fourteen markets, each one measured.",
+   "scale_verdict": "MODERATE", "commercial_verdict": "LOW_TO_MEDIUM at CPC 2 to 50 cents"},
+
+  "transport.airport-transfer": {
+   "domain": "transport, airport",
+   "language_measured": "en", "verdict": "ADMIT_ON_COMMERCIAL_VALUE_NOT_ON_SCALE",
+   "head": [["airport transfer", 2100, 110]],
+   "entity_tail_sampled": [["london airport transfer", 800, 200], ["airport transfer cancun", 700, 250], ["honolulu airport transfer", 600, 100], ["hong kong airport transfer", 500, 80], ["istanbul airport transfer", 450, 160], ["airport transfer punta cana", 350, 180], ["punta cana airport transfer", 350, 190], ["paris airport transfer", 300, 250], ["cabo airport transfer", 300, 180], ["miami airport transfer", 300, 170], ["bangkok airport transfer", 250, 120], ["dubai airport transfer", 250, 190], ["phuket airport transfer", 250, 100], ["rome airport transfer", 250, 150], ["tulum airport transfer", 250, 110], ["airport transfer cabo san lucas", 200, 160]],
+   "entities_with_demand_in_this_sample": 16,
+   "the_finding": "this is the HIGHEST CPC family measured anywhere in this project, 100 to 250 cents against 1 to 9 cents for the pulse cluster and 2 to 10 cents for best-time. It is pure booking and affiliate intent.",
+   "volume_per_entity": "small, 200 to 800 a month, which is two orders of magnitude below the pulse cluster",
+   "data_source": "ourairports, already registered. transport.airport-to-city and airports.guide are both in the catalogue and generated ZERO rows, so the generator is missing rather than the data.",
+   "cannibalisation_risk": "transport.route-from-market holds 1,327 pages on computed distance from a market to a destination, which is a different question from how to get from an airport to the city it serves.",
+   "scale_verdict": "LOW, perhaps 100 to 300 airports with measurable demand",
+   "commercial_verdict": "HIGHEST MEASURED",
+   "why_it_still_matters": "the brief asks commercial value and scale value to be kept apart. This family is the clearest case in the project: it will never carry the page count, and at 250 cents a click it may carry more revenue per page than anything else on the list."},
+
+  "tools.time-difference": {
+   "domain": "calculators, transport",
+   "language_measured": "en", "verdict": "REFUSE",
+   "head": [["time difference between", 1100, 4]],
+   "entity_tail_sampled": [["time difference between california and hawaii", 900, 30], ["time difference between california and japan", 600, null], ["time difference between east and west coast", 350, 10], ["time difference between texas and hawaii", 250, null], ["time difference between new york and london", 250, 10], ["time difference between california and philippines", 250, null], ["time difference between us and uk", 200, 8], ["time difference between london and new york", 200, 10]],
+   "why_refused": "the tail is 200 to 900 a month against a combinatorial city-pair space of millions, which is the definition of a thin fan-out. The intent is answered by a Google calculator widget above the organic results. And iana-tz would give a correct answer with no information gain over that widget. This is a city-swap family and the brief rejects those by name."},
+
+  "outdoors.ski-area": {
+   "domain": "ski, outdoor, region",
+   "language_measured": "de", "verdict": "ADMIT",
+   "entity_tail_sampled": [["winterberg skigebiet", 9200, 25], ["skigebiet winterberg", 6100, 25], ["spitzingsee skigebiet", 4200, 25], ["sudelfeld skigebiet", 3900, 30], ["montafon skigebiet", 3600, 10], ["flachau skigebiet", 3600, 50], ["lofer skigebiet", 3400, 50], ["nesselwang skigebiet", 3200, 60], ["mayrhofen skigebiet", 2900, 10], ["zell am see skigebiet", 2900, 50], ["saalbach hinterglemm skigebiet", 2700, 40], ["spindlermuehle skigebiet", 2700, 40], ["wilder kaiser skigebiet", 2700, 20], ["ehrwald skigebiet", 2500, 30], ["ofterschwang skigebiet", 2500, 4], ["balderschwang skigebiet", 2500, 25], ["obertauern skigebiet", 2400, 15], ["steinplatte skigebiet", 2400, 5], ["sonnenkopf skigebiet", 2300, 70], ["wildschoenau skigebiet", 2300, 35], ["zermatt skigebiet", 2300, 2], ["zugspitze skigebiet", 2300, 25], ["feldberg skigebiet", 2300, 30], ["damuels skigebiet", 2300, 2], ["kitzbuehel skigebiet", 2200, 25], ["arlberg skigebiet", 2200, 15], ["klinovec skigebiet", 2200, 40], ["laax skigebiet", 2200, 8]],
+   "entities_with_demand_in_this_sample": 28,
+   "the_sample_was_TRUNCATED": "28 named ski areas all above 2,100 a month came back before the limit of 40 cut the list, and the list was still at 2,100 when it stopped. The tail is deeper than this measurement reached.",
+   "cpc_range_cents": [2, 70],
+   "data_source": "OpenStreetMap carries winter sports areas and piste geometry, and the project already captures the outdoor layer for 27 countries. The ski-area entity is not yet extracted from it.",
+   "scale_verdict": "GOOD across the Alpine countries and the German Mittelgebirge",
+   "commercial_verdict": "MEDIUM to HIGH at 25 to 70 cents"},
+
+  "outdoors.named-hike": {
+   "domain": "trail, outdoor",
+   "language_measured": "de", "verdict": "ADMIT",
+   "entity_tail_sampled": [["schrecksee wanderung", 3100, 20], ["herzogstand wanderung", 3000, 15], ["jochberg wanderung", 2500, 25], ["rubihorn wanderung", 2300, 25], ["kampenwand wanderung", 2200, 15], ["preikestolen wanderung", 2100, 10]],
+   "entities_with_demand_in_this_sample": 6,
+   "data_source": "data/atlas/sources/osm-trails/ holds 27 country files of named routes with measured member-way length. India alone carried 1,344 trails with a measured length.",
+   "noise_excluded": "alpaka wanderung 8,700 and alpaka wanderung in der naehe 4,900 are alpaca trekking, a bookable product and not a route. wanderung alone at 3,500 is generic.",
+   "THIS_OVERTURNS_AN_EARLIER_FINDING": "the outdoor gate on 2026-10-06 diverted 63,316 thin peak pages to aggregation, and that was right: a peak with one elevation attribute has no demand. But the entity it rejected was the wrong one. A NAMED HIKE reads 2,100 to 3,100 a month and a named SKI AREA reads 2,200 to 9,200, while an individual summit reads nothing. The quality dimension the brief asked for is not how many attributes the feature carries, it is whether the entity is a thing people plan a day around.",
+   "scale_verdict": "GOOD, bounded by the named-route count in the trail layer",
+   "commercial_verdict": "MEDIUM at 10 to 25 cents"}
+ },
+ "units_spent_on_this_wave": 1440,
+ "licence_and_provenance": "Ahrefs Keywords Explorer matching-terms via the Ahrefs API v3 on 2026-10-07"
+}

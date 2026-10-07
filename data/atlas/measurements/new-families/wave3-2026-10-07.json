@@ -1,0 +1,56 @@
+{
+ "measured_on": "2026-10-07",
+ "method": "matching-terms in phrase mode for the tail, then serp-overview on one keyword per candidate where the admission turned on SERP ownership",
+ "candidates": {
+  "outdoors.national-park": {
+   "domain": "park, outdoor, region", "language_measured": "en", "verdict": "REFUSE_AT_THE_OVERVIEW_LEVEL",
+   "entity_tail_sampled": [["yellowstone national park", 340000, 30], ["glacier national park", 303000, 10], ["zion national park", 271000, 35], ["yosemite national park", 249000, 15], ["acadia national park", 183000, 20], ["sequoia national park", 164000, 10], ["olympic national park", 147000, 10], ["banff national park", 141000, 40], ["rocky mountain national park", 127000, 4], ["grand teton national park", 99000, 35], ["arches national park", 98000, 15], ["shenandoah national park", 82000, 20], ["joshua tree national park", 69000, 7], ["big bend national park", 68000, 4], ["badlands national park", 63000, 6], ["everglades national park", 58000, 40], ["redwood national park", 57000, 8], ["white sands national park", 54000, 8], ["grand canyon national park", 51000, 20], ["great smoky mountains national park", 49000, 10], ["death valley national park", 45000, 8], ["dry tortugas national park", 42000, 35], ["north cascades national park", 41000, 10], ["crater lake national park", 39000, 6], ["hot springs national park", 37000, 20], ["canyonlands national park", 36000, 20], ["cuyahoga valley national park", 36000, 3], ["saguaro national park", 33000, 5], ["mount rainier national park", 33000, 9], ["denali national park", 33000, 20], ["great basin national park", 32000, 4], ["pinnacles national park", 32000, 10], ["channel islands national park", 31000, 20], ["congaree national park", 31000, 20], ["mammoth cave national park", 30000, 10], ["capitol reef national park", 28000, 9], ["bryce canyon national park", 28000, 25], ["jasper national park", 25000, 45], ["new river gorge national park", 24000, 30], ["isle royale national park", 24000, 8], ["indiana dunes national park", 24000, 10], ["lassen volcanic national park", 22000, 5], ["guadalupe mountains national park", 21000, 8]],
+   "entities_with_demand_in_this_sample": 43,
+   "the_sample_was_TRUNCATED": "43 parks all above 21,000 a month came back before the limit cut the list, and it was still at 21,000 when it stopped. On volume alone this is the largest entity tail measured in the project.",
+   "why_refused": "the SERP is OFFICIAL_OWNED, which is a reject class this pipeline already enforces. On acadia national park at 183,000 a month: position 1 nps.gov at DOMAIN RATING 92 with sitelinks, position 3 Wikipedia at DR 97 on 2,055 backlinks, position 4 visitmaine.com the official state tourism board, position 5 nationalparks.org the official foundation, position 8 Tripadvisor at DR 93, position 9 recreation.gov the official federal booking system. The WEAKEST organic winner is acadiamagic.com at DR 59 with 1,566 backlinks. There is no sub-DR-50 winner and no low-backlink entry anywhere in the top ten.",
+   "what_is_NOT_refused": "the park overview is refused. A differentiated sub-intent on the same entity has not been measured and may well be open, because the open SERPs found in this project are all specific questions rather than entity overviews: best time to visit X cleared at difficulty 0 to 8 and feiertage nrw 2026 has a DR 1 winner. Park best-time, park entrance fees and park trail lists each need their own measurement before anything is decided.",
+   "data_source": "OpenStreetMap boundary=national_park and leisure=nature_reserve, in the outdoor layer already captured for 27 countries, plus Wikidata"},
+
+  "property.city-rent-index": {
+   "domain": "housing, rent", "language_measured": "de", "verdict": "ADMIT",
+   "entity_tail_sampled": [["mietspiegel berlin", 5700, 250], ["mietspiegel muenchen", 3000, 90], ["mietspiegel berlin 2026", 1900, 130], ["mietspiegel bremen", 1800, 15], ["mietspiegel koeln", 1600, 15], ["mietspiegel hamburg", 1600, 160], ["mietspiegel leipzig", 1500, 8], ["mietspiegel stuttgart", 1200, 30], ["mietspiegel duesseldorf", 1200, 30], ["mietspiegel frankfurt", 1100, 25], ["mietspiegel berlin 2025", 1100, 70], ["mietspiegel augsburg", 1100, 30], ["mietspiegel essen", 1000, 8], ["mietspiegel nuernberg", 1000, 30], ["mietspiegel dresden", 1000, 10], ["mietspiegel hannover", 1000, 20], ["mietspiegel muenster", 1000, 5], ["berliner mietspiegel", 900, 200], ["mietspiegel bochum", 900, 9], ["mietspiegel bonn", 900, 5], ["berliner mietspiegel 2026", 800, 90]],
+   "entities_with_demand_in_this_sample": 21,
+   "serp_sampled": {"keyword": "mietspiegel leipzig",
+    "the_decisive_result": "four domains under DR 35 with zero or one backlink in the top ten: mieterverein-leipzig.de DR 19 on 1 backlink at position 5, rechtsanwalt-bach.de DR 26 with ZERO backlinks at 6, mietspiegeltabelle.de DR 31 with ZERO backlinks at 8, immaxi.de DR 27 on 1 backlink at 10",
+    "official_presence_does_not_lock_it": "leipzig.de at DR 80 holds positions 2 and 3, and ImmoScout24 at DR 88 manages only position 7 with 192 traffic. Unlike the national park SERP, the official page coexists with weak independents rather than excluding them.",
+    "a_competitor_worth_studying": "mietspiegeltabelle.de at DR 31 with zero backlinks is itself a programmatic site built on exactly this family",
+    "verdict": "OPEN"},
+   "cannibalisation_risk": "MEDIUM. rents.city already holds 5,202 pages from rent-index-verified and eurostat-rent-2025. A Mietspiegel is a specific legal instrument a German city publishes with statutory force, not a generic rent average, so the two can coexist only if the source really is the published Mietspiegel. If it is not, this is the same page twice and must be refused.",
+   "year_axis_is_real": "mietspiegel berlin 2026 at 1,900 and 2025 at 1,100 against 5,700 undated, so the year is part of the entity",
+   "scale_verdict": "LOW to MODERATE, roughly the 100 largest German cities plus the Austrian and Swiss equivalents",
+   "commercial_verdict": "HIGH at 90 to 250 cents in the big cities"},
+
+  "utilities.country-electricity-price": {
+   "domain": "utilities", "language_measured": "de", "verdict": "ADMIT_SMALL_AND_COMMERCIAL",
+   "head": [["strompreise", 33000, 80], ["strompreise vergleichen", 14000, 140], ["strompreise aktuell", 7900, 40], ["strompreise 2026", 4700, 70], ["vergleich strompreise", 2100, 160], ["aktuelle strompreise", 2400, 45], ["strompreise aktuell kwh", 2000, 50], ["strompreise europa", 800, 15]],
+   "cpc_range_cents": [15, 160],
+   "the_shape_of_the_entity": "electricity price is set nationally or by supplier, not by city, so the entity is country and at best country x year. That is a few hundred pages at most, never a scale path.",
+   "no_family_exists_yet": "there is no utilities family in the catalogue at all, and Eurostat publishes electricity and gas prices per country per half-year",
+   "noise_excluded": "eon strompreise 2,700 at 110 cents is a supplier brand query and negative strompreise 3,800 is an energy-market news topic, neither of which this project should answer",
+   "scale_verdict": "LOW", "commercial_verdict": "HIGH at 40 to 160 cents"},
+
+  "work.salary-by-profession": {
+   "domain": "salary, work", "language_measured": "de", "verdict": "ADMIT",
+   "the_new_axis": "work.city-salaries already holds 3,190 pages on the CITY axis. The measurement shows the demand is on the PROFESSION axis, which no family covers.",
+   "entity_tail_sampled": [["minijob gehalt", 13000, 1], ["fluglotse gehalt", 10000, 4], ["assistenzarzt gehalt", 8600, 20], ["mfa gehalt", 7900, 15], ["notfallsanitaeter gehalt", 7300, 25], ["steuerberater gehalt", 7000, 40], ["pflegefachkraft gehalt", 6700, 70], ["krankenschwester gehalt", 6600, 70], ["steuerfachangestellte gehalt", 6200, 30], ["rettungssanitaeter gehalt", 6200, 10], ["ingenieur gehalt", 6000, 25], ["bauingenieur gehalt", 6000, 30], ["erzieher gehalt", 5300, 20], ["pilot gehalt", 5200, 7], ["flugbegleiter gehalt", 5200, 2], ["oberarzt gehalt", 5100, 30], ["lokfuehrer gehalt", 5100, 15], ["werkstudent gehalt", 4900, 10], ["physiotherapeut gehalt", 4700, 15], ["muellmann gehalt", 4700, 10]],
+   "entities_with_demand_in_this_sample": 20,
+   "the_sample_was_TRUNCATED": "twenty professions above 4,700 a month before the limit cut the list",
+   "noise_excluded": "lennart karl gehalt 7,300, lamine yamal gehalt 5,700, dennis schroeder gehalt 5,500, franz wagner gehalt 5,300 and ronaldo gehalt 4,700 are footballers and basketball players. A celebrity salary is not a labour-market fact and this project has no source for it.",
+   "data_source": "salary-data-verified, salary-city-verified, eurostat-salary-2025, ons-house-prices-and-earnings and us-census-acs are all registered. Whether any of them carries a per-PROFESSION breakdown has to be checked before this is admitted, because the city axis is what the existing family uses.",
+   "scale_verdict": "GOOD: profession x country, and profession x city for the larger cities",
+   "commercial_verdict": "MEDIUM to HIGH at 10 to 70 cents, best in nursing and the regulated professions"},
+
+  "tools.net-pay-calculator": {
+   "domain": "calculators, tax, salary", "language_measured": "de", "verdict": "ADMIT_AS_ONE_TOOL_NOT_AS_A_FAMILY",
+   "head": [["brutto netto rechner", 1260000, 2], ["brutto netto rechner 2026", 153000, 2], ["brutto netto rechner 2025", 114000, 1], ["brutto netto", 107000, 2], ["brutto netto rechner nrw", 11000, 1], ["brutto netto rechner bayern", 11000, 2], ["gehaltsrechner brutto netto", 8200, 2], ["brutto netto rechner tvoed", 4800, 3], ["brutto netto rentenrechner 2026", 4700, 30]],
+   "the_honest_reading": "1,260,000 a month is the second largest single keyword measured in this project, behind vacances scolaires 2026. But the axis is thin: year, two states and a public-sector pay scale. tools.net-pay exists in the catalogue and generated 11 rows. The brief says not to count twenty tools as a fake scale path to a million, and this is that case: enormous traffic, almost no page count, CPC of only 2 cents.",
+   "scale_verdict": "VERY LOW", "commercial_verdict": "LOW at 2 cents despite the volume"}
+ },
+ "units_spent_on_this_wave": 2212,
+ "licence_and_provenance": "Ahrefs Keywords Explorer matching-terms and SERP overview via the Ahrefs API v3 on 2026-10-07"
+}
