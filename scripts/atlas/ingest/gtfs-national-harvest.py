@@ -327,6 +327,24 @@ def harvest(key, url, country, licence, provider):
             for i in range(len(seq)):
                 for j in range(i + 1, len(seq)):
                     a, b = seq[i][0], seq[j][0]
+                    # ---- THE INTER-SETTLEMENT RULE -------------------------------------
+                    # Two endpoints in the SAME settlement are never a pair here. One rule
+                    # doing two jobs.
+                    #
+                    # Correctness: a pair of bus interchanges inside one town, or an
+                    # interchange paired with its own town, is the local stop-to-stop page
+                    # the brief forbids. Station-to-station is wanted only where it is
+                    # intercity, and "different settlements" is exactly that test.
+                    #
+                    # Memory: without it, GB's 18,423 station nodes pair with each other
+                    # and with their own settlements inside every conurbation. The
+                    # aggregate grew about 600 MB per 100 seconds against a 15 GB cgroup
+                    # and was minutes from the OOM that killed the manifest stage twice.
+                    # Collapsing on settlement first is what makes a national feed of this
+                    # size processable at all.
+                    if a.get('settlement_id') == b.get('settlement_id'):
+                        stats['pair_rejected_same_settlement'] += 1
+                        continue
                     k = (a['id'], b['id']) if a['id'] < b['id'] else (b['id'], a['id'])
                     e = P[k]
                     e['trips'] += 1
