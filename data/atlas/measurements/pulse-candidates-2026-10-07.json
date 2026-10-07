@@ -1,0 +1,49 @@
+{
+ "builder": "scripts/atlas/scale/pulse-candidates.py",
+ "date": "2026-10-07",
+ "source": "data/atlas/sources/events/pulse-entities.json",
+ "source_rows_available": {
+  "national": 1081,
+  "regional": 623,
+  "school": 1502,
+  "long_weekends": 687,
+  "bridge_days": 233,
+  "long_weekends_subdivision": 3539,
+  "bridge_days_subdivision": 1052,
+  "bridge_plans": 348
+ },
+ "source_countries": 43,
+ "source_subdivisions": 187,
+ "years_on_disk": [
+  2026,
+  2027
+ ],
+ "funnel": {
+  "raw": 226,
+  "final_net": 226,
+  "final_net:pulse_country_holidays": 19,
+  "rejected_no_holiday_rows_for_country_year": 1,
+  "final_net:pulse_subdivision_holidays": 55,
+  "final_net:pulse_school_holidays": 110,
+  "rejected_school_fewer_than_3_periods": 17,
+  "rejected_school_subdivision_has_no_name": 2,
+  "final_net:pulse_long_weekends": 10,
+  "final_net:pulse_bridge_plan": 32
+ },
+ "final_net": 226,
+ "per_family": {
+  "pulse_country_holidays": 19,
+  "pulse_subdivision_holidays": 55,
+  "pulse_school_holidays": 110,
+  "pulse_long_weekends": 10,
+  "pulse_bridge_plan": 32
+ },
+ "why_this_is_small": "The store holds 9,065 rows over 43 countries and 187 subdivisions. The measured demand covers each market on its OWN country and, for the subdivision families, the 58 subdivisions whose own keyword was read. ahrefs-holidays-*.json refuses \"a region, a month, or a country the source cannot reach\" in its own note, so the 43 countries are SOURCE SUPPLY and not measured demand. NEW-FAMILY-SCALE-MATRIX.csv recorded entities_with_demand=43 for pulse.country-holidays; that was the supply figure and it is corrected here.",
+ "refusals_taken_from_research_not_invented": [
+  "bridge days get no page of their own: cannibalisation HIGH against long weekends, so the bridge day is a fact ON the long-weekend page",
+  "school holidays refused in Italian (it weak) and in every unmeasured language",
+  "country-month holidays not built: acceptance 0.4, MEDIUM cannibalisation against the year page",
+  "ja, tr and zh-Hant refused for every pulse family: Japan has Cabinet Office holiday data on disk but the holiday family was never measured in Japanese, and supply without demand is not an admission",
+  "years limited to 2026 and 2027, which is what the store holds; generating 2024 or 2028 would be fabricating dated government facts"
+ ]
+}

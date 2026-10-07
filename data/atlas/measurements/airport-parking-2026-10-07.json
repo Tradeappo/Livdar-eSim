@@ -1,0 +1,47 @@
+{
+ "captured": "2026-10-07",
+ "source": "OurAirports register (public domain) joined to OpenStreetMap named amenity=parking (ODbL 1.0, attribution required)",
+ "gate": {
+  "types_allowed": [
+   "large_airport",
+   "medium_airport"
+  ],
+  "scheduled_service_required": true,
+  "iata_required": true,
+  "search_radius_km": 6.0,
+  "association_gate": "a lot qualifies only ON_SITE within 1.5 km or NAMED_FOR_THE_AIRPORT; distance alone beyond 1.5 km is not association",
+  "on_site_km": 1.5,
+  "min_named_car_parks": 2,
+  "duplicate_names_collapsed": "one physical car park is often several OSM objects sharing a name, so names are collapsed before counting"
+ },
+ "what_is_deliberately_absent": [
+  "price",
+  "live availability",
+  "booking",
+  "space counts",
+  "opening hours"
+ ],
+ "why": "the POI extractor did not retain the OSM capacity, fee or parking tags, so any space count or price on this page would be invented",
+ "funnel": {
+  "register_rows": 86215,
+  "rejected_type_not_an_airport_people_park_at": 80935,
+  "rejected_no_scheduled_service": 2011,
+  "rejected_no_iata_code": 25,
+  "airports_eligible_for_a_lookup": 3244,
+  "named_parking_poi_indexed": 32654,
+  "rejected_fewer_than_2_named_car_parks": 3194,
+  "rejected_lot_no_evidence_of_association": 1873,
+  "FINAL_airport_parking_candidates": 50
+ },
+ "lots_per_airport_histogram": {
+  "0": 3110,
+  "1": 84,
+  "5": 6,
+  "2": 27,
+  "6": 3,
+  "8": 1,
+  "3": 8,
+  "4": 3,
+  "10": 2
+ }
+}

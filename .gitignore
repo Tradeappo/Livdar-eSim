@@ -42,3 +42,7 @@ __pycache__/
 # NASA POWER shards are appended to while the fetch runs, which needs plain JSONL; the
 # finalise pass gzips them and the .gz is what gets committed, like every other source.
 data/atlas/sources/climate/power/*.jsonl
+
+# GTFS pair aggregates are regenerable from scripts/atlas/ingest/gtfs-harvest.py against the
+# Mobility Database catalogue, and the full set runs to hundreds of megabytes of stop graphs.
+data/atlas/sources/transport/gtfs/
