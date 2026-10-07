@@ -1,0 +1,78 @@
+# OPEN SERP HARVEST | family=visa.* | lang=en | country=us
+# method: matching-terms phrase "visa", where volume>=1500 AND serp_domain_rating_top10_min<=35
+# rows returned: 252. THREE DISTINCT FAMILIES share the token and must be separated:
+#  A TRAVEL ENTRY VISA  <- Livdar's axis. Moderate volume, CPC 2.00 to 3.50, KD often 0.
+#  B US IMMIGRATION CATEGORY (h1b, eb1-5, o1, k1, l1) <- huge volume and CPC up to 16.00,
+#    but it is legal advice territory and NOT Livdar's. Recorded, deliberately not pursued.
+#  C VISA THE PAYMENT CARD <- pure collision: visa gift card 135,000, visa bulletin 224,000,
+#    chase visa, vanilla visa. The named-entity gate must exclude these.
+# format: segment|keyword|volume|KD|CPC_USD
+A|uk visa|16000|0|3.50
+A|us travel visa|7000|0|0.35
+A|new zealand visa|4000|46|3.50
+A|uk visa for us citizens|3600|58|2.50
+A|vietnam visa for us citizens|3400|0|2.50
+A|tourist visa usa|3300|37|1.30
+A|indian e visa|2600|3|2.50
+A|china k visa|2600|0|0.15
+A|do i need a visa to go to japan|3000|0|0.05
+A|spain digital nomad visa|2900|22|1.40
+A|digital nomad visa spain|2600|17|1.00
+A|visa waiver program countries 2025|2400|0|
+A|indian visa for us citizens|2300|55|2.50
+A|india visa for us citizens|1900|8|2.50
+A|turkey visa|1900|59|1.30
+A|japan digital nomad visa|1900|0|0.60
+A|pakistan visa online|1800|0|2.50
+A|visa requirements for canada travel|1700|0|
+A|canada work visa|1700|24|0.80
+A|umrah visa|1700|0|1.10
+A|emirates visit visa online|1700|0|0.50
+A|visitor visa usa|1700|0|1.10
+A|d7 visa portugal|1700|5|0.30
+A|portugal d7 visa|2000|8|0.25
+A|do us citizens need a visa for japan|2100|40|0.07
+A|do americans need a visa for japan|1600|0|0.03
+A|us passport visa free countries|1600|0|0.09
+A|egypt visa for us citizens|1600|29|2.00
+A|australian visa|1600|0|1.10
+A|canadian visa|2000|0|0.90
+A|do you need a visa to go to mexico|1600|0|0.07
+A|non lucrative visa spain|1500|1|0.60
+A|singapore visa|1500|14|1.80
+A|bali visa|1500|0|2.50
+A|cambodia visa|1500|57|2.00
+A|global talent visa|1600|0|0.90
+A|spain golden visa|6100|15|0.60
+A|golden visa portugal|2600|59|1.60
+A|greece golden visa|2500|59|1.60
+A|golden visa|4700|48|1.30
+A|75 countries visa pause|10000|12|2.00
+A|75 countries visa pause list|3500|0|1.10
+A|visa pause|1600|8|1.30
+A|visa freeze 75 countries|1900|0|
+A|visa appointment wait times|2200|11|2.50
+A|visa reciprocity|1500|0|0.04
+B|visa bulletin|224000|40|1.60
+B|h-1b visa|103000|68|0.04
+B|h1b visa|90000|0|0.03
+B|o1 visa|19000|0|4.00
+B|k1 visa|14000|53|1.80
+B|eb3 visa|9500|48|0.45
+B|eb1 visa|8500|3|1.40
+B|e2 visa|8600|53|1.90
+B|eb2 visa|6000|1|2.50
+B|einstein visa|7900|6|1.20
+B|h-1b visa stamping delays india|1500|0|16.00
+B|eb5 visa attorney|1600|1|11.00
+B|o1 visa lawyer|1600|0|11.00
+B|h1b visa lawyer|1500|0|10.00
+B|h1b visa attorney|1600|0|7.00
+B|visa attorney|1800|0|7.00
+C|visa gift card|135000|22|0.90
+C|chase visa|25000|31|1.00
+C|check visa gift card balance|14000|71|1.30
+C|vanilla visa gift card|13000|59|0.25
+C|capital one visa|8300|28|3.50
+C|disney chase visa|3400|38|5.00
+C|visa credit card login|2000|68|8.00
