@@ -603,23 +603,37 @@ def destination_markets(ent_country, eid):
 HARVEST_CITY_IDS = set()
 HARVEST_LANG_IDS = collections.defaultdict(set)
 HARVEST_VOL = {}
-try:
-    for r in csv.DictReader(open(ROOT + 'data/atlas/measurements/destination-harvest/'
-                                 'resolved-cities-2026-10-01.csv')):
-        pair = (r['city'].strip().lower(), (r.get('city_country') or '').strip())
-        XL_CITIES.add(pair)
-        XL_MARKET_CITIES[r['searcher_market'].strip()].add(pair)
-        XL_LANG_CITIES[r['language'].strip()].add(pair)
-        cid = str(r.get('city_id') or '')
-        if cid:
-            HARVEST_CITY_IDS.add(cid)
-            HARVEST_LANG_IDS[r['language'].strip()].add(cid)
-            try:
-                HARVEST_VOL[cid] = max(HARVEST_VOL.get(cid, 0), int(r['volume']))
-            except ValueError:
-                pass
-except FileNotFoundError:
-    pass
+# Both harvests, added in order and never substituted for one another, so each stays auditable.
+# 2026-10-01 is the first pass, 639 keywords in seven languages. 2026-10-07 is the open-SERP
+# pass, 6,810 keywords in eleven languages, every one of them a SERP a domain of DR 30 or less
+# already holds. The second file resolved 3,938 of its rows to 4,323 market-and-language
+# evidence rows against the first file's 512.
+_HARVESTS = ('resolved-cities-2026-10-01.csv', 'resolved-cities-2026-10-07.csv')
+_h_counts = {}
+for _hf in _HARVESTS:
+    _before = len(HARVEST_CITY_IDS)
+    try:
+        for r in csv.DictReader(open(ROOT + 'data/atlas/measurements/destination-harvest/' + _hf)):
+            pair = (r['city'].strip().lower(), (r.get('city_country') or '').strip())
+            XL_CITIES.add(pair)
+            _m = (r.get('searcher_market') or '').strip()
+            if _m:
+                XL_MARKET_CITIES[_m].add(pair)
+            XL_LANG_CITIES[r['language'].strip()].add(pair)
+            cid = str(r.get('city_id') or '')
+            if cid:
+                HARVEST_CITY_IDS.add(cid)
+                HARVEST_LANG_IDS[r['language'].strip()].add(cid)
+                try:
+                    HARVEST_VOL[cid] = max(HARVEST_VOL.get(cid, 0), int(r['volume']))
+                except ValueError:
+                    pass
+    except FileNotFoundError:
+        _h_counts[_hf] = 'MISSING'
+        continue
+    _h_counts[_hf] = len(HARVEST_CITY_IDS) - _before
+for _hf, _n in _h_counts.items():
+    print(f'  {_hf}: {_n} cities new to the pool', file=sys.stderr)
 print(f'  destination harvest: {len(HARVEST_CITY_IDS):,} cities with measured demand in at '
       f'least one language', file=sys.stderr)
 
@@ -1428,7 +1442,14 @@ _outdoor_before = len(agg)
 for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.gz',
              ROOT + 'data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz',
              ROOT + 'data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz',
-             ROOT + 'data/atlas/sources/osm-parents/_region-aggregations.jsonl.gz'):
+             ROOT + 'data/atlas/sources/osm-parents/_region-aggregations.jsonl.gz',
+             # The transport pairs and the visa cells, put into this shape by
+             # transport-visa-manifest-adapter.py. They were built on 2026-10-07 and written to
+             # disk, and until this line existed nothing read them, so 61,661 pairs and 226
+             # policy cells had passed no gate at all and were NOT final candidates whatever an
+             # interim scoreboard said. From here every gate applies to them as it does to a
+             # POI list.
+             ROOT + 'data/atlas/sources/transport/_manifest-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1483,6 +1504,18 @@ SHAPE_SERP = {
     'region_what_to_see': 'OPEN_SPECIALIST_PAGE_WINS',
     'region_cities': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'region_best_time': 'NOT_SAMPLED',
+    # Measured 2026-10-07 on the pair families themselves: 891 of 1,000 English rows at KD 10
+    # or below with a median of 0, on SERPs where a domain of DR 30 or less already ranks top
+    # ten. flightsfrom.com holds 166,621 organic keywords at DR 57 on only 6,551 referring
+    # domains, which says the same thing from the other side: this format does not need
+    # authority.
+    'transport_airport_access': 'OPEN_SPECIALIST_PAGE_WINS',
+    'transport_pair': 'OPEN_SPECIALIST_PAGE_WINS',
+    'transport_pair_rail': 'OPEN_SPECIALIST_PAGE_WINS',
+    # Measured 2026-10-07: uk visa 16,000 at KD 0, vietnam visa for us citizens 3,400 at KD 0.
+    # Government sites hold the head and commercial visa agents fill the rest, which is a mixed
+    # SERP rather than an open one.
+    'visa_requirement': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
 }
 
 # Wikidata candidates, built and deduped against OSM by scripts/atlas/scale/
@@ -1530,6 +1563,25 @@ SHAPE_WIRING = {
     # because the eighteen measured routes are a sample and the volume for an individual
     # route is not claimed anywhere on the row.
     'trail': ('outdoors', 'ENTITY', 'trail', 55),
+    # Transport pairs and visa cells, added 2026-10-07. A pair page is ENTITY rather than
+    # AGGREGATION because its subject is one journey, not a list of things.
+    #
+    # The demand scores are deliberately NOT the measured keyword volumes. The 2026-10-07
+    # open-SERP harvest proved the FAMILY in English (891 of 1,000 rows at KD 10 or below,
+    # median KD 0) but no per-pair volume is claimed for 61,661 pairs, and a score that
+    # pretended otherwise would be the "source supply is not measured demand" error the brief
+    # names. So: 58 for airport access, which the measurement found is the highest-CPC half of
+    # the family (Newark to Manhattan 1,100 at a 0.10 CPC, Rome airport to city centre, Narita
+    # to Tokyo); 50 for air city pairs, whose corridors carry operator records; 46 for rail
+    # pairs, whose source is an adjacency graph the builder itself called PARTIAL, so its
+    # counts are floors.
+    'transport_airport_access': ('transport', 'ENTITY', 'airport_city_pair', 58),
+    'transport_pair': ('transport', 'ENTITY', 'city_pair', 50),
+    'transport_pair_rail': ('transport', 'ENTITY', 'city_pair_rail', 46),
+    # 55 for visa: the family measured well (uk visa 16,000 at KD 0 and a 3.50 CPC) and every
+    # cell rests on a government source read and dated, which is the strongest provenance in
+    # the whole inventory. Not higher, because only one origin nationality exists.
+    'visa_requirement': ('travel', 'ENTITY', 'visa_cell', 55),
     # Measured 2026-10-02 in ahrefs-region-families-2026-10-02.json. The scores are the
     # measured ceilings, not a guess: kyoto 78,000 for what-to-see, cidades de minas gerais
     # 12,000 for the city list, best time to visit tuscany 700 for when-to-go. The when-to-go
@@ -1542,6 +1594,24 @@ SHAPE_WIRING = {
 WD_LICENCE = ('Wikidata (CC0 1.0, public domain dedication, no share-alike)', 'CC0_NO_CONDITIONS')
 OSM_LICENCE = ('OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
                'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED')
+# The transport and policy rows do NOT come from OSM or Wikidata alone, so they must not
+# inherit either licence. Each names the sources it actually rests on, because the brief asks
+# for the licence recorded per source and a wrong attribution on a share-alike dataset is a
+# licensing problem rather than a cosmetic one.
+SHAPE_LICENCE = {
+    'transport_pair': ('OpenFlights routes (ODbL 1.0) with OurAirports (public domain) and '
+                       'GeoNames (CC BY 4.0)', 'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    'transport_airport_access': ('OurAirports (public domain) with GeoNames (CC BY 4.0)',
+                                 'PUBLIC_DOMAIN_PLUS_ATTRIBUTION_REQUIRED'),
+    'transport_pair_rail': ('Wikidata P197 adjacent station (CC0 1.0) with GeoNames '
+                            '(CC BY 4.0)', 'CC0_PLUS_ATTRIBUTION_REQUIRED'),
+    'visa_requirement': ('UK FCDO entry requirements (Open Government Licence v3.0)',
+                         'OGL_V3_ATTRIBUTION_REQUIRED'),
+}
+SHAPE_RECORD_PREFIX = {
+    'transport_pair': 'transport-air:', 'transport_airport_access': 'transport-access:',
+    'transport_pair_rail': 'transport-rail:', 'visa_requirement': 'visa-fcdo:',
+}
 
 # A feature page's parent is the list of its own class inside its own containment parent, where
 # that list was accepted. Built from the outdoor aggregation rows rather than constructed from
@@ -1555,8 +1625,34 @@ if OUTDOOR_PARENT_URL:
     print(f'  outdoor region lists available as parents: {len(OUTDOOR_PARENT_URL):,}',
           file=sys.stderr)
 
+# ---- categories the 2026-10-07 open-SERP measurement refuted, IN ENGLISH ---------------------
+# Five of the eighteen POI categories the brief named have no English demand that a page about a
+# named place could serve. Measured with a serp_domain_rating_top10_min filter so every returned
+# row is a SERP a low-authority domain already holds, at a floor of 100 monthly searches:
+#
+#   supermarket  2 rows in the whole tail. One resolves to the parent topic "publix", so the
+#                intent is a brand; the other, "marsh supermarkets muncie in", uses "in" as the
+#                state abbreviation for Indiana rather than the preposition.
+#   marina       0 rows.
+#   nightclub    2 rows, against 283 for beaches in the same call.
+#   parking      210 rows that look alive and are not about places: parking law, collision and
+#                personal-injury intent, sign-meaning questions and sign language. The rows that
+#                do carry a place are airport and cruise terminals, which the transport axis
+#                covers better.
+#   market       15 rows, and the volume sits in Christmas markets, which is a seasonal event
+#                family on an aggregation axis rather than a per-city market inventory.
+#
+# THE REFUSAL IS ENGLISH ONLY, because English is what was measured. The same classes carry
+# 11,118 rows in nine other languages and those are UNMEASURED, not refuted. Extending an
+# English finding to Japanese or Turkish would be the unmeasured extrapolation the brief
+# forbids, so they stay and this comment is the record of why.
+REFUTED_EN_CLASSES = {'supermarket', 'marina', 'nightclub', 'parking', 'market'}
+
 for a in agg:
     m, lang, shape = a['market'], a['language'], a['shape']
+    if lang == 'en' and a.get('cls') in REFUTED_EN_CLASSES:
+        stats['refuted_in_english_2026_10_07:' + a['cls']] += 1
+        continue
     wiring = SHAPE_WIRING.get(shape)
     if not wiring:
         stats['aggregation_shape_unwired:' + shape] += 1
@@ -1614,6 +1710,31 @@ for a in agg:
         ename = f"{a['feature'].replace('_', ' ')}s in {a['parent_name']}"
         intent = f"find the {a['feature'].replace('_', ' ')}s in {a['parent_name']}"
         q = min(100, 45 + min(30, a['n']) * 2)
+    elif shape in ('transport_pair', 'transport_pair_rail', 'transport_airport_access'):
+        fid = {'transport_pair': 'transport.city-pair-air',
+               'transport_pair_rail': 'transport.city-pair-rail',
+               'transport_airport_access': 'transport.airport-city-access'}[shape]
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        # One intent, not two. The measured parent topics collapse the distance question and
+        # the route question onto each other, so the page answers both or it answers neither.
+        intent = (f"get from {ename.replace(' to ', ' to ')}: how far it is, which modes "
+                  f"serve it and what the route options are")
+        # what the page can actually enumerate, plus the independent route evidence behind it
+        q = min(100, 45 + min(25, a.get('n') or 0) * 2 + min(20, a.get('enriched') or 0) * 2)
+        if a.get('route_confidence') != 'high':
+            q = max(30, q - 10)
+    elif shape == 'visa_requirement':
+        fid = 'policy.visa-nationality-destination'
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"find out what {ename} needs to enter: whether a visa is required, how long "
+                  f"the passport must be valid and when the policy was last published")
+        q = min(100, 55 + (a.get('enriched') or 0) * 5)
+        # the sixteen cells the FCDO states but the classifier would not machine-read keep the
+        # flag and lose the points, because an unclassified requirement is a weaker page
+        if a.get('cls') in ('unclassified', 'stated_in_source_but_not_machine_classified'):
+            q = max(30, q - 20)
     elif ptype == 'ENTITY':
         fid = f'poi.{cls}-notable'
         eid = a['entity_id']
@@ -1663,7 +1784,8 @@ for a in agg:
     serp_cls = SHAPE_SERP.get(shape, 'NOT_SAMPLED')
     ssc = SERP_SCORE[serp_cls]
     idx = min(q, dsc, src, ssc)
-    lic_name, lic_status = WD_LICENCE if is_wd else OSM_LICENCE
+    lic_name, lic_status = SHAPE_LICENCE.get(
+        shape, WD_LICENCE if is_wd else OSM_LICENCE)
     rows.append({
         'candidate_id': 'c_' + sig(fid, eid, m),
         'url_pattern': a['url'], 'market': m, 'language': lang,
@@ -1676,16 +1798,30 @@ for a in agg:
         'semantic_cluster_id': 'sc_' + sig('poiagg', shape, cls, modifier, m),
         'data_source': lic_name,
         'source_status': 'SOURCE_AVAILABLE',
-        'source_record_id': ('wikidata:' if is_wd else 'osm-agg:') + str(eid),
+        'source_record_id': SHAPE_RECORD_PREFIX.get(
+            shape, 'wikidata:' if is_wd else 'osm-agg:') + str(eid),
         'feed_required': '', 'licence_status': lic_status,
         'data_signature': sig('data', fid, eid),   # market-free, see the main loop
         'template_signature': sig('tpl', shape, cls, modifier),
-        'duplicate_risk': 'LOW', 'cannibalization_risk': 'LOW',
-        'market_demand_evidence': 'shape_measured_2026_10_01',
+        # The pair builders computed their own duplicate-risk proxy, and where it said HIGH the
+        # row carries that rather than the blanket LOW. The proxy was tested on 2026-10-07 and
+        # it measures TEMPLATE SHAPE, not duplication: across the 60 worst rail groups and
+        # 59,594 pairwise comparisons the highest shingle Jaccard was 0.672 and no pair reached
+        # 0.80. So it is carried as a flag to order publication by, not as a rejection.
+        'duplicate_risk': a.get('pair_duplicate_risk') or 'LOW',
+        'cannibalization_risk': 'LOW',
+        'market_demand_evidence': ('shape_measured_2026_10_07_open_serp'
+                                   if shape in SHAPE_LICENCE
+                                   else 'shape_measured_2026_10_01'),
         'quality_score': q, 'demand_score': dsc, 'source_score': src,
         'serp_score': ssc, 'serp_class': serp_cls, 'indexability_score': idx,
         'publication_priority': round(idx * 0.55 + dsc * 0.3 + ssc * 0.15, 1),
-        'publication_cohort_candidate': '', 'status': 'POI_AGGREGATION',
+        # status is SOURCE PROVENANCE, not a verdict: it records which builder produced the
+        # row, so a reader can tell a POI list from a transport pair from a policy cell.
+        'publication_cohort_candidate': '',
+        'status': ('TRANSPORT_PAIR' if shape.startswith('transport_')
+                   else 'VISA_POLICY_CELL' if shape == 'visa_requirement'
+                   else 'POI_AGGREGATION'),
         'uniqueness_reason': a['uniqueness_reason'],
         'locale_facts': ' | '.join(a.get('locale_facts') or []),
         'parent_url': a.get('parent_url', '') or OUTDOOR_PARENT_URL.get(

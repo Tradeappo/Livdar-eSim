@@ -1,0 +1,63 @@
+{
+ "captured": "2026-10-07",
+ "what_this_is": "the join that was missing. Two bodies of work existed on disk and nothing read either of them: the 2026-10-07 open-SERP harvest, and the transport pair and visa stores. Neither had passed a single manifest gate, so neither was a final distinct valid candidate whatever an interim scoreboard said about them.",
+ "part_1_destination_evidence": {
+  "why": "The localisation gate rejects a cross-language row unless the destination was measured in that page language. It was not relaxed. It was given the evidence it asks for, measured on open SERPs the same day.",
+  "harvest_input_keywords": 6810,
+  "harvest_languages": 11,
+  "previous_harvest_keywords": 639,
+  "resolver_changes": [
+   "four new languages: en, tr, ja, sv, each with the phrase form its own searchers use",
+   "Japanese joins place and category with no separator, so a space-bounded strip could not work there and the suffix now comes off by suffix match",
+   "Turkish marks place with a locative suffix attached to the noun, which is inflection and not a different place; the harvest showed the bare and suffixed forms are mutual parents",
+   "the US state suffix is used as a disambiguator rather than stripped, because Portland Maine and Portland Oregon are two cities and the suffix is what tells them apart",
+   "96 new exonym entries for Japanese kanji, English abbreviations, Turkish and Swedish",
+   "duration and audience qualifiers come off as tail noise, because the same destination asked about differently is the same destination"
+  ],
+  "resolved_city_evidence_rows": 4882,
+  "previous_resolved_rows": 512,
+  "non_city_demand_rows": 293,
+  "non_city_by_kind": {
+   "country": 164,
+   "region": 60,
+   "island": 47,
+   "collision": 10,
+   "near_me": 4,
+   "mountain area": 3,
+   "sub-city area": 3,
+   "lake": 2
+  },
+  "unresolved_rows": 2312,
+  "unresolved_volume": 2265100,
+  "unresolved_note": "reported, not dropped. The top of the list is lakes, regions and small towns (Travemuende, Bodensee, Normandie, Gardasee), which are either a missing exonym or an entity type the city tree does not carry. Both are findings.",
+  "evidence_pool_before": 369,
+  "evidence_pool_after": 1951,
+  "regression_on_the_earlier_harvest": "the 2026-10-01 harvest now resolves ONE row more than before: warszawa atrakcje reaches Warsaw through an exonym added for Swedish. That is an improvement rather than a regression, and it is recorded here rather than claimed as byte-identity."
+ },
+ "part_2_collisions_found": {
+  "why": "each carries real volume and none can be answered by a page about a named place",
+  "spanish_television": "que ver en is also how you ask what is on television. tv 9,900, que ver en la tele 7,700, la tele 4,900.",
+  "japanese_english_language": "英語 is the English language, so 観光地 英語 7,600 and 観光客 英語 5,800 ask how to SAY sightseeing spot in English rather than where to go.",
+  "japanese_pachinko_brand": "King Kanko is a pachinko parlour chain whose trading name contains 観光, the same characters the sightseeing phrase uses. キング観光 7,300, キング観光彦根 6,600, キング観光柳橋 5,000. A new collision class.",
+  "near_me": "excluded by name. sehenswürdigkeiten in der nähe alone carries 17,000 searches and no page about a named place can serve it."
+ },
+ "part_3_duration_axis_fifth_language": {
+  "finding": "Japanese expresses a trip plan as モデルコース with a night-and-day count, 1泊2日 meaning one night and two days. The harvest carries it for Kanazawa, Hiroshima, Nagano and Kobe. German, English, Polish and Italian reached the same axis separately, so Japanese is the fifth language independently confirming it."
+ },
+ "part_4_transport_and_visa_wired_in": {
+  "why": "the pair builders and the FCDO ingest wrote their output and nothing read it",
+  "adapter": "scripts/atlas/scale/transport-visa-manifest-adapter.py",
+  "candidate_rows_emitted": 61887,
+  "by_shape": {
+   "transport_pair_rail": 46856,
+   "transport_pair": 12291,
+   "transport_airport_access": 2514,
+   "visa_requirement": 226
+  },
+  "language_decision": "ENGLISH ONLY. The measurement proved the pair axis in English (346 of 500 distance rows and 139 of 500 route rows name two real places) and REFUTED it in German (2 of 500, the tail being astronomy, darts and a driving theory question). A fan-out across fifteen languages would be inventing demand that was measured absent.",
+  "one_page_per_pair": "the parent topics collapse the distance question and the route question onto each other, so mode is not a second axis and one page answers all of them.",
+  "licence_per_shape": "each shape names the sources it rests on rather than inheriting the OSM licence the aggregation rows carry, because a wrong attribution on a share-alike dataset is a licensing problem and not a cosmetic one.",
+  "demand_scores_are_not_volumes": "58 for airport access, 50 for air city pairs, 46 for rail, 55 for visa. The family is proven; no per-pair volume is claimed for 61,661 pairs, because source supply is not measured demand.",
+  "duplicate_risk": "the rail builder flagged 20,117 rows HIGH. That proxy measures template shape, not duplication: across the 60 worst groups and 59,594 pairwise comparisons the highest shingle Jaccard was 0.672 and none reached 0.80. Carried as a publication-ordering flag, not a rejection."
+ }
+}
