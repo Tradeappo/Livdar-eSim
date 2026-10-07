@@ -1,0 +1,62 @@
+{
+  "measured_at": "2026-10-07T11:52:00Z",
+  "purpose": "Brief H: find programmatic SEO models already working at massive scale, to discover legitimate entity architectures. Do not copy them.",
+  "method": "site-explorer-metrics for size, site-explorer-top-pages ordered by traffic desc for architecture",
+  "sites": {
+    "rome2rio.com": {
+      "org_keywords": 1850129, "org_traffic": 8950336, "org_keywords_1_3": 589488,
+      "entity_model": "ORDERED PAIR over a HETEROGENEOUS transport-node set",
+      "critical_finding": "The pair members are not cities. Observed members: rail stations (New-York-Penn-Station, Gare-de-Paris-Nord), stadiums and clubs (Stade-de-France, Paris-Saint-Germain-Football-Club), streets (Rue-Ampere, Avenue-de-l-Opera), islands (Isle-of-Arran-Island, Norderney, Texel), airports (Nice-Airport, New-York-JFK-Airport-JFK), bus terminals (Terminal-Alameda-Turbus, Toluca-Terminal-Tollocan), metro stations (De-Brouckere-metrostation), malls (Docks-Bruxsel), universities (UL-Student-Centre), regions (New-York-State, Department-of-Huanuco), countries (Colombia/Suiza, Costa-d-Avorio/Francia).",
+      "folders": [
+        "/{lang}/s/{origin}/{destination}  - mode-agnostic pair",
+        "/{lang}/{Mode}/{origin}/{destination}  - mode-scoped pair, Mode localised (Train, Bus, Ferry, Fahre, Tren, Autobus)",
+        "/{City}  - city hub, ranks for 'como llegar a X' at 779-1424 keywords per hub",
+        "/Bus, /Train, /Nearby-Airports  - mode and facet aggregation hubs, 1677-3274 keywords each"
+      ],
+      "tail_signature": "Most pair pages rank for exactly 1 keyword yet pull 2,000-71,000 traffic each. 1 keyword per page is the signature of a true long tail, not of thin content: the page answers one specific question completely.",
+      "how_it_avoids_duplication": "Each pair carries a different computed itinerary set: modes available, operators, duration, price, frequency, transfer points. The data differs per pair because the transport graph differs per pair.",
+      "lesson_for_livdar": "A pair axis over a heterogeneous entity set is the only observed model that reaches 1.8M keywords. The members must be entities people name in queries (stations, airports, islands, venues), not just admin units.",
+      "stage": "LONG_SCALE_100M",
+      "tag": "LONG_SCALE_100M"
+    },
+    "timeanddate.com": {
+      "org_keywords": 637752, "org_traffic": 23603596, "org_keywords_1_3": 219465,
+      "entity_model": "TOOL x ENTITY x TEMPORAL STATE",
+      "critical_finding": "/holidays/{country}/{holiday-name} is the single highest-yield family observed anywhere in this research: /holidays/india/diwali 491,258 traffic, /holidays/india/raksha-bandhan 402,043, /holidays/us/labor-day 232,216, /holidays/india/muharram 114,586, /holidays/india/janmashtami 113,886, /holidays/india/dussehra 86,284, /holidays/india/friendship-day 83,527, /holidays/us/thanksgiving-day 104,803, /holidays/us/fathers-day 117,239. Head volumes 298,000-1,670,000 per holiday name.",
+      "folders": [
+        "/holidays/{country}/{holiday}  - country x holiday, proven million-volume",
+        "/holidays/{country}/  - country holiday index, 2665 keywords",
+        "/calendar/monthly.html?year={y}&month={m}&country={c}  - year x month x country, 25-138 keywords each, 79,608-144,904 traffic each",
+        "/worldclock/{country}/{city}, /worldclock/{country}  - 1368-2025 keywords per city",
+        "/weather/{country}/{city}/ext  - extended forecast per city",
+        "/sun/@{geonames_id}, /moon/phases/{city}  - astronomical state per place",
+        "/time/change/{country}  - DST change per country, 5533 keywords",
+        "/date/duration.html, /date/dateadd.html, /timer/, /stopwatch/  - pure tool pages, 585,572-1,188,853 traffic each"
+      ],
+      "tail_signature": "Entity pages carry 25-2,025 keywords each, so each page absorbs a dense local cluster rather than one query. Opposite shape to rome2rio.",
+      "how_it_avoids_duplication": "Every page states a different computed value: a date, a duration, an offset, a sunrise time. The fact IS the page.",
+      "lesson_for_livdar": "Confirms the pulse cluster already measured (fr school holidays 1,920,000 / de 202,000). country x named-holiday is a measured, enormous, under-built family. The year x month x country calendar axis is multiplicative and each cell carries genuinely different content.",
+      "stage": "IMMEDIATE_1M",
+      "tag": "IMMEDIATE_1M"
+    },
+    "alltrails.com": {
+      "org_keywords": 520644, "org_traffic": 2577233, "org_keywords_1_3": 144352,
+      "entity_model": "PLACE x ACTIVITY-FACET AGGREGATION, with a thin named-entity layer on top",
+      "critical_finding": "THE DECISIVE RESULT OF THIS RESEARCH. AllTrails holds a larger trail set than the 125,516 on disk here, and its highest-traffic non-brand pages are NOT per-trail pages. They are place x facet aggregations: /us/kansas/wichita 31,318 traffic 335 keywords; /us/kansas/wichita/forest 5,037; /us/kansas/wichita/views 4,306; /us/kansas/wichita/easy 4,265; /brazil/sao-paulo--2/city-walk 9,698; /peru/scenic-driving 3,474; /turkey/antalya/waterfall 2,214 at position 2 for 'best waterfall hikes'; /spain/el-hierro/valverde 2,824. The per-trail pages that do rank are the famous named ones only: Angels Landing, Half Dome, Cathedral Rock, Devils Bridge, Joffre Lakes, Panorama Ridge, Maple Pass.",
+      "folders": [
+        "/{country}/{admin1}/{city}  - place hub listing trails",
+        "/{country}/{admin1}/{city}/{facet}  - facet aggregation: forest, views, easy, waterfall, city-walk, backpacking, scenic-driving",
+        "/{country}/{facet}  - country x facet",
+        "/parks/{country}/{admin1}/{park}  and /parks/.../{facet}  - protected area hub x facet",
+        "/trail/{country}/{admin1}/{trail}  - named trail, thin layer",
+        "/poi/{country}/{admin1}/{city}/{id}  - point of interest",
+        "/{lang}/{country}/{admin1}/{city}  - localised, lang prefix en-gb, it-it, pl-pl, de, fr"
+      ],
+      "tail_signature": "Facet pages carry 1-335 keywords and rank for generic intent ('walking trails near me' 45,000 at position 2, 'best waterfall hikes' 13,000 at position 2, 'best places to walk' 29,000 at position 1, 'best scenic drives near me' 13,000 at position 2). Generic high-volume intent resolves to a place-scoped aggregation page.",
+      "how_it_avoids_duplication": "Each facet page lists a different real set of entities with per-entity length, elevation, difficulty, rating. The listed set differs because the underlying inventory differs by place and by facet.",
+      "lesson_for_livdar": "This answers Brief B item 10 directly and in the brief's own favour. Prefer one strong useful aggregation page over 100 thin peak pages is not a concession, it is what the category leader actually does. The 1,281,126 OSM outdoor features at median 1 fact each should NOT become 1.28M thin pages. They should become the INVENTORY that fills a place x feature-type x attribute-facet aggregation layer, which is multiplicative over places and facets and substantive per page.",
+      "stage": "IMMEDIATE_1M",
+      "tag": "IMMEDIATE_1M"
+    }
+  }
+}

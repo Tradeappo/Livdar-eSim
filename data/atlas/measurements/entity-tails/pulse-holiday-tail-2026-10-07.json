@@ -1,0 +1,19 @@
+{
+  "measured_at": "2026-10-07T12:20:00Z",
+  "probe": {"term":"feiertage","country":"de","match_mode":"phrase","floor":700,"limit":1500,"rows":290,"truncated":false},
+  "finding": "The largest single family measured in this research. The axis is region x year, region x month x year, and foreign country x year. Every cell carries genuinely different data because public holiday dates differ by German federal state and by year, which is information gain by construction rather than by wording.",
+  "head": {"feiertage nrw 2026":202000,"feiertage bayern 2026":149000,"feiertage 2026":90000,
+           "feiertage bw 2026":75000,"feiertage hessen 2026":70000,"feiertage nrw 2025":56000,
+           "feiertage bayern 2025":47000,"feiertage niedersachsen 2026":47000,"feiertage berlin 2026":44000,
+           "feiertage sachsen 2026":26000,"feiertage rlp 2026":24000,"feiertage 2025":24000,
+           "feiertage hamburg 2026":22000,"feiertage baden wuerttemberg 2026":17000},
+  "axes_observed": {
+    "region_x_year": "all 16 German federal states plus the national page, across 2016, 2019, 2020, 2023, 2024, 2025, 2026 and 2027. Years 2027 already carry 6,000 to 13,000.",
+    "region_x_month_x_year": "feiertage mai 2026 15,000; april 2026 4,900; juni 2026 2,700; februar, maerz, januar, oktober, november, dezember all present; and crossed with region, for example feiertage mai 2026 nrw 1,400 and feiertage juni 2026 nrw 1,500.",
+    "foreign_country_x_year": "oesterreich 5,700; frankreich 4,600; italien 2,600; niederlande 2,600; schweiz 2,600; polen 2,000; usa 2,300; luxemburg 1,500; belgien 900; spanien 1,000; daenemark 700; china 700.",
+    "qualifier": "gesetzliche (statutory), stille (silent), kuriose (curious), islamische, muslimische. These are different legal categories, not synonyms, so they are separate pages rather than duplicates."
+  },
+  "honest_capacity_note": "This family is real and large in VOLUME but modest in PAGE COUNT. One language gives roughly 17 regions x 4 live years plus 17 x 12 x 4 region month year plus about 30 foreign countries x 4, which is of the order of 1,000 pages. Across the market languages with their own region sets it is of the order of 10,000 to 30,000 pages. It is NOT a path to a million and is not claimed as one.",
+  "cannibalisation_check": "parent_topic frequently redirects a year page to its school holiday sibling, for example feiertage niedersachsen 2026 has parent herbstferien niedersachsen 2026 and feiertage bayern 2025 has parent schulferien bayern 2025. Public holidays and school holidays compete for the same SERP and MUST be one page per region year, not two.",
+  "tag": "IMMEDIATE_1M"
+}

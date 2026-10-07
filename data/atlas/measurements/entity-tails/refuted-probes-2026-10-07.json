@@ -1,0 +1,18 @@
+{
+  "measured_at": "2026-10-07T12:15:00Z",
+  "purpose": "Probes that refuted their own hypothesis. Kept so the method error is auditable rather than silently dropped.",
+  "refuted": [
+    {
+      "hypothesis": "A name suffix shared by many German peaks (-spitze) can be phrase probed to sample the named peak tail the way the bare noun sampled waterfalls.",
+      "probe": {"term":"spitze","country":"de","floor":400,"rows":86},
+      "result": "REFUTED. 'Spitze' in German is lace, a point or tip, and a slot machine. The 86 rows are dominated by lingerie (bh mit spitze, bralette, dirndlbluse), the Alles Spitze casino game, Apple Pencil tips and Adidas shoes. Exactly three rows are real places: Friedrichskoog Spitze 1,600, Bunthaeuser Spitze 1,200, Seefelder Spitze 450, and the first two are coastal settlements, not peaks.",
+      "lesson": "Suffix probing only works where the suffix is not also a common noun. It cannot be used for German peaks. The named peak tail has to be sampled by querying actual peak names, which does not scale, so peaks stay governed by the existing measurement (Zugspitze 63,000, Watzmann 19,000, Brocken 15,000) and by the aggregation layer."
+    },
+    {
+      "hypothesis": "The prepositional pattern 'waterfalls in X' samples the waterfall family in every language.",
+      "probe": {"terms":["wasserfälle in","cascate in"],"rows":[6,12]},
+      "result": "REFUTED for non English. German returned 6 rows and Italian 12. The bare noun returned 130 and 332 for the same languages, a factor of 22 and 28.",
+      "lesson": "Read parent_topic before trusting a probe's row count. German and Italian attach the place to the noun with no preposition."
+    }
+  ]
+}
