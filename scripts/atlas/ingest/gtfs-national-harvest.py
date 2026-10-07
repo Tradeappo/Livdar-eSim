@@ -65,6 +65,27 @@ FEEDS = {
     'bods-great-britain': ('https://data.bus-data.dft.gov.uk/timetable/download/gtfs-file/all/',
                            'GB', 'Open Government Licence v3.0',
                            'Bus Open Data Service, Department for Transport'),
+    # Every one of these is keyless and its licence was checked by hand. They are page sources
+    # because their country appears in NATIVE_LANG, so a native-language page about that
+    # country is NATIVE_LOCALE and needs no per-market keyword cell.
+    'gtfs-de-germany': ('https://download.gtfs.de/germany/free/latest.zip', 'DE',
+                        'CC BY 4.0 (gtfs.de, derived from DELFI open data)',
+                        'gtfs.de national German aggregate'),
+    'gtfs-de-germany-regional': ('https://download.gtfs.de/germany/rv_free/latest.zip', 'DE',
+                                 'CC BY 4.0 (gtfs.de)', 'gtfs.de regional rail'),
+    'sncf-ter-france': ('https://eu.ftp.opendatasoft.com/sncf/gtfs/export-ter-gtfs-last.zip',
+                        'FR', 'Licence Ouverte (Etalab)', 'SNCF TER regional rail'),
+    'sncf-intercites-france': (
+        'https://eu.ftp.opendatasoft.com/sncf/gtfs/export-intercites-gtfs-last.zip', 'FR',
+        'Licence Ouverte (Etalab)', 'SNCF Intercites'),
+    'sncf-tgv-france': ('https://eu.ftp.opendatasoft.com/sncf/gtfs/export_gtfs_voyages.zip',
+                        'FR', 'Licence Ouverte (Etalab)', 'SNCF TGV long distance'),
+    'renfe-spain': ('https://ssl.renfe.com/gtransit/Fichero_AV_LD/google_transit.zip', 'ES',
+                    'Renfe open data terms', 'Renfe high speed and long distance'),
+    'amtrak-usa': ('https://content.amtrak.com/content/gtfs/GTFS.zip', 'US',
+                   'Amtrak public GTFS terms', 'Amtrak national rail'),
+    'irish-rail': ('https://www.transportforireland.ie/transitData/Data/GTFS_Irish_Rail.zip',
+                   'IE', 'CC BY 4.0', 'Iarnrod Eireann via Transport for Ireland'),
 }
 
 STOP_TO_CITY_KM = 20.0

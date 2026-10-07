@@ -211,14 +211,98 @@ MODE_WORD = {'bus': 'bus', 'rail': 'train', 'subway': 'metro', 'tram': 'tram',
 #
 # Dutch is absent on purpose. It holds the most pairs of any country, 7,509, and its pair demand
 # is international while the held feed is domestic.
+# ADMISSION CLASS PER LOCALE, corrected 2026-10-07.
+#
+# I had restricted this table to the four languages whose pair form was measured on Ahrefs, and
+# that was a conceptual error. The project's accepted admission model is:
+#
+#     A  ENTITY_DEMAND_PROVEN
+#   OR
+#     B  FAMILY_INTENT_PROVEN + ENTITY_UTILITY_PROVEN
+#
+# The pair FAMILY intent is proven: the 2026-10-07 open-SERP harvest returned 891 of 1,000 rows
+# at keyword difficulty 10 or below with a median of 0. That is a FAMILY result and it does not
+# need re-proving per language. What each cell still needs is ENTITY UTILITY, and GTFS supplies
+# that per pair: a real scheduled duration, a real direct-service count, real modes, named
+# routes and a named operator, all read from stop_times rather than estimated.
+#
+# The mechanical point that makes this work without any keyword tool: a native-language page
+# about its OWN country is classified NATIVE_LOCALE by the localisation gate, because
+# NATIVE_LANG resolves the country to that language. It needs no per-market keyword cell. And
+# the aggregation path these rows travel does not call demand_score() at all, so there is no
+# per-market demand gate on it either.
+#
+# CLASS_A are the four whose pair form was measured directly, so their utility bar is the
+# ordinary one. CLASS_B are admitted on family intent plus a STRICTER utility bar, defined
+# below, because they carry no fresh per-market measurement.
+#
+# Only countries that appear in NATIVE_LANG can be here: a Portuguese page about Portugal is
+# not NATIVE_LOCALE in this inventory because the Portuguese market is pt-BR and Portugal is
+# not its country, so PT is deliberately absent rather than quietly included.
+#
+# The German caveat is recorded and not hidden: the German DISTANCE and ROUTE phrasing probe
+# of 2026-10-07 returned 2 of 500 rows naming two real places against 346 of 500 in English.
+# That refuted a GENERIC language fan-out of the air and rail pair families. It is not evidence
+# that a German reader planning Hamburg to Hannover is unserved by a page carrying the real
+# timetable, which is a different claim and the one the utility gate tests. de-DE is therefore
+# CLASS_B with the strict bar, and the refutation stands against the thing it actually refuted.
+CLASS_A = {'en', 'da', 'nb', 'fi'}
+
 PAIR_LOCALE = {
+    'GB': ('en-GB', 'en', 'to', '{mode} from {a} to {b}'),
+    'IE': ('en-GB', 'en', 'to', '{mode} from {a} to {b}'),
+    'US': ('en-US', 'en', 'to', '{mode} from {a} to {b}'),
+    'AU': ('en-AU', 'en', 'to', '{mode} from {a} to {b}'),
     'DK': ('da-DK', 'da', 'til', 'tog fra {a} til {b}'),
     'NO': ('nb-NO', 'nb', 'til', 'tog fra {a} til {b}'),
     # Finnish takes no preposition and puts the pair before the mode, so its joiner is a space
     # and its measured form is "{a} {b} juna". Both directions carry equal volume (800 and 800),
     # so the page stays unordered like every other pair here.
     'FI': ('fi-FI', 'fi', None, '{a} {b} juna'),
+    'DE': ('de-DE', 'de', 'nach', 'zug von {a} nach {b}'),
+    'FR': ('fr-FR', 'fr', 'a', 'train de {a} a {b}'),
+    'ES': ('es-ES', 'es', 'a', 'tren de {a} a {b}'),
+    'IT': ('it-IT', 'it', 'a', 'treno da {a} a {b}'),
+    'NL': ('nl-NL', 'nl', 'naar', 'trein van {a} naar {b}'),
+    'PL': ('pl-PL', 'pl', 'do', 'pociag z {a} do {b}'),
+    'BR': ('pt-BR', 'pt', 'para', 'onibus de {a} para {b}'),
+    'MX': ('es-MX', 'es', 'a', 'autobus de {a} a {b}'),
 }
+# The URL joiner per language. The path segments stay English, as every other family in this
+# pipeline does, and only the pair joiner and the language prefix change.
+URL_JOINER = {'en': '-to-', 'da': '-til-', 'nb': '-til-', 'fi': '-', 'de': '-nach-',
+              'fr': '-a-', 'es': '-a-', 'it': '-a-', 'nl': '-naar-', 'pl': '-do-',
+              'pt': '-para-'}
+
+# ---- THE CLASS B UTILITY BAR ------------------------------------------------------------------
+# For a locale with no fresh per-market measurement, the brief requires a STRONGER utility gate
+# in place of the missing keyword evidence, and says plainly what fails it: "X to Y plus generic
+# prose: REJECT". So a Class B pair must carry materially different ROUTE data, not merely be a
+# true connection. It needs at least three of these five, all of them facts from the feed:
+#
+#   named routes            the page can name the services that run it
+#   frequent service        30 or more direct trips in the published timetable
+#   multi-mode or multi-feed  corroborated by more than one route type or more than one agency
+#   a real distance         20 km or more apart, which is an intercity journey rather than two
+#                           stops in one conurbation
+#   a substantial journey    15 minutes or more of scheduled time
+#
+# A pair clearing three of five answers a journey-planning question on its own facts. A pair
+# clearing fewer would be a template with two place names in it.
+CLASS_B_MIN_SIGNALS = 3
+CLASS_B_MIN_TRIPS = 30
+CLASS_B_MIN_KM = 20.0
+CLASS_B_MIN_DURATION_S = 900
+
+
+def class_b_signals(e, med, sep):
+    sig = {}
+    sig['names_its_routes'] = bool(e['route_names'])
+    sig['frequent_service'] = (e['trips'] or 0) >= CLASS_B_MIN_TRIPS
+    sig['corroborated'] = len(e['modes']) > 1 or len(e['feeds']) > 1 or len(e['operators']) > 1
+    sig['intercity_distance'] = sep >= CLASS_B_MIN_KM
+    sig['substantial_journey'] = med >= CLASS_B_MIN_DURATION_S
+    return sig
 
 rows, seen = [], set()
 for (_ka, _kb), e in sorted(P.items()):
@@ -238,16 +322,26 @@ out = []
 for a, b, e in rows:
     # domestic, and in a country whose own language was measured on the pair form
     loc = PAIR_LOCALE.get(a['country']) if a['country'] == b['country'] else None
+    med = int(statistics.median(e['durations']))
     if loc:
         market, lang, joiner, query_form = loc
         name = (f"{a['name']} {joiner} {b['name']}" if joiner
                 else f"{a['name']} {b['name']}")
-        stats['emitted_in_local_language:' + lang] += 1
     else:
-        market, lang, query_form = 'en-US', 'en', None
+        # cross-border, or a country with no native language in this inventory. It stays
+        # English and takes its chances with the localisation gate rather than being given a
+        # locale it has no claim to.
+        market, lang, joiner, query_form = 'en-US', 'en', 'to', None
         name = f"{a['name']} to {b['name']}"
-        stats['emitted_in_english'] += 1
-    joiner_slug = '-to-' if lang == 'en' else ('-til-' if joiner else '-')
+    admission = 'A' if lang in CLASS_A else 'B'
+    sig = class_b_signals(e, med, e['sep_km'])
+    nsig = sum(1 for v in sig.values() if v)
+    if admission == 'B' and nsig < CLASS_B_MIN_SIGNALS:
+        stats['rejected_class_b_utility_bar:%s' % lang] += 1
+        stats['rejected_class_b_utility_bar'] += 1
+        continue
+    stats['admitted_class_%s:%s' % (admission, lang)] += 1
+    joiner_slug = URL_JOINER.get(lang, '-to-')
     url = (f"/{lang}/transport/public-transport/"
            f"{slugify(a['name'])}{joiner_slug}{slugify(b['name'])}/")
     if url in seen:
@@ -256,7 +350,6 @@ for a, b, e in rows:
         stats['rejected_url_collision_on_settlement_names'] += 1
         continue
     seen.add(url)
-    med = int(statistics.median(e['durations']))
     fast = min(e['durations'])
     modes = sorted(e['modes'])
     mw = [MODE_WORD.get(m, m) for m in modes]
@@ -294,6 +387,9 @@ for a, b, e in rows:
         'gtfs_feeds': sorted(str(x) for x in e['feeds']),
         'licences': sorted(e['licences']),
         'pair_duplicate_risk': 'LOW',
+        'admission_class': admission,
+        'utility_signals': sorted(k for k, v in sig.items() if v),
+        'utility_signal_count': nsig,
         'locale_facts': facts,
         'uniqueness_reason': (
             f"{name} by public transport, from the published timetables of "
