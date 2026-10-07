@@ -18,6 +18,18 @@ set -u
 URL="$1"; OUT="$2"; PARTS="${3:-8}"; SEED="${4:-}"
 D="$OUT.parts"; mkdir -p "$D"
 
+# The TOTAL has to be read BEFORE the layout check, because the file size is part of the
+# layout. This mirror rotates its country extracts daily and reuses the same URL, so the
+# same path served 5,897,320,007 bytes on 2026-10-06 and 5,899,050,304 bytes on 2026-10-07.
+# Every range shifts when that happens. A resume then appends bytes from the NEW file at an
+# offset computed from the OLD part length, which is the same silent corruption the part
+# count caused, from a cause nothing here was watching for. It happened: the German resume
+# wrote 39.9MB past the end of p01 and 1.09MB past the end of p02 before the size check at
+# the bottom would have caught it, and the size check only runs after every transfer
+# finishes. So the total goes in the layout key and a rotation discards the parts.
+TOTAL=$(curl -sS -m 60 -I "$URL" | awk 'tolower($1)=="content-length:"{print $2+0}')
+[ -n "${TOTAL:-}" ] && [ "$TOTAL" -gt 0 ] || { echo "no content-length for $URL"; exit 1; }
+
 # The part LAYOUT has to match, or resuming corrupts the file. curl -C - continues a part
 # from its current length, and it has no idea which byte range that part was originally
 # asked for: change the part count and p01 is resumed from offset N of a DIFFERENT range,
@@ -27,17 +39,16 @@ D="$OUT.parts"; mkdir -p "$D"
 # noticed. A size that happened to land under 100 per cent would have produced a corrupt
 # extract that osmium would have failed on much later, with no clue why.
 LAYOUT="$D/.layout"
-WANT="parts=$PARTS seed=$([ -n "${4:-}" ] && echo yes || echo no)"
+WANT="parts=$PARTS seed=$([ -n "${4:-}" ] && echo yes || echo no) total=$TOTAL"
 if [ -f "$LAYOUT" ] && [ "$(cat "$LAYOUT")" != "$WANT" ]; then
   echo "part layout changed: have [$(cat "$LAYOUT")], asked for [$WANT]."
   echo "Resuming across a layout change would corrupt the output, so the old parts are"
   echo "discarded and this starts over. Keep the part count stable to keep resume working."
-  rm -f "$D"/p* 
+  echo "A changed total means the mirror rotated the file: those bytes are from a version"
+  echo "that no longer exists and cannot be resumed against this one."
+  rm -f "$D"/p*
 fi
 printf '%s' "$WANT" > "$LAYOUT"
-
-TOTAL=$(curl -sS -m 60 -I "$URL" | awk 'tolower($1)=="content-length:"{print $2+0}')
-[ -n "${TOTAL:-}" ] && [ "$TOTAL" -gt 0 ] || { echo "no content-length for $URL"; exit 1; }
 echo "total $TOTAL bytes in $PARTS parts"
 
 START=0
