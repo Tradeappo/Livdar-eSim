@@ -61,12 +61,12 @@ gated, not assumed.
 | country expansion | 90,498 | measured earlier | measured |
 | localisation class B recovery | up to 104,664 | needs a hard utility gate | upper bound only |
 | outdoor features failing only the parent polygon gate | 6,527 | measured by diagnostic | measured |
-| notable, holding no fact, via Wikidata enrichment | 40,123 | not run | upper bound only |
+| notable, holding no fact, via Wikidata enrichment | 7,874 | MEASURED on a 372 sample | measured |
 | licence required | 39,284 | needs licences | blocked externally |
 | region x year x month holidays | 10,000 to 30,000 | measured demand, largest found | measured |
 | feed required | 9,747 | needs feeds | blocked externally |
 | outdoor place x class aggregation expansion | 2,166 | computed from inventory | measured |
-| **optimistic sum if every path yields 100 percent** | **~724,000** | | |
+| **optimistic sum if every path yields 100 percent** | **~692,000** | | |
 
 No path yields 100 percent. The two largest remaining are upper bounds, not forecasts.
 
@@ -83,6 +83,20 @@ listing, not a page, and the NOTABLE gate is the reason this inventory is not a 
 directory. Only 6,527 features fail on a missing parent polygon, and the fix for those
 is to extend the parent layer, not to relax the gate. I am correcting my own figure by a
 factor of 14, and the ceiling falls from roughly 824,000 to roughly 724,000.
+
+### Second correction, same day: the Wikidata enrichment yield is measured now
+
+The enrichment row was an upper bound of 40,123. It is now measured. A stratified
+sample of 372 across 30 classes, with no failed batches, gives 0.00 facts per entity
+BEFORE and 1.04 AFTER. 74.2 percent gain at least one fact, but only 19.6 percent gain
+two or more, and TWO is the bar the individual page basis states: "2 measured attributes,
+more than one number for a reader". The honest yield for an own page is therefore about
+7,874, not 40,123. Taking the one fact bar would give about 29,800 and would be relaxing
+a quality gate, so it is not taken. The ceiling falls again, to roughly 692,000.
+
+A mean of 1.04 is itself the finding: Wikidata is thin for exactly the entities OSM is
+thin for. The two sources are correlated rather than complementary, so there is no large
+hidden reserve of facts sitting behind the notability flag.
 
 The full reject ledger is in
 `data/atlas/measurements/outdoor-gate-reject-diagnostic-2026-10-07.json`.

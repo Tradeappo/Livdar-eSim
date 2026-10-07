@@ -1,0 +1,605 @@
+{
+ "measured_at": "2026-10-07T12:26:24Z",
+ "question": "Brief N. Quantify facts per entity BEFORE and AFTER enrichment for the features that hold an encyclopedia entry and no fact a reader came for.",
+ "population_total": 53778,
+ "population_with_a_wikidata_id": 52557,
+ "population_by_class": {
+  "archaeological_site": 17098,
+  "castle": 10840,
+  "peak": 7915,
+  "ruins": 3420,
+  "beach": 2158,
+  "monument": 2138,
+  "tower": 1569,
+  "lighthouse": 1423,
+  "cave": 1124,
+  "windmill": 980,
+  "city_gate": 918,
+  "waterfall": 883,
+  "fort": 841,
+  "glacier": 592,
+  "viewpoint": 538,
+  "watermill": 537,
+  "mountain_pass": 230,
+  "aqueduct": 177,
+  "observatory": 73,
+  "volcano": 71,
+  "geyser": 53,
+  "camp_site": 45,
+  "hot_spring": 42,
+  "mountain_hut": 27,
+  "natural_arch": 24,
+  "climbing_crag": 17,
+  "beach_resort": 17,
+  "wilderness_hut": 14,
+  "bird_hide": 10,
+  "caravan_site": 4
+ },
+ "sample_size": 372,
+ "sample_is": "stratified by class in proportion to the population, so the measured gain is not one class reported as all",
+ "facts_per_entity_before": 0.0,
+ "facts_per_entity_after_mean": 1.04,
+ "entities_gaining_at_least_one_fact": 276,
+ "share_gaining_at_least_one_fact": 74.2,
+ "distribution_of_facts_gained": {
+  "0": 96,
+  "1": 203,
+  "2": 53,
+  "3": 11,
+  "4": 4,
+  "5": 2,
+  "6": 3
+ },
+ "properties_queried": {
+  "P2044": "elevation above sea level",
+  "P2660": "topographic prominence",
+  "P2661": "topographic isolation",
+  "P2043": "length",
+  "P2049": "width",
+  "P2048": "height",
+  "P2046": "area",
+  "P4511": "vertical depth",
+  "P571": "inception",
+  "P580": "start time",
+  "P1619": "date of official opening",
+  "P84": "architect",
+  "P631": "structural engineer",
+  "P149": "architectural style",
+  "P1435": "heritage designation",
+  "P1476": "title",
+  "P2583": "distance from Earth",
+  "P1083": "maximum capacity",
+  "P1174": "visitors per year",
+  "P137": "operator",
+  "P127": "owner",
+  "P856": "official website",
+  "P2047": "duration",
+  "P610": "highest point",
+  "P2250": "life expectancy",
+  "P206": "located next to body of water",
+  "P4552": "mountain range",
+  "P2789": "connects with",
+  "P177": "crosses",
+  "P2109": "installed capacity"
+ },
+ "failed_batches": 0,
+ "examples": [
+  {
+   "entity_id": "n1641516390",
+   "qid": "Q21737892",
+   "cls": "castle",
+   "country": "AE",
+   "name": "Hayl Fort",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "231",
+    "inception": "1830-01-01T00:00:00Z"
+   }
+  },
+  {
+   "entity_id": "n2935281674",
+   "qid": "Q2538723",
+   "cls": "waterfall",
+   "country": "AE",
+   "name": "Wadi Wurayah Waterfall",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q9259"
+   }
+  },
+  {
+   "entity_id": "w89654734",
+   "qid": "Q6310943",
+   "cls": "beach",
+   "country": "AE",
+   "name": "شاطئ الجميرة",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "8",
+    "located next to body of water": "http://www.wikidata.org/entity/Q34675"
+   }
+  },
+  {
+   "entity_id": "w103152325",
+   "qid": "Q16892306",
+   "cls": "archaeological_site",
+   "country": "AE",
+   "name": "حديقة آثار هيلي",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "area": "518.4",
+    "heritage designation": "http://www.wikidata.org/entity/Q43113623"
+   }
+  },
+  {
+   "entity_id": "w1225794871",
+   "qid": "Q104862362",
+   "cls": "archaeological_site",
+   "country": "AE",
+   "name": "Eisa Al Thabbahi's home",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "length": "45"
+   }
+  },
+  {
+   "entity_id": "n245873236",
+   "qid": "Q697817",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Arnulfsfeste",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n277067149",
+   "qid": "Q135261894",
+   "cls": "peak",
+   "country": "AT",
+   "name": "Zwerchenberg",
+   "facts_before": 0,
+   "facts_after": 3,
+   "properties": {
+    "elevation above sea level": "1615",
+    "topographic prominence": "55",
+    "mountain range": "http://www.wikidata.org/entity/Q473095"
+   }
+  },
+  {
+   "entity_id": "n277765141",
+   "qid": "Q1533444",
+   "cls": "archaeological_site",
+   "country": "AT",
+   "name": "Goarmbichl",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "842",
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n287657153",
+   "qid": "Q15060487",
+   "cls": "waterfall",
+   "country": "AT",
+   "name": "Traun-Ursprung",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "mountain range": "http://www.wikidata.org/entity/Q697915"
+   }
+  },
+  {
+   "entity_id": "n289695611",
+   "qid": "Q21928923",
+   "cls": "cave",
+   "country": "AT",
+   "name": "Krippensteineishöhle",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "1985",
+    "mountain range": "http://www.wikidata.org/entity/Q261664"
+   }
+  },
+  {
+   "entity_id": "n297025123",
+   "qid": "Q38138479",
+   "cls": "monument",
+   "country": "AT",
+   "name": "Mariensäule",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n300920834",
+   "qid": "Q21863212",
+   "cls": "peak",
+   "country": "AT",
+   "name": "Stanglkogel",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "1526",
+    "mountain range": "http://www.wikidata.org/entity/Q697900"
+   }
+  },
+  {
+   "entity_id": "n301436550",
+   "qid": "Q1546586",
+   "cls": "cave",
+   "country": "AT",
+   "name": "Griffener Tropfsteinhöhle",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "mountain range": "http://www.wikidata.org/entity/Q2226949"
+   }
+  },
+  {
+   "entity_id": "n307741842",
+   "qid": "Q37844885",
+   "cls": "monument",
+   "country": "AT",
+   "name": "Dreifaltigkeitssäule",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n333839863",
+   "qid": "Q254767",
+   "cls": "waterfall",
+   "country": "AT",
+   "name": "Schlitterer Waserfall",
+   "facts_before": 0,
+   "facts_after": 3,
+   "properties": {
+    "elevation above sea level": "548",
+    "area": "10.36",
+    "official website": "https://www.schlitters.at"
+   }
+  },
+  {
+   "entity_id": "n349751195",
+   "qid": "Q1575589",
+   "cls": "cave",
+   "country": "AT",
+   "name": "Rettenwandhöhle",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "mountain range": "http://www.wikidata.org/entity/Q871803"
+   }
+  },
+  {
+   "entity_id": "n368249600",
+   "qid": "Q255454",
+   "cls": "ruins",
+   "country": "AT",
+   "name": "Äpfelgschwendt (verf.)",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "area": "5.689"
+   }
+  },
+  {
+   "entity_id": "n368250394",
+   "qid": "Q37960336",
+   "cls": "ruins",
+   "country": "AT",
+   "name": "Ehem. Bauerngehöfte",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n373451177",
+   "qid": "Q1516977",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Ratzlburg",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n388332661",
+   "qid": "Q1872283",
+   "cls": "cave",
+   "country": "AT",
+   "name": "Lourdesgrotte",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "architectural style": "http://www.wikidata.org/entity/Q245188",
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n417300234",
+   "qid": "Q38179224",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Burgruine Heidenburg",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n459948441",
+   "qid": "Q37889887",
+   "cls": "viewpoint",
+   "country": "AT",
+   "name": "Frankenberger Kircherl",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n493372702",
+   "qid": "Q37846295",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Burgruine Alt-Hofen",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n513528718",
+   "qid": "Q21866252",
+   "cls": "mountain_pass",
+   "country": "AT",
+   "name": "Niederjoch",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "2748",
+    "mountain range": "http://www.wikidata.org/entity/Q1737127"
+   }
+  },
+  {
+   "entity_id": "n524403655",
+   "qid": "Q1454836",
+   "cls": "peak",
+   "country": "AT",
+   "name": "Freiungen (M)",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "2332",
+    "mountain range": "http://www.wikidata.org/entity/Q1355690"
+   }
+  },
+  {
+   "entity_id": "n524403656",
+   "qid": "Q1454836",
+   "cls": "peak",
+   "country": "AT",
+   "name": "Freiungen (O)",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "2332",
+    "mountain range": "http://www.wikidata.org/entity/Q1355690"
+   }
+  },
+  {
+   "entity_id": "n527360285",
+   "qid": "Q21873241",
+   "cls": "peak",
+   "country": "AT",
+   "name": "Westliche Steinkarspitze",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "2015",
+    "mountain range": "http://www.wikidata.org/entity/Q931596"
+   }
+  },
+  {
+   "entity_id": "n546692259",
+   "qid": "Q1722162",
+   "cls": "archaeological_site",
+   "country": "AT",
+   "name": "Kalenderstein",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q106948576"
+   }
+  },
+  {
+   "entity_id": "n601581547",
+   "qid": "Q1015350",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Burgruine Hohenburg",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n708528396",
+   "qid": "Q37972246",
+   "cls": "archaeological_site",
+   "country": "AT",
+   "name": "Römische Wallanlage",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n799533694",
+   "qid": "Q1408953",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Festung Pass Strub",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n826194379",
+   "qid": "Q21858995",
+   "cls": "waterfall",
+   "country": "AT",
+   "name": "Leiterfall",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "elevation above sea level": "1744"
+   }
+  },
+  {
+   "entity_id": "n833226194",
+   "qid": "Q22387532",
+   "cls": "peak",
+   "country": "AT",
+   "name": "Piz Munschuns",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "elevation above sea level": "2657"
+   }
+  },
+  {
+   "entity_id": "n837628857",
+   "qid": "Q1015285",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Burgruine Feldsberg",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n860982413",
+   "qid": "Q1015312",
+   "cls": "castle",
+   "country": "AT",
+   "name": "Burgruine Gurnitz",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n892119859",
+   "qid": "Q16319152",
+   "cls": "waterfall",
+   "country": "AT",
+   "name": "Gradenbachwasserfall",
+   "facts_before": 0,
+   "facts_after": 4,
+   "properties": {
+    "elevation above sea level": "1107",
+    "heritage designation": "http://www.wikidata.org/entity/Q111606149",
+    "located next to body of water": "http://www.wikidata.org/entity/Q21871130",
+    "mountain range": "http://www.wikidata.org/entity/Q261664"
+   }
+  },
+  {
+   "entity_id": "n892997058",
+   "qid": "Q37724472",
+   "cls": "ruins",
+   "country": "AT",
+   "name": "Thomaskapelle",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "inception": "1588-01-01T00:00:00Z",
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n905875635",
+   "qid": "Q15815417",
+   "cls": "archaeological_site",
+   "country": "AT",
+   "name": "Oberleiser Berg",
+   "facts_before": 0,
+   "facts_after": 1,
+   "properties": {
+    "heritage designation": "http://www.wikidata.org/entity/Q1188447"
+   }
+  },
+  {
+   "entity_id": "n913075791",
+   "qid": "Q21878595",
+   "cls": "mountain_pass",
+   "country": "AT",
+   "name": "Eisernes Törle",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "2328",
+    "mountain range": "http://www.wikidata.org/entity/Q659729"
+   }
+  },
+  {
+   "entity_id": "n1060272803",
+   "qid": "Q21877967",
+   "cls": "peak",
+   "country": "AT",
+   "name": "Kienalkopf",
+   "facts_before": 0,
+   "facts_after": 2,
+   "properties": {
+    "elevation above sea level": "1707",
+    "mountain range": "http://www.wikidata.org/entity/Q263635"
+   }
+  }
+ ],
+ "reading": {
+  "one_fact_bar": {
+   "share": 74.2,
+   "applied_to_the_gate_population_40123": 29769,
+   "note": "A single fact clears the MEASURABLE gate as written."
+  },
+  "two_fact_bar": {
+   "share": 19.6,
+   "applied_to_the_gate_population_40123": 7874,
+   "note": "TWO is the bar the individual page basis actually states: \"2 measured attributes, more than one number for a reader\". This is the honest yield for an OWN PAGE."
+  },
+  "which_population": "The probe found 53,778 notable and factless features by class alone. The gate diagnostic counts 40,123, because the script tests class, country and market BEFORE it tests notable and measurable. 40,123 is the correct population for yield.",
+  "verdict": "REAL BUT MODEST. Enrichment recovers roughly 7,900 own pages at the two fact bar, not the 40,123 upper bound I carried into the ceiling table. At a one fact bar it would be roughly 29,800, but lowering the bar to one fact is relaxing a quality gate and is not done.",
+  "caveat": "Some gained values are Wikidata entity URIs, for example heritage designation Q1188447, and have to be resolved to a readable label before they are a fact on a page. They are counted here as gained because the statement exists, and resolving labels is work, not a blocker.",
+  "mean_is_low": "A mean of 1.04 facts per entity says Wikidata is thin for exactly the entities OSM is thin for. The two sources are correlated, not complementary, which is itself the finding: there is no large hidden reserve of facts behind the notability flag."
+ }
+}

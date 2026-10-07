@@ -1,0 +1,29 @@
+{
+  "measured_at": "2026-10-07T13:00:00Z",
+  "visa_family": {
+    "probe_rejected": {"term":"visa requirements for","country":"us","floor":300,"rows":11,
+      "why":"Wrong phrasing again. parent_topic collapses these to '{country} visa for {nationality} citizens', so the explicit 'requirements' wording sees almost nothing. Third time in this session that reading parent_topic rescued a family from a bad probe."},
+    "probe_accepted": {"term":"visa for us citizens","country":"us","floor":200,"limit":900,"rows":107,"truncated":false,
+      "distinct_destinations_approx":90},
+    "axis":"nationality x destination x visa type. Visa types observed as separate measured intents: tourist, work, transit, retirement, e-visa, umrah, entry, travel, ETA, Schengen.",
+    "head":{"uk":3600,"vietnam":3400,"thailand":3300,"china":3300,"new zealand":3000,"india":2300,"australia":2100,"brazil":1900,"japan":1900,"indonesia":1600,"egypt":1600,"cambodia":1200,"kenya":1200},
+    "data_source":"Visa policy is PUBLISHED data. Wikipedia's 'Visa requirements for X citizens' articles are CC BY-SA and machine readable, and national foreign ministries publish the same.",
+    "admission_class":"B. Family intent is proven overwhelmingly. Per cell utility is proven by the policy data itself: requirement, visa type, permitted stay, cost, processing route.",
+    "information_gain":"Each cell states a different legal fact. A US citizen needs an ETA for the UK and an e-visa for India and nothing for Mexico. That is not a template with a country name swapped, it is a different answer.",
+    "honest_size_note":"107 rows is ONE nationality at a 200 floor. Other nationalities follow the same steep power law as origin cities did: US, UK, India and a handful of others carry most of the measured volume. The family is NOT 200 x 200 x types of MEASURED demand and is not claimed as such. It is a class B family whose cells are justified by real policy data, in the same way rome2rio's pairs are justified by a real transport graph.",
+    "commercial_fit":"Directly aligned with an eSIM brand: a traveller checking visa rules for a destination is the same person who needs connectivity there.",
+    "tag":"IMMEDIATE_1M"
+  },
+  "wikidata_store_negative_result": {
+    "entities_on_disk": 195490,
+    "classes": 19,
+    "by_class": {"museum":25082,"park":24443,"archaeological_site":21920,"bridge":18246,"monument":18165,
+      "castle":14431,"public_square":13076,"movie_theater":12278,"hospital":11130,"theatre":7297,
+      "library":6815,"beach":5748,"shopping_mall":4935,"stadium":3834,"university":3467,
+      "art_museum":1923,"botanical_garden":1808,"amusement_park":682,"national_park":210},
+    "fields_present": "id, kind, cls, name, country, lat, lon on all 195,490. web on 46,177. NOTHING ELSE.",
+    "finding": "NEGATIVE. The Wikidata capture as performed holds no statements, only labels and coordinates. It therefore CANNOT enrich the 40,123 outdoor entities that fail the MEASURABLE gate, because it carries the same shallow shape they do.",
+    "correction": "Task 99 assumed a join against the Wikidata already on disk would supply facts. It will not. Enrichment requires a NEW capture that pulls actual statements: height, length, elevation, inception date, architect, heritage designation, visitor numbers, operator. That is a different SPARQL query, not a join.",
+    "secondary_observation": "These 195,490 are also a separate entity pool in their own right, and mostly NOT outdoor classes. Only castle, archaeological_site, beach, monument and national_park overlap. Museums, parks, bridges, theatres, universities and stadiums are unbuilt. At zero facts they would fail the same MEASURABLE gate, so the same new capture governs whether they become pages."
+  }
+}
