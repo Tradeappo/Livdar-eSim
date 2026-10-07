@@ -1,0 +1,37 @@
+{
+ "measured_on": "2026-10-07",
+ "question": "how deep does a named natural feature tail actually run? Every earlier sample was truncated at the call limit, so the entity count was a floor and I had extrapolated from it.",
+ "the_probe": {
+  "call": "matching-terms, country it, phrase mode, keywords 'lago di', where volume >= 1000, limit 400, select keyword only at 11 units a row",
+  "rows_requested": 400, "rows_returned": 132,
+  "the_finding": "the tail TERMINATED at 132. It did not hit the limit. So for Italian lakes above 1,000 a month the entire keyword universe is 132 keywords.",
+  "distinct_named_entities_in_those_132": "about 95. The remaining 37 are modifiers on an entity already counted (meteo, hotel, camping, cartina, dove si trova, cosa vedere, parcheggio, glamping, agriturismo, terme, spa, ciclabile) or foreign lakes rendered in Italian (loch ness, ginevra, costanza, bled, aral), which belong to the destination axis and not to a new entity.",
+  "units_spent": 1452
+ },
+ "WHAT_THIS_CORRECTS": {
+  "my_own_claim_an_hour_earlier": "that about 500,000 remaining Ahrefs units would measure 38,000 entities at a 40 to 55 per cent hit rate and yield 30,000 to 60,000 FINAL VALID pages from the outdoor layer alone",
+  "why_it_was_wrong": "it took the hit rate from a TRUNCATED HEAD sample and applied it to the 1,281,126 features on disk. The truncation was the limit I set, not the end of the demand. This probe removed the limit and the demand ended at 95 named entities for one class in one language.",
+  "the_corrected_arithmetic": "six classes with proven demand (lakes, castles, waterfalls and gorges, beaches, ski areas, named hikes) times the four languages measured so far times about 60 entities each is roughly 1,440 entity-language pairs. Extending to the nine market languages gives about 3,240. Allowing for the destination axis, where an Italian page about Lake Bled and a German page about the same lake are two legitimate pages, the named natural feature cluster is worth roughly 1,000 to 2,500 FINAL VALID pages and NOT tens of thousands.",
+  "the_general_lesson": "384,962 peaks are on disk and the outdoor gate was right to divert them. The reason is now measured rather than argued: demand for a named natural feature does not scale with the number of features, it saturates at the few dozen per class per language that people actually travel to. A feature store of 1.28 million supports a demand tail of a few thousand."
+ },
+ "so_the_honest_total": {
+  "existing_final_distinct_valid": 401393,
+  "from_country_expansion_corrected_2026_10_06": 90498,
+  "from_the_new_family_matrix_on_measured_counts": 15429,
+  "from_the_named_natural_feature_cluster_at_full_measurement": "1,000 to 2,500",
+  "identified_total": "about 509,000 to 510,000",
+  "gap_to_one_million_with_no_identified_path": "about 490,000",
+  "and_this_meets_the_brief_condition_B": "the brief says to continue until a million is materially achieved OR every realistic major path has been measured and the exact datasets needed for the remainder are identified. The paths are now measured. The datasets are named below."
+ },
+ "the_datasets_that_would_close_the_remainder": [
+  {"dataset": "visa and residence rules per country", "why": "measured demand 13,000 a month on digital nomad visa with CPC 70 to 200 cents, among the highest in the project, and four catalogue families blocked on it", "source": "each country immigration authority; no aggregated open feed exists", "type": "OFFICIAL, acquisition by hand or by licence", "pages_unlocked": "50 to 150"},
+  {"dataset": "school holiday terms beyond the 31 countries OpenHolidays covers", "why": "vacances scolaires 2026 reads 1,920,000 a month, the largest keyword in the project, and the subdivision axis is where the demand is", "source": "each education ministry", "type": "OFFICIAL, per country", "pages_unlocked": "1,000 to 3,000"},
+  {"dataset": "the published Mietspiegel documents", "why": "mietspiegel berlin at CPC 250 cents and an open SERP with four sub-DR-35 winners", "source": "each German city publishes its own; there is no aggregate", "type": "OFFICIAL, per city", "pages_unlocked": "100 to 300"},
+  {"dataset": "transport timetables and fares", "why": "airport transfer carries the highest CPC measured in this project at 100 to 250 cents and transport.airport-to-city has never generated a row", "source": "the Mobility Database GTFS registry is already listed in sources.json but not ingested", "type": "OPEN, ingestion work only", "pages_unlocked": "300 to 1,000"},
+  {"dataset": "US Census ACS", "why": "already recorded as a HIGH_PRIORITY_EXTERNAL_BLOCKER in an earlier pass and still unresolved", "source": "api.census.gov, needs a key", "type": "OPEN, blocked on access", "pages_unlocked": "unknown until the schema is read"},
+  {"dataset": "per profession pay bands", "why": "twenty German professions above 4,700 a month measured, with CPC to 70 cents, and no source confirmed to carry the profession axis", "source": "Eurostat SES, national statistics offices", "type": "OPEN, ingestion and schema work", "pages_unlocked": "500 to 2,000"},
+  {"dataset": "ski area geometry and piste data", "why": "28 named ski areas above 2,100 a month in German alone, and the outdoor layer on disk carries NO ski area class among its 1,281,126 features", "source": "OpenStreetMap landuse=winter_sports and piste relations, a new extraction from extracts already downloaded", "type": "OPEN, extraction work only, no new download", "pages_unlocked": "200 to 800"}
+ ],
+ "the_uncomfortable_conclusion": "no combination of the datasets above reaches 490,000 pages. The sum of everything named here is roughly 3,000 to 9,000. A million FINAL DISTINCT VALID pages is not reachable from this entity model at the quality bar the brief sets, because the bar requires measured demand per entity and measured demand saturates in the low thousands per family. Reaching a million would require either a different entity model, for example one page per city per month per family across many more families, which is the fan-out the brief forbids, or accepting pages without measured per-entity demand, which the brief forbids explicitly. That tension is the finding, and it is better reported now than after another cycle of measurement.",
+ "licence_and_provenance": "Ahrefs Keywords Explorer matching-terms via the Ahrefs API v3 on 2026-10-07"
+}

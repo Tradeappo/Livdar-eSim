@@ -523,7 +523,21 @@ def main():
                 'named beaches above 1,000 in German': '15 of 35, 43 per cent',
                 'cities above 20 a month for best-time in English': '92 of 283, 33 per cent',
                 'cities above 50 for best-time in German': '41 of 137, 30 per cent'},
-            'so_the_binding_constraint_is_the_MEASUREMENT_BUDGET': (
+            'CORRECTED_2026_10_07_BY_A_TAIL_DEPTH_PROBE': (
+                'the paragraph below was written before the depth of a tail had been measured, '
+                'and it was wrong. A matching-terms call for "lago di" in Italian with the floor '
+                'at 1,000 a month and the limit raised to 400 returned 132 rows, not 400: the '
+                'tail TERMINATED. About 95 of those are distinct named lakes and the rest are '
+                'modifiers on an entity already counted. So one class in one language supports '
+                'about 95 entities, not thousands. Six proven classes times nine market '
+                'languages times about 60 entities is roughly 3,240 entity-language pairs, and '
+                'the named natural feature cluster is worth 1,000 to 2,500 FINAL VALID pages, '
+                'not the 30,000 to 60,000 claimed below. Demand for a named feature does not '
+                'scale with the number of features: it saturates at the few dozen per class per '
+                'language that people actually travel to, which is now the measured reason the '
+                'outdoor gate was right to divert 384,962 peaks. Full detail in '
+                'tail-depth-probe-2026-10-07.json.'),
+            'the_superseded_claim_kept_so_the_correction_is_auditable': (
                 'per-entity demand cannot be inferred. The best-time tail probe settled that: '
                 'Akron and Tulsa have things-to-do pages and read zero while Sedona has none and '
                 'reads 2,400. So every entity must be measured, at 13 units a row with '
@@ -532,7 +546,15 @@ def main():
                 'rates above that admits 15,000 to 20,000 entities, and at two to three '
                 'qualifying languages each that is 30,000 to 60,000 FINAL VALID pages from the '
                 'outdoor layer alone, on top of the 15,429 in this matrix.'),
-            'and_that_is_the_honest_answer_to_the_500k_gap': (
+            'the_corrected_answer_to_the_500k_gap': (
+                'it is not closed and it is not closeable from this entity model at this quality '
+                'bar. Existing 401,393, plus 90,498 from country expansion, plus 15,429 from '
+                'this matrix, plus 1,000 to 2,500 from the named feature cluster, is about '
+                '510,000. The seven datasets named in tail-depth-probe-2026-10-07.json would '
+                'add roughly 3,000 to 9,000 more between them. Reaching a million would need '
+                'either a different entity model or pages without measured per-entity demand, '
+                'and the brief forbids the second. That tension is the finding.'),
+            'the_superseded_gap_answer': (
                 'it does not close it this cycle. The measurement budget closes perhaps 50,000 '
                 'to 75,000 of it. Closing the rest needs either a second measurement cycle after '
                 'the reset, which costs only time, or the commercial and official datasets named '
