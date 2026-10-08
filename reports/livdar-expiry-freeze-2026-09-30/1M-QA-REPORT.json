@@ -1,12 +1,12 @@
 {
- "manifest_rows": 877462,
- "distinct_urls": 877462,
+ "manifest_rows": 966815,
+ "distinct_urls": 966815,
  "checks": {
-  "title_over_65_chars": 408955,
-  "meta_over_165_chars": 428155,
+  "title_over_65_chars": 493330,
+  "meta_over_165_chars": 517508,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 596,
-  "duplicate_title_same_tokens": 1061,
+  "duplicate_title_same_tokens": 1280,
   "destination_rows": 77694,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
@@ -63,8 +63,134 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
+   "title": "Andernach nach Koblenz Hauptbahnhof, Andernach, DE: what to know before you go",
+   "a": "c_20737b4ccb3b",
+   "b": "c_01a95ff191c6",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/andernach-nach-koblenz-hauptbahnhof/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Aurich nach Kunsthalle, Emden, Aurich, DE: what to know before you go",
+   "a": "c_18de1f86dacf",
+   "b": "c_6d8f3af38720",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/aurich-nach-kunsthalle-emden/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Bramstedt nach Bad Segeberg, Leopardstraße (Süd), Bad Bramstedt, DE: what to know before you go",
+   "a": "c_281414c031df",
+   "b": "c_d9a596ac3941",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-bad-segeberg-leopardstrasse-sud/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Bramstedt nach Bad Segeberg, Mühlenberg, Bad Bramstedt, DE: what to know before you go",
+   "a": "c_afbe94d8188f",
+   "b": "c_1dabcba8ee96",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-bad-segeberg-muhlenberg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Bramstedt nach Högersdorf, Rotenhahn, Wahlstedt, Bad Bramstedt, DE: what to know before you go",
+   "a": "c_fbdec80f731f",
+   "b": "c_f212d5527b7e",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-hogersdorf-rotenhahn-wahlstedt/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Bramstedt nach Wahlstedt, Bad Bramstedt, DE: what to know before you go",
+   "a": "c_6e5ee1281455",
+   "b": "c_81d58398dedf",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-wahlstedt/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Essen, Lerchenstraße nach Luisenstraße, Osnabrück, Bad Essen, Lerchenstraße, DE: what to know before you g",
+   "a": "c_62ada80d06da",
+   "b": "c_5c5696444723",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-essen-lerchenstrasse-nach-luisenstrasse-osnabruck/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Schwartau nach Lübeck Holstentorplatz, Bad Schwartau, DE: what to know before you go",
+   "a": "c_a3ed23060611",
+   "b": "c_2f02ce21df98",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-schwartau-nach-lubeck-holstentorplatz/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Segeberg nach Bad Bramstedt, Bad Segeberg, DE: what to know before you go",
+   "a": "c_3c25e67b4e83",
+   "b": "c_9136b08f9cda",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-segeberg-nach-bad-bramstedt/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Segeberg, Hamburger Straße (Möbel Kraft) nach Bad Bramstedt, Bad Segeberg, Hamburger Straße (Möbel Kraft),",
+   "a": "c_d7a72443c331",
+   "b": "c_a6aca94a7c65",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-segeberg-hamburger-strasse-mobel-kraft-nach-bad-bramstedt/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Barleben nach Magdeburg, Allee-Center, Barleben, DE: what to know before you go",
+   "a": "c_73a31d8deaac",
+   "b": "c_62ed9f0f5bf9",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/barleben-nach-magdeburg-allee-center/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bassum nach Bremen Arsterdamm, Bassum, DE: what to know before you go",
+   "a": "c_ed4a527faa78",
+   "b": "c_2b133d1c1765",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bassum-nach-bremen-arsterdamm/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bassum nach Huckelriede, Bremen, Bassum, DE: what to know before you go",
+   "a": "c_4dd1a87bd78e",
+   "b": "c_7d86aba999ca",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bassum-nach-huckelriede-bremen/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bassum nach Wolfskuhlenweg, Bremen, Bassum, DE: what to know before you go",
+   "a": "c_2d79de4d880f",
+   "b": "c_08cd7713ddde",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bassum-nach-wolfskuhlenweg-bremen/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
    "title": "Bellheim nach Lameyplatz, Karlsruhe, Bellheim, DE: what to know before you go",
-   "a": "c_dc83ff326a97",
+   "a": "c_56afa5ad0e91",
    "b": "c_8462021b9bb0",
    "url_a": "",
    "url_b": "/de/transport/public-transport/bellheim-nach-lameyplatz-karlsruhe/"
@@ -72,218 +198,92 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Dreekamp Aurich nach Emden, Dreekamp Aurich, DE: what to know before you go",
-   "a": "c_6f106da6762e",
-   "b": "c_e6645e1c07e5",
+   "title": "Bendorf nach Koblenz Hauptbahnhof, Bendorf, DE: what to know before you go",
+   "a": "c_4c9e23438523",
+   "b": "c_474f7d2cdd06",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/dreekamp-aurich-nach-emden/"
+   "url_b": "/de/transport/public-transport/bendorf-nach-koblenz-hauptbahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Dreekamp Aurich nach Kunsthalle, Emden, Dreekamp Aurich, DE: what to know before you go",
-   "a": "c_0cfc055b9d4a",
-   "b": "c_d2637f30ef3d",
+   "title": "Beratzhausen nach Steinweg, Regensburg, Beratzhausen, DE: what to know before you go",
+   "a": "c_feb6e740e9d1",
+   "b": "c_1a3749eef5d6",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/dreekamp-aurich-nach-kunsthalle-emden/"
+   "url_b": "/de/transport/public-transport/beratzhausen-nach-steinweg-regensburg/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Germersheim nach Lameyplatz, Karlsruhe, Germersheim, DE: what to know before you go",
-   "a": "c_134e291fa55a",
-   "b": "c_4749181c4614",
+   "title": "Berlin nach Wittenberge, Bahnhof, Berlin, DE: what to know before you go",
+   "a": "c_9676c1fd23c8",
+   "b": "c_374d24dd20b9",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/germersheim-nach-lameyplatz-karlsruhe/"
+   "url_b": "/de/transport/public-transport/berlin-nach-wittenberge-bahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Lameyplatz, Karlsruhe nach Ispringen, Lameyplatz, Karlsruhe, DE: what to know before you go",
-   "a": "c_36155b05cde8",
-   "b": "c_612794aa97ab",
+   "title": "Bf. Bad Segeberg (ZOB) nach Bad Bramstedt, Bf. Bad Segeberg (ZOB), DE: what to know before you go",
+   "a": "c_5cef2ba3d765",
+   "b": "c_74394061792d",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/lameyplatz-karlsruhe-nach-ispringen/"
+   "url_b": "/de/transport/public-transport/bf-bad-segeberg-zob-nach-bad-bramstedt/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Markranstädt nach Wilhelm-Leuschner-Platz, Leipzig, Markranstädt, DE: what to know before you go",
-   "a": "c_538362cf1be8",
-   "b": "c_ceaec74b03da",
+   "title": "Bingen am Rhein nach Koblenz Hauptbahnhof, Bingen am Rhein, DE: what to know before you go",
+   "a": "c_04109ab71d73",
+   "b": "c_3a77b40aaf7a",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/markranstadt-nach-wilhelm-leuschner-platz-leipzig/"
+   "url_b": "/de/transport/public-transport/bingen-am-rhein-nach-koblenz-hauptbahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Rathaus  Ri. Friedrichsplatz, Kassel nach Vellmar, Rathaus  Ri. Friedrichsplatz, DE: what to know before you g",
-   "a": "c_df41cca1ed65",
-   "b": "c_0a827ec76567",
+   "title": "Bischofsheim nach Wiesbaden Hauptbahnhof, Bischofsheim, DE: what to know before you go",
+   "a": "c_92a10f133e14",
+   "b": "c_9d1b347b89fc",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/rathaus-ri-friedrichsplatz-kassel-nach-vellmar/"
+   "url_b": "/de/transport/public-transport/bischofsheim-nach-wiesbaden-hauptbahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Rail Trail: Wootton Wawen > Wilmcote, Warwickshire, GB: foot trail",
-   "a": "c_e2cca8c583ec",
-   "b": "c_0e751b5a905b",
+   "market": "de-DE",
+   "title": "Blankenfelde-Mahlow nach Wittenberge, Bahnhof, Blankenfelde-Mahlow, DE: what to know before you go",
+   "a": "c_8f0e4703f2a5",
+   "b": "c_c926862300ba",
    "url_a": "",
-   "url_b": "/en/outdoors/trail/rail-trail-wootton-wawen-wilmcote-r18743925/"
+   "url_b": "/de/transport/public-transport/blankenfelde-mahlow-nach-wittenberge-bahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Aberdeen to Glasgow (Buchanan Bus Station), Aberdeen, GB: what to know before you go",
-   "a": "c_3ce68f149ea1",
-   "b": "c_bca16f5b6d3e",
+   "market": "de-DE",
+   "title": "Boppard nach Koblenz Hauptbahnhof, Boppard, DE: what to know before you go",
+   "a": "c_96fe790dd201",
+   "b": "c_2f3aedc28e1c",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/aberdeen-to-glasgow-buchanan-bus-station/"
+   "url_b": "/de/transport/public-transport/boppard-nach-koblenz-hauptbahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Archbishop Holgate's School, York to The Balk Pocklington, Archbishop Holgate's School, GB: what to know befor",
-   "a": "c_1157d280ee87",
-   "b": "c_6dd262eb7213",
+   "market": "de-DE",
+   "title": "Bremen nach Bassum Bahnhof, Bremen, DE: what to know before you go",
+   "a": "c_206897135d0c",
+   "b": "c_2280158539b2",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/archbishop-holgate-s-school-york-to-the-balk-pocklington/"
+   "url_b": "/de/transport/public-transport/bremen-nach-bassum-bahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Archbishop Holgate's School, York to Wilberfoss A1079, Pocklington, Archbishop Holgate's School, GB: what to k",
-   "a": "c_0640b85f85ef",
-   "b": "c_47b766c72d78",
+   "market": "de-DE",
+   "title": "Bremerhaven nach Hauptbahnhof/Hugo-Schauinsland-Platz, Bremen, Bremerhaven, DE: what to know before you go",
+   "a": "c_33a1d246ec84",
+   "b": "c_c0dba57fce70",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/archbishop-holgate-s-school-york-to-wilberfoss-a1079-pocklington/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Armadale to Edinburgh Bus Station, Armadale, GB: what to know before you go",
-   "a": "c_7b427607a9c5",
-   "b": "c_054e39c4793e",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/armadale-to-edinburgh-bus-station/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Armadale to Glasgow (Buchanan Bus Station), Armadale, GB: what to know before you go",
-   "a": "c_0584a59b9fc6",
-   "b": "c_9743d223ec0b",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/armadale-to-glasgow-buchanan-bus-station/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Ash Grove, Kingston upon Hull to Driffield Beverley Road, Ash Grove, GB: what to know before you go",
-   "a": "c_1c178a42ad0d",
-   "b": "c_4829357bd82b",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/ash-grove-kingston-upon-hull-to-driffield-beverley-road/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Ashgrove Court, Methil to Glenrothes Bus Station Arrival Bay, Ashgrove Court, GB: what to know before you go",
-   "a": "c_f7685cc463a9",
-   "b": "c_53dca3a3c92c",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/ashgrove-court-methil-to-glenrothes-bus-station-arrival-bay/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Aylsham to Sheringham, Railway Approach, Aylsham, GB: what to know before you go",
-   "a": "c_b6c74aa998ab",
-   "b": "c_5be0cbbd48fa",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/aylsham-to-sheringham-railway-approach/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "B&Q, York to The Balk Pocklington, B&Q, GB: what to know before you go",
-   "a": "c_6a958df8bdad",
-   "b": "c_ed66fcebf4d6",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/b-q-york-to-the-balk-pocklington/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "B&Q, York to Wilberfoss A1079, Pocklington, B&Q, GB: what to know before you go",
-   "a": "c_661b80cb5fec",
-   "b": "c_04f19b010293",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/b-q-york-to-wilberfoss-a1079-pocklington/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Badger Hill Shops, York to The Balk Pocklington, Badger Hill Shops, GB: what to know before you go",
-   "a": "c_db73d10b3b51",
-   "b": "c_a8321acf3936",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/badger-hill-shops-york-to-the-balk-pocklington/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Badger Hill Shops, York to Wilberfoss A1079, Pocklington, Badger Hill Shops, GB: what to know before you go",
-   "a": "c_3bc8dd79133d",
-   "b": "c_6d742be19670",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/badger-hill-shops-york-to-wilberfoss-a1079-pocklington/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Ballingry to Glenrothes Bus Station Arrival Bay, Ballingry, GB: what to know before you go",
-   "a": "c_d14d14eae696",
-   "b": "c_aed25f6637d8",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/ballingry-to-glenrothes-bus-station-arrival-bay/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Bawbee Bridge, Leven to Glenrothes Bus Station Arrival Bay, Bawbee Bridge, GB: what to know before you go",
-   "a": "c_9d7103c7c0a6",
-   "b": "c_f662c05eb84a",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/bawbee-bridge-leven-to-glenrothes-bus-station-arrival-bay/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Becquerel Avenue Terminus, Didcot to Park Way, Newbury, Becquerel Avenue Terminus, GB: what to know before you",
-   "a": "c_945f2753c4dd",
-   "b": "c_308a95f1aa81",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/becquerel-avenue-terminus-didcot-to-park-way-newbury/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Beech Grove, Kingston upon Hull to Driffield Beverley Road, Beech Grove, GB: what to know before you go",
-   "a": "c_229290f7bd10",
-   "b": "c_6ceaba632094",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/beech-grove-kingston-upon-hull-to-driffield-beverley-road/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Beverley BS to The Balk Pocklington, Beverley BS, GB: what to know before you go",
-   "a": "c_6dce4322c430",
-   "b": "c_96ddf8b20574",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/beverley-bs-to-the-balk-pocklington/"
+   "url_b": "/de/transport/public-transport/bremerhaven-nach-hauptbahnhof-hugo-schauinsland-platz-bremen/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -12096,21 +12096,21 @@
    ]
   },
   "transport.city-pair-transit|da": {
-   "rows": 7944,
+   "rows": 7950,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|de": {
-   "rows": 56370,
+   "rows": 130236,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|en": {
-   "rows": 276816,
+   "rows": 283228,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12124,21 +12124,21 @@
    ]
   },
   "transport.city-pair-transit|fi": {
-   "rows": 10663,
+   "rows": 14114,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|fr": {
-   "rows": 33007,
+   "rows": 36198,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|it": {
-   "rows": 1211,
+   "rows": 1226,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12152,14 +12152,14 @@
    ]
   },
   "transport.city-pair-transit|nl": {
-   "rows": 6685,
+   "rows": 7028,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|pl": {
-   "rows": 10625,
+   "rows": 12694,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12503,7 +12503,7 @@
  "title_length": {
   "min": 13,
   "max": 208,
-  "mean": 65.7
+  "mean": 68.9
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
