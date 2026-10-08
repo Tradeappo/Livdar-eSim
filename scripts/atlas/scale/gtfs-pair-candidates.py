@@ -289,6 +289,33 @@ PAIR_LOCALE = {
     'BR': ('pt-BR', 'pt', 'para', 'onibus de {a} para {b}'),
     'MX': ('es-MX', 'es', 'a', 'autobus de {a} a {b}'),
 }
+# ---- A COUNTRY WHOSE OWN MEASUREMENT REFUSED ITS DOMESTIC PAIRS -------------------------------
+# PAIR_LOCALE says what form a country's readers type. It does not say the demand behind that
+# form is for the journeys this project holds, and for one country a per-language measurement
+# found it is not. The Netherlands: ahrefs-expiry/gtfs-pair-local-language-2026-10-07.json read
+# the Dutch pair form at a volume floor of 40 and found the demand is INTERNATIONAL out of the
+# Netherlands - trein van amsterdam naar londen 400, amsterdam naar parijs 300, rotterdam naar
+# parijs 200 - while the domestic pairs the ovapi feed actually evidences are almost absent from
+# the tail. The three Dutch rows that did clear the floor are all CROSS-BORDER: breda to
+# antwerpen 100, venlo to dusseldorf 90, arnhem to dusseldorf 90.
+#
+# The refusal recorded that day was "nl pair level: demand is international, the held feed is
+# domestic", and until now it was recorded and not applied: NL stayed in PAIR_LOCALE and 7,028
+# Dutch pair pages stood in the manifest against a measurement that refused them. This table
+# applies it, and applies it exactly as narrow as the measurement is: the DOMESTIC Dutch pair is
+# refused, the cross-border journey out of the Netherlands is kept, because that is the half the
+# measurement found demand for. The reason this is country-shaped rather than language-shaped is
+# in the measurement too: the Netherlands is small and dense with one national journey planner,
+# so a Dutch reader searches the international pair; Denmark and Norway are long and thin with
+# regional hubs and their domestic pair demand is real. Pair-axis viability tracks country
+# geography, not language.
+PAIR_DOMESTIC_REFUSED = {
+    'NL': ('ahrefs-expiry/gtfs-pair-local-language-2026-10-07.json: the Dutch pair form was '
+           'read at a floor of 40 and its demand is international out of the Netherlands, not '
+           'domestic within it, so the pairs the held feed evidences are not the pairs Dutch '
+           'readers search. Cross-border journeys out of NL are kept; domestic ones are not.'),
+}
+
 # The URL joiner per language. The path segments stay English, as every other family in this
 # pipeline does, and only the pair joiner and the language prefix change.
 URL_JOINER = {'en': '-to-', 'da': '-til-', 'nb': '-til-', 'fi': '-', 'de': '-nach-',
@@ -403,11 +430,22 @@ for a, b, e in rows:
     # SNCF and BlaBlaCar feeds, which the domestic-only rule was dropping whole.
     #
     # It is still ONE page per journey in ONE locale. Nothing is fanned out across languages.
+    #
+    # ONE country is in PAIR_LOCALE and has its DOMESTIC pairs refused, by a measurement that
+    # read its own language and found the demand lies elsewhere. See PAIR_DOMESTIC_REFUSED.
     if e.get('directed'):
         loc = PAIR_LOCALE.get(a['country'])
+        if loc and a['country'] == b['country'] and a['country'] in PAIR_DOMESTIC_REFUSED:
+            stats['rejected_domestic_pair_in_a_country_whose_measured_demand_is_'
+                  'international:%s' % a['country']] += 1
+            continue
         if loc and a['country'] != b['country']:
             stats['admitted_cross_border_in_the_origin_language:%s' % a['country']] += 1
     else:
+        if a['country'] == b['country'] and a['country'] in PAIR_DOMESTIC_REFUSED:
+            stats['rejected_domestic_pair_in_a_country_whose_measured_demand_is_'
+                  'international:%s' % a['country']] += 1
+            continue
         loc = PAIR_LOCALE.get(a['country']) if a['country'] == b['country'] else None
     med = int(statistics.median(e['durations']))
     a_name, a_slug = qualified(a)

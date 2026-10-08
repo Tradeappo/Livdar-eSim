@@ -1466,7 +1466,16 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # openly licensed Mobility Database feeds. 3,238,241 directly-served STOP pairs
              # collapsed to 4,217 settlement pairs, which is the gate working: a stop pair
              # inside one bus network is a real connection and a page nobody would ever type.
-             ROOT + 'data/atlas/sources/transport/_gtfs-pair-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/transport/_gtfs-pair-candidates.jsonl.gz',
+             # GTFS interchange departure boards, built 2026-10-08 by gtfs-hub-candidates.py
+             # from the same harvested feeds. 15,771 nodes with eight or more direct
+             # destinations fell to 826 after four successive gates: the node must be a
+             # rail station or a ferry terminal or carry a station word in its OWN
+             # language, its destinations must spread across at least a quarter as many
+             # settlements as destinations, and nodes within 3 km of each other are one
+             # physical interchange. Trafalgar Square has 660 destinations across 81
+             # settlements and is refused; Munich has 571 across 373 and is admitted.
+             ROOT + 'data/atlas/sources/transport/_gtfs-hub-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1493,6 +1502,9 @@ SHAPE_SERP = {
     'pulse_bridge_plan': 'OPEN_SPECIALIST_PAGE_WINS',
     'airport_parking': 'OPEN_SPECIALIST_PAGE_WINS',
     'transport_pair_transit': 'OPEN_SPECIALIST_PAGE_WINS',
+    # Measured 2026-10-08, ahrefs-expiry/transport-hub-intent-2026-10-08.json. The
+    # departures form is held by operator and timetable sites, not by a knowledge card.
+    'transport_hub_node': 'OPEN_SPECIALIST_PAGE_WINS',
     'city_category': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'city_cuisine': 'OPEN_LOCAL_PACK_ABOVE_ORGANIC',
     'area_category': 'OPEN_LOCAL_PACK_ABOVE_ORGANIC',
@@ -1647,6 +1659,15 @@ SHAPE_WIRING = {
     # stop_times and attributed to the agency that published it. Not higher than 54, because
     # no per-pair volume was measured for any of the 4,217.
     'transport_pair_transit': ('transport', 'ENTITY', 'city_pair_transit', 54),
+    # GTFS interchange departure boards. Scored 44, BELOW the 54 of the settlement pair
+    # and below every other transport family here, and the reason is the honest limit of
+    # the measurement rather than the quality of the data. The departures FORM measured
+    # strongly, but in two markets only: en-GB and de-DE. 644 of these 826 rows are in
+    # markets whose own phrasing of the form was never measured, and the page rests on
+    # the family shape plus per-node utility read out of the timetable. That is a Class B
+    # admission with one leg shorter than the pair family's, so it scores lower, and the
+    # uniqueness reason on every row says which of the two it is.
+    'transport_hub_node': ('transport', 'ENTITY', 'transport_hub', 44),
 }
 WD_LICENCE = ('Wikidata (CC0 1.0, public domain dedication, no share-alike)', 'CC0_NO_CONDITIONS')
 OSM_LICENCE = ('OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required)',
@@ -1689,6 +1710,12 @@ SHAPE_LICENCE = {
         'Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, '
         'CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames '
         '(CC BY 4.0) for the settlements', 'MIXED_OPEN_ATTRIBUTION_REQUIRED'),
+    # Same feeds, same union of licences: the board is read out of the same stop_times.
+    'transport_hub_node': (
+        'Published GTFS timetables via the Mobility Database and transport.data.gouv.fr, '
+        'open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), '
+        'ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements',
+        'MIXED_OPEN_ATTRIBUTION_REQUIRED'),
 }
 SHAPE_RECORD_PREFIX = {
     'transport_pair': 'transport-air:', 'transport_airport_access': 'transport-access:',
@@ -1697,6 +1724,7 @@ SHAPE_RECORD_PREFIX = {
     'pulse_school_holidays': 'pulse-school:', 'pulse_long_weekends': 'pulse-lw:',
     'pulse_bridge_plan': 'pulse-bplan:', 'airport_parking': 'apark-osm:',
     'transport_pair_transit': 'transport-gtfs:',
+    'transport_hub_node': 'transport-gtfs-hub:',
 }
 
 # A feature page's parent is the list of its own class inside its own containment parent, where
@@ -1856,6 +1884,17 @@ for a in agg:
         # the route count is the shape of the corridor and the feed count is independent
         # corroboration, so a pair two agencies both publish scores higher than one
         q = min(100, 50 + min(25, a.get('n') or 0) * 2 + min(15, a.get('enriched') or 0) * 3)
+    elif shape == 'transport_hub_node':
+        fid = 'transport.station-departures'
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"see what leaves {ename}: which places it serves directly, how long each "
+                  f"journey takes and how many services a week run")
+        # the destination SETTLEMENT count is the page, not the destination count: a board
+        # listing thirty stops in one town answers one question, a board reaching thirty towns
+        # answers thirty. enriched is the number of independent feeds that evidence the node.
+        q = min(100, 40 + min(25, a.get('destination_settlements') or 0) * 2
+                + min(15, a.get('enriched') or 0) * 3)
     elif shape == 'airport_parking':
         fid = 'transport.airport-parking'
         eid = str(a['entity_id'])

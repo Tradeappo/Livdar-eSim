@@ -45,7 +45,8 @@ route. Batches are small enough to stay inside the service's one-minute query ti
 import gzip, json, os, sys, time, urllib.parse, urllib.request, urllib.error, collections
 
 ROOT = '/home/user/Livdar-eSim/'
-OUT = ROOT + 'data/atlas/sources/osm-outdoor/_wikidata-facts.jsonl.gz'
+OUT = os.environ.get('WD_OUT') or (ROOT + 'data/atlas/sources/osm-outdoor/_wikidata-facts.jsonl.gz')
+QIDS_IN = os.environ.get('WD_QIDS', '/tmp/enrich-qids.txt')
 WDQS = 'https://query.wikidata.org/sparql'
 BATCH = int(os.environ.get('WD_BATCH', '220'))
 PAUSE = float(os.environ.get('WD_PAUSE', '1.2'))
@@ -76,7 +77,7 @@ def query(qids):
 
 
 def main():
-    qids = [q.strip() for q in open('/tmp/enrich-qids.txt') if q.strip()]
+    qids = [q.strip() for q in open(QIDS_IN) if q.strip()]
     print(f'{len(qids):,} qids to enrich, batches of {BATCH}', file=sys.stderr)
     done = set()
     if os.path.exists(OUT):
@@ -89,6 +90,7 @@ def main():
             done = set()
     todo = [q for q in qids if q not in done]
     stats = collections.Counter()
+    failed = []
     fh = gzip.open(OUT, 'at', encoding='utf-8')
     for i in range(0, len(todo), BATCH):
         chunk = todo[i:i + BATCH]
@@ -99,7 +101,7 @@ def main():
             except urllib.error.HTTPError as e:
                 stats[f'http_{e.code}'] += 1
                 if e.code in (429, 503):
-                    time.sleep(10 * (attempt + 1)); continue
+                    time.sleep(20 * (attempt + 1)); continue
                 res = None; break
             except Exception as e:
                 stats['err_' + type(e).__name__] += 1
@@ -107,7 +109,10 @@ def main():
         else:
             res = None
         if res is None:
+            # A failed chunk writes nothing, so resume picks it up on the next run rather
+            # than losing 220 qids silently. Retried here once at the end of the pass too.
             stats['batch_failed'] += 1
+            failed.extend(chunk)
             continue
         got = {}
         for b in res.get('results', {}).get('bindings', []):
@@ -135,10 +140,47 @@ def main():
             else:
                 stats['no_fact_in_wikidata_either'] += 1
         fh.flush()
-        if (i // BATCH) % 10 == 0:
+        if True:
             print(f'  [{i + len(chunk):,}/{len(todo):,}] enriched {stats["enriched"]:,}',
                   file=sys.stderr, flush=True)
         time.sleep(PAUSE)
+    if failed:
+        print(f'  retry pass over {len(failed):,} qids from {stats["batch_failed"]} failed '
+              f'batches', file=sys.stderr, flush=True)
+        for i in range(0, len(failed), BATCH):
+            chunk = failed[i:i + BATCH]
+            try:
+                res = query(chunk)
+            except Exception as e:
+                stats['retry_still_failed'] += 1
+                time.sleep(30); continue
+            got = {}
+            for b in res.get('results', {}).get('bindings', []):
+                qid = b['item']['value'].rsplit('/', 1)[-1]
+                f2 = got.setdefault(qid, {})
+                for _p, k in PROPS:
+                    if k in b and b[k].get('value') not in (None, ''):
+                        v = b[k]['value']
+                        if k == 'start_date': v = v[:4]
+                        elif k in ('website', 'operator'):
+                            v = v.rsplit('/', 1)[-1] if k == 'operator' else v
+                        else:
+                            try: v = round(float(v), 3)
+                            except ValueError: pass
+                        f2.setdefault(k, v)
+            for qid in chunk:
+                f = got.get(qid) or {}
+                if f:
+                    stats['enriched'] += 1
+                    fh.write(json.dumps({'qid': qid, 'attr': f,
+                                         'source': 'Wikidata (CC0 1.0, public domain dedication)',
+                                         'properties': {k: p for p, k in PROPS if k in f}},
+                                        ensure_ascii=False) + '\n')
+                else:
+                    stats['no_fact_in_wikidata_either'] += 1
+            fh.flush()
+            stats['retry_recovered_batches'] += 1
+            time.sleep(PAUSE)
     fh.close()
     print(f'\nenriched {stats["enriched"]:,}; no fact in Wikidata either '
           f'{stats["no_fact_in_wikidata_either"]:,}')
