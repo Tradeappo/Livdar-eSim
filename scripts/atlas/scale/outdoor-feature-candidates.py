@@ -81,6 +81,43 @@ COUNTRY_MKT = entity_identity.COUNTRY_MKT
 # a landscape rather than places people go to by name, and they are left out rather than included
 # at a lower bar: 6,608 named springs in Germany would be 6,608 pages about water coming out of
 # the ground.
+# ---- the Wikidata fact enrichment ------------------------------------------------------------
+# The fact gate below admits a feature only when it carries a number or a practical detail a
+# reader came for. The 2026-10-07 reject diagnostic counted 40,123 features that pass the
+# NOTABILITY test, holding a Wikidata item or a Wikipedia article, and fail the fact test: real,
+# recognised places with nothing on the page but their name.
+#
+# The gate is right and is untouched. What was missing was DATA, and for these features the data
+# exists, because the same Wikidata item that makes them notable carries the numbers the gate
+# asks for. wikidata-outdoor-facts.py fetches them over the Query Service and writes one row per
+# item; this merges those values into `attr` BENEATH anything OpenStreetMap already says, so an
+# OSM value always wins and the enrichment can only fill a hole.
+#
+# A feature with no fact in Wikidata either is still refused. 52,585 items were queried and the
+# measured hit rate decides how many are recovered; the funnel below reports it.
+#
+# Licence: Wikidata is CC0, a public domain dedication, so there is no share-alike obligation and
+# no attribution requirement. Provenance is carried anyway, per property, so a page can say where
+# a number came from and a later reader can check it.
+WD_FACTS = {}
+try:
+    for _l in gzip.open(ROOT + 'data/atlas/sources/osm-outdoor/_wikidata-facts.jsonl.gz', 'rt',
+                        encoding='utf-8'):
+        _l = _l.strip()
+        if not _l:
+            continue
+        try:
+            _r = json.loads(_l)
+        except Exception:
+            continue
+        if _r.get('qid') and _r.get('attr'):
+            WD_FACTS[_r['qid']] = _r
+except (EOFError, OSError, FileNotFoundError):
+    pass
+if WD_FACTS:
+    print(f'wikidata facts available for {len(WD_FACTS):,} items', file=sys.stderr)
+
+
 PAGE_CLASSES = {
     'peak', 'volcano', 'mountain_pass', 'cave', 'waterfall', 'hot_spring', 'geyser',
     'natural_arch', 'glacier', 'castle', 'fort', 'ruins', 'archaeological_site', 'monument',
@@ -200,8 +237,20 @@ for f in sorted(glob.glob(OUTD + 'outdoor-*.jsonl.gz')):
                 rejects['no_market_and_no_destination_evidence_for_this_feature'] += 1
                 continue
             market, lang = _s[0], _s[1]
-        attr = o.get('attr') or {}
+        attr = dict(o.get('attr') or {})
         notable = bool(o.get('qid') or o.get('wikipedia'))
+        # Wikidata fills holes only: setdefault, so an OpenStreetMap value always wins.
+        _wd = WD_FACTS.get(o.get('qid') or '')
+        if _wd:
+            _added = [k for k, v in (_wd.get('attr') or {}).items() if k not in attr]
+            for k, v in (_wd.get('attr') or {}).items():
+                attr.setdefault(k, v)
+            if _added:
+                o['_wikidata_facts'] = _added
+                o['_wikidata_properties'] = {k: (_wd.get('properties') or {}).get(k)
+                                             for k in _added}
+                o['_wikidata_licence'] = 'Wikidata (CC0 1.0, public domain dedication)'
+                rejects['_recovered_by_wikidata_enrichment'] += 1
         measurable = [k for k in MEASURABLE if k in attr]
         practical = [k for k in PRACTICAL if k in attr]
         if not notable:
