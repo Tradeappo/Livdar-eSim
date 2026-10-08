@@ -116,6 +116,7 @@ MIN_CITY_POP = 1000
 # station, which is the publisher's own judgement and is trusted.
 MAJOR_NODE_ROUTES = 8
 DUR_SAMPLE = 64   # reservoir size for the journey-time median; see the note at P
+MIN_PAIR_SEPARATION_KM = 5.0   # must match MIN_CITY_SEPARATION_KM in gtfs-pair-candidates.py
 PAIR_DICT_WARN = 2_000_000   # print the pair-dict size every this many entries, so an OOM is diagnosable
 MAX_STOPS_PER_TRIP_SETTLEMENTS = 60   # a trip touching more settlements than this is a data
                                       # artefact, not a service, and its pair count explodes
@@ -366,6 +367,27 @@ def harvest(key, url, country, licence, provider):
                     # size processable at all.
                     if a.get('settlement_id') == b.get('settlement_id'):
                         stats['pair_rejected_same_settlement'] += 1
+                        continue
+                    # ---- THE SEPARATION GATE, MOVED UPSTREAM ----------------------------
+                    # gtfs-pair-candidates.py already refuses any pair whose endpoints are
+                    # closer together than MIN_CITY_SEPARATION_KM, 5.0 km, because closer
+                    # than that the "pair" is a city and its own suburb. Applying the SAME
+                    # threshold here is exactly equivalent: nothing is admitted that was
+                    # refused before and nothing is refused that was admitted before.
+                    #
+                    # It is moved because of where the time and the memory actually go. The
+                    # inner loop is O(n squared) in the settlements one trip touches, and the
+                    # Ile-de-France feed uses 537,868 trips, so it runs on the order of a
+                    # billion pair operations in pure Python and spends most of them building
+                    # dict entries for pairs the next stage will throw away. Urban aggregates
+                    # are the bulk of the registry, 93 of the 153 intercity-shaped feeds being
+                    # French departmental and regional networks, so the saving compounds.
+                    #
+                    # If this threshold and the one in the builder ever diverge, the builder's
+                    # wins and this becomes a pure performance filter that drops nothing extra,
+                    # because the builder re-checks separation on every row it reads.
+                    if km(a['lat'], a['lon'], b['lat'], b['lon']) < MIN_PAIR_SEPARATION_KM:
+                        stats['pair_rejected_closer_than_%dkm' % MIN_PAIR_SEPARATION_KM] += 1
                         continue
                     # ---- THE PAIR IS DIRECTED ------------------------------------------
                     # This key used to be undirected, `(a,b) if a<b else (b,a)`, and that
