@@ -56,6 +56,16 @@ PAN_REFUSED = {'notspecified', '', None, 'other-at', 'other-open'}
 
 # A stated licence in the Mobility Database is a URL. These are the ones that are actually
 # open grants; a link to a terms-of-use page is accepted only where the page IS the grant.
+# A stated licence in the Mobility Database is a URL. These are the ones that are actually
+# open grants; a link to a terms-of-use page is accepted only where the page IS the grant.
+#
+# The first version of this pattern refused 322 feeds that DO state a licence, and an audit of
+# what it was refusing found six real open grants among them. They are added below. The ones
+# still refused are refused deliberately: operator "developer data terms" pages (MTA, SEPTA,
+# NJ Transit, CTtransit, Trinity Metro, C-TRAN, BC Transit) are permissions to use an API
+# rather than licences to redistribute derived data, and the standing rule on this axis is
+# clear commercial reuse, so a developer-terms page does not clear it however permissive it
+# reads.
 MDB_LICENCE_OK = re.compile(
     r'creativecommons\.org/(licenses/(by|by-sa)/|publicdomain/zero)'
     r'|opendatacommons\.org/licenses/(odbl|by|pddl)'
@@ -67,7 +77,17 @@ MDB_LICENCE_OK = re.compile(
     r'|opentransportdata\.swiss/en/terms-of-use'
     r'|transportforireland\.ie/transitData'
     r'|bip\.plk-sa\.pl/ponowne-wykorzystywanie'
-    r'|dadesobertes\.gva\.es', re.I)
+    r'|dadesobertes\.gva\.es'
+    # added 2026-10-08 after auditing the 322 stated licences the pattern was refusing
+    r'|openstreetmap\.org/copyright'                       # ODbL 1.0, named directly
+    r'|donneesquebec\.ca/licence'                           # Licence Quebec, an open grant
+    r'|lafabriquedesmobilites\.fr/wiki/Licence_Mobilit'      # Licence Mobilites, the same
+                                                            # grant the French access point
+                                                            # already supplies as
+                                                            # mobility-licence
+    r'|opendata\.waltti\.fi'                               # Finnish Waltti open data, CC BY 4.0
+    r'|data\.qld\.gov\.au'                                # Queensland open data, CC BY 4.0
+    r'|crtm\.es/licencia-de-uso', re.I)                     # Madrid regional transport
 
 EXCLUDE_NAME = re.compile(r'scolaire|school|\bTAD\b|a la demande|à la demande|on.demand', re.I)
 
