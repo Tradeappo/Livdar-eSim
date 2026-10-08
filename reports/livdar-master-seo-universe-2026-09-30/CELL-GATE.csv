@@ -8,7 +8,7 @@ activities.city-things-to-do,en-US,6,6600,TAIL,1+2+3+4,500,400,"500 rows at the 
 places.city-category,en-US,5,1500,TAIL,1+2+3+4,173,80,"76 of 173 clear 100, 103 clear 50",881,0,881,881,
 rents.city,en-US,3,1100,TAIL,1+2+3,0,,,881,0,881,881,
 stay.city-type,en-US,3,1100,TAIL,1+2+3+4,142,90,"60 of 142 clear 100, 105 clear 50",881,0,881,1214,
-events.city-type,en-US,3,350,TAIL,1+2+3,0,,,881,0,881,881,
+events.city-type,en-US,3,350,TAIL,1+2+3,89,0,"REFUSED: 8 of 89 clear 100, median 0, 46 of 89 return zero volume",881,0,881,881,
 rents.city,pt-BR,6,800,TAIL,1+2+3,0,,,677,0,677,805,
 activities.city-things-to-do,ja-JP,7,20000,TAIL,1+2+3,0,,,554,0,554,767,
 stay.city-type,ja-JP,4,8700,TAIL,1+2+3,0,,,554,0,554,767,
@@ -131,7 +131,7 @@ wellness.city-thermal,zh-Hant-TW,2,700,UNDER_SAMPLED,,0,,,0,0,0,0,
 airport.transfer,zh-Hant-TW,1,30,UNDER_SAMPLED,,0,,,0,0,0,0,
 health.city,en-US,2,100,UNDER_SAMPLED,,0,,,0,0,0,0,
 work.city-jobs,en-US,3,2300,TAIL,1+2+3+4,141,50,"43 of 141 clear 100, 74 clear 50",0,0,0,0,"SERP aggregator locked, jobs lincoln is 100 percent job boards"
-weather.city-best-time,en-US,5,41000,TAIL,,0,,,0,0,0,0,"SERP feature suppressed, knowledge card at 1 and no top 10 result under DR 72"
+weather.city-best-time,en-US,5,41000,TAIL,1+2+3+4,132,1350,"lifted via the FAM_ALIAS target. weather.city-month aliases to weather.city-best-time, and the tier gate reads the alias target, so lifting the weather.city-month row alone did nothing. 124 of 132 clear 100, 92 clear 500. Probe was ""{city} weather"".",0,0,0,0,"SERP feature suppressed, knowledge card at 1 and no top 10 result under DR 72"
 property.city-buy,en-US,2,1700,UNDER_SAMPLED,,0,,,0,0,0,0,SOURCE needs a live listings feed Livdar has not got
 education.city-universities,en-US,1,11000,UNDER_SAMPLED,,0,,,0,0,0,0,
 education.city-schools,en-US,2,300,UNDER_SAMPLED,,0,,,0,0,0,0,

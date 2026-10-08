@@ -1,13 +1,13 @@
 {
- "manifest_rows": 719190,
- "distinct_urls": 719190,
+ "manifest_rows": 739983,
+ "distinct_urls": 739983,
  "checks": {
-  "title_over_65_chars": 298780,
-  "meta_over_165_chars": 290674,
+  "title_over_65_chars": 299323,
+  "meta_over_165_chars": 290676,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 624,
-  "duplicate_title_same_tokens": 951,
-  "destination_rows": 68047,
+  "duplicate_title_same_tokens": 952,
+  "destination_rows": 77748,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
@@ -11802,7 +11802,7 @@
    ]
   },
   "stay.city-type|en": {
-   "rows": 1570,
+   "rows": 6746,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12250,14 +12250,14 @@
    ]
   },
   "weather.city-month|en": {
-   "rows": 2871,
+   "rows": 10208,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
    ]
   },
   "weather.city-month|es": {
-   "rows": 3656,
+   "rows": 11936,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -12503,7 +12503,7 @@
  "title_length": {
   "min": 13,
   "max": 207,
-  "mean": 62.6
+  "mean": 62.2
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

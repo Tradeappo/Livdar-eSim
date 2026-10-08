@@ -5,10 +5,10 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | family | en-US | en-GB | de-DE | ja-JP | zh-Hant-TW | it-IT | es-ES | fr-FR | nl-NL | pl-PL | pt-BR |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | transport.city-pair-transit | 4,394 | 216,617 | 29,427 |  |  | 32 | 1,966 | 6,463 | 3,467 | 459 |  |
+| weather.city-month | 9,894 | 314 | 711 | 2,544 | 40 | 1,017 | 11,936 | 3,680 | 3,029 | 2,765 | 3,040 |
 | activities.city-things-to-do | 9,894 | 1,285 | 891 | 2,544 | 51 | 1,135 | 315 | 3,682 | 3,029 | 198 | 931 |
 | stay.city-type | 6,058 | 688 | 3,786 | 2,544 | 40 | 272 | 3,207 | 3,680 | 3,029 | 198 | 922 |
 | outdoors.hiking-trail | 3,310 | 1,442 |  | 294 |  |  | 4,342 | 9,237 | 2,709 | 1,879 | 29 |
-| weather.city-month | 2,557 | 314 | 711 | 2,544 | 40 | 1,017 | 3,656 | 3,680 | 3,029 | 2,765 | 3,040 |
 | places.area-cuisine | 5,451 | 2,142 | 1,610 | 4,123 |  | 1,739 | 1,247 | 2,230 | 632 | 871 | 586 |
 | places.area-restaurant | 2,917 | 890 | 1,697 | 2,943 |  | 1,492 | 1,486 | 1,854 | 559 | 775 | 664 |
 | places.city-cuisine | 4,914 | 1,256 | 1,060 | 1,824 |  | 629 | 782 | 1,144 | 480 | 507 | 478 |

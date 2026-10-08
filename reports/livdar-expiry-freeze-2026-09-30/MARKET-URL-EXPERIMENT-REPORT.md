@@ -14,13 +14,13 @@ Every contest the ownership rule resolved in which a market under test was shut 
 
 | market | raw candidates | justified | justified pending a source | duplicate | insufficient | generic only | net new valid pages |
 |---|---|---|---|---|---|---|---|
-| en-AU | 17,200 | 0 | 6 | 6,567 | 297 | 10,330 | **0** |
-| es-MX | 27,951 | 3 | 18 | 6,266 | 256 | 21,408 | **3** |
+| en-AU | 25,588 | 0 | 6 | 6,567 | 297 | 18,718 | **0** |
+| es-MX | 58,111 | 3 | 18 | 6,266 | 256 | 51,568 | **3** |
 
-**NET NEW VALID PAGES, both markets: 3** out of 45,151 raw candidates.
+**NET NEW VALID PAGES, both markets: 3** out of 83,699 raw candidates.
 
-- `en-AU` reconciles: True. Of its 10,330 candidates with no surviving generic page, 3,517 had an owner dropped before a row was ever generated and 6,813 had an owner a later gate rejected. That leaves 6,870 genuine coexistence decisions.
-- `es-MX` reconciles: True. Of its 21,408 candidates with no surviving generic page, 7,892 had an owner dropped before a row was ever generated and 13,516 had an owner a later gate rejected. That leaves 6,543 genuine coexistence decisions.
+- `en-AU` reconciles: True. Of its 18,718 candidates with no surviving generic page, 3,261 had an owner dropped before a row was ever generated and 15,457 had an owner a later gate rejected. That leaves 6,870 genuine coexistence decisions.
+- `es-MX` reconciles: True. Of its 51,568 candidates with no surviving generic page, 7,892 had an owner dropped before a row was ever generated and 43,676 had an owner a later gate rejected. That leaves 6,543 genuine coexistence decisions.
 
 ## 3. Why the yield is what it is
 

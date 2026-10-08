@@ -8,17 +8,17 @@
  ],
  "yield": {
   "en-AU": {
-   "raw_candidates": 17200,
+   "raw_candidates": 25588,
    "justified_separate_pages": 0,
    "duplicate_rejected": 6567,
    "insufficient_market_value_rejected": 297,
-   "generic_only": 10330,
-   "no_generic_owner_survived_excluded_from_yield": 10330,
-   "of_those_owner_never_generated_a_row": 3517,
-   "of_those_owner_rejected_by_a_later_gate": 6813,
+   "generic_only": 18718,
+   "no_generic_owner_survived_excluded_from_yield": 18718,
+   "of_those_owner_never_generated_a_row": 3261,
+   "of_those_owner_rejected_by_a_later_gate": 15457,
    "real_coexistence_decisions": 6870,
    "justified_pending_a_source_not_counted_as_yield": 6,
-   "entities_in_the_foreign_destination_measurement": 17,
+   "entities_in_the_foreign_destination_measurement": 21,
    "net_new_valid_pages": 0,
    "yield_rate": 0.0,
    "compared_with": [
@@ -28,14 +28,14 @@
    "reconciles": true
   },
   "es-MX": {
-   "raw_candidates": 27951,
+   "raw_candidates": 58111,
    "justified_separate_pages": 3,
    "duplicate_rejected": 6266,
    "insufficient_market_value_rejected": 256,
-   "generic_only": 21408,
-   "no_generic_owner_survived_excluded_from_yield": 21408,
+   "generic_only": 51568,
+   "no_generic_owner_survived_excluded_from_yield": 51568,
    "of_those_owner_never_generated_a_row": 7892,
-   "of_those_owner_rejected_by_a_later_gate": 13516,
+   "of_those_owner_rejected_by_a_later_gate": 43676,
    "real_coexistence_decisions": 6543,
    "justified_pending_a_source_not_counted_as_yield": 18,
    "entities_in_the_foreign_destination_measurement": 56,
@@ -48,25 +48,25 @@
   }
  },
  "net_new_valid_pages_total": 3,
- "raw_candidates_total": 45151,
+ "raw_candidates_total": 83699,
  "by_overlap": {
   "en-AU vs en-GB": {
-   "KEEP_GENERIC_ONLY": 10330,
-   "pairs": 17200,
+   "KEEP_GENERIC_ONLY": 18718,
+   "pairs": 25588,
    "MARKET_PAGE_DUPLICATE": 6567,
    "INSUFFICIENT_MARKET_VALUE": 297,
    "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6
   },
   "en-AU vs en-US": {
-   "KEEP_GENERIC_ONLY": 10330,
-   "pairs": 17200,
+   "KEEP_GENERIC_ONLY": 18718,
+   "pairs": 25588,
    "MARKET_PAGE_DUPLICATE": 6567,
    "INSUFFICIENT_MARKET_VALUE": 297,
    "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6
   },
   "es-MX vs es-ES": {
-   "KEEP_GENERIC_ONLY": 21408,
-   "pairs": 27951,
+   "KEEP_GENERIC_ONLY": 51568,
+   "pairs": 58111,
    "MARKET_PAGE_DUPLICATE": 6266,
    "INSUFFICIENT_MARKET_VALUE": 256,
    "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 18,
@@ -75,6 +75,7 @@
  },
  "why_the_generic_owner_was_missing": {
   "en-AU": {
+   "NOT_IN_THE_REJECTION_FILE_EITHER": 8644,
    "REJECTED_FAMILY_MEASURED_AND_REFUSED": 5101,
    "REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY": 1662,
    "REJECTED_UNSUPPORTED_SUPERLATIVE": 17,
@@ -83,6 +84,7 @@
   },
   "es-MX": {
    "REJECTED_FAMILY_MEASURED_AND_REFUSED": 9999,
+   "NOT_IN_THE_REJECTION_FILE_EITHER": 30160,
    "REJECTED_LOCALIZATION": 153,
    "REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY": 3333,
    "REJECTED_QUALITY": 31
@@ -100,7 +102,7 @@
  },
  "information_gain_kinds_earned": {
   "es-MX:ENTITY_SPECIFIC_MEASURED_DEMAND": 56,
-  "en-AU:ENTITY_SPECIFIC_MEASURED_DEMAND": 17
+  "en-AU:ENTITY_SPECIFIC_MEASURED_DEMAND": 21
  },
  "information_gain_kinds_with_no_source_yet": {
   "MARKET_SPECIFIC_REGULATION": "needs a per-(reader country, subject country) rules table: visa class, length of stay, work rights, tax residency threshold. Nothing in this inventory is keyed on the READER country, so relocation.country, taxes.country-remote-work, health.country and banking.country cannot currently differentiate an Australian reader from an American one even though the real-world answers differ",
@@ -133,18 +135,18 @@
  ],
  "top_families_by_decision": {
   "en-AU": {
+   "climate.city-day:KEEP_GENERIC_ONLY": 3840,
+   "climate.city-annual:KEEP_GENERIC_ONLY": 3840,
+   "weather.city-best-time:KEEP_GENERIC_ONLY": 3840,
    "activities.city-things-to-do:MARKET_PAGE_DUPLICATE": 3666,
    "stay.city-type:KEEP_GENERIC_ONLY": 3249,
-   "climate.city-day:KEEP_GENERIC_ONLY": 1743,
-   "climate.city-annual:KEEP_GENERIC_ONLY": 1743,
+   "weather.city-month:KEEP_GENERIC_ONLY": 2161,
    "destinations.city-hub:KEEP_GENERIC_ONLY": 1743,
-   "weather.city-best-time:KEEP_GENERIC_ONLY": 1743,
    "weather.city-month:MARKET_PAGE_DUPLICATE": 1555,
    "transport.route-from-market:MARKET_PAGE_DUPLICATE": 757,
    "stay.city-type:MARKET_PAGE_DUPLICATE": 589,
    "activities.city-things-to-do:INSUFFICIENT_MARKET_VALUE": 171,
    "weather.city-month:INSUFFICIENT_MARKET_VALUE": 122,
-   "weather.city-month:KEEP_GENERIC_ONLY": 64,
    "calendar.month:KEEP_GENERIC_ONLY": 24,
    "activities.city-things-to-do:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 3,
    "stay.city-type:INSUFFICIENT_MARKET_VALUE": 2,
@@ -160,11 +162,12 @@
    "tools.loan-payment:KEEP_GENERIC_ONLY": 1
   },
   "es-MX": {
+   "climate.city-day:KEEP_GENERIC_ONLY": 10873,
+   "climate.city-annual:KEEP_GENERIC_ONLY": 10873,
+   "weather.city-best-time:KEEP_GENERIC_ONLY": 10873,
    "stay.city-type:KEEP_GENERIC_ONLY": 7816,
-   "climate.city-day:KEEP_GENERIC_ONLY": 3333,
-   "climate.city-annual:KEEP_GENERIC_ONLY": 3333,
+   "weather.city-month:KEEP_GENERIC_ONLY": 7540,
    "destinations.city-hub:KEEP_GENERIC_ONLY": 3333,
-   "weather.city-best-time:KEEP_GENERIC_ONLY": 3333,
    "weather.city-month:MARKET_PAGE_DUPLICATE": 3196,
    "stay.city-type:MARKET_PAGE_DUPLICATE": 2932,
    "transport.route-from-market:KEEP_GENERIC_ONLY": 188,
@@ -183,8 +186,7 @@
    "weather.city-month:MARKET_PAGE_JUSTIFIED": 1,
    "activities.city-things-to-do:MARKET_PAGE_JUSTIFIED": 1,
    "tools.calculator:KEEP_GENERIC_ONLY": 1,
-   "tools.matcher:KEEP_GENERIC_ONLY": 1,
-   "tools.cost-comparison:KEEP_GENERIC_ONLY": 1
+   "tools.matcher:KEEP_GENERIC_ONLY": 1
   }
  },
  "decisions": [
