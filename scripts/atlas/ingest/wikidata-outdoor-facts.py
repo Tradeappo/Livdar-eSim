@@ -42,7 +42,7 @@ Transport: the Wikidata Query Service over SPARQL, in VALUES batches. wbgetentit
 first on 2026-10-07 and rate-limited at HTTP 429; WDQS answers and is the documented bulk
 route. Batches are small enough to stay inside the service's one-minute query timeout.
 """
-import gzip, json, os, sys, time, urllib.parse, urllib.request, urllib.error, collections
+import gzip, json, os, sys, time, urllib.parse, urllib.request, urllib.error, collections, zlib
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = os.environ.get('WD_OUT') or (ROOT + 'data/atlas/sources/osm-outdoor/_wikidata-facts.jsonl.gz')
@@ -81,13 +81,21 @@ def main():
     print(f'{len(qids):,} qids to enrich, batches of {BATCH}', file=sys.stderr)
     done = set()
     if os.path.exists(OUT):
+        # A run killed mid-write leaves a truncated final member, and gzip raises EOFError on
+        # reaching it. The old handler threw away EVERY qid read before the break and refetched
+        # the whole list; worse, appending past a truncated member makes the appended rows
+        # unreadable, so the next run could not see its own work. KEEP what was read, and say
+        # the file needs rewriting rather than pretending it was read whole.
         try:
             for l in gzip.open(OUT, 'rt', encoding='utf-8'):
                 try: done.add(json.loads(l)['qid'])
                 except Exception: pass
             print(f'resuming: {len(done):,} already fetched', file=sys.stderr)
-        except Exception:
-            done = set()
+        except (EOFError, OSError, zlib.error) as e:
+            print(f'resuming: {len(done):,} already fetched, then {type(e).__name__} - the '
+                  f'file ends mid-member and must be rewritten before anything is appended, '
+                  f'or the appended rows will not be readable', file=sys.stderr)
+            raise SystemExit(2)
     todo = [q for q in qids if q not in done]
     stats = collections.Counter()
     failed = []
@@ -113,6 +121,13 @@ def main():
             # than losing 220 qids silently. Retried here once at the end of the pass too.
             stats['batch_failed'] += 1
             failed.extend(chunk)
+            # A silent failure used to print nothing at all, because the progress line sits
+            # after this continue. Twenty minutes of no output then means either a stall or a
+            # run quietly refusing every batch, and there was no way to tell which.
+            print(f'  [{i + len(chunk):,}/{len(todo):,}] BATCH FAILED '
+                  f'({stats["batch_failed"]} so far, '
+                  f'{", ".join(f"{k}={v}" for k, v in sorted(stats.items()) if k.startswith(("http_", "err_")))})',
+                  file=sys.stderr, flush=True)
             continue
         got = {}
         for b in res.get('results', {}).get('bindings', []):
