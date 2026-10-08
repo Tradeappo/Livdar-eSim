@@ -1,14 +1,14 @@
 {
  "measuredOn": "2026-10-01",
  "families": 215,
- "pages": 724366,
+ "pages": 739983,
  "verdicts": {
   "ACCEPTED": 181,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
   "ACCEPTED": 610963,
-  "ACCEPTED_WITH_AN_UNKNOWN": 113403
+  "ACCEPTED_WITH_AN_UNKNOWN": 129020
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
@@ -8655,7 +8655,7 @@
    "every_page_is_low_completeness": false
   },
   "weather.city-month": {
-   "pages": 23353,
+   "pages": 38970,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8687,15 +8687,15 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 23353,
+    "unique_fact_count": 38970,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 6441,
-    "template_ratio": 23353.0,
+    "distinct_entity_count": 17938,
+    "template_ratio": 38970.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0014,
+    "near_duplicate_token_score": 0.0039,
     "near_duplicate_worst_language": "en",
-    "information_gain_reason": "weather.city-month for 's-Hertogenbosch (NL) in es-ES: city-level local data and local-language demand; 2 source fields from HELD; es market demand measured for this family"
+    "information_gain_reason": "weather.city-month for 's-Gravenzande (NL) in es-ES: city-level local data and local-language demand; 2 source fields from HELD; es market demand measured for this family"
    },
    "every_page_is_low_completeness": false
   },

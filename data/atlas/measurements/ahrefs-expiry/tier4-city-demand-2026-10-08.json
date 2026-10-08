@@ -190,14 +190,71 @@
    "max_volume": 3700,
    "reading": "median 0 and 46 of 89 cities return zero volume. Only Austin at 3,700 and seven others clear 100. An events page needs a live event feed to be worth anything, and these towns have neither the feed nor the demand. This is the cell that proves the method discriminates: four cells lifted, this one refused on its own numbers.",
    "units_spent": 979
+  },
+  "rents.city|en-US": {
+   "verdict": "REFUSED, and the decisive reason is the FEED, not the demand.",
+   "query_form": "apartments for rent in {city}",
+   "rows_returned": 118,
+   "distribution": {
+    "gte_10": 89,
+    "gte_50": 50,
+    "gte_100": 23,
+    "gte_200": 7,
+    "zero_volume": 29
+   },
+   "share_clearing_50": 42.4,
+   "share_clearing_100": 19.5,
+   "median_volume": 30,
+   "max_volume": 800,
+   "reading": "Second weakest cell measured on demand alone: median 30 against 50 for work.city-jobs, which was the weakest I lifted. But the refusal does not rest on that. 08-SERP-EVIDENCE.csv classes this family OPEN_REQUIRES_INVENTORY with feed_needed set to \"rental listings feed\", and 1M-FAMILY-BREAKDOWN.csv already shows all 5,202 rents.city rows sitting in the blocked column rather than in FINAL. Lifting the tier would generate more rows that are blocked for the same reason. A rent page without live listings is thin whatever its keyword volume says.",
+   "units_spent": 1298
+  },
+  "activities.city-things-to-do|pt-BR": {
+   "verdict": "REFUSED for a blanket tier lift. The cap STANDS.",
+   "query_form": "o que fazer em {city}",
+   "rows_returned": 98,
+   "distribution": {
+    "gte_10": 70,
+    "gte_50": 25,
+    "gte_100": 12,
+    "gte_200": 9,
+    "gte_500": 7,
+    "zero_volume": 28
+   },
+   "share_clearing_100": 12.2,
+   "median_volume": 10,
+   "max_volume": 9400,
+   "reading": "Median 10, 28 of 98 at zero, and only 12 per cent clear 100. Against work.city-jobs at 30.5 per cent, which was the weakest cell lifted, this is clearly below the bar.",
+   "why_this_cell_is_the_clearest_argument_against_the_blanket_lift": "The Brazilian demand is not thin, it is CONCENTRATED. Nine towns carry almost all of it: balneario camboriu 9400, serra negra 4300, bombinhas 2100, ilheus 700, trindade 600, sao pedro 600, mairipora 500, avare 300, bananal 250. They are resort and spa towns, identifiable by name, and they deserve pages. The other 89 municipalities in the sample do not. Lifting the tier would admit all 4,156 Brazilian tier-3 and tier-4 cities to serve nine of them. That is the shape where the per-city evidence feed is the right instrument and the tier cap is the wrong one, and it is the mirror image of US weather, where the median was 1,350 and exactly one city returned zero.",
+   "what_should_happen_instead": "Admit those nine cities individually through the per-city evidence path that XL_MARKET_CITIES and HARVEST_CITY_IDS already provide, rather than moving the cap. That needs the per-city feed described in tier4-city-keyword-batches.json, not a cap edit.",
+   "units_spent": 1078
   }
  },
  "what_was_changed_on_the_strength_of_this": "CELL-GATE.csv tiers moved from 1+2+3 to 1+2+3+4 for these two cells ONLY, with tier4_rows and tier4_median recorded. CELL_TIER is a FAMILY-LEVEL REACH measure by design, which is how five cells already counted tier 4 before today, so this uses the project's own instrument with better evidence rather than relaxing anything. No other cell was touched.",
  "what_this_does_NOT_claim": "It does not claim every tier-4 city has demand. At the 100 floor 43.9 per cent did and 14.5 per cent returned zero. Lifting the cap admits the tier and the measured rate is recorded beside it so publication can be ordered by it. The stronger design, admitting only the cities actually measured, needs a per-city evidence feed; 69,641 city keywords were generated for that in tier4-city-keyword-batches.json and only 2 cells could be measured by hand, because the Ahrefs MCP is proxied with no raw token so every batch is a tool call rather than a loop in a script.",
  "units": {
-  "spent_this_measurement": 12947,
+  "spent_this_measurement": 15323,
   "spent_including_the_gb_pair_check": 7466,
   "allowance": 2000000,
   "reset": "2026-11-08T00:00:00Z"
+ },
+ "summary_so_far": {
+  "cells_measured": 8,
+  "cells_lifted": 5,
+  "cells_refused": 3,
+  "lifted": [
+   "places.city-category|en-US 43.9% clear 100",
+   "activities.city-things-to-do|en-US CAP",
+   "stay.city-type|en-US 42.3%",
+   "work.city-jobs|en-US 30.5%",
+   "weather.city-month|en-US via alias, 94% clear 100, median 1350"
+  ],
+  "refused": [
+   "events.city-type|en-US, median 0, 46 of 89 at zero volume",
+   "rents.city|en-US, needs a rental listings feed the project does not have",
+   "activities.city-things-to-do|pt-BR, median 10, demand concentrated in nine resort towns"
+  ],
+  "final_moved": "706,677 -> 739,983",
+  "the_pattern_that_emerged": "A cell lifts when demand is BROAD across the tier and refuses when it is CONCENTRATED or blocked on a feed. Breadth, not peak volume, is what the tier cap can express: pt-BR has a 9,400 peak and refuses, while US stay.city-type peaks at 6,100 and lifts, because the Brazilian median is 10 and the American is 90."
  }
 }
