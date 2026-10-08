@@ -11,6 +11,7 @@ Only entities with a label AND coordinates are kept: a Wikidata item with neithe
 support a page, and keeping it would pad the count.
 """
 import urllib.parse, urllib.request, json, time, os, gzip, sys, collections
+import subprocess, tempfile
 
 OUT = '/home/user/Livdar-eSim/data/atlas/sources/wikidata/'
 os.makedirs(OUT, exist_ok=True)
@@ -72,14 +73,30 @@ LANG = {'US':'en','GB':'en','DE':'de','FR':'fr','IT':'it','ES':'es','NL':'nl',
 # complete answer. Points carry one latitude each and the bands are half-open, so no entity
 # is counted twice and none falls between two bands.
 
-# Two endpoints, each with its own rate budget. The outage rule is one request per minute
-# and it is enforced per host, which measurement showed: two requests to one host a second
-# apart gave 200 then 429, while one request to each host gave 200 twice. Alternating them
-# under a per-host minute gives one request roughly every 31 seconds without asking either
-# host for more than it said it would give.
+# Two endpoints, alternated, because spreading load across both is good manners and costs
+# nothing.
+#
+# THE PER-MINUTE RULE WAS NEVER WIKIDATA'S. The comment that stood here said the outage rule
+# is one request per minute enforced per host, on a measurement that two requests to one host
+# a second apart gave 200 then 429. That measurement was real and its CAUSE was misread: it
+# was made with urllib, which speaks HTTP/1.1 to this endpoint, and Wikimedia's limiter reads
+# the connection rather than the request. Re-run on 2026-10-08 with curl over HTTP/2 - THREE
+# consecutive requests to query.wikidata.org, the same host, one second apart, all HTTP 200,
+# 5,388 bindings each, 20 to 28 seconds apiece. Same query, same host, same second spacing.
+#
+# What that cost: a 62-second per-host gap on every request made the Wikidata truncation
+# refetch impractical, so the largest single closure path in 1M-GAP-TO-TARGET.csv - 46,763
+# rows - carried the status REFETCH RATE-LIMITED for days, blocked by a client library rather
+# than by any limit Wikidata applies. The 20 to 28 seconds a band query genuinely takes is
+# query COST and is left alone; only the invented wait is gone.
+#
+# PAUSE stays non-zero deliberately. The experiment proves three requests a second apart are
+# served; it does not prove a thousand are, and the 429 retry below is kept untouched.
 ENDPOINTS = ['https://query-main.wikidata.org/sparql',
              'https://query.wikidata.org/sparql']
 _last = {e: 0.0 for e in ENDPOINTS}
+# seconds a single host waits between its own requests. Was 62, on a misread limiter.
+PAUSE = float(os.environ.get('WD_HOST_PAUSE', '2.0'))
 _turn = [0]
 CAP = 10000
 
@@ -89,22 +106,40 @@ def ask(q, timeout=180):
     for attempt in range(8):
         ep = ENDPOINTS[_turn[0] % len(ENDPOINTS)]
         _turn[0] += 1
-        gap = 62 - (time.time() - _last[ep])
+        gap = PAUSE - (time.time() - _last[ep])
         if gap > 0:
             time.sleep(gap)
-        url = ep + '?format=json&query=' + urllib.parse.quote(q)
         try:
-            rq = urllib.request.Request(url, headers={
-                'User-Agent': 'LivdarCandidateInventory/1.0 (offline research inventory)',
-                'Accept': 'application/sparql-results+json'})
-            _last[ep] = time.time()
-            with urllib.request.urlopen(rq, timeout=timeout) as r:
-                return json.load(r)['results']['bindings']
+            with tempfile.NamedTemporaryFile('w', suffix='.rq', delete=False) as tf:
+                tf.write(q)
+                qp = tf.name
+            try:
+                _last[ep] = time.time()
+                r = subprocess.run(
+                    ['curl', '-sS', '--compressed', '--http2',
+                     '--max-time', str(timeout),
+                     '-A', 'LivdarCandidateInventory/1.0 (offline research inventory)',
+                     '-H', 'Accept: application/sparql-results+json',
+                     '--data-urlencode', 'query@' + qp, '--data', 'format=json',
+                     '-w', '\n%{http_code}', ep],
+                    capture_output=True, text=True)
+            finally:
+                os.unlink(qp)
+            if r.returncode != 0:
+                raise RuntimeError(f'curl exit {r.returncode}: {r.stderr[:160]}')
+            body, _, code = r.stdout.rpartition('\n')
+            code = (code or '').strip()
+            if code == '429':
+                print(f'    429 from {ep}, attempt {attempt + 1}', flush=True)
+                time.sleep(20 * (attempt + 1))
+                continue
+            if code != '200':
+                raise RuntimeError(f'http {code} from {ep}')
+            return json.loads(body)['results']['bindings']
         except Exception as e:
             _last[ep] = time.time()
-            if '429' in str(e):
-                continue            # the alternation already spaces the next attempt
-            time.sleep(10 * (attempt + 1))
+            print(f'    ask failed on {ep}: {type(e).__name__}: {str(e)[:120]}', flush=True)
+            time.sleep(5 * (attempt + 1))
     return None
 
 
@@ -249,6 +284,6 @@ for qid, cname, cq, iso in PAIRS:
             os.rmdir(claim)
         except OSError:
             pass
-        time.sleep(65)
+        time.sleep(float(os.environ.get('WD_CLASS_PAUSE', '2.0')))
 print(f'\nTOTAL materialised: {total:,}')
 print('by class:', dict(stats.most_common()))

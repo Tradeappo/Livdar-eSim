@@ -159,12 +159,6 @@ for name, what, why in GATES:
         f'Why it exists: {why}. Listed so that removing it is a deliberate decision with '
         'the evidence in view, and reversible if a later measurement disagrees.')
 
-buf = io.StringIO()
-cols = ['closure_path', 'basis_of_the_number', 'candidates_unlocked', 'status', 'note']
-w = csv.DictWriter(buf, fieldnames=cols, extrasaction='ignore')
-w.writeheader()
-for r in rows:
-    w.writerow(r)
 # ---- paths and limits measured on 2026-10-01 -------------------------------------------
 add('Page the 1,314,927 unattributable POI off the thing they actually belong to',
     'MEASURED 2026-10-01: of 533,415 such POI across DE, FR, PL and GB, 65 per cent sit '
@@ -226,7 +220,24 @@ add('Recover the Wikidata truncation',
     'failures, so the limit is upstream. The corpus is a floor and is labelled as one.')
 
 # built in memory and written once: a DictWriter that raises part way through leaves a
-# truncated file, which is how the acquisition pack once lost nine of its ten rows
+# truncated file, which is how the acquisition pack once lost nine of its ten rows.
+#
+# THE WRITER LOOP MUST RUN AFTER THE LAST add(), and it did not. It sat two thirds of the way
+# up this file, so the five add() calls below it went into `rows` and never into the buffer:
+# the CSV shipped 11 of 16 rows while the summary below summed all 16. A reader comparing them
+# saw closable_without_removing_a_gate = 48,414 against a table whose own rows add to 1,571,
+# and the 46,763 of the Wikidata truncation - the largest single path in the analysis - was
+# missing from the only artifact that lists the paths. The fix for the truncated-file bug had
+# introduced a silent-omission bug, which is worse: a truncated file looks broken, and a file
+# that is quietly missing rows looks complete.
+#
+# Writing from `rows` at the end makes the two artifacts agree by construction.
+buf = io.StringIO()
+cols = ['closure_path', 'basis_of_the_number', 'candidates_unlocked', 'status', 'note']
+w = csv.DictWriter(buf, fieldnames=cols, extrasaction='ignore')
+w.writeheader()
+for r in rows:
+    w.writerow(r)
 open(OUT + '1M-GAP-TO-TARGET.csv', 'w', newline='').write(buf.getvalue())
 
 closable = sum(r['candidates_unlocked'] for r in rows
@@ -239,11 +250,28 @@ summary = {
     'still_short_after_that': max(0, TARGET - (built + closable)),
     'markets_ingested': sorted(ingested), 'markets_missing': missing,
     'wikidata_classes_done': wd_classes_done, 'wikidata_classes_total': WD_CLASSES_TOTAL,
-    'verdict': ('The measured closure paths do not reach one million. Finishing every '
-                'ingest and every Wikidata class is worth doing on its own terms and is '
-                'in progress, but the arithmetic says the remainder would have to come '
-                'from removing a quality gate, and each gate is listed with the '
-                'measurement that put it there.'),
+    'rows_in_the_table': len(rows),
+    'closable_paths_counted': sorted(
+        (r['closure_path'], r['candidates_unlocked'], r['status']) for r in rows
+        if isinstance(r['candidates_unlocked'], int)
+        and r['candidates_unlocked'] > 0
+        and not r['closure_path'].startswith('REMOVE THE GATE')),
+    # COMPUTED from the numbers above rather than asserted. The previous verdict was a fixed
+    # string saying the paths do not reach one million, and it survived unchanged while the
+    # arithmetic moved underneath it - by this run the same file reported closable 48,414
+    # against a gap of 31,703 and a flat "do not reach" in the same breath. A conclusion that
+    # cannot be contradicted by its own inputs is not a finding.
+    'verdict': (
+        (f'The measured closure paths total {closable:,} against a gap of {gap:,}, so on '
+         f'paper they cover it. They are NOT interchangeable with built pages: every one is '
+         f'an upper bound on ROWS and the gates still apply per row, and the largest of them '
+         f'is rate-limited upstream rather than blocked by this code. Treat the total as a '
+         f'ceiling to work towards, not as a number already earned.')
+        if closable >= gap else
+        (f'The measured closure paths total {closable:,} against a gap of {gap:,}, so they do '
+         f'NOT reach the target. The remainder would have to come from removing a quality '
+         f'gate, and each gate is listed in the table with the measurement that put it '
+         f'there.')),
 }
 json.dump(summary, open(OUT + '1M-GAP-SUMMARY.json', 'w'), indent=1)
 print(json.dumps(summary, indent=1))

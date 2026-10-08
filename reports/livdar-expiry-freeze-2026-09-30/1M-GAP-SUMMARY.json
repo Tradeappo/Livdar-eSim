@@ -21,5 +21,23 @@
  "markets_missing": [],
  "wikidata_classes_done": 19,
  "wikidata_classes_total": 24,
- "verdict": "The measured closure paths do not reach one million. Finishing every ingest and every Wikidata class is worth doing on its own terms and is in progress, but the arithmetic says the remainder would have to come from removing a quality gate, and each gate is listed with the measurement that put it there."
+ "rows_in_the_table": 15,
+ "closable_paths_counted": [
+  [
+   "Build the ten measured Tool families",
+   80,
+   "TWO BUILDABLE, EIGHT SOURCE_REQUIRED"
+  ],
+  [
+   "Complete the Wikidata materialisation",
+   1571,
+   "IN PROGRESS"
+  ],
+  [
+   "Recover the Wikidata truncation",
+   46763,
+   "FIX SHIPPED, REFETCH RATE-LIMITED"
+  ]
+ ],
+ "verdict": "The measured closure paths total 48,414 against a gap of 31,703, so on paper they cover it. They are NOT interchangeable with built pages: every one is an upper bound on ROWS and the gates still apply per row, and the largest of them is rate-limited upstream rather than blocked by this code. Treat the total as a ceiling to work towards, not as a number already earned."
 }
