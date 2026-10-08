@@ -37,7 +37,7 @@ Output: one data/atlas/sources/transport/gtfs-national/pairs-<key>.json.gz per f
 same settlement-pair shape gtfs-pair-candidates.py reads.
 """
 import json, gzip, os, sys, csv, io, zipfile, urllib.request, collections, math, statistics, glob
-import re, hashlib
+import re, hashlib, random
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'data/atlas/sources/transport/gtfs-national/'
@@ -115,6 +115,8 @@ MIN_CITY_POP = 1000
 # place people change at and name. GTFS location_type 1 means the feed itself calls it a
 # station, which is the publisher's own judgement and is trusted.
 MAJOR_NODE_ROUTES = 8
+DUR_SAMPLE = 64   # reservoir size for the journey-time median; see the note at P
+PAIR_DICT_WARN = 2_000_000   # print the pair-dict size every this many entries, so an OOM is diagnosable
 MAX_STOPS_PER_TRIP_SETTLEMENTS = 60   # a trip touching more settlements than this is a data
                                       # artefact, not a service, and its pair count explodes
 
@@ -299,8 +301,27 @@ def harvest(key, url, country, licence, provider):
         agencies = [a.get('agency_name') for a in stream(z, 'agency.txt') if a.get('agency_name')]
 
         # ---- stop_times, streamed and flushed per trip
-        P = collections.defaultdict(lambda: {'trips': 0, 'durations': [], 'modes': set(),
-                                             'routes': set()})
+        #
+        # MEMORY. This structure killed the process on the Great Britain aggregate the first
+        # time it was run with DIRECTED pairs: 312,801 stops reduce to 287,852 settlement nodes
+        # and 18,423 stations, and directing the key doubles the number of entries. The run died
+        # after printing its node counts, which is exactly where the pair dict is built. The
+        # earlier undirected run of the same feed was already described in this file as having
+        # been minutes from an OOM, so doubling it was always going to tip it over.
+        #
+        # Two bounds, and NEITHER changes a gate.
+        #
+        # First, durations are held in a bounded RESERVOIR instead of a list that grows with
+        # every service. A British pair can be served 6,482 times, and storing 6,482 integers to
+        # compute one median is the largest single waste in the structure. A uniform reservoir of
+        # DUR_SAMPLE keeps the median unbiased, and the minimum is tracked exactly and separately
+        # because the fastest service is a published fact that a sample must not be allowed to
+        # miss. The count is also tracked exactly, so nothing downstream reads a sample size as a
+        # service count.
+        #
+        # Second, modes and routes are small sets by construction and are left alone.
+        P = collections.defaultdict(lambda: {'trips': 0, 'durations': [], 'dur_n': 0,
+                                             'dur_min': None, 'modes': set(), 'routes': set()})
         stats = collections.Counter()
 
         def flush(tid, rows):
@@ -395,14 +416,36 @@ def harvest(key, url, country, licence, provider):
                     e['trips'] += 1
                     ta, tb = seq[i][2], seq[j][1]
                     if ta is not None and tb is not None and 0 < tb - ta <= 24 * 3600:
-                        e['durations'].append(tb - ta)
+                        d = tb - ta
+                        e['dur_n'] += 1
+                        if e['dur_min'] is None or d < e['dur_min']:
+                            e['dur_min'] = d
+                        dl = e['durations']
+                        if len(dl) < DUR_SAMPLE:
+                            dl.append(d)
+                        else:
+                            # uniform reservoir: element k survives with probability
+                            # DUR_SAMPLE/dur_n, so the sample stays representative of the
+                            # whole published timetable rather than of its first 64 services
+                            j_ = random.randrange(e['dur_n'])
+                            if j_ < DUR_SAMPLE:
+                                dl[j_] = d
                     e['modes'].add(mode)
                     if rid: e['routes'].add(rid)
                     e['a'], e['b'] = a, b
 
         cur, buf, noncontig = None, [], 0
         seen_trips = set()
+        # A memory death in here used to be invisible: the Great Britain run printed its node
+        # counts and then simply stopped, with no line saying why. The guard below makes the
+        # size of the pair dict visible as it grows, so the next failure names itself instead of
+        # looking like a crash. It does not drop anything and it is not a gate.
+        _warned = 0
         for r in stream(z, 'stop_times.txt'):
+            if len(P) > PAIR_DICT_WARN * (_warned + 1):
+                _warned += 1
+                print(f'{key}: pair dict at {len(P):,} entries, {stats["trips_used"]:,} trips '
+                      f'used so far', flush=True)
             tid = r.get('trip_id')
             if tid != cur:
                 if cur is not None:
@@ -453,7 +496,11 @@ def harvest(key, url, country, licence, provider):
                       'trips': v['trips'], 'routes': len(v['routes']),
                       'modes': sorted(v['modes']),
                       'median_duration_s': int(statistics.median(v['durations'])) if v['durations'] else None,
-                      'min_duration_s': min(v['durations']) if v['durations'] else None}
+                      # the EXACT fastest service and the EXACT number of timed services, not
+                      # the reservoir's. The median is the only sampled number here.
+                      'min_duration_s': v['dur_min'],
+                      'timed_services': v['dur_n'],
+                      'median_from_sample_of': len(v['durations'])}
                      for v in P.values()]}
     with gzip.open(OUT + f'pairs-{key}.json.gz', 'wt', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False)

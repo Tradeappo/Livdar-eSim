@@ -1,0 +1,87 @@
+{
+ "measurement": "Is there a SECOND entity model capable of 100,000 or more FINAL pages",
+ "date": "2026-10-08",
+ "brief": "Identify ONE additional model capable of >=100k FINAL, not ten small families. Required of each candidate: 100,000 or more realistic utility-qualified pages, a clear licence, real data density, a distinct entity purpose.",
+ "answer": "NO candidate class clears the bar. Every one is refused below, with the number that refuses it. The only model in this inventory that reaches 100,000 is the one already running, the directed intercity transport graph, and its remaining headroom is MORE LICENSED FEEDS rather than a new entity type.",
+ "method": "keywords-explorer-overview on the query form each model would actually have to own, in the market where that model would be largest. Candidate cardinality was counted from data on disk before any keyword was bought, so no units were spent on a model that could not reach the bar on supply alone.",
+
+ "candidate_1_road_distance_between_settlements": {
+  "why_it_looked_like_the_answer": "It is COMBINATORIAL, which is the property that made the transport pair work: cardinality comes from combination rather than from counting entities, so 64,146 gazetteer settlements bound it at millions rather than thousands. The licence is clean, OpenStreetMap under ODbL. A routing graph reduced to the motorway, trunk and primary network is computable here: osmium and numpy are both installed, so a full routing engine is not required.",
+  "measured_en_GB": {
+   "how far is manchester from london": [500, 0], "london to manchester distance": [350, 0],
+   "how far is edinburgh from glasgow": [200, 0], "distance from london to birmingham": [60, 0],
+   "distance from oxford to london": [60, 0], "distance from london to edinburgh": [60, 0],
+   "distance from london to manchester": [50, 0], "distance from manchester to liverpool": [40, 0],
+   "distance from brighton to london": [30, null], "distance from leeds to manchester": [30, null],
+   "distance from bristol to london": [20, null], "distance from york to leeds": [10, null],
+   "distance from norwich to london": [0, null], "driving time london to manchester": [0, null]
+  },
+  "verdict": "REFUSED. Median about 25 a month, maximum 500 across twenty pairs between the largest British cities. If the biggest pairs measure 25, the tail measures nothing, and 200,000 pages at 25 a month is not a model.",
+  "what_this_teaches": "The transport pair did not succeed because it was a pair. It succeeded because the page carries a TIMETABLE. On the same two cities, trains from leeds to york measures 80 and distance from york to leeds measures 10. People want to know when the service runs, not how far apart the places are. This is the same lesson as the hub family, where york station departures measured 1,600 and trains from york station measured 60: the form decides, and a combinatorial axis with no answerable question behind it is just a large number.",
+  "cost_avoided": "A multi-hour routing build, refused for 420 units."
+ },
+
+ "candidate_2_schools_and_education": {
+  "supply": "Official registries would clear the bar on cardinality alone: US NCES about 130,000, France about 65,000, Great Britain about 24,000, plus Germany, Spain, Italy, Poland, the Netherlands and Japan. Public domain, OGL v3.0 and ODbL respectively. Density is real: pupil counts, phase, age range, inspection rating.",
+  "measured_en_GB": {"colleges in manchester": [1000, 54], "universities in leeds": [450, 74],
+                     "schools in manchester": [300, 7], "secondary schools birmingham": [150, 0],
+                     "best schools in bristol": [90, 0], "primary schools leeds": [10, 14],
+                     "nurseries in bristol": [150, null]},
+  "prior_evidence": "The 2026-09-30 family classification already measured this family and measured it weak: international schools new york 150, ecoles internationales paris 90, szkoly miedzynarodowe warszawa 50, internationale schulen berlin 30.",
+  "verdict": "REFUSED, and refused on a structural point rather than only on volume. The 130,000 cardinality is in the ENTITY, and a per-school page has navigational intent that the school's own site owns, which is the same wall the POI NOTABLE gate hit. The form that carries demand is the CITY AGGREGATE, schools in manchester, and that form is bounded by the number of cities and not by the number of schools, so the model is a few tens of thousands at best. The two highest-volume rows are also the two hardest, colleges in manchester at difficulty 54 and universities in leeds at 74, against 0 to 8 across the transport families."
+ },
+
+ "candidate_3_healthcare": {
+  "measured_en_GB": {"hospitals in birmingham": [700, 20], "dentists in leeds": [150, 0],
+                     "gp surgeries manchester": [0, null]},
+  "verdict": "REFUSED. The entity that carries volume, the hospital, numbers in the thousands and not the hundreds of thousands, about 6,000 in the United States and about 2,000 in Great Britain. The entity that would clear 100,000, the individual practitioner, is a directory. 700 at difficulty 20 is below every transport row measured."
+ },
+
+ "candidate_4_ev_charging": {
+  "supply": "Open Charge Map about 450,000 points under CC BY-SA 4.0, plus the UK National Charge Point Registry under OGL and the French registry under ODbL at about 130,000 points. Cardinality and licence both pass, and the density is unusually good for a POI class: connector type, power in kW, operator, access hours.",
+  "measured_en_GB": {"electric car charging points manchester": [200, 12],
+                     "ev charging stations london": [150, 22], "ev charging birmingham": [50, 0],
+                     "car charging points leeds": [0, null]},
+  "verdict": "REFUSED. The commercial story is strong and the demand is not there yet: 50 to 200 a month at difficulty 12 to 22. As with schools the 450,000 is in the entity while the demand is in the city aggregate, and an individual charge point is the thin POI page the utility gate refuses."
+ },
+
+ "candidate_5_companies_property_addresses": {
+  "verdict": "REFUSED without spending units. UK Companies House is over 5,000,000 records under OGL and UK EPC is about 25,000,000, so cardinality is enormous and the licences are clean. Both fail the DISTINCT ENTITY PURPOSE requirement: a company record page and an address-level energy certificate page are directory rows, which is the category the POI measurement already refused at 7,388,615 entities of which 218,558 were utility-qualified and even those were refused by the NOTABLE gate and the local pack."
+ },
+
+ "candidate_6_the_climate_axis_on_cities_already_on_disk": {
+  "why_it_looked_like_the_answer": "This one needed no acquisition at all. NASA POWER monthly normals are already materialised for 31,715 cities, public domain, and weather.city-month was the STRONGEST cell in the whole tier-4 programme at a median of 1,650. Only 17,938 of those cities carry a weather row today, and three admitted markets carry none at all: tr-TR with 820 city entities, es-MX with 1,798 and en-AU with 277. The per-market spread looked like a gate rather than a limit: es-ES 11,936 rows and en-US 9,894 against de-DE 711 and en-GB 314.",
+  "measured_tr_TR": {
+   "the_city_only_form": {"trabzon hava durumu": [312000, 0], "kapadokya hava durumu": [22000, 0],
+    "dubai hava durumu": [9900, 0], "paris hava durumu": [7600, 0], "viyana hava durumu": [6500, 0],
+    "prag hava durumu": [6300, 0], "londra hava durumu": [5200, 0],
+    "amsterdam hava durumu": [4700, 0], "roma hava durumu": [4400, 0], "bali hava durumu": [2200, 0]},
+   "the_city_and_month_form": {"antalya hava durumu temmuz": [10, null],
+    "istanbul hava durumu ocak": [10, null], "fethiye hava durumu haziran": [10, null],
+    "alanya hava durumu mayis": [0, null], "izmir hava durumu temmuz": [0, null],
+    "antalya iklim": [20, null]},
+   "verdict": "REFUSED, and this is the most instructive refusal in the set. The Turkish numbers are enormous and they are the WRONG INTENT. hava durumu is today's weather, a live-data query that climate normals cannot answer and that the SERP gives to weather services and the state meteorological office. The form our data CAN answer, city plus month, measures 10. A 312,000 row we cannot serve is worth less than a 150 row we can."
+  },
+  "measured_en_GB_destination_form": {
+   "rows": {"tenerife weather in october": [1000, 0], "malta weather in november": [1000, 0],
+    "crete weather in may": [1000, 0], "madeira weather in february": [400, 0],
+    "seville weather in march": [250, 0], "prague weather in may": [200, 0],
+    "budapest weather in october": [200, 0], "krakow weather in april": [200, 0],
+    "dubrovnik weather in june": [200, 0], "rome weather in august": [150, 0],
+    "valencia weather in april": [150, 0], "lisbon weather in september": [150, 1],
+    "vienna weather in december": [90, 0], "nice weather in june": [70, 0],
+    "porto weather in august": [70, 0], "edinburgh weather in august": [40, null],
+    "naples weather in july": [30, null], "bruges weather in december": [20, null],
+    "york weather in may": [10, null]},
+   "verdict": "ADMISSIBLE BUT BOUNDED, and bounded by the breadth rule derived on 2026-10-08. All twenty rows carry volume and nineteen of twenty sit at difficulty 0 or 1, which is as open as anything measured in this programme. But the demand is CONCENTRATED in holiday destinations, Tenerife, Malta, Crete and Madeira at 400 to 1,000, and collapses to 10 to 40 for ordinary cities, york 10, bruges 20, naples 30, edinburgh 40. Breadth, not peak, is what a tier cap can express, so this axis widens to resort destinations and not to 31,715 cities."
+  },
+  "verdict": "REFUSED as a 100,000 model. It is a real but bounded widening worth tens of thousands, not a second high-cardinality model, and it must be taken resort-first rather than city-count-first."
+ },
+
+ "one_thing_worth_flagging_that_was_not_a_candidate": "parking in york measured 2,300 at difficulty 1 and car parks in bath 400 at difficulty 17. CITY parking is not the same intent as the airport-parking tail refused on 2026-10-07, which was 210 rows of parking law and sign meaning. OpenStreetMap carries named car parks densely, 1,873 around Antwerp alone. Cardinality is cities and not entities, so it is a 20,000 to 50,000 family and below this bar, but it is the strongest unbuilt city-level cell seen today and it is recorded so it is not lost.",
+
+ "conclusion": "The 100,000 model is the one already in flight. transport.city-pair-transit stands at 284,676 FINAL from FOURTEEN feeds. The licensed registry built today holds 1,274 feeds, 145 of them intercity-shaped, and the directed change recovers the 31.0% of pairs that cross a border and were being dropped whole. Scale on this axis comes from feeds and countries, which is instruction 4, and not from a new entity type.",
+ "units_spent_on_this_search": 2037,
+ "units_total_this_cycle": 18691,
+ "production_untouched": true
+}
