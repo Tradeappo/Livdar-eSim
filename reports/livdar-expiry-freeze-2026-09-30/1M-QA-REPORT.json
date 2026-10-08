@@ -1,13 +1,13 @@
 {
- "manifest_rows": 706677,
- "distinct_urls": 706677,
+ "manifest_rows": 719190,
+ "distinct_urls": 719190,
  "checks": {
-  "title_over_65_chars": 298768,
+  "title_over_65_chars": 298780,
   "meta_over_165_chars": 290674,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 624,
   "duplicate_title_same_tokens": 951,
-  "destination_rows": 65886,
+  "destination_rows": 68047,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
@@ -521,7 +521,7 @@
    ]
   },
   "activities.city-things-to-do|en": {
-   "rows": 4120,
+   "rows": 11457,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -7255,7 +7255,7 @@
    ]
   },
   "places.city-category|en": {
-   "rows": 1163,
+   "rows": 6339,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12503,7 +12503,7 @@
  "title_length": {
   "min": 13,
   "max": 207,
-  "mean": 63.1
+  "mean": 62.6
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

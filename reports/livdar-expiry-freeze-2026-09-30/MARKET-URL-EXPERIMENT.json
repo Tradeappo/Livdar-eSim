@@ -10,14 +10,14 @@
   "en-AU": {
    "raw_candidates": 17200,
    "justified_separate_pages": 0,
-   "duplicate_rejected": 4456,
-   "insufficient_market_value_rejected": 248,
-   "generic_only": 12491,
-   "no_generic_owner_survived_excluded_from_yield": 12491,
-   "of_those_owner_never_generated_a_row": 5678,
+   "duplicate_rejected": 6567,
+   "insufficient_market_value_rejected": 297,
+   "generic_only": 10330,
+   "no_generic_owner_survived_excluded_from_yield": 10330,
+   "of_those_owner_never_generated_a_row": 3517,
    "of_those_owner_rejected_by_a_later_gate": 6813,
-   "real_coexistence_decisions": 4709,
-   "justified_pending_a_source_not_counted_as_yield": 5,
+   "real_coexistence_decisions": 6870,
+   "justified_pending_a_source_not_counted_as_yield": 6,
    "entities_in_the_foreign_destination_measurement": 17,
    "net_new_valid_pages": 0,
    "yield_rate": 0.0,
@@ -51,18 +51,18 @@
  "raw_candidates_total": 45151,
  "by_overlap": {
   "en-AU vs en-GB": {
-   "KEEP_GENERIC_ONLY": 12491,
+   "KEEP_GENERIC_ONLY": 10330,
    "pairs": 17200,
-   "MARKET_PAGE_DUPLICATE": 4456,
-   "INSUFFICIENT_MARKET_VALUE": 248,
-   "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 5
+   "MARKET_PAGE_DUPLICATE": 6567,
+   "INSUFFICIENT_MARKET_VALUE": 297,
+   "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6
   },
   "en-AU vs en-US": {
-   "KEEP_GENERIC_ONLY": 12491,
+   "KEEP_GENERIC_ONLY": 10330,
    "pairs": 17200,
-   "MARKET_PAGE_DUPLICATE": 4456,
-   "INSUFFICIENT_MARKET_VALUE": 248,
-   "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 5
+   "MARKET_PAGE_DUPLICATE": 6567,
+   "INSUFFICIENT_MARKET_VALUE": 297,
+   "MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 6
   },
   "es-MX vs es-ES": {
    "KEEP_GENERIC_ONLY": 21408,
@@ -133,23 +133,22 @@
  ],
  "top_families_by_decision": {
   "en-AU": {
+   "activities.city-things-to-do:MARKET_PAGE_DUPLICATE": 3666,
    "stay.city-type:KEEP_GENERIC_ONLY": 3249,
-   "activities.city-things-to-do:KEEP_GENERIC_ONLY": 2161,
    "climate.city-day:KEEP_GENERIC_ONLY": 1743,
    "climate.city-annual:KEEP_GENERIC_ONLY": 1743,
    "destinations.city-hub:KEEP_GENERIC_ONLY": 1743,
    "weather.city-best-time:KEEP_GENERIC_ONLY": 1743,
    "weather.city-month:MARKET_PAGE_DUPLICATE": 1555,
-   "activities.city-things-to-do:MARKET_PAGE_DUPLICATE": 1555,
    "transport.route-from-market:MARKET_PAGE_DUPLICATE": 757,
    "stay.city-type:MARKET_PAGE_DUPLICATE": 589,
+   "activities.city-things-to-do:INSUFFICIENT_MARKET_VALUE": 171,
    "weather.city-month:INSUFFICIENT_MARKET_VALUE": 122,
-   "activities.city-things-to-do:INSUFFICIENT_MARKET_VALUE": 122,
    "weather.city-month:KEEP_GENERIC_ONLY": 64,
    "calendar.month:KEEP_GENERIC_ONLY": 24,
+   "activities.city-things-to-do:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 3,
    "stay.city-type:INSUFFICIENT_MARKET_VALUE": 2,
    "weather.city-month:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 2,
-   "activities.city-things-to-do:MARKET_PAGE_JUSTIFIED_PENDING_SOURCE": 2,
    "transport.route-from-market:INSUFFICIENT_MARKET_VALUE": 2,
    "calendar.year:KEEP_GENERIC_ONLY": 2,
    "calendar.week-numbers:KEEP_GENERIC_ONLY": 2,
@@ -157,7 +156,8 @@
    "tools.calculator:KEEP_GENERIC_ONLY": 1,
    "tools.matcher:KEEP_GENERIC_ONLY": 1,
    "tools.cost-calculator:KEEP_GENERIC_ONLY": 1,
-   "tools.cost-comparison:KEEP_GENERIC_ONLY": 1
+   "tools.cost-comparison:KEEP_GENERIC_ONLY": 1,
+   "tools.loan-payment:KEEP_GENERIC_ONLY": 1
   },
   "es-MX": {
    "stay.city-type:KEEP_GENERIC_ONLY": 7816,

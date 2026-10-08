@@ -1,13 +1,13 @@
 # Livdar candidate inventory: the final state of this pass
 
-Built 2026-10-07. Every number below is read from a generated file, not retyped, so this report and the inventory cannot disagree.
+Built 2026-10-08. Every number below is read from a generated file, not retyped, so this report and the inventory cannot disagree.
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **427,121**
+- FINAL DISTINCT VALID CANDIDATES: **706,677**
 - target: 1,000,000
-- shortfall: **572,879** (42.7 per cent of target)
-- rejected and kept visible: 623,899
+- shortfall: **293,323** (70.7 per cent of target)
+- rejected and kept visible: 631,502
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 882,723 | same url_pattern |
-| after semantic dedupe | 882,721 | same market, family, template signature and entity |
-| FINAL DISTINCT | 427,121 | what is in the manifest |
+| after exact dedupe | 1,169,882 | same url_pattern |
+| after semantic dedupe | 1,169,880 | same market, family, template signature and entity |
+| FINAL DISTINCT | 706,677 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -27,33 +27,33 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | market | candidates |
 | --- | --- |
-| en-US | 88,193 |
-| fr-FR | 55,523 |
-| de-DE | 48,961 |
+| en-GB | 243,383 |
+| en-US | 90,825 |
+| de-DE | 78,388 |
+| fr-FR | 61,986 |
 | ja-JP | 39,969 |
-| es-ES | 33,089 |
-| en-GB | 26,766 |
-| it-IT | 26,309 |
-| nl-NL | 24,335 |
-| pl-PL | 23,725 |
+| es-ES | 35,055 |
+| nl-NL | 27,802 |
+| it-IT | 26,341 |
+| pl-PL | 24,184 |
 | pt-BR | 22,201 |
 | tr-TR | 13,487 |
 | es-MX | 12,161 |
+| nb-NO | 10,427 |
 | en-AU | 8,244 |
-| da-DK | 1,628 |
-| nb-NO | 1,141 |
+| fi-FI | 6,869 |
+| da-DK | 4,555 |
 | zh-Hant-TW | 800 |
-| fi-FI | 589 |
 
 ### By surface
 
 | surface | candidates |
 | --- | --- |
+| transport | 303,400 |
 | places | 186,775 |
 | outdoors | 73,116 |
 | areas | 41,069 |
 | stay | 34,442 |
-| transport | 23,844 |
 | climate | 23,602 |
 | move | 15,587 |
 | pulse | 15,243 |
@@ -69,11 +69,11 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | status | candidates |
 | --- | --- |
+| TRANSPORT_PAIR | 298,886 |
 | POI_AGGREGATION | 268,433 |
 | MISSING_DATA | 63,664 |
 | BLOCKED_BY_LICENCE | 40,324 |
 | EXPERIMENT_ONLY | 25,194 |
-| TRANSPORT_PAIR | 19,330 |
 | NOT_IMPLEMENTED | 9,880 |
 | VISA_POLICY_CELL | 226 |
 | VALIDATED | 50 |
@@ -83,7 +83,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 350,910 |
+| SOURCE_AVAILABLE | 630,466 |
 | LICENCE_REQUIRED | 40,324 |
 | READY_NOW | 25,290 |
 | FEED_REQUIRED | 10,597 |
@@ -92,7 +92,7 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | serp_feasibility | candidates |
 | --- | --- |
-| viable | 201,106 |
+| viable | 480,662 |
 | unsampled_needs_serp_check | 105,117 |
 | competitive | 52,885 |
 | strong_opportunity | 42,555 |
@@ -102,11 +102,11 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | licence_status | candidates |
 | --- | --- |
+| MIXED_OPEN_ATTRIBUTION_REQUIRED | 284,676 |
 | ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 268,880 |
 | OK | 98,808 |
 | LICENCE_REQUIRED | 40,324 |
 | CC0_PLUS_ATTRIBUTION_REQUIRED | 11,222 |
-| MIXED_OPEN_ATTRIBUTION_REQUIRED | 5,120 |
 | CC0_NO_CONDITIONS | 2,157 |
 | PUBLIC_DOMAIN_PLUS_ATTRIBUTION_REQUIRED | 384 |
 | OGL_V3_ATTRIBUTION_REQUIRED | 226 |
@@ -117,15 +117,16 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 
 | market_demand_evidence | candidates |
 | --- | --- |
+| shape_measured_2026_10_07_open_serp | 299,349 |
 | shape_measured_2026_10_01 | 268,196 |
 | measured_in_this_market | 132,757 |
-| shape_measured_2026_10_07_open_serp | 19,793 |
 | family_measured_elsewhere | 6,375 |
 
 ### The twenty largest families
 
 | family | candidates |
 | --- | --- |
+| transport.city-pair-transit | 284,676 |
 | activities.city-things-to-do | 30,300 |
 | outdoors.hiking-trail | 23,463 |
 | weather.city-month | 23,353 |
@@ -145,7 +146,6 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | events.city-calendar | 6,680 |
 | places.city-restaurant | 6,097 |
 | outdoors.castle | 5,951 |
-| places.area-clinic | 5,838 |
 
 ## 3b. The multilingual breakdown
 
@@ -153,18 +153,18 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 194,653 | 88,193 | 5,567 | 882 | 6,732 | 67,593 | 6,414 | 0 | 19,272 |
-| en-GB | 36,887 | 26,766 | 1,307 | 240 | 0 | 2 | 5,073 | 0 | 3,499 |
-| de-DE | 100,146 | 48,961 | 8,248 | 195 | 2,532 | 8,470 | 24,573 | 0 | 7,167 |
+| en-US | 192,617 | 90,825 | 5,567 | 882 | 6,732 | 62,925 | 6,414 | 0 | 19,272 |
+| en-GB | 265,775 | 243,383 | 1,307 | 240 | 0 | 12,273 | 5,073 | 0 | 3,499 |
+| de-DE | 129,573 | 78,388 | 8,248 | 195 | 2,532 | 8,470 | 24,573 | 0 | 7,167 |
 | ja-JP | 95,014 | 39,969 | 3,058 | 553 | 34,865 | 4,956 | 547 | 248 | 10,818 |
 | zh-Hant-TW | 5,861 | 800 | 570 | 40 | 430 | 48 | 3,812 | 0 | 161 |
-| it-IT | 57,869 | 26,309 | 4,695 | 133 | 14,913 | 2,445 | 3,599 | 0 | 5,775 |
-| es-ES | 98,247 | 33,089 | 4,976 | 150 | 34,364 | 7,932 | 2,676 | 0 | 15,060 |
-| fr-FR | 132,398 | 55,523 | 6,555 | 143 | 41,779 | 10,417 | 2,251 | 248 | 15,482 |
-| nl-NL | 93,767 | 24,335 | 4,993 | 57 | 40,966 | 9,747 | 794 | 0 | 12,875 |
-| pl-PL | 89,546 | 23,725 | 4,932 | 101 | 40,740 | 6,797 | 796 | 0 | 12,455 |
+| it-IT | 57,901 | 26,341 | 4,695 | 133 | 14,913 | 2,445 | 3,599 | 0 | 5,775 |
+| es-ES | 100,213 | 35,055 | 4,976 | 150 | 34,364 | 7,932 | 2,676 | 0 | 15,060 |
+| fr-FR | 138,861 | 61,986 | 6,555 | 143 | 41,779 | 10,417 | 2,251 | 248 | 15,482 |
+| nl-NL | 97,234 | 27,802 | 4,993 | 57 | 40,966 | 9,747 | 794 | 0 | 12,875 |
+| pl-PL | 90,005 | 24,184 | 4,932 | 101 | 40,740 | 6,797 | 796 | 0 | 12,455 |
 | pt-BR | 80,492 | 22,201 | 3,993 | 677 | 35,122 | 4,353 | 1,055 | 0 | 13,091 |
-| **all 11** | **984,880** | **389,871** | | | | | | | |
+| **all 11** | **1,253,546** | **650,934** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -172,7 +172,7 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 366,570 |
+| NATIVE_LOCALE | 646,126 |
 | VALID_LOCALIZATION | 60,551 |
 
 - flagged LOCAL_SERP_UNVERIFIED: 105,117. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
@@ -181,15 +181,15 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | market | strongest families |
 | --- | --- |
-| en-US | transport.city-pair-rail (11,222), places.area-cuisine (5,451), places.city-cuisine (4,914), outdoors.hiking-trail (3,310) |
-| en-GB | places.area-cuisine (2,142), places.area-fast_food (1,548), outdoors.hiking-trail (1,442), places.area-cafe (1,354) |
-| de-DE | stay.city-type (3,786), outdoors.peak (2,420), places.city-category (2,405), rents.city (2,405) |
+| en-US | transport.city-pair-rail (11,222), places.area-cuisine (5,451), places.city-cuisine (4,914), transport.city-pair-transit (4,394) |
+| en-GB | transport.city-pair-transit (216,617), places.area-cuisine (2,142), places.area-fast_food (1,548), outdoors.hiking-trail (1,442) |
+| de-DE | transport.city-pair-transit (29,427), stay.city-type (3,786), outdoors.peak (2,420), places.city-category (2,405) |
 | ja-JP | places.area-cuisine (4,123), places.area-restaurant (2,943), activities.city-things-to-do (2,544), weather.city-month (2,544) |
 | zh-Hant-TW | activities.city-things-to-do (51), places.city-category (40), weather.city-month (40), health.city (40) |
 | it-IT | outdoors.peak (1,945), places.area-cuisine (1,739), places.area-restaurant (1,492), activities.city-things-to-do (1,135) |
-| es-ES | outdoors.hiking-trail (4,342), weather.city-month (3,656), stay.city-type (3,207), places.area-restaurant (1,486) |
-| fr-FR | outdoors.hiking-trail (9,237), activities.city-things-to-do (3,682), weather.city-month (3,680), stay.city-type (3,680) |
-| nl-NL | activities.city-things-to-do (3,029), weather.city-month (3,029), stay.city-type (3,029), outdoors.hiking-trail (2,709) |
+| es-ES | outdoors.hiking-trail (4,342), weather.city-month (3,656), stay.city-type (3,207), transport.city-pair-transit (1,966) |
+| fr-FR | outdoors.hiking-trail (9,237), transport.city-pair-transit (6,463), activities.city-things-to-do (3,682), weather.city-month (3,680) |
+| nl-NL | transport.city-pair-transit (3,467), activities.city-things-to-do (3,029), weather.city-month (3,029), stay.city-type (3,029) |
 | pl-PL | weather.city-month (2,765), outdoors.bicycle-trail (1,983), outdoors.hiking-trail (1,879), outdoors.peak (1,877) |
 | pt-BR | weather.city-month (3,040), activities.city-things-to-do (931), stay.city-type (922), cost-of-living.city (754) |
 
@@ -215,8 +215,8 @@ Transliterations are used above for the Japanese and Chinese roots so this table
 
 ## 4. What was materialised in this pass
 
-- OSM POI files on disk: 35 (poi-AE.jsonl.gz, poi-AT.jsonl.gz, poi-AU.jsonl.gz, poi-BE.jsonl.gz, poi-BR.jsonl.gz, poi-CH.jsonl.gz, poi-DE.jsonl.gz, poi-DK.jsonl.gz, poi-EG.jsonl.gz, poi-ES.jsonl.gz, poi-FR.jsonl.gz, poi-GB.jsonl.gz, poi-ID.jsonl.gz, poi-IE.jsonl.gz, poi-IN.jsonl.gz, poi-IT.jsonl.gz, poi-JP.jsonl.gz, poi-KH.jsonl.gz, poi-LU.jsonl.gz, poi-MA.jsonl.gz, poi-MX.jsonl.gz, poi-MY.jsonl.gz, poi-NL.jsonl.gz, poi-PH.jsonl.gz, poi-PL.jsonl.gz, poi-PT.jsonl.gz, poi-SE.jsonl.gz, poi-SG.jsonl.gz, poi-TN.jsonl.gz, poi-TR.jsonl.gz, poi-TW-health.jsonl.gz, poi-US-us-midwest.jsonl.gz, poi-US-us-northeast.jsonl.gz, poi-US-us-south.jsonl.gz, poi-US-us-west.jsonl.gz)
-- OSM place files with geometry: 34 (places-AE.jsonl.gz, places-AT.jsonl.gz, places-AU.jsonl.gz, places-BE.jsonl.gz, places-BR.jsonl.gz, places-CH.jsonl.gz, places-DE.jsonl.gz, places-DK.jsonl.gz, places-EG.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IE.jsonl.gz, places-IN.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-KH.jsonl.gz, places-MA.jsonl.gz, places-MX.jsonl.gz, places-MY.jsonl.gz, places-NL.jsonl.gz, places-PH.jsonl.gz, places-PL.jsonl.gz, places-PT.jsonl.gz, places-SE.jsonl.gz, places-SG.jsonl.gz, places-TN.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-northeast.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-luxembourg.jsonl.gz)
+- OSM POI files on disk: 37 (poi-AE.jsonl.gz, poi-AR.jsonl.gz, poi-AT.jsonl.gz, poi-AU.jsonl.gz, poi-BE.jsonl.gz, poi-BR.jsonl.gz, poi-CH.jsonl.gz, poi-DE.jsonl.gz, poi-DK.jsonl.gz, poi-EG.jsonl.gz, poi-ES.jsonl.gz, poi-FR.jsonl.gz, poi-GB.jsonl.gz, poi-ID.jsonl.gz, poi-IE.jsonl.gz, poi-IN.jsonl.gz, poi-IT.jsonl.gz, poi-JP.jsonl.gz, poi-KH.jsonl.gz, poi-LU.jsonl.gz, poi-MA.jsonl.gz, poi-MX.jsonl.gz, poi-MY.jsonl.gz, poi-NL.jsonl.gz, poi-PH.jsonl.gz, poi-PL.jsonl.gz, poi-PT.jsonl.gz, poi-SE.jsonl.gz, poi-SG.jsonl.gz, poi-TN.jsonl.gz, poi-TR.jsonl.gz, poi-TW-health.jsonl.gz, poi-US-us-midwest.jsonl.gz, poi-US-us-northeast.jsonl.gz, poi-US-us-south.jsonl.gz, poi-US-us-west.jsonl.gz, poi-ZA.jsonl.gz)
+- OSM place files with geometry: 36 (places-AE.jsonl.gz, places-AR.jsonl.gz, places-AT.jsonl.gz, places-AU.jsonl.gz, places-BE.jsonl.gz, places-BR.jsonl.gz, places-CH.jsonl.gz, places-DE.jsonl.gz, places-DK.jsonl.gz, places-EG.jsonl.gz, places-ES.jsonl.gz, places-FR.jsonl.gz, places-GB.jsonl.gz, places-ID.jsonl.gz, places-IE.jsonl.gz, places-IN.jsonl.gz, places-IT.jsonl.gz, places-JP.jsonl.gz, places-KH.jsonl.gz, places-MA.jsonl.gz, places-MX.jsonl.gz, places-MY.jsonl.gz, places-NL.jsonl.gz, places-PH.jsonl.gz, places-PL.jsonl.gz, places-PT.jsonl.gz, places-SE.jsonl.gz, places-SG.jsonl.gz, places-TN.jsonl.gz, places-TR.jsonl.gz, places-US-us-midwest.jsonl.gz, places-US-us-northeast.jsonl.gz, places-US-us-south.jsonl.gz, places-US-us-west.jsonl.gz, places-ZA.jsonl.gz, places-luxembourg.jsonl.gz)
 - POI read: 6,724,773, of which 1,341,404 carried an addr:city tag and 3,768,875 were attributed spatially against the 31,715-city gazetteer; 1,613,757 fell outside every city radius and were dropped
 - named places loaded: 579,112, of which 91,665 passed the entity gates
 - POI assigned to an area by polygon containment: 497,710; by documented proximity to a place node: 2,290,647
@@ -6571,7 +6571,7 @@ swiss | 2 |
 | gate | rejected |
 | --- | --- |
 | localization:TRANSLATION_ONLY | 260,075 |
-| localization:LOCAL_INTENT_MISSING | 123,257 |
+| localization:LOCAL_INTENT_MISSING | 130,860 |
 | localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 51,590 |
 | REJECTED_QUALITY: no defensible uniqueness basis | 46,218 |
 | REFUSED_MEASURED_CANNIBALISATION: "X travel guide" reads 250 to 2,400 in en-US at CPC 20 to 120 cents, the best commercial signal of the three, but its parent topics are "things to do in bangkok", "visiting paris", "what to see in rome", "barcelona travel" and "amsterdam travel", which is the topic activities.city-things-to-do already holds with 30,040 pairs. Outside English it is dead: "X reisefuehrer" reads 10 in German for every city tested and "guida di viaggio X" reads 0 to 30 in Italian. The commercial signal is real and belongs in the things-to-do title and copy, not on a second URL competing with it. | 29,539 |
@@ -8400,16 +8400,16 @@ swiss | 2 |
 
 ## 6. QA at scale
 
-- rows checked: 427,121, distinct URLs 427,121
+- rows checked: 706,677, distinct URLs 706,677
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 38,742 |
-| meta_over_165_chars | 11,117 |
+| title_over_65_chars | 298,768 |
+| meta_over_165_chars | 290,674 |
 | title_under_15_chars | 28 |
-| duplicate_title_exact | 204 |
-| duplicate_title_same_tokens | 259 |
-| destination_rows | 67,592 |
+| duplicate_title_exact | 624 |
+| duplicate_title_same_tokens | 951 |
+| destination_rows | 65,886 |
 | destination_rows_with_no_locale_specific_fact | 0 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
@@ -8426,14 +8426,14 @@ swiss | 2 |
 | urls_containing_a_latin_character_with_a_diacritic | 0 |
 | duplicate_canonicals | 0 |
 | duplicate_meta_within_a_market | 0 |
-| duplicate_h1_within_a_market | 247 |
+| duplicate_h1_within_a_market | 642 |
 | declared_parent_is_not_a_valid_parent | 0 |
 | declared_parent_is_valid_but_not_a_path_prefix | 23,622 |
 | family_locale_cells_failing_the_usefulness_test | 0 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
 
-- title length: min 13, max 207, mean 42.9
+- title length: min 13, max 207, mean 63.1
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -8484,7 +8484,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-427,121 candidates survive the gates. The target is 1,000,000.
+706,677 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 

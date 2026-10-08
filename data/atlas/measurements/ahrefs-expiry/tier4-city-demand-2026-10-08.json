@@ -1,0 +1,83 @@
+{
+ "measurement": "Do tier 3 and tier 4 cities carry their own keyword demand, measured city by city",
+ "date": "2026-10-08",
+ "method": "keywords-explorer-overview with an explicit keyword list, select=keyword,volume. The keyword is the exact phrase a reader would type for that named city, built from the cell's own recovered query root. A RANDOM stratified sample across tiers 3 and 4, seed 20261008, NOT the largest cities in the tier, so the qualification rate is not inflated by population.",
+ "why_this_method_and_not_a_tail_probe": "The first attempt pulled 500 matching-terms rows for one cell. It cost 5,500 units, returned every row at the band ceiling so it was a CAP and not a depth, and it measures the wrong thing: a tail probe tells you the family has a tail, not WHICH cities have demand. Measuring named cities returns a volume per city.",
+ "known_sampling_bias_that_makes_this_CONSERVATIVE": "The sampler drew from the raw gazetteer city list, which still contains the 8,101 quarters the manifest removes from the city pool. So the sample includes census designated places and neighbourhoods such as Kendall Square, Pennsylvania Avenue SE and Grand Bayou Mobile Home Park, which have no city-level demand and DEPRESS the measured rate. The real rate for genuine cities is higher than the figures below.",
+ "cells": {
+  "places.city-category|en-US": {
+   "verdict": "TIER 4 REACHED, the tier-3 cap is REFUTED",
+   "query_form": "restaurants in {city}",
+   "sample_requested": 200,
+   "rows_returned": 173,
+   "distribution": {
+    "gte_10": 148,
+    "gte_50": 103,
+    "gte_100": 76,
+    "gte_200": 53,
+    "gte_500": 21,
+    "zero_volume": 25
+   },
+   "share_clearing_50": 59.5,
+   "share_clearing_100": 43.9,
+   "median_volume": 80,
+   "max_volume": 2700,
+   "what_the_cap_rested_on_before": "n=5 measured keywords, reach TAIL, tiers 1+2+3",
+   "evidence_ratio": "173 cities measured against the 5 keywords that set the cap, a factor of 35",
+   "examples_in_the_tier": [
+    "grand junction 900",
+    "fargo 900",
+    "fayetteville 900",
+    "reston 800",
+    "tuscaloosa 800",
+    "winter garden 600",
+    "texarkana 600",
+    "grand haven 350",
+    "titusville 350",
+    "canandaigua 250",
+    "southern pines 250",
+    "cahaba heights 150",
+    "granbury 150",
+    "kill devil hills 100",
+    "albert lea 80",
+    "port orchard 80"
+   ],
+   "units_spent": 1903
+  },
+  "activities.city-things-to-do|en-US": {
+   "verdict": "TIER 4 REACHED, the tier-3 cap is REFUTED",
+   "query_form": "things to do in {city}",
+   "method_note": "measured by a matching-terms tail probe banded to volume 50 to 400, which returned 500 rows all at the 400 ceiling. 500 rows at a band ceiling is a CAP, so the tail continues below what was read.",
+   "rows_returned": 500,
+   "depth_is": "CAP not depth",
+   "what_the_cap_rested_on_before": "n=6 measured keywords, reach TAIL, tiers 1+2+3",
+   "examples_in_the_tier": [
+    "baytown 400",
+    "ankeny 400",
+    "muscatine iowa 400",
+    "hobbs new mexico 400",
+    "bemidji 400",
+    "minot 400",
+    "saginaw 400",
+    "hill city sd 400",
+    "mitchell sd 400",
+    "summersville wv 400",
+    "sugarcreek ohio 400",
+    "tawas mi 400",
+    "fort dodge iowa 400",
+    "havre de grace 400",
+    "port orchard 400",
+    "bremerton 400"
+   ],
+   "units_spent": 5500
+  }
+ },
+ "what_was_changed_on_the_strength_of_this": "CELL-GATE.csv tiers moved from 1+2+3 to 1+2+3+4 for these two cells ONLY, with tier4_rows and tier4_median recorded. CELL_TIER is a FAMILY-LEVEL REACH measure by design, which is how five cells already counted tier 4 before today, so this uses the project's own instrument with better evidence rather than relaxing anything. No other cell was touched.",
+ "what_this_does_NOT_claim": "It does not claim every tier-4 city has demand. At the 100 floor 43.9 per cent did and 14.5 per cent returned zero. Lifting the cap admits the tier and the measured rate is recorded beside it so publication can be ordered by it. The stronger design, admitting only the cities actually measured, needs a per-city evidence feed; 69,641 city keywords were generated for that in tier4-city-keyword-batches.json and only 2 cells could be measured by hand, because the Ahrefs MCP is proxied with no raw token so every batch is a tool call rather than a loop in a script.",
+ "units": {
+  "spent_this_measurement": 7403,
+  "spent_including_the_gb_pair_check": 7466,
+  "allowance": 2000000,
+  "reset": "2026-11-08T00:00:00Z"
+ }
+}

@@ -1,13 +1,13 @@
 {
  "measuredOn": "2026-10-01",
  "families": 215,
- "pages": 427121,
+ "pages": 706677,
  "verdicts": {
   "ACCEPTED": 181,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 318894,
+  "ACCEPTED": 598450,
   "ACCEPTED_WITH_AN_UNKNOWN": 108227
  },
  "most_common_failed_condition": {},
@@ -8531,12 +8531,19 @@
    "every_page_is_low_completeness": false
   },
   "transport.city-pair-transit": {
-   "pages": 5120,
+   "pages": 284676,
    "markets": [
     "da-DK",
+    "de-DE",
+    "en-GB",
     "en-US",
+    "es-ES",
     "fi-FI",
-    "nb-NO"
+    "fr-FR",
+    "it-IT",
+    "nb-NO",
+    "nl-NL",
+    "pl-PL"
    ],
    "verdict": "ACCEPTED",
    "conditions": {
@@ -8554,15 +8561,15 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 5120,
-    "unique_data_point_count": 12,
-    "distinct_entity_count": 5120,
-    "template_ratio": 5120.0,
+    "unique_fact_count": 284676,
+    "unique_data_point_count": 11,
+    "distinct_entity_count": 284676,
+    "template_ratio": 284676.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0,
-    "near_duplicate_worst_language": "",
-    "information_gain_reason": "Aabenraa til Assens by public transport, from the published timetables of Rejseplanen (Denmark) (Rejseplanen open data terms) via the Mobility Database. 58 minutes is the median scheduled journey time; 1 stop-to-stop connections make up this corridor; 61 direct services in the published timetable; served by train; 40 km apart in a straight line; operated by Rejseplanen (Denmark). The journey time "
+    "near_duplicate_token_score": 0.0357,
+    "near_duplicate_worst_language": "de",
+    "information_gain_reason": "'s-Gravenzande naar Zoetermeer by public transport, from the published timetables of OVapi / Dutch national OV data (CC0 1.0) via the Mobility Database. 63 minutes is the median scheduled journey time; 1 stop-to-stop connections make up this corridor; 633 direct services in the published timetable; served by bus; 23 km apart in a straight line; operated by OVapi / Dutch national OV data. The journ"
    },
    "every_page_is_low_completeness": false
   },

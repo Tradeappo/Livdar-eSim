@@ -5,7 +5,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | family | en-US | en-GB | de-DE | ja-JP | zh-Hant-TW | it-IT | es-ES | fr-FR | nl-NL | pl-PL | pt-BR |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | transport.city-pair-transit | 4,394 | 216,617 | 29,427 |  |  | 32 | 1,966 | 6,463 | 3,467 | 459 |  |
-| activities.city-things-to-do | 2,557 | 1,285 | 891 | 2,544 | 51 | 1,135 | 315 | 3,682 | 3,029 | 198 | 931 |
+| activities.city-things-to-do | 9,894 | 1,285 | 891 | 2,544 | 51 | 1,135 | 315 | 3,682 | 3,029 | 198 | 931 |
 | outdoors.hiking-trail | 3,310 | 1,442 |  | 294 |  |  | 4,342 | 9,237 | 2,709 | 1,879 | 29 |
 | weather.city-month | 2,557 | 314 | 711 | 2,544 | 40 | 1,017 | 3,656 | 3,680 | 3,029 | 2,765 | 3,040 |
 | places.area-cuisine | 5,451 | 2,142 | 1,610 | 4,123 |  | 1,739 | 1,247 | 2,230 | 632 | 871 | 586 |
@@ -16,6 +16,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | outdoors.peak | 1,413 | 1,294 | 2,420 | 1,440 |  | 1,945 | 501 | 621 | 96 | 1,877 | 92 |
 | transport.city-pair-rail | 11,222 |  |  |  |  |  |  |  |  |  |  |
 | places.area-pharmacy | 475 | 642 | 1,434 | 935 |  | 930 | 961 | 1,365 | 122 | 1,075 | 414 |
+| places.city-category | 6,058 | 39 | 2,405 | 553 | 40 | 133 | 150 | 143 | 57 | 16 | 159 |
 | places.area-fast_food | 2,312 | 1,548 | 1,052 | 1,304 |  | 604 | 442 | 1,228 | 547 | 629 | 387 |
 | places.area-cafe | 1,572 | 1,354 | 673 | 1,387 |  | 963 | 684 | 530 | 236 | 268 | 115 |
 | places.area-opening | 2,132 | 511 | 1,786 | 388 |  | 511 | 490 | 375 | 393 | 386 | 129 |
@@ -26,7 +27,6 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | outdoors.castle | 15 | 314 | 1,884 | 88 |  | 421 | 278 | 2,327 | 231 | 370 | 8 |
 | places.area-clinic | 802 | 302 | 717 | 817 |  | 291 | 389 | 675 | 322 | 772 | 327 |
 | places.area-attribute | 2,328 |  | 1,832 |  |  |  |  |  |  | 400 | 161 |
-| places.city-category | 882 | 39 | 2,405 | 553 | 40 | 133 | 150 | 143 | 57 | 16 | 159 |
 | rents.city | 882 | 240 | 2,405 | 553 | 18 | 133 | 150 | 143 |  | 1 | 677 |
 | stay.near-venue | 2,096 | 486 | 613 | 375 |  | 169 | 214 | 295 | 125 | 172 | 241 |
 | places.area-bar | 973 | 297 | 326 | 464 |  | 661 | 515 | 782 | 82 | 77 | 125 |
