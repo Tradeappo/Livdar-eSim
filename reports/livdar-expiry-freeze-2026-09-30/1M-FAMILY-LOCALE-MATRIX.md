@@ -4,7 +4,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 
 | family | en-US | en-GB | de-DE | ja-JP | zh-Hant-TW | it-IT | es-ES | fr-FR | nl-NL | pl-PL | pt-BR |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| transport.city-pair-transit | 5,011 | 271,805 | 56,370 |  |  | 1,211 | 3,262 | 33,007 | 6,685 | 10,625 |  |
+| transport.city-pair-transit | 5,011 | 278,217 | 130,236 |  |  | 1,226 | 3,262 | 36,198 | 7,028 | 12,694 |  |
 | weather.city-month | 9,894 | 314 | 711 | 2,544 | 40 | 1,017 | 11,936 | 3,680 | 3,029 | 2,765 | 3,040 |
 | activities.city-things-to-do | 9,894 | 1,285 | 891 | 2,544 | 51 | 1,135 | 315 | 3,682 | 3,029 | 198 | 931 |
 | stay.city-type | 6,058 | 688 | 3,786 | 2,544 | 40 | 272 | 3,207 | 3,680 | 3,029 | 198 | 922 |

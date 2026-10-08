@@ -1,17 +1,17 @@
 {
  "source": "LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz",
- "rows": 877462,
+ "rows": 966815,
  "partitions": {
   "market": {
    "da-DK": {
     "path": "data/atlas/candidates/market=da-DK/candidates.jsonl.gz",
-    "rows": 7944,
-    "content_sha1": "c4093bcce63b06d1"
+    "rows": 7950,
+    "content_sha1": "ed8974dc90db2d76"
    },
    "de-DE": {
     "path": "data/atlas/candidates/market=de-DE/candidates.jsonl.gz",
-    "rows": 105331,
-    "content_sha1": "4775adcafe0d16d7"
+    "rows": 179197,
+    "content_sha1": "dc5d0d612f970514"
    },
    "en-AU": {
     "path": "data/atlas/candidates/market=en-AU/candidates.jsonl.gz",
@@ -20,18 +20,18 @@
    },
    "en-GB": {
     "path": "data/atlas/candidates/market=en-GB/candidates.jsonl.gz",
-    "rows": 298571,
-    "content_sha1": "8917d3d933570a46"
+    "rows": 304983,
+    "content_sha1": "1d56998a24730444"
    },
    "en-US": {
     "path": "data/atlas/candidates/market=en-US/candidates.jsonl.gz",
     "rows": 116468,
-    "content_sha1": "2a81b4f23d6f41f6"
+    "content_sha1": "3a317690ac9141da"
    },
    "es-ES": {
     "path": "data/atlas/candidates/market=es-ES/candidates.jsonl.gz",
     "rows": 44631,
-    "content_sha1": "e57b6db9175d8d76"
+    "content_sha1": "9b51eeaf9667cecd"
    },
    "es-MX": {
     "path": "data/atlas/candidates/market=es-MX/candidates.jsonl.gz",
@@ -40,18 +40,18 @@
    },
    "fi-FI": {
     "path": "data/atlas/candidates/market=fi-FI/candidates.jsonl.gz",
-    "rows": 10663,
-    "content_sha1": "758edeb03f41d583"
+    "rows": 14114,
+    "content_sha1": "2892f80b6584f766"
    },
    "fr-FR": {
     "path": "data/atlas/candidates/market=fr-FR/candidates.jsonl.gz",
-    "rows": 88530,
-    "content_sha1": "80d8645ebb25e502"
+    "rows": 91721,
+    "content_sha1": "4bb65a871a48b5b2"
    },
    "it-IT": {
     "path": "data/atlas/candidates/market=it-IT/candidates.jsonl.gz",
-    "rows": 27520,
-    "content_sha1": "2839b6389bfbcc35"
+    "rows": 27535,
+    "content_sha1": "2dc328ff2cb89b3f"
    },
    "ja-JP": {
     "path": "data/atlas/candidates/market=ja-JP/candidates.jsonl.gz",
@@ -65,13 +65,13 @@
    },
    "nl-NL": {
     "path": "data/atlas/candidates/market=nl-NL/candidates.jsonl.gz",
-    "rows": 31020,
-    "content_sha1": "c064896862e0b946"
+    "rows": 31363,
+    "content_sha1": "d7bee8ba22f76aa7"
    },
    "pl-PL": {
     "path": "data/atlas/candidates/market=pl-PL/candidates.jsonl.gz",
-    "rows": 34350,
-    "content_sha1": "5963d05d899ea2dc"
+    "rows": 36419,
+    "content_sha1": "b515aab17082da57"
    },
    "pt-BR": {
     "path": "data/atlas/candidates/market=pt-BR/candidates.jsonl.gz",
@@ -1137,8 +1137,8 @@
    },
    "transport.city-pair-transit": {
     "path": "data/atlas/candidates/family=transport.city-pair-transit/candidates.jsonl.gz",
-    "rows": 422155,
-    "content_sha1": "406c6f8d378748ee"
+    "rows": 511508,
+    "content_sha1": "f7622c7e05e94e0e"
    },
    "transport.route-from-market": {
     "path": "data/atlas/candidates/family=transport.route-from-market/candidates.jsonl.gz",
@@ -1229,8 +1229,8 @@
    },
    "transport": {
     "path": "data/atlas/candidates/surface=transport/candidates.jsonl.gz",
-    "rows": 440879,
-    "content_sha1": "4cd4dad6bbc084f9"
+    "rows": 530232,
+    "content_sha1": "b29f9ac2edef5867"
    },
    "travel": {
     "path": "data/atlas/candidates/surface=travel/candidates.jsonl.gz",
@@ -1246,38 +1246,38 @@
   "language": {
    "da": {
     "path": "data/atlas/candidates/language=da/candidates.jsonl.gz",
-    "rows": 7944,
-    "content_sha1": "c4093bcce63b06d1"
+    "rows": 7950,
+    "content_sha1": "ed8974dc90db2d76"
    },
    "de": {
     "path": "data/atlas/candidates/language=de/candidates.jsonl.gz",
-    "rows": 105331,
-    "content_sha1": "4775adcafe0d16d7"
+    "rows": 179197,
+    "content_sha1": "dc5d0d612f970514"
    },
    "en": {
     "path": "data/atlas/candidates/language=en/candidates.jsonl.gz",
-    "rows": 423283,
-    "content_sha1": "e3fa60dade07da6a"
+    "rows": 429695,
+    "content_sha1": "4f2a685d7a712c6e"
    },
    "es": {
     "path": "data/atlas/candidates/language=es/candidates.jsonl.gz",
     "rows": 56792,
-    "content_sha1": "40bf76807dfcb1bd"
+    "content_sha1": "09e293432d0649a0"
    },
    "fi": {
     "path": "data/atlas/candidates/language=fi/candidates.jsonl.gz",
-    "rows": 10663,
-    "content_sha1": "758edeb03f41d583"
+    "rows": 14114,
+    "content_sha1": "2892f80b6584f766"
    },
    "fr": {
     "path": "data/atlas/candidates/language=fr/candidates.jsonl.gz",
-    "rows": 88530,
-    "content_sha1": "80d8645ebb25e502"
+    "rows": 91721,
+    "content_sha1": "4bb65a871a48b5b2"
    },
    "it": {
     "path": "data/atlas/candidates/language=it/candidates.jsonl.gz",
-    "rows": 27520,
-    "content_sha1": "2839b6389bfbcc35"
+    "rows": 27535,
+    "content_sha1": "2dc328ff2cb89b3f"
    },
    "ja": {
     "path": "data/atlas/candidates/language=ja/candidates.jsonl.gz",
@@ -1291,13 +1291,13 @@
    },
    "nl": {
     "path": "data/atlas/candidates/language=nl/candidates.jsonl.gz",
-    "rows": 31020,
-    "content_sha1": "c064896862e0b946"
+    "rows": 31363,
+    "content_sha1": "d7bee8ba22f76aa7"
    },
    "pl": {
     "path": "data/atlas/candidates/language=pl/candidates.jsonl.gz",
-    "rows": 34350,
-    "content_sha1": "5963d05d899ea2dc"
+    "rows": 36419,
+    "content_sha1": "b515aab17082da57"
    },
    "pt": {
     "path": "data/atlas/candidates/language=pt/candidates.jsonl.gz",
