@@ -1,8 +1,8 @@
 {
- "manifest_rows": 968297,
- "distinct_urls": 968297,
+ "manifest_rows": 968305,
+ "distinct_urls": 968305,
  "checks": {
-  "title_over_65_chars": 493015,
+  "title_over_65_chars": 493021,
   "meta_over_165_chars": 514358,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 596,
@@ -26,7 +26,7 @@
   "duplicate_meta_within_a_market": 0,
   "duplicate_h1_within_a_market": 619,
   "declared_parent_is_not_a_valid_parent": 0,
-  "declared_parent_is_valid_but_not_a_path_prefix": 24375,
+  "declared_parent_is_valid_but_not_a_path_prefix": 24383,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
@@ -10942,7 +10942,7 @@
    ]
   },
   "poi.park-notable|en": {
-   "rows": 11,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
@@ -10977,13 +10977,6 @@
    ]
   },
   "poi.park-notable|pt": {
-   "rows": 1,
-   "verdict": "USEFUL_WITHOUT_SEARCH",
-   "why": [
-    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
-   ]
-  },
-  "poi.public_square-notable|en": {
    "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
