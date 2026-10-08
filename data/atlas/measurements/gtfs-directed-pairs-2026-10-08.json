@@ -1,0 +1,25 @@
+{
+ "measurement": "Does direction carry its own facts, or is a reversed pair the same page written backwards",
+ "date": "2026-10-08",
+ "why_this_had_to_be_measured": "Making the pair directed roughly doubles the row count, and a doubling that does not carry new facts is duplication dressed as scale. So the claim was tested on the feed that produces the most pairs per stop, before the change was allowed to stand.",
+ "feed": "entur-norway, Entur national Norwegian aggregate, NLOD 2.0, 541 MB, 141,672 stops",
+ "directed_pairs": 31558,
+ "pairs_with_both_directions_present": 8182,
+ "of_those_bidirectional": {
+  "different_median_duration": 7104,
+  "share_different": 86.8,
+  "identical_duration_and_trips": 290,
+  "share_identical": 3.5
+ },
+ "verdict": "DIRECTION CARRIES ITS OWN FACTS. 86.8% of the corridors that appear both ways round have a different median scheduled journey time each way, and the trip counts differ too. Vennesla to Kristiansand is 1,020 seconds on 779 services; Kristiansand to Vennesla is 900 seconds on 1,141 services. Those are two different timetables, not one page reversed.",
+ "the_semantic_duplicate_rate_is_low_and_the_gate_catches_it": "3.5%, 290 of 8,182, are identical in both journey time and service count. Those are the pages that would differ in word order alone, and the new semantic-difference gate in gtfs-pair-candidates.py drops the weaker direction of each.",
+ "the_honest_size_of_the_gain_on_this_feed": {
+  "directed_rows": 31558,
+  "equivalent_undirected_rows": 27467,
+  "arithmetic": "23,376 corridors appear in ONE direction only, and 8,182 appear in both, which is 4,091 undirected corridors. 23,376 + 4,091 = 27,467.",
+  "gain": "+14.9%",
+  "this_is_NOT_a_doubling": "Most corridors appear in one direction only in the trip data, so direction adds about a seventh on this feed and not a half. The commit that made the change said it would not be a doubling, and this is the number."
+ },
+ "where_the_real_gain_is_instead": "The cross-border recovery, not the doubling. 31.0% of the pairs on the FlixBus, SNCF and BlaBlaCar European feeds cross a border, and every one of them was being dropped because an undirected pair has no origin and so could not be given a locale. Norway has almost no cross-border coach or rail in this feed, which is exactly why it was the right feed to measure the directional question on in isolation and the wrong one to measure the cross-border question on.",
+ "production_untouched": true
+}
