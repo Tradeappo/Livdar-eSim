@@ -612,7 +612,14 @@ HARVEST_VOL = {}
 # pass, 6,810 keywords in eleven languages, every one of them a SERP a domain of DR 30 or less
 # already holds. The second file resolved 3,938 of its rows to 4,323 market-and-language
 # evidence rows against the first file's 512.
-_HARVESTS = ('resolved-cities-2026-10-01.csv', 'resolved-cities-2026-10-07.csv')
+# resolved-cities-2026-10-08.csv is the morphology recovery: 50 cities the 2026-10-07 harvest
+# had refused because the keyword carried a Turkish case suffix or a Japanese administrative
+# suffix fused to the name - urlada gezilecek yerler is Urla, izmirde is Izmir. Only the two
+# morphologies whose rules are regular were implemented; the trailing-token rule that would
+# have recovered more was removed after it resolved bad schandau to Bad in INDIA and
+# washington state to Washington the city. A wrong entity is worse than a missing one.
+_HARVESTS = ('resolved-cities-2026-10-01.csv', 'resolved-cities-2026-10-07.csv',
+             'resolved-cities-2026-10-08.csv')
 _h_counts = {}
 for _hf in _HARVESTS:
     _before = len(HARVEST_CITY_IDS)
