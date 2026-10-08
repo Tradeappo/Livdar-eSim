@@ -480,6 +480,7 @@ for a, b, e in rows:
         'gtfs_feeds': sorted(str(x) for x in e['feeds']),
         'licences': sorted(e['licences']),
         'pair_duplicate_risk': 'LOW',
+        'direction': 'DIRECTED_ORIGIN_TO_DESTINATION' if e.get('directed') else 'UNDIRECTED_CORRIDOR',
         'admission_class': admission,
         'utility_signals': sorted(k for k, v in sig.items() if v),
         'utility_signal_count': nsig,
@@ -489,9 +490,17 @@ for a, b, e in rows:
             f"{', '.join(sorted(e['operators'])[:3]) or 'the operating agency'} "
             f"({lic}) via the Mobility Database. " + '; '.join(facts) + '. The journey time and '
             f"the service count are READ FROM the published schedule rather than estimated. "
-            f"Canonical direction: one page per pair, named alphabetically. What this page "
-            f"deliberately does NOT claim: fares, real-time running, disruptions, or that the "
-            f"timetable has not changed since the feed was published."),
+            + ("This page is one DIRECTION of travel: the journey time is from "
+               f"{a_name}'s departure to {b_name}'s arrival, and the return journey is a "
+               "different timetable with its own page. Where a feed gives both ways round "
+               "the same journey time and the same service count, only one direction is "
+               "kept. " if e.get('directed') else
+               "The source feed records stop pairs without recording which way round the "
+               "trip ran, so no direction is claimed and this is one page per corridor, "
+               "named alphabetically. ")
+            + f"What this page deliberately does NOT claim: fares, real-time running, "
+            f"disruptions, or that the timetable has not changed since the feed was "
+            f"published."),
     })
 
 OUTP = ROOT + 'data/atlas/sources/transport/_gtfs-pair-candidates.jsonl.gz'
