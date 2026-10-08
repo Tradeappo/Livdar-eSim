@@ -1,0 +1,76 @@
+{
+ "audit": "Every already-captured or already-measured lever checked against the 33,185 gap to 1,000,000, with the number that admits or refuses each",
+ "date": "2026-10-08",
+ "why_this_file_exists": "The instruction was to close the gap from the cheapest already-validated and already-captured sources before opening any new model. Four of the five candidates on that list turned out to be smaller than the estimate attached to them, and two were refused by data I already held rather than by a new measurement. Writing the numbers down means none of them is chased twice.",
+ "no_gate_was_relaxed_in_any_item_below": true,
+
+ "lever_1_city_parking": {
+  "what_suggested_it": "hundred-k-model-search-2026-10-08.json flagged it as 'the strongest unbuilt city-level cell seen today' and sized it at 20,000 to 50,000: parking in york 2,300 at difficulty 1, car parks in bath 400 at difficulty 17, and OpenStreetMap carries named car parks densely, 1,873 around Antwerp alone.",
+  "what_the_held_data_says": "The aggregator already emits parking cells and already applies LIST_CLASSES['parking'] = 6, the floor of six named car parks that makes a list worth reading. Across every captured country that produced 1,623 city cells and 498 area cells, not 20,000. The 1,873 Antwerp figure counted car parks; the page needs NAMED ones, and most car parks in OpenStreetMap carry no name tag.",
+  "the_refusal_that_settles_it": "There is no en-GB or en-US city-parking cell AT ALL. The nine markets that do carry one are de-DE 54, fr-FR 47, es-ES 35, ja-JP 29, nl-NL 21, it-IT 16, pt-BR 13, tr-TR 9, pl-PL 1, every one of them on shape_measured_2026_10_01 with a local volume of ZERO. So the one market where parking measured is the one market with no parking data, and the markets with the data have no parking measurement. Widening this family would supply pages against demand that was never measured for those countries - the same structural failure as the Dutch pair, where the demand is international and the feed is domestic.",
+  "verdict": "REFUSED as a lever. Its ceiling is about 1,400 rows, not 20,000 to 50,000, and the half of it that has measured demand has no data.",
+  "what_would_change_it": "A named-car-park capture for Great Britain, where the 2,300 volume actually sits, plus one measurement of the parking form in any of the nine markets that already hold the data."
+ },
+
+ "lever_2_the_climate_month_axis": {
+  "what_suggested_it": "The same search called it 'a real but bounded widening worth tens of thousands' on NASA POWER normals already materialised for 31,715 cities, public domain, with nineteen of twenty measured en-GB rows at difficulty 0 or 1.",
+  "what_the_held_data_says": "weather.city-month is already the second largest family in the manifest at 38,970 rows. It is DESTINATION scope, so its bound is not the city count and not the climate coverage: it is the measured destination evidence, the same bound that stops German pages about Aba, Nigeria.",
+  "the_limit": "Widening it means admitting more destination cities, and a destination city is admitted on measured per-destination evidence in that market's language. The measurement itself set the shape of that evidence and set it narrow: demand is concentrated in holiday destinations, tenerife weather in october 1,000 and malta weather in november 1,000, and collapses to york 10, bruges 20, naples 30, edinburgh 40. Breadth and not peak is what a tier cap can express, so the axis widens resort-first, and the resort list is exactly what a new measurement would have to supply.",
+  "verdict": "NOT AVAILABLE as a cheap lever. It needs new per-destination measurement, which is the one input unavailable while the Ahrefs connection is down. Nothing about it is refused; it is blocked.",
+  "what_would_change_it": "One matching-terms call per market on the '{destination} weather in {month}' form, which returns the resort list as its own output."
+ },
+
+ "lever_3_osm_ferry_and_ski": {
+  "rows_on_disk": {"ferry": 219, "ski": 294},
+  "verdict": "Real and tiny. 513 rows between them against a gap of 33,185. Kept on the list, never going to be the answer."
+ },
+
+ "lever_4_the_dense_place_recovery": {
+  "claimed": 16129,
+  "verdict": "ALREADY COUNTED. area_has_density_mark() implements it and the 16,129 are inside the 966,815 already. Counting them again would be double counting, which is the error this programme has corrected twice."
+ },
+
+ "lever_5_the_destination_harvest_residue": {
+  "rows_recovered": 50,
+  "rows_still_refused": 2215,
+  "verdict": "50 cities, wired into _HARVESTS on 2026-10-08. The trailing-token rule that would have recovered several hundred more was REMOVED after it resolved bad schandau to Bad in INDIA, schleswig holstein to Schleswig the town and washington state to Washington the city. A wrong entity is worse than a missing one, so the residue stays refused."
+ },
+
+ "lever_6_the_unharvested_licensed_feeds": {
+  "what_it_was": "176 of the 1,300 feeds that passed the licence gate had never produced output. Nobody had checked whether they failed or were skipped.",
+  "result": "79 recovered on retry, for 4,052 new raw settlement pairs. 94 are genuinely unreachable from this container rather than transiently failing, and the relay's own failure log names the host for most of them: www.data.gouv.fr, established days ago as dropping the tunnel after 39 bytes.",
+  "verdict": "ADMITTED and taken. The cheapest real yield in this audit, because the licence work was already done."
+ },
+
+ "lever_7_the_gtfs_interchange_hub_family": {
+  "rows_built": 826,
+  "status": "Built on 2026-10-08 and reading nothing until today, because no line in the manifest loaded the file. Now wired, scored 44, below every other transport family: the departures form measured in en-GB and de-DE only and 644 of the 826 rows sit in markets whose own phrasing was never measured. da-DK and nb-NO are refused outright by the new-market cover rule.",
+  "verdict": "ADMITTED at its measured width and no wider."
+ },
+
+ "lever_8_the_wikidata_outdoor_enrichment": {
+  "qids": 52585,
+  "hit_rate_measured_on_a_random_sample_of_660": "78 enriched of 440 answered = 17.7 per cent",
+  "hit_rate_the_head_of_the_list_suggested": "35.5 per cent, which was wrong because the list is ordered by class and its head is archaeological sites, the class least likely to carry a number",
+  "projected_entities": 9300,
+  "verdict": "ADMITTED and running. The largest single lever in this audit, and it is enrichment rather than relaxation: it supplies the FACT to features that already pass notability and fail the fact test. A feature with no fact after this is still refused."
+ },
+
+ "the_largest_thing_this_audit_found_and_did_NOT_take": {
+  "what": "25,364 Japanese settlement pairs, harvested, licensed and sitting on disk, contributing nothing.",
+  "why_they_contribute_nothing": "JP is absent from PAIR_LOCALE in gtfs-pair-candidates.py, so every Japanese pair gets no locale and is dropped. 580 of the 1,300 registry feeds are Japanese - 45 per cent of the whole licensed registry - and ja-JP has exactly zero rows in the pair family.",
+  "is_the_data_the_problem": "No. The city store carries Japanese names in its alt field, so the page can be written in Japanese rather than in romaji. The feeds are harvested and the licences are clear.",
+  "why_it_was_NOT_built_anyway": "The query form in Japanese is unmeasured, and this is the one family where guessing the form has already been caught being wrong. gtfs-pair-local-language-2026-10-07.json measured five languages on exactly this question: it ADMITTED Danish, Norwegian and Finnish, REFUSED Dutch, and corrected the Finnish form after finding Finnish puts the pair before the mode and uses no preposition at all - a form no amount of reasoning from Danish would have produced. Japanese word order and particles differ far more than Finnish does from Danish. Building 25,364 pages on a guessed Japanese form, immediately after discovering that the one language measured on this question was refused, would be the worst available judgement.",
+  "what_it_needs": "ONE keywords-explorer matching-terms call on the Japanese pair form. That single measurement either admits about 25,000 pages or refuses them, and it is the largest measurable unlock in the inventory.",
+  "blocked_on": "The Ahrefs MCP connection, which is down with CONNECT_TIMEOUT."
+ },
+
+ "the_defect_this_audit_uncovered": {
+  "what": "nl-NL held 7,028 settlement-pair pages against a measurement that refused them. gtfs-pair-local-language-2026-10-07.json recorded 'nl pair level: demand is international, the held feed is domestic' and the refusal never reached the code: NL stayed in PAIR_LOCALE with the exact form the measurement read and rejected.",
+  "fixed_by": "PAIR_DOMESTIC_REFUSED in gtfs-pair-candidates.py, applied exactly as narrow as the measurement is - the domestic Dutch pair is refused and the cross-border journey out of the Netherlands is kept, because the three Dutch rows that cleared the volume floor are all cross-border: breda to antwerpen 100, venlo to dusseldorf 90, arnhem to dusseldorf 90.",
+  "effect_on_the_count": "NEGATIVE. This lowers the final total, and that is the point: a number that includes rows a measurement refused is not a count of valid candidates."
+ },
+
+ "production_untouched": true,
+ "nothing_published": true
+}
