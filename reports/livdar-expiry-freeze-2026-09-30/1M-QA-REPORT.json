@@ -1,13 +1,13 @@
 {
- "manifest_rows": 799126,
- "distinct_urls": 799126,
+ "manifest_rows": 877462,
+ "distinct_urls": 877462,
  "checks": {
-  "title_over_65_chars": 344047,
-  "meta_over_165_chars": 349819,
+  "title_over_65_chars": 408955,
+  "meta_over_165_chars": 428155,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 596,
-  "duplicate_title_same_tokens": 925,
-  "destination_rows": 77709,
+  "duplicate_title_same_tokens": 1061,
+  "destination_rows": 77694,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
@@ -63,6 +63,15 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
+   "title": "Bellheim nach Lameyplatz, Karlsruhe, Bellheim, DE: what to know before you go",
+   "a": "c_dc83ff326a97",
+   "b": "c_8462021b9bb0",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bellheim-nach-lameyplatz-karlsruhe/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
    "title": "Dreekamp Aurich nach Emden, Dreekamp Aurich, DE: what to know before you go",
    "a": "c_6f106da6762e",
    "b": "c_e6645e1c07e5",
@@ -77,6 +86,24 @@
    "b": "c_d2637f30ef3d",
    "url_a": "",
    "url_b": "/de/transport/public-transport/dreekamp-aurich-nach-kunsthalle-emden/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Germersheim nach Lameyplatz, Karlsruhe, Germersheim, DE: what to know before you go",
+   "a": "c_134e291fa55a",
+   "b": "c_4749181c4614",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/germersheim-nach-lameyplatz-karlsruhe/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Lameyplatz, Karlsruhe nach Ispringen, Lameyplatz, Karlsruhe, DE: what to know before you go",
+   "a": "c_36155b05cde8",
+   "b": "c_612794aa97ab",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/lameyplatz-karlsruhe-nach-ispringen/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -117,29 +144,20 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Aldi, Garstang to Lancaster, Aldi, GB: what to know before you go",
-   "a": "c_64c00ad059dd",
-   "b": "c_b38d382e9aa8",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/aldi-garstang-to-lancaster/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "All Saints Square, Coventry to Bedworth, All Saints Square, GB: what to know before you go",
-   "a": "c_2ea412b1d7aa",
-   "b": "c_77b46c313fbf",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/all-saints-square-coventry-to-bedworth/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
    "title": "Archbishop Holgate's School, York to The Balk Pocklington, Archbishop Holgate's School, GB: what to know befor",
-   "a": "c_18949e229f80",
-   "b": "c_19761a070a29",
+   "a": "c_1157d280ee87",
+   "b": "c_6dd262eb7213",
    "url_a": "",
    "url_b": "/en/transport/public-transport/archbishop-holgate-s-school-york-to-the-balk-pocklington/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Archbishop Holgate's School, York to Wilberfoss A1079, Pocklington, Archbishop Holgate's School, GB: what to k",
+   "a": "c_0640b85f85ef",
+   "b": "c_47b766c72d78",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/archbishop-holgate-s-school-york-to-wilberfoss-a1079-pocklington/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -162,15 +180,6 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Asda, Falkirk to Cumbernauld, Asda, GB: what to know before you go",
-   "a": "c_32c68bc94410",
-   "b": "c_a7d8adbb7766",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/asda-falkirk-to-cumbernauld/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
    "title": "Ash Grove, Kingston upon Hull to Driffield Beverley Road, Ash Grove, GB: what to know before you go",
    "a": "c_1c178a42ad0d",
    "b": "c_4829357bd82b",
@@ -189,20 +198,11 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Ashtead to Surbiton Station/Claremont Rd, Ashtead, GB: what to know before you go",
-   "a": "c_ca5855e88b36",
-   "b": "c_16dfd7b9fb55",
+   "title": "Aylsham to Sheringham, Railway Approach, Aylsham, GB: what to know before you go",
+   "a": "c_b6c74aa998ab",
+   "b": "c_5be0cbbd48fa",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/ashtead-to-surbiton-station-claremont-rd/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Ashtead to The Crescent Surbiton, Ashtead, GB: what to know before you go",
-   "a": "c_75fa1de144a3",
-   "b": "c_376b70192066",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/ashtead-to-the-crescent-surbiton/"
+   "url_b": "/en/transport/public-transport/aylsham-to-sheringham-railway-approach/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -216,11 +216,29 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
+   "title": "B&Q, York to Wilberfoss A1079, Pocklington, B&Q, GB: what to know before you go",
+   "a": "c_661b80cb5fec",
+   "b": "c_04f19b010293",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/b-q-york-to-wilberfoss-a1079-pocklington/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
    "title": "Badger Hill Shops, York to The Balk Pocklington, Badger Hill Shops, GB: what to know before you go",
-   "a": "c_623effc18dbb",
-   "b": "c_1a5cc17e5eb0",
+   "a": "c_db73d10b3b51",
+   "b": "c_a8321acf3936",
    "url_a": "",
    "url_b": "/en/transport/public-transport/badger-hill-shops-york-to-the-balk-pocklington/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Badger Hill Shops, York to Wilberfoss A1079, Pocklington, Badger Hill Shops, GB: what to know before you go",
+   "a": "c_3bc8dd79133d",
+   "b": "c_6d742be19670",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/badger-hill-shops-york-to-wilberfoss-a1079-pocklington/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -234,56 +252,38 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Barmby Moor A1079, Pocklington to Bingley House Farm, York, Barmby Moor A1079, GB: what to know before you go",
-   "a": "c_607405724ea3",
-   "b": "c_7435bcd23073",
+   "title": "Bawbee Bridge, Leven to Glenrothes Bus Station Arrival Bay, Bawbee Bridge, GB: what to know before you go",
+   "a": "c_9d7103c7c0a6",
+   "b": "c_f662c05eb84a",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-bingley-house-farm-york/"
+   "url_b": "/en/transport/public-transport/bawbee-bridge-leven-to-glenrothes-bus-station-arrival-bay/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Barmby Moor A1079, Pocklington to Canham Grove, York, Barmby Moor A1079, GB: what to know before you go",
-   "a": "c_e6923eae7bd7",
-   "b": "c_a519180a7ada",
+   "title": "Becquerel Avenue Terminus, Didcot to Park Way, Newbury, Becquerel Avenue Terminus, GB: what to know before you",
+   "a": "c_945f2753c4dd",
+   "b": "c_308a95f1aa81",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-canham-grove-york/"
+   "url_b": "/en/transport/public-transport/becquerel-avenue-terminus-didcot-to-park-way-newbury/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Barmby Moor A1079, Pocklington to Driffield, Barmby Moor A1079, GB: what to know before you go",
-   "a": "c_3a10fd620f99",
-   "b": "c_20a7a4a5753d",
+   "title": "Beech Grove, Kingston upon Hull to Driffield Beverley Road, Beech Grove, GB: what to know before you go",
+   "a": "c_229290f7bd10",
+   "b": "c_6ceaba632094",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-driffield/"
+   "url_b": "/en/transport/public-transport/beech-grove-kingston-upon-hull-to-driffield-beverley-road/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Barmby Moor A1079, Pocklington to Driffield Beverley Road, Barmby Moor A1079, GB: what to know before you go",
-   "a": "c_73845a82a520",
-   "b": "c_7037769e05f5",
+   "title": "Beverley BS to The Balk Pocklington, Beverley BS, GB: what to know before you go",
+   "a": "c_6dce4322c430",
+   "b": "c_96ddf8b20574",
    "url_a": "",
-   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-driffield-beverley-road/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Barmby Moor A1079, Pocklington to Grimston Court, York, Barmby Moor A1079, GB: what to know before you go",
-   "a": "c_136ddd73b7f9",
-   "b": "c_02fcafec6749",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-grimston-court-york/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-GB",
-   "title": "Barmby Moor A1079, Pocklington to Huby Court, York, Barmby Moor A1079, GB: what to know before you go",
-   "a": "c_dc2c99311b82",
-   "b": "c_be52a0c1bf3e",
-   "url_a": "",
-   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-huby-court-york/"
+   "url_b": "/en/transport/public-transport/beverley-bs-to-the-balk-pocklington/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -12103,21 +12103,21 @@
    ]
   },
   "transport.city-pair-transit|de": {
-   "rows": 49787,
+   "rows": 56370,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|en": {
-   "rows": 222637,
+   "rows": 276816,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|es": {
-   "rows": 2416,
+   "rows": 3262,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12131,14 +12131,14 @@
    ]
   },
   "transport.city-pair-transit|fr": {
-   "rows": 26565,
+   "rows": 33007,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|it": {
-   "rows": 810,
+   "rows": 1211,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12152,14 +12152,14 @@
    ]
   },
   "transport.city-pair-transit|nl": {
-   "rows": 6678,
+   "rows": 6685,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|pl": {
-   "rows": 747,
+   "rows": 10625,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12503,7 +12503,7 @@
  "title_length": {
   "min": 13,
   "max": 208,
-  "mean": 63.5
+  "mean": 65.7
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }
