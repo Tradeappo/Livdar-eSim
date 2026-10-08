@@ -346,7 +346,51 @@ def harvest(key, url, country, licence, provider):
                     if a.get('settlement_id') == b.get('settlement_id'):
                         stats['pair_rejected_same_settlement'] += 1
                         continue
-                    k = (a['id'], b['id']) if a['id'] < b['id'] else (b['id'], a['id'])
+                    # ---- THE PAIR IS DIRECTED ------------------------------------------
+                    # This key used to be undirected, `(a,b) if a<b else (b,a)`, and that
+                    # single decision was throwing away a third of the supply.
+                    #
+                    # It cost the cross-border pairs outright. gtfs-pair-candidates.py can
+                    # only assign a locale when both endpoints share a country, because an
+                    # undirected pair has no origin and picking one of its two languages
+                    # would be arbitrary. So every Berlin-to-Warsaw and Paris-to-Barcelona
+                    # journey in the European coach and rail feeds was dropped: 31.0% of
+                    # the pairs measured on the FlixBus, SNCF and BlaBlaCar feeds, with the
+                    # largest flows all between markets we publish in (DE-PL 1,411,
+                    # DE-FR 1,338, ES-FR 879, FR-PT 772, DE-NL 621, FR-IT 607).
+                    #
+                    # Direction is MEASURED to matter, which is why this is not a trick to
+                    # double a page count. The Norwegian keyword measurement of 2026-10-07
+                    # read both directions of the same corridor separately:
+                    #
+                    #     tog fra gardermoen til oslo s      300   KD 2
+                    #     tog fra oslo s til gardermoen      150   KD 0
+                    #     tog fra vaernes til trondheim      300   KD 1
+                    #     tog fra trondheim til vaernes      150   KD 0
+                    #
+                    # Two directions of one corridor are two queries with two different
+                    # volumes, so neither is a duplicate of the other, and a real timetable
+                    # differs by direction in duration, frequency and first and last
+                    # service. With direction recorded, a cross-border page takes the
+                    # language of its ORIGIN country, which is well defined.
+                    #
+                    # The arithmetic below is ALREADY directional and always was: `seq` is
+                    # in stop_sequence order, so i < j means a precedes b on this trip, and
+                    # `tb - ta` is the travel time from a's departure to b's arrival. The
+                    # only thing the undirected key ever did was merge two real directions
+                    # into one row and average their journey times together.
+                    #
+                    # This doubles the size of P, and P is the structure that brought the
+                    # Great Britain aggregate within minutes of the OOM that killed the
+                    # manifest stage twice. The inter-settlement rule above and
+                    # MAX_STOPS_PER_TRIP_SETTLEMENTS remain the bound; if a feed cannot be
+                    # held, it must be reported as such rather than silently truncated.
+                    #
+                    # Downstream still has to earn each direction: where two directions
+                    # carry identical durations, trip counts and routes, the pages differ
+                    # only in word order and that is a semantic duplicate, so
+                    # gtfs-pair-candidates.py keeps only the better-evidenced one.
+                    k = (a['id'], b['id'])
                     e = P[k]
                     e['trips'] += 1
                     ta, tb = seq[i][2], seq[j][1]
@@ -389,6 +433,10 @@ def harvest(key, url, country, licence, provider):
 
     out = {'key': key, 'country': country, 'licence': licence, 'provider': provider,
            'agencies': agencies[:8], 'source_url': url,
+           # a is the ORIGIN and b the DESTINATION: a precedes b on the trips counted here,
+           # and median_duration_s is the time from a's departure to b's arrival, not an
+           # average over both directions.
+           'pairs_are_directed': True,
            'stops_in_feed': nstops, 'stops_resolved': len(stop_city),
            'settlement_pairs': len(P), 'trip_stats': dict(stats),
            'stop_times_grouped_by_trip': not noncontig,
