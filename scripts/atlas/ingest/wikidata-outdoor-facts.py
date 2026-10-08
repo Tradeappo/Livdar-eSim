@@ -42,7 +42,7 @@ Transport: the Wikidata Query Service over SPARQL, in VALUES batches. wbgetentit
 first on 2026-10-07 and rate-limited at HTTP 429; WDQS answers and is the documented bulk
 route. Batches are small enough to stay inside the service's one-minute query timeout.
 """
-import gzip, json, os, sys, time, urllib.parse, urllib.request, urllib.error, collections, zlib
+import gzip, json, os, subprocess, sys, tempfile, time, urllib.parse, urllib.request, urllib.error, collections, zlib
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = os.environ.get('WD_OUT') or (ROOT + 'data/atlas/sources/osm-outdoor/_wikidata-facts.jsonl.gz')
@@ -70,10 +70,34 @@ def query(qids):
   VALUES ?item {{ {values} }}
 {OPTIONALS}
 }}'''
-    url = WDQS + '?' + urllib.parse.urlencode({'query': sparql, 'format': 'json'})
-    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'application/sparql-results+json'})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read())
+    # POSTED WITH CURL, and the reason is measured. Python's urllib speaks HTTP/1.1 to this
+    # endpoint and, once a session has made a few hundred requests from a shared cloud egress
+    # IP, Wikimedia answers it 429 on every attempt - including the first attempt of a fresh
+    # process. curl, over HTTP/2, answers the IDENTICAL query in ONE SECOND: tested 2026-10-08
+    # on a 100-value VALUES block carrying all twelve OPTIONALs, HTTP 200, 103 bindings, 1s,
+    # while the urllib client was sitting in its fourth backoff on the same query. The rate
+    # limiter is reading the connection, not the request, so the fix belongs in the transport.
+    #
+    # POST rather than GET as well: a 220-value block in a query string is near the URL length
+    # limit, and the query belongs in the body.
+    with tempfile.NamedTemporaryFile('w', suffix='.rq', delete=False) as tf:
+        tf.write(sparql)
+        qp = tf.name
+    try:
+        r = subprocess.run(['curl', '-sS', '--compressed', '--http2', '--max-time', '180',
+                            '-A', UA, '-H', 'Accept: application/sparql-results+json',
+                            '--data-urlencode', 'query@' + qp, '--data', 'format=json',
+                            '-w', '\n%{http_code}', WDQS],
+                           capture_output=True, text=True)
+    finally:
+        os.unlink(qp)
+    if r.returncode != 0:
+        raise RuntimeError(f'curl exit {r.returncode}: {r.stderr[:160]}')
+    body, _, code = r.stdout.rpartition('\n')
+    code = (code or '').strip()
+    if code != '200':
+        raise urllib.error.HTTPError(WDQS, int(code or 0), 'http ' + code, None, None)
+    return json.loads(body)
 
 
 def main():
