@@ -1,13 +1,13 @@
 {
- "manifest_rows": 739983,
- "distinct_urls": 739983,
+ "manifest_rows": 799126,
+ "distinct_urls": 799126,
  "checks": {
-  "title_over_65_chars": 299323,
-  "meta_over_165_chars": 290676,
+  "title_over_65_chars": 344047,
+  "meta_over_165_chars": 349819,
   "title_under_15_chars": 28,
-  "duplicate_title_exact": 624,
-  "duplicate_title_same_tokens": 952,
-  "destination_rows": 77748,
+  "duplicate_title_exact": 596,
+  "duplicate_title_same_tokens": 925,
+  "destination_rows": 77709,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
@@ -24,7 +24,7 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 642,
+  "duplicate_h1_within_a_market": 619,
   "declared_parent_is_not_a_valid_parent": 0,
   "declared_parent_is_valid_but_not_a_path_prefix": 23622,
   "family_locale_cells_failing_the_usefulness_test": 0
@@ -63,33 +63,6 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bad Honnef nach Koblenz Hauptbahnhof, Bad Honnef, DE: what to know before you go",
-   "a": "c_470ed81f9446",
-   "b": "c_5f12b448af70",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-honnef-nach-koblenz-hauptbahnhof/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bad Hönningen nach Koblenz Hauptbahnhof, Bad Hönningen, DE: what to know before you go",
-   "a": "c_ec798a5d1502",
-   "b": "c_aeae68861785",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-honningen-nach-koblenz-hauptbahnhof/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Brake (Unterweser) nach Havenwelten, Bremerhaven, Brake (Unterweser), DE: what to know before you go",
-   "a": "c_74bacef91a2f",
-   "b": "c_e99640a2403e",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/brake-unterweser-nach-havenwelten-bremerhaven/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
    "title": "Dreekamp Aurich nach Emden, Dreekamp Aurich, DE: what to know before you go",
    "a": "c_6f106da6762e",
    "b": "c_e6645e1c07e5",
@@ -108,101 +81,20 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Geiselhöring nach Stobäusplatz, Regensburg, Geiselhöring, DE: what to know before you go",
-   "a": "c_a7a1493ded0e",
-   "b": "c_b8afce73a184",
+   "title": "Markranstädt nach Wilhelm-Leuschner-Platz, Leipzig, Markranstädt, DE: what to know before you go",
+   "a": "c_538362cf1be8",
+   "b": "c_ceaec74b03da",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/geiselhoring-nach-stobausplatz-regensburg/"
+   "url_b": "/de/transport/public-transport/markranstadt-nach-wilhelm-leuschner-platz-leipzig/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Koblenz Hauptbahnhof nach Königswinter, Koblenz Hauptbahnhof, DE: what to know before you go",
-   "a": "c_cea86221cafa",
-   "b": "c_bbc95273f3e6",
+   "title": "Rathaus  Ri. Friedrichsplatz, Kassel nach Vellmar, Rathaus  Ri. Friedrichsplatz, DE: what to know before you g",
+   "a": "c_df41cca1ed65",
+   "b": "c_0a827ec76567",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-konigswinter/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Koblenz Hauptbahnhof nach Linz am Rhein, Koblenz Hauptbahnhof, DE: what to know before you go",
-   "a": "c_848e72c41480",
-   "b": "c_8301e12f01dd",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-linz-am-rhein/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Koblenz Hauptbahnhof nach Oberkassel, Koblenz Hauptbahnhof, DE: what to know before you go",
-   "a": "c_87e349786fba",
-   "b": "c_f7a665bfd81a",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-oberkassel/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Koblenz Hauptbahnhof nach Remagen, Koblenz Hauptbahnhof, DE: what to know before you go",
-   "a": "c_b6f30f73c3ae",
-   "b": "c_34dc7fd2d28e",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-remagen/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Koblenz Hauptbahnhof nach Troisdorf, Koblenz Hauptbahnhof, DE: what to know before you go",
-   "a": "c_f91134f24f81",
-   "b": "c_f9acab338697",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-troisdorf/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Königsplatz  Ri. Friedrichsplatz, Kassel nach Trendelburg, Königsplatz  Ri. Friedrichsplatz, DE: what to know ",
-   "a": "c_92c9858d3eab",
-   "b": "c_cf33bb0d3159",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/konigsplatz-ri-friedrichsplatz-kassel-nach-trendelburg/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Königsplatz  Ri. Friedrichsplatz, Kassel nach Wolfhagen, Königsplatz  Ri. Friedrichsplatz, DE: what to know be",
-   "a": "c_fe07dbd85efc",
-   "b": "c_21971db21178",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/konigsplatz-ri-friedrichsplatz-kassel-nach-wolfhagen/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Rathaus  Ri. Friedrichsplatz, Kassel nach Trendelburg, Rathaus  Ri. Friedrichsplatz, DE: what to know before y",
-   "a": "c_0e8ec60f33cb",
-   "b": "c_6dba380986ab",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/rathaus-ri-friedrichsplatz-kassel-nach-trendelburg/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Rathaus  Ri. Friedrichsplatz, Kassel nach Wolfhagen, Rathaus  Ri. Friedrichsplatz, DE: what to know before you",
-   "a": "c_8206c64df5f2",
-   "b": "c_06d45617ca14",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/rathaus-ri-friedrichsplatz-kassel-nach-wolfhagen/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Sankt Wendel nach Wadern Rewe A, Sankt Wendel, DE: what to know before you go",
-   "a": "c_ec29a8370448",
-   "b": "c_5533754abc95",
-   "url_a": "",
-   "url_b": "/de/transport/public-transport/sankt-wendel-nach-wadern-rewe-a/"
+   "url_b": "/de/transport/public-transport/rathaus-ri-friedrichsplatz-kassel-nach-vellmar/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -212,6 +104,15 @@
    "b": "c_0e751b5a905b",
    "url_a": "",
    "url_b": "/en/outdoors/trail/rail-trail-wootton-wawen-wilmcote-r18743925/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Aberdeen to Glasgow (Buchanan Bus Station), Aberdeen, GB: what to know before you go",
+   "a": "c_3ce68f149ea1",
+   "b": "c_bca16f5b6d3e",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/aberdeen-to-glasgow-buchanan-bus-station/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -239,6 +140,24 @@
    "b": "c_19761a070a29",
    "url_a": "",
    "url_b": "/en/transport/public-transport/archbishop-holgate-s-school-york-to-the-balk-pocklington/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Armadale to Edinburgh Bus Station, Armadale, GB: what to know before you go",
+   "a": "c_7b427607a9c5",
+   "b": "c_054e39c4793e",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/armadale-to-edinburgh-bus-station/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Armadale to Glasgow (Buchanan Bus Station), Armadale, GB: what to know before you go",
+   "a": "c_0584a59b9fc6",
+   "b": "c_9743d223ec0b",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/armadale-to-glasgow-buchanan-bus-station/"
   },
   {
    "kind": "same_tokens_after_stopwords",
@@ -284,6 +203,87 @@
    "b": "c_376b70192066",
    "url_a": "",
    "url_b": "/en/transport/public-transport/ashtead-to-the-crescent-surbiton/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "B&Q, York to The Balk Pocklington, B&Q, GB: what to know before you go",
+   "a": "c_6a958df8bdad",
+   "b": "c_ed66fcebf4d6",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/b-q-york-to-the-balk-pocklington/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Badger Hill Shops, York to The Balk Pocklington, Badger Hill Shops, GB: what to know before you go",
+   "a": "c_623effc18dbb",
+   "b": "c_1a5cc17e5eb0",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/badger-hill-shops-york-to-the-balk-pocklington/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Ballingry to Glenrothes Bus Station Arrival Bay, Ballingry, GB: what to know before you go",
+   "a": "c_d14d14eae696",
+   "b": "c_aed25f6637d8",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/ballingry-to-glenrothes-bus-station-arrival-bay/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Barmby Moor A1079, Pocklington to Bingley House Farm, York, Barmby Moor A1079, GB: what to know before you go",
+   "a": "c_607405724ea3",
+   "b": "c_7435bcd23073",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-bingley-house-farm-york/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Barmby Moor A1079, Pocklington to Canham Grove, York, Barmby Moor A1079, GB: what to know before you go",
+   "a": "c_e6923eae7bd7",
+   "b": "c_a519180a7ada",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-canham-grove-york/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Barmby Moor A1079, Pocklington to Driffield, Barmby Moor A1079, GB: what to know before you go",
+   "a": "c_3a10fd620f99",
+   "b": "c_20a7a4a5753d",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-driffield/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Barmby Moor A1079, Pocklington to Driffield Beverley Road, Barmby Moor A1079, GB: what to know before you go",
+   "a": "c_73845a82a520",
+   "b": "c_7037769e05f5",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-driffield-beverley-road/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Barmby Moor A1079, Pocklington to Grimston Court, York, Barmby Moor A1079, GB: what to know before you go",
+   "a": "c_136ddd73b7f9",
+   "b": "c_02fcafec6749",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-grimston-court-york/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "en-GB",
+   "title": "Barmby Moor A1079, Pocklington to Huby Court, York, Barmby Moor A1079, GB: what to know before you go",
+   "a": "c_dc2c99311b82",
+   "b": "c_be52a0c1bf3e",
+   "url_a": "",
+   "url_b": "/en/transport/public-transport/barmby-moor-a1079-pocklington-to-huby-court-york/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -12096,70 +12096,70 @@
    ]
   },
   "transport.city-pair-transit|da": {
-   "rows": 4555,
+   "rows": 7944,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|de": {
-   "rows": 29427,
+   "rows": 49787,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|en": {
-   "rows": 221011,
+   "rows": 222637,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|es": {
-   "rows": 1966,
+   "rows": 2416,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|fi": {
-   "rows": 6869,
+   "rows": 10663,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|fr": {
-   "rows": 6463,
+   "rows": 26565,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|it": {
-   "rows": 32,
+   "rows": 810,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|nb": {
-   "rows": 10427,
+   "rows": 15572,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|nl": {
-   "rows": 3467,
+   "rows": 6678,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|pl": {
-   "rows": 459,
+   "rows": 747,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12502,8 +12502,8 @@
  "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
   "min": 13,
-  "max": 207,
-  "mean": 62.2
+  "max": 208,
+  "mean": 63.5
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

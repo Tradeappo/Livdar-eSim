@@ -1,37 +1,37 @@
 {
  "source": "LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz",
- "rows": 739983,
+ "rows": 799126,
  "partitions": {
   "market": {
    "da-DK": {
     "path": "data/atlas/candidates/market=da-DK/candidates.jsonl.gz",
-    "rows": 4555,
-    "content_sha1": "bbb67e9a653f1ce2"
+    "rows": 7944,
+    "content_sha1": "c4093bcce63b06d1"
    },
    "de-DE": {
     "path": "data/atlas/candidates/market=de-DE/candidates.jsonl.gz",
-    "rows": 78388,
-    "content_sha1": "7cb5e2ebde6e98e1"
+    "rows": 98748,
+    "content_sha1": "32b2ce7893ea0385"
    },
    "en-AU": {
     "path": "data/atlas/candidates/market=en-AU/candidates.jsonl.gz",
     "rows": 8244,
-    "content_sha1": "7e68eb870e56c07c"
+    "content_sha1": "a267d67d9ec26069"
    },
    "en-GB": {
     "path": "data/atlas/candidates/market=en-GB/candidates.jsonl.gz",
-    "rows": 243383,
-    "content_sha1": "4262392260f560a6"
+    "rows": 244399,
+    "content_sha1": "739f1e1c5c8acf2b"
    },
    "en-US": {
     "path": "data/atlas/candidates/market=en-US/candidates.jsonl.gz",
-    "rows": 115851,
-    "content_sha1": "0458d229d62fc426"
+    "rows": 116461,
+    "content_sha1": "96443bbf58b0147a"
    },
    "es-ES": {
     "path": "data/atlas/candidates/market=es-ES/candidates.jsonl.gz",
-    "rows": 43335,
-    "content_sha1": "365323494fe4eb88"
+    "rows": 43785,
+    "content_sha1": "f05db0e4126026e9"
    },
    "es-MX": {
     "path": "data/atlas/candidates/market=es-MX/candidates.jsonl.gz",
@@ -40,53 +40,53 @@
    },
    "fi-FI": {
     "path": "data/atlas/candidates/market=fi-FI/candidates.jsonl.gz",
-    "rows": 6869,
-    "content_sha1": "d42f161ac5400253"
+    "rows": 10663,
+    "content_sha1": "758edeb03f41d583"
    },
    "fr-FR": {
     "path": "data/atlas/candidates/market=fr-FR/candidates.jsonl.gz",
-    "rows": 61986,
-    "content_sha1": "f3bf112ac5747f16"
+    "rows": 82088,
+    "content_sha1": "bd217610fa70fe16"
    },
    "it-IT": {
     "path": "data/atlas/candidates/market=it-IT/candidates.jsonl.gz",
-    "rows": 26341,
-    "content_sha1": "5309416a0b2141be"
+    "rows": 27119,
+    "content_sha1": "9104e8705c77d140"
    },
    "ja-JP": {
     "path": "data/atlas/candidates/market=ja-JP/candidates.jsonl.gz",
     "rows": 39969,
-    "content_sha1": "1acce90260f5d255"
+    "content_sha1": "b80200f360564305"
    },
    "nb-NO": {
     "path": "data/atlas/candidates/market=nb-NO/candidates.jsonl.gz",
-    "rows": 10427,
-    "content_sha1": "e73d2213b67bec36"
+    "rows": 15572,
+    "content_sha1": "f6cb24c96c2fa289"
    },
    "nl-NL": {
     "path": "data/atlas/candidates/market=nl-NL/candidates.jsonl.gz",
-    "rows": 27802,
-    "content_sha1": "4b2e467433bafa1c"
+    "rows": 31013,
+    "content_sha1": "9bf73b601b1a1f83"
    },
    "pl-PL": {
     "path": "data/atlas/candidates/market=pl-PL/candidates.jsonl.gz",
-    "rows": 24184,
-    "content_sha1": "fb98781f402a5d79"
+    "rows": 24472,
+    "content_sha1": "9f2bbe3ab35e5e9c"
    },
    "pt-BR": {
     "path": "data/atlas/candidates/market=pt-BR/candidates.jsonl.gz",
     "rows": 22201,
-    "content_sha1": "1b85ab6ed1edaf71"
+    "content_sha1": "7afbd650c2eaa491"
    },
    "tr-TR": {
     "path": "data/atlas/candidates/market=tr-TR/candidates.jsonl.gz",
     "rows": 13487,
-    "content_sha1": "ff1f63651b99bda6"
+    "content_sha1": "382d0efcc6dcb6fc"
    },
    "zh-Hant-TW": {
     "path": "data/atlas/candidates/market=zh-Hant-TW/candidates.jsonl.gz",
     "rows": 800,
-    "content_sha1": "19bf8df8e66e9b88"
+    "content_sha1": "d6bbb20fad3a7dc1"
    }
   },
   "family": {
@@ -103,7 +103,7 @@
    "areas.overview": {
     "path": "data/atlas/candidates/family=areas.overview/candidates.jsonl.gz",
     "rows": 3128,
-    "content_sha1": "08c887e8c6a29575"
+    "content_sha1": "b7d1ca51d39d014e"
    },
    "climate.region-when-to-go": {
     "path": "data/atlas/candidates/family=climate.region-when-to-go/candidates.jsonl.gz",
@@ -118,7 +118,7 @@
    "comparisons.city-vs-home": {
     "path": "data/atlas/candidates/family=comparisons.city-vs-home/candidates.jsonl.gz",
     "rows": 1532,
-    "content_sha1": "263e11b56e4b1844"
+    "content_sha1": "85394e0265035989"
    },
    "comparisons.country-vs-country": {
     "path": "data/atlas/candidates/family=comparisons.country-vs-country/candidates.jsonl.gz",
@@ -133,12 +133,12 @@
    "cost-of-living.city-vs-market": {
     "path": "data/atlas/candidates/family=cost-of-living.city-vs-market/candidates.jsonl.gz",
     "rows": 1532,
-    "content_sha1": "6a1a421863c0cc42"
+    "content_sha1": "24eae231cdc31dbe"
    },
    "destinations.country-hub": {
     "path": "data/atlas/candidates/family=destinations.country-hub/candidates.jsonl.gz",
     "rows": 11,
-    "content_sha1": "84d286a5e0843199"
+    "content_sha1": "7f388374e07cd04f"
    },
    "destinations.region-cities": {
     "path": "data/atlas/candidates/family=destinations.region-cities/candidates.jsonl.gz",
@@ -158,7 +158,7 @@
    "education.city-universities": {
     "path": "data/atlas/candidates/family=education.city-universities/candidates.jsonl.gz",
     "rows": 1448,
-    "content_sha1": "9f138485c2ace1bb"
+    "content_sha1": "ac51ca9047a1001d"
    },
    "events.city-calendar": {
     "path": "data/atlas/candidates/family=events.city-calendar/candidates.jsonl.gz",
@@ -168,7 +168,7 @@
    "events.city-type": {
     "path": "data/atlas/candidates/family=events.city-type/candidates.jsonl.gz",
     "rows": 6680,
-    "content_sha1": "a132e02e31a0bc76"
+    "content_sha1": "99ed305cd2f7fed3"
    },
    "events.city-window": {
     "path": "data/atlas/candidates/family=events.city-window/candidates.jsonl.gz",
@@ -183,7 +183,7 @@
    "neighbourhoods.city-where-to-stay": {
     "path": "data/atlas/candidates/family=neighbourhoods.city-where-to-stay/candidates.jsonl.gz",
     "rows": 20,
-    "content_sha1": "dfd1c4d406235eb4"
+    "content_sha1": "d83c5f542a8b903b"
    },
    "neighbourhoods.guide": {
     "path": "data/atlas/candidates/family=neighbourhoods.guide/candidates.jsonl.gz",
@@ -428,12 +428,12 @@
    "places.area-arts_centre": {
     "path": "data/atlas/candidates/family=places.area-arts_centre/candidates.jsonl.gz",
     "rows": 313,
-    "content_sha1": "ca4af1c2d9a65457"
+    "content_sha1": "558dc3e41394068f"
    },
    "places.area-attraction": {
     "path": "data/atlas/candidates/family=places.area-attraction/candidates.jsonl.gz",
     "rows": 288,
-    "content_sha1": "9225180e28e716c6"
+    "content_sha1": "225fd6b4fc9e2d6e"
    },
    "places.area-attribute": {
     "path": "data/atlas/candidates/family=places.area-attribute/candidates.jsonl.gz",
@@ -443,7 +443,7 @@
    "places.area-bar": {
     "path": "data/atlas/candidates/family=places.area-bar/candidates.jsonl.gz",
     "rows": 4433,
-    "content_sha1": "7c04ffa621eab11e"
+    "content_sha1": "0c0b869243d8ee66"
    },
    "places.area-beach": {
     "path": "data/atlas/candidates/family=places.area-beach/candidates.jsonl.gz",
@@ -453,7 +453,7 @@
    "places.area-cafe": {
     "path": "data/atlas/candidates/family=places.area-cafe/candidates.jsonl.gz",
     "rows": 8764,
-    "content_sha1": "5f37d8949ef0cedc"
+    "content_sha1": "38e142c3a99f5727"
    },
    "places.area-camp_site": {
     "path": "data/atlas/candidates/family=places.area-camp_site/candidates.jsonl.gz",
@@ -468,27 +468,27 @@
    "places.area-childcare": {
     "path": "data/atlas/candidates/family=places.area-childcare/candidates.jsonl.gz",
     "rows": 2298,
-    "content_sha1": "27325f76d009e193"
+    "content_sha1": "b63678d64987d6ff"
    },
    "places.area-cinema": {
     "path": "data/atlas/candidates/family=places.area-cinema/candidates.jsonl.gz",
     "rows": 204,
-    "content_sha1": "020a23d5037b75ca"
+    "content_sha1": "146c654bda28ab01"
    },
    "places.area-clinic": {
     "path": "data/atlas/candidates/family=places.area-clinic/candidates.jsonl.gz",
     "rows": 5838,
-    "content_sha1": "0a96ab91e1ef36ac"
+    "content_sha1": "ae3f174764bc6bfd"
    },
    "places.area-college": {
     "path": "data/atlas/candidates/family=places.area-college/candidates.jsonl.gz",
     "rows": 373,
-    "content_sha1": "61b5ba18b47cf1a1"
+    "content_sha1": "d565ac76dbc9e7ca"
    },
    "places.area-coworking": {
     "path": "data/atlas/candidates/family=places.area-coworking/candidates.jsonl.gz",
     "rows": 181,
-    "content_sha1": "36f39c79287fc830"
+    "content_sha1": "c8109aa62e10c88c"
    },
    "places.area-cuisine": {
     "path": "data/atlas/candidates/family=places.area-cuisine/candidates.jsonl.gz",
@@ -498,22 +498,22 @@
    "places.area-dentist": {
     "path": "data/atlas/candidates/family=places.area-dentist/candidates.jsonl.gz",
     "rows": 3737,
-    "content_sha1": "7032808fdd4e9db9"
+    "content_sha1": "4e1cb592a540a629"
    },
    "places.area-department_store": {
     "path": "data/atlas/candidates/family=places.area-department_store/candidates.jsonl.gz",
     "rows": 434,
-    "content_sha1": "6038c805022beb01"
+    "content_sha1": "7b3b6f48b685c20d"
    },
    "places.area-fast_food": {
     "path": "data/atlas/candidates/family=places.area-fast_food/candidates.jsonl.gz",
     "rows": 10741,
-    "content_sha1": "19fd522b394ab5c0"
+    "content_sha1": "352520d8e0680531"
    },
    "places.area-gallery": {
     "path": "data/atlas/candidates/family=places.area-gallery/candidates.jsonl.gz",
     "rows": 467,
-    "content_sha1": "4ab73ab8b46245b3"
+    "content_sha1": "26917939ec6362df"
    },
    "places.area-garden": {
     "path": "data/atlas/candidates/family=places.area-garden/candidates.jsonl.gz",
@@ -523,47 +523,47 @@
    "places.area-guest_house": {
     "path": "data/atlas/candidates/family=places.area-guest_house/candidates.jsonl.gz",
     "rows": 754,
-    "content_sha1": "2ba94739ea8160d3"
+    "content_sha1": "968f2579e5bcce6a"
    },
    "places.area-gym": {
     "path": "data/atlas/candidates/family=places.area-gym/candidates.jsonl.gz",
     "rows": 2833,
-    "content_sha1": "88a33ec0dffac405"
+    "content_sha1": "9b06ea633e93837e"
    },
    "places.area-hospital": {
     "path": "data/atlas/candidates/family=places.area-hospital/candidates.jsonl.gz",
     "rows": 175,
-    "content_sha1": "cc6101c3932bdd8e"
+    "content_sha1": "b2c0893151261629"
    },
    "places.area-hostel": {
     "path": "data/atlas/candidates/family=places.area-hostel/candidates.jsonl.gz",
     "rows": 337,
-    "content_sha1": "ebf589b1680f1e5c"
+    "content_sha1": "19ab2381b7b51a9b"
    },
    "places.area-library": {
     "path": "data/atlas/candidates/family=places.area-library/candidates.jsonl.gz",
     "rows": 934,
-    "content_sha1": "825b9dc1e5eea2d8"
+    "content_sha1": "d4db9777f67b45c6"
    },
    "places.area-mall": {
     "path": "data/atlas/candidates/family=places.area-mall/candidates.jsonl.gz",
     "rows": 38,
-    "content_sha1": "d25937c766d99dfe"
+    "content_sha1": "237a8aee047c9426"
    },
    "places.area-marina": {
     "path": "data/atlas/candidates/family=places.area-marina/candidates.jsonl.gz",
     "rows": 74,
-    "content_sha1": "23bac8eb77917fb4"
+    "content_sha1": "41164e3920227127"
    },
    "places.area-market": {
     "path": "data/atlas/candidates/family=places.area-market/candidates.jsonl.gz",
     "rows": 147,
-    "content_sha1": "82c0f72d454b94db"
+    "content_sha1": "710e2f108249700b"
    },
    "places.area-museum": {
     "path": "data/atlas/candidates/family=places.area-museum/candidates.jsonl.gz",
     "rows": 1078,
-    "content_sha1": "9fdc97e0e3abc455"
+    "content_sha1": "762bf6dd9a2fe46a"
    },
    "places.area-nature_reserve": {
     "path": "data/atlas/candidates/family=places.area-nature_reserve/candidates.jsonl.gz",
@@ -573,7 +573,7 @@
    "places.area-nightclub": {
     "path": "data/atlas/candidates/family=places.area-nightclub/candidates.jsonl.gz",
     "rows": 300,
-    "content_sha1": "27629a4d9dee79e0"
+    "content_sha1": "3bd54931e58c2458"
    },
    "places.area-opening": {
     "path": "data/atlas/candidates/family=places.area-opening/candidates.jsonl.gz",
@@ -583,47 +583,47 @@
    "places.area-park": {
     "path": "data/atlas/candidates/family=places.area-park/candidates.jsonl.gz",
     "rows": 24,
-    "content_sha1": "cbb3c73ca9cb3126"
+    "content_sha1": "c070b2fc419ed56b"
    },
    "places.area-parking": {
     "path": "data/atlas/candidates/family=places.area-parking/candidates.jsonl.gz",
     "rows": 434,
-    "content_sha1": "17ba4601b98b56b4"
+    "content_sha1": "c2e51af31f8d4c03"
    },
    "places.area-pharmacy": {
     "path": "data/atlas/candidates/family=places.area-pharmacy/candidates.jsonl.gz",
     "rows": 10855,
-    "content_sha1": "2f8657d82bc802cc"
+    "content_sha1": "7152e75a9e692eda"
    },
    "places.area-pub": {
     "path": "data/atlas/candidates/family=places.area-pub/candidates.jsonl.gz",
     "rows": 4213,
-    "content_sha1": "66e7ae7a1857b509"
+    "content_sha1": "73bf4121abfe072d"
    },
    "places.area-railway_station": {
     "path": "data/atlas/candidates/family=places.area-railway_station/candidates.jsonl.gz",
     "rows": 504,
-    "content_sha1": "cf5113624fd19221"
+    "content_sha1": "a9e2eba837886212"
    },
    "places.area-restaurant": {
     "path": "data/atlas/candidates/family=places.area-restaurant/candidates.jsonl.gz",
     "rows": 15751,
-    "content_sha1": "dc8874bfb9d0bad7"
+    "content_sha1": "71d63ed0e2a8c17c"
    },
    "places.area-school": {
     "path": "data/atlas/candidates/family=places.area-school/candidates.jsonl.gz",
     "rows": 2785,
-    "content_sha1": "199dfc8c7d0de45b"
+    "content_sha1": "ac9d0b2fc3d9b7a6"
    },
    "places.area-sports_centre": {
     "path": "data/atlas/candidates/family=places.area-sports_centre/candidates.jsonl.gz",
     "rows": 988,
-    "content_sha1": "ea12529532cc4b81"
+    "content_sha1": "b202b3b3d2207f7c"
    },
    "places.area-supermarket": {
     "path": "data/atlas/candidates/family=places.area-supermarket/candidates.jsonl.gz",
     "rows": 7495,
-    "content_sha1": "33381e531da43827"
+    "content_sha1": "57d02d8618d6c36b"
    },
    "places.area-swimming_pool": {
     "path": "data/atlas/candidates/family=places.area-swimming_pool/candidates.jsonl.gz",
@@ -633,7 +633,7 @@
    "places.area-theatre": {
     "path": "data/atlas/candidates/family=places.area-theatre/candidates.jsonl.gz",
     "rows": 585,
-    "content_sha1": "2608c954c8a61378"
+    "content_sha1": "896978086ea15114"
    },
    "places.area-theme_park": {
     "path": "data/atlas/candidates/family=places.area-theme_park/candidates.jsonl.gz",
@@ -643,17 +643,17 @@
    "places.area-university": {
     "path": "data/atlas/candidates/family=places.area-university/candidates.jsonl.gz",
     "rows": 208,
-    "content_sha1": "bcf0e24c72db0267"
+    "content_sha1": "a11c733fb731ef56"
    },
    "places.area-veterinary": {
     "path": "data/atlas/candidates/family=places.area-veterinary/candidates.jsonl.gz",
     "rows": 783,
-    "content_sha1": "337f161315e1ecc8"
+    "content_sha1": "10211846edd21fbf"
    },
    "places.area-viewpoint": {
     "path": "data/atlas/candidates/family=places.area-viewpoint/candidates.jsonl.gz",
     "rows": 28,
-    "content_sha1": "16008623c78edf89"
+    "content_sha1": "736df5da0b9a98a9"
    },
    "places.area-water_park": {
     "path": "data/atlas/candidates/family=places.area-water_park/candidates.jsonl.gz",
@@ -663,17 +663,17 @@
    "places.city-aquarium": {
     "path": "data/atlas/candidates/family=places.city-aquarium/candidates.jsonl.gz",
     "rows": 7,
-    "content_sha1": "f5d9a77169565823"
+    "content_sha1": "8e118f317c376de9"
    },
    "places.city-arts_centre": {
     "path": "data/atlas/candidates/family=places.city-arts_centre/candidates.jsonl.gz",
     "rows": 357,
-    "content_sha1": "6ab905bc8e7e8341"
+    "content_sha1": "51f243939dce6784"
    },
    "places.city-attraction": {
     "path": "data/atlas/candidates/family=places.city-attraction/candidates.jsonl.gz",
     "rows": 359,
-    "content_sha1": "70a76e4102ea6b36"
+    "content_sha1": "3a51832e80ac9699"
    },
    "places.city-attribute": {
     "path": "data/atlas/candidates/family=places.city-attribute/candidates.jsonl.gz",
@@ -683,57 +683,57 @@
    "places.city-bar": {
     "path": "data/atlas/candidates/family=places.city-bar/candidates.jsonl.gz",
     "rows": 1401,
-    "content_sha1": "f0d22102ac77adbe"
+    "content_sha1": "339782b7b8f5c3b7"
    },
    "places.city-beach": {
     "path": "data/atlas/candidates/family=places.city-beach/candidates.jsonl.gz",
     "rows": 6,
-    "content_sha1": "836d4581aca086e4"
+    "content_sha1": "9056293308da8400"
    },
    "places.city-cafe": {
     "path": "data/atlas/candidates/family=places.city-cafe/candidates.jsonl.gz",
     "rows": 2594,
-    "content_sha1": "ab4247366ae32dfc"
+    "content_sha1": "c1a73a47eea02daf"
    },
    "places.city-camp_site": {
     "path": "data/atlas/candidates/family=places.city-camp_site/candidates.jsonl.gz",
     "rows": 69,
-    "content_sha1": "2d981ba0a1ec6a6f"
+    "content_sha1": "e07e9ca10c5e7c1f"
    },
    "places.city-castle": {
     "path": "data/atlas/candidates/family=places.city-castle/candidates.jsonl.gz",
     "rows": 9,
-    "content_sha1": "d6298dc4e606d9ab"
+    "content_sha1": "423f75625c605955"
    },
    "places.city-category": {
     "path": "data/atlas/candidates/family=places.city-category/candidates.jsonl.gz",
     "rows": 10751,
-    "content_sha1": "5774a82d6a0f17b7"
+    "content_sha1": "8d9e249919a9a23f"
    },
    "places.city-childcare": {
     "path": "data/atlas/candidates/family=places.city-childcare/candidates.jsonl.gz",
     "rows": 869,
-    "content_sha1": "f9f317391fea3dae"
+    "content_sha1": "75fb1c58d8410d6c"
    },
    "places.city-cinema": {
     "path": "data/atlas/candidates/family=places.city-cinema/candidates.jsonl.gz",
     "rows": 445,
-    "content_sha1": "42037e1bd0fb58bc"
+    "content_sha1": "bf01146db7bf5f59"
    },
    "places.city-clinic": {
     "path": "data/atlas/candidates/family=places.city-clinic/candidates.jsonl.gz",
     "rows": 2482,
-    "content_sha1": "02016c7c1cc2c2f1"
+    "content_sha1": "ffdf57c3631fc52c"
    },
    "places.city-college": {
     "path": "data/atlas/candidates/family=places.city-college/candidates.jsonl.gz",
     "rows": 351,
-    "content_sha1": "acf58845e7085848"
+    "content_sha1": "9f8d605963118439"
    },
    "places.city-coworking": {
     "path": "data/atlas/candidates/family=places.city-coworking/candidates.jsonl.gz",
     "rows": 161,
-    "content_sha1": "eb2ce8cf1da4f5ce"
+    "content_sha1": "cebc68fb56d45f8c"
    },
    "places.city-cuisine": {
     "path": "data/atlas/candidates/family=places.city-cuisine/candidates.jsonl.gz",
@@ -743,72 +743,72 @@
    "places.city-dentist": {
     "path": "data/atlas/candidates/family=places.city-dentist/candidates.jsonl.gz",
     "rows": 1652,
-    "content_sha1": "d50371677b72c6e3"
+    "content_sha1": "b0a1bb9b2849e031"
    },
    "places.city-department_store": {
     "path": "data/atlas/candidates/family=places.city-department_store/candidates.jsonl.gz",
     "rows": 1130,
-    "content_sha1": "4c7a06780036db98"
+    "content_sha1": "c3af268c91a31d70"
    },
    "places.city-fast_food": {
     "path": "data/atlas/candidates/family=places.city-fast_food/candidates.jsonl.gz",
     "rows": 4035,
-    "content_sha1": "275424eefab4fefc"
+    "content_sha1": "a0e53b139ab9f911"
    },
    "places.city-gallery": {
     "path": "data/atlas/candidates/family=places.city-gallery/candidates.jsonl.gz",
     "rows": 333,
-    "content_sha1": "ff3406400643f909"
+    "content_sha1": "54640ec7d1126ea3"
    },
    "places.city-garden": {
     "path": "data/atlas/candidates/family=places.city-garden/candidates.jsonl.gz",
     "rows": 27,
-    "content_sha1": "2b797d13d13f1895"
+    "content_sha1": "0d6787c14cb20a5a"
    },
    "places.city-golf_course": {
     "path": "data/atlas/candidates/family=places.city-golf_course/candidates.jsonl.gz",
     "rows": 10,
-    "content_sha1": "75ee820745f53959"
+    "content_sha1": "936af6c1d4e8bbd5"
    },
    "places.city-guest_house": {
     "path": "data/atlas/candidates/family=places.city-guest_house/candidates.jsonl.gz",
     "rows": 714,
-    "content_sha1": "5a0857b874b2e652"
+    "content_sha1": "d5afd9c9f98a6336"
    },
    "places.city-gym": {
     "path": "data/atlas/candidates/family=places.city-gym/candidates.jsonl.gz",
     "rows": 1335,
-    "content_sha1": "f5b348e711f62647"
+    "content_sha1": "317dc4efa992613a"
    },
    "places.city-hospital": {
     "path": "data/atlas/candidates/family=places.city-hospital/candidates.jsonl.gz",
     "rows": 536,
-    "content_sha1": "105f199bfb3578fc"
+    "content_sha1": "739c6058ff9c4042"
    },
    "places.city-hostel": {
     "path": "data/atlas/candidates/family=places.city-hostel/candidates.jsonl.gz",
     "rows": 263,
-    "content_sha1": "600b43e4a248440d"
+    "content_sha1": "48d1e13d179de7e6"
    },
    "places.city-library": {
     "path": "data/atlas/candidates/family=places.city-library/candidates.jsonl.gz",
     "rows": 949,
-    "content_sha1": "b899abe160cc15db"
+    "content_sha1": "8349e8898514cb4f"
    },
    "places.city-mall": {
     "path": "data/atlas/candidates/family=places.city-mall/candidates.jsonl.gz",
     "rows": 66,
-    "content_sha1": "c6cb7df9aa754ed3"
+    "content_sha1": "da6fcee3668a150c"
    },
    "places.city-marina": {
     "path": "data/atlas/candidates/family=places.city-marina/candidates.jsonl.gz",
     "rows": 155,
-    "content_sha1": "42227c151bb7c208"
+    "content_sha1": "e45937dc1f2271bf"
    },
    "places.city-market": {
     "path": "data/atlas/candidates/family=places.city-market/candidates.jsonl.gz",
     "rows": 359,
-    "content_sha1": "b5cf202a28f02eae"
+    "content_sha1": "f3ad1f3831736774"
    },
    "places.city-movie_theater": {
     "path": "data/atlas/candidates/family=places.city-movie_theater/candidates.jsonl.gz",
@@ -818,17 +818,17 @@
    "places.city-museum": {
     "path": "data/atlas/candidates/family=places.city-museum/candidates.jsonl.gz",
     "rows": 1149,
-    "content_sha1": "2d3c70fa63e799ab"
+    "content_sha1": "c162b2f34b654698"
    },
    "places.city-nature_reserve": {
     "path": "data/atlas/candidates/family=places.city-nature_reserve/candidates.jsonl.gz",
     "rows": 25,
-    "content_sha1": "c48a7618ae179f06"
+    "content_sha1": "7a408935ca39a03f"
    },
    "places.city-nightclub": {
     "path": "data/atlas/candidates/family=places.city-nightclub/candidates.jsonl.gz",
     "rows": 181,
-    "content_sha1": "9d139994092b97fe"
+    "content_sha1": "129797eae8e89869"
    },
    "places.city-opening": {
     "path": "data/atlas/candidates/family=places.city-opening/candidates.jsonl.gz",
@@ -838,37 +838,37 @@
    "places.city-park": {
     "path": "data/atlas/candidates/family=places.city-park/candidates.jsonl.gz",
     "rows": 66,
-    "content_sha1": "62706fc6f3b279e0"
+    "content_sha1": "6ff222082b356743"
    },
    "places.city-parking": {
     "path": "data/atlas/candidates/family=places.city-parking/candidates.jsonl.gz",
     "rows": 225,
-    "content_sha1": "88937986405b90ef"
+    "content_sha1": "56f90d2414357447"
    },
    "places.city-pharmacy": {
     "path": "data/atlas/candidates/family=places.city-pharmacy/candidates.jsonl.gz",
     "rows": 3202,
-    "content_sha1": "0ad44f4ac3c00968"
+    "content_sha1": "2345f3546bfd635d"
    },
    "places.city-pub": {
     "path": "data/atlas/candidates/family=places.city-pub/candidates.jsonl.gz",
     "rows": 1269,
-    "content_sha1": "31a61a7bde39d048"
+    "content_sha1": "1ecf23cbac110c7b"
    },
    "places.city-railway_station": {
     "path": "data/atlas/candidates/family=places.city-railway_station/candidates.jsonl.gz",
     "rows": 234,
-    "content_sha1": "a897d24e0def2a3a"
+    "content_sha1": "642c44791ee9c8ad"
    },
    "places.city-restaurant": {
     "path": "data/atlas/candidates/family=places.city-restaurant/candidates.jsonl.gz",
     "rows": 6097,
-    "content_sha1": "4b00d1f1b418f750"
+    "content_sha1": "39b831253bdba39e"
    },
    "places.city-school": {
     "path": "data/atlas/candidates/family=places.city-school/candidates.jsonl.gz",
     "rows": 1636,
-    "content_sha1": "6154061aa7f1aa7c"
+    "content_sha1": "4843b7ba2ebdb294"
    },
    "places.city-shopping_mall": {
     "path": "data/atlas/candidates/family=places.city-shopping_mall/candidates.jsonl.gz",
@@ -1063,17 +1063,17 @@
    "relocation.city": {
     "path": "data/atlas/candidates/family=relocation.city/candidates.jsonl.gz",
     "rows": 3687,
-    "content_sha1": "a367bbac4ab71392"
+    "content_sha1": "8310af0130439d6c"
    },
    "relocation.country": {
     "path": "data/atlas/candidates/family=relocation.country/candidates.jsonl.gz",
     "rows": 29,
-    "content_sha1": "a579299ae2245075"
+    "content_sha1": "57c1dcb5d634d0b9"
    },
    "rents.city": {
     "path": "data/atlas/candidates/family=rents.city/candidates.jsonl.gz",
     "rows": 5202,
-    "content_sha1": "94fe5a1f36297a42"
+    "content_sha1": "dfe99a730e849ac9"
    },
    "rents.neighbourhood": {
     "path": "data/atlas/candidates/family=rents.neighbourhood/candidates.jsonl.gz",
@@ -1108,7 +1108,7 @@
    "taxes.country-remote-work": {
     "path": "data/atlas/candidates/family=taxes.country-remote-work/candidates.jsonl.gz",
     "rows": 26,
-    "content_sha1": "085627e365dffa85"
+    "content_sha1": "dcb9ac79d042765c"
    },
    "transport.airport-city-access": {
     "path": "data/atlas/candidates/family=transport.airport-city-access/candidates.jsonl.gz",
@@ -1123,12 +1123,12 @@
    "transport.city-getting-around": {
     "path": "data/atlas/candidates/family=transport.city-getting-around/candidates.jsonl.gz",
     "rows": 2637,
-    "content_sha1": "1cffc4a9a112d303"
+    "content_sha1": "3201e447e2f2c67e"
    },
    "transport.city-pair-air": {
     "path": "data/atlas/candidates/family=transport.city-pair-air/candidates.jsonl.gz",
     "rows": 2604,
-    "content_sha1": "744e24e8d1929079"
+    "content_sha1": "a6a5ee2b15c8eaf7"
    },
    "transport.city-pair-rail": {
     "path": "data/atlas/candidates/family=transport.city-pair-rail/candidates.jsonl.gz",
@@ -1137,13 +1137,13 @@
    },
    "transport.city-pair-transit": {
     "path": "data/atlas/candidates/family=transport.city-pair-transit/candidates.jsonl.gz",
-    "rows": 284676,
-    "content_sha1": "049d861b946d169e"
+    "rows": 343819,
+    "content_sha1": "f1c027baa8e76e89"
    },
    "transport.route-from-market": {
     "path": "data/atlas/candidates/family=transport.route-from-market/candidates.jsonl.gz",
     "rows": 1864,
-    "content_sha1": "d9513c41549c0af6"
+    "content_sha1": "eb9b93e65e0baf49"
    },
    "visas.country-work-permit": {
     "path": "data/atlas/candidates/family=visas.country-work-permit/candidates.jsonl.gz",
@@ -1153,7 +1153,7 @@
    "weather.city-month": {
     "path": "data/atlas/candidates/family=weather.city-month/candidates.jsonl.gz",
     "rows": 38970,
-    "content_sha1": "1efc4b98a9607bec"
+    "content_sha1": "09b825ed79744122"
    },
    "work.city-jobs-category": {
     "path": "data/atlas/candidates/family=work.city-jobs-category/candidates.jsonl.gz",
@@ -1163,19 +1163,19 @@
    "work.city-salaries": {
     "path": "data/atlas/candidates/family=work.city-salaries/candidates.jsonl.gz",
     "rows": 3511,
-    "content_sha1": "064a63fad5245221"
+    "content_sha1": "b09d8ea3e3398b4e"
    }
   },
   "surface": {
    "areas": {
     "path": "data/atlas/candidates/surface=areas/candidates.jsonl.gz",
     "rows": 53582,
-    "content_sha1": "142660ff8ba792a6"
+    "content_sha1": "2f4fbcd331dd657f"
    },
    "climate": {
     "path": "data/atlas/candidates/surface=climate/candidates.jsonl.gz",
     "rows": 39219,
-    "content_sha1": "4b582c3f4a21aa93"
+    "content_sha1": "56f584f07dc98e8f"
    },
    "destinations": {
     "path": "data/atlas/candidates/surface=destinations/candidates.jsonl.gz",
@@ -1185,7 +1185,7 @@
    "move": {
     "path": "data/atlas/candidates/surface=move/candidates.jsonl.gz",
     "rows": 15587,
-    "content_sha1": "a8809ee0b21ab51c"
+    "content_sha1": "f4f119161248e963"
    },
    "outdoors": {
     "path": "data/atlas/candidates/surface=outdoors/candidates.jsonl.gz",
@@ -1195,7 +1195,7 @@
    "places": {
     "path": "data/atlas/candidates/surface=places/candidates.jsonl.gz",
     "rows": 186775,
-    "content_sha1": "f9e1b2de04e6c35e"
+    "content_sha1": "a6da089942760cb5"
    },
    "poi": {
     "path": "data/atlas/candidates/surface=poi/candidates.jsonl.gz",
@@ -1205,7 +1205,7 @@
    "pulse": {
     "path": "data/atlas/candidates/surface=pulse/candidates.jsonl.gz",
     "rows": 15243,
-    "content_sha1": "c9225806c3f47e54"
+    "content_sha1": "0de947e6cf49394e"
    },
    "safety": {
     "path": "data/atlas/candidates/surface=safety/candidates.jsonl.gz",
@@ -1220,17 +1220,17 @@
    "stay": {
     "path": "data/atlas/candidates/surface=stay/candidates.jsonl.gz",
     "rows": 39618,
-    "content_sha1": "082ccb6aa82169a5"
+    "content_sha1": "e700fc6f390e9ba3"
    },
    "tools": {
     "path": "data/atlas/candidates/surface=tools/candidates.jsonl.gz",
     "rows": 1594,
-    "content_sha1": "8005ff7d1b3cb3f3"
+    "content_sha1": "a089dca68f4a1cdf"
    },
    "transport": {
     "path": "data/atlas/candidates/surface=transport/candidates.jsonl.gz",
-    "rows": 303400,
-    "content_sha1": "f56db6be8f085cb4"
+    "rows": 362543,
+    "content_sha1": "bfba96576fbef4fc"
    },
    "travel": {
     "path": "data/atlas/candidates/surface=travel/candidates.jsonl.gz",
@@ -1240,79 +1240,79 @@
    "work": {
     "path": "data/atlas/candidates/surface=work/candidates.jsonl.gz",
     "rows": 4971,
-    "content_sha1": "ba7dd7d6a1390108"
+    "content_sha1": "9d39337c64daf007"
    }
   },
   "language": {
    "da": {
     "path": "data/atlas/candidates/language=da/candidates.jsonl.gz",
-    "rows": 4555,
-    "content_sha1": "bbb67e9a653f1ce2"
+    "rows": 7944,
+    "content_sha1": "c4093bcce63b06d1"
    },
    "de": {
     "path": "data/atlas/candidates/language=de/candidates.jsonl.gz",
-    "rows": 78388,
-    "content_sha1": "7cb5e2ebde6e98e1"
+    "rows": 98748,
+    "content_sha1": "32b2ce7893ea0385"
    },
    "en": {
     "path": "data/atlas/candidates/language=en/candidates.jsonl.gz",
-    "rows": 367478,
-    "content_sha1": "7ac5df288c4c2540"
+    "rows": 369104,
+    "content_sha1": "032217547270eb40"
    },
    "es": {
     "path": "data/atlas/candidates/language=es/candidates.jsonl.gz",
-    "rows": 55496,
-    "content_sha1": "c1c8081c9073cfa7"
+    "rows": 55946,
+    "content_sha1": "33c12b56f24299a5"
    },
    "fi": {
     "path": "data/atlas/candidates/language=fi/candidates.jsonl.gz",
-    "rows": 6869,
-    "content_sha1": "d42f161ac5400253"
+    "rows": 10663,
+    "content_sha1": "758edeb03f41d583"
    },
    "fr": {
     "path": "data/atlas/candidates/language=fr/candidates.jsonl.gz",
-    "rows": 61986,
-    "content_sha1": "f3bf112ac5747f16"
+    "rows": 82088,
+    "content_sha1": "bd217610fa70fe16"
    },
    "it": {
     "path": "data/atlas/candidates/language=it/candidates.jsonl.gz",
-    "rows": 26341,
-    "content_sha1": "5309416a0b2141be"
+    "rows": 27119,
+    "content_sha1": "9104e8705c77d140"
    },
    "ja": {
     "path": "data/atlas/candidates/language=ja/candidates.jsonl.gz",
     "rows": 39969,
-    "content_sha1": "1acce90260f5d255"
+    "content_sha1": "b80200f360564305"
    },
    "nb": {
     "path": "data/atlas/candidates/language=nb/candidates.jsonl.gz",
-    "rows": 10427,
-    "content_sha1": "e73d2213b67bec36"
+    "rows": 15572,
+    "content_sha1": "f6cb24c96c2fa289"
    },
    "nl": {
     "path": "data/atlas/candidates/language=nl/candidates.jsonl.gz",
-    "rows": 27802,
-    "content_sha1": "4b2e467433bafa1c"
+    "rows": 31013,
+    "content_sha1": "9bf73b601b1a1f83"
    },
    "pl": {
     "path": "data/atlas/candidates/language=pl/candidates.jsonl.gz",
-    "rows": 24184,
-    "content_sha1": "fb98781f402a5d79"
+    "rows": 24472,
+    "content_sha1": "9f2bbe3ab35e5e9c"
    },
    "pt": {
     "path": "data/atlas/candidates/language=pt/candidates.jsonl.gz",
     "rows": 22201,
-    "content_sha1": "1b85ab6ed1edaf71"
+    "content_sha1": "7afbd650c2eaa491"
    },
    "tr": {
     "path": "data/atlas/candidates/language=tr/candidates.jsonl.gz",
     "rows": 13487,
-    "content_sha1": "ff1f63651b99bda6"
+    "content_sha1": "382d0efcc6dcb6fc"
    },
    "zh-Hant": {
     "path": "data/atlas/candidates/language=zh-Hant/candidates.jsonl.gz",
     "rows": 800,
-    "content_sha1": "19bf8df8e66e9b88"
+    "content_sha1": "d6bbb20fad3a7dc1"
    }
   }
  },
