@@ -509,7 +509,7 @@ with gzip.open(OUTP, 'wt', encoding='utf-8') as f:
         f.write(json.dumps(r, ensure_ascii=False) + '\n')
 
 stats['final_net'] = len(out)
-DATE = '2026-10-07'
+DATE = '2026-10-08'
 json.dump({
     'builder': 'scripts/atlas/scale/gtfs-pair-candidates.py', 'date': DATE,
     'city_feeds_available': len(feeds),
