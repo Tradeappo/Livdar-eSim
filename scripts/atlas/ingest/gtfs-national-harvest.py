@@ -37,6 +37,7 @@ Output: one data/atlas/sources/transport/gtfs-national/pairs-<key>.json.gz per f
 same settlement-pair shape gtfs-pair-candidates.py reads.
 """
 import json, gzip, os, sys, csv, io, zipfile, urllib.request, collections, math, statistics, glob
+import re, hashlib
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'data/atlas/sources/transport/gtfs-national/'
@@ -412,9 +413,50 @@ def harvest(key, url, country, licence, provider):
     print(f'{key}: SETTLEMENT PAIRS {len(P):,}  (trips used {stats["trips_used"]:,})', flush=True)
 
 
+REGISTRY = ROOT + 'data/atlas/sources/transport/gtfs-feed-registry.json'
+
+
+def registry_feeds(kinds):
+    """Feeds from the DERIVED registry, in place of the hand-written FEEDS table.
+
+    FEEDS is fourteen feeds found by guessing URLs. The registry is 1,274 feeds found by
+    reading two catalogues that publish licence metadata, so the licence gate is applied by
+    the computer. Guessing was also costing the largest sources: the whole European FlixBus
+    and FlixTrain network, the BlaBlaCar coach network, Eurostar and about ninety licensed
+    French interurban coach networks were all in a public catalogue while FEEDS held three
+    SNCF rail feeds and called France done.
+
+    `kinds` selects the intercity shape - coach, rail, ferry, aggregate - because a municipal
+    feed's settlement pairs are a town and its own villages, and the inter-settlement rule
+    throws most of them away anyway.
+    """
+    reg = json.load(open(REGISTRY))
+    out = []
+    for f in reg['feeds']:
+        if kinds and f['kind'] not in kinds:
+            continue
+        label = f"{f.get('dataset') or ''}-{f.get('resource') or ''}"
+        key = re.sub(r'[^a-z0-9]+', '-', label.lower()).strip('-')[:64] or 'feed'
+        # the url tail disambiguates two networks whose labels slugify the same
+        key = f"{key}-{hashlib.sha1(f['url'].encode()).hexdigest()[:6]}"
+        out.append((key, f['url'], f.get('country_hint') or '', f['licence'],
+                    f.get('dataset') or f.get('resource') or 'unknown'))
+    return out
+
+
 if __name__ == '__main__':
-    only = sys.argv[1:] or list(FEEDS)
-    for k in only:
-        url, cc, lic, prov = FEEDS[k]
-        harvest(k, url, cc, lic, prov)
+    args = sys.argv[1:]
+    if args and args[0] == '--registry':
+        kinds = set(args[1].split(',')) if len(args) > 1 and args[1] else {
+            'coach', 'rail', 'ferry', 'aggregate'}
+        sl = int(args[2]) if len(args) > 2 else 0
+        sh = int(args[3]) if len(args) > 3 else 10 ** 9
+        feeds = registry_feeds(kinds)[sl:sh]
+        print(f'registry: {len(feeds)} feeds, kinds={sorted(kinds)}', flush=True)
+        for key, url, cc, lic, prov in feeds:
+            harvest(key, url, cc, lic, prov)
+    else:
+        for k in (args or list(FEEDS)):
+            url, cc, lic, prov = FEEDS[k]
+            harvest(k, url, cc, lic, prov)
     print('NATIONAL HARVEST DONE', flush=True)
