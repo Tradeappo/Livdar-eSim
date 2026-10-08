@@ -1,20 +1,20 @@
 {
  "measuredOn": "2026-10-01",
  "families": 215,
- "pages": 706677,
+ "pages": 724366,
  "verdicts": {
   "ACCEPTED": 181,
   "ACCEPTED_WITH_AN_UNKNOWN": 34
  },
  "pages_by_verdict": {
-  "ACCEPTED": 598450,
-  "ACCEPTED_WITH_AN_UNKNOWN": 108227
+  "ACCEPTED": 610963,
+  "ACCEPTED_WITH_AN_UNKNOWN": 113403
  },
  "most_common_failed_condition": {},
  "note": "A family marked ACCEPTED_WITH_AN_UNKNOWN fails nothing and is missing a measurement, which is a different thing from failing and is not rounded into one. The SERP archetype is the usual missing one: it is sampled per family and the sample does not cover every family yet.",
  "by_family": {
   "activities.city-things-to-do": {
-   "pages": 30300,
+   "pages": 37637,
    "markets": [
     "de-DE",
     "en-AU",
@@ -47,14 +47,14 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 30300,
+    "unique_fact_count": 37637,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 16006,
-    "template_ratio": 30300.0,
+    "distinct_entity_count": 18802,
+    "template_ratio": 37637.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0014,
-    "near_duplicate_worst_language": "es",
+    "near_duplicate_token_score": 0.0035,
+    "near_duplicate_worst_language": "en",
     "information_gain_reason": "activities.city-things-to-do for 's-Gravenzande (NL) in es-MX: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; es market demand measured for this family"
    },
    "every_page_is_low_completeness": false
@@ -5022,7 +5022,7 @@
    "every_page_is_low_completeness": false
   },
   "places.city-category": {
-   "pages": 5575,
+   "pages": 10751,
    "markets": [
     "de-DE",
     "en-AU",
@@ -5054,13 +5054,13 @@
    "failed": [],
    "unknown": [],
    "contract": {
-    "unique_fact_count": 5575,
+    "unique_fact_count": 10751,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 5575,
-    "template_ratio": 5575.0,
+    "distinct_entity_count": 10751,
+    "template_ratio": 10751.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0034,
+    "near_duplicate_token_score": 0.006,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "places.city-category for 's-Hertogenbosch (NL) in nl-NL: city-level local data and local-language demand; 2 source fields from ACQUIRABLE_WITH_EFFORT; nl market demand measured for this family"
    },
@@ -8219,7 +8219,7 @@
    "every_page_is_low_completeness": true
   },
   "stay.city-type": {
-   "pages": 20519,
+   "pages": 25695,
    "markets": [
     "de-DE",
     "en-GB",
@@ -8252,13 +8252,13 @@
     "7_serp_sampled"
    ],
    "contract": {
-    "unique_fact_count": 20519,
+    "unique_fact_count": 25695,
     "unique_data_point_count": 12,
-    "distinct_entity_count": 8710,
-    "template_ratio": 20519.0,
+    "distinct_entity_count": 13879,
+    "template_ratio": 25695.0,
     "similarity_score": 0.0,
     "similarity_worst_language": "",
-    "near_duplicate_token_score": 0.0025,
+    "near_duplicate_token_score": 0.0056,
     "near_duplicate_worst_language": "en",
     "information_gain_reason": "stay.city-type for 's-Hertogenbosch (NL) in es-ES: city-level local data and local-language demand; 2 source fields from BLOCKED_COMMERCIAL; es market demand measured for this family"
    },

@@ -53,9 +53,9 @@ The measures that do catch it are `shared_section_ratio`, which is 1.0 on every 
 
 ## 6. hreflang and canonical
 
-Design only, not deployed. 719,193 pages planned, 3 of them market pages. 652,911 of those pages are the only page for their entity and intent in any language and so carry NO hreflang at all: a lone self-annotation tells a crawler nothing the canonical does not, and it is the commonest way a cluster later turns non-reciprocal. The annotations sit on the 66,282 pages that genuinely have alternates.
+Design only, not deployed. 724,369 pages planned, 3 of them market pages. 658,073 of those pages are the only page for their entity and intent in any language and so carry NO hreflang at all: a lone self-annotation tells a crawler nothing the canonical does not, and it is the commonest way a cluster later turns non-reciprocal. The annotations sit on the 66,296 pages that genuinely have alternates.
 
-Reciprocity: 241,982 annotations checked, 0 pointing at a URL not in the plan, 0 not reciprocated. every annotation resolves and reciprocates
+Reciprocity: 241,996 annotations checked, 0 pointing at a URL not in the plan, 0 not reciprocated. every annotation resolves and reciprocates
 
 - **Canonical**: self on every page. A market page NEVER canonicals to the generic page: that would declare it a duplicate, and a duplicate should not exist rather than exist with a canonical pointing away. The two outcomes for a market candidate are "exists and self-canonicals" and "is not created".
 - **Why not en-US and en-GB**: no /en-us/ or /en-gb/ URL exists. The brief lists en, en-GB, en-US, en-AU, es, es-ES and es-MX, which describes a fully market-scoped space; this space is language-scoped, and the brief own rule - no hreflang alternative for a page that does not exist - rules those four out. Emitting hreflang="en-US" on /en/ would also stop /en/ serving British and Australian readers, which it does today.
@@ -83,7 +83,7 @@ The order that follows from this, cheapest evidence first:
 
 ## 8. Where the inventory stands
 
-FINAL DISTINCT VALID: **719,190**. Funnel reconciles: True.
+FINAL DISTINCT VALID: **724,366**. Funnel reconciles: True.
 
 Market-scoped URLs were one candidate path to scale. This experiment closes it for now, on measurement rather than on preference, and the remaining paths are in 1M-GAP-TO-TARGET.csv with the measurement behind each.
 

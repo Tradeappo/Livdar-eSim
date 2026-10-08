@@ -8,10 +8,10 @@ there is no cohort 003.
 
 | | rows |
 | --- | --- |
-| **FINAL DISTINCT VALID** | **706,677** |
+| **FINAL DISTINCT VALID** | **724,366** |
 | target | 1,000,000 |
-| **GAP TO 1M** | **293,323** |
-| generated before any gate | 1,338,179 |
+| **GAP TO 1M** | **275,634** |
+| generated before any gate | 1,373,979 |
 | funnel reconciles | True |
 | distinct families | 215 |
 | markets | 17 |
@@ -27,16 +27,16 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | removed_because_the_declared_parent_did_not_survive | 4,187 |
 | removed_by_cannibalisation                          | 0 |
 | removed_by_cross_market_content_uniqueness_gate     | 0 |
-| removed_by_localisation_gate                        | 443,021 |
+| removed_by_localisation_gate                        | 455,919 |
 | removed_by_per_market_family_gate                   | 15,757 |
-| removed_by_uniqueness_and_serp_gate                 | 168,038 |
+| removed_by_uniqueness_and_serp_gate                 | 173,251 |
 | removed_by_unsupported_superlative_gate             | 180 |
 
 ## BY SURFACE
 
 | surface      | rows |
 | ------------ | --- |
-| areas        | 41,069 |
+| areas        | 53,582 |
 | climate      | 23,602 |
 | destinations | 1,557 |
 | move         | 15,587 |
@@ -46,7 +46,7 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | pulse        | 15,243 |
 | safety       | 1,093 |
 | sport        | 1,016 |
-| stay         | 34,442 |
+| stay         | 39,618 |
 | tools        | 1,594 |
 | transport    | 303,400 |
 | travel       | 226 |
@@ -60,7 +60,7 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | de-DE      | 78,388 |
 | en-AU      | 8,244 |
 | en-GB      | 243,383 |
-| en-US      | 90,825 |
+| en-US      | 108,514 |
 | es-ES      | 35,055 |
 | es-MX      | 12,161 |
 | fi-FI      | 6,869 |
@@ -78,7 +78,7 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | -------- | --- |
 | da       | 4,555 |
 | de       | 78,388 |
-| en       | 342,452 |
+| en       | 360,141 |
 | es       | 47,216 |
 | fi       | 6,869 |
 | fr       | 61,986 |
@@ -97,25 +97,25 @@ market and the place a page is about are different axes and the brief is explici
 | destination country | rows |
 | ------------------- | --- |
 | GB                  | 249,646 |
-| US                  | 93,672 |
+| US                  | 109,200 |
 | DE                  | 78,423 |
 | FR                  | 52,665 |
-| JP                  | 38,259 |
+| JP                  | 38,381 |
 | ES                  | 29,787 |
 | IT                  | 26,115 |
 | PL                  | 21,872 |
 | NL                  | 19,473 |
 | BR                  | 19,179 |
-| TR                  | 14,482 |
+| TR                  | 14,625 |
 | NO                  | 10,650 |
 | AU                  | 8,777 |
 | FI                  | 7,057 |
-| IN                  | 5,649 |
+| IN                  | 6,330 |
 | DK                  | 4,787 |
-| MX                  | 3,826 |
+| MX                  | 4,139 |
 | PH                  | 1,314 |
+| CA                  | 1,193 |
 | AR                  | 1,161 |
-| ID                  | 1,121 |
 
 ## BY SOURCE
 
@@ -134,7 +134,7 @@ market and the place a page is about are different axes and the brief is explici
 | Wikidata (CC0 1.0, public domain dedication, no share-alike)     | 2,157 |
 | Wikidata P197 adjacent station (CC0 1.0) with GeoNames (CC BY 4. | 11,222 |
 | cost-of-living-verified; tax-rules-verified                      | 12 |
-| geonames-cities; attractions-verified                            | 30,300 |
+| geonames-cities; attractions-verified                            | 37,637 |
 | geonames-cities; cost-of-living-city-verified                    | 6,359 |
 | geonames-cities; cost-of-living-city-verified; visa-rules-verifi | 3,687 |
 | geonames-cities; cost-of-living-verified                         | 50 |
@@ -143,7 +143,7 @@ market and the place a page is about are different axes and the brief is explici
 | geonames-cities; nasa-power-daily                                | 23,353 |
 | geonames-cities; neighbourhood-facts-verified                    | 845 |
 | geonames-cities; ourairports                                     | 11 |
-| geonames-cities; places-data-verified                            | 7,168 |
+| geonames-cities; places-data-verified                            | 12,344 |
 | geonames-cities; property-price-verified                         | 3,110 |
 | geonames-cities; rent-index-verified                             | 6,027 |
 | geonames-cities; safety-data-verified                            | 1,093 |
@@ -151,7 +151,7 @@ market and the place a page is about are different axes and the brief is explici
 | geonames-cities; salary-data-verified; work-rules-verified       | 1,460 |
 | geonames-cities; school-data-verified                            | 2,290 |
 | geonames-cities; sport-routes-verified                           | 1,016 |
-| geonames-cities; stay-inventory-verified                         | 20,519 |
+| geonames-cities; stay-inventory-verified                         | 25,695 |
 | geonames-cities; transit-fares-verified                          | 2,637 |
 | neighbourhood-facts-verified; places-data-verified               | 825 |
 | ourairports; geonames-cities; computed-distance                  | 1,864 |
@@ -172,7 +172,7 @@ market and the place a page is about are different axes and the brief is explici
 | area_cuisine            | 22,348 |
 | area_opening            | 7,787 |
 | areas_index             | 385 |
-| city                    | 131,738 |
+| city                    | 149,427 |
 | city-pair               | 50 |
 | city_attribute          | 3,196 |
 | city_category           | 40,472 |
@@ -201,17 +201,18 @@ market and the place a page is about are different axes and the brief is explici
 | family                       | rows |
 | ---------------------------- | --- |
 | transport.city-pair-transit  | 284,676 |
-| activities.city-things-to-do | 30,300 |
+| activities.city-things-to-do | 37,637 |
+| stay.city-type               | 25,695 |
 | outdoors.hiking-trail        | 23,463 |
 | weather.city-month           | 23,353 |
 | places.area-cuisine          | 22,348 |
-| stay.city-type               | 20,519 |
 | places.area-restaurant       | 15,751 |
 | places.city-cuisine          | 13,814 |
 | outdoors.bicycle-trail       | 12,175 |
 | outdoors.peak                | 11,848 |
 | transport.city-pair-rail     | 11,222 |
 | places.area-pharmacy         | 10,855 |
+| places.city-category         | 10,751 |
 | places.area-fast_food        | 10,741 |
 | places.area-cafe             | 8,764 |
 | places.area-opening          | 7,787 |
@@ -222,7 +223,6 @@ market and the place a page is about are different axes and the brief is explici
 | outdoors.castle              | 5,951 |
 | places.area-clinic           | 5,838 |
 | places.area-attribute        | 5,620 |
-| places.city-category         | 5,575 |
 | rents.city                   | 5,202 |
 | stay.near-venue              | 4,786 |
 | places.area-bar              | 4,433 |
@@ -251,27 +251,27 @@ market and the place a page is about are different axes and the brief is explici
 | REJECTED_DUPLICATE                          | 259 |
 | REJECTED_FAMILY_MEASURED_AND_REFUSED        | 83,887 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 15,757 |
-| REJECTED_LOCALIZATION                       | 443,021 |
+| REJECTED_LOCALIZATION                       | 455,919 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY | 30,400 |
 | REJECTED_PARENT_REMOVED                     | 4,187 |
 | REJECTED_QUALITY                            | 50,085 |
 | REJECTED_SAME_NAME_IN_CITY                  | 58 |
 | REJECTED_SEMANTIC_DUPLICATE                 | 2 |
-| REJECTED_SERP                               | 3,666 |
+| REJECTED_SERP                               | 8,879 |
 | REJECTED_UNSUPPORTED_SUPERLATIVE            | 180 |
 
 The reason text, grouped by its first clause:
 
 | recorded reason                             | rows |
 | ------------------------------------------- | --- |
-| localization                                | 443,021 |
+| localization                                | 455,919 |
 | REFUSED_MEASURED_CANNIBALISATION            | 56,713 |
 | REJECTED_QUALITY                            | 50,085 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY | 30,400 |
 | REFUSED_FABRICATED_PRECISION                | 27,174 |
 | REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 15,757 |
+| REJECTED_SERP                               | 8,879 |
 | REJECTED_PARENT_REMOVED                     | 4,187 |
-| REJECTED_SERP                               | 3,666 |
 | REJECTED_DUPLICATE                          | 259 |
 | REJECTED_UNSUPPORTED_SUPERLATIVE            | 180 |
 | REJECTED_SAME_NAME_IN_CITY                  | 58 |
@@ -284,7 +284,7 @@ The reason text, grouped by its first clause:
 | candidates_with_no_usable_source                   | 0 |
 | declared_parent_is_not_a_valid_parent              | 0 |
 | declared_parent_is_valid_but_not_a_path_prefix     | 23,622 |
-| destination_rows                                   | 65,886 |
+| destination_rows                                   | 68,047 |
 | destination_rows_with_no_locale_specific_fact      | 0 |
 | duplicate_canonicals                               | 0 |
 | duplicate_h1_within_a_market                       | 642 |
@@ -300,7 +300,7 @@ The reason text, grouped by its first clause:
 | orphan_pages                                       | 113 |
 | same_entity_id_under_two_names                     | 0 |
 | templates_with_repeated_entities                   | 0 |
-| title_over_65_chars                                | 298,768 |
+| title_over_65_chars                                | 298,780 |
 | title_under_15_chars                               | 28 |
 | top_level_pages_whose_parent_is_the_locale_home    | 0 |
 | uniqueness_reason_shared_with_another_candidate    | 5 |
@@ -317,8 +317,8 @@ The reason text, grouped by its first clause:
 
 | pages by verdict         | rows |
 | ------------------------ | --- |
-| ACCEPTED                 | 598,450 |
-| ACCEPTED_WITH_AN_UNKNOWN | 108,227 |
+| ACCEPTED                 | 610,963 |
+| ACCEPTED_WITH_AN_UNKNOWN | 113,403 |
 
 Failed conditions across all families: none
 
@@ -399,7 +399,7 @@ The first pass listed the National Heritage List for England as MATERIALISING wi
 
 ## SCALE PATHS: COUNTED AGAINST PROJECTED
 
-Counted today in the manifest: **706,677**
+Counted today in the manifest: **724,366**
 
 Paths with a COUNTED entity-level number:
 
@@ -433,14 +433,14 @@ list, so the work was to supply the evidence it asks for, in two halves that are
    alternate name, which is a PROXY for interest and is labelled a proxy on every row that
    rests on it
 
-Pages about a country that is not their own market's country: 65,886
+Pages about a country that is not their own market's country: 68,047
 
 | market | destination pages |
 | --- | --- |
+| en-US | 10,879 |
 | es-MX | 10,679 |
 | fr-FR | 10,613 |
 | nl-NL | 8,916 |
-| en-US | 8,718 |
 | es-ES | 6,555 |
 | ja-JP | 5,973 |
 | pt-BR | 3,898 |
@@ -457,7 +457,7 @@ How those pages earned the market that owns them:
 | ownership basis | pages |
 | --- | --- |
 | the only market serving this language that earns the entity | 43,646 |
-| family-level score, the weakest basis | 21,421 |
+| family-level score, the weakest basis | 23,582 |
 | measured searching this entity itself | 819 |
 
 And the largest lever examined in this pass did NOT open. Once the city pool grew, the biggest
@@ -509,7 +509,7 @@ The rule both passes found, and it is the best predictor of page yield measured 
 
 | language | pages | destination gate measured |
 | --- | --- | --- |
-| en | 342,452 | earlier passes |
+| en | 360,141 | earlier passes |
 | de | 78,388 | earlier passes |
 | fr | 61,986 | 2026-10-06, newly measured |
 | es | 47,216 | 2026-10-06, newly measured |

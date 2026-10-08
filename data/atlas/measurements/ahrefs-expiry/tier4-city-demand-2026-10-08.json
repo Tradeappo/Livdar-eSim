@@ -70,12 +70,79 @@
     "bremerton 400"
    ],
    "units_spent": 5500
+  },
+  "stay.city-type|en-US": {
+   "verdict": "TIER 4 REACHED, the tier-3 cap is REFUTED",
+   "query_form": "hotels in {city}",
+   "rows_returned": 142,
+   "distribution": {
+    "gte_10": 132,
+    "gte_50": 105,
+    "gte_100": 60,
+    "gte_200": 31,
+    "zero_volume": 10
+   },
+   "share_clearing_50": 73.9,
+   "share_clearing_100": 42.3,
+   "median_volume": 90,
+   "max_volume": 6100,
+   "examples_in_the_tier": [
+    "sedona 4500",
+    "tuscaloosa 1400",
+    "grand junction 1200",
+    "texarkana 900",
+    "gainesville 800",
+    "geneva 700",
+    "fargo 700",
+    "prescott 500",
+    "wichita falls 500",
+    "prairie du chien 350",
+    "lake havasu city 350",
+    "pacific grove 250",
+    "granbury 150",
+    "kill devil hills 100",
+    "demopolis 100"
+   ],
+   "units_spent": 1562
+  },
+  "work.city-jobs|en-US": {
+   "verdict": "TIER 4 REACHED at the 50 floor, the tier-3 cap is REFUTED",
+   "query_form": "jobs in {city}",
+   "rows_returned": 141,
+   "distribution": {
+    "gte_10": 127,
+    "gte_50": 74,
+    "gte_100": 43,
+    "gte_200": 28,
+    "zero_volume": 14
+   },
+   "share_clearing_50": 52.5,
+   "share_clearing_100": 30.5,
+   "median_volume": 50,
+   "max_volume": 2400,
+   "note": "the weakest of the four cells measured. Median 50 against 80 and 90 for the others, so it reaches tier 4 at the 50 floor rather than comfortably at 100. Recorded at its real strength rather than rounded up with the rest.",
+   "examples_in_the_tier": [
+    "victorville 2400",
+    "austin 1700",
+    "grand junction 1000",
+    "wichita falls 1000",
+    "tuscaloosa 900",
+    "texarkana 800",
+    "fargo 700",
+    "pasadena 600",
+    "torrance 500",
+    "waukegan 450",
+    "muncie 450",
+    "port orchard 400",
+    "poland 400"
+   ],
+   "units_spent": 1551
   }
  },
  "what_was_changed_on_the_strength_of_this": "CELL-GATE.csv tiers moved from 1+2+3 to 1+2+3+4 for these two cells ONLY, with tier4_rows and tier4_median recorded. CELL_TIER is a FAMILY-LEVEL REACH measure by design, which is how five cells already counted tier 4 before today, so this uses the project's own instrument with better evidence rather than relaxing anything. No other cell was touched.",
  "what_this_does_NOT_claim": "It does not claim every tier-4 city has demand. At the 100 floor 43.9 per cent did and 14.5 per cent returned zero. Lifting the cap admits the tier and the measured rate is recorded beside it so publication can be ordered by it. The stronger design, admitting only the cities actually measured, needs a per-city evidence feed; 69,641 city keywords were generated for that in tier4-city-keyword-batches.json and only 2 cells could be measured by hand, because the Ahrefs MCP is proxied with no raw token so every batch is a tool call rather than a loop in a script.",
  "units": {
-  "spent_this_measurement": 7403,
+  "spent_this_measurement": 10516,
   "spent_including_the_gb_pair_check": 7466,
   "allowance": 2000000,
   "reset": "2026-11-08T00:00:00Z"

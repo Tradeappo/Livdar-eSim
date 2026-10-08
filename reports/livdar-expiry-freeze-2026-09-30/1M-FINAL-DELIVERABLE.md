@@ -4,10 +4,10 @@ Built 2026-10-08. Every number below is read from a generated file, not retyped,
 
 ## 1. The number
 
-- FINAL DISTINCT VALID CANDIDATES: **706,677**
+- FINAL DISTINCT VALID CANDIDATES: **724,366**
 - target: 1,000,000
-- shortfall: **293,323** (70.7 per cent of target)
-- rejected and kept visible: 631,502
+- shortfall: **275,634** (72.4 per cent of target)
+- rejected and kept visible: 649,613
 
 The target was not reached. The rest of this report is about why, which of the gaps are closable and at what cost, and what was built instead. No row was added to move this number: every gate that fired is listed in section 5 with its count.
 
@@ -17,9 +17,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- | --- |
 | generated before gates | 0 | every family crossed with every entity it has, in every market scoped to it |
 | passed the uniqueness and SERP gate | 0 | a candidate with no uniqueness_reason, or in a SERP archetype measured as closed, is rejected here |
-| after exact dedupe | 1,169,882 | same url_pattern |
-| after semantic dedupe | 1,169,880 | same market, family, template signature and entity |
-| FINAL DISTINCT | 706,677 | what is in the manifest |
+| after exact dedupe | 1,200,469 | same url_pattern |
+| after semantic dedupe | 1,200,467 | same market, family, template signature and entity |
+| FINAL DISTINCT | 724,366 | what is in the manifest |
 
 ## 3. Where the candidates are
 
@@ -28,7 +28,7 @@ The target was not reached. The rest of this report is about why, which of the g
 | market | candidates |
 | --- | --- |
 | en-GB | 243,383 |
-| en-US | 90,825 |
+| en-US | 108,514 |
 | de-DE | 78,388 |
 | fr-FR | 61,986 |
 | ja-JP | 39,969 |
@@ -52,8 +52,8 @@ The target was not reached. The rest of this report is about why, which of the g
 | transport | 303,400 |
 | places | 186,775 |
 | outdoors | 73,116 |
-| areas | 41,069 |
-| stay | 34,442 |
+| areas | 53,582 |
+| stay | 39,618 |
 | climate | 23,602 |
 | move | 15,587 |
 | pulse | 15,243 |
@@ -71,10 +71,10 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- |
 | TRANSPORT_PAIR | 298,886 |
 | POI_AGGREGATION | 268,433 |
-| MISSING_DATA | 63,664 |
-| BLOCKED_BY_LICENCE | 40,324 |
+| MISSING_DATA | 71,001 |
+| BLOCKED_BY_LICENCE | 45,500 |
 | EXPERIMENT_ONLY | 25,194 |
-| NOT_IMPLEMENTED | 9,880 |
+| NOT_IMPLEMENTED | 15,056 |
 | VISA_POLICY_CELL | 226 |
 | VALIDATED | 50 |
 | PROMISING | 20 |
@@ -83,8 +83,8 @@ The target was not reached. The rest of this report is about why, which of the g
 
 | source_status | candidates |
 | --- | --- |
-| SOURCE_AVAILABLE | 630,466 |
-| LICENCE_REQUIRED | 40,324 |
+| SOURCE_AVAILABLE | 642,979 |
+| LICENCE_REQUIRED | 45,500 |
 | READY_NOW | 25,290 |
 | FEED_REQUIRED | 10,597 |
 
@@ -93,9 +93,9 @@ The target was not reached. The rest of this report is about why, which of the g
 | serp_feasibility | candidates |
 | --- | --- |
 | viable | 480,662 |
-| unsampled_needs_serp_check | 105,117 |
+| unsampled_needs_serp_check | 110,293 |
+| strong_opportunity | 55,068 |
 | competitive | 52,885 |
-| strong_opportunity | 42,555 |
 | poor_fit | 25,458 |
 
 ### By licence
@@ -104,8 +104,8 @@ The target was not reached. The rest of this report is about why, which of the g
 | --- | --- |
 | MIXED_OPEN_ATTRIBUTION_REQUIRED | 284,676 |
 | ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED | 268,880 |
-| OK | 98,808 |
-| LICENCE_REQUIRED | 40,324 |
+| OK | 111,321 |
+| LICENCE_REQUIRED | 45,500 |
 | CC0_PLUS_ATTRIBUTION_REQUIRED | 11,222 |
 | CC0_NO_CONDITIONS | 2,157 |
 | PUBLIC_DOMAIN_PLUS_ATTRIBUTION_REQUIRED | 384 |
@@ -119,7 +119,7 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | --- | --- |
 | shape_measured_2026_10_07_open_serp | 299,349 |
 | shape_measured_2026_10_01 | 268,196 |
-| measured_in_this_market | 132,757 |
+| measured_in_this_market | 150,446 |
 | family_measured_elsewhere | 6,375 |
 
 ### The twenty largest families
@@ -127,17 +127,18 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | family | candidates |
 | --- | --- |
 | transport.city-pair-transit | 284,676 |
-| activities.city-things-to-do | 30,300 |
+| activities.city-things-to-do | 37,637 |
+| stay.city-type | 25,695 |
 | outdoors.hiking-trail | 23,463 |
 | weather.city-month | 23,353 |
 | places.area-cuisine | 22,348 |
-| stay.city-type | 20,519 |
 | places.area-restaurant | 15,751 |
 | places.city-cuisine | 13,814 |
 | outdoors.bicycle-trail | 12,175 |
 | outdoors.peak | 11,848 |
 | transport.city-pair-rail | 11,222 |
 | places.area-pharmacy | 10,855 |
+| places.city-category | 10,751 |
 | places.area-fast_food | 10,741 |
 | places.area-cafe | 8,764 |
 | places.area-opening | 7,787 |
@@ -145,7 +146,6 @@ A family proven in other markets but unmeasured in this one scores 30 rather tha
 | events.city-type | 6,680 |
 | events.city-calendar | 6,680 |
 | places.city-restaurant | 6,097 |
-| outdoors.castle | 5,951 |
 
 ## 3b. The multilingual breakdown
 
@@ -153,18 +153,18 @@ A second language is not free inventory. Every row whose language is not the lan
 
 | market | raw candidates | final valid | no uniqueness basis | closed SERP | translation only | local intent missing | demand not for this destination | local data missing | other |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| en-US | 192,617 | 90,825 | 5,567 | 882 | 6,732 | 62,925 | 6,414 | 0 | 19,272 |
+| en-US | 228,380 | 108,514 | 5,567 | 6,058 | 6,732 | 62,925 | 19,312 | 0 | 19,272 |
 | en-GB | 265,775 | 243,383 | 1,307 | 240 | 0 | 12,273 | 5,073 | 0 | 3,499 |
 | de-DE | 129,573 | 78,388 | 8,248 | 195 | 2,532 | 8,470 | 24,573 | 0 | 7,167 |
 | ja-JP | 95,014 | 39,969 | 3,058 | 553 | 34,865 | 4,956 | 547 | 248 | 10,818 |
-| zh-Hant-TW | 5,861 | 800 | 570 | 40 | 430 | 48 | 3,812 | 0 | 161 |
+| zh-Hant-TW | 5,898 | 800 | 570 | 77 | 430 | 48 | 3,812 | 0 | 161 |
 | it-IT | 57,901 | 26,341 | 4,695 | 133 | 14,913 | 2,445 | 3,599 | 0 | 5,775 |
 | es-ES | 100,213 | 35,055 | 4,976 | 150 | 34,364 | 7,932 | 2,676 | 0 | 15,060 |
 | fr-FR | 138,861 | 61,986 | 6,555 | 143 | 41,779 | 10,417 | 2,251 | 248 | 15,482 |
 | nl-NL | 97,234 | 27,802 | 4,993 | 57 | 40,966 | 9,747 | 794 | 0 | 12,875 |
 | pl-PL | 90,005 | 24,184 | 4,932 | 101 | 40,740 | 6,797 | 796 | 0 | 12,455 |
 | pt-BR | 80,492 | 22,201 | 3,993 | 677 | 35,122 | 4,353 | 1,055 | 0 | 13,091 |
-| **all 11** | **1,253,546** | **650,934** | | | | | | | |
+| **all 11** | **1,289,346** | **668,623** | | | | | | | |
 
 Romanian is absent from the table on purpose. No Romanian Atlas page was added in this pass, as instructed.
 
@@ -172,16 +172,16 @@ Romanian is absent from the table on purpose. No Romanian Atlas page was added i
 
 | localization_class | candidates |
 | --- | --- |
-| NATIVE_LOCALE | 646,126 |
-| VALID_LOCALIZATION | 60,551 |
+| NATIVE_LOCALE | 661,654 |
+| VALID_LOCALIZATION | 62,712 |
 
-- flagged LOCAL_SERP_UNVERIFIED: 105,117. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
+- flagged LOCAL_SERP_UNVERIFIED: 110,293. These are kept, not rejected. Absence of SERP evidence is not evidence of a poor fit, and treating it as one already mislabelled 62 per cent of this inventory once.
 
 ### Top families per market
 
 | market | strongest families |
 | --- | --- |
-| en-US | transport.city-pair-rail (11,222), places.area-cuisine (5,451), places.city-cuisine (4,914), transport.city-pair-transit (4,394) |
+| en-US | transport.city-pair-rail (11,222), activities.city-things-to-do (9,894), places.city-category (6,058), stay.city-type (6,058) |
 | en-GB | transport.city-pair-transit (216,617), places.area-cuisine (2,142), places.area-fast_food (1,548), outdoors.hiking-trail (1,442) |
 | de-DE | transport.city-pair-transit (29,427), stay.city-type (3,786), outdoors.peak (2,420), places.city-category (2,405) |
 | ja-JP | places.area-cuisine (4,123), places.area-restaurant (2,943), activities.city-things-to-do (2,544), weather.city-month (2,544) |
@@ -6572,15 +6572,15 @@ swiss | 2 |
 | --- | --- |
 | localization:TRANSLATION_ONLY | 260,075 |
 | localization:LOCAL_INTENT_MISSING | 130,860 |
-| localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 51,590 |
+| localization:LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION | 64,488 |
 | REJECTED_QUALITY: no defensible uniqueness basis | 46,218 |
 | REFUSED_MEASURED_CANNIBALISATION: "X travel guide" reads 250 to 2,400 in en-US at CPC 20 to 120 cents, the best commercial signal of the three, but its parent topics are "things to do in bangkok", "visiting paris", "what to see in rome", "barcelona travel" and "amsterdam travel", which is the topic activities.city-things-to-do already holds with 30,040 pairs. Outside English it is dead: "X reisefuehrer" reads 10 in German for every city tested and "guida di viaggio X" reads 0 to 30 in Italian. The commercial signal is real and belongs in the things-to-do title and copy, not on a second URL competing with it. | 29,539 |
 | REFUSED_FABRICATED_PRECISION: the entity is city-date and the only source is NASA POWER MONTHLY normals. A daily figure derived from a monthly mean is a precision the source does not carry, so no keyword was measured for it: the page could not be honest whatever the volume turned out to be. | 27,174 |
 | REFUSED_MEASURED_CANNIBALISATION: "X climate" reads 150 to 2,000 a month, but its parent_topic points elsewhere in eleven of fifteen English readings and in almost every German, French and Italian one: amsterdam climate to "amsterdam", clima roma to "meteo", rom klima to "klimatabelle rom", climat lisbonne to "quand partir a lisbonne". The query is absorbed by the city itself, by weather.city-month which already holds 22,927 pages from the same NASA POWER store, or by the best-time intent. The annual shape belongs as a section on the month pages parent, not as its own URL. | 27,174 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: this city was either measured and read below the floor, or has not been measured. Akron, Tulsa, Konstanz, Leipzig, Rostock, Lille, Marseille and Strasbourg all read zero for this intent while Sedona read 2,400, so the city is admitted on its own reading and on nothing else. | 14,174 |
+| REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 8,879 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: the best-time intent was measured in es and refused at city level (5 of 72 cities clear 50 a month). It is a country question in this language, not a city one. | 3,878 |
 | REJECTED_QUALITY: indexability floor 10 | 3,867 |
-| REJECTED_SERP: AGGREGATOR_LOCKED is a measured closed SERP, not winnable | 3,666 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: the best-time intent was measured in pl and refused at city level (rzym 10, paryz 0, barcelona 0, londyn 0, nowy jork 0). It is a country question in this language, not a city one. | 3,155 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: the best-time intent was measured in pt and refused at city level (roma 20, paris 10, nova york 0, lisboa 0, barcelona 0). It is a country question in this language, not a city one. | 3,040 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY: no best-time phrasing has been measured in nl beyond a head probe, so no city in it can be admitted yet. The queue is in best-time-keyword-queue-2026-10-06.json. | 3,029 |
@@ -8400,16 +8400,16 @@ swiss | 2 |
 
 ## 6. QA at scale
 
-- rows checked: 706,677, distinct URLs 706,677
+- rows checked: 719,190, distinct URLs 719,190
 
 | check | count |
 | --- | --- |
-| title_over_65_chars | 298,768 |
+| title_over_65_chars | 298,780 |
 | meta_over_165_chars | 290,674 |
 | title_under_15_chars | 28 |
 | duplicate_title_exact | 624 |
 | duplicate_title_same_tokens | 951 |
-| destination_rows | 65,886 |
+| destination_rows | 68,047 |
 | destination_rows_with_no_locale_specific_fact | 0 |
 | uniqueness_reason_shared_with_another_candidate | 5 |
 | templates_with_repeated_entities | 0 |
@@ -8433,7 +8433,7 @@ swiss | 2 |
 
 - A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.
 
-- title length: min 13, max 207, mean 63.1
+- title length: min 13, max 207, mean 62.6
 
 - stated limitation: the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script.
 
@@ -8484,7 +8484,7 @@ Each ingest writes to a temporary name and renames on success, holds a lock so t
 
 ## 9. The honest verdict on one million
 
-706,677 candidates survive the gates. The target is 1,000,000.
+724,366 candidates survive the gates. The target is 1,000,000.
 
 The gap is not a shortage of raw rows. It is the gates, and each one was added for a reason that a measurement or a SERP showed:
 
