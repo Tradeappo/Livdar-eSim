@@ -9,8 +9,11 @@
   "generic_name_with_no_town": "refused",
   "facility_test": "a node must be a rail station, ferry terminal, airport, coach station or bus station, established by MODE (served by rail or ferry) or by NAME (it calls itself a facility in its own language). A street, a school, a hospital or a shopping centre with eight bus routes passing it is refused.",
   "physical_node_merge_km": 3.0,
-  "HUB_MIN_SPREAD": 0.25
+  "HUB_MIN_SPREAD": 0.25,
+  "rail_only": "a bus or coach interchange is refused: the departures intent is rail. Measured 2026-10-08, en-GB rail median about 1,600 against a bus median of about 110, and de-DE Hauptbahnhof 60 to 700 against ZOB 30.",
+  "name_must_be_in_the_page_language": "the FlixBus feed publishes German stops in English, and an English station name on a de-DE page is LOCAL_DATA_MISSING"
  },
+ "family_intent": "PROVEN on the departures form, ahrefs-expiry/transport-hub-intent-2026-10-08.json. 15 of 15 en-GB rail-station departure keywords carry volume, 13 of 15 at or above 250, median about 1,600, all at keyword difficulty 0 to 8. de-DE is broad at about a tenth of that, 60 to 700 per Hauptbahnhof at difficulty 0 to 10. The competing \"trains from X\" form measures an order of magnitude lower on the same stations and is NOT used.",
  "why_the_gate_is_strict": "GTFS calls 17,532 Dutch stops and 32,136 Norwegian stops stations, and most of them are a pair of bus poles outside a village shop. Without the hub gates this family would be tens of thousands of true, worthless pages, which is the arbitrary row the brief forbids.",
  "nodes_considered": 32715,
  "funnel": {
@@ -22,25 +25,23 @@
   "rejected_not_a_transport_facility:no_facility_evidence": 12441,
   "rejected_not_a_transport_facility": 20398,
   "rejected_country_has_no_native_market_language": 682,
-  "rejected_fewer_than_200_direct_services": 102,
+  "rejected_not_a_rail_station_the_departures_intent_is_rail_only": 1855,
   "rejected_not_a_transport_facility:street_or_building": 7798,
-  "rejected_destinations_in_fewer_than_5_settlements": 141,
-  "rejected_destinations_concentrated_in_one_conurbation": 431,
-  "rejected_fewer_than_8_direct_destinations": 249,
-  "rejected_not_a_transport_facility:facility_word_but_also_a_street_or_building": 159
+  "rejected_not_a_transport_facility:facility_word_but_also_a_street_or_building": 159,
+  "rejected_fewer_than_8_direct_destinations": 19,
+  "rejected_fewer_than_200_direct_services": 10,
+  "rejected_name_is_english_on_a_non_english_page": 1,
+  "rejected_destinations_concentrated_in_one_conurbation": 5
  },
- "final_net": 1649,
+ "final_net": 682,
  "by_language": {
-  "de": 807,
-  "en": 264,
-  "es": 218,
-  "fr": 203,
-  "nl": 52,
-  "it": 25,
-  "da": 24,
-  "nb": 23,
-  "pl": 22,
-  "fi": 11
+  "de": 317,
+  "es": 207,
+  "fr": 94,
+  "nl": 27,
+  "nb": 15,
+  "da": 14,
+  "en": 8
  },
  "what_this_adds_over_places_city_railway_station": "places.city-railway_station lists the stations IN a city from OSM POI. This lists one station own reachable set from a timetable. Different granularity, different source, different fact, different query.",
  "production_untouched": true

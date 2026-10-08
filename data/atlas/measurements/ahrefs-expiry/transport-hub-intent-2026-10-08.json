@@ -1,0 +1,59 @@
+{
+ "measurement": "Is there family intent for a page about one transport interchange, and in which query form",
+ "date": "2026-10-08",
+ "why_this_was_necessary_before_the_family_could_be_admitted": "The hub family had ENTITY_UTILITY_PROVEN, because each node carries a real destination list and real journey times out of a published timetable, but it had no FAMILY_INTENT_PROVEN at all. Class B needs both. The pair family had its intent proven once, on 891 of 1,000 open-SERP rows; the hub form had never been measured, and building it on the assumption that it would behave like the pair form would have been exactly the unproven family the admission model exists to stop.",
+ "method": "keywords-explorer-overview, select=keyword,volume,difficulty, explicit keyword lists of REAL interchange names drawn from the hub candidates themselves, in two markets and three competing query forms.",
+ "a_formatting_error_that_nearly_produced_a_false_refusal": "The first call passed 30 keywords separated by NEWLINES and returned zero rows for 50 units. Read as a measurement that would have been a decisive refusal of the whole family. A control list containing keywords known to carry volume returned zero the same way, which is what exposed it: this endpoint needs a COMMA-separated list, and a newline-separated one fails silently with rows: 0 rather than an error. Recorded because a silent zero is the most dangerous failure mode in this whole programme.",
+ "the_query_form_decides_everything": {
+  "departures_form": "STRONG. This is the form readers use.",
+  "trains_from_form": "WEAK, by an order of magnitude on the same stations. manchester piccadilly departures 3,500 against trains from manchester piccadilly 350; york station departures 1,600 against trains from york station 60; leeds station departures 1,300 against trains from leeds station 30.",
+  "timetable_form": "WEAK. victoria coach station timetable 90.",
+  "consequence": "The title form must be the departures form. The first draft of this family titled its pages 'Direct destinations from X', which the measurement says is not what anyone types."
+ },
+ "en_GB_rail_stations": {
+  "verdict": "ADMITTED. Broad and low difficulty.",
+  "rows": {
+   "kings cross departures": [9400, 5], "birmingham new street departures": [3600, 3],
+   "manchester piccadilly departures": [3500, 8], "edinburgh waverley departures": [2900, 1],
+   "london euston departures": [2800, 0], "glasgow central departures": [2200, 2],
+   "liverpool lime street departures": [1800, 1], "bristol temple meads departures": [1600, 1],
+   "york station departures": [1600, 1], "leeds station departures": [1300, 1],
+   "cardiff central departures": [1000, 0], "newcastle central station departures": [600, 1],
+   "reading station departures": [600, 0], "sheffield station departures": [400, 0],
+   "nottingham station departures": [250, 2]
+  },
+  "distribution": "15 of 15 rail-station departure keywords carry volume, 13 of 15 at or above 250, median about 1,600, every one at keyword difficulty 0 to 8.",
+  "breadth_not_peak": "This clears the breadth rule derived on 2026-10-08 for the tier-4 cells: the demand is spread across every large station rather than concentrated in two or three."
+ },
+ "de_DE_rail_stations": {
+  "verdict": "ADMITTED, at a much lower expectation than en-GB and on the same breadth.",
+  "rows": {
+   "berlin hbf abfahrt": [700, 2], "abfahrt frankfurt hbf": [700, 0],
+   "hannover hbf abfahrt": [500, 10], "hamburg hbf abfahrt": [500, 2],
+   "dortmund hbf abfahrt": [350, 0], "essen hbf abfahrt": [350, 8],
+   "frankfurt hbf abfahrt": [200, 1], "duisburg hbf abfahrt": [200, 0],
+   "leipzig hbf abfahrt": [150, 0], "bremen hbf abfahrt": [150, 0],
+   "mannheim hbf abfahrt": [150, 3], "bonn hbf abfahrt": [150, 0],
+   "stuttgart hbf abfahrt": [100, 0], "dresden hauptbahnhof abfahrt": [90, 0],
+   "karlsruhe hbf abfahrt": [60, 0]
+  },
+  "distribution": "Median about 150 against the English 1,600, so roughly a tenth, but broad: every large Hauptbahnhof carries 60 to 700 and every one is at keyword difficulty 0 to 10.",
+  "note": "munchen hbf abfahrt returned 0, which is an artefact of the unaccented spelling rather than a statement about Munich."
+ },
+ "bus_and_coach_stations_are_REFUSED": {
+  "verdict": "REFUSED in both markets. This is the single most consequential finding here, because the hub candidates were mostly bus stations.",
+  "en_GB": {
+   "buchanan bus station departures": 150, "heathrow central bus station departures": 150,
+   "birmingham coach station departures": 70, "liverpool one bus station departures": 10,
+   "huddersfield bus station departures": 0,
+   "victoria coach station departures": [1000, 24]
+  },
+  "de_DE": {"zob berlin abfahrt": 30, "hamburg zob abfahrt": 30, "zob munchen abfahrt": "no row"},
+  "reading": "Excluding Victoria Coach Station the British bus-station median is about 110 and the maximum 150, against a rail median of 1,600. Victoria Coach Station reaches 1,000 and is the one exception, at keyword difficulty 24, which is six times the difficulty of any rail station measured. German coach terminals are at 30. People check a train departure board and do not check a coach station departure board.",
+  "consequence": "The hub family is RAIL STATIONS ONLY. A bus or coach interchange is refused however many destinations it serves, which removes the largest nodes the first build produced, Munich and Berlin central bus stations among them."
+ },
+ "a_defect_this_measurement_exposed_as_a_side_effect": "The German hub candidates were named in ENGLISH, because the FlixBus feed publishes its German stops as 'Munich central bus station' and 'Frankfurt central train station'. A de-DE page titled with an English station name is the LOCAL_DATA_MISSING class, not a valid localisation. The rail-only rule removes almost all of them as a by-product, since the FlixBus nodes are coach terminals, but the naming rule is recorded here because the pair family draws on the same feed.",
+ "what_this_does_NOT_claim": "No per-node volume was measured for any node outside these 30 names, and no market other than en-GB and de-DE was measured in this form. Under the admission model that is sufficient: family intent is proven for the departures form, entity utility is established per node from the timetable, and Ahrefs is not required for every market or every entity.",
+ "units_spent": 1268,
+ "production_untouched": true
+}

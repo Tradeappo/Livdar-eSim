@@ -130,6 +130,12 @@ _NOT_RE = re.compile(r'(?<![a-z0-9])(' + '|'.join(re.escape(_fold(w)) for w in
                      sorted(NOT_A_FACILITY, key=len, reverse=True)) + r')(?![a-z0-9])')
 
 
+# English facility words, used to catch a node named in English on a non-English page.
+_EN_FACILITY_RE = re.compile(
+    r'(?<![a-z0-9])(central bus station|central train station|central station|bus station'
+    r'|train station|railway station|coach station|bus terminal|airport)(?![a-z0-9])')
+
+
 def is_facility(name, modes):
     """A real transport facility, by mode or by its own name. See the block above."""
     if 'rail' in modes or 'ferry' in modes:
@@ -161,18 +167,30 @@ GENERIC_ALONE = {
     'transit center', 'otogar', 'terminal de autobuses', 'rodoviaria', 'centrum',
 }
 
+# The MEASURED query form, from ahrefs-expiry/transport-hub-intent-2026-10-08.json.
+#
+# The first draft of this family titled its pages "Direct destinations from X". The
+# measurement says that is not what anyone types. On the same stations:
+#
+#   manchester piccadilly departures   3,500      trains from manchester piccadilly   350
+#   york station departures            1,600      trains from york station             60
+#   leeds station departures           1,300      trains from leeds station            30
+#   victoria coach station timetable      90
+#
+# So the form is DEPARTURES, and the word used is the one on the departure board in that
+# language, not a translation of an English marketing phrase.
 HUB_TITLE = {
-    'en': 'Direct destinations from {n}', 'de': 'Direktverbindungen von {n}',
-    'fr': 'Destinations directes depuis {n}', 'es': 'Destinos directos desde {n}',
-    'it': 'Destinazioni dirette da {n}', 'nl': 'Directe bestemmingen vanaf {n}',
-    'pl': 'Bezposrednie polaczenia z {n}', 'pt': 'Destinos diretos de {n}',
-    'da': 'Direkte forbindelser fra {n}', 'nb': 'Direkte forbindelser fra {n}',
-    'fi': '{n} suorat yhteydet', 'tr': '{n} direkt seferler',
-    'ja': '{n}からの直通先', 'zh-Hant': '{n}直達目的地',
+    'en': '{n} departures', 'de': '{n} Abfahrt', 'fr': 'Departs {n}',
+    'es': 'Salidas {n}', 'it': 'Partenze {n}', 'nl': 'Vertrek {n}',
+    'pl': 'Odjazdy {n}', 'pt': 'Partidas {n}', 'da': 'Afgange {n}',
+    'nb': 'Avganger {n}', 'fi': '{n} lahtevat', 'tr': '{n} kalkis saatleri',
+    'ja': '{n} 出発', 'zh-Hant': '{n} 出發時刻',
 }
-HUB_SEG = {'en': 'from', 'de': 'ab', 'fr': 'depuis', 'es': 'desde', 'it': 'da',
-           'nl': 'vanaf', 'pl': 'z', 'pt': 'de', 'da': 'fra', 'nb': 'fra',
-           'fi': 'lahdot', 'tr': 'kalkis', 'ja': 'from', 'zh-Hant': 'from'}
+HUB_SEG = {'en': 'departures', 'de': 'abfahrt', 'fr': 'departs', 'es': 'salidas',
+           'it': 'partenze', 'nl': 'vertrek', 'pl': 'odjazdy', 'pt': 'partidas',
+           'da': 'afgange', 'nb': 'avganger', 'fi': 'lahtevat', 'tr': 'kalkis',
+           'ja': 'departures', 'zh-Hant': 'departures'}
+MEASURED_FORM = {'en': '{n} departures'.lower(), 'de': '{n} abfahrt'}
 MODE_WORD = {'bus': 'bus', 'rail': 'train', 'subway': 'metro', 'tram': 'tram',
              'ferry': 'ferry', 'funicular': 'funicular', 'aerial_lift': 'cable car',
              'cable_tram': 'cable tram', 'trolleybus': 'trolleybus', 'monorail': 'monorail'}
@@ -303,6 +321,34 @@ for nid, n in sorted(M.items()):
         stats['rejected_not_a_transport_facility'] += 1
         continue
     n['facility_evidence'] = why
+    # ---- RAIL ONLY, and this is the measurement overruling the supply ----------------------
+    # The first build was mostly bus and coach terminals, and the biggest nodes it produced
+    # were Munich and Berlin central bus stations. The intent measurement of 2026-10-08 says
+    # those pages have no readers. On the departures form, in en-GB:
+    #
+    #   rail      kings cross 9,400   birmingham new street 3,600   manchester piccadilly 3,500
+    #             edinburgh waverley 2,900   york 1,600   leeds 1,300     median about 1,600
+    #   bus       buchanan 150   heathrow central 150   birmingham coach 70
+    #             liverpool one 10   huddersfield 0                        median about 110
+    #
+    # and in de-DE every Hauptbahnhof carries 60 to 700 while zob berlin and hamburg zob carry
+    # 30. People check a train departure board. They do not check a coach station departure
+    # board. So a coach interchange is refused here however many destinations it serves, which
+    # costs this family its largest nodes and is the right call.
+    #
+    # Victoria Coach Station is the one measured exception at 1,000, and at keyword difficulty
+    # 24 against 0 to 8 for every rail station measured, so it is not grounds for a rule.
+    if 'rail' not in n['modes']:
+        stats['rejected_not_a_rail_station_the_departures_intent_is_rail_only'] += 1
+        continue
+    # ---- the name must be in the page's own language ---------------------------------------
+    # The FlixBus feed publishes its German stops in ENGLISH: "Munich central bus station",
+    # "Frankfurt central train station". A de-DE page carrying an English station name is the
+    # LOCAL_DATA_MISSING class and not a valid localisation. The rail-only rule removes most
+    # of them, since those nodes are coach terminals, but not all, so the check is explicit.
+    if lang != 'en' and _EN_FACILITY_RE.search(_fold(name)):
+        stats['rejected_name_is_english_on_a_non_english_page'] += 1
+        continue
     if len(n['dests']) < HUB_MIN_DESTINATIONS:
         stats['rejected_fewer_than_%d_direct_destinations' % HUB_MIN_DESTINATIONS] += 1
         continue
@@ -350,6 +396,14 @@ for nid, n in sorted(M.items()):
         'market': MARKET_OF.get(n['country']), 'language': lang, 'url': url,
         'entity_id': nid, 'entity_name': disp,
         'title_form': HUB_TITLE.get(lang, HUB_TITLE['en']).format(n=disp),
+        'measured_local_query_form': (
+            MEASURED_FORM[lang].format(n=disp.lower()) if lang in MEASURED_FORM else
+            HUB_TITLE.get(lang, HUB_TITLE['en']).format(n=disp).lower()),
+        'family_intent_evidence': (
+            'MEASURED in this language' if lang in MEASURED_FORM else
+            'family intent proven on the departures form in en-GB and de-DE, '
+            'ahrefs-expiry/transport-hub-intent-2026-10-08.json; entity utility proven per '
+            'node from the published timetable'),
         'country': n['country'], 'city': town or name, 'cls': 'transport-interchange',
         'n': len(n['dests']), 'enriched': len(n['feeds']) + len(modes),
         'direct_destinations': len(n['dests']), 'destination_settlements': len(setts),
@@ -395,7 +449,21 @@ json.dump({
                                'language). A street, a school, a hospital or a shopping centre '
                                'with eight bus routes passing it is refused.',
               'physical_node_merge_km': MERGE_KM,
-              'HUB_MIN_SPREAD': HUB_MIN_SPREAD},
+              'HUB_MIN_SPREAD': HUB_MIN_SPREAD,
+              'rail_only': 'a bus or coach interchange is refused: the departures intent is '
+                           'rail. Measured 2026-10-08, en-GB rail median about 1,600 against '
+                           'a bus median of about 110, and de-DE Hauptbahnhof 60 to 700 '
+                           'against ZOB 30.',
+              'name_must_be_in_the_page_language': 'the FlixBus feed publishes German stops '
+                                                   'in English, and an English station name '
+                                                   'on a de-DE page is LOCAL_DATA_MISSING'},
+    'family_intent': (
+        'PROVEN on the departures form, ahrefs-expiry/transport-hub-intent-2026-10-08.json. '
+        '15 of 15 en-GB rail-station departure keywords carry volume, 13 of 15 at or above '
+        '250, median about 1,600, all at keyword difficulty 0 to 8. de-DE is broad at about a '
+        'tenth of that, 60 to 700 per Hauptbahnhof at difficulty 0 to 10. The competing '
+        '"trains from X" form measures an order of magnitude lower on the same stations and '
+        'is NOT used.'),
     'why_the_gate_is_strict': (
         'GTFS calls 17,532 Dutch stops and 32,136 Norwegian stops stations, and most of them '
         'are a pair of bus poles outside a village shop. Without the hub gates this family '
