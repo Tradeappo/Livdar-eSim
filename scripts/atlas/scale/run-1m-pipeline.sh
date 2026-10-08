@@ -246,6 +246,12 @@ fi
 grep -E "path segments claimed|uniqueness and SERP gate|after exact|after semantic|FINAL_DISTINCT" /tmp/pipe_manifest.log \
   || tail -5 /tmp/pipe_manifest.log
 
+log "shard the two authoritative CSV records into parts a git remote will accept"
+# Immediately after the manifest, and before anything else reads it, so the parts can never
+# describe a different run from the monolith they were split out of. The manifest crossed
+# 97 MiB at 963,470 rows against a 100 MiB hard blob limit; see shard-manifest-for-git.py.
+python3 scripts/atlas/scale/shard-manifest-for-git.py 2>&1 | tail -10
+
 log "QA: titles, duplicates, uniqueness reasons, orphans, dashes"
 python3 scripts/atlas/scale/qa-1m-manifest.py > /tmp/pipe_qa.log 2>&1
 tail -22 /tmp/pipe_qa.log

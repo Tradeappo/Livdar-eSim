@@ -80,3 +80,22 @@ reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.parquet
 # _index.json is kept because it is small and says which partitions a run produced.
 data/atlas/candidates/*/
 !data/atlas/candidates/_index.json
+
+# ---- the two authoritative CSV records are now carried as PARTS ------------------------------
+# LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz reached 97.4 MiB at 963,470 rows against GitHub's 100 MiB
+# hard blob limit, and the target for this programme is 1,000,000 rows, which lands it at about
+# 101 MiB. That cliff has already been hit twice here: LIVDAR-1M-CANDIDATE-MANIFEST.parquet had
+# to be deleted, and family=transport.city-pair-transit was declined by the pre-receive hook at
+# 112 MB - both times after I judged the headroom by eye and judged it wrong.
+#
+# These two files are NOT derived exports, so untracking them the way data/atlas/candidates/ was
+# untracked would leave the repository without the evidence for its own number. Instead
+# shard-manifest-for-git.py splits each on ROW boundaries into parts of about 30 MiB, three
+# times under the limit. Every part carries the CSV header and is independently readable, and
+# _parts-index.json records the row count and a sha256 over the concatenated data rows so a
+# reader can prove the parts hold exactly the rows the monolith held, in order. Verified on
+# 2026-10-08: 963,470 rows and 839,754 rows, headers identical in every part, sha256 match.
+#
+# The monoliths stay on disk and stay what every downstream stage reads locally.
+reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz
+reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-REJECTED-CANDIDATES.csv.gz
