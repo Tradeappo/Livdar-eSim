@@ -4,6 +4,7 @@ Which families actually reach which locales, and at what size. A blank cell mean
 
 | family | en-US | en-GB | de-DE | ja-JP | zh-Hant-TW | it-IT | es-ES | fr-FR | nl-NL | pl-PL | pt-BR |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| transport.city-pair-transit | 4,394 | 216,617 | 29,427 |  |  | 32 | 1,966 | 6,463 | 3,467 | 459 |  |
 | activities.city-things-to-do | 2,557 | 1,285 | 891 | 2,544 | 51 | 1,135 | 315 | 3,682 | 3,029 | 198 | 931 |
 | outdoors.hiking-trail | 3,310 | 1,442 |  | 294 |  |  | 4,342 | 9,237 | 2,709 | 1,879 | 29 |
 | weather.city-month | 2,557 | 314 | 711 | 2,544 | 40 | 1,017 | 3,656 | 3,680 | 3,029 | 2,765 | 3,040 |
@@ -27,7 +28,6 @@ Which families actually reach which locales, and at what size. A blank cell mean
 | places.area-attribute | 2,328 |  | 1,832 |  |  |  |  |  |  | 400 | 161 |
 | places.city-category | 882 | 39 | 2,405 | 553 | 40 | 133 | 150 | 143 | 57 | 16 | 159 |
 | rents.city | 882 | 240 | 2,405 | 553 | 18 | 133 | 150 | 143 |  | 1 | 677 |
-| transport.city-pair-transit | 1,762 |  |  |  |  |  |  |  |  |  |  |
 | stay.near-venue | 2,096 | 486 | 613 | 375 |  | 169 | 214 | 295 | 125 | 172 | 241 |
 | places.area-bar | 973 | 297 | 326 | 464 |  | 661 | 515 | 782 | 82 | 77 | 125 |
 | places.area-pub | 397 | 930 | 706 | 597 |  | 272 | 538 | 203 | 169 | 115 | 134 |

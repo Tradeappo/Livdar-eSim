@@ -1,13 +1,13 @@
 {
- "manifest_rows": 427121,
- "distinct_urls": 427121,
+ "manifest_rows": 706677,
+ "distinct_urls": 706677,
  "checks": {
-  "title_over_65_chars": 38742,
-  "meta_over_165_chars": 11117,
+  "title_over_65_chars": 298768,
+  "meta_over_165_chars": 290674,
   "title_under_15_chars": 28,
-  "duplicate_title_exact": 204,
-  "duplicate_title_same_tokens": 259,
-  "destination_rows": 67592,
+  "duplicate_title_exact": 624,
+  "duplicate_title_same_tokens": 951,
+  "destination_rows": 65886,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
@@ -24,7 +24,7 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 247,
+  "duplicate_h1_within_a_market": 642,
   "declared_parent_is_not_a_valid_parent": 0,
   "declared_parent_is_valid_but_not_a_path_prefix": 23622,
   "family_locale_cells_failing_the_usefulness_test": 0
@@ -62,6 +62,150 @@
  "duplicate_examples": [
   {
    "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Honnef nach Koblenz Hauptbahnhof, Bad Honnef, DE: what to know before you go",
+   "a": "c_470ed81f9446",
+   "b": "c_5f12b448af70",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-honnef-nach-koblenz-hauptbahnhof/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Bad Hönningen nach Koblenz Hauptbahnhof, Bad Hönningen, DE: what to know before you go",
+   "a": "c_ec798a5d1502",
+   "b": "c_aeae68861785",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/bad-honningen-nach-koblenz-hauptbahnhof/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Brake (Unterweser) nach Havenwelten, Bremerhaven, Brake (Unterweser), DE: what to know before you go",
+   "a": "c_74bacef91a2f",
+   "b": "c_e99640a2403e",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/brake-unterweser-nach-havenwelten-bremerhaven/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Dreekamp Aurich nach Emden, Dreekamp Aurich, DE: what to know before you go",
+   "a": "c_6f106da6762e",
+   "b": "c_e6645e1c07e5",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/dreekamp-aurich-nach-emden/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Dreekamp Aurich nach Kunsthalle, Emden, Dreekamp Aurich, DE: what to know before you go",
+   "a": "c_0cfc055b9d4a",
+   "b": "c_d2637f30ef3d",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/dreekamp-aurich-nach-kunsthalle-emden/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Geiselhöring nach Stobäusplatz, Regensburg, Geiselhöring, DE: what to know before you go",
+   "a": "c_a7a1493ded0e",
+   "b": "c_b8afce73a184",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/geiselhoring-nach-stobausplatz-regensburg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Koblenz Hauptbahnhof nach Königswinter, Koblenz Hauptbahnhof, DE: what to know before you go",
+   "a": "c_cea86221cafa",
+   "b": "c_bbc95273f3e6",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-konigswinter/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Koblenz Hauptbahnhof nach Linz am Rhein, Koblenz Hauptbahnhof, DE: what to know before you go",
+   "a": "c_848e72c41480",
+   "b": "c_8301e12f01dd",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-linz-am-rhein/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Koblenz Hauptbahnhof nach Oberkassel, Koblenz Hauptbahnhof, DE: what to know before you go",
+   "a": "c_87e349786fba",
+   "b": "c_f7a665bfd81a",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-oberkassel/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Koblenz Hauptbahnhof nach Remagen, Koblenz Hauptbahnhof, DE: what to know before you go",
+   "a": "c_b6f30f73c3ae",
+   "b": "c_34dc7fd2d28e",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-remagen/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Koblenz Hauptbahnhof nach Troisdorf, Koblenz Hauptbahnhof, DE: what to know before you go",
+   "a": "c_f91134f24f81",
+   "b": "c_f9acab338697",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/koblenz-hauptbahnhof-nach-troisdorf/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Königsplatz  Ri. Friedrichsplatz, Kassel nach Trendelburg, Königsplatz  Ri. Friedrichsplatz, DE: what to know ",
+   "a": "c_92c9858d3eab",
+   "b": "c_cf33bb0d3159",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/konigsplatz-ri-friedrichsplatz-kassel-nach-trendelburg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Königsplatz  Ri. Friedrichsplatz, Kassel nach Wolfhagen, Königsplatz  Ri. Friedrichsplatz, DE: what to know be",
+   "a": "c_fe07dbd85efc",
+   "b": "c_21971db21178",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/konigsplatz-ri-friedrichsplatz-kassel-nach-wolfhagen/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Rathaus  Ri. Friedrichsplatz, Kassel nach Trendelburg, Rathaus  Ri. Friedrichsplatz, DE: what to know before y",
+   "a": "c_0e8ec60f33cb",
+   "b": "c_6dba380986ab",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/rathaus-ri-friedrichsplatz-kassel-nach-trendelburg/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Rathaus  Ri. Friedrichsplatz, Kassel nach Wolfhagen, Rathaus  Ri. Friedrichsplatz, DE: what to know before you",
+   "a": "c_8206c64df5f2",
+   "b": "c_06d45617ca14",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/rathaus-ri-friedrichsplatz-kassel-nach-wolfhagen/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
+   "market": "de-DE",
+   "title": "Sankt Wendel nach Wadern Rewe A, Sankt Wendel, DE: what to know before you go",
+   "a": "c_ec29a8370448",
+   "b": "c_5533754abc95",
+   "url_a": "",
+   "url_b": "/de/transport/public-transport/sankt-wendel-nach-wadern-rewe-a/"
+  },
+  {
+   "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
    "title": "Rail Trail: Wootton Wawen > Wilmcote, Warwickshire, GB: foot trail",
    "a": "c_e2cca8c583ec",
@@ -72,218 +216,74 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "Beinn an Lochain, Argyll and Bute, Helensburgh: peak",
-   "a": "c_fb93cd209ebd",
-   "b": "c_d20810fbbe1e",
+   "title": "Aldi, Garstang to Lancaster, Aldi, GB: what to know before you go",
+   "a": "c_64c00ad059dd",
+   "b": "c_b38d382e9aa8",
    "url_a": "",
-   "url_b": "/en/outdoors/peak/beinn-an-lochain-n539382655/"
+   "url_b": "/en/transport/public-transport/aldi-garstang-to-lancaster/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "en-GB",
-   "title": "The Calf, Yorkshire Dales National Park, Kendal: peak",
-   "a": "c_60f9edc762ec",
-   "b": "c_5bcfa65f8d7a",
+   "title": "All Saints Square, Coventry to Bedworth, All Saints Square, GB: what to know before you go",
+   "a": "c_2ea412b1d7aa",
+   "b": "c_77b46c313fbf",
    "url_a": "",
-   "url_b": "/en/outdoors/peak/the-calf-n9439548715/"
+   "url_b": "/en/transport/public-transport/all-saints-square-coventry-to-bedworth/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "restaurant in Village of La Jolla, San Diego, US",
-   "a": "c_a793d50ee25e",
-   "b": "c_0ee1a72995fb",
+   "market": "en-GB",
+   "title": "Archbishop Holgate's School, York to The Balk Pocklington, Archbishop Holgate's School, GB: what to know befor",
+   "a": "c_18949e229f80",
+   "b": "c_19761a070a29",
    "url_a": "",
-   "url_b": "/en/places/restaurant/san-diego-us/village-of-la-jolla/"
+   "url_b": "/en/transport/public-transport/archbishop-holgate-s-school-york-to-the-balk-pocklington/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Mount Washington to Gwynn Oak, Baltimore, US: bicycle trail",
-   "a": "c_fb072aefc55c",
-   "b": "c_42aa232a31d3",
+   "market": "en-GB",
+   "title": "Asda, Falkirk to Cumbernauld, Asda, GB: what to know before you go",
+   "a": "c_32c68bc94410",
+   "b": "c_a7d8adbb7766",
    "url_a": "",
-   "url_b": "/en/outdoors/trail/mount-washington-to-gwynn-oak-r14410947/"
+   "url_b": "/en/transport/public-transport/asda-falkirk-to-cumbernauld/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Olentangy to Alum Creek Connector, Franklin County, US: bicycle trail",
-   "a": "c_b48384b70aee",
-   "b": "c_ba6b51dcfd66",
+   "market": "en-GB",
+   "title": "Ash Grove, Kingston upon Hull to Driffield Beverley Road, Ash Grove, GB: what to know before you go",
+   "a": "c_1c178a42ad0d",
+   "b": "c_4829357bd82b",
    "url_a": "",
-   "url_b": "/en/outdoors/trail/olentangy-to-alum-creek-connector-r6007337/"
+   "url_b": "/en/transport/public-transport/ash-grove-kingston-upon-hull-to-driffield-beverley-road/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "cafe in La Jolla Village, San Diego, US",
-   "a": "c_29fd832186b1",
-   "b": "c_52cc100e7c81",
+   "market": "en-GB",
+   "title": "Ashgrove Court, Methil to Glenrothes Bus Station Arrival Bay, Ashgrove Court, GB: what to know before you go",
+   "a": "c_f7685cc463a9",
+   "b": "c_53dca3a3c92c",
    "url_a": "",
-   "url_b": "/en/places/cafe/san-diego-us/la-jolla-village/"
+   "url_b": "/en/transport/public-transport/ashgrove-court-methil-to-glenrothes-bus-station-arrival-bay/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "fast food in Village of La Jolla, San Diego, US",
-   "a": "c_5d4bdc21e1ea",
-   "b": "c_76f6c35bfc1b",
+   "market": "en-GB",
+   "title": "Ashtead to Surbiton Station/Claremont Rd, Ashtead, GB: what to know before you go",
+   "a": "c_ca5855e88b36",
+   "b": "c_16dfd7b9fb55",
    "url_a": "",
-   "url_b": "/en/places/fast-food/san-diego-us/village-of-la-jolla/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Bloomington, Atlanta, US: what to know before you go",
-   "a": "c_a2551027ce71",
-   "b": "c_46191d3d9cb5",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-bloomington/"
+   "url_b": "/en/transport/public-transport/ashtead-to-surbiton-station-claremont-rd/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Bloomington, Atlanta, US: what to know before you go",
-   "a": "c_a2551027ce71",
-   "b": "c_46191d3d9cb5",
+   "market": "en-GB",
+   "title": "Ashtead to The Crescent Surbiton, Ashtead, GB: what to know before you go",
+   "a": "c_75fa1de144a3",
+   "b": "c_376b70192066",
    "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-bloomington/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Burlington, Atlanta, US: what to know before you go",
-   "a": "c_d4a2e6ecb71d",
-   "b": "c_6a7f4c5943a7",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-burlington/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Burlington, Atlanta, US: what to know before you go",
-   "a": "c_d4a2e6ecb71d",
-   "b": "c_6a7f4c5943a7",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-burlington/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Charlotte, Atlanta, US: what to know before you go",
-   "a": "c_54c8789ace26",
-   "b": "c_e369e0686235",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-charlotte/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Charlotte, Atlanta, US: what to know before you go",
-   "a": "c_54c8789ace26",
-   "b": "c_e369e0686235",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-charlotte/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Columbus, Atlanta, US: what to know before you go",
-   "a": "c_aa52ce5abb78",
-   "b": "c_f048aaabe796",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-columbus/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Columbus, Atlanta, US: what to know before you go",
-   "a": "c_aa52ce5abb78",
-   "b": "c_f048aaabe796",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-columbus/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Greensboro, Atlanta, US: what to know before you go",
-   "a": "c_ed72bf50cb30",
-   "b": "c_4dbe6ebf9651",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-greensboro/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Greensboro, Atlanta, US: what to know before you go",
-   "a": "c_ed72bf50cb30",
-   "b": "c_4dbe6ebf9651",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-greensboro/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Gulfport, Atlanta, US: what to know before you go",
-   "a": "c_2d1eeebac429",
-   "b": "c_106161d40353",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-gulfport/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Gulfport, Atlanta, US: what to know before you go",
-   "a": "c_2d1eeebac429",
-   "b": "c_106161d40353",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-gulfport/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Indianapolis, Atlanta, US: what to know before you go",
-   "a": "c_31881cf0bf50",
-   "b": "c_a1c0a53a8b24",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-indianapolis/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Indianapolis, Atlanta, US: what to know before you go",
-   "a": "c_31881cf0bf50",
-   "b": "c_a1c0a53a8b24",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-indianapolis/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Louisville, Atlanta, US: what to know before you go",
-   "a": "c_275cc6fa0b37",
-   "b": "c_78b1a3a4444d",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-louisville/"
-  },
-  {
-   "kind": "same_tokens_after_stopwords",
-   "market": "en-US",
-   "title": "Atlanta to Louisville, Atlanta, US: what to know before you go",
-   "a": "c_275cc6fa0b37",
-   "b": "c_78b1a3a4444d",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-louisville/"
-  },
-  {
-   "kind": "exact_title",
-   "market": "en-US",
-   "title": "Atlanta to Nashville, Atlanta, US: what to know before you go",
-   "a": "c_91793d73c518",
-   "b": "c_69bcd075df1e",
-   "url_a": "",
-   "url_b": "/en/transport/rail/atlanta-nashville/"
+   "url_b": "/en/transport/public-transport/ashtead-to-the-crescent-surbiton/"
   }
  ],
  "shared_uniqueness_reason_by_family": {
@@ -12096,28 +12096,70 @@
    ]
   },
   "transport.city-pair-transit|da": {
-   "rows": 1628,
+   "rows": 4555,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|de": {
+   "rows": 29427,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|en": {
-   "rows": 1762,
+   "rows": 221011,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|es": {
+   "rows": 1966,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|fi": {
-   "rows": 589,
+   "rows": 6869,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|fr": {
+   "rows": 6463,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|it": {
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|nb": {
-   "rows": 1141,
+   "rows": 10427,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|nl": {
+   "rows": 3467,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
+   ]
+  },
+  "transport.city-pair-transit|pl": {
+   "rows": 459,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12461,7 +12503,7 @@
  "title_length": {
   "min": 13,
   "max": 207,
-  "mean": 42.9
+  "mean": 63.1
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

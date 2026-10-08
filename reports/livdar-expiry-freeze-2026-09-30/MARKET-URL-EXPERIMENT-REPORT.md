@@ -53,7 +53,7 @@ The measures that do catch it are `shared_section_ratio`, which is 1.0 on every 
 
 ## 6. hreflang and canonical
 
-Design only, not deployed. 427,124 pages planned, 3 of them market pages. 369,848 of those pages are the only page for their entity and intent in any language and so carry NO hreflang at all: a lone self-annotation tells a crawler nothing the canonical does not, and it is the commonest way a cluster later turns non-reciprocal. The annotations sit on the 57,276 pages that genuinely have alternates.
+Design only, not deployed. 706,680 pages planned, 3 of them market pages. 649,404 of those pages are the only page for their entity and intent in any language and so carry NO hreflang at all: a lone self-annotation tells a crawler nothing the canonical does not, and it is the commonest way a cluster later turns non-reciprocal. The annotations sit on the 57,276 pages that genuinely have alternates.
 
 Reciprocity: 232,748 annotations checked, 0 pointing at a URL not in the plan, 0 not reciprocated. every annotation resolves and reciprocates
 
@@ -83,7 +83,7 @@ The order that follows from this, cheapest evidence first:
 
 ## 8. Where the inventory stands
 
-FINAL DISTINCT VALID: **427,121**. Funnel reconciles: True.
+FINAL DISTINCT VALID: **706,677**. Funnel reconciles: True.
 
 Market-scoped URLs were one candidate path to scale. This experiment closes it for now, on measurement rather than on preference, and the remaining paths are in 1M-GAP-TO-TARGET.csv with the measurement behind each.
 
