@@ -8,10 +8,10 @@ there is no cohort 003.
 
 | | rows |
 | --- | --- |
-| **FINAL DISTINCT VALID** | **739,983** |
+| **FINAL DISTINCT VALID** | **877,462** |
 | target | 1,000,000 |
-| **GAP TO 1M** | **260,017** |
-| generated before any gate | 1,521,085 |
+| **GAP TO 1M** | **122,538** |
+| generated before any gate | 1,684,683 |
 | funnel reconciles | True |
 | distinct families | 215 |
 | markets | 17 |
@@ -27,8 +27,8 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | removed_because_the_declared_parent_did_not_survive | 4,187 |
 | removed_by_cannibalisation                          | 0 |
 | removed_by_cross_market_content_uniqueness_gate     | 0 |
-| removed_by_localisation_gate                        | 468,817 |
-| removed_by_per_market_family_gate                   | 15,757 |
+| removed_by_localisation_gate                        | 494,926 |
+| removed_by_per_market_family_gate                   | 15,767 |
 | removed_by_uniqueness_and_serp_gate                 | 291,842 |
 | removed_by_unsupported_superlative_gate             | 180 |
 
@@ -48,7 +48,7 @@ checked by a verifier that fails the run rather than by reading the numbers.
 | sport        | 1,016 |
 | stay         | 39,618 |
 | tools        | 1,594 |
-| transport    | 303,400 |
+| transport    | 440,879 |
 | travel       | 226 |
 | work         | 4,971 |
 
@@ -56,37 +56,37 @@ checked by a verifier that fails the run rather than by reading the numbers.
 
 | market     | rows |
 | ---------- | --- |
-| da-DK      | 4,555 |
-| de-DE      | 78,388 |
+| da-DK      | 7,944 |
+| de-DE      | 105,331 |
 | en-AU      | 8,244 |
-| en-GB      | 243,383 |
-| en-US      | 115,851 |
-| es-ES      | 43,335 |
+| en-GB      | 298,571 |
+| en-US      | 116,468 |
+| es-ES      | 44,631 |
 | es-MX      | 12,161 |
-| fi-FI      | 6,869 |
-| fr-FR      | 61,986 |
-| it-IT      | 26,341 |
+| fi-FI      | 10,663 |
+| fr-FR      | 88,530 |
+| it-IT      | 27,520 |
 | ja-JP      | 39,969 |
-| nb-NO      | 10,427 |
-| nl-NL      | 27,802 |
-| pl-PL      | 24,184 |
+| nb-NO      | 15,572 |
+| nl-NL      | 31,020 |
+| pl-PL      | 34,350 |
 | pt-BR      | 22,201 |
 | tr-TR      | 13,487 |
 | zh-Hant-TW | 800 |
 
 | language | rows |
 | -------- | --- |
-| da       | 4,555 |
-| de       | 78,388 |
-| en       | 367,478 |
-| es       | 55,496 |
-| fi       | 6,869 |
-| fr       | 61,986 |
-| it       | 26,341 |
+| da       | 7,944 |
+| de       | 105,331 |
+| en       | 423,283 |
+| es       | 56,792 |
+| fi       | 10,663 |
+| fr       | 88,530 |
+| it       | 27,520 |
 | ja       | 39,969 |
-| nb       | 10,427 |
-| nl       | 27,802 |
-| pl       | 24,184 |
+| nb       | 15,572 |
+| nl       | 31,020 |
+| pl       | 34,350 |
 | pt       | 22,201 |
 | tr       | 13,487 |
 | zh-Hant  | 800 |
@@ -96,22 +96,22 @@ market and the place a page is about are different axes and the brief is explici
 
 | destination country | rows |
 | ------------------- | --- |
-| GB                  | 249,908 |
-| US                  | 117,228 |
-| DE                  | 78,550 |
-| FR                  | 52,784 |
+| GB                  | 305,042 |
+| US                  | 117,899 |
+| DE                  | 105,493 |
+| FR                  | 79,328 |
 | JP                  | 38,597 |
-| ES                  | 30,527 |
-| IT                  | 26,182 |
-| PL                  | 21,927 |
-| NL                  | 19,552 |
+| PL                  | 32,093 |
+| ES                  | 31,823 |
+| IT                  | 27,361 |
+| NL                  | 22,770 |
 | BR                  | 19,208 |
+| NO                  | 15,824 |
 | TR                  | 14,780 |
-| NO                  | 10,679 |
+| FI                  | 10,866 |
 | AU                  | 8,857 |
+| DK                  | 8,266 |
 | IN                  | 7,493 |
-| FI                  | 7,072 |
-| DK                  | 4,877 |
 | MX                  | 4,452 |
 | CA                  | 1,608 |
 | AR                  | 1,493 |
@@ -129,7 +129,7 @@ market and the place a page is about are different axes and the brief is explici
 | OurAirports (public domain) with OpenStreetMap named car parks ( | 13 |
 | Public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v | 55 |
 | Public holiday registers: OpenHolidays (ODbL 1.0), Nager.Date (M | 17 |
-| Published GTFS timetables via the Mobility Database, open licenc | 284,676 |
+| Published GTFS timetables via the Mobility Database, open licenc | 422,155 |
 | UK FCDO entry requirements (Open Government Licence v3.0)        | 226 |
 | Wikidata (CC0 1.0, public domain dedication, no share-alike)     | 2,157 |
 | Wikidata P197 adjacent station (CC0 1.0) with GeoNames (CC BY 4. | 11,222 |
@@ -180,7 +180,7 @@ market and the place a page is about are different axes and the brief is explici
 | city_opening            | 3,951 |
 | city_pair               | 2,604 |
 | city_pair_rail          | 11,222 |
-| city_pair_transit       | 284,676 |
+| city_pair_transit       | 422,155 |
 | city_sport              | 155 |
 | country                 | 71 |
 | country-pair            | 12 |
@@ -200,7 +200,7 @@ market and the place a page is about are different axes and the brief is explici
 
 | family                       | rows |
 | ---------------------------- | --- |
-| transport.city-pair-transit  | 284,676 |
+| transport.city-pair-transit  | 422,155 |
 | weather.city-month           | 38,970 |
 | activities.city-things-to-do | 37,637 |
 | stay.city-type               | 25,695 |
@@ -250,8 +250,8 @@ market and the place a page is about are different axes and the brief is explici
 | ------------------------------------------- | --- |
 | REJECTED_DUPLICATE                          | 259 |
 | REJECTED_FAMILY_MEASURED_AND_REFUSED        | 163,889 |
-| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 15,757 |
-| REJECTED_LOCALIZATION                       | 468,817 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 15,767 |
+| REJECTED_LOCALIZATION                       | 494,926 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY | 57,503 |
 | REJECTED_PARENT_REMOVED                     | 4,187 |
 | REJECTED_QUALITY                            | 61,571 |
@@ -264,12 +264,12 @@ The reason text, grouped by its first clause:
 
 | recorded reason                             | rows |
 | ------------------------------------------- | --- |
-| localization                                | 468,817 |
+| localization                                | 494,926 |
 | REFUSED_MEASURED_CANNIBALISATION            | 96,714 |
 | REFUSED_FABRICATED_PRECISION                | 67,175 |
 | REJECTED_QUALITY                            | 61,571 |
 | REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY | 57,503 |
-| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 15,757 |
+| REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET | 15,767 |
 | REJECTED_SERP                               | 8,879 |
 | REJECTED_PARENT_REMOVED                     | 4,187 |
 | REJECTED_DUPLICATE                          | 259 |
@@ -284,23 +284,23 @@ The reason text, grouped by its first clause:
 | candidates_with_no_usable_source                   | 0 |
 | declared_parent_is_not_a_valid_parent              | 0 |
 | declared_parent_is_valid_but_not_a_path_prefix     | 23,622 |
-| destination_rows                                   | 77,748 |
+| destination_rows                                   | 77,694 |
 | destination_rows_with_no_locale_specific_fact      | 0 |
 | duplicate_canonicals                               | 0 |
-| duplicate_h1_within_a_market                       | 642 |
+| duplicate_h1_within_a_market                       | 619 |
 | duplicate_meta_within_a_market                     | 0 |
-| duplicate_title_exact                              | 624 |
-| duplicate_title_same_tokens                        | 952 |
+| duplicate_title_exact                              | 596 |
+| duplicate_title_same_tokens                        | 1,061 |
 | entity_names_needing_a_disambiguator_in_the_title  | 938 |
 | family_locale_cells_failing_the_usefulness_test    | 0 |
 | intent_owners_claimed_by_more_than_one_url         | 0 |
 | kept_rows_with_a_rejecting_localisation_class      | 0 |
 | locale_mismatch_between_url_and_row                | 0 |
-| meta_over_165_chars                                | 290,676 |
+| meta_over_165_chars                                | 428,155 |
 | orphan_pages                                       | 113 |
 | same_entity_id_under_two_names                     | 0 |
 | templates_with_repeated_entities                   | 0 |
-| title_over_65_chars                                | 299,323 |
+| title_over_65_chars                                | 408,955 |
 | title_under_15_chars                               | 28 |
 | top_level_pages_whose_parent_is_the_locale_home    | 0 |
 | uniqueness_reason_shared_with_another_candidate    | 5 |
@@ -317,7 +317,7 @@ The reason text, grouped by its first clause:
 
 | pages by verdict         | rows |
 | ------------------------ | --- |
-| ACCEPTED                 | 610,963 |
+| ACCEPTED                 | 748,442 |
 | ACCEPTED_WITH_AN_UNKNOWN | 129,020 |
 
 Failed conditions across all families: none
@@ -399,7 +399,7 @@ The first pass listed the National Heritage List for England as MATERIALISING wi
 
 ## SCALE PATHS: COUNTED AGAINST PROJECTED
 
-Counted today in the manifest: **739,983**
+Counted today in the manifest: **877,462**
 
 Paths with a COUNTED entity-level number:
 
@@ -433,12 +433,12 @@ list, so the work was to supply the evidence it asks for, in two halves that are
    alternate name, which is a PROXY for interest and is labelled a proxy on every row that
    rests on it
 
-Pages about a country that is not their own market's country: 77,748
+Pages about a country that is not their own market's country: 77,694
 
 | market | destination pages |
 | --- | --- |
 | es-ES | 14,095 |
-| en-US | 13,040 |
+| en-US | 12,986 |
 | es-MX | 10,679 |
 | fr-FR | 10,613 |
 | nl-NL | 8,916 |
@@ -456,7 +456,7 @@ How those pages earned the market that owns them:
 
 | ownership basis | pages |
 | --- | --- |
-| the only market serving this language that earns the entity | 43,646 |
+| the only market serving this language that earns the entity | 43,592 |
 | family-level score, the weakest basis | 33,277 |
 | measured searching this entity itself | 825 |
 
@@ -509,19 +509,19 @@ The rule both passes found, and it is the best predictor of page yield measured 
 
 | language | pages | destination gate measured |
 | --- | --- | --- |
-| en | 367,478 | earlier passes |
-| de | 78,388 | earlier passes |
-| fr | 61,986 | 2026-10-06, newly measured |
-| es | 55,496 | 2026-10-06, newly measured |
+| en | 423,283 | earlier passes |
+| de | 105,331 | earlier passes |
+| fr | 88,530 | 2026-10-06, newly measured |
+| es | 56,792 | 2026-10-06, newly measured |
 | ja | 39,969 | earlier passes |
-| nl | 27,802 | 2026-10-06, newly measured |
-| it | 26,341 | earlier passes |
-| pl | 24,184 | 2026-10-06, newly measured |
+| pl | 34,350 | 2026-10-06, newly measured |
+| nl | 31,020 | 2026-10-06, newly measured |
+| it | 27,520 | earlier passes |
 | pt | 22,201 | 2026-10-06, newly measured |
+| nb | 15,572 | NOT MEASURED |
 | tr | 13,487 | earlier passes |
-| nb | 10,427 | NOT MEASURED |
-| fi | 6,869 | NOT MEASURED |
-| da | 4,555 | NOT MEASURED |
+| fi | 10,663 | NOT MEASURED |
+| da | 7,944 | NOT MEASURED |
 | zh-Hant | 800 | 2026-10-06, newly measured |
 
 ## OUTDOOR: individual entity against aggregation
