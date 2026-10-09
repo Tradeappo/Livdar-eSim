@@ -19,15 +19,15 @@ with `{"error": "Insufficient plan"}` on even its free endpoint.
 
 | # | Path | Raw on disk | Not yet materialised | Candidates | FINAL | Expected FINAL | Basis | Blocker | Runtime | Net | Restart-safe | Confidence |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Wikidata 77-pair tail | 77 pairs | 77 pairs | unknown | — | **under 225** | Class B, same gates as the 523 | Wikidata 500/504/drops; container restarts | 1-3 h | YES | YES, output-file checkpoint | MEDIUM |
+| 1 | Wikidata 77-pair tail | 77 pairs | 77 pairs | unknown | n/a | **under 225** | Class B, same gates as the 523 | Wikidata 500/504/drops; container restarts | 1-3 h | YES | YES, output-file checkpoint | MEDIUM |
 | 2 | Outdoor aggregation refresh | 69,069 members | none, re-ran today | 1,954 | 1,383 | **0, EXECUTED** | existing gates | `demand_not_measured_in_this_market` 11,049 | 3 min | NO | YES | CONFIRMED |
-| 3 | POI aggregation refresh, AR CZ IN UA ZA | 973,311 POI | 5 countries | — | — | **0** | `places.*` is LOCAL scope | none of the five is a market country | 2-4 h, no resume | NO | NO | HIGH |
-| 4 | Market-scoped URLs | 83,699 contests | — | 83,699 | — | **3, measured 2026-10-06** | ownership rule | duplicate capacity by construction | done | NO | — | CONFIRMED |
+| 3 | POI aggregation refresh, AR CZ IN UA ZA | 973,311 POI | 5 countries | n/a | n/a | **0** | `places.*` is LOCAL scope | none of the five is a market country | 2-4 h, no resume | NO | NO | HIGH |
+| 4 | Market-scoped URLs | 83,699 contests | n/a | 83,699 | n/a | **3, measured 2026-10-06** | ownership rule | duplicate capacity by construction | done | NO | n/a | CONFIRMED |
 | 5 | England NHLE heritage | 379,685 | all | 0 | 0 | **0 without a new admission class** | none exists | see below | 1 h | NO | YES | HIGH |
-| 6 | Japanese settlement pairs | 25,364 pairs | all | — | — | **unknown, 0 today** | would be Class B | needs ONE Ahrefs call; Ahrefs is gone | 30 min once unblocked | NO | YES | BLOCKED |
+| 6 | Japanese settlement pairs | 25,364 pairs | all | n/a | n/a | **unknown, 0 today** | would be Class B | needs ONE Ahrefs call; Ahrefs is gone | 30 min once unblocked | NO | YES | BLOCKED |
 | 7 | Region aggregation refresh | 1,826 rows | stale by mtime | 1,826 | 1,806 | **0 to 50** | existing gates | same demand gate as #2 | 5 min | NO | YES | MEDIUM |
-| — | REMOVE A GATE: place_not_a_named_entity | — | — | — | — | 262,774 | NOT RECOMMENDED | excluded by instruction | — | — | — | — |
-| — | REMOVE A GATE: area_parent_city_page_not_accepted | — | — | — | — | 147,368 | NOT RECOMMENDED | excluded by instruction | — | — | — | — |
+| n/a | REMOVE A GATE: place_not_a_named_entity | n/a | n/a | n/a | n/a | 262,774 | NOT RECOMMENDED | excluded by instruction | n/a | n/a | n/a | n/a |
+| n/a | REMOVE A GATE: area_parent_city_page_not_accepted | n/a | n/a | n/a | n/a | 147,368 | NOT RECOMMENDED | excluded by instruction | n/a | n/a | n/a | n/a |
 
 ## Why each zero is a zero
 
