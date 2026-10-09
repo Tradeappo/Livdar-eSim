@@ -45,6 +45,28 @@ TMP = '/tmp/gtfs-nat/'
 os.makedirs(OUT, exist_ok=True); os.makedirs(TMP, exist_ok=True)
 
 FEEDS = {
+    # ---- Renfe, added 2026-10-09 -------------------------------------------------------------
+    # Spanish national rail, and the reason it is here rather than in the derived registry is
+    # that the registry's catalogue row for these two carried no usable licence while the
+    # PUBLISHER's own CKAN states one outright. Checked on 2026-10-09 against
+    # data.renfe.com/api/3/action/package_show: both datasets return
+    # license_id "CC-BY-4.0", license_title "Creative Commons Attribution 4.0" and
+    # license_url https://creativecommons.org/licenses/by/4.0/. cc-by is already in
+    # PAN_LICENCES, so this is the existing licence gate being satisfied by the operator's
+    # machine-readable metadata, not an exception made for a big feed. data.renfe.com/legal
+    # answered 503 at the time, which is why the API was used: a licence has to be READ, and a
+    # dead terms page is not a licence.
+    #
+    # WHY THIS FEED AND NOT GB RAIL, which was the requested path: GB has 453,608 settlement
+    # pairs on disk and 189 of them are rail, because BODS is the Bus Open Data Service by
+    # statute. The Mobility Database holds exactly ONE GB rail feed, Chiltern Railways, with no
+    # stated licence, and TNDS says in its own description that it excludes national rail. The
+    # National Rail timetable is registration-gated. Spain is the same family, the same gates,
+    # an admitted market with a MEASURED pair form in PAIR_LOCALE, and no registration.
+    'renfe-av-ld-md': ('https://ssl.renfe.com/gtransit/Fichero_AV_LD/google_transit.zip', 'ES',
+                       'CC BY 4.0', 'Renfe high-speed, long-distance and medium-distance rail'),
+    'renfe-cercanias': ('https://ssl.renfe.com/ftransit/Fichero_CER_FOMENTO/fomento_transit.zip',
+                        'ES', 'CC BY 4.0', 'Renfe Cercanias commuter rail'),
     'entur-norway': ('https://storage.googleapis.com/marduk-production/outbound/gtfs/'
                      'rb_norway-aggregated-gtfs.zip', 'NO', 'NLOD 2.0',
                      'Entur (national Norwegian journey planner data)'),
