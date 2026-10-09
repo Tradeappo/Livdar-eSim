@@ -196,7 +196,18 @@ for qid, cname, cq, iso in PAIRS:
     if True:
         mark = f'{MARK}{cname}_{iso}.done'
         claim = f'{MARK}{cname}_{iso}.claim'
-        if os.path.exists(mark): continue
+        # THE OUTPUT FILE IS ALSO A CHECKPOINT, and it has to be, because MARK lives under
+        # /tmp and three container restarts in ten hours each wiped it. Every time, a run that
+        # should have fetched the handful of pairs still missing instead queued all 600 and I
+        # rebuilt the marks by hand from the directory listing. The pair's own .jsonl.gz is
+        # written .tmp-then-renamed, so its existence is exactly the fact the mark was standing
+        # in for: this pair has complete output. Reading it directly makes the resume survive
+        # anything that clears /tmp.
+        #
+        # A deliberate refetch therefore deletes the file rather than the mark, which is what
+        # the park/US recovery did and what its .truncated.json flag told the next reader to do.
+        if os.path.exists(mark) or os.path.exists(f'{OUT}wd-{cname}-{iso}.jsonl.gz'):
+            continue
         try:
             os.mkdir(claim)
         except FileExistsError:
