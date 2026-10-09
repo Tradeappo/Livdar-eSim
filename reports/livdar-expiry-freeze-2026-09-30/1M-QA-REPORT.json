@@ -1,8 +1,8 @@
 {
- "manifest_rows": 968305,
- "distinct_urls": 968305,
+ "manifest_rows": 969840,
+ "distinct_urls": 969840,
  "checks": {
-  "title_over_65_chars": 493021,
+  "title_over_65_chars": 493080,
   "meta_over_165_chars": 514358,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 596,
@@ -11,7 +11,7 @@
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 110,
+  "orphan_pages": 111,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
@@ -26,7 +26,7 @@
   "duplicate_meta_within_a_market": 0,
   "duplicate_h1_within_a_market": 619,
   "declared_parent_is_not_a_valid_parent": 0,
-  "declared_parent_is_valid_but_not_a_path_prefix": 24383,
+  "declared_parent_is_valid_but_not_a_path_prefix": 24459,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
@@ -6727,6 +6727,38 @@
     "it names OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
+  "places.city-airport|en": {
+   "rows": 63,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "places.city-airport|it": {
+   "rows": 5,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it names Wikidata (CC0 1.0, public domain dedication, no share-alike) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "places.city-airport|pl": {
+   "rows": 4,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it names Wikidata (CC0 1.0, public domain dedication, no share-alike) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "places.city-airport|pt": {
+   "rows": 11,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it names Wikidata (CC0 1.0, public domain dedication, no share-alike) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
   "places.city-aquarium|en": {
    "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -7330,6 +7362,30 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "places.city-cemetery|de": {
+   "rows": 24,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "places.city-cemetery|es": {
+   "rows": 3,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "places.city-cemetery|pt": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "places.city-childcare|de": {
@@ -8589,7 +8645,7 @@
    ]
   },
   "places.city-library|pt": {
-   "rows": 18,
+   "rows": 23,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -8821,7 +8877,7 @@
    ]
   },
   "places.city-movie_theater|en": {
-   "rows": 281,
+   "rows": 1602,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -9453,7 +9509,7 @@
    ]
   },
   "places.city-railway_station|de": {
-   "rows": 12,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -9493,7 +9549,7 @@
    ]
   },
   "places.city-railway_station|ja": {
-   "rows": 57,
+   "rows": 60,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -9693,7 +9749,7 @@
    ]
   },
   "places.city-shopping_mall|en": {
-   "rows": 231,
+   "rows": 230,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it lists real named places the visitor could go to, drawn from the POI corpus rather than asserted",
@@ -10661,14 +10717,56 @@
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
+  "poi.art_gallery-notable|en": {
+   "rows": 16,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.art_gallery-notable|fr": {
+   "rows": 5,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.art_gallery-notable|ja": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.art_gallery-notable|pl": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
   "poi.art_museum-notable|en": {
-   "rows": 8,
+   "rows": 31,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.art_museum-notable|es": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.art_museum-notable|fr": {
+   "rows": 24,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
+  "poi.art_museum-notable|it": {
    "rows": 1,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
@@ -10750,6 +10848,13 @@
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
+   ]
+  },
+  "poi.beach-notable|en": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
   "poi.botanical_garden-notable|en": {
@@ -10872,7 +10977,7 @@
    ]
   },
   "poi.museum-notable|en": {
-   "rows": 551,
+   "rows": 548,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -10955,6 +11060,13 @@
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
    ]
   },
+  "poi.park-notable|fr": {
+   "rows": 1,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
+   ]
+  },
   "poi.park-notable|ja": {
    "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
@@ -11012,7 +11124,7 @@
    ]
   },
   "poi.theatre-notable|en": {
-   "rows": 20,
+   "rows": 26,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata (CC0 1.0, public domain dedication, no share-alike), a named source with provenance"
