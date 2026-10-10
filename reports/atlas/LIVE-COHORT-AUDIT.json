@@ -1,0 +1,202 @@
+{
+ "crawl": {
+  "directory": "/home/user/Livdar-eSim/data/atlas/measurements/live-crawl-2026-10-10/",
+  "crawled_at": "2026-10-10T19:08:05.484428+00:00",
+  "cohort_urls": 500,
+  "fetched_total": 740,
+  "declared_in_sitemaps": 740,
+  "user_agent": "LivdarAtlasAudit/1.0 (+https://livdar.com; internal indexation audit; contact via the repository)"
+ },
+ "TECHNICAL_DEFECTS": {
+  "hreflang_missing_x_default": {
+   "count": 114,
+   "examples": [
+    "/de/beste-reisezeit/mexiko/",
+    "/de/feiertage/baden-wuerttemberg/",
+    "/de/feiertage/bayern/",
+    "/de/feiertage/berlin/",
+    "/de/feiertage/brandenburg/",
+    "/de/feiertage/frankreich/"
+   ]
+  },
+  "hreflang_self_reference_only": {
+   "count": 75,
+   "examples": [
+    "/de/feiertage/baden-wuerttemberg/",
+    "/de/feiertage/bayern/",
+    "/de/feiertage/berlin/",
+    "/de/feiertage/brandenburg/",
+    "/de/feiertage/hessen/",
+    "/de/feiertage/niedersachsen/"
+   ]
+  },
+  "h1_not_unique_in_cohort": {
+   "count": 2,
+   "examples": [
+    "/es/herramientas/calculadora-de-salario/",
+    "/pt/ferramentas/calculadora-de-salario/"
+   ]
+  },
+  "http_not_200": {
+   "count": 0,
+   "examples": []
+  },
+  "redirected_before_200": {
+   "count": 0,
+   "examples": []
+  },
+  "noindex_meta": {
+   "count": 0,
+   "examples": []
+  },
+  "blocked_by_robots_txt": {
+   "count": 0,
+   "examples": []
+  },
+  "canonical_missing": {
+   "count": 0,
+   "examples": []
+  },
+  "canonical_not_self": {
+   "count": 0,
+   "examples": []
+  },
+  "absent_from_every_sitemap": {
+   "count": 0,
+   "examples": []
+  },
+  "no_sitemap_lastmod": {
+   "count": 0,
+   "examples": []
+  },
+  "title_missing": {
+   "count": 0,
+   "examples": []
+  },
+  "h1_missing": {
+   "count": 0,
+   "examples": []
+  },
+  "h1_more_than_one": {
+   "count": 0,
+   "examples": []
+  },
+  "meta_description_missing": {
+   "count": 0,
+   "examples": []
+  },
+  "hreflang_missing_self_reference": {
+   "count": 0,
+   "examples": []
+  },
+  "hreflang_not_reciprocal": {
+   "count": 0,
+   "examples": []
+  },
+  "title_not_unique_in_cohort": {
+   "count": 0,
+   "examples": []
+  },
+  "meta_not_unique_in_cohort": {
+   "count": 0,
+   "examples": []
+  },
+  "title_not_unique_in_market": {
+   "count": 0,
+   "examples": []
+  },
+  "h1_not_unique_in_market": {
+   "count": 0,
+   "examples": []
+  },
+  "meta_not_unique_in_market": {
+   "count": 0,
+   "examples": []
+  },
+  "jsonld_present_but_invalid": {
+   "count": 0,
+   "examples": []
+  },
+  "jsonld_absent": {
+   "count": 0,
+   "examples": []
+  },
+  "orphan_no_internal_links_in": {
+   "count": 0,
+   "examples": []
+  },
+  "links_to_a_broken_internal_url": {
+   "count": 0,
+   "examples": []
+  },
+  "links_to_a_redirecting_internal_url": {
+   "count": 0,
+   "examples": []
+  },
+  "not_server_rendered_h1": {
+   "count": 0,
+   "examples": []
+  },
+  "slow_over_2s": {
+   "count": 0,
+   "examples": []
+  }
+ },
+ "CONTENT_OR_VALUE_OBSERVATIONS": {
+  "similarity_in_family_over_0_6": {
+   "count": 19,
+   "examples": [
+    "/de/feiertage/niedersachsen/",
+    "/de/feiertage/sachsen-anhalt/",
+    "/de/feiertage/sachsen/",
+    "/en/cost-of-living/new-zealand/",
+    "/en/cost-of-living/panama/",
+    "/en/cost-of-living/puerto-rico/"
+   ]
+  },
+  "under_500_words": {
+   "count": 17,
+   "examples": [
+    "/de/gehaelter/daenemark/",
+    "/de/gehaelter/deutschland/",
+    "/de/gehaelter/polen/",
+    "/de/gehaelter/spanien/",
+    "/de/gehaelter/tschechien/",
+    "/de/lebenshaltungskosten/australien/"
+   ]
+  },
+  "under_250_words": {
+   "count": 0,
+   "examples": []
+  },
+  "fewer_than_5_numbers": {
+   "count": 0,
+   "examples": []
+  },
+  "fewer_than_3_sections": {
+   "count": 0,
+   "examples": []
+  },
+  "soft_404_risk": {
+   "count": 0,
+   "examples": []
+  },
+  "similarity_in_family_over_0_8": {
+   "count": 0,
+   "examples": []
+  }
+ },
+ "GOOGLE_DECISION": {
+  "state": "NOT MEASURED HERE",
+  "why": "only Search Console answers whether Google indexed a URL. Nothing in this file infers it, and zero impressions in Search Analytics is not evidence of non-indexation.",
+  "how_to_fill_it": [
+   "scripts/atlas/gsc-url-inspection.mjs (needs the Workload Identity Federation credentials, so it runs in the atlas-search-console workflow on main)",
+   "scripts/atlas/analysis/import-gsc-pages-report.py (needs a manual Pages export)"
+  ]
+ },
+ "robots_txt_disallow": [
+  "/api/"
+ ],
+ "production_untouched": true,
+ "this_script_only_reads_the_cache": true
+}

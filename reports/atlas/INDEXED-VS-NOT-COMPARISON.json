@@ -1,0 +1,87 @@
+{
+ "urls": 500,
+ "indexed": 0,
+ "not_indexed": 0,
+ "unknown": 500,
+ "by_family": {
+  "cost-of-living.country": {
+   "UNKNOWN_NOT_INSPECTED": 193
+  },
+  "events.country-holidays": {
+   "UNKNOWN_NOT_INSPECTED": 27
+  },
+  "events.subdivision-holidays": {
+   "UNKNOWN_NOT_INSPECTED": 28
+  },
+  "neighbourhoods.city-where-to-stay": {
+   "UNKNOWN_NOT_INSPECTED": 40
+  },
+  "rankings.index": {
+   "UNKNOWN_NOT_INSPECTED": 25
+  },
+  "rents.country-inflation": {
+   "UNKNOWN_NOT_INSPECTED": 5
+  },
+  "sport.city-season": {
+   "UNKNOWN_NOT_INSPECTED": 29
+  },
+  "tools.calculator": {
+   "UNKNOWN_NOT_INSPECTED": 32
+  },
+  "tools.cost-calculator": {
+   "UNKNOWN_NOT_INSPECTED": 5
+  },
+  "tools.cost-comparison": {
+   "UNKNOWN_NOT_INSPECTED": 10
+  },
+  "tools.matcher": {
+   "UNKNOWN_NOT_INSPECTED": 24
+  },
+  "weather.country-best-time": {
+   "UNKNOWN_NOT_INSPECTED": 24
+  },
+  "work.country-salaries": {
+   "UNKNOWN_NOT_INSPECTED": 58
+  }
+ },
+ "comparison": null,
+ "why_no_comparison": "a comparison needs at least one URL on each side. 0 are indexed and 0 are not indexed in the evidence on disk, so there is nothing to compare and nothing is invented here. Supply index state with scripts/atlas/gsc-url-inspection.mjs or scripts/atlas/analysis/import-gsc-pages-report.py and run this again.",
+ "features_ready_to_compare": {
+  "numeric": [
+   "word_count",
+   "number_count",
+   "internal_links_in",
+   "max_similarity_in_family",
+   "h2_count",
+   "h3_count",
+   "tables",
+   "lists",
+   "body_bytes",
+   "time_total_s",
+   "time_to_first_byte_s",
+   "internal_links_out",
+   "jsonld_blocks",
+   "hreflang_count",
+   "title_len",
+   "meta_description_len",
+   "next_data_bytes",
+   "mean_similarity_in_family",
+   "broken_internal_links",
+   "links_to_redirects"
+  ],
+  "boolean": [
+   "has_noindex",
+   "canonical_is_self",
+   "in_any_sitemap",
+   "is_orphan",
+   "hreflang_has_x_default",
+   "server_rendered_h1",
+   "soft_404_risk",
+   "title_unique_in_cohort",
+   "h1_unique_in_cohort",
+   "meta_unique_in_cohort",
+   "hreflang_has_self",
+   "robots_txt_allowed"
+  ]
+ }
+}

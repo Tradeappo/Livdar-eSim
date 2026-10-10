@@ -82,6 +82,10 @@ COLUMNS = ['family', 'published_urls', 'indexed', 'not_indexed',
            'urls_with_a_search_analytics_row', 'impressions', 'clicks',
            'urls_with_at_least_one_impression', 'indexed_floor_proved_by_impressions',
            'search_visibility_state',
+           'inspected_urls', 'indexation_rate', 'dominant_rejection_reason',
+           'indexed_with_zero_impressions', 'median_crawl_age_days',
+           'hard_technical_defects', 'urls_under_500_words',
+           'urls_similar_in_family_over_0_6',
            'representative_indexed_url', 'representative_not_indexed_url',
            'evidence', 'decision_state']
 
@@ -192,6 +196,13 @@ def days_between(a, b):
     return None
 
 
+def num_or_0(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def median(xs):
     xs = sorted(x for x in xs if x is not None)
     if not xs:
@@ -200,12 +211,72 @@ def median(xs):
     return xs[n // 2] if n % 2 else (xs[n // 2 - 1] + xs[n // 2]) / 2
 
 
+# THE BAR IS A DECISION, NOT A MEASUREMENT, so it is written down here rather than buried in
+# an if. Nothing in the data says 80 per cent is healthy; these are the thresholds this report
+# applies, and changing them changes the labels, which is why they are one block and are echoed
+# into the summary.
+#
+#   FIX    a clear systematic problem. Either half or more of the family's URLs carry a HARD
+#          technical defect (not 200, noindex, canonical pointing elsewhere, absent from every
+#          sitemap, no internal link in), or index state is known for most of the family and
+#          30 per cent or less of it is indexed.
+#   SCALE  index state is known for at least 60 per cent of the family, 80 per cent or more of
+#          what is known is indexed, and no hard technical defect is present.
+#   HOLD   everything else, which includes the case the brief names: evidence insufficient or
+#          mixed. HOLD is not a soft FIX and it is not a soft SCALE; it means do nothing with
+#          this family until there is more evidence.
+BAR = {
+    'fix_hard_defect_share': 0.50,
+    'fix_indexation_rate_at_or_below': 0.30,
+    'scale_coverage_at_least': 0.60,
+    'scale_indexation_rate_at_least': 0.80,
+    'coverage_means': 'the share of a family\'s live URLs for which Search Console returned '
+                      'an index state',
+}
+
+
+def decide(pub, known, indexed, hard_defects):
+    """SCALE, HOLD or FIX, by the bar above. Returns (label, why)."""
+    share = (hard_defects / pub) if pub else 0.0
+    if share >= BAR['fix_hard_defect_share']:
+        return 'FIX', (f'{hard_defects} of {pub} URLs carry a hard technical defect, which is '
+                       f'{share:.0%} and at or over the {BAR["fix_hard_defect_share"]:.0%} bar')
+    cov = (known / pub) if pub else 0.0
+    if known == 0:
+        return 'HOLD', 'no Search Console index state for any URL in this family'
+    rate = indexed / known
+    if cov >= BAR['scale_coverage_at_least'] and rate <= BAR['fix_indexation_rate_at_or_below']:
+        return 'FIX', (f'index state is known for {cov:.0%} of the family and only {rate:.0%} '
+                       f'of it is indexed')
+    if cov < BAR['scale_coverage_at_least']:
+        return 'HOLD', (f'index state is known for only {cov:.0%} of the family, under the '
+                        f'{BAR["scale_coverage_at_least"]:.0%} this report needs to judge it')
+    if rate >= BAR['scale_indexation_rate_at_least'] and hard_defects == 0:
+        return 'SCALE', (f'{rate:.0%} of the {known} URLs with a known state are indexed and '
+                         f'no hard technical defect is present')
+    return 'HOLD', (f'{rate:.0%} indexed on {cov:.0%} coverage with {hard_defects} hard '
+                    f'defects: mixed, so neither label is earned')
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     rows, live_err = live_rows()
     insp, insp_src = gsc_inspection()
     cov, cov_src = gsc_coverage()
     sa, sa_windows = gsc_search_analytics()
+    # Historical Page Indexing, for a DIFFERENT URL set. Carried as context and never as the
+    # cohort's state: on 2026-09-21 the property held 91 URLs, all 200, all index,follow, all
+    # self-canonical, all in the sitemap, and 30 of them were indexed, with 58 of the 64
+    # not-indexed carrying "Discovered, currently not indexed". That is the same technical
+    # profile the 500 cohort has today, which is why it belongs in this report; it is not
+    # evidence about any of the 500 URLs and the loader keeps it out of every count.
+    hist = None
+    hp = GSC + 'historical-pages-report-2026-09-21.json'
+    if os.path.exists(hp):
+        try:
+            hist = json.load(open(hp, encoding='utf-8'))
+        except Exception as e:
+            hist = {'unreadable': f'{type(e).__name__}: {e}'}
     # have_gsc governs the INDEX STATE columns, and Search Analytics does not answer that
     # question, so it deliberately does not set this flag. It has its own columns.
     have_gsc = bool(insp or cov)
@@ -270,6 +341,115 @@ def main():
             if st in INDEXED:
                 index_lat[fam].append(days_between(r['first_published'], lc))
 
+    # ---- the PER-URL layer, joined with the technical audit
+    # The brief asks for per-URL and per-family, and the two answer different questions: the
+    # family rollup says whether a MODEL works, the per-URL table says what to do about one
+    # page. The audit columns travel with it so a row carries the three categories side by
+    # side without merging them: what Google decided, what is technically true of the page,
+    # and what we judge about its content.
+    audit = {}
+    ap = OUT + 'LIVE-COHORT-AUDIT.csv'
+    if os.path.exists(ap):
+        for a in csv.DictReader(open(ap, encoding='utf-8')):
+            audit[a['path']] = a
+    URL_COLS = ['path', 'family', 'market', 'cohort',
+                'google_index_state', 'coverage_state_raw', 'verdict_raw',
+                'discovered', 'crawled', 'last_crawl_time',
+                'google_canonical', 'user_canonical', 'canonical_matches',
+                'exclusion_reason_raw',
+                'impressions', 'clicks', 'search_visibility_state',
+                'http_code', 'has_noindex', 'canonical_is_self', 'in_any_sitemap',
+                'internal_links_in', 'is_orphan', 'word_count', 'number_count',
+                'max_similarity_in_family', 'hreflang_has_x_default',
+                'recommended_action']
+    url_rows = []
+    for r in rows:
+        a = audit.get(r['path'], {})
+        g = None
+        for base in ('https://livdar.com', 'https://www.livdar.com', ''):
+            g = insp.get(base + r['path']) or cov.get(base + r['path']) or g
+        sa_row = sa.get(r['path']) or {}
+        st = (g or {}).get('coverageState') or ''
+        if g is None:
+            state = 'UNKNOWN_NOT_INSPECTED'
+        elif st in INDEXED:
+            state = 'INDEXED'
+        elif st:
+            state = 'NOT_INDEXED'
+        else:
+            state = 'UNKNOWN_NO_STATE_RETURNED'
+        gc = (g or {}).get('googleCanonical') or ''
+        uc = (g or {}).get('userCanonical') or ''
+        # The recommendation is derived from what IS measured and says so when nothing is.
+        # It never guesses an index state, and a technically clean page with no evidence gets
+        # "inspect it", not "scale it".
+        if state.startswith('UNKNOWN'):
+            act = 'INSPECT: no Search Console index state for this URL yet'
+        elif state == 'INDEXED' and (sa_row.get('impressions') or 0) == 0:
+            act = 'INDEXED BUT UNSEEN: indexed and never shown, so the gap is demand or ranking'
+        elif state == 'INDEXED':
+            act = 'KEEP: indexed and shown'
+        elif a.get('has_noindex') == 'True':
+            act = 'FIX: the page serves a noindex'
+        elif a.get('canonical_is_self') == 'False':
+            act = 'FIX: the canonical points elsewhere'
+        elif a.get('in_any_sitemap') == 'False':
+            act = 'FIX: the page is in no sitemap'
+        elif a.get('is_orphan') == 'True':
+            act = 'FIX: no internal link points at the page'
+        else:
+            act = ('INVESTIGATE: not indexed and no technical defect found, so the reason is '
+                   'in Google\'s stated exclusion or in the page\'s value')
+        url_rows.append({
+            'path': r['path'], 'family': r['family'],
+            'market': a.get('market', ''), 'cohort': 'cohort-001-live-500',
+            'google_index_state': state,
+            'coverage_state_raw': st, 'verdict_raw': (g or {}).get('verdict') or '',
+            'discovered': (g or {}).get('discovered', ''),
+            'crawled': 'yes' if (g or {}).get('lastCrawlTime') else '',
+            'last_crawl_time': (g or {}).get('lastCrawlTime') or '',
+            'google_canonical': gc, 'user_canonical': uc,
+            'canonical_matches': (gc == uc) if (gc and uc) else '',
+            'exclusion_reason_raw': st if state == 'NOT_INDEXED' else '',
+            'impressions': sa_row.get('impressions', '') if sa else 'UNAVAILABLE',
+            'clicks': sa_row.get('clicks', '') if sa else 'UNAVAILABLE',
+            'search_visibility_state': ('SHOWN_IN_SEARCH'
+                                        if (sa_row.get('impressions') or 0) > 0
+                                        else ('NO_IMPRESSION_IN_THE_MEASURED_WINDOW'
+                                              if sa_row else 'UNAVAILABLE')),
+            'http_code': a.get('http_code', ''), 'has_noindex': a.get('has_noindex', ''),
+            'canonical_is_self': a.get('canonical_is_self', ''),
+            'in_any_sitemap': a.get('in_any_sitemap', ''),
+            'internal_links_in': a.get('internal_links_in', ''),
+            'is_orphan': a.get('is_orphan', ''),
+            'word_count': a.get('word_count', ''),
+            'number_count': a.get('number_count', ''),
+            'max_similarity_in_family': a.get('max_similarity_in_family', ''),
+            'hreflang_has_x_default': a.get('hreflang_has_x_default', ''),
+            'recommended_action': act,
+        })
+    with open(OUT + 'INDEXATION-BY-URL.csv.tmp', 'w', newline='', encoding='utf-8') as fh:
+        wu = csv.DictWriter(fh, fieldnames=URL_COLS, extrasaction='ignore')
+        wu.writeheader()
+        wu.writerows(sorted(url_rows, key=lambda x: (x['family'], x['path'])))
+    os.replace(OUT + 'INDEXATION-BY-URL.csv.tmp', OUT + 'INDEXATION-BY-URL.csv')
+
+    # per-family accumulators the rollup needs, built from the per-URL layer that was just
+    # written so the two cannot disagree
+    fam_reasons = collections.defaultdict(lambda: collections.Counter())
+    fam_zero_imp = collections.Counter()
+    fam_crawl_age = collections.defaultdict(list)
+    _today = datetime.date.today().isoformat()
+    for u in url_rows:
+        if u['exclusion_reason_raw']:
+            fam_reasons[u['family']][u['exclusion_reason_raw']] += 1
+        if u['google_index_state'] == 'INDEXED' and (u.get('impressions') or 0) == 0:
+            fam_zero_imp[u['family']] += 1
+        if u['last_crawl_time']:
+            d = days_between(u['last_crawl_time'][:10], _today)
+            if d is not None:
+                fam_crawl_age[u['family']].append(d)
+
     buf = io.StringIO()
     w = csv.DictWriter(buf, fieldnames=COLUMNS, extrasaction='ignore')
     w.writeheader()
@@ -306,24 +486,53 @@ def main():
             row['search_visibility_state'] = 'NO_IMPRESSION_IN_THE_MEASURED_WINDOW'
         row['representative_indexed_url'] = rep[fam].get('representative_indexed_url', '')
         row['representative_not_indexed_url'] = rep[fam].get('representative_not_indexed_url', '')
+        # the audit-derived columns, from the same join the per-URL layer uses
+        fam_audit = [audit[r['path']] for r in rows
+                     if r['family'] == fam and r['path'] in audit]
+        hard = sum(1 for a in fam_audit
+                   if a.get('http_code') != '200' or a.get('has_noindex') == 'True'
+                   or a.get('canonical_is_self') == 'False'
+                   or a.get('in_any_sitemap') == 'False' or a.get('is_orphan') == 'True')
+        row['hard_technical_defects'] = hard if fam_audit else 'UNAVAILABLE'
+        row['urls_under_500_words'] = (sum(1 for a in fam_audit
+                                           if (num_or_0(a.get('word_count')) < 500))
+                                       if fam_audit else 'UNAVAILABLE')
+        row['urls_similar_in_family_over_0_6'] = (
+            sum(1 for a in fam_audit
+                if num_or_0(a.get('max_similarity_in_family')) > 0.6)
+            if fam_audit else 'UNAVAILABLE')
+        row['inspected_urls'] = known if have_gsc else 0
+        row['indexation_rate'] = (round(c['indexed'] / known, 3)
+                                  if have_gsc and known else 'UNAVAILABLE')
+        reasons = fam_reasons.get(fam) or {}
+        row['dominant_rejection_reason'] = (max(reasons, key=reasons.get)
+                                            if reasons else 'UNAVAILABLE')
+        row['indexed_with_zero_impressions'] = (fam_zero_imp.get(fam, 0)
+                                                if have_gsc and sa else 'UNAVAILABLE')
+        row['median_crawl_age_days'] = (median(fam_crawl_age.get(fam) or [])
+                                        if (fam_crawl_age.get(fam) or []) else 'UNAVAILABLE')
+        label, why = decide(pub, known, c['indexed'], hard if fam_audit else 0)
         if not have_gsc and c['urls_with_a_search_analytics_row']:
             row['evidence'] = (
                 f"PARTIAL: Search Analytics covers "
                 f"{c['urls_with_a_search_analytics_row']} of {pub} URLs with "
                 f"{c['impressions']} impressions and {c['clicks']} clicks; index state needs "
                 f"the Pages report, which the import itself says is not wired yet")
-            row['decision_state'] = 'INDEX_STATE_MISSING_VISIBILITY_MEASURED'
+            row['decision_state'] = label
+            row['evidence'] += f'. DECISION {label}: {why}'
         elif not have_gsc:
-            row['evidence'] = 'NONE: no GSC data in this environment'
-            row['decision_state'] = 'EVIDENCE_MISSING'
+            row['evidence'] = f'NONE: no GSC data in this environment. DECISION {label}: {why}'
+            row['decision_state'] = label
         elif known < pub:
             row['evidence'] = f'PARTIAL: {known} of {pub} URLs have a GSC state'
-            row['decision_state'] = 'EVIDENCE_MISSING' if known == 0 else 'EVIDENCE_PARTIAL'
+            row['decision_state'] = label
+            row['evidence'] += f'. DECISION {label}: {why}'
         else:
             row['evidence'] = f'COMPLETE: {known} of {pub} URLs have a GSC state'
             # left unclassified on purpose: no threshold here is measured, and the brief says
             # not to classify families without real evidence AND a decided bar
-            row['decision_state'] = 'READY_TO_CLASSIFY'
+            row['decision_state'] = label
+            row['evidence'] += f'. DECISION {label}: {why}'
         w.writerow(row)
     with open(OUT + 'INDEXATION-BY-FAMILY.csv.tmp', 'w', newline='') as fh:
         fh.write(buf.getvalue())
@@ -363,6 +572,7 @@ def main():
             'reports/atlas/live-production.json; without it the dates have nothing to '
             'subtract from and the two latency columns stay UNAVAILABLE.',
         ],
+        'the_bar_is_a_decision_not_a_measurement': BAR,
         'decision_states': {
             'INDEX_STATE_MISSING_VISIBILITY_MEASURED':
                 'Search Analytics covers the URLs and index state does not. A family here '
@@ -375,6 +585,7 @@ def main():
             'READY_TO_CLASSIFY': 'every published URL has a state; the bar is a decision, '
                                  'not a measurement, so this script stops here',
         },
+        'historical_context_different_url_set': hist,
         'production_untouched': True,
         'this_script_reads_only': True,
     }
@@ -402,7 +613,18 @@ def main():
               '(the Search Analytics columns above are measured):')
         for m in missing:
             print(f'  - {m}')
-    print(f'written {OUT}INDEXATION-BY-FAMILY.csv and INDEXATION-SUMMARY.json')
+    import collections as _c
+    print('recommended actions: ' + json.dumps(
+        dict(_c.Counter(r['recommended_action'].split(':')[0] for r in url_rows))))
+    if hist and 'pages_report' in hist:
+        pr = hist['pages_report']
+        print(f"historical context, a DIFFERENT {hist['url_set_size']}-URL set read "
+              f"{hist['read_at']}: indexed {pr['Indexed']}, not indexed "
+              f"{pr['Not indexed, total']}, dominant reason "
+              f"{hist['dominant_exclusion_reason']!r} at "
+              f"{pr['Discovered, currently not indexed']}")
+    print(f'written {OUT}INDEXATION-BY-URL.csv, INDEXATION-BY-FAMILY.csv and '
+          f'INDEXATION-SUMMARY.json')
 
 
 if __name__ == '__main__':

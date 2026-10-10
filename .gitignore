@@ -99,3 +99,11 @@ data/atlas/candidates/*/
 # The monoliths stay on disk and stay what every downstream stage reads locally.
 reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz
 reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-REJECTED-CANDIDATES.csv.gz
+
+# The live-crawl CACHE: the exact bytes of every fetched page, about 19 MB per run. It is
+# re-fetchable from production in ten minutes by scripts/atlas/analysis/crawl-live-cohort.py,
+# and what the audit rests on is kept: _crawl-index.json carries every status, every timing
+# and the path lists, and reports/atlas/LIVE-COHORT-AUDIT.csv carries every derived fact. The
+# bodies themselves are the one part that is both large and reproducible.
+data/atlas/measurements/live-crawl-*/pages/
+data/atlas/measurements/live-crawl-*/sitemaps/

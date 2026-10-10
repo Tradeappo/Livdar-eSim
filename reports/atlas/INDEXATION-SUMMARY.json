@@ -57,6 +57,13 @@
   "Or export Search Console > Indexing > Pages > any row > Export, and save as data/atlas/measurements/gsc/index-coverage-YYYY-MM-DD.csv with URL and Coverage state columns.",
   "Crawl and indexation latency need first_published per URL in reports/atlas/live-production.json; without it the dates have nothing to subtract from and the two latency columns stay UNAVAILABLE."
  ],
+ "the_bar_is_a_decision_not_a_measurement": {
+  "fix_hard_defect_share": 0.5,
+  "fix_indexation_rate_at_or_below": 0.3,
+  "scale_coverage_at_least": 0.6,
+  "scale_indexation_rate_at_least": 0.8,
+  "coverage_means": "the share of a family's live URLs for which Search Console returned an index state"
+ },
  "decision_states": {
   "INDEX_STATE_MISSING_VISIBILITY_MEASURED": "Search Analytics covers the URLs and index state does not. A family here has a measured visibility answer and an unmeasured indexation answer.",
   "SCALE": "assign only on complete evidence and an agreed indexed-share bar",
@@ -65,6 +72,61 @@
   "EVIDENCE_MISSING": "no GSC state for any URL in this family",
   "EVIDENCE_PARTIAL": "some URLs have a state, not all",
   "READY_TO_CLASSIFY": "every published URL has a state; the bar is a decision, not a measurement, so this script stops here"
+ },
+ "historical_context_different_url_set": {
+  "what_this_is": "The Page Indexing (Pages) report as it stood on 2026-09-21, transcribed from reports/gsc-baseline-2026-09-21.md, which recorded it from the Search Console UI by hand.",
+  "why_it_is_kept_separate_from_the_cohort": "It covers a DIFFERENT URL SET: the 91 core, destination, region and guide pages that were live then. The 500 Atlas pages this analysis is about were published afterwards and are not in these counts. It is historical context for how Google treats this property, not index state for the cohort, and nothing may read it as the cohort's status.",
+  "source": "manual reading of the Search Console interface, not an API call and not an export",
+  "property": "sc-domain:livdar.com",
+  "index_data_last_updated": "2026-09-18",
+  "read_at": "2026-09-21",
+  "url_set_size": 91,
+  "sitemap": {
+   "path": "https://livdar.com/sitemap.xml",
+   "type": "sitemap index",
+   "submitted": "2026-09-16",
+   "last_read_by_google": "2026-09-20",
+   "status": "Success",
+   "pages_discovered": 91
+  },
+  "pages_report": {
+   "Indexed": 30,
+   "Not indexed, total": 64,
+   "Discovered, currently not indexed": 58,
+   "Crawled, currently not indexed": 4,
+   "Page with redirect": 1,
+   "Duplicate without user-selected canonical": 1
+  },
+  "crawled_not_indexed_urls": [
+   "/en/esim/",
+   "/en/regions/europe/",
+   "/de/regionen/europe/",
+   "/de/regionen/middle-east/"
+  ],
+  "redirect_and_duplicate_urls": [
+   "www.livdar.com/ (www redirects to the apex, expected)"
+  ],
+  "performance_at_the_time": {
+   "window_days": [
+    28,
+    90
+   ],
+   "clicks": 0,
+   "impressions": 4,
+   "avg_position": 16,
+   "note": "both windows give the same totals because every impression fell on 18 and 19 September 2026",
+   "pages_with_impressions": [
+    "/",
+    "/de/regionen/south-america/",
+    "/de/ratgeber/how-esim-works/",
+    "/ro/ghiduri/airport-connectivity/"
+   ]
+  },
+  "the_technical_state_at_the_time": "all 91 URLs returned 200, were index,follow, canonical to themselves and present in the sitemap, and 30 were indexed. The baseline's own conclusion was that the first bottleneck is indexing rather than titles or CTR.",
+  "indexation_rate": 0.3297,
+  "dominant_exclusion_reason": "Discovered, currently not indexed",
+  "what_that_reason_means": "Google knows the URL exists and has chosen not to spend crawl budget on it yet. It is a discovery and priority signal about the property, not a verdict on the page's content, and it is the reason 58 of the 64 not-indexed URLs carried.",
+  "the_follow_up_this_file_is_owed": "the baseline asked to be re-read on or after 2026-10-05 and compared. That re-read has not happened and is what scripts/atlas/gsc-url-inspection.mjs and scripts/atlas/analysis/import-gsc-pages-report.py exist to supply."
  },
  "production_untouched": true,
  "this_script_reads_only": true
