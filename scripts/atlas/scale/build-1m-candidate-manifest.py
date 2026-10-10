@@ -21,7 +21,7 @@ Feed-gated verticals are KEPT, with source_status separating them, because the b
 is a candidate inventory and a missing feed is an acquisition task, not a reason to
 delete real demand.
 """
-import json, glob, gzip, csv, hashlib, collections, os, sys, math
+import json, glob, gzip, csv, hashlib, collections, os, sys, math, re
 
 # entity_identity is imported HERE, at the top, because things near the top of this file now
 # read from it. It used to be imported two thirds of the way down, next to its first use, and
@@ -2950,6 +2950,57 @@ for _pair, _v in XM_SAME_LANGUAGE_REPORT.items():
 
 stage2 = stage2c
 
+# ---- one journey, one page: the rail adjacency page loses to the timetabled one -------------
+# transport.city-pair-rail and transport.city-pair-transit both answer "how do I get from A to
+# B" for the same two settlements in the same market, and 326 journeys carried both. They are
+# not the same page by any existing test: the cannibalisation gate below keys on
+# (market, entity_type, entity_id, primary_intent), and these differ in all three of
+# entity_type, entity_id and intent wording, so the pair sailed through every duplicate pass
+# this file runs.
+#
+# The rail page is strictly dominated where both exist. It rests on the Wikidata P197 adjacent
+# station graph, which the builder itself labels PARTIAL: it can say two places are connected
+# and how far apart they are. The transit page rests on published stop_times and carries a
+# median journey time, a direct-trip count and the operators. A reader asking how to get from
+# Alexandria to Lynchburg is served by the second and misled by the first appearing beside it.
+#
+# JOINED ON IDENTITY, NOT ON NAME. Both families key entity_id as a pair of GeoNames settlement
+# ids, so the overlap is found by id. A name join found 385 and was not used: 59 of those were
+# either false matches or involved transit rows whose endpoints are STATION ids rather than
+# settlement ids, and "name-only identity join" is a thing this inventory refuses on principle.
+# 55,058 of the 510,592 transit rows carry a settlement-id pair; the rest are station-shaped
+# and cannot be joined this way, so this gate is deliberately narrower than the apparent
+# overlap rather than wider.
+_NUMPAIR = re.compile(r'^(\d+)-(\d+)$')
+_transit_owned = collections.defaultdict(set)
+for r in stage2:
+    if r['family'] == 'transport.city-pair-transit':
+        _m = _NUMPAIR.match(r.get('entity_id') or '')
+        if _m:
+            _transit_owned[r['market']].add(frozenset(_m.groups()))
+journey_rejected = []
+stage2j = []
+for r in stage2:
+    _m = _NUMPAIR.match(r.get('entity_id') or '') if r['family'] == 'transport.city-pair-rail' else None
+    if _m and frozenset(_m.groups()) in _transit_owned.get(r['market'], ()):
+        r['rejection_reason'] = (
+            'REJECTED_SAME_JOURNEY_BETTER_EVIDENCED: transport.city-pair-transit already '
+            'covers these two settlements in this market from a published timetable, with a '
+            'median journey time and a direct-service count. This page rests on the Wikidata '
+            'adjacent-station graph, which can only say the two are connected, so beside the '
+            'timetabled page it is a second answer to one question with strictly less '
+            'evidence.')
+        r['status'] = 'REJECTED_SAME_JOURNEY_BETTER_EVIDENCED'
+        r['duplicate_risk'] = 'RESOLVED_TIMETABLE_BEATS_ADJACENCY'
+        journey_rejected.append(r)
+        continue
+    stage2j.append(r)
+if journey_rejected:
+    print(f'one journey one page: {len(journey_rejected):,} rail pages rejected where a '
+          f'timetabled transit page covers the same settlement pair', file=sys.stderr)
+stage2 = stage2j
+after_one_journey = len(stage2)
+
 # cannibalisation: two families targeting the same intent on the same entity in the
 # same market. Keep the higher publication_priority, flag the loser out.
 # The loser is KEPT as a rejection. It was being dropped with only a flag set on the
@@ -3264,6 +3315,7 @@ summary = {
     'cross_market_same_language_checks': XM_SAME_LANGUAGE_REPORT,
     'removed_as_semantic_duplicates': REJ_COUNTS['semantic_dupes'],
     'removed_by_cannibalisation': REJ_COUNTS['cannib_rejected'],
+    'removed_as_the_same_journey_already_timetabled': len(journey_rejected),
     'removed_as_the_same_name_in_the_same_city': REJ_COUNTS['name_dupes'],
     'removed_because_the_declared_parent_did_not_survive': REJ_COUNTS['orphan_rejected'],
     'funnel_reconciles': (generated_total - (generated_total - raw_total)

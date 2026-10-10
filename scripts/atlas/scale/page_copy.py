@@ -115,6 +115,34 @@ def compute_shared_entity_subjects(all_rows):
     return {k for k, v in fams.items() if len(v) > 1}
 
 
+# The AGGREGATION subjects two families both claim in one market. The ENTITY set above does
+# not cover these, because subject() returns an aggregation's entity_name unchanged and never
+# reaches the shared-subject check: the comment above it says "the aggregation shapes already
+# carry the subject in the name", and for the POI shapes that is true, because the name reads
+# "seafood restaurant in Long Beach, California". For PULSE it is false. Its name is
+# "Bavaria 2026", and bridge-days, public-holidays and school-holidays all carry it, so all
+# three were headed "Bavaria 2026" - three pages in one market, one H1, and nothing in the
+# heading saying which calendar a reader is looking at. 619 duplicate H1 groups, and like the
+# 920 before them they were the skeleton's fault rather than the inventory's: the three pages
+# are legitimately three.
+#
+# Keyed on the NAME rather than on subject(), which keeps this free of the circularity the
+# ENTITY set has to be careful about: an aggregation's raw subject IS its name, so the key can
+# be built before any subject is rendered.
+SHARED_AGG_SUBJECT = set()
+
+
+def compute_shared_agg_subjects(all_rows):
+    """{(market, entity name)} for AGGREGATION rows whose name two families both claim."""
+    import collections as _c
+    fams = _c.defaultdict(set)
+    for r in all_rows:
+        if r.get('page_type') != 'AGGREGATION':
+            continue
+        fams[(r.get('market', ''), undash(r.get('entity_name') or ''))].add(r.get('family'))
+    return {k for k, v in fams.items() if len(v) > 1}
+
+
 def compute_ambiguous_labels(all_rows):
     seg = collections.defaultdict(set)
     for r in all_rows:
@@ -188,6 +216,10 @@ def subject(r):
     # Pfalz are city names, so their category, climate and calendar pages were all handed the
     # same H1. Reading a flag beats guessing from a string.
     if r['page_type'] == 'AGGREGATION':
+        # two aggregation families in this market render the same name, so the name alone does
+        # not say which page this is
+        if (r.get('market', ''), name) in SHARED_AGG_SUBJECT:
+            return f'{name}: {family_label(r)}'
         return name
     # Where the entity IS the place, the place name cannot distinguish one family from another,
     # so the family topic has to. Berlin's category page and its climate page are both about

@@ -1,0 +1,29 @@
+{
+ "generated": "2026-10-10",
+ "published_urls_in_our_record": 500,
+ "families": 13,
+ "gsc_data_present": false,
+ "url_inspection_source": null,
+ "coverage_export_source": null,
+ "urls_with_a_gsc_state": 0,
+ "coverage_states_seen": {},
+ "what_is_missing": [
+  "no URL Inspection captures in /home/user/Livdar-eSim/data/atlas/measurements/gsc/url-inspection-*.json",
+  "no coverage export in /home/user/Livdar-eSim/data/atlas/measurements/gsc/index-coverage-*.csv"
+ ],
+ "how_to_supply_it": [
+  "URL Inspection API, one call per URL, 2,000/day/property: write each batch to data/atlas/measurements/gsc/url-inspection-YYYY-MM-DD.json as {\"rows\": [...]} with url, coverageState, lastCrawlTime, googleCanonical, userCanonical, verdict.",
+  "Or export Search Console > Indexing > Pages > any row > Export, and save as data/atlas/measurements/gsc/index-coverage-YYYY-MM-DD.csv with URL and Coverage state columns.",
+  "Crawl and indexation latency need first_published per URL in reports/atlas/live-production.json; without it the dates have nothing to subtract from and the two latency columns stay UNAVAILABLE."
+ ],
+ "decision_states": {
+  "SCALE": "assign only on complete evidence and an agreed indexed-share bar",
+  "HOLD": "assign only on complete evidence and an agreed bar",
+  "FIX": "assign only on complete evidence and an agreed bar",
+  "EVIDENCE_MISSING": "no GSC state for any URL in this family",
+  "EVIDENCE_PARTIAL": "some URLs have a state, not all",
+  "READY_TO_CLASSIFY": "every published URL has a state; the bar is a decision, not a measurement, so this script stops here"
+ },
+ "production_untouched": true,
+ "this_script_reads_only": true
+}
