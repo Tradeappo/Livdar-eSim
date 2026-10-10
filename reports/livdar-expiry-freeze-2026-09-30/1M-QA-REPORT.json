@@ -1,9 +1,9 @@
 {
- "manifest_rows": 969840,
- "distinct_urls": 969840,
+ "manifest_rows": 973236,
+ "distinct_urls": 973236,
  "checks": {
-  "title_over_65_chars": 493080,
-  "meta_over_165_chars": 514358,
+  "title_over_65_chars": 495724,
+  "meta_over_165_chars": 517754,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 596,
   "duplicate_title_same_tokens": 1335,
@@ -24,7 +24,7 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 619,
+  "duplicate_h1_within_a_market": 577,
   "declared_parent_is_not_a_valid_parent": 0,
   "declared_parent_is_valid_but_not_a_path_prefix": 24459,
   "family_locale_cells_failing_the_usefulness_test": 0
@@ -410,105 +410,87 @@
  "duplicate_slug_examples": {},
  "duplicate_meta_examples": {},
  "duplicate_h1_examples": {
-  "Baden-Württemberg 2026": [
-   "/de/pulse/baden-wurttemberg/bridge-days-2026/",
-   "/de/pulse/baden-wurttemberg/public-holidays-2026/",
-   "/de/pulse/baden-wurttemberg/school-holidays-2026/"
+  "Hoof Trail, Castle Ward": [
+   "/en/outdoors/trail/hoof-trail-castle-ward-r19611758/",
+   "/en/outdoors/trail/hoof-trail-r17057407/"
   ],
-  "Baden-Württemberg 2027": [
-   "/de/pulse/baden-wurttemberg/bridge-days-2027/",
-   "/de/pulse/baden-wurttemberg/public-holidays-2027/",
-   "/de/pulse/baden-wurttemberg/school-holidays-2027/"
+  "Alexandria to Lynchburg, Alexandria, US": [
+   "/en/transport/public-transport/alexandria-to-lynchburg/",
+   "/en/transport/rail/alexandria-lynchburg/"
   ],
-  "Bavaria 2026": [
-   "/de/pulse/bavaria/bridge-days-2026/",
-   "/de/pulse/bavaria/public-holidays-2026/",
-   "/de/pulse/bavaria/school-holidays-2026/"
+  "Alexandria to New Brunswick, Alexandria, US": [
+   "/en/transport/public-transport/alexandria-to-new-brunswick/",
+   "/en/transport/rail/alexandria-new-brunswick/"
   ],
-  "Bavaria 2027": [
-   "/de/pulse/bavaria/bridge-days-2027/",
-   "/de/pulse/bavaria/public-holidays-2027/",
-   "/de/pulse/bavaria/school-holidays-2027/"
+  "Alexandria to Norfolk, Alexandria, US": [
+   "/en/transport/public-transport/alexandria-to-norfolk/",
+   "/en/transport/rail/alexandria-norfolk/"
   ],
-  "Berlin 2026": [
-   "/de/pulse/berlin/bridge-days-2026/",
-   "/de/pulse/berlin/public-holidays-2026/",
-   "/de/pulse/berlin/school-holidays-2026/"
+  "Alexandria to Richmond, Alexandria, US": [
+   "/en/transport/public-transport/alexandria-to-richmond/",
+   "/en/transport/rail/alexandria-richmond/"
   ],
-  "Berlin 2027": [
-   "/de/pulse/berlin/bridge-days-2027/",
-   "/de/pulse/berlin/public-holidays-2027/",
-   "/de/pulse/berlin/school-holidays-2027/"
+  "Alexandria to Roanoke, Alexandria, US": [
+   "/en/transport/public-transport/alexandria-to-roanoke/",
+   "/en/transport/rail/alexandria-roanoke/"
   ],
-  "Brandenburg 2026": [
-   "/de/pulse/brandenburg/bridge-days-2026/",
-   "/de/pulse/brandenburg/public-holidays-2026/",
-   "/de/pulse/brandenburg/school-holidays-2026/"
+  "Alexandria to Trenton, Alexandria, US": [
+   "/en/transport/public-transport/alexandria-to-trenton/",
+   "/en/transport/rail/alexandria-trenton/"
   ],
-  "Brandenburg 2027": [
-   "/de/pulse/brandenburg/bridge-days-2027/",
-   "/de/pulse/brandenburg/public-holidays-2027/",
-   "/de/pulse/brandenburg/school-holidays-2027/"
+  "Ann Arbor to Battle Creek, Ann Arbor, US": [
+   "/en/transport/public-transport/ann-arbor-to-battle-creek/",
+   "/en/transport/rail/ann-arbor-battle-creek/"
   ],
-  "Bremen 2026": [
-   "/de/pulse/bremen/bridge-days-2026/",
-   "/de/pulse/bremen/public-holidays-2026/",
-   "/de/pulse/bremen/school-holidays-2026/"
+  "Ann Arbor to Dearborn Heights, Ann Arbor, US": [
+   "/en/transport/public-transport/ann-arbor-to-dearborn-heights/",
+   "/en/transport/rail/ann-arbor-dearborn-heights/"
   ],
-  "Bremen 2027": [
-   "/de/pulse/bremen/bridge-days-2027/",
-   "/de/pulse/bremen/public-holidays-2027/",
-   "/de/pulse/bremen/school-holidays-2027/"
+  "Ann Arbor to Kalamazoo, Ann Arbor, US": [
+   "/en/transport/public-transport/ann-arbor-to-kalamazoo/",
+   "/en/transport/rail/ann-arbor-kalamazoo/"
   ],
-  "Hamburg 2026": [
-   "/de/pulse/hamburg/bridge-days-2026/",
-   "/de/pulse/hamburg/public-holidays-2026/",
-   "/de/pulse/hamburg/school-holidays-2026/"
+  "Ann Arbor to Pontiac, Ann Arbor, US": [
+   "/en/transport/public-transport/ann-arbor-to-pontiac/",
+   "/en/transport/rail/ann-arbor-pontiac/"
   ],
-  "Hamburg 2027": [
-   "/de/pulse/hamburg/bridge-days-2027/",
-   "/de/pulse/hamburg/public-holidays-2027/",
-   "/de/pulse/hamburg/school-holidays-2027/"
+  "Ann Arbor to Royal Oak, Ann Arbor, US": [
+   "/en/transport/public-transport/ann-arbor-to-royal-oak/",
+   "/en/transport/rail/ann-arbor-royal-oak/"
   ],
-  "Hesse 2026": [
-   "/de/pulse/hesse/bridge-days-2026/",
-   "/de/pulse/hesse/public-holidays-2026/",
-   "/de/pulse/hesse/school-holidays-2026/"
+  "Atlanta to Charlotte, Atlanta, US": [
+   "/en/transport/public-transport/atlanta-to-charlotte/",
+   "/en/transport/rail/atlanta-charlotte/",
+   "/en/transport/route/atlanta-charlotte/"
   ],
-  "Hesse 2027": [
-   "/de/pulse/hesse/bridge-days-2027/",
-   "/de/pulse/hesse/public-holidays-2027/",
-   "/de/pulse/hesse/school-holidays-2027/"
+  "Atlanta to Charlottesville, Atlanta, US": [
+   "/en/transport/public-transport/atlanta-to-charlottesville/",
+   "/en/transport/route/atlanta-charlottesville/"
   ],
-  "Lower Saxony 2026": [
-   "/de/pulse/lower-saxony/bridge-days-2026/",
-   "/de/pulse/lower-saxony/public-holidays-2026/",
-   "/de/pulse/lower-saxony/school-holidays-2026/"
+  "Atlanta to Gastonia, Atlanta, US": [
+   "/en/transport/public-transport/atlanta-to-gastonia/",
+   "/en/transport/rail/atlanta-gastonia/"
   ],
-  "Lower Saxony 2027": [
-   "/de/pulse/lower-saxony/bridge-days-2027/",
-   "/de/pulse/lower-saxony/public-holidays-2027/",
-   "/de/pulse/lower-saxony/school-holidays-2027/"
+  "Atlanta to Greensboro, Atlanta, US": [
+   "/en/transport/public-transport/atlanta-to-greensboro/",
+   "/en/transport/rail/atlanta-greensboro/",
+   "/en/transport/route/atlanta-greensboro/"
   ],
-  "Mecklenburg-Western Pomerania 2026": [
-   "/de/pulse/mecklenburg-western-pomerania/bridge-days-2026/",
-   "/de/pulse/mecklenburg-western-pomerania/public-holidays-2026/",
-   "/de/pulse/mecklenburg-western-pomerania/school-holidays-2026/"
+  "Atlanta to Greenville, Atlanta, US": [
+   "/en/transport/public-transport/atlanta-to-greenville/",
+   "/en/transport/rail/atlanta-greenville/"
   ],
-  "Mecklenburg-Western Pomerania 2027": [
-   "/de/pulse/mecklenburg-western-pomerania/bridge-days-2027/",
-   "/de/pulse/mecklenburg-western-pomerania/public-holidays-2027/",
-   "/de/pulse/mecklenburg-western-pomerania/school-holidays-2027/"
+  "Atlanta to High Point, Atlanta, US": [
+   "/en/transport/public-transport/atlanta-to-high-point/",
+   "/en/transport/rail/atlanta-high-point/"
   ],
-  "North Rhine-Westphalia 2026": [
-   "/de/pulse/north-rhine-westphalia/bridge-days-2026/",
-   "/de/pulse/north-rhine-westphalia/public-holidays-2026/",
-   "/de/pulse/north-rhine-westphalia/school-holidays-2026/"
+  "Atlanta to Lynchburg, Atlanta, US": [
+   "/en/transport/public-transport/atlanta-to-lynchburg/",
+   "/en/transport/rail/atlanta-lynchburg/"
   ],
-  "North Rhine-Westphalia 2027": [
-   "/de/pulse/north-rhine-westphalia/bridge-days-2027/",
-   "/de/pulse/north-rhine-westphalia/public-holidays-2027/",
-   "/de/pulse/north-rhine-westphalia/school-holidays-2027/"
+  "Bakersfield to Los Angeles, Bakersfield, US": [
+   "/en/transport/public-transport/bakersfield-to-los-angeles/",
+   "/en/transport/route/bakersfield-los-angeles/"
   ]
  },
  "invalid_hierarchy_examples": [],
@@ -12230,7 +12212,7 @@
    ]
   },
   "transport.city-pair-transit|es": {
-   "rows": 3264,
+   "rows": 6627,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12244,7 +12226,7 @@
    ]
   },
   "transport.city-pair-transit|fr": {
-   "rows": 36428,
+   "rows": 36461,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
