@@ -132,8 +132,33 @@ def main():
     notidx = [r for r in rows if r['google_index_state'] == 'NOT_INDEXED']
     unknown = [r for r in rows if r['google_index_state'].startswith('UNKNOWN')]
 
+    # THE FALLBACK QUESTION, and it is a DIFFERENT question. On 2026-10-10 the inspection came
+    # back with 0 of 500 indexed, so indexed against not-indexed has nothing to compare. What
+    # the data does hold is two large groups inside the not-indexed set: URLs Google has
+    # DISCOVERED and not crawled, and URLs that are UNKNOWN TO GOOGLE. That split answers
+    # "what makes Google aware of a page at all", not "what makes Google index it", and the
+    # output says so rather than letting a reader take one for the other.
+    group_a_label, group_b_label = 'INDEXED', 'NOT_INDEXED'
+    question = 'what separates an indexed page from a not-indexed one'
+    if not indexed and len(notidx) >= 10:
+        col = ('coverage_state_canonical' if rows and 'coverage_state_canonical' in rows[0]
+               else 'coverage_state_raw')
+        buckets = collections.Counter(r.get(col, '') for r in notidx)
+        top = [k for k, _ in buckets.most_common(2) if k]
+        if len(top) == 2 and buckets[top[1]] >= 5:
+            group_a_label, group_b_label = top[0], top[1]
+            indexed = [r for r in notidx if r.get(col) == top[0]]
+            notidx = [r for r in notidx if r.get(col) == top[1]]
+            question = (f'what separates a URL Google put in "{top[0]}" from one it put in '
+                        f'"{top[1]}". NOT a question about indexing: neither group is indexed')
+
     head = {
-        'urls': len(rows), 'indexed': len(indexed), 'not_indexed': len(notidx),
+        'urls': len(rows),
+        'question': question,
+        'group_a': group_a_label, 'group_a_n': len(indexed),
+        'group_b': group_b_label, 'group_b_n': len(notidx),
+        'indexed': sum(1 for r in rows if r['google_index_state'] == 'INDEXED'),
+        'not_indexed': sum(1 for r in rows if r['google_index_state'] == 'NOT_INDEXED'),
         'unknown': len(unknown),
         'by_family': {f: dict(collections.Counter(
                         r['google_index_state'] for r in rows if r['family'] == f))
@@ -175,6 +200,7 @@ def main():
         p = permutation_p(list(a), list(b), stat)
         tests.append({
             'feature': col, 'kind': kind,
+            'group_a': group_a_label, 'group_b': group_b_label,
             'indexed_n': len(a), 'not_indexed_n': len(b),
             'indexed_summary': round(stat(a), 4),
             'not_indexed_summary': round(stat(b), 4),
@@ -207,14 +233,13 @@ def main():
                'which families Google indexed. The families listed above are the only ones '
                'where the same comparison can be run inside one family, and those are the '
                'ones worth believing. Correlation here is not causation.'),
-           'examples': {
-               'indexed': [r['path'] for r in indexed[:8]],
-               'not_indexed': [r['path'] for r in notidx[:8]],
-           }}
+           'examples': {group_a_label: [r['path'] for r in indexed[:8]],
+                        group_b_label: [r['path'] for r in notidx[:8]]}}
     if len(sys.argv) <= 1:
         with open(OUT + 'INDEXED-VS-NOT-COMPARISON.json', 'w') as fh:
             json.dump(out, fh, indent=1)
-    print(f"indexed {len(indexed)}, not indexed {len(notidx)}, unknown {len(unknown)}")
+    print(f'QUESTION: {question}')
+    print(f'  {group_a_label}: {len(indexed)}   vs   {group_b_label}: {len(notidx)}')
     print(f"{'feature':30} {'stat':>6} {'idx':>9} {'not':>9} {'diff':>9} "
           f"{'p_holm':>8}  confidence")
     for t in tests[:18]:

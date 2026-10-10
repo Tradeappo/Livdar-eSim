@@ -64,7 +64,56 @@ OUT = ROOT + 'reports/atlas/'
 # The GSC coverageState strings this report groups. Google's wording has changed before, so
 # unknown states are carried through under their own name rather than folded into "other":
 # silently bucketing a state we have not seen is how a real signal gets hidden.
+# COVERAGE STATES ARRIVE IN THE INTERFACE LANGUAGE, and that is my own doing: the inspection
+# client passed languageCode from each row's locale, so Google answered in German, Spanish,
+# French, Italian, Polish, Japanese, Portuguese and Dutch as well as English. 500 rows came
+# back carrying 19 distinct strings for 3 distinct states. The client now asks for en-US, and
+# this map normalises the rows already paid for rather than re-spending 500 inspections.
+#
+# This is normalisation, not reinterpretation: each string below is Google's own wording for
+# the same state in another language. The raw label stays on the row and in the raw block, so
+# nothing is overwritten and a wrong mapping here is correctable without new quota.
+COVERAGE_ALIASES = {
+    # Discovered, currently not indexed
+    'Gefunden \u2013 zurzeit nicht indexiert': 'Discovered - currently not indexed',
+    'Descubierta: actualmente sin indexar': 'Discovered - currently not indexed',
+    'D\u00e9tect\u00e9e, actuellement non index\u00e9e': 'Discovered - currently not indexed',
+    'Rilevata, ma attualmente non indicizzata': 'Discovered - currently not indexed',
+    'Strona wykryta \u2013 obecnie niezindeksowana': 'Discovered - currently not indexed',
+    '\u691c\u51fa - \u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u672a\u767b\u9332':
+        'Discovered - currently not indexed',
+    'Detectada, mas n\u00e3o indexada no momento': 'Discovered - currently not indexed',
+    'Gevonden - momenteel niet ge\u00efndexeerd': 'Discovered - currently not indexed',
+    # URL is unknown to Google
+    'O Google n\u00e3o reconhece o URL': 'URL is unknown to Google',
+    'URL ist Google nicht bekannt': 'URL is unknown to Google',
+    'Google ne reconna\u00eet pas cette URL': 'URL is unknown to Google',
+    "L'URL \u00e8 sconosciuto a Google": 'URL is unknown to Google',
+    'URL \u304c Google \u306b\u8a8d\u8b58\u3055\u308c\u3066\u3044\u307e\u305b\u3093':
+        'URL is unknown to Google',
+    'Google no reconoce esta URL': 'URL is unknown to Google',
+    'Adres URL jest Google nieznany': 'URL is unknown to Google',
+    'URL is onbekend bij Google': 'URL is unknown to Google',
+    # Server error
+    'Error de servidor (5xx)': 'Server error (5xx)',
+}
+
+
+def canonical_state(s):
+    """Google's English wording for a state it may have returned in another language."""
+    s = (s or '').strip()
+    return COVERAGE_ALIASES.get(s, s)
+
+
 INDEXED = {'Submitted and indexed', 'Indexed, not submitted in sitemap', 'Valid'}
+# Google has never discovered the URL. Not an exclusion: there is nothing to exclude yet, and
+# it is a different problem from a URL it knows and has declined to crawl.
+UNKNOWN_TO_GOOGLE = {'URL is unknown to Google'}
+BLOCKED_OR_FETCH_ERROR = {'Server error (5xx)', 'Not found (404)', 'Soft 404',
+                          'Blocked by robots.txt', 'Excluded by \u2018noindex\u2019 tag',
+                          'Blocked due to unauthorized request (401)',
+                          'Blocked due to access forbidden (403)',
+                          'URL blocked due to other 4xx issue', 'Crawl anomaly'}
 DISCOVERED_NOT_INDEXED = {'Discovered - currently not indexed',
                           'Discovered – currently not indexed'}
 CRAWLED_NOT_INDEXED = {'Crawled - currently not indexed',
@@ -295,6 +344,7 @@ def main():
     crawl_lat = collections.defaultdict(list)
     index_lat = collections.defaultdict(list)
     states_seen = collections.Counter()
+    states_seen_raw = collections.Counter()
 
     for r in rows:
         fam = r['family']
@@ -317,8 +367,10 @@ def main():
             g = insp.get(base + r['path']) or cov.get(base + r['path']) or g
         if not g:
             continue
-        st = (g.get('coverageState') or '').strip()
+        st_raw = (g.get('coverageState') or '').strip()
+        st = canonical_state(st_raw)
         states_seen[st] += 1
+        states_seen_raw[st_raw] += 1
         if st in INDEXED:
             per[fam]['indexed'] += 1
             rep[fam].setdefault('representative_indexed_url', r['path'])
@@ -353,10 +405,13 @@ def main():
         for a in csv.DictReader(open(ap, encoding='utf-8')):
             audit[a['path']] = a
     URL_COLS = ['path', 'family', 'market', 'cohort',
-                'google_index_state', 'coverage_state_raw', 'verdict_raw',
+                'google_index_state', 'coverage_state_raw', 'coverage_state_canonical',
+                'verdict_raw',
                 'discovered', 'crawled', 'last_crawl_time',
                 'google_canonical', 'user_canonical', 'canonical_matches',
-                'exclusion_reason_raw',
+                'exclusion_reason_raw', 'robots_txt_state', 'page_fetch_state',
+                'indexing_state', 'crawled_as', 'in_sitemap_per_google',
+                'referring_urls_per_google',
                 'impressions', 'clicks', 'search_visibility_state',
                 'http_code', 'has_noindex', 'canonical_is_self', 'in_any_sitemap',
                 'internal_links_in', 'is_orphan', 'word_count', 'number_count',
@@ -369,7 +424,8 @@ def main():
         for base in ('https://livdar.com', 'https://www.livdar.com', ''):
             g = insp.get(base + r['path']) or cov.get(base + r['path']) or g
         sa_row = sa.get(r['path']) or {}
-        st = (g or {}).get('coverageState') or ''
+        st_raw = (g or {}).get('coverageState') or ''
+        st = canonical_state(st_raw)
         if g is None:
             state = 'UNKNOWN_NOT_INSPECTED'
         elif st in INDEXED:
@@ -404,13 +460,20 @@ def main():
             'path': r['path'], 'family': r['family'],
             'market': a.get('market', ''), 'cohort': 'cohort-001-live-500',
             'google_index_state': state,
-            'coverage_state_raw': st, 'verdict_raw': (g or {}).get('verdict') or '',
+            'coverage_state_raw': st_raw, 'coverage_state_canonical': st,
+            'verdict_raw': (g or {}).get('verdict') or '',
             'discovered': (g or {}).get('discovered', ''),
             'crawled': 'yes' if (g or {}).get('lastCrawlTime') else '',
             'last_crawl_time': (g or {}).get('lastCrawlTime') or '',
             'google_canonical': gc, 'user_canonical': uc,
             'canonical_matches': (gc == uc) if (gc and uc) else '',
             'exclusion_reason_raw': st if state == 'NOT_INDEXED' else '',
+            'robots_txt_state': (g or {}).get('robotsTxtState') or '',
+            'page_fetch_state': (g or {}).get('pageFetchState') or '',
+            'indexing_state': (g or {}).get('indexingState') or '',
+            'crawled_as': (g or {}).get('crawledAs') or '',
+            'in_sitemap_per_google': bool((g or {}).get('sitemap')),
+            'referring_urls_per_google': len((g or {}).get('referringUrls') or []),
             'impressions': sa_row.get('impressions', '') if sa else 'UNAVAILABLE',
             'clicks': sa_row.get('clicks', '') if sa else 'UNAVAILABLE',
             'search_visibility_state': ('SHOWN_IN_SEARCH'
@@ -560,6 +623,7 @@ def main():
             'not-indexed columns stay UNAVAILABLE.'),
         'urls_with_a_gsc_state': sum(per[f]['indexed'] + per[f]['not_indexed'] for f in per),
         'coverage_states_seen': dict(states_seen),
+        'coverage_states_seen_raw_as_google_returned_them': dict(states_seen_raw),
         'what_is_missing': missing,
         'how_to_supply_it': [
             'URL Inspection API, one call per URL, 2,000/day/property: write each batch to '

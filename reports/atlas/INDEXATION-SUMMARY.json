@@ -2,9 +2,9 @@
  "generated": "2026-10-10",
  "published_urls_in_our_record": 500,
  "families": 13,
- "gsc_index_state_present": false,
+ "gsc_index_state_present": true,
  "gsc_search_analytics_present": true,
- "url_inspection_source": null,
+ "url_inspection_source": "url-inspection-2026-10-10.json",
  "coverage_export_source": null,
  "search_analytics_imports": [
   {
@@ -46,10 +46,34 @@
  "total_clicks": 0,
  "indexed_floor_proved_by_impressions": 0,
  "what_an_impression_proves": "an impression proves the URL was indexed, so the count above is a FLOOR on indexed pages. Zero impressions proves nothing about index state: an indexed page that never ranks high enough to be seen reports zero, which is why the not-indexed columns stay UNAVAILABLE.",
- "urls_with_a_gsc_state": 0,
- "coverage_states_seen": {},
+ "urls_with_a_gsc_state": 500,
+ "coverage_states_seen": {
+  "Discovered - currently not indexed": 420,
+  "URL is unknown to Google": 79,
+  "Server error (5xx)": 1
+ },
+ "coverage_states_seen_raw_as_google_returned_them": {
+  "Discovered - currently not indexed": 85,
+  "Strona wykryta \u2013 obecnie niezindeksowana": 37,
+  "\u691c\u51fa - \u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u672a\u767b\u9332": 33,
+  "Gefunden \u2013 zurzeit nicht indexiert": 60,
+  "O Google n\u00e3o reconhece o URL": 13,
+  "Rilevata, ma attualmente non indicizzata": 44,
+  "URL is unknown to Google": 15,
+  "URL \u304c Google \u306b\u8a8d\u8b58\u3055\u308c\u3066\u3044\u307e\u305b\u3093": 7,
+  "Descubierta: actualmente sin indexar": 57,
+  "D\u00e9tect\u00e9e, actuellement non index\u00e9e": 52,
+  "Gevonden - momenteel niet ge\u00efndexeerd": 25,
+  "URL ist Google nicht bekannt": 12,
+  "L'URL \u00e8 sconosciuto a Google": 8,
+  "Detectada, mas n\u00e3o indexada no momento": 27,
+  "Google ne reconna\u00eet pas cette URL": 11,
+  "URL is onbekend bij Google": 2,
+  "Adres URL jest Google nieznany": 5,
+  "Google no reconoce esta URL": 6,
+  "Error de servidor (5xx)": 1
+ },
  "what_is_missing": [
-  "no URL Inspection captures in /home/user/Livdar-eSim/data/atlas/measurements/gsc/url-inspection-*.json",
   "no coverage export in /home/user/Livdar-eSim/data/atlas/measurements/gsc/index-coverage-*.csv"
  ],
  "how_to_supply_it": [

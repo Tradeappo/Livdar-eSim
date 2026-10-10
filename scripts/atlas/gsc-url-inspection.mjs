@@ -223,8 +223,11 @@ async function main() {
     const res = await fetch(ENDPOINT, {
       method: 'POST',
       headers: { authorization: 'Bearer ' + token, 'content-type': 'application/json' },
-      body: JSON.stringify({ inspectionUrl: url, siteUrl: site,
-                             languageCode: meta.locale || 'en-US' }),
+      // en-US, ALWAYS. Passing the row's own locale made Google answer in the interface
+      // language, so run 22 came back with 19 distinct coverageState strings for 3 distinct
+      // states and every downstream set that matches on the English wording missed them. The
+      // reporting layer normalises the rows already paid for; this stops it recurring.
+      body: JSON.stringify({ inspectionUrl: url, siteUrl: site, languageCode: 'en-US' }),
     });
     const body = await res.json().catch(() => ({}));
     if (!res.ok) {
