@@ -385,13 +385,24 @@ def main():
             except Exception:
                 continue
             jl_ok += 1
-            for x in (o if isinstance(o, list) else [o]):
-                if isinstance(x, dict):
-                    t = x.get('@type')
+            # @graph, not just a bare node. Every page here uses the @graph form, so reading
+            # only the top level reported zero @type for all 500 and the column looked like a
+            # missing-structured-data finding when the data was there: WebPage, WebSite and
+            # BreadcrumbList, one level down. Walking the whole document is the fix, and it
+            # also catches a type nested in isPartOf or in an itemListElement.
+            def _types(node, acc):
+                if isinstance(node, dict):
+                    t = node.get('@type')
                     if isinstance(t, list):
-                        jl_types.extend(str(y) for y in t)
+                        acc.extend(str(y) for y in t)
                     elif t:
-                        jl_types.append(str(t))
+                        acc.append(str(t))
+                    for v in node.values():
+                        _types(v, acc)
+                elif isinstance(node, list):
+                    for v in node:
+                        _types(v, acc)
+            _types(o, jl_types)
         outs = outbound.get(p, set())
         broken = sorted(t for t in outs
                         if t in http and http[t].get('http_code') not in (200, None))
