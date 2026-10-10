@@ -3148,6 +3148,13 @@ ROW_GROUPS = [('kept', stage3), ('quality_gates', rejected), ('exact_dupes', exa
               ('semantic_dupes', semantic_dupes), ('name_dupes', name_dupes),
               ('loc_rejected', loc_rejected), ('fam_gate_rejected', fam_gate_rejected),
               ('xm_rejected', xm_rejected), ('cannib_rejected', cannib_rejected),
+              # Added with the one-journey gate. Leaving it OUT of this list cost two things
+              # at once, and the second was the serious one: funnel_reconciles went False,
+              # which is the visible symptom, but the 326 rejected rows were also never
+              # written to LIVDAR-1M-REJECTED-CANDIDATES.csv.gz, because this list is what
+              # drives that file as well as REJ_COUNTS. A page refused with no record of the
+              # refusal is exactly the silent loss the comments above warn about.
+              ('journey_rejected', journey_rejected),
               ('orphan_rejected', orphan_rejected)]
 _dash_fixed = sum(strip_long_dashes(_g) for _n, _g in ROW_GROUPS)
 print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,} '
@@ -3315,7 +3322,7 @@ summary = {
     'cross_market_same_language_checks': XM_SAME_LANGUAGE_REPORT,
     'removed_as_semantic_duplicates': REJ_COUNTS['semantic_dupes'],
     'removed_by_cannibalisation': REJ_COUNTS['cannib_rejected'],
-    'removed_as_the_same_journey_already_timetabled': len(journey_rejected),
+    'removed_as_the_same_journey_already_timetabled': REJ_COUNTS['journey_rejected'],
     'removed_as_the_same_name_in_the_same_city': REJ_COUNTS['name_dupes'],
     'removed_because_the_declared_parent_did_not_survive': REJ_COUNTS['orphan_rejected'],
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
@@ -3323,6 +3330,7 @@ summary = {
                           - REJ_COUNTS['sup_rejected']
                           - REJ_COUNTS['fam_gate_rejected'] - REJ_COUNTS['loc_rejected']
                           - REJ_COUNTS['xm_rejected'] - REJ_COUNTS['cannib_rejected']
+                          - REJ_COUNTS['journey_rejected']
                           - REJ_COUNTS['orphan_rejected']) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
