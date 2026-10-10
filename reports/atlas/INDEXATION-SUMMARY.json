@@ -1,0 +1,152 @@
+{
+ "generated": "2026-10-10",
+ "published_urls_in_our_record": 500,
+ "families": 13,
+ "gsc_index_state_present": true,
+ "gsc_search_analytics_present": true,
+ "url_inspection_source": "url-inspection-2026-10-10.json",
+ "coverage_export_source": null,
+ "search_analytics_imports": [
+  {
+   "file": "pages-2026-09-22.json",
+   "property": "sc-domain:livdar.com",
+   "start": "2026-08-26",
+   "end": "2026-09-22",
+   "imported_at": "2026-09-25T19:21:30.945Z",
+   "pages": 500,
+   "impressions": 0,
+   "clicks": 0,
+   "note_from_the_import": "indexed stays unknown: the Search Analytics API reports impressions, not index state. The Pages report is a separate import and is not wired yet."
+  },
+  {
+   "file": "pages-2026-09-25.json",
+   "property": "sc-domain:livdar.com",
+   "start": "2026-08-29",
+   "end": "2026-09-25",
+   "imported_at": "2026-09-28T18:53:17.160Z",
+   "pages": 500,
+   "impressions": 0,
+   "clicks": 0,
+   "note_from_the_import": "indexed stays unknown: the Search Analytics API reports impressions, not index state. The Pages report is a separate import and is not wired yet."
+  },
+  {
+   "file": "pages-2026-10-07.json",
+   "property": "sc-domain:livdar.com",
+   "start": "2026-09-10",
+   "end": "2026-10-07",
+   "imported_at": "2026-10-10T20:04:12.146Z",
+   "pages": 500,
+   "impressions": 0,
+   "clicks": 0,
+   "note_from_the_import": "indexed stays unknown: the Search Analytics API reports impressions, not index state. The Pages report is a separate import and is not wired yet."
+  }
+ ],
+ "urls_with_a_search_analytics_row": 500,
+ "total_impressions": 0,
+ "total_clicks": 0,
+ "indexed_floor_proved_by_impressions": 0,
+ "what_an_impression_proves": "an impression proves the URL was indexed, so the count above is a FLOOR on indexed pages. Zero impressions proves nothing about index state: an indexed page that never ranks high enough to be seen reports zero, which is why the not-indexed columns stay UNAVAILABLE.",
+ "urls_with_a_gsc_state": 500,
+ "coverage_states_seen": {
+  "Discovered - currently not indexed": 85,
+  "Strona wykryta \u2013 obecnie niezindeksowana": 37,
+  "\u691c\u51fa - \u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u672a\u767b\u9332": 33,
+  "Gefunden \u2013 zurzeit nicht indexiert": 60,
+  "O Google n\u00e3o reconhece o URL": 13,
+  "Rilevata, ma attualmente non indicizzata": 44,
+  "URL is unknown to Google": 15,
+  "URL \u304c Google \u306b\u8a8d\u8b58\u3055\u308c\u3066\u3044\u307e\u305b\u3093": 7,
+  "Descubierta: actualmente sin indexar": 57,
+  "D\u00e9tect\u00e9e, actuellement non index\u00e9e": 52,
+  "Gevonden - momenteel niet ge\u00efndexeerd": 25,
+  "URL ist Google nicht bekannt": 12,
+  "L'URL \u00e8 sconosciuto a Google": 8,
+  "Detectada, mas n\u00e3o indexada no momento": 27,
+  "Google ne reconna\u00eet pas cette URL": 11,
+  "URL is onbekend bij Google": 2,
+  "Adres URL jest Google nieznany": 5,
+  "Google no reconoce esta URL": 6,
+  "Error de servidor (5xx)": 1
+ },
+ "what_is_missing": [
+  "no coverage export in /home/runner/work/Livdar-eSim/Livdar-eSim/data/atlas/measurements/gsc/index-coverage-*.csv"
+ ],
+ "how_to_supply_it": [
+  "URL Inspection API, one call per URL, 2,000/day/property: write each batch to data/atlas/measurements/gsc/url-inspection-YYYY-MM-DD.json as {\"rows\": [...]} with url, coverageState, lastCrawlTime, googleCanonical, userCanonical, verdict.",
+  "Or export Search Console > Indexing > Pages > any row > Export, and save as data/atlas/measurements/gsc/index-coverage-YYYY-MM-DD.csv with URL and Coverage state columns.",
+  "Crawl and indexation latency need first_published per URL in reports/atlas/live-production.json; without it the dates have nothing to subtract from and the two latency columns stay UNAVAILABLE."
+ ],
+ "the_bar_is_a_decision_not_a_measurement": {
+  "fix_hard_defect_share": 0.5,
+  "fix_indexation_rate_at_or_below": 0.3,
+  "scale_coverage_at_least": 0.6,
+  "scale_indexation_rate_at_least": 0.8,
+  "coverage_means": "the share of a family's live URLs for which Search Console returned an index state"
+ },
+ "decision_states": {
+  "INDEX_STATE_MISSING_VISIBILITY_MEASURED": "Search Analytics covers the URLs and index state does not. A family here has a measured visibility answer and an unmeasured indexation answer.",
+  "SCALE": "assign only on complete evidence and an agreed indexed-share bar",
+  "HOLD": "assign only on complete evidence and an agreed bar",
+  "FIX": "assign only on complete evidence and an agreed bar",
+  "EVIDENCE_MISSING": "no GSC state for any URL in this family",
+  "EVIDENCE_PARTIAL": "some URLs have a state, not all",
+  "READY_TO_CLASSIFY": "every published URL has a state; the bar is a decision, not a measurement, so this script stops here"
+ },
+ "historical_context_different_url_set": {
+  "what_this_is": "The Page Indexing (Pages) report as it stood on 2026-09-21, transcribed from reports/gsc-baseline-2026-09-21.md, which recorded it from the Search Console UI by hand.",
+  "why_it_is_kept_separate_from_the_cohort": "It covers a DIFFERENT URL SET: the 91 core, destination, region and guide pages that were live then. The 500 Atlas pages this analysis is about were published afterwards and are not in these counts. It is historical context for how Google treats this property, not index state for the cohort, and nothing may read it as the cohort's status.",
+  "source": "manual reading of the Search Console interface, not an API call and not an export",
+  "property": "sc-domain:livdar.com",
+  "index_data_last_updated": "2026-09-18",
+  "read_at": "2026-09-21",
+  "url_set_size": 91,
+  "sitemap": {
+   "path": "https://livdar.com/sitemap.xml",
+   "type": "sitemap index",
+   "submitted": "2026-09-16",
+   "last_read_by_google": "2026-09-20",
+   "status": "Success",
+   "pages_discovered": 91
+  },
+  "pages_report": {
+   "Indexed": 30,
+   "Not indexed, total": 64,
+   "Discovered, currently not indexed": 58,
+   "Crawled, currently not indexed": 4,
+   "Page with redirect": 1,
+   "Duplicate without user-selected canonical": 1
+  },
+  "crawled_not_indexed_urls": [
+   "/en/esim/",
+   "/en/regions/europe/",
+   "/de/regionen/europe/",
+   "/de/regionen/middle-east/"
+  ],
+  "redirect_and_duplicate_urls": [
+   "www.livdar.com/ (www redirects to the apex, expected)"
+  ],
+  "performance_at_the_time": {
+   "window_days": [
+    28,
+    90
+   ],
+   "clicks": 0,
+   "impressions": 4,
+   "avg_position": 16,
+   "note": "both windows give the same totals because every impression fell on 18 and 19 September 2026",
+   "pages_with_impressions": [
+    "/",
+    "/de/regionen/south-america/",
+    "/de/ratgeber/how-esim-works/",
+    "/ro/ghiduri/airport-connectivity/"
+   ]
+  },
+  "the_technical_state_at_the_time": "all 91 URLs returned 200, were index,follow, canonical to themselves and present in the sitemap, and 30 were indexed. The baseline's own conclusion was that the first bottleneck is indexing rather than titles or CTR.",
+  "indexation_rate": 0.3297,
+  "dominant_exclusion_reason": "Discovered, currently not indexed",
+  "what_that_reason_means": "Google knows the URL exists and has chosen not to spend crawl budget on it yet. It is a discovery and priority signal about the property, not a verdict on the page's content, and it is the reason 58 of the 64 not-indexed URLs carried.",
+  "the_follow_up_this_file_is_owed": "the baseline asked to be re-read on or after 2026-10-05 and compared. That re-read has not happened and is what scripts/atlas/gsc-url-inspection.mjs and scripts/atlas/analysis/import-gsc-pages-report.py exist to supply."
+ },
+ "production_untouched": true,
+ "this_script_reads_only": true
+}
