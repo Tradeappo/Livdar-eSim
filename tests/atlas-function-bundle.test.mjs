@@ -21,7 +21,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { MANIFESTS } from '../lib/atlas/serve-pages.js';
+import { join } from 'node:path';
+import { MANIFESTS, manifestCandidates, pages } from '../lib/atlas/serve-pages.js';
 import config from '../next.config.mjs';
 
 const ROOT = new URL('../', import.meta.url);
@@ -99,4 +100,34 @@ test('the build traces the manifests into an Atlas route', { skip: !existsSync(A
       assert.ok(flat.includes(manifest), segment + ' does not carry ' + manifest);
     }
   }
+});
+
+
+// The include list being right is necessary and was not sufficient. The 2026-09-28 incident
+// had the include in place, deployed three times, and still threw 25,845 times over twelve
+// days, because the function resolved the path from the wrong BASE: bundled into
+// .next/server/chunks/, two levels up is .next/, and the traced data sits beside .next rather
+// than inside it. So the contract has two halves and this is the second one.
+test('a manifest is looked for under process.cwd() as well as the module URL', () => {
+  const tried = manifestCandidates('data/atlas/cohorts/cohort-001-pages.json');
+  assert.ok(tried.length >= 2, 'more than one base is tried');
+  assert.equal(tried[0], join(process.cwd(), 'data/atlas/cohorts/cohort-001-pages.json'),
+    'process.cwd() is tried FIRST, because it is the function root on Vercel and the '
+    + 'repository root at build time, while the module URL is only right unbundled');
+  assert.ok(tried.some((f) => f.endsWith('data/atlas/cohorts/cohort-001-pages.json')),
+    'every candidate ends at the manifest it is looking for');
+});
+
+test('every manifest resolves to a file that exists in this checkout', () => {
+  for (const m of MANIFESTS) {
+    assert.ok(manifestCandidates(m).some((f) => existsSync(f)),
+      m + ' is reachable from one of the bases');
+  }
+});
+
+test('pages() returns the cohort rows rather than throwing', () => {
+  const rows = pages();
+  assert.ok(Array.isArray(rows) && rows.length > 0, 'the manifests loaded');
+  assert.ok(rows.every((r) => typeof r.path === 'string' && r.path.startsWith('/')),
+    'every row carries a path');
 });
