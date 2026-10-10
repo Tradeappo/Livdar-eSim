@@ -5,7 +5,7 @@ it replaces was wrong, and what the honest figure is.
 
 ## The answer first
 
-The authoritative FINAL fell from **972,910 to 586,511**, a loss of **386,399 pages**, because
+The authoritative FINAL fell from **972,910 to 587,284**, a loss of **385,626 pages**, because
 the biggest family in the inventory was built on the wrong unit. No gate was relaxed and no
 gate was added to reach a target; one gate was CORRECTED, and the inventory it was holding up
 turned out to be smaller than reported.
@@ -136,8 +136,24 @@ region where it is needed and the origin suffix is gone.
 Q1950826, and the word "Gallery" was enough to get both past the same-name gate. Three
 "Laweczka Chopina" nodes carry Q24944972 between them, attributed to Srodmiescie, Warsaw and
 Praga Polnoc, so not even the city key met them. A new gate keeps one ENTITY page per Wikidata
-item per language and surface; the QID is an identity rather than a name, and it is the whole
-notability claim these rows rest on.
+item per language and surface, scoped as the section below describes; the QID is an identity
+rather than a name, and for these types it is the whole notability claim the row rests on.
+It rejected 1,338 pages.
+
+**The Wikidata gate then over-refused, and its own rejected rows are what showed it.** The
+first run of it rejected 2,465 pages, of which 1,125 were TRAILS, and those were wrong.
+Narrowing it took the rejection to 1,338 and returned 773 net pages to FINAL. OSM
+route relations routinely carry the parent route's item on every stage and variant, so
+`/fr/outdoors/trail/via-alpina-blue-d33-r12136055/` at 13 km with 1,648 m of ascent and
+`/fr/outdoors/trail/via-alpina-blue-d34-r12136119/` at 20 km with 245 m of ascent share one
+QID and are two different walks. A trail page does not rest its admission on the item either:
+the outdoor gate asks for measured attributes and both of those have their own. For a trail the
+key now carries the name as well, so one route mapped twice under one name is still a duplicate
+while D33 beside D34 is not. The residual, a route mapped twice under two different names,
+is a known gap rather than a silent one. POI, venues and outdoor features stay on the QID
+alone, because there the evidence says the item IS the identity: Mail Rail Museum and The
+Postal Museum are Q3520122 twice, Dune du Pilat is Q501726 as a peak and as a viewpoint,
+Sternwarte Galileum Solingen and Galileum are one observatory.
 
 **`destination` was not the destination.** Both Berlin-to-Lubin rows carried `destination` DE
 although one of the two Lubins is in Poland: that column marks the destination AXIS. A
@@ -148,15 +164,15 @@ to tell the two apart.
 
 | | before | after |
 |---|---|---|
-| FINAL DISTINCT VALID | 972,910 | 586,511 |
-| gap to 1,000,000 | 27,090 | 413,489 |
+| FINAL DISTINCT VALID | 972,910 | 587,284 |
+| gap to 1,000,000 | 27,090 | 412,716 |
 | `transport.city-pair-transit` | 510,592 | 125,652 |
 | share of the inventory in one family | 52.5 per cent | 21.4 per cent |
 | funnel reconciles | TRUE | TRUE |
 | rows equal distinct URLs | TRUE | TRUE |
 
 The 1,000,000 target is now a long way off and it was never reachable on the old basis, because
-386,399 of the pages counted toward it were pages this project had already said it would not
+385,626 of the pages counted toward it were pages this project had already said it would not
 build. A target met with stop-to-stop fan-out would have been met with the exact material that
 gets a programmatic site classified as spam.
 

@@ -2,25 +2,25 @@
  "source": "LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz",
  "what_this_is": "the authoritative CSV record, split on row boundaries into parts a git remote will accept. Every part carries the header and is independently readable; concatenating the data rows of the parts in part order reproduces the source exactly.",
  "header": "candidate_id,url_pattern,market,language,surface,family,vertical,page_type,entity_type,entity_id,entity_name,city,country,neighbourhood,primary_intent,primary_keyword_if_known,keyword_cluster_id,semantic_cluster_id,data_source,source_status,source_record_id,feed_required,licence_status,data_signature,template_signature,duplicate_risk,cannibalization_risk,quality_score,demand_score,source_score,serp_score,indexability_score,publication_priority,publication_cohort_candidate,status,uniqueness_reason,serp_feasibility,data_completeness,source_freshness,intent_owner,monetization_fit,tool_or_content,rejection_reason,serp_class,parent_url,market_demand_evidence,locale,source_page_family,local_keyword,local_volume,local_intent,local_serp,localization_class,localization_flag,localization_reason,destination,destination_country,dash_normalised,locale_facts,cross_market_uniqueness_reason,information_gain_vs_same_language_markets,shared_fact_ratio,shared_section_ratio,semantic_similarity_score,same_language_ownership_basis",
- "total_rows": 586511,
- "total_uncompressed_bytes": 1100056451,
- "sha256_of_all_data_rows": "c96172fe03ba59672a47b46d17a5e416a143ccac7ab7fee315b7c925c34e7a7a",
+ "total_rows": 587284,
+ "total_uncompressed_bytes": 1101436855,
+ "sha256_of_all_data_rows": "8d0e01601f7892a4c0943aefcc41f2de6d762180fb5891f0b7015124fce266f7",
  "target_part_bytes": 31457280,
- "rows_per_part": 309692,
+ "rows_per_part": 309660,
  "parts": [
   {
    "part": "part-01.csv.gz",
-   "rows": 309692,
-   "uncompressed_bytes": 671494132,
-   "compressed_bytes": 34168588,
-   "sha256_of_data_rows": "fd734c3a327de666efecdfef2148c911f39cdad8065f0178ad865630f0884aed"
+   "rows": 309660,
+   "uncompressed_bytes": 671838895,
+   "compressed_bytes": 34187684,
+   "sha256_of_data_rows": "917c7bdbba93297fb3f68c112c383291b0bc747520bb1431e1b8fa1a0b714052"
   },
   {
    "part": "part-02.csv.gz",
-   "rows": 276819,
-   "uncompressed_bytes": 428562319,
-   "compressed_bytes": 25408070,
-   "sha256_of_data_rows": "b7a1970c1e17835981e1ba3810c994cb2354fdbc103fd0640e67a5c463292fda"
+   "rows": 277624,
+   "uncompressed_bytes": 429597960,
+   "compressed_bytes": 25472005,
+   "sha256_of_data_rows": "a7fa4e218a4cf1ea9617c9e097ac4f1d8168504bd948090cc8e0b74b7171a242"
   }
  ],
  "to_reassemble": "zcat part-*.csv.gz | awk 'NR==1 || $0 != header' is NOT the way. Read part-01 whole, then skip the first line of every later part: for f in part-*.csv.gz; do if [ \"$f\" = part-01.csv.gz ]; then zcat \"$f\"; else zcat \"$f\" | tail -n +2; fi; done | gzip > rebuilt.csv.gz",

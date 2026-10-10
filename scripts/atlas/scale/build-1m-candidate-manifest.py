@@ -2310,13 +2310,40 @@ stage2 = stage2a
 qid_winner = {}
 qid_dupes = []
 stage2q = []
+# A TRAIL IS THE EXCEPTION, and the rejected rows of the first run are what showed it. OSM
+# route relations routinely carry the PARENT route's Wikidata item on every stage and variant,
+# so the item is shared provenance rather than shared identity:
+#
+#   /fr/outdoors/trail/via-alpina-blue-d33-r12136055/   13 km, 1,648 m of ascent
+#   /fr/outdoors/trail/via-alpina-blue-d34-r12136119/   20 km, 245 m of ascent
+#   /fr/outdoors/trail/mare-a-mare-sud-principal-...    82 km
+#   /fr/outdoors/trail/mare-a-mare-centre-principal-... 87 km
+#
+# Both of each pair carry one QID and they are different walks. A trail page does not rest its
+# admission on the item either: the outdoor gate asks for measured attributes, and these have
+# their own length, ascent and waymarking. Collapsing them on the QID refused 1,125 legitimate
+# stage pages, which is over-refusal, and over-refusal is still a defect.
+#
+# So for a trail the key carries the NAME as well: one route mapped twice under one name is a
+# duplicate, and D33 beside D34 is not. The residual this leaves is a route mapped twice under
+# two different names, which the same-name gate also cannot see; that is a known gap rather
+# than a silent one.
+#
+# The other three types stay on the QID alone, because for them the item IS the identity and
+# the evidence says so: Mail Rail Museum and The Postal Museum are Q3520122 twice, David
+# Zwirner and David Zwirner Gallery are Q1950826 twice, Dune du Pilat is Q501726 as a peak and
+# as a viewpoint, Sternwarte Galileum Solingen and Galileum are one observatory.
+QID_IDENTITY_TYPES = ('poi', 'venue', 'outdoor_feature')
 for r in sorted(stage2, key=lambda x: (-x['quality_score'], -x['publication_priority'],
                                        str(x['entity_id']))):
     q_ = (r.get('_qid') or '').strip()
-    if not q_ or r['page_type'] != 'ENTITY':
+    et = r.get('entity_type')
+    if (not q_ or r['page_type'] != 'ENTITY'
+            or et not in QID_IDENTITY_TYPES + ('trail',)):
         stage2q.append(r)
         continue
-    k = (r['language'], r['surface'], q_)
+    k = ((r['language'], r['surface'], q_, slug(r['entity_name'] or '')) if et == 'trail'
+         else (r['language'], r['surface'], q_))
     first = qid_winner.get(k)
     if first is not None:
         r['rejection_reason'] = (
