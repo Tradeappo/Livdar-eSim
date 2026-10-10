@@ -1,12 +1,12 @@
 {
- "manifest_rows": 973236,
- "distinct_urls": 973236,
+ "manifest_rows": 972910,
+ "distinct_urls": 972910,
  "checks": {
-  "title_over_65_chars": 495724,
-  "meta_over_165_chars": 517754,
+  "title_over_65_chars": 495584,
+  "meta_over_165_chars": 517753,
   "title_under_15_chars": 28,
-  "duplicate_title_exact": 596,
-  "duplicate_title_same_tokens": 1335,
+  "duplicate_title_exact": 281,
+  "duplicate_title_same_tokens": 1020,
   "destination_rows": 77695,
   "destination_rows_with_no_locale_specific_fact": 0,
   "uniqueness_reason_shared_with_another_candidate": 5,
@@ -24,7 +24,7 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 577,
+  "duplicate_h1_within_a_market": 275,
   "declared_parent_is_not_a_valid_parent": 0,
   "declared_parent_is_valid_but_not_a_path_prefix": 24459,
   "family_locale_cells_failing_the_usefulness_test": 0
@@ -414,83 +414,82 @@
    "/en/outdoors/trail/hoof-trail-castle-ward-r19611758/",
    "/en/outdoors/trail/hoof-trail-r17057407/"
   ],
-  "Alexandria to Lynchburg, Alexandria, US": [
-   "/en/transport/public-transport/alexandria-to-lynchburg/",
-   "/en/transport/rail/alexandria-lynchburg/"
-  ],
-  "Alexandria to New Brunswick, Alexandria, US": [
-   "/en/transport/public-transport/alexandria-to-new-brunswick/",
-   "/en/transport/rail/alexandria-new-brunswick/"
-  ],
-  "Alexandria to Norfolk, Alexandria, US": [
-   "/en/transport/public-transport/alexandria-to-norfolk/",
-   "/en/transport/rail/alexandria-norfolk/"
-  ],
-  "Alexandria to Richmond, Alexandria, US": [
-   "/en/transport/public-transport/alexandria-to-richmond/",
-   "/en/transport/rail/alexandria-richmond/"
-  ],
-  "Alexandria to Roanoke, Alexandria, US": [
-   "/en/transport/public-transport/alexandria-to-roanoke/",
-   "/en/transport/rail/alexandria-roanoke/"
-  ],
   "Alexandria to Trenton, Alexandria, US": [
    "/en/transport/public-transport/alexandria-to-trenton/",
    "/en/transport/rail/alexandria-trenton/"
   ],
-  "Ann Arbor to Battle Creek, Ann Arbor, US": [
-   "/en/transport/public-transport/ann-arbor-to-battle-creek/",
-   "/en/transport/rail/ann-arbor-battle-creek/"
-  ],
-  "Ann Arbor to Dearborn Heights, Ann Arbor, US": [
-   "/en/transport/public-transport/ann-arbor-to-dearborn-heights/",
-   "/en/transport/rail/ann-arbor-dearborn-heights/"
-  ],
-  "Ann Arbor to Kalamazoo, Ann Arbor, US": [
-   "/en/transport/public-transport/ann-arbor-to-kalamazoo/",
-   "/en/transport/rail/ann-arbor-kalamazoo/"
-  ],
-  "Ann Arbor to Pontiac, Ann Arbor, US": [
-   "/en/transport/public-transport/ann-arbor-to-pontiac/",
-   "/en/transport/rail/ann-arbor-pontiac/"
-  ],
-  "Ann Arbor to Royal Oak, Ann Arbor, US": [
-   "/en/transport/public-transport/ann-arbor-to-royal-oak/",
-   "/en/transport/rail/ann-arbor-royal-oak/"
-  ],
   "Atlanta to Charlotte, Atlanta, US": [
    "/en/transport/public-transport/atlanta-to-charlotte/",
-   "/en/transport/rail/atlanta-charlotte/",
    "/en/transport/route/atlanta-charlotte/"
   ],
   "Atlanta to Charlottesville, Atlanta, US": [
    "/en/transport/public-transport/atlanta-to-charlottesville/",
    "/en/transport/route/atlanta-charlottesville/"
   ],
-  "Atlanta to Gastonia, Atlanta, US": [
-   "/en/transport/public-transport/atlanta-to-gastonia/",
-   "/en/transport/rail/atlanta-gastonia/"
-  ],
   "Atlanta to Greensboro, Atlanta, US": [
    "/en/transport/public-transport/atlanta-to-greensboro/",
-   "/en/transport/rail/atlanta-greensboro/",
    "/en/transport/route/atlanta-greensboro/"
-  ],
-  "Atlanta to Greenville, Atlanta, US": [
-   "/en/transport/public-transport/atlanta-to-greenville/",
-   "/en/transport/rail/atlanta-greenville/"
-  ],
-  "Atlanta to High Point, Atlanta, US": [
-   "/en/transport/public-transport/atlanta-to-high-point/",
-   "/en/transport/rail/atlanta-high-point/"
-  ],
-  "Atlanta to Lynchburg, Atlanta, US": [
-   "/en/transport/public-transport/atlanta-to-lynchburg/",
-   "/en/transport/rail/atlanta-lynchburg/"
   ],
   "Bakersfield to Los Angeles, Bakersfield, US": [
    "/en/transport/public-transport/bakersfield-to-los-angeles/",
    "/en/transport/route/bakersfield-los-angeles/"
+  ],
+  "Birmingham to Atlanta, Birmingham, US": [
+   "/en/transport/public-transport/birmingham-to-atlanta/",
+   "/en/transport/route/birmingham-atlanta/"
+  ],
+  "Birmingham to Charlotte, Birmingham, US": [
+   "/en/transport/public-transport/birmingham-to-charlotte/",
+   "/en/transport/route/birmingham-charlotte/"
+  ],
+  "Boston to Newark, Boston, US": [
+   "/en/transport/public-transport/boston-to-newark/",
+   "/en/transport/route/boston-newark/"
+  ],
+  "Charlotte to Charlottesville, Charlotte, US": [
+   "/en/transport/public-transport/charlotte-to-charlottesville/",
+   "/en/transport/route/charlotte-charlottesville/"
+  ],
+  "Charlotte to Greensboro, Charlotte, US": [
+   "/en/transport/public-transport/charlotte-to-greensboro/",
+   "/en/transport/route/charlotte-greensboro/"
+  ],
+  "Charlotte to Lynchburg, Charlotte, US": [
+   "/en/transport/public-transport/charlotte-to-lynchburg/",
+   "/en/transport/route/charlotte-lynchburg/"
+  ],
+  "Charlotte to Philadelphia, Charlotte, US": [
+   "/en/transport/public-transport/charlotte-to-philadelphia/",
+   "/en/transport/route/charlotte-philadelphia/"
+  ],
+  "Charlotte to Wilmington, Charlotte, US": [
+   "/en/transport/public-transport/charlotte-to-wilmington/",
+   "/en/transport/route/charlotte-wilmington/"
+  ],
+  "Cleveland to Erie, Cleveland, US": [
+   "/en/transport/public-transport/cleveland-to-erie/",
+   "/en/transport/route/cleveland-erie/"
+  ],
+  "Fayetteville to Philadelphia, Fayetteville, US": [
+   "/en/transport/public-transport/fayetteville-to-philadelphia/",
+   "/en/transport/rail/fayetteville-philadelphia/"
+  ],
+  "Fayetteville to Trenton, Fayetteville, US": [
+   "/en/transport/public-transport/fayetteville-to-trenton/",
+   "/en/transport/rail/fayetteville-trenton/"
+  ],
+  "Gainesville to Charlotte, Gainesville, US": [
+   "/en/transport/public-transport/gainesville-to-charlotte/",
+   "/en/transport/route/gainesville-charlotte/"
+  ],
+  "Greensboro to Newark, Greensboro, US": [
+   "/en/transport/public-transport/greensboro-to-newark/",
+   "/en/transport/route/greensboro-newark/"
+  ],
+  "Greensboro to Philadelphia, Greensboro, US": [
+   "/en/transport/public-transport/greensboro-to-philadelphia/",
+   "/en/transport/rail/greensboro-philadelphia/",
+   "/en/transport/route/greensboro-philadelphia/"
   ]
  },
  "invalid_hierarchy_examples": [],
@@ -12184,7 +12183,7 @@
    ]
   },
   "transport.city-pair-rail|en": {
-   "rows": 11222,
+   "rows": 10896,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata P197 adjacent station (CC0 1.0) with GeoNames (CC BY 4.0), a named source with provenance"
