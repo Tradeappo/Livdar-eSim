@@ -1127,7 +1127,7 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           # localisation and cross-locale fields, required per the multilingual brief
           'locale','source_page_family','local_keyword','local_volume','local_intent',
           'local_serp','localization_class','localization_flag','localization_reason',
-          'destination',
+          'destination','destination_country',
           # set only where a long dash was normalised out of a rendered string, so the
           # change is recorded in the manifest rather than only in the run log
           'dash_normalised',
@@ -1963,6 +1963,15 @@ for a in agg:
         shape, WD_LICENCE if is_wd else OSM_LICENCE)
     rows.append({
         'candidate_id': 'c_' + sig(fid, eid, m),
+        # The Wikidata item this row's entity IS, carried so the dedupe below can ask about
+        # identity rather than about spelling. Transient: the writers select FIELDS with
+        # extrasaction='ignore', so it never reaches the CSV.
+        '_qid': str(a.get('qid') or ''),
+        # The far end of the journey, for the pair shapes that have one. Distinct from the
+        # `destination` column, which marks the destination AXIS and carries the origin's
+        # country for a domestic pair; a heading that has to tell Lubin in Germany from Lubin
+        # in Poland cannot be built from that.
+        'destination_country': a.get('destination_country') or '',
         'url_pattern': a['url'], 'market': m, 'language': lang,
         'surface': surface, 'family': fid, 'vertical': 'discovery', 'page_type': ptype,
         'entity_type': etype, 'entity_id': eid, 'entity_name': ename,
@@ -2280,6 +2289,54 @@ if name_dupes:
 # the same rebinding the localisation gate below uses, so every later stage reads the survivors
 # rather than the list this gate was given
 stage2 = stage2a
+
+# ------------------------------------------------- one Wikidata item, one page
+# The same-name gate above compares SPELLINGS, and the 2026-10-10 QA found what that cannot
+# reach: /en/poi/gallery/david-zwirner-n6596032786/ and
+# /en/poi/gallery/david-zwirner-gallery-n10873196751/ are two OSM nodes in Hoboken carrying one
+# Wikidata item, Q1950826, and the word "Gallery" was enough to get both through. Three
+# "Laweczka Chopina" nodes carry Q24944972 between them and were attributed to Srodmiescie,
+# Warsaw and Praga Polnoc, so not even the city key met them.
+#
+# The QID is an IDENTITY, not a name: it is the one join this inventory is allowed to make
+# without qualification, and the whole notability claim of these rows rests on it. If two
+# ENTITY pages in one language and one surface rest on the same item, they rest on the same
+# evidence and they are one page.
+#
+# Keyed on language and surface for the reason the name gate gives: a museum page and a
+# where-to-stay-near-it page are two questions about one venue and must BOTH survive, while
+# /pl/... and /en/... are two languages and are not duplicates of each other. Rows with no
+# QID are untouched, because absence of an item is not a shared identity.
+qid_winner = {}
+qid_dupes = []
+stage2q = []
+for r in sorted(stage2, key=lambda x: (-x['quality_score'], -x['publication_priority'],
+                                       str(x['entity_id']))):
+    q_ = (r.get('_qid') or '').strip()
+    if not q_ or r['page_type'] != 'ENTITY':
+        stage2q.append(r)
+        continue
+    k = (r['language'], r['surface'], q_)
+    first = qid_winner.get(k)
+    if first is not None:
+        r['rejection_reason'] = (
+            f"REJECTED_SAME_WIKIDATA_ITEM: {first['url_pattern']} is already the "
+            f"{r['surface']} page for Wikidata item {q_}, which is the entity this row's "
+            f"own notability rests on, so the two pages rest on one piece of evidence "
+            f"about one thing")
+        r['status'] = 'REJECTED_SAME_WIKIDATA_ITEM'
+        r['duplicate_risk'] = 'SAME_ENTITY_TWO_SOURCE_RECORDS'
+        qid_dupes.append(r)
+        continue
+    qid_winner[k] = r
+    stage2q.append(r)
+stage2 = stage2q
+after_one_page_per_wikidata_item = len(stage2)
+if qid_dupes:
+    print(f'entity pages rejected because another page already rests on the same Wikidata '
+          f'item: {len(qid_dupes):,}', file=sys.stderr)
+    for r in qid_dupes[:5]:
+        print(f"    {r['entity_name']} ({r['url_pattern']})", file=sys.stderr)
 
 # ------------------------------------------------- localisation and cross-locale dedupe
 # A page in a second language is NOT free inventory. The question for every row whose
@@ -3155,6 +3212,7 @@ ROW_GROUPS = [('kept', stage3), ('quality_gates', rejected), ('exact_dupes', exa
               # drives that file as well as REJ_COUNTS. A page refused with no record of the
               # refusal is exactly the silent loss the comments above warn about.
               ('journey_rejected', journey_rejected),
+              ('qid_dupes', qid_dupes),
               ('orphan_rejected', orphan_rejected)]
 _dash_fixed = sum(strip_long_dashes(_g) for _n, _g in ROW_GROUPS)
 print(f'rows whose rendered strings needed a dash normalised: {_dash_fixed:,} '
@@ -3324,6 +3382,7 @@ summary = {
     'removed_by_cannibalisation': REJ_COUNTS['cannib_rejected'],
     'removed_as_the_same_journey_already_timetabled': REJ_COUNTS['journey_rejected'],
     'removed_as_the_same_name_in_the_same_city': REJ_COUNTS['name_dupes'],
+    'removed_as_the_same_wikidata_item': REJ_COUNTS['qid_dupes'],
     'removed_because_the_declared_parent_did_not_survive': REJ_COUNTS['orphan_rejected'],
     'funnel_reconciles': (generated_total - (generated_total - raw_total)
                           - REJ_COUNTS['exact_dupes'] - REJ_COUNTS['semantic_dupes'] - REJ_COUNTS['name_dupes']
@@ -3331,12 +3390,14 @@ summary = {
                           - REJ_COUNTS['fam_gate_rejected'] - REJ_COUNTS['loc_rejected']
                           - REJ_COUNTS['xm_rejected'] - REJ_COUNTS['cannib_rejected']
                           - REJ_COUNTS['journey_rejected']
+                          - REJ_COUNTS['qid_dupes']
                           - REJ_COUNTS['orphan_rejected']) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
     'after_localization_and_cross_locale_gate': after_localization,
     'localization_classes': dict(loc_counts),
     'after_one_page_per_name_per_city': after_name_unique,
+    'after_one_page_per_wikidata_item': after_one_page_per_wikidata_item,
     'after_cannibalization_filtering': after_cannib,
     'after_the_parent_survival_check': after_parent,
     'FINAL_DISTINCT_CANDIDATES': len(stage3),

@@ -114,15 +114,23 @@ def main():
             sb = sorted(set(city_station[b]))[:3]
             facts = [f'{d:,.0f} km apart in a straight line',
                      f'{hops} city hops along the recorded rail path',
-                     f'{len(city_station[a])} recorded station(s) at {A["name"]} and '
-                     f'{len(city_station[b])} at {B["name"]}']
+                     f'{len(city_station[a])} recorded station(s) at '
+                     f'{gaz.label(a) or A["name"]} and '
+                     f'{len(city_station[b])} at {gaz.label(b) or B["name"]}']
             if mids:
                 facts.append('the recorded path runs through ' + ', '.join(mids))
             cands[k] = {
                 'family': 'transport.city-pair-rail', 'pair_type': 'city-city-rail',
                 'origin_type': 'city', 'destination_type': 'city',
-                'origin_id': a, 'origin_name': A['name'], 'origin_country': A['country'],
-                'destination_id': b, 'destination_name': B['name'],
+                # The identity module's label and slug, not the raw name. Two towns of one
+                # name inside one country share a raw name, which cost this builder 120 pairs
+                # on url_collision_with_another_pair and headed two pages "Springfield to
+                # Windsor" in one market. label() adds the region only where the bare name
+                # repeats, and slug() is unique across the whole gazetteer by construction.
+                'origin_id': a, 'origin_name': gaz.label(a) or A['name'],
+                'origin_slug': gaz.slug(a, slug), 'origin_country': A['country'],
+                'destination_id': b, 'destination_name': gaz.label(b) or B['name'],
+                'destination_slug': gaz.slug(b, slug),
                 'destination_country': B['country'],
                 'distance_km': d, 'modes': ['rail'], 'hops': hops,
                 'intermediate_cities': mids,
@@ -157,11 +165,11 @@ def main():
         if r['route_confidence'] == 'low' and r['duplicate_risk'] == 'HIGH':
             rej['long_indirect_path_in_a_crowded_distance_band'] += 1
             continue
-        if not slug(r['origin_name']) or not slug(r['destination_name']):
+        if not r.get('origin_slug') or not r.get('destination_slug'):
             rej['endpoint_name_does_not_slug'] += 1
             continue
-        r['url_pattern'] = (f"/en/transport/rail/{slug(r['origin_name'])}-"
-                            f"{slug(r['destination_name'])}/")
+        r['url_pattern'] = (f"/en/transport/rail/{r['origin_slug']}-"
+                            f"{r['destination_slug']}/")
         kept.append(r)
 
     seen, final = {}, []

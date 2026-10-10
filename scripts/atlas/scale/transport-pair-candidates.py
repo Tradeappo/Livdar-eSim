@@ -95,8 +95,11 @@ def main():
         cands[('city-city', ca, cb)] = {
             'family': 'transport.city-pair', 'pair_type': 'city-city',
             'origin_type': 'city', 'destination_type': 'city',
-            'origin_id': ca, 'origin_name': A['name'], 'origin_country': A['country'],
-            'destination_id': cb, 'destination_name': B['name'],
+            # the identity module's label and slug, for the reason the rail builder gives
+            'origin_id': ca, 'origin_name': gaz.label(ca) or A['name'],
+            'origin_slug': gaz.slug(ca, slug), 'origin_country': A['country'],
+            'destination_id': cb, 'destination_name': gaz.label(cb) or B['name'],
+            'destination_slug': gaz.slug(cb, slug),
             'destination_country': B['country'],
             'distance_km': d, 'modes': ['air'],
             'airports': sorted(x for x in c['airports'] if x),
@@ -132,9 +135,13 @@ def main():
         cands[('airport-city', a['node_id'], cid)] = {
             'family': 'transport.airport-city-access', 'pair_type': 'airport-city',
             'origin_type': 'airport', 'destination_type': 'city',
+            # the origin is an AIRPORT node, not a gazetteer city, so it keeps its own name
+            # and its own slug; only the destination city goes through the identity module
             'origin_id': a['node_id'], 'origin_name': a['name'],
+            'origin_slug': slug(a['name']),
             'origin_country': a['country'],
-            'destination_id': cid, 'destination_name': C['name'],
+            'destination_id': cid, 'destination_name': gaz.label(cid) or C['name'],
+            'destination_slug': gaz.slug(cid, slug),
             'destination_country': C['country'],
             'distance_km': e['distance_km'], 'modes': ['airport_access'],
             'airports': [a['iata']], 'operator_records': 0,
@@ -168,11 +175,11 @@ def main():
                 and r['duplicate_risk'] == 'HIGH':
             rej['single_operator_corridor_in_a_crowded_distance_band'] += 1
             continue
-        if not slug(r['origin_name']) or not slug(r['destination_name']):
+        if not r.get('origin_slug') or not r.get('destination_slug'):
             rej['endpoint_name_does_not_slug'] += 1
             continue
         r['url_pattern'] = (f"/en/transport/{'route' if r['pair_type'] == 'city-city' else 'airport'}/"
-                            f"{slug(r['origin_name'])}-{slug(r['destination_name'])}/")
+                            f"{r['origin_slug']}-{r['destination_slug']}/")
         kept.append(r)
 
     # URL collisions: two different pairs must never share a URL.

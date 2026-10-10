@@ -52,6 +52,26 @@ def norm_tokens(s):
     return tuple(sorted(w for w in t.split() if w and w not in STOP))
 
 
+def norm_tokens_ordered(s):
+    """The same tokens, in the order they were written.
+
+    The sorted form asks "do these two titles differ only in their connecting words", which is
+    the right question for almost every family and the WRONG one for a journey, where the word
+    order IS the content: "Berlin nach Lubin" and "Lubin nach Berlin" hold the same tokens and
+    are two different journeys with two different timetables. The pair builder refuses the
+    reverse direction when its facts match to the minute, 3,642 of them on the 2026-10-10 run,
+    and keeps it when they do not; so a direction that survived that gate is a separate page
+    and comparing it order-blind reported 56,068 near-duplicates that were the check's fault.
+
+    This was only visible once the redundant origin suffix came out of the pair title. Before
+    that, "Berlin nach Lubin, Berlin, DE" and "Lubin nach Berlin, Lubin, PL" differed by the
+    locator, so the sorted sets differed for a reason that had nothing to do with the journey,
+    and the check passed without ever testing what it claimed to test.
+    """
+    t = re.sub(r'[^0-9a-zÀ-ɏ　-鿿]+', ' ', (s or '').lower())
+    return tuple(w for w in t.split() if w and w not in STOP)
+
+
 rows = []
 with gzip.open(MANIFEST, 'rt', encoding='utf-8', newline='') as f:
     for r in csv.DictReader(f):
@@ -61,9 +81,15 @@ print(f'manifest rows: {len(rows):,}', file=sys.stderr)
 # Must run before any title is simulated, because the label depends on it.
 page_copy.AMBIGUOUS_FAM_LABEL = AMBIGUOUS_FAM_LABEL = page_copy.compute_ambiguous_labels(rows)
 page_copy.SHARED_SUBJECT = page_copy.compute_shared_subjects(rows)
+# BEFORE the entity-subject set, because that set renders subjects and a pair subject this
+# resolves is no longer shared; computing it the other way round would mark the pairs as
+# shared and then disambiguate them twice.
+page_copy.PAIR_SUBJECT_SUFFIX = page_copy.compute_pair_subject_suffix(rows)
 # AFTER the two above, because it renders subjects and subject() reads them both.
 page_copy.SHARED_ENTITY_SUBJECT = page_copy.compute_shared_entity_subjects(rows)
 page_copy.SHARED_AGG_SUBJECT = page_copy.compute_shared_agg_subjects(rows)
+print(f'pair subjects two pages in one market both rendered, now carrying the mode or the '
+      f'destination country: {len(page_copy.PAIR_SUBJECT_SUFFIX):,}', file=sys.stderr)
 print(f'subjects claimed by more than one family in a market, so the heading carries the '
       f'angle too: {len(page_copy.SHARED_SUBJECT):,}', file=sys.stderr)
 if AMBIGUOUS_FAM_LABEL:
@@ -84,7 +110,10 @@ for r in rows:
     urls.add(r['url_pattern'])
     tmpl_pages[(r['market'], r['template_signature'])] += 1
     tmpl_data[(r['market'], r['template_signature'])].add(r['entity_id'])
-    title_by_market[r['market']].append((norm_tokens(t), t, r))
+    # a journey keeps its word order, see norm_tokens_ordered
+    _tok = (norm_tokens_ordered if r.get('entity_type') in page_copy.PAIR_ENTITY_TYPES
+            else norm_tokens)
+    title_by_market[r['market']].append((_tok(t), t, r))
     # length rules a human would apply before shipping
     if len(t) > 65:
         issues['title_over_65_chars'] += 1

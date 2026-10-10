@@ -80,6 +80,13 @@ def nearest_city(lat, lon):
     return best
 
 
+# Settlement coordinates by gazetteer id, for the national loop, which has to measure the
+# distance between two TOWNS rather than between the two stops that happened to evidence them.
+# Built from the same shards the grid above is built from, so the two cannot disagree.
+city_pt = {c['id']: (c['lat'], c['lon']) for c in cities}
+city_name = {c['id']: c['name'] for c in cities}
+city_cc = {c['id']: c['country'] for c in cities}
+
 # ---- fold every feed onto the settlement pair ------------------------------------------------
 # A pair served by two operators in two feeds is ONE page carrying both, so the aggregate is
 # keyed on the city pair and the evidence accumulates.
@@ -170,7 +177,52 @@ for f in sorted(glob.glob(NAT + 'pairs-*.json.gz')):
         continue
     for p_ in d.get('pairs') or []:
         stats['raw_national_settlement_pairs'] += 1
-        sep = km(p_['a_lat'], p_['a_lon'], p_['b_lat'], p_['b_lon'])
+        # ---- the UNIT: a page is a journey between two SETTLEMENTS ------------------------
+        # gtfs-national-harvest.py gives a stop its own named node when the feed calls it a
+        # station or when MAJOR_NODE_ROUTES distinct routes meet there, and carries that
+        # node's settlement_id alongside. That node identity exists for the HUB family,
+        # transport.station-departures, which is a page about a place of departure. This
+        # builder keyed its aggregate on it, and so a major-node stop never folded into its
+        # town. The result, measured on the 593,057 rows the previous run emitted: 475,642 of
+        # them, 80 per cent, had at least one station-node endpoint, and what they produced
+        # was one stop fanned out across its neighbours.
+        #
+        #   /en/transport/public-transport/bromley-road-colchester-to-walton-road-playing-fields-frinton-on-sea/
+        #   /en/transport/public-transport/new-inn-belper-to-twiggs-matlock/
+        #   /pl/transport/public-transport/centrum-handlowe-batory-01-gdynia-do-zrodlo-marii-02-wielki-kack/
+        #
+        # "Walton Road Playing Fields" stood opposite fifteen Colchester stops, "New Inn", a
+        # pub stop in Belper, opposite fifteen Derby stops, "Russell Street, Wishaw" opposite
+        # more than thirty. Nobody searches for any of those, so the rows carried neither
+        # measured demand nor utility, and the shape was a doorway fan-out. An eight-route bus
+        # stop is not a significant node; the interchange threshold was answering a different
+        # question than the one this family asks.
+        #
+        # So every endpoint folds onto its settlement here, exactly as the CITY feed loop
+        # above already does with nearest_city(). Nothing is discarded: the trips, the
+        # durations, the modes and the operators of every stop pair between two towns
+        # accumulate into the ONE page for that town pair, which is both the honest unit and
+        # the better-evidenced one. Berlin Hbf to Hamburg Hbf becomes Berlin to Hamburg with
+        # the full service count behind it rather than a page named after two station halls.
+        ida = (p_['a_id'] if p_.get('a_kind', 'settlement') != 'station'
+               else str(p_.get('a_settlement_id') or ''))
+        idb = (p_['b_id'] if p_.get('b_kind', 'settlement') != 'station'
+               else str(p_.get('b_settlement_id') or ''))
+        if not ida or not idb:
+            stats['rejected_station_node_with_no_settlement'] += 1
+            continue
+        if str(ida) == str(idb):
+            stats['rejected_both_stops_in_the_same_settlement'] += 1
+            continue
+        a_nm = (p_['a_name'] if p_.get('a_kind', 'settlement') != 'station'
+                else (p_.get('a_settlement') or city_name.get(ida) or p_['a_name']))
+        b_nm = (p_['b_name'] if p_.get('b_kind', 'settlement') != 'station'
+                else (p_.get('b_settlement') or city_name.get(idb) or p_['b_name']))
+        # between the TOWNS, not between the two stops that evidenced them, so the figure is
+        # the same whichever stop pair a feed happens to record
+        a_pt = city_pt.get(ida) or (p_['a_lat'], p_['a_lon'])
+        b_pt = city_pt.get(idb) or (p_['b_lat'], p_['b_lon'])
+        sep = km(a_pt[0], a_pt[1], b_pt[0], b_pt[1])
         if sep < MIN_CITY_SEPARATION_KM:
             stats['rejected_settlements_closer_than_%dkm' % MIN_CITY_SEPARATION_KM] += 1
             continue
@@ -181,7 +233,6 @@ for f in sorted(glob.glob(NAT + 'pairs-*.json.gz')):
         if dur is None or not (MIN_DURATION_S <= dur <= MAX_DURATION_S):
             stats['rejected_no_usable_scheduled_duration'] += 1
             continue
-        ida, idb = p_['a_id'], p_['b_id']
         # A national file that declares `pairs_are_directed` has a is the ORIGIN and b the
         # DESTINATION, and its median_duration_s is a's departure to b's arrival rather than
         # an average over both ways round. Those keep their direction. A file written before
@@ -205,14 +256,17 @@ for f in sorted(glob.glob(NAT + 'pairs-*.json.gz')):
         # every national node as a settlement and leaves station names bare, which is what
         # produced 90,424 url_collision rejections: "Hauptbahnhof", "Bahnhof" and
         # "Bus Station" repeat in every town that has one.
-        e['a'] = {'id': ida, 'name': p_['a_name'], 'country': p_.get('a_country'),
-                  'lat': p_['a_lat'], 'lon': p_['a_lon'], 'pop': 0,
-                  'kind': p_.get('a_kind', 'settlement'),
-                  'settlement': p_.get('a_settlement')}
-        e['b'] = {'id': idb, 'name': p_['b_name'], 'country': p_.get('b_country'),
-                  'lat': p_['b_lat'], 'lon': p_['b_lon'], 'pop': 0,
-                  'kind': p_.get('b_kind', 'settlement'),
-                  'settlement': p_.get('b_settlement')}
+        # The endpoints are SETTLEMENTS, with the gazetteer id the fold resolved and the
+        # town's own coordinates, so qualified() answers from the identity module and the
+        # emitted entity_id is a settlement pair at both ends.
+        e['a'] = {'id': ida, 'name': a_nm,
+                  'country': p_.get('a_country') or city_cc.get(ida, ''),
+                  'lat': a_pt[0], 'lon': a_pt[1], 'pop': 0,
+                  'kind': 'settlement', 'settlement': a_nm}
+        e['b'] = {'id': idb, 'name': b_nm,
+                  'country': p_.get('b_country') or city_cc.get(idb, ''),
+                  'lat': b_pt[0], 'lon': b_pt[1], 'pop': 0,
+                  'kind': 'settlement', 'settlement': b_nm}
 
 # ---- emit ------------------------------------------------------------------------------------
 MODE_WORD = {'bus': 'bus', 'rail': 'train', 'subway': 'metro', 'tram': 'tram',
@@ -352,6 +406,22 @@ def class_b_signals(e, med, sep):
     sig['substantial_journey'] = med >= CLASS_B_MIN_DURATION_S
     return sig
 
+def settlement_key(n):
+    """The settlement a node stands for, as a key two nodes in one town will share.
+
+    qualified() answers what a node is CALLED; this answers what it IS. Since both ingest
+    loops now fold onto the settlement, every endpoint is a gazetteer id and this is the
+    identity itself, which makes the refusal below a safety net that should read zero rather
+    than a gate doing work. The station branch stays for the same reason qualified()'s does,
+    and keys on the town name only because a feed that recorded no settlement_id recorded no
+    id to key on; over-refusing is the safe direction for a duplicate check.
+    """
+    if n.get('kind', 'settlement') != 'station':
+        return ('gid', str(n['id']))
+    town = (n.get('settlement') or '').strip().casefold()
+    return ('town', n.get('country') or '', town) if town else ('node', str(n['id']))
+
+
 def qualified(n):
     """A node's reader-facing name and its slug, made unambiguous.
 
@@ -361,11 +431,44 @@ def qualified(n):
     URL scheme failing rather than the data.
 
     So a station is qualified by the settlement it serves, unless its own name already
-    contains that settlement (London Euston needs nothing; Hauptbahnhof needs Koeln). A
-    settlement node is already unique by the shared identity module and is left alone.
+    contains that settlement (London Euston needs nothing; Hauptbahnhof needs Koeln).
+
+    A SETTLEMENT node is answered by the identity module, which is the single place in this
+    pipeline that says what a place is called and what path segment it owns. The previous
+    version returned the raw name and the raw slug, on the comment "a settlement node is
+    already unique by the shared identity module and is left alone". That read a guarantee
+    about IDS as a guarantee about NAMES, and the module's own self-test says otherwise:
+    2,115 name-and-country pairs repeat inside one country and 1,311 names are shared across
+    countries. The cost was paid twice over.
+
+      - 67,383 pairs that had already cleared the utility bar and the locale gate were then
+        dropped on url_collision_on_settlement_names, because two different gazetteer ids
+        slugged to one URL. Those are different journeys between different towns, and the
+        honest fix is a unique path segment, which Gazetteer.slug builds by construction and
+        proves with zero clashes across all 64,418 cities.
+      - The pages that did survive were headed by the bare names, so en-US carried
+        "Springfield to Windsor" twice: once for Springfield, Massachusetts to Windsor,
+        Connecticut at 28 km, and once, in the rail family, for Springfield, Illinois to
+        Windsor, Ontario at 621 km. Gazetteer.label adds the region ONLY where the bare name
+        repeats inside its country, so the 62,303 unambiguous settlements read exactly as
+        they did.
+
+    THE STATION BRANCH IS NOW UNREACHABLE: both ingest loops fold a station node onto its
+    settlement before keying the aggregate, so every endpoint arriving here is a settlement.
+    It is kept, with its history, because the hub family does name pages after nodes and will
+    need it; deleting it would mean rediscovering the "Hauptbahnhof" problem.
+
+    A station keeps the raw settlement NAME rather than a gazetteer label: resolving a town
+    name to an id would pick the most populous namesake, and labelling a station in the
+    smaller Springfield "Springfield, Massachusetts" would be a worse error than leaving it
+    bare.
     """
     name, kind = n['name'], n.get('kind', 'settlement')
     if kind != 'station':
+        lab, sl = GAZ.label(n['id']), GAZ.slug(n['id'], slugify)
+        if lab and sl:
+            return lab, sl
+        # not a gazetteer id: fall back rather than invent an identity
         return name, slugify(name)
     town = (n.get('settlement') or '').strip()
     if not town or slugify(town) in slugify(name):
@@ -413,9 +516,18 @@ import importlib.util
 _spec = importlib.util.spec_from_file_location('ei', ROOT + 'scripts/atlas/scale/entity_identity.py')
 _ei = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_ei)
 slugify = _ei.slugify
+# The identity module's gazetteer, for the settlement branch of qualified(). Loaded once: the
+# module caches it, and qualified() is called twice per emitted pair.
+GAZ = _ei.load_gazetteer()
 
 out = []
 for a, b, e in rows:
+    # Belt and braces. Both ingest loops fold their endpoints onto a settlement before
+    # keying the aggregate, so no station node can reach this point; if one ever does, a stop
+    # pair must not become a page. See the fold in the national loop for why.
+    if a.get('kind', 'settlement') == 'station' or b.get('kind', 'settlement') == 'station':
+        stats['rejected_endpoint_is_a_stop_not_a_settlement'] += 1
+        continue
     # The locale of a pair.
     #
     # An UNDIRECTED corridor must be domestic: it has no origin, so a cross-border corridor
@@ -471,9 +583,14 @@ for a, b, e in rows:
     url = (f"/{lang}/transport/public-transport/"
            f"{a_slug}{joiner_slug}{b_slug}/")
     if url in seen:
-        # two different gazetteer ids whose names slug the same: a real collision, and the
-        # honest fix is to drop the second rather than mint a near-identical URL
-        stats['rejected_url_collision_on_settlement_names'] += 1
+        # Two endpoints that produce one path. The settlement branch of qualified() takes its
+        # slug from the identity module, which has zero clashes across all 64,418 cities, so
+        # this can no longer be two namesake towns that the gazetteer knows about. What is
+        # left is an endpoint the gazetteer does NOT hold, which falls back to slugify(name)
+        # and can therefore still clash: 152 rows on the 2026-10-10 run. Dropping the second
+        # is right, and the counter is named for what it actually is rather than for the
+        # station collision it replaced.
+        stats['rejected_url_clash_from_an_endpoint_outside_the_gazetteer'] += 1
         continue
     seen.add(url)
     fast = min(e['durations'])
@@ -503,12 +620,21 @@ for a, b, e in rows:
         # The query form this locale was measured on (Class A) or is admitted under
         # (Class B), with the real place names and the pair's own primary mode substituted,
         # so intent ownership is a recorded fact rather than an assumption downstream.
+        # The BARE names, not the labels. This is the keyword form the locale was measured
+        # on, and nobody types "springfield, massachusetts to windsor, connecticut by train".
+        # The label belongs in the heading, where a reader needs to tell two towns apart; the
+        # query form has to stay the string that was actually read.
         'measured_local_query_form': (
-            query_form.format(a=a_name.lower(), b=b_name.lower(),
+            query_form.format(a=a['name'].lower(), b=b['name'].lower(),
                               mode=(mw[0] if mw else 'transport'))
             if query_form else ''),
         'country': a['country'], 'destination_country': b['country'],
         'city': a['name'], 'cls': 'settlement-settlement',
+        # The SETTLEMENT each endpoint stands for, which is not the same thing as the node.
+        # A station node is a stop, and two stops in one town are one journey described
+        # twice; the dedupe below needs a key that says so.
+        '_jkey_a': settlement_key(a), '_jkey_b': settlement_key(b),
+        '_directed': bool(e.get('directed')),
         'n': len(e['route_names']) or e['stop_pairs'],
         'enriched': len(e['feeds']) + len(modes),
         'distance_km': round(e['sep_km'], 1),
@@ -540,6 +666,33 @@ for a, b, e in rows:
             f"disruptions, or that the timetable has not changed since the feed was "
             f"published."),
     })
+
+# ---- one journey, one page ------------------------------------------------------------------
+# Two station nodes in one town describe one journey, and before the settlement branch of
+# qualified() took its slug from the identity module this was partly hidden: the pairs whose
+# endpoints slugged alike collided on the URL and the second was dropped, so the duplicate was
+# refused by accident, for the wrong reason, and only when the names happened to match. Now
+# that distinct towns keep distinct paths, the duplicates have to be refused on purpose.
+#
+# The better-evidenced row wins: the most direct services in the published timetable, then the
+# most facts, then the URL, so the choice is stable across runs rather than dependent on dict
+# order.
+_best = {}
+for r in out:
+    jk = (r['market'], (r['_jkey_a'], r['_jkey_b']) if r['_directed']
+          else tuple(sorted((r['_jkey_a'], r['_jkey_b']), key=repr)))
+    cur = _best.get(jk)
+    rank = (r['direct_trips'], len(r['locale_facts']), r['url'])
+    if cur is None or rank > cur[0]:
+        if cur is not None:
+            stats['rejected_same_settlement_journey_through_another_node'] += 1
+        _best[jk] = (rank, r)
+    else:
+        stats['rejected_same_settlement_journey_through_another_node'] += 1
+out = [v[1] for v in _best.values()]
+for r in out:
+    for k in ('_jkey_a', '_jkey_b', '_directed'):
+        r.pop(k, None)
 
 OUTP = ROOT + 'data/atlas/sources/transport/_gtfs-pair-candidates.jsonl.gz'
 with gzip.open(OUTP, 'wt', encoding='utf-8') as f:

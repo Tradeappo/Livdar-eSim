@@ -1,22 +1,21 @@
 {
- "manifest_rows": 972910,
- "distinct_urls": 972910,
+ "manifest_rows": 586511,
+ "distinct_urls": 586511,
  "checks": {
-  "title_over_65_chars": 495584,
-  "meta_over_165_chars": 517753,
+  "title_over_65_chars": 45036,
+  "meta_over_165_chars": 132542,
   "title_under_15_chars": 28,
-  "duplicate_title_exact": 281,
-  "duplicate_title_same_tokens": 1020,
+  "duplicate_title_exact": 0,
+  "duplicate_title_same_tokens": 57,
   "destination_rows": 77695,
   "destination_rows_with_no_locale_specific_fact": 0,
-  "uniqueness_reason_shared_with_another_candidate": 5,
   "templates_with_repeated_entities": 0,
   "orphan_pages": 111,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
   "locale_mismatch_between_url_and_row": 0,
-  "entity_names_needing_a_disambiguator_in_the_title": 1039,
+  "entity_names_needing_a_disambiguator_in_the_title": 1001,
   "same_entity_id_under_two_names": 0,
   "candidates_with_no_usable_source": 0,
   "kept_rows_with_a_rejecting_localisation_class": 0,
@@ -24,9 +23,9 @@
   "urls_containing_a_latin_character_with_a_diacritic": 0,
   "duplicate_canonicals": 0,
   "duplicate_meta_within_a_market": 0,
-  "duplicate_h1_within_a_market": 275,
+  "duplicate_h1_within_a_market": 0,
   "declared_parent_is_not_a_valid_parent": 0,
-  "declared_parent_is_valid_but_not_a_path_prefix": 24459,
+  "declared_parent_is_valid_but_not_a_path_prefix": 24373,
   "family_locale_cells_failing_the_usefulness_test": 0
  },
  "query_level_competition_test": "A per-page target query is not recorded in the manifest, so a query-level competition test cannot be run from it. The three keyword fields it does carry are family-level: they name the measurement that proved the family in a market, not the page target.",
@@ -63,237 +62,245 @@
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Andernach nach Koblenz Hauptbahnhof, Andernach, DE: what to know before you go",
-   "a": "c_20737b4ccb3b",
-   "b": "c_01a95ff191c6",
+   "title": "Lameyplatz, Karlsruhe, Karlsruhe, DE: what to know before you go",
+   "a": "c_72ddab7af15c",
+   "b": "c_d43af1c4fb80",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/andernach-nach-koblenz-hauptbahnhof/"
+   "url_b": "/de/transport/abfahrt/lameyplatz-karlsruhe/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Aurich nach Kunsthalle, Emden, Aurich, DE: what to know before you go",
-   "a": "c_18de1f86dacf",
-   "b": "c_6d8f3af38720",
+   "title": "Lutherplatz  von Am Stern, Kassel, Kassel, DE: what to know before you go",
+   "a": "c_8f5b32e97136",
+   "b": "c_3558f40aa161",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/aurich-nach-kunsthalle-emden/"
+   "url_b": "/de/transport/abfahrt/lutherplatz-von-am-stern-kassel/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bad Bramstedt nach Bad Segeberg, Leopardstraße (Süd), Bad Bramstedt, DE: what to know before you go",
-   "a": "c_281414c031df",
-   "b": "c_d9a596ac3941",
+   "title": "Stuttgart-Bad Cannstatt, Stuttgart, DE: what to know before you go",
+   "a": "c_db447c378889",
+   "b": "c_07d01ff72331",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-bad-segeberg-leopardstrasse-sud/"
+   "url_b": "/de/transport/abfahrt/stuttgart-bad-cannstatt/"
   },
   {
    "kind": "same_tokens_after_stopwords",
    "market": "de-DE",
-   "title": "Bad Bramstedt nach Bad Segeberg, Mühlenberg, Bad Bramstedt, DE: what to know before you go",
-   "a": "c_afbe94d8188f",
-   "b": "c_1dabcba8ee96",
+   "title": "Wittenberge, Bahnhof, Wittenberge, DE: what to know before you go",
+   "a": "c_a23673fa639e",
+   "b": "c_f17d354e66b1",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-bad-segeberg-muhlenberg/"
+   "url_b": "/de/transport/abfahrt/wittenberge-bahnhof/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bad Bramstedt nach Högersdorf, Rotenhahn, Wahlstedt, Bad Bramstedt, DE: what to know before you go",
-   "a": "c_fbdec80f731f",
-   "b": "c_f212d5527b7e",
+   "market": "en-GB",
+   "title": "Rail Trail: Wootton Wawen > Wilmcote, Warwickshire, GB: foot trail",
+   "a": "c_e2cca8c583ec",
+   "b": "c_0e751b5a905b",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-hogersdorf-rotenhahn-wahlstedt/"
+   "url_b": "/en/outdoors/trail/rail-trail-wootton-wawen-wilmcote-r18743925/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bad Bramstedt nach Wahlstedt, Bad Bramstedt, DE: what to know before you go",
-   "a": "c_6e5ee1281455",
-   "b": "c_81d58398dedf",
+   "market": "en-GB",
+   "title": "Beinn an Lochain, Argyll and Bute, Helensburgh: peak",
+   "a": "c_fb93cd209ebd",
+   "b": "c_d20810fbbe1e",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-bramstedt-nach-wahlstedt/"
+   "url_b": "/en/outdoors/peak/beinn-an-lochain-n539382655/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bad Essen, Lerchenstraße nach Luisenstraße, Osnabrück, Bad Essen, Lerchenstraße, DE: what to know before you g",
-   "a": "c_62ada80d06da",
-   "b": "c_5c5696444723",
+   "market": "en-GB",
+   "title": "The Calf, Yorkshire Dales National Park, Kendal: peak",
+   "a": "c_60f9edc762ec",
+   "b": "c_5bcfa65f8d7a",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-essen-lerchenstrasse-nach-luisenstrasse-osnabruck/"
+   "url_b": "/en/outdoors/peak/the-calf-n9439548715/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bad Schwartau nach Lübeck Holstentorplatz, Bad Schwartau, DE: what to know before you go",
-   "a": "c_a3ed23060611",
-   "b": "c_2f02ce21df98",
+   "market": "en-US",
+   "title": "restaurant in Village of La Jolla, San Diego, US",
+   "a": "c_a793d50ee25e",
+   "b": "c_0ee1a72995fb",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-schwartau-nach-lubeck-holstentorplatz/"
+   "url_b": "/en/places/restaurant/san-diego-us/village-of-la-jolla/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bad Segeberg nach Bad Bramstedt, Bad Segeberg, DE: what to know before you go",
-   "a": "c_3c25e67b4e83",
-   "b": "c_9136b08f9cda",
+   "market": "en-US",
+   "title": "Mount Washington to Gwynn Oak, Baltimore, US: bicycle trail",
+   "a": "c_fb072aefc55c",
+   "b": "c_42aa232a31d3",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-segeberg-nach-bad-bramstedt/"
+   "url_b": "/en/outdoors/trail/mount-washington-to-gwynn-oak-r14410947/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bad Segeberg, Hamburger Straße (Möbel Kraft) nach Bad Bramstedt, Bad Segeberg, Hamburger Straße (Möbel Kraft),",
-   "a": "c_d7a72443c331",
-   "b": "c_a6aca94a7c65",
+   "market": "en-US",
+   "title": "Olentangy to Alum Creek Connector, Franklin County, US: bicycle trail",
+   "a": "c_b48384b70aee",
+   "b": "c_ba6b51dcfd66",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bad-segeberg-hamburger-strasse-mobel-kraft-nach-bad-bramstedt/"
+   "url_b": "/en/outdoors/trail/olentangy-to-alum-creek-connector-r6007337/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Barleben nach Magdeburg, Allee-Center, Barleben, DE: what to know before you go",
-   "a": "c_73a31d8deaac",
-   "b": "c_62ed9f0f5bf9",
+   "market": "en-US",
+   "title": "cafe in La Jolla Village, San Diego, US",
+   "a": "c_29fd832186b1",
+   "b": "c_52cc100e7c81",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/barleben-nach-magdeburg-allee-center/"
+   "url_b": "/en/places/cafe/san-diego-us/la-jolla-village/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bassum nach Bremen Arsterdamm, Bassum, DE: what to know before you go",
-   "a": "c_ed4a527faa78",
-   "b": "c_2b133d1c1765",
+   "market": "en-US",
+   "title": "fast food in Village of La Jolla, San Diego, US",
+   "a": "c_5d4bdc21e1ea",
+   "b": "c_76f6c35bfc1b",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bassum-nach-bremen-arsterdamm/"
+   "url_b": "/en/places/fast-food/san-diego-us/village-of-la-jolla/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bassum nach Huckelriede, Bremen, Bassum, DE: what to know before you go",
-   "a": "c_4dd1a87bd78e",
-   "b": "c_7d86aba999ca",
+   "market": "en-US",
+   "title": "coffee shop restaurant in Village of La Jolla, San Diego, US",
+   "a": "c_1a49d48109c2",
+   "b": "c_9c6ea0965b6d",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bassum-nach-huckelriede-bremen/"
+   "url_b": "/en/places/food/coffee-shop/san-diego-us/village-of-la-jolla/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bassum nach Wolfskuhlenweg, Bremen, Bassum, DE: what to know before you go",
-   "a": "c_2d79de4d880f",
-   "b": "c_08cd7713ddde",
+   "market": "ja-JP",
+   "title": "What to see in Кунашир, JP",
+   "a": "c_eddafd61af5c",
+   "b": "c_9d8da1eaa0a5",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bassum-nach-wolfskuhlenweg-bremen/"
+   "url_b": "/ja/destinations/region/кунашир-r2409701/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bellheim nach Lameyplatz, Karlsruhe, Bellheim, DE: what to know before you go",
-   "a": "c_56afa5ad0e91",
-   "b": "c_8462021b9bb0",
+   "market": "ja-JP",
+   "title": "What to see in Шикотан, JP",
+   "a": "c_eddafd61af5c",
+   "b": "c_d1ee306c4c5a",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bellheim-nach-lameyplatz-karlsruhe/"
+   "url_b": "/ja/destinations/region/шикотан-r1390077/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bendorf nach Koblenz Hauptbahnhof, Bendorf, DE: what to know before you go",
-   "a": "c_4c9e23438523",
-   "b": "c_474f7d2cdd06",
+   "market": "ja-JP",
+   "title": "What to see in охранная зона Курильского заповедника, JP",
+   "a": "c_eddafd61af5c",
+   "b": "c_94fc1302d1bb",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bendorf-nach-koblenz-hauptbahnhof/"
+   "url_b": "/ja/destinations/region/охранная-зона-курильского-заповедника-r5172909/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Beratzhausen nach Steinweg, Regensburg, Beratzhausen, DE: what to know before you go",
-   "a": "c_feb6e740e9d1",
-   "b": "c_1a3749eef5d6",
+   "market": "ja-JP",
+   "title": "Стокап, Островной заказник: volcano",
+   "a": "c_f0fd64ad5e05",
+   "b": "c_8ced00071734",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/beratzhausen-nach-steinweg-regensburg/"
+   "url_b": "/ja/outdoors/volcano/стокап-n1642980822/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Berlin nach Wittenberge, Bahnhof, Berlin, DE: what to know before you go",
-   "a": "c_9676c1fd23c8",
-   "b": "c_374d24dd20b9",
+   "market": "tr-TR",
+   "title": "supermarket in الهلالية, Nusaybin, TR",
+   "a": "c_e76a7dd5ec06",
+   "b": "c_91625b5ba60d",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/berlin-nach-wittenberge-bahnhof/"
+   "url_b": "/tr/places/supermarket/nusaybin/الهلالية/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bf. Bad Segeberg (ZOB) nach Bad Bramstedt, Bf. Bad Segeberg (ZOB), DE: what to know before you go",
-   "a": "c_5cef2ba3d765",
-   "b": "c_74394061792d",
+   "market": "tr-TR",
+   "title": "clinic in Nusaybin, TR",
+   "a": "c_4da25b131279",
+   "b": "c_7c89d64d85a9",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bf-bad-segeberg-zob-nach-bad-bramstedt/"
+   "url_b": "/tr/places/clinic/nusaybin/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bingen am Rhein nach Koblenz Hauptbahnhof, Bingen am Rhein, DE: what to know before you go",
-   "a": "c_04109ab71d73",
-   "b": "c_3a77b40aaf7a",
+   "market": "tr-TR",
+   "title": "school in Nusaybin, TR",
+   "a": "c_ec7001d204b7",
+   "b": "c_3554f3b84a09",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bingen-am-rhein-nach-koblenz-hauptbahnhof/"
+   "url_b": "/tr/places/school/nusaybin/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bischofsheim nach Wiesbaden Hauptbahnhof, Bischofsheim, DE: what to know before you go",
-   "a": "c_92a10f133e14",
-   "b": "c_9d1b347b89fc",
+   "market": "tr-TR",
+   "title": "supermarket in Nusaybin, TR",
+   "a": "c_e76a7dd5ec06",
+   "b": "c_f2d750001beb",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bischofsheim-nach-wiesbaden-hauptbahnhof/"
+   "url_b": "/tr/places/supermarket/nusaybin/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Blankenfelde-Mahlow nach Wittenberge, Bahnhof, Blankenfelde-Mahlow, DE: what to know before you go",
-   "a": "c_8f0e4703f2a5",
-   "b": "c_c926862300ba",
+   "market": "es-ES",
+   "title": "Cómpeta - Canillas de Aceituno, Parque Natural Sierra de Tejeda, Almijara y Alhama, ES: hiking trail",
+   "a": "c_a0fcb4195f37",
+   "b": "c_896c2d4c2f0f",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/blankenfelde-mahlow-nach-wittenberge-bahnhof/"
+   "url_b": "/es/outdoors/trail/competa-canillas-de-aceituno-r6172432/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Boppard nach Koblenz Hauptbahnhof, Boppard, DE: what to know before you go",
-   "a": "c_96fe790dd201",
-   "b": "c_2f3aedc28e1c",
+   "market": "es-ES",
+   "title": "Frigiliana - Cómpeta, Parque Natural Sierra de Tejeda, Almijara y Alhama, ES: hiking trail",
+   "a": "c_0066c47fcf47",
+   "b": "c_ab17b45eb56c",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/boppard-nach-koblenz-hauptbahnhof/"
+   "url_b": "/es/outdoors/trail/frigiliana-competa-r6172439/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bremen nach Bassum Bahnhof, Bremen, DE: what to know before you go",
-   "a": "c_206897135d0c",
-   "b": "c_2280158539b2",
+   "market": "es-ES",
+   "title": "Nerja - Frigiliana, Parque Natural Sierra de Tejeda, Almijara y Alhama, ES: hiking trail",
+   "a": "c_3862d2dd959c",
+   "b": "c_8378626db955",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bremen-nach-bassum-bahnhof/"
+   "url_b": "/es/outdoors/trail/nerja-frigiliana-r1574719/"
   },
   {
    "kind": "same_tokens_after_stopwords",
-   "market": "de-DE",
-   "title": "Bremerhaven nach Hauptbahnhof/Hugo-Schauinsland-Platz, Bremen, Bremerhaven, DE: what to know before you go",
-   "a": "c_33a1d246ec84",
-   "b": "c_c0dba57fce70",
+   "market": "es-ES",
+   "title": "Puerto de la Ragua-Laroles, Parque Nacional de Sierra Nevada, ES: hiking trail",
+   "a": "c_347cc9c6e51c",
+   "b": "c_0ff92bc30bb0",
    "url_a": "",
-   "url_b": "/de/transport/public-transport/bremerhaven-nach-hauptbahnhof-hugo-schauinsland-platz-bremen/"
+   "url_b": "/es/outdoors/trail/puerto-de-la-ragua-laroles-r9227901/"
   }
  ],
- "shared_uniqueness_reason_by_family": {
-  "poi.attraction-notable": 2,
-  "poi.museum-notable": 2,
-  "poi.gallery-notable": 1
- },
+ "shared_uniqueness_reason_by_family": {},
  "contested_intent_owners": {},
  "locale_mismatch_examples": [],
  "entity_names_needing_a_disambiguator": {
+  "('transport.city-pair-transit', 'de-DE', 'berlin nach lubin', 'DE')": [
+   "2950159-2875625",
+   "2950159-3092931"
+  ],
+  "('transport.city-pair-transit', 'de-DE', 'laufenburg nach rheinfelden', 'DE')": [
+   "2880121-2659060",
+   "2880121-2847639"
+  ],
+  "('transport.city-pair-transit', 'de-DE', 'murg nach rheinfelden', 'DE')": [
+   "2867467-2659060",
+   "2867467-2847639"
+  ],
   "('places.neighbourhood-category', 'en-US', 'port richmond', 'US')": [
    "4560691",
    "5132028"
@@ -306,33 +313,33 @@
    "4560691",
    "5132028"
   ],
-  "('outdoors.aqueduct', 'fr-FR', 'aqueduc médicis', 'FR')": [
-   "w607735321",
-   "w755054075",
-   "w755054076",
-   "w755054078"
+  "('transport.city-pair-rail', 'en-US', 'auburn, washington to vancouver', 'US')": [
+   "5785965-5814616",
+   "5785965-6173331"
   ],
-  "('outdoors.aqueduct', 'fr-FR', 'aqueduc saint-clément', 'FR')": [
-   "w180959102",
-   "w98325523"
+  "('transport.city-pair-rail', 'en-US', 'bellingham to vancouver', 'US')": [
+   "5786899-5814616",
+   "5786899-6173331"
   ],
-  "('outdoors.aqueduct', 'it-IT', 'acqua paola', 'IT')": [
-   "w311015921",
-   "w311018804"
+  "('transport.city-pair-rail', 'en-US', 'everett, washington to vancouver', 'US')": [
+   "5793933-5814616",
+   "5793933-6173331"
   ],
-  "('outdoors.aqueduct', 'it-IT', 'acquedotto felice', 'IT')": [
-   "w1000800331",
-   "w801351287",
-   "w842260575"
+  "('transport.city-pair-rail', 'en-US', 'kent, washington to vancouver', 'US')": [
+   "5799625-5814616",
+   "5799625-6173331"
   ],
-  "('outdoors.aqueduct', 'it-IT', 'acquedotto leopoldino', 'IT')": [
-   "n5661090459",
-   "w163279298",
-   "w574181419"
+  "('transport.city-pair-rail', 'en-US', 'lakewood, washington to vancouver', 'US')": [
+   "5800420-5814616",
+   "5800420-6173331"
   ],
-  "('outdoors.aqueduct', 'it-IT', 'acquedotto mediceo', 'IT')": [
-   "w156890433",
-   "w156890436"
+  "('transport.city-pair-rail', 'en-US', 'pasco to vancouver', 'US')": [
+   "5806298-5814616",
+   "5806298-6173331"
+  ],
+  "('transport.city-pair-rail', 'en-US', 'spokane to vancouver', 'US')": [
+   "5811696-5814616",
+   "5811696-6173331"
   ],
   "('outdoors.archaeological_site', 'de-DE', 'burgstall', 'DE')": [
    "n316556066",
@@ -350,10 +357,6 @@
    "w40439022",
    "w69730809"
   ],
-  "('outdoors.archaeological_site', 'de-DE', 'heidetränk-oppidum', 'DE')": [
-   "w1038098655",
-   "w89669777"
-  ],
   "('outdoors.archaeological_site', 'de-DE', 'hunburg', 'DE')": [
    "n2638294474",
    "n3190060024"
@@ -366,21 +369,6 @@
    "n2516816787",
    "n2653841720",
    "n677525126"
-  ],
-  "('outdoors.archaeological_site', 'de-DE', 'limes', 'DE')": [
-   "w104961889",
-   "w104968961",
-   "w312685264"
-  ],
-  "('outdoors.archaeological_site', 'de-DE', 'limes (teufelsmauer)', 'DE')": [
-   "w104961911",
-   "w104961913",
-   "w104961916",
-   "w104961920"
-  ],
-  "('outdoors.archaeological_site', 'de-DE', 'redoute', 'DE')": [
-   "n7600994002",
-   "n7606924450"
   ],
   "('outdoors.archaeological_site', 'de-DE', 'ringwall', 'DE')": [
    "n3074707345",
@@ -409,89 +397,7 @@
  "kept_rows_by_localisation_class_that_should_have_been_rejected": {},
  "duplicate_slug_examples": {},
  "duplicate_meta_examples": {},
- "duplicate_h1_examples": {
-  "Hoof Trail, Castle Ward": [
-   "/en/outdoors/trail/hoof-trail-castle-ward-r19611758/",
-   "/en/outdoors/trail/hoof-trail-r17057407/"
-  ],
-  "Alexandria to Trenton, Alexandria, US": [
-   "/en/transport/public-transport/alexandria-to-trenton/",
-   "/en/transport/rail/alexandria-trenton/"
-  ],
-  "Atlanta to Charlotte, Atlanta, US": [
-   "/en/transport/public-transport/atlanta-to-charlotte/",
-   "/en/transport/route/atlanta-charlotte/"
-  ],
-  "Atlanta to Charlottesville, Atlanta, US": [
-   "/en/transport/public-transport/atlanta-to-charlottesville/",
-   "/en/transport/route/atlanta-charlottesville/"
-  ],
-  "Atlanta to Greensboro, Atlanta, US": [
-   "/en/transport/public-transport/atlanta-to-greensboro/",
-   "/en/transport/route/atlanta-greensboro/"
-  ],
-  "Bakersfield to Los Angeles, Bakersfield, US": [
-   "/en/transport/public-transport/bakersfield-to-los-angeles/",
-   "/en/transport/route/bakersfield-los-angeles/"
-  ],
-  "Birmingham to Atlanta, Birmingham, US": [
-   "/en/transport/public-transport/birmingham-to-atlanta/",
-   "/en/transport/route/birmingham-atlanta/"
-  ],
-  "Birmingham to Charlotte, Birmingham, US": [
-   "/en/transport/public-transport/birmingham-to-charlotte/",
-   "/en/transport/route/birmingham-charlotte/"
-  ],
-  "Boston to Newark, Boston, US": [
-   "/en/transport/public-transport/boston-to-newark/",
-   "/en/transport/route/boston-newark/"
-  ],
-  "Charlotte to Charlottesville, Charlotte, US": [
-   "/en/transport/public-transport/charlotte-to-charlottesville/",
-   "/en/transport/route/charlotte-charlottesville/"
-  ],
-  "Charlotte to Greensboro, Charlotte, US": [
-   "/en/transport/public-transport/charlotte-to-greensboro/",
-   "/en/transport/route/charlotte-greensboro/"
-  ],
-  "Charlotte to Lynchburg, Charlotte, US": [
-   "/en/transport/public-transport/charlotte-to-lynchburg/",
-   "/en/transport/route/charlotte-lynchburg/"
-  ],
-  "Charlotte to Philadelphia, Charlotte, US": [
-   "/en/transport/public-transport/charlotte-to-philadelphia/",
-   "/en/transport/route/charlotte-philadelphia/"
-  ],
-  "Charlotte to Wilmington, Charlotte, US": [
-   "/en/transport/public-transport/charlotte-to-wilmington/",
-   "/en/transport/route/charlotte-wilmington/"
-  ],
-  "Cleveland to Erie, Cleveland, US": [
-   "/en/transport/public-transport/cleveland-to-erie/",
-   "/en/transport/route/cleveland-erie/"
-  ],
-  "Fayetteville to Philadelphia, Fayetteville, US": [
-   "/en/transport/public-transport/fayetteville-to-philadelphia/",
-   "/en/transport/rail/fayetteville-philadelphia/"
-  ],
-  "Fayetteville to Trenton, Fayetteville, US": [
-   "/en/transport/public-transport/fayetteville-to-trenton/",
-   "/en/transport/rail/fayetteville-trenton/"
-  ],
-  "Gainesville to Charlotte, Gainesville, US": [
-   "/en/transport/public-transport/gainesville-to-charlotte/",
-   "/en/transport/route/gainesville-charlotte/"
-  ],
-  "Greensboro to Newark, Greensboro, US": [
-   "/en/transport/public-transport/greensboro-to-newark/",
-   "/en/transport/route/greensboro-newark/"
-  ],
-  "Greensboro to Philadelphia, Greensboro, US": [
-   "/en/transport/public-transport/greensboro-to-philadelphia/",
-   "/en/transport/rail/greensboro-philadelphia/",
-   "/en/transport/route/greensboro-philadelphia/"
-  ]
- },
+ "duplicate_h1_examples": {},
  "invalid_hierarchy_examples": [],
  "usefulness_test_failures": {},
  "usefulness_test_by_family_and_locale": {
@@ -1760,77 +1666,77 @@
    ]
   },
   "outdoors.aqueduct|fr": {
-   "rows": 14,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.aqueduct|it": {
-   "rows": 17,
+   "rows": 7,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|de": {
-   "rows": 750,
+   "rows": 655,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|en": {
-   "rows": 497,
+   "rows": 475,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|es": {
-   "rows": 249,
+   "rows": 245,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|fr": {
-   "rows": 406,
+   "rows": 394,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|it": {
-   "rows": 578,
+   "rows": 560,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|ja": {
-   "rows": 178,
+   "rows": 175,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|nl": {
-   "rows": 50,
+   "rows": 49,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|pl": {
-   "rows": 21,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.archaeological_site|pt": {
-   "rows": 7,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1844,21 +1750,21 @@
    ]
   },
   "outdoors.beach|de": {
-   "rows": 9,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.beach|en": {
-   "rows": 108,
+   "rows": 104,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.beach|es": {
-   "rows": 420,
+   "rows": 419,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1872,7 +1778,7 @@
    ]
   },
   "outdoors.beach|it": {
-   "rows": 12,
+   "rows": 10,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1893,7 +1799,7 @@
    ]
   },
   "outdoors.beach|pt": {
-   "rows": 17,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -1977,21 +1883,21 @@
    ]
   },
   "outdoors.bicycle-trail|en": {
-   "rows": 4872,
+   "rows": 4819,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.bicycle-trail|es": {
-   "rows": 1232,
+   "rows": 1230,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.bicycle-trail|fr": {
-   "rows": 3171,
+   "rows": 3167,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2005,14 +1911,14 @@
    ]
   },
   "outdoors.bicycle-trail|nl": {
-   "rows": 346,
+   "rows": 264,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.bicycle-trail|pl": {
-   "rows": 1983,
+   "rows": 1959,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2075,7 +1981,7 @@
    ]
   },
   "outdoors.camp_site|ja": {
-   "rows": 9,
+   "rows": 8,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2117,7 +2023,7 @@
    ]
   },
   "outdoors.canoe-trail|en": {
-   "rows": 63,
+   "rows": 60,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2166,35 +2072,35 @@
    ]
   },
   "outdoors.castle|de": {
-   "rows": 2192,
+   "rows": 2164,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.castle|en": {
-   "rows": 468,
+   "rows": 466,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.castle|es": {
-   "rows": 478,
+   "rows": 473,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.castle|fr": {
-   "rows": 2684,
+   "rows": 2664,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.castle|it": {
-   "rows": 661,
+   "rows": 659,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2215,7 +2121,7 @@
    ]
   },
   "outdoors.castle|pl": {
-   "rows": 526,
+   "rows": 516,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2264,14 +2170,14 @@
    ]
   },
   "outdoors.cave|de": {
-   "rows": 174,
+   "rows": 171,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.cave|en": {
-   "rows": 75,
+   "rows": 74,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2285,14 +2191,14 @@
    ]
   },
   "outdoors.cave|fr": {
-   "rows": 131,
+   "rows": 129,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.cave|it": {
-   "rows": 103,
+   "rows": 102,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2313,7 +2219,7 @@
    ]
   },
   "outdoors.cave|pl": {
-   "rows": 73,
+   "rows": 72,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2341,21 +2247,21 @@
    ]
   },
   "outdoors.city_gate|es": {
-   "rows": 20,
+   "rows": 19,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.city_gate|fr": {
-   "rows": 65,
+   "rows": 64,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.city_gate|it": {
-   "rows": 81,
+   "rows": 80,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2369,7 +2275,7 @@
    ]
   },
   "outdoors.city_gate|nl": {
-   "rows": 43,
+   "rows": 42,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2390,7 +2296,7 @@
    ]
   },
   "outdoors.climbing_crag|de": {
-   "rows": 6,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2404,7 +2310,7 @@
    ]
   },
   "outdoors.foot-trail|en": {
-   "rows": 871,
+   "rows": 856,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2425,14 +2331,14 @@
    ]
   },
   "outdoors.foot-trail|ja": {
-   "rows": 45,
+   "rows": 44,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.foot-trail|nl": {
-   "rows": 317,
+   "rows": 294,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2453,7 +2359,7 @@
    ]
   },
   "outdoors.fort|de": {
-   "rows": 23,
+   "rows": 21,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2474,21 +2380,21 @@
    ]
   },
   "outdoors.fort|fr": {
-   "rows": 110,
+   "rows": 108,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.fort|it": {
-   "rows": 122,
+   "rows": 121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.fort|ja": {
-   "rows": 11,
+   "rows": 9,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2502,7 +2408,7 @@
    ]
   },
   "outdoors.fort|pl": {
-   "rows": 87,
+   "rows": 77,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2516,7 +2422,7 @@
    ]
   },
   "outdoors.fort|tr": {
-   "rows": 6,
+   "rows": 3,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2530,7 +2436,7 @@
    ]
   },
   "outdoors.geyser|en": {
-   "rows": 33,
+   "rows": 32,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2558,63 +2464,63 @@
    ]
   },
   "outdoors.hiking-trail|en": {
-   "rows": 4911,
+   "rows": 4818,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.hiking-trail|es": {
-   "rows": 4342,
+   "rows": 4149,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.hiking-trail|fr": {
-   "rows": 9237,
+   "rows": 9107,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.hiking-trail|ja": {
-   "rows": 294,
+   "rows": 291,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.hiking-trail|nl": {
-   "rows": 2709,
+   "rows": 2579,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.hiking-trail|pl": {
-   "rows": 1879,
+   "rows": 1876,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.hiking-trail|pt": {
-   "rows": 29,
+   "rows": 28,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.hiking-trail|tr": {
-   "rows": 62,
+   "rows": 55,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.horse-trail|en": {
-   "rows": 247,
+   "rows": 246,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2691,28 +2597,28 @@
    ]
   },
   "outdoors.lighthouse|de": {
-   "rows": 111,
+   "rows": 109,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.lighthouse|en": {
-   "rows": 637,
+   "rows": 631,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.lighthouse|es": {
-   "rows": 86,
+   "rows": 85,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.lighthouse|fr": {
-   "rows": 114,
+   "rows": 111,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2726,7 +2632,7 @@
    ]
   },
   "outdoors.lighthouse|ja": {
-   "rows": 77,
+   "rows": 75,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2740,7 +2646,7 @@
    ]
   },
   "outdoors.lighthouse|pl": {
-   "rows": 11,
+   "rows": 10,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2761,28 +2667,28 @@
    ]
   },
   "outdoors.monument|en": {
-   "rows": 281,
+   "rows": 276,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.monument|es": {
-   "rows": 110,
+   "rows": 109,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.monument|fr": {
-   "rows": 119,
+   "rows": 118,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.monument|it": {
-   "rows": 203,
+   "rows": 202,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2803,7 +2709,7 @@
    ]
   },
   "outdoors.monument|pl": {
-   "rows": 63,
+   "rows": 62,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2845,7 +2751,7 @@
    ]
   },
   "outdoors.mountain_hut|it": {
-   "rows": 478,
+   "rows": 477,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2859,21 +2765,21 @@
    ]
   },
   "outdoors.mountain_hut|pl": {
-   "rows": 65,
+   "rows": 64,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.mountain_pass|de": {
-   "rows": 44,
+   "rows": 43,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.mountain_pass|en": {
-   "rows": 308,
+   "rows": 305,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2887,14 +2793,14 @@
    ]
   },
   "outdoors.mountain_pass|fr": {
-   "rows": 279,
+   "rows": 278,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.mountain_pass|it": {
-   "rows": 319,
+   "rows": 317,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2908,7 +2814,7 @@
    ]
   },
   "outdoors.mountain_pass|pl": {
-   "rows": 278,
+   "rows": 277,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2929,7 +2835,7 @@
    ]
   },
   "outdoors.mtb-trail|es": {
-   "rows": 866,
+   "rows": 864,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2978,7 +2884,7 @@
    ]
   },
   "outdoors.natural_arch|fr": {
-   "rows": 4,
+   "rows": 3,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -2992,7 +2898,7 @@
    ]
   },
   "outdoors.observatory|de": {
-   "rows": 71,
+   "rows": 70,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3034,7 +2940,7 @@
    ]
   },
   "outdoors.observatory|nl": {
-   "rows": 6,
+   "rows": 5,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3055,70 +2961,70 @@
    ]
   },
   "outdoors.peak|de": {
-   "rows": 2443,
+   "rows": 2400,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|en": {
-   "rows": 2888,
+   "rows": 2838,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|es": {
-   "rows": 523,
+   "rows": 518,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|fr": {
-   "rows": 625,
+   "rows": 619,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|it": {
-   "rows": 1951,
+   "rows": 1928,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|ja": {
-   "rows": 1461,
+   "rows": 1457,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|nl": {
-   "rows": 96,
+   "rows": 86,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|pl": {
-   "rows": 1873,
+   "rows": 1856,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|pt": {
-   "rows": 93,
+   "rows": 90,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.peak|tr": {
-   "rows": 52,
+   "rows": 51,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3160,42 +3066,42 @@
    ]
   },
   "outdoors.ruins|de": {
-   "rows": 347,
+   "rows": 236,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.ruins|en": {
-   "rows": 314,
+   "rows": 304,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.ruins|es": {
-   "rows": 141,
+   "rows": 139,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.ruins|fr": {
-   "rows": 208,
+   "rows": 200,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.ruins|it": {
-   "rows": 158,
+   "rows": 151,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.ruins|ja": {
-   "rows": 22,
+   "rows": 21,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3209,7 +3115,7 @@
    ]
   },
   "outdoors.ruins|pl": {
-   "rows": 78,
+   "rows": 77,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3223,14 +3129,14 @@
    ]
   },
   "outdoors.ruins|tr": {
-   "rows": 22,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.running-trail|en": {
-   "rows": 73,
+   "rows": 72,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3279,35 +3185,35 @@
    ]
   },
   "outdoors.tower|de": {
-   "rows": 799,
+   "rows": 794,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.tower|en": {
-   "rows": 150,
+   "rows": 149,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.tower|es": {
-   "rows": 120,
+   "rows": 119,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.tower|fr": {
-   "rows": 128,
+   "rows": 125,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.tower|it": {
-   "rows": 223,
+   "rows": 222,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3321,14 +3227,14 @@
    ]
   },
   "outdoors.tower|nl": {
-   "rows": 53,
+   "rows": 52,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.tower|pl": {
-   "rows": 97,
+   "rows": 94,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3342,14 +3248,14 @@
    ]
   },
   "outdoors.viewpoint|de": {
-   "rows": 132,
+   "rows": 124,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.viewpoint|en": {
-   "rows": 48,
+   "rows": 43,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3363,7 +3269,7 @@
    ]
   },
   "outdoors.viewpoint|fr": {
-   "rows": 37,
+   "rows": 36,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3377,7 +3283,7 @@
    ]
   },
   "outdoors.viewpoint|ja": {
-   "rows": 25,
+   "rows": 24,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3412,7 +3318,7 @@
    ]
   },
   "outdoors.volcano|de": {
-   "rows": 17,
+   "rows": 16,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3433,7 +3339,7 @@
    ]
   },
   "outdoors.volcano|fr": {
-   "rows": 49,
+   "rows": 48,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3482,14 +3388,14 @@
    ]
   },
   "outdoors.waterfall|de": {
-   "rows": 30,
+   "rows": 29,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.waterfall|en": {
-   "rows": 163,
+   "rows": 154,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3503,14 +3409,14 @@
    ]
   },
   "outdoors.waterfall|fr": {
-   "rows": 47,
+   "rows": 45,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
    ]
   },
   "outdoors.waterfall|it": {
-   "rows": 22,
+   "rows": 19,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3524,7 +3430,7 @@
    ]
   },
   "outdoors.waterfall|pl": {
-   "rows": 21,
+   "rows": 20,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -3573,7 +3479,7 @@
    ]
   },
   "outdoors.watermill|nl": {
-   "rows": 53,
+   "rows": 52,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -10811,7 +10717,7 @@
    ]
   },
   "poi.attraction-notable|pl": {
-   "rows": 8,
+   "rows": 6,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -10895,7 +10801,7 @@
    ]
   },
   "poi.gallery-notable|en": {
-   "rows": 73,
+   "rows": 72,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -10958,7 +10864,7 @@
    ]
   },
   "poi.museum-notable|en": {
-   "rows": 548,
+   "rows": 546,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -10979,7 +10885,7 @@
    ]
   },
   "poi.museum-notable|it": {
-   "rows": 492,
+   "rows": 489,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenStreetMap named POI (ODbL 1.0, share-alike, attribution required), a named source with provenance"
@@ -12092,7 +11998,7 @@
    ]
   },
   "transport.airport-city-access|en": {
-   "rows": 384,
+   "rows": 385,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names OurAirports (public domain) with GeoNames (CC BY 4.0) as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12176,84 +12082,84 @@
    ]
   },
   "transport.city-pair-air|en": {
-   "rows": 2604,
+   "rows": 2623,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from OpenFlights routes (ODbL 1.0) with OurAirports (public domain) and GeoNames (CC BY 4.0), a named source with provenance"
    ]
   },
   "transport.city-pair-rail|en": {
-   "rows": 10896,
+   "rows": 10870,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Wikidata P197 adjacent station (CC0 1.0) with GeoNames (CC BY 4.0), a named source with provenance"
    ]
   },
   "transport.city-pair-transit|da": {
-   "rows": 7950,
+   "rows": 3622,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|de": {
-   "rows": 131818,
+   "rows": 45614,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|en": {
-   "rows": 283228,
+   "rows": 28438,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|es": {
-   "rows": 6627,
+   "rows": 4446,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|fi": {
-   "rows": 14114,
+   "rows": 1315,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|fr": {
-   "rows": 36461,
+   "rows": 27246,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|it": {
-   "rows": 1231,
+   "rows": 1243,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|nb": {
-   "rows": 15572,
+   "rows": 2016,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|nl": {
-   "rows": 892,
+   "rows": 497,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
    ]
   },
   "transport.city-pair-transit|pl": {
-   "rows": 12699,
+   "rows": 11215,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from Published GTFS timetables via the Mobility Database, open licences only: OGL v3.0, CC BY 4.0, CC0 1.0, Licence Ouverte (Etalab), Licence Quebec, ODbL 1.0, with GeoNames (CC BY 4.0) for the settlements, a named source with provenance"
@@ -12596,48 +12502,7 @@
    ]
   }
  },
- "shared_uniqueness_reason_examples": [
-  {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a491a44dd093",
-   "b": "c_c1e73b343575",
-   "url_b": "/pl/poi/attraction/laweczka-chopina-n13293477296/"
-  },
-  {
-   "market": "pl-PL",
-   "family": "poi.attraction-notable",
-   "reason": "notable attraction cross-referenced in Wikidata (QID Q24944972) with 3 source fields: a practical page for a specific visited entity, not a generated ",
-   "a": "c_a491a44dd093",
-   "b": "c_1d11db6be4ef",
-   "url_b": "/pl/poi/attraction/laweczka-chopina-n13293479732/"
-  },
-  {
-   "market": "en-US",
-   "family": "poi.gallery-notable",
-   "reason": "notable gallery cross-referenced in Wikidata (QID Q1950826) with 4 source fields: a practical page for a specific visited entity, not a generated stub",
-   "a": "c_80dc5091204a",
-   "b": "c_5987568434d1",
-   "url_b": "/en/poi/gallery/david-zwirner-gallery-n10873196751/"
-  },
-  {
-   "market": "en-US",
-   "family": "poi.museum-notable",
-   "reason": "notable museum cross-referenced in Wikidata (QID Q3329587) with 5 source fields: a practical page for a specific visited entity, not a generated stub",
-   "a": "c_3d48b16009c3",
-   "b": "c_97ba7c387d3d",
-   "url_b": "/en/poi/museum/museum-of-contemporary-art-san-diego-n368173981/"
-  },
-  {
-   "market": "it-IT",
-   "family": "poi.museum-notable",
-   "reason": "notable museum cross-referenced in Wikidata (QID Q3768551) with 5 source fields: a practical page for a specific visited entity, not a generated stub",
-   "a": "c_80a05e342780",
-   "b": "c_8a3944ec2e38",
-   "url_b": "/it/poi/museum/museo-civico-olmo-n6469959648/"
-  }
- ],
+ "shared_uniqueness_reason_examples": [],
  "long_dash_examples": [],
  "destination_rows_with_no_locale_specific_fact_examples": [],
  "superlative_examples": [],
@@ -12645,8 +12510,8 @@
  "families_needing_a_documented_ranking_methodology": "A family whose own identity is a ranking claim, such as neighbourhoods.city-best-for, cannot publish without a documented methodology. That is a content requirement for the family, not a defect in generation, so it is counted separately from a superlative a template invented.",
  "title_length": {
   "min": 13,
-  "max": 208,
-  "mean": 68.8
+  "max": 207,
+  "mean": 44.8
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

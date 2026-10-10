@@ -186,6 +186,212 @@ def place_phrase(r):
     return city or country or ''
 
 
+# Entity types whose name already holds both endpoints of a journey or a comparison.
+PAIR_ENTITY_TYPES = ('city_pair', 'city_pair_rail', 'city_pair_transit', 'airport_city_pair',
+                     'city-pair', 'country-pair')
+
+# How a journey was made, for the families that are the same pair by different means. The
+# family label would read "city pair air", which is a machine label; a reader wants the mode.
+PAIR_MODE_PHRASE = {
+    'transport.city-pair-air': 'by air',
+    'transport.city-pair-rail': 'by rail',
+    'transport.city-pair-transit': 'by public transport',
+    'transport.airport-city-access': 'from the airport',
+    'comparisons.city-vs-city': 'compared',
+    'comparisons.country-vs-country': 'compared',
+}
+
+# {url_pattern: suffix} for the pair pages whose subject another pair page in the same market
+# also renders, filled by the caller. Two reasons a pair subject repeats, and they need
+# different answers, which is why one blanket suffix was not enough:
+#
+#   ACROSS MODES. Atlanta to Charlotte is a timetabled Amtrak journey and an air corridor, and
+#   both pages are legitimate: different services, different facts, different intent. The
+#   heading has to say which, so the suffix is the MODE.
+#   WITHIN ONE MODE. "Berlin nach Lubin" is two transit pages, one to Lubin in Germany and one
+#   to Lubin in Poland, and "Laufenburg nach Rheinfelden" is one to Rheinfelden in Germany and
+#   one to Rheinfelden in Switzerland. Gazetteer.label disambiguates inside a country by
+#   design, so it cannot separate these, and the mode is identical. The suffix is the
+#   DESTINATION COUNTRY.
+#
+# Resolved by construction rather than by predicate, the same way the identity module resolves
+# slugs: try the cheapest suffix, keep the ones that still collide, try the next. What a
+# heading needs is that no two pages share it, which is not the same question as "is the name
+# ambiguous".
+PAIR_SUBJECT_SUFFIX = {}
+
+
+def compute_pair_subject_suffix(all_rows):
+    """{url_pattern: suffix} for pair subjects two pages in one market both render.
+
+    One level at a time, cheapest first, and a level is used only if it SEPARATES the whole
+    group. Appending every level to every clashing row would read "Berlin nach Lubin by public
+    transport (PL)" where "(PL)" alone says it, so the levels are tried whole rather than
+    accumulated blindly.
+    """
+    import collections as _c
+
+    def mode(r):
+        return PAIR_MODE_PHRASE.get(r.get('family', ''), '')
+
+    def dest_country(r):
+        dc = (r.get('destination_country') or '').strip()
+        return '' if not dc or dc == (r.get('country') or '').strip() else dc
+
+    LEVELS = (
+        lambda r: (' ' + mode(r)) if mode(r) else '',
+        lambda r: f' ({dest_country(r)})' if dest_country(r) else '',
+        lambda r: (f' ({dest_country(r)})' if dest_country(r) else '')
+                  + ((' ' + mode(r)) if mode(r) else ''),
+        lambda r: f" ({r.get('entity_id') or ''})",
+    )
+
+    pairs = [r for r in all_rows
+             if r.get('entity_type') in PAIR_ENTITY_TYPES and r.get('page_type') == 'ENTITY']
+    groups = _c.defaultdict(list)
+    for r in pairs:
+        groups[(r.get('market', ''), undash(r.get('entity_name') or ''))].append(r)
+    out = {}
+    for (_mk, base), rs in groups.items():
+        urls = {r['url_pattern'] for r in rs}
+        if len(urls) < 2:
+            continue
+        # one row per URL, so a market duplicate of the same page does not look like a clash
+        byurl = {}
+        for r in rs:
+            byurl.setdefault(r['url_pattern'], r)
+        rs = list(byurl.values())
+        for lvl in LEVELS:
+            sx = {r['url_pattern']: lvl(r) for r in rs}
+            if len({base + v for v in sx.values()}) == len(rs):
+                for u, v in sx.items():
+                    if v:
+                        out[u] = v
+                break
+    return out
+
+
+def compute_ambiguous_labels(all_rows):
+    seg = collections.defaultdict(set)
+    for r in all_rows:
+        f = r.get('family', '')
+        if '.' in f:
+            seg[f.split('.', 1)[1]].add(f)
+    out = set()
+    for _k, v in seg.items():
+        if len(v) > 1:
+            out |= v
+    return out
+
+
+def family_label(r):
+    """The family in words, carrying its topic where the second segment is shared."""
+    fam = r['family']
+    # UNDERSCORES too, not only hyphens. A family id built from an OSM class keeps that class's
+    # underscore, so the description read "Grotenburg, Kreis Lippe, Detmold: archaeological_site"
+    # while the title beside it read "archaeological site": the title path normalised the class
+    # and this one did not. Fixed here because this is the function both paths share, which is
+    # the only place the fix cannot drift out of one of them.
+    lab = (fam.split('.', 1)[1] if '.' in fam else fam).replace('-', ' ').replace('_', ' ')
+    if fam in AMBIGUOUS_FAM_LABEL:
+        lab = (fam.split('.', 1)[0].replace('-', ' ').replace('_', ' ') + ' ' + lab)
+    return lab
+
+
+def place_phrase(r):
+    """Where this page is, qualified enough that a reader can tell it from its namesake.
+
+    A neighbourhood is named inside its city, because two neighbourhoods of one country share
+    a name often enough to matter: Port Richmond is in Philadelphia and also in New York City,
+    Sainte-Marguerite is in Paris and also in Marseille. A city carries the label the identity
+    module resolved, which already holds a region where the bare name repeats.
+    """
+    city, area, country = undash(r['city']), undash(r['neighbourhood']), r['country']
+    if r.get('entity_type') in ('neighbourhood', 'outdoor_feature', 'trail') and area:
+        return f'{area}, {city}' if city and city != area else (city or area)
+    if city and country and country not in city:
+        return f'{city}, {country}'
+    return city or country or ''
+
+
+# Entity types whose name already holds both endpoints of a journey or a comparison.
+PAIR_ENTITY_TYPES = ('city_pair', 'city_pair_rail', 'city_pair_transit', 'airport_city_pair',
+                     'city-pair', 'country-pair')
+
+# How a journey was made, for the families that are the same pair by different means. The
+# family label would read "city pair air", which is a machine label; a reader wants the mode.
+PAIR_MODE_PHRASE = {
+    'transport.city-pair-air': 'by air',
+    'transport.city-pair-rail': 'by rail',
+    'transport.city-pair-transit': 'by public transport',
+    'transport.airport-city-access': 'from the airport',
+    'comparisons.city-vs-city': 'compared',
+    'comparisons.country-vs-country': 'compared',
+}
+
+# {url_pattern: suffix} for the pair pages whose subject another pair page in the same market
+# also renders, filled by the caller. Two reasons a pair subject repeats, and they need
+# different answers, which is why one blanket suffix was not enough:
+#
+#   ACROSS MODES. Atlanta to Charlotte is a timetabled Amtrak journey and an air corridor, and
+#   both pages are legitimate: different services, different facts, different intent. The
+#   heading has to say which, so the suffix is the MODE.
+#   WITHIN ONE MODE. "Berlin nach Lubin" is two transit pages, one to Lubin in Germany and one
+#   to Lubin in Poland, and "Laufenburg nach Rheinfelden" is one to Rheinfelden in Germany and
+#   one to Rheinfelden in Switzerland. Gazetteer.label disambiguates inside a country by
+#   design, so it cannot separate these, and the mode is identical. The suffix is the
+#   DESTINATION COUNTRY.
+#
+# Resolved by construction rather than by predicate, the same way the identity module resolves
+# slugs: try the cheapest suffix, keep the ones that still collide, try the next. What a
+# heading needs is that no two pages share it, which is not the same question as "is the name
+# ambiguous".
+PAIR_SUBJECT_SUFFIX = {}
+
+
+def compute_pair_subject_suffix(all_rows):
+    """{url_pattern: suffix} for pair subjects two pages in one market both render."""
+    import collections as _c
+    pairs = [r for r in all_rows
+             if r.get('entity_type') in PAIR_ENTITY_TYPES and r.get('page_type') == 'ENTITY']
+    groups = _c.defaultdict(list)
+    for r in pairs:
+        groups[(r.get('market', ''), undash(r.get('entity_name') or ''))].append(r)
+    out = {}
+    for (_mk, base), rs in groups.items():
+        if len({r['url_pattern'] for r in rs}) < 2:
+            continue
+        suffix = {r['url_pattern']: '' for r in rs}
+        for level in ('mode', 'destination_country', 'id'):
+            rendered = _c.defaultdict(list)
+            for r in rs:
+                rendered[(base + suffix[r['url_pattern']])].append(r)
+            clashing = [v for v in rendered.values() if len({x['url_pattern'] for x in v}) > 1]
+            if not clashing:
+                break
+            for v in clashing:
+                for r in v:
+                    if level == 'mode':
+                        extra = PAIR_MODE_PHRASE.get(r.get('family', ''), '')
+                        if extra:
+                            suffix[r['url_pattern']] = (
+                                suffix[r['url_pattern']] + ' ' + extra).rstrip()
+                    elif level == 'destination_country':
+                        dc = (r.get('destination') or '').strip()
+                        # the manifest carries the destination country in `destination` for the
+                        # rows that have one, and the pair's own country otherwise
+                        if not dc or dc == (r.get('country') or ''):
+                            dc = ''
+                        if dc:
+                            suffix[r['url_pattern']] += f' ({dc})'
+                    else:
+                        suffix[r['url_pattern']] += f" ({r.get('entity_id') or ''})"
+        for u, sx in suffix.items():
+            if sx:
+                out[u] = sx
+    return out
+
+
 def subject(r):
     """What the page is about, in words. The H1 is this, and the meta opens with it.
 
@@ -232,10 +438,28 @@ def subject(r):
     # Berlin venue pages were all headed "Berlin, DE: near venue", and every London comparison
     # page was headed "London, GB: city vs city" although the entity name already read
     # "London vs Hanoi". 920 duplicate H1 groups, none of them in the inventory.
+    # A PAIR already names both of its endpoints, so the origin's own "city, country" adds
+    # nothing to the heading and repeats one of them: every transit page read
+    # "Alexandria to Trenton, Alexandria, US". Worse, the qualifier qualified the wrong
+    # endpoint, so it could not tell two pages apart when the ambiguity was in the
+    # DESTINATION, which is where it was: Hartford to Newark, New Jersey and Hartford to
+    # Newark, Delaware were one heading. The endpoints now carry the identity module's label,
+    # which puts the region on the endpoint that needs it, and the suffix comes off.
+    if r.get('entity_type') in PAIR_ENTITY_TYPES:
+        return name + PAIR_SUBJECT_SUFFIX.get(r.get('url_pattern', ''), '')
     base = f'{name}, {place}' if place and place not in name else name
     # two families claim this subject in this market, so the name is not enough to say which
     # page this is
     if subject_key(r) in SHARED_SUBJECT:
+        return f'{base}: {family_label(r)}'
+    # SHARED_SUBJECT keys on the entity NAME and misses the pair whose names differ while the
+    # rendered subjects match: "Hoof Trail" under horse-trail and "Hoof Trail, Castle Ward"
+    # under hiking-trail slug to different keys and render one subject once the locator is
+    # appended. SHARED_ENTITY_SUBJECT is computed on the rendered subject for exactly that,
+    # and meta_for has been reading it since 2026-10-06 while this function did not, so the
+    # description told the two trails apart and the heading did not. One renderer changed and
+    # not the other, which is the mistake this file keeps catching itself making.
+    if (r.get('market', ''), base) in SHARED_ENTITY_SUBJECT:
         return f'{base}: {family_label(r)}'
     return base
 
@@ -290,6 +514,15 @@ def title_for(r):
         fam_label = fam.split('.', 1)[0].replace('-', ' ') + ' ' + fam_label
 
     if r['page_type'] == 'ENTITY':
+        # A PAIR takes subject(), which is the one place that knows both endpoints are already
+        # in the name and that two pages in this market may need the mode or the destination
+        # country to tell them apart. Building the title from `name` and `where` instead left
+        # 196 exact duplicate titles after the headings were already unique - "Berlin nach
+        # Lubin, Berlin, DE: what to know before you go" twice, for the Lubin in Germany and
+        # the Lubin in Poland - which is this file's recurring mistake: one renderer was
+        # taught the fix and the other was not.
+        if r.get('entity_type') in PAIR_ENTITY_TYPES:
+            return f'{subject(r)}: what to know before you go'
         # An outdoor feature's CLASS goes in the title. Grotenburg is a peak and also a ruined
         # castle at the same spot in Kreis Lippe; Turmberg, Kandel, Wachsenburg and a dozen more
         # are the same. The same-name gate keys on the class, so both survive correctly as two
