@@ -41,7 +41,12 @@ env:
 jobs:
   import:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 180, not 30. Run 21 on 2026-10-10 was CANCELLED at exactly 30 minutes 19 seconds with
+    # the URL Inspection step still going: the API answers in about 3.4 seconds per URL, so
+    # 500 of them is roughly half an hour of waiting on Google and the old limit could not fit
+    # it. The daily scheduled import finishes in one to two minutes and is unaffected by a
+    # larger ceiling; a ceiling only bites the step that needs the time.
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -92,18 +97,44 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.inspect_urls }}
         run: |
           set -o pipefail
-          node scripts/atlas/gsc-url-inspection.mjs --write \
+          node scripts/atlas/gsc-url-inspection.mjs --write --qps 8 \
             --limit "${{ inputs.inspect_limit }}" | tee "$RUNNER_TEMP/url-inspection.json"
           { echo '### URL Inspection'; echo '```json'; \
             cat "$RUNNER_TEMP/url-inspection.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
+      # always(), for the same reason the pull request step has it: a partial inspection is
+      # still evidence, and the report should describe what was obtained rather than be
+      # skipped because the step before it ran out of clock.
       - name: Rebuild the indexation report from whatever evidence is now on disk
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.inspect_urls }}
+        if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.inspect_urls }}
         run: python3 scripts/atlas/analysis/indexation-report.py
 
+      # if: always(), and that is the lesson from run 21. The inspection step was cancelled at
+      # the job timeout, this step was SKIPPED because it only ran on success, and several
+      # hundred inspections' worth of Search Console quota was spent and then thrown away. The
+      # client checkpoints to disk every few URLs and resumes from whatever is already there,
+      # but resume can only see a file that was committed. So the evidence is committed whether
+      # the run succeeded, failed or was cancelled, and the job still goes red on its own
+      # merits: preserving what was paid for is not the same as passing.
       - uses: peter-evans/create-pull-request@v6
+        if: always()
         with:
           branch: atlas/search-console
           title: 'Atlas Search Console import'
           commit-message: 'Atlas Search Console import'
-          body: 'Discovered, indexed, impressions and clicks, counted separately.'
+          body: |
+            Discovered, indexed, impressions and clicks, counted separately.
+
+            If this pull request arrived from a run that failed or was cancelled, it carries
+            the PARTIAL evidence that run paid for in quota. Re-running the workflow resumes
+            from these rows rather than re-spending them.
+
+      # Named last and gated on failure, so a red run says in one line what to do next instead
+      # of leaving the reader to open the log.
+      - name: Why the run is red
+        if: failure() || cancelled()
+        run: |
+          echo "::warning::The run did not complete. Any URL Inspection rows it did obtain are"
+          echo "::warning::in the atlas/search-console pull request; re-run the workflow with"
+          echo "::warning::inspect_urls true to resume from them rather than re-spend quota."
+          exit 1
