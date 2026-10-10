@@ -2,9 +2,50 @@
  "generated": "2026-10-10",
  "published_urls_in_our_record": 500,
  "families": 13,
- "gsc_data_present": false,
+ "gsc_index_state_present": false,
+ "gsc_search_analytics_present": true,
  "url_inspection_source": null,
  "coverage_export_source": null,
+ "search_analytics_imports": [
+  {
+   "file": "pages-2026-09-22.json",
+   "property": "sc-domain:livdar.com",
+   "start": "2026-08-26",
+   "end": "2026-09-22",
+   "imported_at": "2026-09-25T19:21:30.945Z",
+   "pages": 500,
+   "impressions": 0,
+   "clicks": 0,
+   "note_from_the_import": "indexed stays unknown: the Search Analytics API reports impressions, not index state. The Pages report is a separate import and is not wired yet."
+  },
+  {
+   "file": "pages-2026-09-25.json",
+   "property": "sc-domain:livdar.com",
+   "start": "2026-08-29",
+   "end": "2026-09-25",
+   "imported_at": "2026-09-28T18:53:17.160Z",
+   "pages": 500,
+   "impressions": 0,
+   "clicks": 0,
+   "note_from_the_import": "indexed stays unknown: the Search Analytics API reports impressions, not index state. The Pages report is a separate import and is not wired yet."
+  },
+  {
+   "file": "pages-2026-10-07.json",
+   "property": "sc-domain:livdar.com",
+   "start": "2026-09-10",
+   "end": "2026-10-07",
+   "imported_at": "2026-10-10T11:18:04.898Z",
+   "pages": 500,
+   "impressions": 0,
+   "clicks": 0,
+   "note_from_the_import": "indexed stays unknown: the Search Analytics API reports impressions, not index state. The Pages report is a separate import and is not wired yet."
+  }
+ ],
+ "urls_with_a_search_analytics_row": 500,
+ "total_impressions": 0,
+ "total_clicks": 0,
+ "indexed_floor_proved_by_impressions": 0,
+ "what_an_impression_proves": "an impression proves the URL was indexed, so the count above is a FLOOR on indexed pages. Zero impressions proves nothing about index state: an indexed page that never ranks high enough to be seen reports zero, which is why the not-indexed columns stay UNAVAILABLE.",
  "urls_with_a_gsc_state": 0,
  "coverage_states_seen": {},
  "what_is_missing": [
@@ -17,6 +58,7 @@
   "Crawl and indexation latency need first_published per URL in reports/atlas/live-production.json; without it the dates have nothing to subtract from and the two latency columns stay UNAVAILABLE."
  ],
  "decision_states": {
+  "INDEX_STATE_MISSING_VISIBILITY_MEASURED": "Search Analytics covers the URLs and index state does not. A family here has a measured visibility answer and an unmeasured indexation answer.",
   "SCALE": "assign only on complete evidence and an agreed indexed-share bar",
   "HOLD": "assign only on complete evidence and an agreed bar",
   "FIX": "assign only on complete evidence and an agreed bar",
