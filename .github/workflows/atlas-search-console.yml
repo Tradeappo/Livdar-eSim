@@ -13,9 +13,25 @@ name: atlas-search-console
 # 0.03 seconds. Now every one of these fails the job: federation not configured,
 # federation refused, the property refusing the service account, an API call
 # failing. There is no skipped-but-green path left.
+#
+# URL INSPECTION is a separate, opt-in step on the same credentials. Search Analytics answers
+# "was this page shown"; only URL Inspection answers "is this page indexed", and the cohort has
+# 500 live URLs with zero impressions over six weeks, which is not the same fact. The step is
+# gated behind a dispatch input and is OFF on the daily schedule, so the import that works
+# today keeps working exactly as it does and nothing new can fail it unattended. When it is
+# asked for, it fails loudly like every other step here.
 on:
   schedule: [{ cron: '30 5 * * *' }]
   workflow_dispatch:
+    inputs:
+      inspect_urls:
+        description: 'Also run URL Inspection over the live cohort (uses Search Console quota, 2,000/day/property)'
+        type: boolean
+        default: false
+      inspect_limit:
+        description: 'Inspect at most this many URLs, 0 for all 500. The order is round robin across families, so a smaller number is still a stratified sample.'
+        type: string
+        default: '0'
 permissions:
   contents: write        # the import commits the measured file to a branch
   pull-requests: write   # and opens the pull request for it
@@ -66,6 +82,24 @@ jobs:
       - run: node scripts/gsc-report.mjs
 
       - run: node scripts/atlas/gsc-import.mjs --write --ci
+
+      # Per-URL index state. Same credentials, same scope, same property: no service account
+      # is created, no key exists and the federation setup is untouched. The one permission
+      # this needs beyond Search Analytics is a Search Console property role of OWNER or FULL
+      # rather than RESTRICTED; a 403 here says exactly that and stops the run instead of
+      # retrying, because no retry can fix a permission.
+      - name: URL Inspection over the live cohort
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.inspect_urls }}
+        run: |
+          set -o pipefail
+          node scripts/atlas/gsc-url-inspection.mjs --write \
+            --limit "${{ inputs.inspect_limit }}" | tee "$RUNNER_TEMP/url-inspection.json"
+          { echo '### URL Inspection'; echo '```json'; \
+            cat "$RUNNER_TEMP/url-inspection.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Rebuild the indexation report from whatever evidence is now on disk
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.inspect_urls }}
+        run: python3 scripts/atlas/analysis/indexation-report.py
 
       - uses: peter-evans/create-pull-request@v6
         with:
