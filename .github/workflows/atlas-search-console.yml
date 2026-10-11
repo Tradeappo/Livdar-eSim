@@ -27,7 +27,7 @@ on:
       inspect_urls:
         description: 'Also run URL Inspection over the live cohort (uses Search Console quota, 2,000/day/property)'
         type: boolean
-        default: false
+        default: true
       inspect_limit:
         description: 'Inspect at most this many URLs, 0 for all 500. The order is round robin across families, so a smaller number is still a stratified sample.'
         type: string
