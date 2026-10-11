@@ -1,0 +1,305 @@
+{
+  "experiment": "atlas-crawl-2026-10-11",
+  "objective": "Measure whether a direct crawlable homepage link changes crawl/indexation after the known Atlas 5xx deployment defect was fixed.",
+  "baseline_source": "url-inspection-2026-10-10.json",
+  "production_fix_commit": "0ffdf521ea4b71c346f7bc59f96f7c7e18084572",
+  "request_indexing": "manual in Search Console for all 26 URLs after treatment links are deployed",
+  "groups": {
+    "treatment": 13,
+    "control": 13
+  },
+  "urls": [
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/en/cost-of-living/albania/",
+      "family": "cost-of-living.country",
+      "market": "en",
+      "coverageState": "Discovered - currently not indexed",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/de/feiertage/deutschland/",
+      "family": "events.country-holidays",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/de/feiertage/baden-wuerttemberg/",
+      "family": "events.subdivision-holidays",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/de/stadtteile/berlin/",
+      "family": "neighbourhoods.city-where-to-stay",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/en/rankings/cheapest-countries-in-europe/",
+      "family": "rankings.index",
+      "market": "en",
+      "coverageState": "Discovered - currently not indexed",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/de/mietpreisentwicklung/deutschland/",
+      "family": "rents.country-inflation",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/en/sport/cycling-in-new-york/",
+      "family": "sport.city-season",
+      "market": "en",
+      "coverageState": "Discovered - currently not indexed",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/de/rechner/auswandern-kosten/",
+      "family": "tools.calculator",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/en/tools/cost-of-living-calculator/",
+      "family": "tools.cost-calculator",
+      "market": "en",
+      "coverageState": "Discovered - currently not indexed",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/de/rechner/lebenshaltungskosten-vergleich/",
+      "family": "tools.cost-comparison",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/en/tools/where-should-i-live/",
+      "family": "tools.matcher",
+      "market": "en",
+      "coverageState": "Discovered - currently not indexed",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/de/beste-reisezeit/costa-rica/",
+      "family": "weather.country-best-time",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "treatment_internal_link_plus_request_indexing",
+      "url": "https://livdar.com/en/salaries/austria/",
+      "family": "work.country-salaries",
+      "market": "en",
+      "coverageState": "Discovered - currently not indexed",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/de/lebenshaltungskosten/griechenland/",
+      "family": "cost-of-living.country",
+      "market": "de",
+      "coverageState": "URL ist Google nicht bekannt",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/en/public-holidays/germany/",
+      "family": "events.country-holidays",
+      "market": "en",
+      "coverageState": "URL is unknown to Google",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/it/giorni-festivi/lombardia/",
+      "family": "events.subdivision-holidays",
+      "market": "it",
+      "coverageState": "L'URL è sconosciuto a Google",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/es/zonas/barcelona/",
+      "family": "neighbourhoods.city-where-to-stay",
+      "market": "es",
+      "coverageState": "Google no reconoce esta URL",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/de/rangliste/guenstigste-laender-in-europa/",
+      "family": "rankings.index",
+      "market": "de",
+      "coverageState": "URL ist Google nicht bekannt",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/fr/augmentation-des-loyers/france/",
+      "family": "rents.country-inflation",
+      "market": "fr",
+      "coverageState": "Détectée, actuellement non indexée",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/fr/sport/courir-a-lyon/",
+      "family": "sport.city-season",
+      "market": "fr",
+      "coverageState": "Détectée, actuellement non indexée",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/de/rechner/umzugskosten-rechner/",
+      "family": "tools.calculator",
+      "market": "de",
+      "coverageState": "URL ist Google nicht bekannt",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/de/rechner/lebenshaltungskosten-rechner/",
+      "family": "tools.cost-calculator",
+      "market": "de",
+      "coverageState": "URL ist Google nicht bekannt",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/de/rechner/laendervergleich/",
+      "family": "tools.cost-comparison",
+      "market": "de",
+      "coverageState": "URL ist Google nicht bekannt",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/de/rechner/wo-uebernachten/",
+      "family": "tools.matcher",
+      "market": "de",
+      "coverageState": "Gefunden – zurzeit nicht indexiert",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": [
+        "https://livdar.com/sitemap.xml"
+      ]
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/en/best-time-to-visit/peru/",
+      "family": "weather.country-best-time",
+      "market": "en",
+      "coverageState": "URL is unknown to Google",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    },
+    {
+      "group": "control_request_indexing_only",
+      "url": "https://livdar.com/en/salaries/france/",
+      "family": "work.country-salaries",
+      "market": "en",
+      "coverageState": "URL is unknown to Google",
+      "lastCrawlTime": null,
+      "verdict": "NEUTRAL",
+      "sitemap": null
+    }
+  ]
+}
