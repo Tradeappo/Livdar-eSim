@@ -74,6 +74,13 @@ DUPLICATE = {'Duplicate without user-selected canonical',
              'Duplicate, submitted URL not selected as canonical',
              'Alternate page with proper canonical tag'}
 
+def is_indexed_result(g):
+    """URL Inspection's verdict is language independent; coverageState is not."""
+    if not g:
+        return False
+    return (g.get('verdict') or '').strip().upper() == 'PASS' or \
+        (g.get('coverageState') or '').strip() in INDEXED
+
 COLUMNS = ['family', 'published_urls', 'indexed', 'not_indexed',
            'discovered_currently_not_indexed', 'crawled_currently_not_indexed',
            'duplicate_or_canonical', 'other_exclusion', 'unknown_state',
@@ -319,7 +326,7 @@ def main():
             continue
         st = (g.get('coverageState') or '').strip()
         states_seen[st] += 1
-        if st in INDEXED:
+        if is_indexed_result(g):
             per[fam]['indexed'] += 1
             rep[fam].setdefault('representative_indexed_url', r['path'])
         else:
@@ -338,7 +345,7 @@ def main():
         lc = (g.get('lastCrawlTime') or '').strip()
         if lc and r['first_published']:
             crawl_lat[fam].append(days_between(r['first_published'], lc))
-            if st in INDEXED:
+            if is_indexed_result(g):
                 index_lat[fam].append(days_between(r['first_published'], lc))
 
     # ---- the PER-URL layer, joined with the technical audit
@@ -372,7 +379,7 @@ def main():
         st = (g or {}).get('coverageState') or ''
         if g is None:
             state = 'UNKNOWN_NOT_INSPECTED'
-        elif st in INDEXED:
+        elif is_indexed_result(g):
             state = 'INDEXED'
         elif st:
             state = 'NOT_INDEXED'
