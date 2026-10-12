@@ -1,0 +1,153 @@
+{
+ "what_this_is": "Google URL Inspection over all 500 published Atlas URLs, run after PR 37 merged and deployed, compared against the same inspection two days earlier",
+ "inspected_at": "2026-10-12",
+ "previous": "2026-10-10",
+ "production_commit": "2400619de43b2829634b76bfc6e626eb0d27b453",
+ "rows": 500,
+ "api_errors": 0,
+ "how_indexed_is_decided": "verdict == PASS, which is language independent. coverageState is returned in the language of the row and appeared in 19 distinct strings across the two runs, so it is used only to split the NOT-indexed states and every localised form seen is listed explicitly; nothing falls through to a default bucket.",
+ "totals_now": {
+  "INDEXED": 10,
+  "DISCOVERED_NOT_INDEXED": 394,
+  "UNKNOWN_TO_GOOGLE": 95,
+  "SERVER_ERROR": 1
+ },
+ "totals_before": {
+  "DISCOVERED_NOT_INDEXED": 420,
+  "UNKNOWN_TO_GOOGLE": 79,
+  "SERVER_ERROR": 1
+ },
+ "per_locale": {
+  "de": {
+   "DISCOVERED_NOT_INDEXED": 57,
+   "INDEXED": 6,
+   "UNKNOWN_TO_GOOGLE": 9
+  },
+  "en": {
+   "DISCOVERED_NOT_INDEXED": 77,
+   "UNKNOWN_TO_GOOGLE": 21,
+   "INDEXED": 2
+  },
+  "es": {
+   "DISCOVERED_NOT_INDEXED": 48,
+   "UNKNOWN_TO_GOOGLE": 14,
+   "INDEXED": 1,
+   "SERVER_ERROR": 1
+  },
+  "fr": {
+   "DISCOVERED_NOT_INDEXED": 48,
+   "UNKNOWN_TO_GOOGLE": 15
+  },
+  "it": {
+   "DISCOVERED_NOT_INDEXED": 43,
+   "UNKNOWN_TO_GOOGLE": 8,
+   "INDEXED": 1
+  },
+  "ja": {
+   "DISCOVERED_NOT_INDEXED": 27,
+   "UNKNOWN_TO_GOOGLE": 13
+  },
+  "nl": {
+   "UNKNOWN_TO_GOOGLE": 5,
+   "DISCOVERED_NOT_INDEXED": 22
+  },
+  "pl": {
+   "DISCOVERED_NOT_INDEXED": 36,
+   "UNKNOWN_TO_GOOGLE": 6
+  },
+  "pt": {
+   "DISCOVERED_NOT_INDEXED": 36,
+   "UNKNOWN_TO_GOOGLE": 4
+  }
+ },
+ "newly_indexed": [
+  {
+   "path": "/de/feiertage/baden-wuerttemberg/",
+   "lastCrawlTime": "2026-10-11T10:23:10Z",
+   "crawledAs": "MOBILE",
+   "was": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "path": "/de/feiertage/deutschland/",
+   "lastCrawlTime": "2026-10-11T10:15:09Z",
+   "crawledAs": "MOBILE",
+   "was": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "path": "/de/lebenshaltungskosten/griechenland/",
+   "lastCrawlTime": "2026-10-11T10:13:12Z",
+   "crawledAs": "MOBILE",
+   "was": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "path": "/de/mietpreisentwicklung/deutschland/",
+   "lastCrawlTime": "2026-10-11T10:25:11Z",
+   "crawledAs": "MOBILE",
+   "was": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "path": "/de/rangliste/guenstigste-laender-in-europa/",
+   "lastCrawlTime": "2026-10-11T10:25:11Z",
+   "crawledAs": "MOBILE",
+   "was": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "path": "/de/stadtteile/berlin/",
+   "lastCrawlTime": "2026-10-11T10:23:11Z",
+   "crawledAs": "MOBILE",
+   "was": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "path": "/en/cost-of-living/albania/",
+   "lastCrawlTime": "2026-10-11T10:11:07Z",
+   "crawledAs": "MOBILE",
+   "was": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "path": "/en/public-holidays/germany/",
+   "lastCrawlTime": "2026-10-11T10:15:08Z",
+   "crawledAs": "MOBILE",
+   "was": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "path": "/es/zonas/barcelona/",
+   "lastCrawlTime": "2026-10-11T10:23:11Z",
+   "crawledAs": "MOBILE",
+   "was": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "path": "/it/giorni-festivi/lombardia/",
+   "lastCrawlTime": "2026-10-11T10:23:11Z",
+   "crawledAs": "MOBILE",
+   "was": "UNKNOWN_TO_GOOGLE"
+  }
+ ],
+ "what_the_indexation_is_NOT_evidence_of": "every one of the ten was crawled between 2026-10-11T10:11:07Z and 2026-10-11T10:25:11Z, which is before PR 34 and 35 deployed (about 17:00Z on 2026-10-12) and before PR 37 deployed (22:42Z on 2026-10-12). The crawl path fixes cannot have caused a crawl that happened a day earlier. The likeliest cause is the sitemap Google downloaded at 2026-10-10T03:52:19Z, and possibly the earlier IndexNow submission. The effect of the fixes is not measurable yet: they went live under an hour before this inspection and Google has not re-crawled since.",
+ "remaining_server_error": {
+  "path": "/es/dias-festivos/comunidad-de-madrid/",
+  "lastCrawlTime": "2026-09-29T13:46:26Z",
+  "reading": "a stale record, not a live defect. Google last fetched this URL on 2026-09-29, during the twelve days the cohort manifest was missing from the deployment. That cause was fixed in 0ffdf52; Vercel reports 0 runtime errors, the URL returns 200 in the crawl of 2026-10-12, and Google has not re-fetched it. It will clear on the next crawl."
+ },
+ "sitemap_as_google_sees_it": [
+  {
+   "path": "https://livdar.com/sitemap.xml",
+   "lastSubmitted": "2026-09-16T16:04:52.034Z",
+   "lastDownloaded": "2026-10-10T03:52:19.638Z",
+   "isPending": false,
+   "isSitemapsIndex": true,
+   "warnings": "0",
+   "errors": "0",
+   "submitted_urls": 730
+  }
+ ],
+ "transitions": {
+  "DISCOVERED_NOT_INDEXED -> DISCOVERED_NOT_INDEXED": 328,
+  "DISCOVERED_NOT_INDEXED -> UNKNOWN_TO_GOOGLE": 87,
+  "UNKNOWN_TO_GOOGLE -> DISCOVERED_NOT_INDEXED": 66,
+  "UNKNOWN_TO_GOOGLE -> UNKNOWN_TO_GOOGLE": 8,
+  "DISCOVERED_NOT_INDEXED -> INDEXED": 5,
+  "UNKNOWN_TO_GOOGLE -> INDEXED": 5,
+  "SERVER_ERROR -> SERVER_ERROR": 1
+ },
+ "what_the_churn_means": "87 rows moved from discovered to unknown and 66 the other way, with 337 unchanged. Both directions at once, over two days, with no content change, is Googles own scheduling noise rather than a signal about these pages. The 2026-10-10 comparison across 25 features found no measurable difference between the two groups either."
+}
