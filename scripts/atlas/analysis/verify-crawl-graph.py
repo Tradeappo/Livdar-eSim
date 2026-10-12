@@ -18,7 +18,7 @@ import os, re, subprocess, sys, threading, time, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__))))) + '/'
 OUT = ROOT + 'reports/atlas/'
-BODY = ROOT + 'data/atlas/measurements/verify-crawl-2026-10-12/'
+BODY = ROOT + 'data/atlas/measurements/verify-crawl-2026-10-12-postfix/'
 BASE = 'https://livdar.com'
 UA = ('LivdarAtlasVerify/1.0 (+https://livdar.com; internal crawl graph verification; '
       'contact via the repository)')
@@ -225,8 +225,8 @@ def main():
                'sitemaps': sitemaps, 'declared_in_sitemaps': len(declared_paths),
                'locales_served': locales,
                'results': results, 'declared_paths': declared_paths},
-              open(OUT + 'CRAWL-GRAPH-RAW.json', 'w', encoding='utf-8'), indent=1)
-    print('raw evidence written to reports/atlas/CRAWL-GRAPH-RAW.json')
+              open(OUT + 'CRAWL-GRAPH-RAW-POSTFIX.json', 'w', encoding='utf-8'), indent=1)
+    print('raw evidence written to reports/atlas/CRAWL-GRAPH-RAW-POSTFIX.json')
     return 0
 
 

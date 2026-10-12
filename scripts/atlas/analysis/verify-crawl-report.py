@@ -29,7 +29,7 @@ def probe(path, tries=4):
 
 
 def main():
-    raw = json.load(open(OUT + 'CRAWL-GRAPH-RAW.json', encoding='utf-8'))
+    raw = json.load(open(OUT + (os.environ.get('CRAWL_RAW') or 'CRAWL-GRAPH-RAW.json'), encoding='utf-8'))
     res = raw['results']
     declared = raw['declared_paths']
     locales = raw['locales_served']
@@ -237,10 +237,10 @@ def main():
         'checks': checks,
         'directory_detail': dir_rows,
     }
-    json.dump(report, open(OUT + 'CRAWL-GRAPH-VERIFICATION.json', 'w', encoding='utf-8'),
+    json.dump(report, open(OUT + (os.environ.get('CRAWL_OUT') or 'CRAWL-GRAPH-VERIFICATION.json'), 'w', encoding='utf-8'),
               ensure_ascii=False, indent=1)
 
-    with open(OUT + 'CRAWL-GRAPH-ORPHANS.csv', 'w', newline='', encoding='utf-8') as f:
+    with open(OUT + (os.environ.get('CRAWL_ORPH') or 'CRAWL-GRAPH-ORPHANS.csv'), 'w', newline='', encoding='utf-8') as f:
         w = csv.writer(f)
         w.writerow(['path', 'locale', 'family', 'http_status', 'inbound_from_outside_cohort',
                     'is_orphan', 'one_source'])
