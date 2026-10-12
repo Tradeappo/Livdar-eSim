@@ -26,6 +26,12 @@ import { directoryEntries, sitemapIds, isDirectorySitemap } from '../lib/atlas/s
 import { PACKS } from '../lib/atlas/content/lang/index.js';
 import { publishedMarkets } from '../lib/markets.js';
 
+// The two dashes the repository forbids, as code points rather than characters.
+// scripts/dash-check.mjs scans every file and allows neither anywhere, so a test that spells
+// them out fails the gate it exists to enforce. That is exactly what happened on the first
+// push of this branch: two findings, both in this file, on the line below.
+const FORBIDDEN_DASHES = [[0x2014, 'em dash'], [0x2013, 'en dash']];
+
 const abs = (p) => 'https://livdar.com' + p;
 const served = languagesServed();
 
@@ -55,8 +61,9 @@ test('no heading is the site name, a slug, or an English string in a non-English
       assert.notEqual(label, 'Livdar', `${lang}.${key} is the site name, not a section name`);
       assert.ok(!label.includes('-'), `${lang}.${key} looks like a slug: ${label}`);
       assert.ok(label.trim().length > 1, `${lang}.${key} is empty`);
-      for (const [ch, nm] of [['—', 'em dash'], ['–', 'en dash']]) {
-        assert.ok(!label.includes(ch), `${lang}.${key} contains an ${nm}`);
+      for (const [code, nm] of FORBIDDEN_DASHES) {
+        assert.ok(!label.includes(String.fromCharCode(code)),
+          `${lang}.${key} contains an ${nm}`);
       }
     }
   }
