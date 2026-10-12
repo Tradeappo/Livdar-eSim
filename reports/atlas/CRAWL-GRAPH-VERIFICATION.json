@@ -1,0 +1,784 @@
+{
+ "what_this_is": "verification of the Atlas crawl graph as deployed after pull requests 34 and 35, measured fresh against production",
+ "measured_at": "2026-10-12T15:59:33Z",
+ "main_commit_verified": "47ba1340262dc919f4ba94331bafe3a8f9909c72",
+ "urls_fetched": 751,
+ "locales_the_cohort_publishes_in": [
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "ja",
+  "nl",
+  "pl",
+  "pt"
+ ],
+ "my_own_transport_failures_not_site_defects": {},
+ "checks": [
+  {
+   "check": "every served Atlas locale has a working /{lang}/atlas/ directory",
+   "verdict": "FAIL",
+   "detail": "2 of 9 served locales answer 200 at /{lang}/atlas/",
+   "evidence": {
+    "locales_served": [
+     "de",
+     "en",
+     "es",
+     "fr",
+     "it",
+     "ja",
+     "nl",
+     "pl",
+     "pt"
+    ],
+    "answering_200": [
+     "de",
+     "en"
+    ],
+    "not_answering_200": {
+     "es": {
+      "code": 307,
+      "redirect": "https://livdar.com/en/"
+     },
+     "fr": {
+      "code": 307,
+      "redirect": "https://livdar.com/en/"
+     },
+     "it": {
+      "code": 307,
+      "redirect": "https://livdar.com/en/"
+     },
+     "ja": {
+      "code": 307,
+      "redirect": "https://livdar.com/en/"
+     },
+     "nl": {
+      "code": 307,
+      "redirect": "https://livdar.com/en/"
+     },
+     "pl": {
+      "code": 307,
+      "redirect": "https://livdar.com/en/"
+     },
+     "pt": {
+      "code": 307,
+      "redirect": "https://livdar.com/en/"
+     }
+    }
+   }
+  },
+  {
+   "check": "each directory links to every published page in its locale, and only those",
+   "verdict": "PASS",
+   "detail": "checked the 2 directories that answer 200",
+   "evidence": {
+    "per_locale": {
+     "de": {
+      "cohort_links_on_page": 72,
+      "published_in_this_locale": 72,
+      "links_to_another_locale": 0,
+      "links_to_unpublished_paths": 0,
+      "published_but_not_linked": 0
+     },
+     "en": {
+      "cohort_links_on_page": 100,
+      "published_in_this_locale": 100,
+      "links_to_another_locale": 0,
+      "links_to_unpublished_paths": 0,
+      "published_but_not_linked": 0
+     }
+    },
+    "problems": {}
+   }
+  },
+  {
+   "check": "no published Atlas URL is an internal-link orphan",
+   "verdict": "FAIL",
+   "detail": "172 of 500 have at least one inbound link from a page outside the cohort that answers 200; 328 have none",
+   "evidence": {
+    "orphans_by_locale": {
+     "es": 64,
+     "fr": 63,
+     "it": 52,
+     "ja": 40,
+     "nl": 27,
+     "pl": 42,
+     "pt": 40
+    },
+    "orphan_count": 328,
+    "orphan_examples": [
+     "/es/clasificaciones/paises-mas-baratos-de-europa/",
+     "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+     "/es/clasificaciones/paises-mas-caros-del-mundo/",
+     "/es/coste-de-vida/alemania/",
+     "/es/coste-de-vida/australia/",
+     "/es/coste-de-vida/bulgaria/",
+     "/es/coste-de-vida/chipre/",
+     "/es/coste-de-vida/croacia/",
+     "/es/coste-de-vida/dinamarca/",
+     "/es/coste-de-vida/espana/",
+     "/es/coste-de-vida/estados-unidos/",
+     "/es/coste-de-vida/francia/"
+    ],
+    "reached_by_locale": {
+     "de": 72,
+     "en": 100,
+     "es": 0,
+     "fr": 0,
+     "it": 0,
+     "ja": 0,
+     "nl": 0,
+     "pl": 0,
+     "pt": 0
+    }
+   }
+  },
+  {
+   "check": "no internal link on a crawled page points at a 404 or a redirect",
+   "verdict": "FAIL",
+   "detail": "799 distinct internal link targets checked, 49 of them probed separately",
+   "evidence": {
+    "broken_or_redirecting_targets": {
+     "/ro/atlas/": {
+      "status": 404,
+      "linked_from_count": 32,
+      "linked_from_examples": [
+       "/ro/",
+       "/ro/compatibilitate/",
+       "/ro/confidentialitate/",
+       "/ro/cookie-uri/",
+       "/ro/esim/"
+      ]
+     },
+     "/es/guias/how-esim-works/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/es/regiones/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/es/compatibilidad/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/es/esim/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/es/atlas/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/es/guias/esim-vs-roaming/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/es/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/es/guias/": {
+      "status": 307,
+      "linked_from_count": 64,
+      "linked_from_examples": [
+       "/es/clasificaciones/paises-mas-baratos-de-europa/",
+       "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+       "/es/clasificaciones/paises-mas-caros-del-mundo/",
+       "/es/coste-de-vida/alemania/",
+       "/es/coste-de-vida/australia/"
+      ]
+     },
+     "/fr/": {
+      "status": 307,
+      "linked_from_count": 63,
+      "linked_from_examples": [
+       "/fr/augmentation-des-loyers/france/",
+       "/fr/classements/pays-les-moins-chers-deurope/",
+       "/fr/classements/pays-les-moins-chers-pour-vivre/",
+       "/fr/classements/pays-les-plus-chers-du-monde/",
+       "/fr/cout-de-la-vie/albanie/"
+      ]
+     },
+     "/fr/esim/": {
+      "status": 307,
+      "linked_from_count": 63,
+      "linked_from_examples": [
+       "/fr/augmentation-des-loyers/france/",
+       "/fr/classements/pays-les-moins-chers-deurope/",
+       "/fr/classements/pays-les-moins-chers-pour-vivre/",
+       "/fr/classements/pays-les-plus-chers-du-monde/",
+       "/fr/cout-de-la-vie/albanie/"
+      ]
+     },
+     "/fr/regions/": {
+      "status": 307,
+      "linked_from_count": 63,
+      "linked_from_examples": [
+       "/fr/augmentation-des-loyers/france/",
+       "/fr/classements/pays-les-moins-chers-deurope/",
+       "/fr/classements/pays-les-moins-chers-pour-vivre/",
+       "/fr/classements/pays-les-plus-chers-du-monde/",
+       "/fr/cout-de-la-vie/albanie/"
+      ]
+     },
+     "/fr/guides/how-esim-works/": {
+      "status": 307,
+      "linked_from_count": 63,
+      "linked_from_examples": [
+       "/fr/augmentation-des-loyers/france/",
+       "/fr/classements/pays-les-moins-chers-deurope/",
+       "/fr/classements/pays-les-moins-chers-pour-vivre/",
+       "/fr/classements/pays-les-plus-chers-du-monde/",
+       "/fr/cout-de-la-vie/albanie/"
+      ]
+     },
+     "/fr/atlas/": {
+      "status": 307,
+      "linked_from_count": 63,
+      "linked_from_examples": [
+       "/fr/augmentation-des-loyers/france/",
+       "/fr/classements/pays-les-moins-chers-deurope/",
+       "/fr/classements/pays-les-moins-chers-pour-vivre/",
+       "/fr/classements/pays-les-plus-chers-du-monde/",
+       "/fr/cout-de-la-vie/albanie/"
+      ]
+     },
+     "/fr/guides/": {
+      "status": 307,
+      "linked_from_count": 63,
+      "linked_from_examples": [
+       "/fr/augmentation-des-loyers/france/",
+       "/fr/classements/pays-les-moins-chers-deurope/",
+       "/fr/classements/pays-les-moins-chers-pour-vivre/",
+       "/fr/classements/pays-les-plus-chers-du-monde/",
+       "/fr/cout-de-la-vie/albanie/"
+      ]
+     }
+    },
+    "broken_target_count": 57
+   }
+  },
+  {
+   "check": "every published Atlas page self-canonicalises",
+   "verdict": "PASS",
+   "detail": "500 pages checked",
+   "evidence": {
+    "wrong_canonical": {},
+    "wrong_canonical_count": 0,
+    "missing_canonical_count": 0,
+    "missing_canonical": []
+   }
+  },
+  {
+   "check": "no published Atlas page is noindex",
+   "verdict": "PASS",
+   "detail": "500 pages checked",
+   "evidence": {
+    "noindex_count": 0,
+    "noindex": []
+   }
+  },
+  {
+   "check": "every published Atlas URL returns 200",
+   "verdict": "PASS",
+   "detail": "500 pages fetched",
+   "evidence": {
+    "non_200": {},
+    "non_200_count": 0
+   }
+  },
+  {
+   "check": "all 500 published Atlas URLs are in a sitemap",
+   "verdict": "PASS",
+   "detail": "743 URLs declared across 75 sitemap files",
+   "evidence": {
+    "missing_count": 0,
+    "missing": []
+   }
+  },
+  {
+   "check": "every Atlas directory is declared in a sitemap, and every declared one answers 200",
+   "verdict": "FAIL",
+   "detail": "checked the directory for each of the 9 served locales",
+   "evidence": {
+    "served_locales_absent_from_every_sitemap": [
+     "/es/atlas/",
+     "/fr/atlas/",
+     "/it/atlas/",
+     "/ja/atlas/",
+     "/nl/atlas/",
+     "/pl/atlas/",
+     "/pt/atlas/"
+    ],
+    "declared_in_a_sitemap_but_not_200": {
+     "/ro/atlas/": 404
+    }
+   }
+  },
+  {
+   "check": "no sitemap entry uses the wrong host or scheme",
+   "verdict": "PASS",
+   "detail": "743 declared URLs",
+   "evidence": {
+    "wrong_host": {},
+    "wrong_scheme": {}
+   }
+  },
+  {
+   "check": "no hreflang annotation points at a URL that redirects or 404s",
+   "verdict": "FAIL",
+   "detail": "742 pages carry hreflang",
+   "evidence": {
+    "pages_with_a_bad_hreflang_target": 2,
+    "examples": {
+     "/de/atlas/": [
+      {
+       "hreflang": "es",
+       "href": "https://livdar.com/es/atlas/",
+       "status": 307
+      },
+      {
+       "hreflang": "fr",
+       "href": "https://livdar.com/fr/atlas/",
+       "status": 307
+      },
+      {
+       "hreflang": "it",
+       "href": "https://livdar.com/it/atlas/",
+       "status": 307
+      },
+      {
+       "hreflang": "ja",
+       "href": "https://livdar.com/ja/atlas/",
+       "status": 307
+      }
+     ],
+     "/en/atlas/": [
+      {
+       "hreflang": "es",
+       "href": "https://livdar.com/es/atlas/",
+       "status": 307
+      },
+      {
+       "hreflang": "fr",
+       "href": "https://livdar.com/fr/atlas/",
+       "status": 307
+      },
+      {
+       "hreflang": "it",
+       "href": "https://livdar.com/it/atlas/",
+       "status": 307
+      },
+      {
+       "hreflang": "ja",
+       "href": "https://livdar.com/ja/atlas/",
+       "status": 307
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "directory_detail": {
+  "de": {
+   "path": "/de/atlas/",
+   "code": 200,
+   "redirect": "",
+   "canonical": "https://livdar.com/de/atlas/",
+   "robots": "index, follow",
+   "hreflang": {
+    "de": "https://livdar.com/de/atlas/",
+    "en": "https://livdar.com/en/atlas/",
+    "es": "https://livdar.com/es/atlas/",
+    "fr": "https://livdar.com/fr/atlas/",
+    "it": "https://livdar.com/it/atlas/",
+    "ja": "https://livdar.com/ja/atlas/",
+    "nl": "https://livdar.com/nl/atlas/",
+    "pl": "https://livdar.com/pl/atlas/",
+    "pt": "https://livdar.com/pt/atlas/",
+    "x-default": "https://livdar.com/en/atlas/"
+   },
+   "links": [
+    "/de/",
+    "/de/esim/",
+    "/de/regionen/",
+    "/de/ratgeber/",
+    "/de/kompatibilitaet/",
+    "/de/",
+    "/de/lebenshaltungskosten/australien/",
+    "/de/lebenshaltungskosten/bulgarien/",
+    "/de/lebenshaltungskosten/daenemark/",
+    "/de/lebenshaltungskosten/deutschland/",
+    "/de/lebenshaltungskosten/griechenland/",
+    "/de/lebenshaltungskosten/irland/",
+    "/de/lebenshaltungskosten/italien/",
+    "/de/lebenshaltungskosten/japan/",
+    "/de/lebenshaltungskosten/kroatien/",
+    "/de/lebenshaltungskosten/malta/",
+    "/de/lebenshaltungskosten/niederlande/",
+    "/de/lebenshaltungskosten/norwegen/",
+    "/de/lebenshaltungskosten/oesterreich/",
+    "/de/lebenshaltungskosten/polen/",
+    "/de/lebenshaltungskosten/portugal/",
+    "/de/lebenshaltungskosten/schweden/",
+    "/de/lebenshaltungskosten/schweiz/",
+    "/de/lebenshaltungskosten/spanien/",
+    "/de/lebenshaltungskosten/thailand/",
+    "/de/lebenshaltungskosten/tschechien/",
+    "/de/lebenshaltungskosten/tuerkei/",
+    "/de/lebenshaltungskosten/ungarn/",
+    "/de/lebenshaltungskosten/vereinigte-staaten/",
+    "/de/lebenshaltungskosten/zypern/",
+    "/de/feiertage/deutschland/",
+    "/de/feiertage/frankreich/",
+    "/de/feiertage/italien/",
+    "/de/feiertage/niederlande/",
+    "/de/feiertage/oesterreich/",
+    "/de/feiertage/schweiz/",
+    "/de/feiertage/baden-wuerttemberg/",
+    "/de/feiertage/bayern/",
+    "/de/feiertage/berlin/",
+    "/de/feiertage/brandenburg/",
+    "/de/feiertage/hessen/",
+    "/de/feiertage/niedersachsen/",
+    "/de/feiertage/nordrhein-westfalen/",
+    "/de/feiertage/saarland/",
+    "/de/feiertage/sachsen-anhalt/",
+    "/de/feiertage/sachsen/",
+    "/de/feiertage/thueringen/",
+    "/de/stadtteile/berlin/",
+    "/de/stadtteile/hamburg/",
+    "/de/stadtteile/koeln/",
+    "/de/stadtteile/london/",
+    "/de/stadtteile/new-york/",
+    "/de/rangliste/guenstigste-laender-in-europa/",
+    "/de/rangliste/guenstigste-laender-zum-leben/",
+    "/de/rangliste/teuerste-laender-der-welt/",
+    "/de/mietpreisentwicklung/deutschland/",
+    "/de/rechner/auswandern-kosten/",
+    "/de/rechner/gehaltsrechner/",
+    "/de/rechner/reisekosten-rechner/",
+    "/de/rechner/umzugskosten-rechner/",
+    "/de/rechner/wie-viel-miete-kann-ich-mir-leisten/",
+    "/de/rechner/lebenshaltungskosten-rechner/",
+    "/de/rechner/laendervergleich/",
+    "/de/rechner/lebenshaltungskosten-vergleich/",
+    "/de/rechner/staedte-vergleich/",
+    "/de/rechner/wo-soll-ich-leben/",
+    "/de/rechner/wo-uebernachten/",
+    "/de/rechner/wohin-auswandern/",
+    "/de/beste-reisezeit/costa-rica/",
+    "/de/beste-reisezeit/japan/",
+    "/de/beste-reisezeit/mexiko/",
+    "/de/beste-reisezeit/thailand/",
+    "/de/beste-reisezeit/vietnam/",
+    "/de/gehaelter/daenemark/",
+    "/de/gehaelter/deutschland/",
+    "/de/gehaelter/polen/",
+    "/de/gehaelter/spanien/",
+    "/de/gehaelter/tschechien/",
+    "/de/",
+    "/de/esim/",
+    "/de/regionen/",
+    "/de/kompatibilitaet/",
+    "/de/atlas/",
+    "/de/ratgeber/",
+    "/de/ratgeber/how-esim-works/",
+    "/de/ratgeber/esim-vs-roaming/",
+    "/de/datenschutz/",
+    "/de/cookies/"
+   ],
+   "transport_error": "",
+   "in_sitemap": true
+  },
+  "en": {
+   "path": "/en/atlas/",
+   "code": 200,
+   "redirect": "",
+   "canonical": "https://livdar.com/en/atlas/",
+   "robots": "index, follow",
+   "hreflang": {
+    "de": "https://livdar.com/de/atlas/",
+    "en": "https://livdar.com/en/atlas/",
+    "es": "https://livdar.com/es/atlas/",
+    "fr": "https://livdar.com/fr/atlas/",
+    "it": "https://livdar.com/it/atlas/",
+    "ja": "https://livdar.com/ja/atlas/",
+    "nl": "https://livdar.com/nl/atlas/",
+    "pl": "https://livdar.com/pl/atlas/",
+    "pt": "https://livdar.com/pt/atlas/",
+    "x-default": "https://livdar.com/en/atlas/"
+   },
+   "links": [
+    "/en/",
+    "/en/esim/",
+    "/en/regions/",
+    "/en/guides/",
+    "/en/compatibility/",
+    "/en/",
+    "/en/cost-of-living/albania/",
+    "/en/cost-of-living/australia/",
+    "/en/cost-of-living/canada/",
+    "/en/cost-of-living/china/",
+    "/en/cost-of-living/colombia/",
+    "/en/cost-of-living/costa-rica/",
+    "/en/cost-of-living/croatia/",
+    "/en/cost-of-living/cyprus/",
+    "/en/cost-of-living/denmark/",
+    "/en/cost-of-living/france/",
+    "/en/cost-of-living/germany/",
+    "/en/cost-of-living/greece/",
+    "/en/cost-of-living/iceland/",
+    "/en/cost-of-living/ireland/",
+    "/en/cost-of-living/italy/",
+    "/en/cost-of-living/japan/",
+    "/en/cost-of-living/malta/",
+    "/en/cost-of-living/new-zealand/",
+    "/en/cost-of-living/norway/",
+    "/en/cost-of-living/panama/",
+    "/en/cost-of-living/poland/",
+    "/en/cost-of-living/portugal/",
+    "/en/cost-of-living/puerto-rico/",
+    "/en/cost-of-living/spain/",
+    "/en/cost-of-living/sweden/",
+    "/en/cost-of-living/switzerland/",
+    "/en/cost-of-living/thailand/",
+    "/en/cost-of-living/netherlands/",
+    "/en/cost-of-living/tuerkiye/",
+    "/en/cost-of-living/vietnam/",
+    "/en/public-holidays/germany/",
+    "/en/public-holidays/south-africa/",
+    "/en/public-holidays/spain/",
+    "/en/where-to-stay/amsterdam/",
+    "/en/where-to-stay/bangkok/",
+    "/en/where-to-stay/barcelona/",
+    "/en/where-to-stay/chicago/",
+    "/en/where-to-stay/london/",
+    "/en/where-to-stay/madrid/",
+    "/en/where-to-stay/montreal/",
+    "/en/where-to-stay/new-york/",
+    "/en/where-to-stay/paris/",
+    "/en/where-to-stay/tokyo/",
+    "/en/rankings/cheapest-countries-in-europe/",
+    "/en/rankings/cheapest-countries-to-live-in/",
+    "/en/rankings/most-expensive-countries-to-live-in/",
+    "/en/sport/cycling-in-new-york/",
+    "/en/sport/hiking-near-new-york/",
+    "/en/sport/hiking-near-san-francisco/",
+    "/en/sport/running-in-miami/",
+    "/en/sport/running-in-new-york/",
+    "/en/sport/running-in-san-francisco/",
+    "/en/sport/swimming-in-miami/",
+    "/en/tools/cost-of-moving-abroad/",
+    "/en/tools/how-much-rent-can-i-afford/",
+    "/en/tools/moving-cost-calculator/",
+    "/en/tools/salary-calculator/",
+    "/en/tools/travel-budget-calculator/",
+    "/en/tools/cost-of-living-calculator/",
+    "/en/tools/compare-cities/",
+    "/en/tools/cost-of-living-comparison/",
+    "/en/tools/where-should-i-live/",
+    "/en/tools/where-should-i-stay/",
+    "/en/tools/which-country-should-i-move-to/",
+    "/en/best-time-to-visit/costa-rica/",
+    "/en/best-time-to-visit/croatia/",
+    "/en/best-time-to-visit/greece/",
+    "/en/best-time-to-visit/iceland/",
+    "/en/best-time-to-visit/italy/",
+    "/en/best-time-to-visit/japan/",
+    "/en/best-time-to-visit/peru/",
+    "/en/best-time-to-visit/portugal/",
+    "/en/best-time-to-visit/spain/",
+    "/en/best-time-to-visit/switzerland/",
+    "/en/best-time-to-visit/thailand/",
+    "/en/best-time-to-visit/tuerkiye/",
+    "/en/best-time-to-visit/vietnam/",
+    "/en/salaries/austria/",
+    "/en/salaries/belgium/",
+    "/en/salaries/bulgaria/",
+    "/en/salaries/croatia/",
+    "/en/salaries/cyprus/",
+    "/en/salaries/czechia/",
+    "/en/salaries/denmark/",
+    "/en/salaries/estonia/",
+    "/en/salaries/finland/",
+    "/en/salaries/france/",
+    "/en/salaries/germany/",
+    "/en/salaries/greece/",
+    "/en/salaries/hungary/",
+    "/en/salaries/ireland/",
+    "/en/salaries/italy/",
+    "/en/salaries/luxembourg/",
+    "/en/salaries/malta/",
+    "/en/salaries/poland/",
+    "/en/salaries/portugal/",
+    "/en/salaries/romania/",
+    "/en/salaries/spain/",
+    "/en/salaries/sweden/",
+    "/en/salaries/netherlands/",
+    "/en/",
+    "/en/esim/",
+    "/en/regions/",
+    "/en/compatibility/",
+    "/en/atlas/",
+    "/en/guides/",
+    "/en/guides/how-esim-works/",
+    "/en/guides/esim-vs-roaming/",
+    "/en/privacy/",
+    "/en/cookies/"
+   ],
+   "transport_error": "",
+   "in_sitemap": true
+  },
+  "es": {
+   "path": "/es/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  },
+  "fr": {
+   "path": "/fr/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  },
+  "it": {
+   "path": "/it/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  },
+  "ja": {
+   "path": "/ja/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  },
+  "nl": {
+   "path": "/nl/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  },
+  "pl": {
+   "path": "/pl/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  },
+  "pt": {
+   "path": "/pt/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  },
+  "ro": {
+   "path": "/ro/atlas/",
+   "code": 404,
+   "redirect": "",
+   "canonical": null,
+   "robots": "noindex",
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": true
+  },
+  "zh-Hant": {
+   "path": "/zh-Hant/atlas/",
+   "code": 307,
+   "redirect": "https://livdar.com/en/",
+   "canonical": null,
+   "robots": null,
+   "hreflang": {},
+   "links": [],
+   "transport_error": "",
+   "in_sitemap": false
+  }
+ }
+}
