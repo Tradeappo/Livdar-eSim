@@ -18,9 +18,14 @@ function pathFor(lang) {
   return '/' + lang + '/atlas/';
 }
 
-function alternates() {
+function alternatePaths() {
   const out = {};
   for (const lang of languagesServed()) out[lang] = pathFor(lang);
+  return out;
+}
+
+function metadataAlternates() {
+  const out = alternatePaths();
   if (out.en) out['x-default'] = out.en;
   return out;
 }
@@ -39,7 +44,7 @@ export async function generateMetadata({ params }) {
     description: 'Livdar Atlas',
     path: pathFor(lang),
     locale: lang,
-    alternates: alternates(),
+    alternates: metadataAlternates(),
     robots: { index: true, follow: true },
   });
 }
@@ -68,7 +73,7 @@ export default async function AtlasDirectoryPage({ params }) {
 
   return (
     <>
-      <Header locale={lang} alternatePaths={alternates()} />
+      <Header locale={lang} alternatePaths={alternatePaths()} />
       <main id="main" className="atlas">
         <div className="wrap atlas-wrap">
           <nav className="atlas-crumbs" aria-label="Breadcrumb">
