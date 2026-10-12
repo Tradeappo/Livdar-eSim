@@ -24,6 +24,7 @@ import { atlasAlternates } from '../lib/atlas/serve.js';
 import { buildModel as buildAtlasModel } from '../lib/atlas/model.js';
 import { parseKey as parseAtlasKey } from '../lib/atlas/taxonomy.js';
 import { sitemapIds as atlasPageSitemapIds, sitemapEntries as atlasPageSitemapEntries, isPagesSitemap } from '../lib/atlas/sitemap-pages.js';
+import { languagesServed as atlasDirectoryLanguages } from '../lib/atlas/serve-pages.js';
 
 const REGION_IDS = REGIONS.filter((r) => r.id !== 'global').map((r) => r.id);
 
@@ -39,7 +40,8 @@ export async function generateSitemaps() {
   // Livdar Atlas: published pages only, one file per locale and page family.
   // The data page families are split by language and surface instead, so a
   // crawl log answers the surface question without a join.
-  return ids.concat(atlasSitemapIds(loadAtlas())).concat(atlasPageSitemapIds());
+  const atlasDirectories = atlasDirectoryLanguages().map((locale) => ({ id: 'atlas-directory-' + locale }));
+  return ids.concat(atlasSitemapIds(loadAtlas())).concat(atlasPageSitemapIds()).concat(atlasDirectories);
 }
 
 function entry(path, alternates, priority, changeFrequency, family = 'core') {
@@ -59,7 +61,6 @@ function coreEntries(locale) {
     entry(routes.regionsHub(locale), hubAlternates('regions'), 0.7, 'monthly'),
     entry(routes.guidesHub(locale), hubAlternates('guides'), 0.7, 'monthly'),
     entry(routes.compatibility(locale), compatibilityAlternates(), 0.6, 'monthly'),
-    entry('/' + locale + '/atlas/', null, 0.7, 'daily', 'atlas'),
     ...LEGAL_KINDS.filter((k) => legalContent(locale, k)).map((k) =>
       entry(routes[k](locale), legalAlternates(k), 0.2, 'yearly')
     ),
@@ -86,6 +87,11 @@ export default async function sitemap({ id }) {
   const raw = String(id || '');
   if (isPagesSitemap(raw)) {
     return atlasPageSitemapEntries(raw, { absolute, lastModified: lastModifiedFor('atlas') });
+  }
+  if (raw.startsWith('atlas-directory-')) {
+    const locale = raw.slice('atlas-directory-'.length);
+    if (!atlasDirectoryLanguages().includes(locale)) return [];
+    return [entry('/' + locale + '/atlas/', null, 0.7, 'daily', 'atlas')];
   }
   if (raw.startsWith('atlas-')) {
     const ds = loadAtlas();
