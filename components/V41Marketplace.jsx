@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import { routes } from '../lib/routes.js';
 import { V41_FOOTER, V41_MARKETPLACE_MARKUP, V41_VERSION, enhanceV41Markup } from '../lib/v41-source.js';
+import { languagesServed } from '../lib/atlas/serve-pages.js';
 
 const V41_PRIMARY_IMAGE = 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=86';
 
@@ -8,12 +9,19 @@ const V41_PRIMARY_IMAGE = 'https://images.unsplash.com/photo-1493976040374-85c8e
 // read and rendered directly instead of being translated into another design
 // system. That preserves its exact markup, CSS cascade, responsive rules,
 // images, section order and browser behaviour.
+const atlasLink = (locale) =>
+  (languagesServed().includes(locale) ? `<a href="/${locale}/atlas/">Atlas</a>` : '');
+
 function localize(markup, locale) {
   return enhanceV41Markup(markup, locale)
     .replace('<html lang="en">', `<html lang="${locale}">`)
     .replace('<a data-i18n="allDestinations" href="#">', `<a data-i18n="allDestinations" href="${routes.esimHub(locale)}">`)
     .replace('<a data-i18n="footerPlans" href="#">', `<a data-i18n="footerPlans" href="${routes.esimHub(locale)}">`)
-    .replace('<a data-i18n="navDestinations" href="#">', `<a href="/${locale}/atlas/">Atlas</a><a data-i18n="navDestinations" href="${routes.esimHub(locale)}#destinations">`)
+    // The Atlas link only where the Atlas publishes in this language. ro publishes the eSIM
+    // site and no Atlas pages, so this injected a link to a 404 into the V41 nav on /ro/ and
+    // /ro/esim/. The Footer component learned the same lesson twice already; this markup is
+    // a third place that had to learn it.
+    .replace('<a data-i18n="navDestinations" href="#">', `${atlasLink(locale)}<a data-i18n="navDestinations" href="${routes.esimHub(locale)}#destinations">`)
 
     .replace('<a data-i18n="navRegions" href="#">', `<a data-i18n="navRegions" href="${routes.regionsHub(locale)}">`)
     .replace('<a data-i18n="navHow" href="#">', `<a data-i18n="navHow" href="${routes.guide(locale, 'how-esim-works')}">`)

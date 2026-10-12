@@ -2,14 +2,19 @@
 //
 // This is intentionally a real HTML directory, not a hidden SEO page. Every
 // published Atlas page in the current market is linked from here, grouped by
-// family, and every site footer links back here. That gives Google a stable
-// crawl path that does not depend on sitemap discovery alone.
+// the section its URL already sits under, and every site footer links back
+// here. That gives Google a stable crawl path that does not depend on sitemap
+// discovery alone.
 
+import { notFound } from 'next/navigation';
 import '../../atlas.css';
 import Header from '../../../components/Header.jsx';
 import Footer from '../../../components/Footer.jsx';
 import { buildMetadata } from '../../../lib/seo.js';
 import { pages, languagesServed } from '../../../lib/atlas/serve-pages.js';
+import { sectionOf, sectionHeading, sectionKeys } from '../../../lib/atlas/sections.js';
+import { isPublished } from '../../../lib/markets.js';
+import { getLocale } from '../../../lib/i18n.js';
 
 export const dynamicParams = false;
 export const revalidate = 86400;
@@ -49,27 +54,43 @@ export async function generateMetadata({ params }) {
   });
 }
 
-function familyLabel(rows, family) {
-  const first = rows.find((p) => p.family === family);
-  const candidate = first?.breadcrumbs?.[0]?.name;
-  if (candidate) return candidate;
-  return family
-    .replace(/^[^.]+\./, '')
-    .replace(/[.-]+/g, ' ')
-    .replace(/\b\w/g, (m) => m.toUpperCase());
-}
-
 export default async function AtlasDirectoryPage({ params }) {
   const { lang } = await params;
+  // A locale with no published pages has no directory. generateStaticParams already
+  // excludes it, so this only fires if the two ever disagree, and a 404 is the honest
+  // answer. Returning null rendered an empty page under a 200, which is worse than
+  // missing: a crawler reads it as a real page with nothing on it.
+  if (!languagesServed().includes(lang)) notFound();
   const all = pages().filter((p) => p.locale === lang);
-  if (!all.length) return null;
+  if (!all.length) notFound();
 
-  const byFamily = new Map();
+  // Grouped by URL section, in the order the vocabulary declares them, so the directory
+  // reads the same way in every language instead of re-sorting itself per alphabet.
+  const bySection = new Map();
   for (const page of all) {
-    if (!byFamily.has(page.family)) byFamily.set(page.family, []);
-    byFamily.get(page.family).push(page);
+    const key = sectionOf(page.path);
+    if (!key) continue;
+    if (!bySection.has(key)) bySection.set(key, []);
+    bySection.get(key).push(page);
   }
-  for (const rows of byFamily.values()) rows.sort((a, b) => a.h1.localeCompare(b.h1, lang));
+  const sections = sectionKeys()
+    .filter((key) => bySection.has(key))
+    .map((key) => ({
+      key,
+      heading: sectionHeading(lang, key),
+      rows: bySection.get(key).sort((a, b) => a.h1.localeCompare(b.h1, lang)),
+    }));
+
+  // The breadcrumb root. /es/ and its six siblings redirect to /en/, because those locales
+  // publish Atlas pages and no eSIM market, so linking "Livdar" there put a redirect in the
+  // first link of every directory. Where the market exists the crumb links to it; where it
+  // does not, the directory IS the root of the Atlas in that language and the crumb says so
+  // without pretending to be a link.
+  const home = isPublished(lang) ? '/' + lang + '/' : null;
+
+  const others = languagesServed()
+    .filter((l) => l !== lang)
+    .map((l) => ({ lang: l, href: pathFor(l), endonym: getLocale(l)?.endonym || l }));
 
   return (
     <>
@@ -77,25 +98,40 @@ export default async function AtlasDirectoryPage({ params }) {
       <main id="main" className="atlas">
         <div className="wrap atlas-wrap">
           <nav className="atlas-crumbs" aria-label="Breadcrumb">
-            <a href={'/' + lang + '/'}>Livdar</a>
+            {home ? <a href={home}>Livdar</a> : <span>Livdar</span>}
             {' / '}
             <span>Atlas</span>
           </nav>
           <h1>Livdar Atlas</h1>
-          {[...byFamily.entries()]
-            .sort(([a], [b]) => a.localeCompare(b))
-            .map(([family, rows]) => (
-              <section className="atlas-section" key={family}>
-                <h2>{familyLabel(all, family)}</h2>
-                <ul className="atlas-links">
-                  {rows.map((page) => (
-                    <li key={page.path}>
-                      <a href={page.path}>{page.h1}</a>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
+          {/* The directories link to each other, and that is what makes the seven
+              Atlas-only languages reachable at all. Their own pages link up to their
+              directory, and the directory lists them back, but nothing outside that island
+              reached it: only /en/atlas/ and /de/atlas/ are linked from a locale whose
+              footer a crawler arrives at. hreflang already annotates the set, and an
+              annotation is a hint; this is a link. */}
+          {others.length ? (
+            <nav className="atlas-languages" aria-label="Atlas languages">
+              <ul className="atlas-links">
+                {others.map((o) => (
+                  <li key={o.lang}>
+                    <a href={o.href} hrefLang={o.lang}>{o.endonym}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
+          {sections.map((section) => (
+            <section className="atlas-section" key={section.key}>
+              <h2>{section.heading}</h2>
+              <ul className="atlas-links">
+                {section.rows.map((page) => (
+                  <li key={page.path}>
+                    <a href={page.path}>{page.h1}</a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
       </main>
       <Footer locale={lang} />

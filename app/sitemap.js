@@ -23,7 +23,7 @@ import { atlasSitemapIds, atlasSitemapEntries } from '../lib/atlas/sitemap.js';
 import { atlasAlternates } from '../lib/atlas/serve.js';
 import { buildModel as buildAtlasModel } from '../lib/atlas/model.js';
 import { parseKey as parseAtlasKey } from '../lib/atlas/taxonomy.js';
-import { sitemapIds as atlasPageSitemapIds, sitemapEntries as atlasPageSitemapEntries, isPagesSitemap } from '../lib/atlas/sitemap-pages.js';
+import { sitemapIds as atlasPageSitemapIds, sitemapEntries as atlasPageSitemapEntries, isPagesSitemap, isDirectorySitemap, directoryEntries } from '../lib/atlas/sitemap-pages.js';
 
 const REGION_IDS = REGIONS.filter((r) => r.id !== 'global').map((r) => r.id);
 
@@ -59,7 +59,6 @@ function coreEntries(locale) {
     entry(routes.regionsHub(locale), hubAlternates('regions'), 0.7, 'monthly'),
     entry(routes.guidesHub(locale), hubAlternates('guides'), 0.7, 'monthly'),
     entry(routes.compatibility(locale), compatibilityAlternates(), 0.6, 'monthly'),
-    entry('/' + locale + '/atlas/', null, 0.7, 'daily', 'atlas'),
     ...LEGAL_KINDS.filter((k) => legalContent(locale, k)).map((k) =>
       entry(routes[k](locale), legalAlternates(k), 0.2, 'yearly')
     ),
@@ -84,6 +83,13 @@ function guideEntries(locale) {
 
 export default async function sitemap({ id }) {
   const raw = String(id || '');
+  // The Atlas crawl directories, one entry per language the manifest publishes in. This used
+  // to be a line in coreEntries() below, which runs only for the three locales with an eSIM
+  // market, so it declared /ro/atlas/ (which has no Atlas pages and answers 404) and omitted
+  // the seven directories that do exist.
+  if (isDirectorySitemap(raw)) {
+    return directoryEntries({ absolute, lastModified: lastModifiedFor('atlas') });
+  }
   if (isPagesSitemap(raw)) {
     return atlasPageSitemapEntries(raw, { absolute, lastModified: lastModifiedFor('atlas') });
   }
