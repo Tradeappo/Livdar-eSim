@@ -40,3 +40,30 @@ data/atlas/measurements/*crawl*/*.meta.json
 
 # Python bytecode.
 __pycache__/
+
+# Bulk generated data from the offline inventory work. None of it is an input: every one of
+# these paths is rebuilt by a script in scripts/atlas/, and together they are about 1.5 GB,
+# which is why the summary beside each one is committed and the bulk is not. The convention
+# already in the repository is that the committed artefact is the underscore-prefixed index
+# or provenance file, or a split .parts/ directory, so these rules name the bulk and leave
+# those alone.
+#
+# They were simply left untracked before, which made `git status` list hundreds of paths on
+# every run, and a repository that always looks dirty is a repository where nobody notices
+# when something real is uncommitted.
+data/atlas/candidates/*=*/
+data/atlas/sources/climate/power/power-*.jsonl
+data/atlas/sources/transport/gtfs/
+data/atlas/sources/transport/gtfs-national/
+
+# The unsplit originals of the two 1M manifests. The committed form is
+# LIVDAR-1M-*-CANDIDATES.parts/ and LIVDAR-1M-CANDIDATE-MANIFEST.parts/, split because the
+# whole files are too large for a single blob.
+reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz
+reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.parquet
+reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-REJECTED-CANDIDATES.csv.gz
+
+# Row-level dumps behind two universe reports. The reports themselves are committed.
+reports/livdar-master-seo-universe-2026-09-30/_rows.json
+reports/scale-universe-2026-09-29/_rows.jsonl.gz
+reports/scale-universe-2026-09-29/_raw-count.json
