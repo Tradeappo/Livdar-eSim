@@ -1,0 +1,156 @@
+{
+ "crawl": {
+  "directory": "/home/user/Livdar-eSim/data/atlas/measurements/live-crawl-2026-10-10/",
+  "cohort": 500,
+  "fetched": 740,
+  "home_pages_used_as_roots": [
+   "/de/",
+   "/en/",
+   "/ro/"
+  ]
+ },
+ "PHASE_2_crawl_paths": {
+  "cohort_urls": 500,
+  "with_any_inbound_link": 500,
+  "with_an_inbound_link_from_a_NON_Atlas_page": 0,
+  "reachable_only_from_other_Atlas_pages": 500,
+  "click_depth_distribution": {
+   "": 500
+  },
+  "unreachable_by_following_server_rendered_links": 500,
+  "nofollow_anchors_seen_on_cohort_pages": 0,
+  "why_this_matters": "a page linked only from other Atlas pages is reachable only once Google has already chosen to crawl the Atlas, which is the thing that is not happening. Inbound links from pages OUTSIDE the cohort are the paths that can change that, and the count above is the honest measure of how many exist."
+ },
+ "PHASE_3_sitemaps": {
+  "sitemap_files_parsed": 75,
+  "declared_urls": 740,
+  "cohort_urls_present_in_a_sitemap": 500,
+  "cohort_urls_missing_from_every_sitemap": [],
+  "sitemap_entries_that_do_not_answer_200": [],
+  "canonical_does_not_equal_the_sitemap_loc": [],
+  "findings": [
+   "none"
+  ]
+ },
+ "PHASE_3_group_comparison": {
+  "groups": {
+   "Discovered - currently not indexed": {
+    "inbound_total": {
+     "n": 420,
+     "median": 7,
+     "min": 2,
+     "max": 59
+    },
+    "inbound_from_non_atlas": {
+     "n": 420,
+     "median": 0,
+     "min": 0,
+     "max": 0
+    },
+    "click_depth_from_home": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "outbound_total": {
+     "n": 420,
+     "median": 16,
+     "min": 14,
+     "max": 19
+    }
+   },
+   "URL is unknown to Google": {
+    "inbound_total": {
+     "n": 79,
+     "median": 6,
+     "min": 2,
+     "max": 41
+    },
+    "inbound_from_non_atlas": {
+     "n": 79,
+     "median": 0,
+     "min": 0,
+     "max": 0
+    },
+    "click_depth_from_home": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "outbound_total": {
+     "n": 79,
+     "median": 17,
+     "min": 15,
+     "max": 19
+    }
+   },
+   "Server error (5xx)": {
+    "inbound_total": {
+     "n": 1,
+     "median": 7,
+     "min": 7,
+     "max": 7
+    },
+    "inbound_from_non_atlas": {
+     "n": 1,
+     "median": 0,
+     "min": 0,
+     "max": 0
+    },
+    "click_depth_from_home": {
+     "n": 0,
+     "median": null,
+     "min": null,
+     "max": null
+    },
+    "outbound_total": {
+     "n": 1,
+     "median": 16,
+     "min": 16,
+     "max": 16
+    }
+   }
+  },
+  "reading": "if the two states differ on these crawl-path features the path is a candidate explanation; if they do not, discovery scheduling is left as the explanation and nothing about our linking distinguishes the groups."
+ },
+ "PHASE_4_test_set": {
+  "created": "2026-10-10T22:05:39.158227+00:00",
+  "what_this_is": "a FIXED set of existing live URLs for the accelerated crawl experiment. No page was created for it and no page is changed by its existence.",
+  "target_size": 28,
+  "size": 28,
+  "selected_across": {
+   "states": {
+    "Discovered - currently not indexed": 16,
+    "URL is unknown to Google": 11,
+    "Server error (5xx)": 1
+   },
+   "families": {
+    "cost-of-living.country": 1,
+    "events.country-holidays": 4,
+    "events.subdivision-holidays": 4,
+    "neighbourhoods.city-where-to-stay": 3,
+    "rankings.index": 2,
+    "rents.country-inflation": 3,
+    "sport.city-season": 2,
+    "tools.calculator": 1,
+    "tools.cost-calculator": 3,
+    "tools.cost-comparison": 2,
+    "weather.country-best-time": 2,
+    "work.country-salaries": 1
+   },
+   "markets": {
+    "de": 8,
+    "en": 8,
+    "fr": 3,
+    "es": 4,
+    "ja": 1,
+    "it": 2,
+    "pl": 1,
+    "nl": 1
+   }
+  },
+  "baseline_source": "url-inspection-2026-10-10.json"
+ }
+}

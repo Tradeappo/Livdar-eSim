@@ -1,0 +1,15 @@
+{
+ "probed_at": "2026-10-10T22:22:39Z",
+ "urls": 500,
+ "repeats": 3,
+ "requests_sent": 1500,
+ "urls_with_a_5xx": 0,
+ "urls_with_a_4xx": 0,
+ "urls_always_200": 494,
+ "urls_with_a_first_hit_difference": 0,
+ "transport_failures_mine_not_the_site": 378,
+ "families_with_a_5xx": {},
+ "cdn_cache_hit_share": 0.5771,
+ "what_a_clean_run_does_not_prove": "a HIT share near 1.0 means the CDN answered and the origin function was never asked. An origin error behind a cache hit is invisible here by construction, and the Vercel runtime error cluster is what answers that. Read the two together.",
+ "this_probe_only_reads": true
+}
