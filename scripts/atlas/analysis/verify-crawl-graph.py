@@ -12,8 +12,8 @@ never counted as a site defect.
 
 Writes reports/atlas/CRAWL-GRAPH-VERIFICATION.json and a per-URL CSV.
 """
-import argparse, collections, concurrent.futures as cf, csv, glob, gzip, json, os, re
-import subprocess, sys, time, urllib.parse
+import argparse, collections, concurrent.futures as cf, csv, glob, gzip, itertools, json
+import os, re, subprocess, sys, threading, time, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__))))) + '/'
@@ -23,6 +23,7 @@ BASE = 'https://livdar.com'
 UA = ('LivdarAtlasVerify/1.0 (+https://livdar.com; internal crawl graph verification; '
       'contact via the repository)')
 FMT = '{"code":%{http_code},"ttfb":%{time_starttransfer},"redirect":"%{redirect_url}"}'
+_SEQ = itertools.count()
 
 
 def fetch(path, tries=4, timeout=40):
@@ -31,7 +32,14 @@ def fetch(path, tries=4, timeout=40):
     url = BASE + path
     last = ''
     for attempt in range(tries):
-        hdr = '%s/hdr-%d' % (BODY.rstrip('/'), os.getpid() * 100 + attempt)
+        # A NAME UNIQUE PER CALL, not per process. This was os.getpid() * 100 + attempt,
+        # and with two worker threads in one process both threads computed the same number,
+        # wrote curl's output to the same two files and then read each other's HTML. It
+        # showed up as three Atlas pages "canonicalising to a different page": a race in
+        # this crawler reported as a defect in the site. The thread id and a global counter
+        # make collision impossible.
+        hdr = '%s/hdr-%d-%d-%d' % (BODY.rstrip('/'), os.getpid(),
+                                   threading.get_ident(), next(_SEQ))
         body = hdr + '.body'
         r = subprocess.run(
             ['curl', '-sS', '--compressed', '--http2', '--max-time', str(timeout),

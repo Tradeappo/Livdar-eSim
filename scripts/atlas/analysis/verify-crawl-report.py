@@ -80,8 +80,15 @@ def main():
         links = [p for p in dir_rows[l]['links'] if p in cohort or p.startswith('/%s/' % l)]
         to_cohort = [p for p in dir_rows[l]['links'] if p in cohort]
         wrong_locale = sorted({p for p in to_cohort if manifest[p]['locale'] != l})
+        # Only an ATLAS-shaped path counts here. The first version matched any
+        # /{locale}/x/y/ and so flagged the guide links in the page's own header and
+        # footer (/de/ratgeber/how-esim-works/) as "unpublished Atlas pages", which is this
+        # check misreading the site chrome rather than the site linking to nothing.
+        atlas_segments = {p.split('/')[2] for p in by_locale[l]}
         unpublished = sorted({p for p in dir_rows[l]['links']
-                              if re.match(r'^/%s/[^/]+/[^/]+/$' % re.escape(l), p)
+                              if len(p.split('/')) == 5
+                              and p.split('/')[1] == l
+                              and p.split('/')[2] in atlas_segments
                               and p not in cohort})
         missing = sorted(by_locale[l] - set(to_cohort))
         link_counts[l] = {'cohort_links_on_page': len(set(to_cohort)),
