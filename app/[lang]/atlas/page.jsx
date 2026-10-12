@@ -50,11 +50,7 @@ export async function generateMetadata({ params }) {
 }
 
 function familyLabel(rows, family) {
-  const first = rows.find((p) => p.family === family);
-  const candidate = first?.breadcrumbs?.[0]?.name;
-  if (candidate) return candidate;
   return family
-    .replace(/^[^.]+\./, '')
     .replace(/[.-]+/g, ' ')
     .replace(/\b\w/g, (m) => m.toUpperCase());
 }
