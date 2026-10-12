@@ -13,7 +13,8 @@ function localize(markup, locale) {
     .replace('<html lang="en">', `<html lang="${locale}">`)
     .replace('<a data-i18n="allDestinations" href="#">', `<a data-i18n="allDestinations" href="${routes.esimHub(locale)}">`)
     .replace('<a data-i18n="footerPlans" href="#">', `<a data-i18n="footerPlans" href="${routes.esimHub(locale)}">`)
-    .replace('<a data-i18n="navDestinations" href="#">', `<a data-i18n="navDestinations" href="${routes.esimHub(locale)}#destinations">`)
+    .replace('<a data-i18n="navDestinations" href="#">', `<a href="/${locale}/atlas/">Atlas</a><a data-i18n="navDestinations" href="${routes.esimHub(locale)}#destinations">`)
+
     .replace('<a data-i18n="navRegions" href="#">', `<a data-i18n="navRegions" href="${routes.regionsHub(locale)}">`)
     .replace('<a data-i18n="navHow" href="#">', `<a data-i18n="navHow" href="${routes.guide(locale, 'how-esim-works')}">`)
     .replace('<a data-i18n="compatibility" href="#">', `<a data-i18n="compatibility" href="${routes.compatibility(locale)}">`)
