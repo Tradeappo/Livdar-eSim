@@ -14,7 +14,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import robots from '../app/robots.js';
 import { generateSitemaps } from '../app/sitemap.js';
-import { MANIFESTS } from '../lib/atlas/serve-pages.js';
+import { MANIFESTS, languagesServed } from '../lib/atlas/serve-pages.js';
 import { isAtlasPath } from '../lib/atlas/atlas-edge.js';
 import { decide } from '../lib/routing.js';
 import { alternatePathsFor, hreflangMapFor } from '../lib/atlas/serve-pages.js';
@@ -72,9 +72,19 @@ test('every published page is in a sitemap exactly once', async () => {
   assert.deepEqual(twice.slice(0, 10), [], twice.length + ' published pages are in more than one sitemap');
   // And no sitemap lists a page that is not published, which is how a soft 404
   // gets crawled.
+  // The crawl directory at /{lang}/atlas/ is an Atlas URL and is not a cohort page, so it is
+  // named here rather than waved through by loosening the check: the point of this assertion
+  // is that a cohort URL which is not in the manifest can never reach a sitemap, and that
+  // still holds. A directory for a language the manifest does not publish in would be caught,
+  // which is the defect that put /ro/atlas/ in a sitemap pointing at a 404.
   const published = new Set(pages.map((p) => p.path));
-  const strays = [...counts.keys()].filter((p) => isAtlasPath(p) && !published.has(p));
+  const directories = new Set(languagesServed().map((l) => '/' + l + '/atlas/'));
+  const strays = [...counts.keys()]
+    .filter((p) => isAtlasPath(p) && !published.has(p) && !directories.has(p));
   assert.deepEqual(strays.slice(0, 10), [], strays.length + ' Atlas URLs are in a sitemap and not published');
+  for (const d of directories) {
+    assert.equal(counts.get(d), 1, d + ' is the crawl directory and is in ' + (counts.get(d) || 0) + ' sitemaps');
+  }
 });
 
 test('every published page carries a lastmod and a self canonical', async () => {

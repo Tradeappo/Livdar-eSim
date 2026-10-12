@@ -10,6 +10,8 @@ import AtlasTool from './AtlasTool.jsx';
 import { toolUi, inputTerm, cardUi, verdictLabel } from '../../lib/atlas/content/terms.js';
 import { STATES } from '../../lib/atlas/tool-verdict.js';
 import { atlasParams } from '../../lib/analytics.js';
+import { isPublished } from '../../lib/markets.js';
+import { languagesServed } from '../../lib/atlas/serve-pages.js';
 
 // The words the interactive tool needs, gathered once on the server so the
 // client component ships no vocabulary of its own. Both tables already exist in
@@ -39,6 +41,11 @@ const L = {
 
 export default function AtlasPage({ model, alternatePaths }) {
   const l = model.locale;
+  // The root of the site in this language. /de/ and /en/ are real pages; the seven locales
+  // that publish Atlas pages and no eSIM market redirect theirs, so for those the root of
+  // the Atlas IS their crawl directory.
+  const crumbRoot = isPublished(l) ? '/' + l + '/'
+    : languagesServed().includes(l) ? '/' + l + '/atlas/' : null;
   // The eSIM families carry their labels in the table above; the Atlas data
   // families carry theirs on the model, because they exist in nine languages
   // and a table here would be a second place for the same nine strings to
@@ -49,14 +56,26 @@ export default function AtlasPage({ model, alternatePaths }) {
       <Header locale={l} alternatePaths={alternatePaths} />
       <main id="main" className="atlas">
         <div className="wrap atlas-wrap">
+          {/* The breadcrumb, which had two faults at once.
+              It printed "Livdar / Livdar / Page" on all 500 pages, because the root was
+              hardcoded here AND the model's own first crumb is the site name.
+              And the root pointed at /{lang}/, which for the seven locales that publish
+              Atlas pages and no eSIM market is a 307 to the English home page, so the first
+              link of every one of those 328 pages went nowhere.
+              So the model's list is rendered on its own, and the root's href is resolved
+              against what the locale actually publishes. The manifests are untouched: the
+              500 pages' data is right, it was the rendering that was wrong. */}
           <nav className="atlas-crumbs" aria-label={t('crumbs')}>
-            <a href={'/' + l + '/'}>Livdar</a>
-            {model.breadcrumbs.map((b, i) => (
-              <span key={i}>
-                {' / '}
-                {b.href && i < model.breadcrumbs.length - 1 ? <a href={b.href}>{b.name}</a> : <span>{b.name}</span>}
-              </span>
-            ))}
+            {model.breadcrumbs.map((b, i) => {
+              const last = i === model.breadcrumbs.length - 1;
+              const href = i === 0 ? crumbRoot : b.href;
+              return (
+                <span key={i}>
+                  {i ? ' / ' : null}
+                  {href && !last ? <a href={href}>{b.name}</a> : <span>{b.name}</span>}
+                </span>
+              );
+            })}
           </nav>
           <h1>{model.h1}</h1>
           {model.facts.length ? (

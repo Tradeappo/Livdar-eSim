@@ -20,10 +20,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import { ATLAS_LANGUAGES, ATLAS_SEGMENTS_FLAT, isAtlasPath } from '../lib/atlas/atlas-edge.js';
+import { ATLAS_LANGUAGES, ATLAS_SEGMENTS_FLAT, ATLAS_DIRECTORY_SEGMENT, isAtlasPath }
+  from '../lib/atlas/atlas-edge.js';
 import { ATLAS_SEGMENTS } from '../lib/atlas/atlas-urls.js';
-import { MANIFESTS } from '../lib/atlas/serve-pages.js';
+import { MANIFESTS, languagesServed } from '../lib/atlas/serve-pages.js';
 import { LOCALES } from '../lib/i18n.js';
+import { PUBLISHED_ESIM_MARKETS } from '../lib/edge-markets.js';
+import { publishedMarkets } from '../lib/markets.js';
+import { decide } from '../lib/routing.js';
 
 const ROOT = new URL('../', import.meta.url);
 const models = MANIFESTS
@@ -53,6 +57,8 @@ test('no Atlas segment is also an eSIM segment', () => {
   // unreachable, depending on which side claimed it.
   const esim = new Set(['esim', 'cities', 'staedte', 'orase', 'countries', 'laender', 'tari', 'airports', 'flughaefen', 'aeroporturi', 'guides', 'ghiduri', 'ratgeber', 'regions', 'regionen', 'regiuni', 'compatibility', 'kompatibilitaet', 'compatibilitate', 'privacy', 'datenschutz', 'confidentialitate', 'cookies', 'terms']);
   for (const s of ATLAS_SEGMENTS_FLAT) assert.ok(!esim.has(s), s + ' is claimed by both the Atlas and the eSIM site');
+  assert.ok(!esim.has(ATLAS_DIRECTORY_SEGMENT),
+    ATLAS_DIRECTORY_SEGMENT + ' is claimed by both the Atlas and the eSIM site');
 });
 
 test('every page in every cohort manifest is recognised as an Atlas path', () => {
@@ -113,4 +119,43 @@ test('the decision passes an Atlas path through and still redirects the locale h
   assert.equal(decide('/de/esim/spain/', 'de-DE').action, 'pass');
   assert.equal(decide('/', 'de-DE,de;q=0.9').pathname, '/de/');
   assert.equal(decide('/', 'ja-JP,ja;q=0.9').pathname, '/en/');
+});
+
+
+// The crawl directory. PR 34 added /{lang}/atlas/ for all nine Atlas languages and the edge
+// vocabulary was not told about the word, so seven of the nine answered 307 to the English
+// home page: built, prerendered, and unreachable. That is the same failure this file was
+// written for, one surface along, so it is tested the same way.
+test('the crawl directory is an Atlas path in every language the Atlas publishes in', () => {
+  for (const lang of languagesServed()) {
+    const p = '/' + lang + '/atlas/';
+    assert.ok(isAtlasPath(p), p + ' is not recognised as an Atlas path, so it would redirect');
+    assert.equal(decide(p, 'en-US').action, 'pass', p + ' does not pass the middleware');
+  }
+});
+
+test('the directory segment is not in the family vocabulary, and is still recognised', () => {
+  // Kept apart on purpose: ATLAS_SEGMENTS_FLAT mirrors atlas-urls.js entry for entry and a
+  // test above fails on any extra, so the directory cannot live in that set. This asserts
+  // the separation holds and that isAtlasPath still honours both.
+  assert.ok(!ATLAS_SEGMENTS_FLAT.has(ATLAS_DIRECTORY_SEGMENT));
+  assert.ok(isAtlasPath('/es/' + ATLAS_DIRECTORY_SEGMENT + '/'));
+  assert.ok(isAtlasPath('/es/coste-de-vida/espana/'));
+});
+
+test('a locale with no Atlas pages gets no directory pass from the middleware', () => {
+  // ro publishes the eSIM site and no Atlas pages. It must not be treated as an Atlas path,
+  // because that would hand /ro/atlas/ to a route that generates nothing.
+  assert.ok(!languagesServed().includes('ro'));
+  assert.ok(!isAtlasPath('/ro/atlas/'));
+});
+
+// The edge cannot import lib/markets.js, so lib/edge-markets.js restates its answer as a
+// literal. This is the test that makes the restatement safe: the middleware decides whether
+// a URL answers at all, and it must never disagree with what the site actually publishes.
+test('the edge market list holds exactly the markets the content publishes', () => {
+  const real = publishedMarkets().map((m) => m.code).sort();
+  assert.deepEqual([...PUBLISHED_ESIM_MARKETS].sort(), real,
+    'lib/edge-markets.js has drifted from publishedMarkets(); routing would redirect a ' +
+    'published market or serve an unpublished one');
 });

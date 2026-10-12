@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { servePage, staticParamsFor, groupOfSegment, alternatePathsFor, pages, allStaticParamsFor, MANIFESTS } from '../lib/atlas/serve-pages.js';
 import { ATLAS_SEGMENTS } from '../lib/atlas/atlas-urls.js';
-import { sitemapIds, sitemapEntries, isPagesSitemap } from '../lib/atlas/sitemap-pages.js';
+import { sitemapIds, sitemapEntries, isPagesSitemap, isDirectorySitemap } from '../lib/atlas/sitemap-pages.js';
 
 const APP = new URL('../app/[lang]/', import.meta.url);
 const LANGS = ['en', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'ja'];
@@ -83,7 +83,11 @@ test('the sitemap lists every page once and no page twice', () => {
   const urls = new Set();
   let n = 0;
   for (const { id } of ids) {
-    assert.ok(isPagesSitemap(id));
+    // Two kinds now: one file per locale and surface for the pages, and one for the crawl
+    // directories. An id that is neither means a third kind appeared with nothing generating
+    // its entries, which is how a sitemap comes to be listed in robots.txt and answer empty.
+    assert.ok(isPagesSitemap(id) || isDirectorySitemap(id), id + ' is a sitemap of no known kind');
+    if (!isPagesSitemap(id)) continue;
     for (const e of sitemapEntries(id, { absolute: (p) => 'https://livdar.com' + p, lastModified: new Date() })) {
       assert.ok(!urls.has(e.url), e.url + ' appears in two sitemap files');
       urls.add(e.url);
