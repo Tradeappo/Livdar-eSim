@@ -59,6 +59,7 @@ function coreEntries(locale) {
     entry(routes.regionsHub(locale), hubAlternates('regions'), 0.7, 'monthly'),
     entry(routes.guidesHub(locale), hubAlternates('guides'), 0.7, 'monthly'),
     entry(routes.compatibility(locale), compatibilityAlternates(), 0.6, 'monthly'),
+    entry('/' + locale + '/atlas/', null, 0.7, 'daily', 'atlas'),
     ...LEGAL_KINDS.filter((k) => legalContent(locale, k)).map((k) =>
       entry(routes[k](locale), legalAlternates(k), 0.2, 'yearly')
     ),

@@ -27,6 +27,7 @@ export default function Footer({ locale }) {
               <li><a href={routes.esimHub(locale)}>{t.nav.esim}</a></li>
               <li><a href={routes.regionsHub(locale)}>{t.nav.regions}</a></li>
               <li><a href={routes.compatibility(locale)}>{t.nav.compatibility}</a></li>
+              <li><a href={'/' + locale + '/atlas/'}>Atlas</a></li>
             </ul>
           </div>
           <div>
