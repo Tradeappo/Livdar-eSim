@@ -272,3 +272,25 @@ It is not a drop-in replacement and the differences matter:
 
 That design is the next piece of work, and it is recorded here so the reasoning is on the record
 before any number is produced from it.
+
+### The instrument, tested on the one family the data is already sitting there for
+
+Before anything is built on it, the list-article idea was checked against the clickstream tables
+already on disk, for the heritage family, in German:
+
+| list pattern | articles above the dump's ten-click floor | mean monthly search-referred readers | strongest |
+|---|---|---|---|
+| `Liste_der_Baudenkmale_in_*` | 366 | 24 | Cottbus, 141 |
+| `Liste_der_Kulturdenkmale_in_*` | 1,033 | 25 | Leipzig, 539 |
+| `Liste_von_Seen_in_*` | 51 | 176 | Deutschland, 2,786 |
+
+That is a useful negative. German heritage-list intent is real and MEASURABLY WEAK: about 1,400
+list articles averaging 25 search-referred readers a month, against a German floor of 78 on the
+destination side and 478 on the home side. Most would not clear a bar of that shape. So the
+379,685 Historic England entries are not 379,685 pages and not even tens of thousands of them;
+the entity supply was never the constraint on that family and the demand is thin.
+
+The lake list at 2,786 shows the instrument is not uniformly pessimistic - some list intents are
+strong - which is the point of measuring per family rather than assuming one answer for all of
+them. Recorded here so the next piece of work starts from this table rather than from a raw
+entity count.
