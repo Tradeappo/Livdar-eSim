@@ -1,0 +1,30 @@
+{
+ "source": "Wikidata Query Service, items stating a GeoNames ID (P1566)",
+ "licence": "Wikidata CC0 1.0, public domain dedication",
+ "attribution": "Wikidata, https://www.wikidata.org/",
+ "endpoints_tried_in_order": [
+  "https://qlever.dev/api/wikidata",
+  "https://query.wikidata.org/sparql"
+ ],
+ "endpoints_agree": "checked on one 300-id chunk: both services returned the identical 991 result rows as a set, which is why the mirror is treated as the same source rather than a second one",
+ "fetched_on": "2026-10-13",
+ "cities_asked": 64418,
+ "cities_with_an_article_in_at_least_one_language": 37680,
+ "cities_with_an_article_per_language": {
+  "en": 34401,
+  "fr": 27601,
+  "it": 27509,
+  "pl": 26217,
+  "es": 26201,
+  "zh": 24621,
+  "de": 24225,
+  "nl": 22728,
+  "pt": 20113,
+  "tr": 15158,
+  "ja": 9980
+ },
+ "chunks_that_failed_after_retries": 0,
+ "failed_ids": [],
+ "why": "The per-language article TITLE is the key for reading Wikimedia pageviews, which are a measured count of a language community looking a place up. The title is not itself evidence of demand and is never used as such.",
+ "known_limit": "zhwiki is one Wikipedia for Traditional and Simplified Chinese and this file cannot split them, so a zh count is evidence for zh-Hant only together with the Taiwanese market demand measured separately."
+}

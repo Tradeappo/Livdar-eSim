@@ -1,0 +1,106 @@
+{
+ "source": "Wikimedia clickstream, referrer class other-search",
+ "url": "https://dumps.wikimedia.org/other/clickstream/",
+ "licence": "CC0 1.0, public domain dedication",
+ "attribution": "Wikimedia Foundation, https://wikimedia.org/",
+ "fetched_on": "2026-10-13",
+ "months_requested": [
+  "2026-09",
+  "2026-08",
+  "2026-07"
+ ],
+ "per_language": {
+  "de": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 1115105
+  },
+  "en": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 4048048
+  },
+  "es": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 812480
+  },
+  "fr": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 982210
+  },
+  "it": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 604756
+  },
+  "ja": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 953869
+  },
+  "nl": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 322520
+  },
+  "pl": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 422317
+  },
+  "pt": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 371259
+  },
+  "tr": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 190582
+  },
+  "zh": {
+   "months": [
+    "2026-09",
+    "2026-08",
+    "2026-07"
+   ],
+   "articles": 439239
+  }
+ },
+ "statistic": "median of the monthly search-referred click totals; a month in which the article is absent counts as zero",
+ "source_floor": "the dump omits any (referrer, article) pair under 10 clicks in the month, for reader privacy. An absent article is MEASURED as under ten, not unmeasured.",
+ "why": "A count of people who searched, saw a result and clicked it, for this place, in this language. Read only to answer whether a CITY is sought in a language; never to establish that a FAMILY intent exists in a market.",
+ "known_limit": "zhwiki is one Wikipedia for Traditional and Simplified Chinese and cannot be split, so a zh reading is evidence for zh-Hant only together with the Taiwanese market demand measured separately."
+}

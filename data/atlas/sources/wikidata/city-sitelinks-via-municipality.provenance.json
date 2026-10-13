@@ -1,0 +1,366 @@
+{
+ "source": "Wikidata, the article of the entity a GeoNames-identified item is P131 located in, accepted only when its title names the same place",
+ "licence": "Wikidata CC0 1.0, public domain dedication",
+ "attribution": "Wikidata, https://www.wikidata.org/",
+ "endpoints_tried_in_order": [
+  "https://qlever.dev/api/wikidata",
+  "https://query.wikidata.org/sparql"
+ ],
+ "fetched_on": "2026-10-13",
+ "why": "GeoNames models a city as its administrative seat where Wikidata models it as the municipality, so P1566 lands on an item with no sitelink while the article sits one P131 hop away. Munich is the clearest case: P1566=2867714 is on \"Kreisfreie Stadt Muenchen\", not on the city.",
+ "the_guard": "a parent article is accepted ONLY if its title, with a parenthetical or comma qualifier stripped and diacritics folded, equals one of the city's own names - its GeoNames name, its ASCII name, or its recorded name in any language. Without that, one P131 hop from a village would borrow its municipality's readership, which is a city-name swap.",
+ "cities_with_no_direct_sitelink": 26738,
+ "cities_recovered": 8726,
+ "recovered_per_language": {
+  "en": 8418,
+  "it": 8318,
+  "fr": 8238,
+  "pt": 8232,
+  "nl": 8130,
+  "es": 7733,
+  "pl": 7609,
+  "de": 6849,
+  "tr": 4048,
+  "zh": 1931,
+  "ja": 1424
+ },
+ "parent_titles_refused_as_a_different_place": 42082,
+ "refused_per_language": {
+  "zh": 9401,
+  "ja": 4444,
+  "en": 3460,
+  "de": 3336,
+  "es": 3304,
+  "it": 3302,
+  "fr": 3219,
+  "pt": 3055,
+  "nl": 2988,
+  "pl": 2928,
+  "tr": 2645
+ },
+ "refused_examples": [
+  {
+   "geonameid": "109380",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al khafji"
+   ]
+  },
+  {
+   "geonameid": "107692",
+   "lang": "de",
+   "parent_title": "Provinz al-Baha",
+   "city_names": [
+    "baljurashi"
+   ]
+  },
+  {
+   "geonameid": "108927",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al qatif"
+   ]
+  },
+  {
+   "geonameid": "103922",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "mulayjah"
+   ]
+  },
+  {
+   "geonameid": "109502",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al jafr"
+   ]
+  },
+  {
+   "geonameid": "101344",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "at tubi"
+   ]
+  },
+  {
+   "geonameid": "109059",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al munayzilah"
+   ]
+  },
+  {
+   "geonameid": "109915",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al battaliyah"
+   ]
+  },
+  {
+   "geonameid": "101035",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "umm as sahik"
+   ]
+  },
+  {
+   "geonameid": "106297",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "hafar al-batin"
+   ]
+  },
+  {
+   "geonameid": "100732",
+   "lang": "de",
+   "parent_title": "Provinz al-Qasim",
+   "city_names": [
+    "'uqlat as suqur",
+    "‘uqlat as suqur"
+   ]
+  },
+  {
+   "geonameid": "110275",
+   "lang": "de",
+   "parent_title": "Provinz al-Qasim",
+   "city_names": [
+    "adh dhibiyah"
+   ]
+  },
+  {
+   "geonameid": "103220",
+   "lang": "de",
+   "parent_title": "Provinz al-Qasim",
+   "city_names": [
+    "qibah"
+   ]
+  },
+  {
+   "geonameid": "397513",
+   "lang": "de",
+   "parent_title": "Provinz al-Qasim",
+   "city_names": [
+    "al fuwayliq"
+   ]
+  },
+  {
+   "geonameid": "106872",
+   "lang": "de",
+   "parent_title": "Provinz al-Qasim",
+   "city_names": [
+    "dukhnah"
+   ]
+  },
+  {
+   "geonameid": "100926",
+   "lang": "de",
+   "parent_title": "Provinz Tabuk",
+   "city_names": [
+    "umluj"
+   ]
+  },
+  {
+   "geonameid": "107959",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "at taraf"
+   ]
+  },
+  {
+   "geonameid": "108142",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "as saffaniyah"
+   ]
+  },
+  {
+   "geonameid": "105252",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "julayjilah"
+   ]
+  },
+  {
+   "geonameid": "109165",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al markaz"
+   ]
+  },
+  {
+   "geonameid": "108890",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al qurayn"
+   ]
+  },
+  {
+   "geonameid": "109008",
+   "lang": "de",
+   "parent_title": "Provinz asch-Scharqiyya",
+   "city_names": [
+    "al mutayrifi"
+   ]
+  },
+  {
+   "geonameid": "110328",
+   "lang": "de",
+   "parent_title": "Provinz Dschāzān",
+   "city_names": [
+    "ad darb"
+   ]
+  },
+  {
+   "geonameid": "410874",
+   "lang": "de",
+   "parent_title": "Provinz Dschāzān",
+   "city_names": [
+    "mizhirah"
+   ]
+  },
+  {
+   "geonameid": "104269",
+   "lang": "de",
+   "parent_title": "Provinz Dschāzān",
+   "city_names": [
+    "misliyah"
+   ]
+  },
+  {
+   "geonameid": "103220",
+   "lang": "de",
+   "parent_title": "Provinz Ha'il",
+   "city_names": [
+    "qibah"
+   ]
+  },
+  {
+   "geonameid": "100425",
+   "lang": "de",
+   "parent_title": "Provinz Medina",
+   "city_names": [
+    "yanbu"
+   ]
+  },
+  {
+   "geonameid": "102170",
+   "lang": "de",
+   "parent_title": "Provinz Riad",
+   "city_names": [
+    "shaqra"
+   ]
+  },
+  {
+   "geonameid": "104376",
+   "lang": "de",
+   "parent_title": "Provinz Riad",
+   "city_names": [
+    "marat"
+   ]
+  },
+  {
+   "geonameid": "396550",
+   "lang": "de",
+   "parent_title": "Provinz Riad",
+   "city_names": [
+    "tumayr"
+   ]
+  },
+  {
+   "geonameid": "108121",
+   "lang": "de",
+   "parent_title": "Provinz Riad",
+   "city_names": [
+    "sajir"
+   ]
+  },
+  {
+   "geonameid": "107781",
+   "lang": "de",
+   "parent_title": "Provinz Riad",
+   "city_names": [
+    "az zulfi"
+   ]
+  },
+  {
+   "geonameid": "320448",
+   "lang": "de",
+   "parent_title": "Muş (Provinz)",
+   "city_names": [
+    "bulanik",
+    "bulanık"
+   ]
+  },
+  {
+   "geonameid": "158876",
+   "lang": "de",
+   "parent_title": "Mbeya (Region)",
+   "city_names": [
+    "itumba"
+   ]
+  },
+  {
+   "geonameid": "154995",
+   "lang": "de",
+   "parent_title": "Kwimba (Distrikt)",
+   "city_names": [
+    "malya"
+   ]
+  },
+  {
+   "geonameid": "152183",
+   "lang": "de",
+   "parent_title": "Mbeya (Region)",
+   "city_names": [
+    "mwaya"
+   ]
+  },
+  {
+   "geonameid": "154654",
+   "lang": "de",
+   "parent_title": "Mbogwe (Distrikt)",
+   "city_names": [
+    "masumbwe"
+   ]
+  },
+  {
+   "geonameid": "304013",
+   "lang": "de",
+   "parent_title": "Mersin (Provinz)",
+   "city_names": [
+    "mut"
+   ]
+  },
+  {
+   "geonameid": "159134",
+   "lang": "de",
+   "parent_title": "Mlele (Distrikt)",
+   "city_names": [
+    "inyonga"
+   ]
+  },
+  {
+   "geonameid": "157014",
+   "lang": "de",
+   "parent_title": "Morogoro (Region)",
+   "city_names": [
+    "kisanga"
+   ]
+  }
+ ],
+ "ids_the_endpoints_did_not_answer": 0
+}

@@ -1,16 +1,16 @@
 {
- "manifest_rows": 587284,
- "distinct_urls": 587284,
+ "manifest_rows": 667298,
+ "distinct_urls": 667298,
  "checks": {
-  "title_over_65_chars": 45472,
-  "meta_over_165_chars": 132676,
+  "title_over_65_chars": 46500,
+  "meta_over_165_chars": 132677,
   "title_under_15_chars": 28,
   "duplicate_title_exact": 0,
   "duplicate_title_same_tokens": 59,
-  "destination_rows": 77695,
+  "destination_rows": 126212,
   "destination_rows_with_no_locale_specific_fact": 0,
   "templates_with_repeated_entities": 0,
-  "orphan_pages": 111,
+  "orphan_pages": 109,
   "top_level_pages_whose_parent_is_the_locale_home": 0,
   "intent_owners_claimed_by_more_than_one_url": 0,
   "urls_sharing_a_cannibalization_key": 0,
@@ -402,63 +402,63 @@
  "usefulness_test_failures": {},
  "usefulness_test_by_family_and_locale": {
   "activities.city-things-to-do|de": {
-   "rows": 891,
+   "rows": 5095,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|en": {
-   "rows": 11457,
+   "rows": 15349,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|es": {
-   "rows": 12448,
+   "rows": 15447,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|fr": {
-   "rows": 3682,
+   "rows": 7085,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|it": {
-   "rows": 1135,
+   "rows": 3928,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|ja": {
-   "rows": 2544,
+   "rows": 3123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|nl": {
-   "rows": 3029,
+   "rows": 4592,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|pl": {
-   "rows": 198,
+   "rows": 2350,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
    ]
   },
   "activities.city-things-to-do|pt": {
-   "rows": 931,
+   "rows": 3121,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; attractions-verified, a named source with provenance"
@@ -763,7 +763,7 @@
    ]
   },
   "cost-of-living.city|en": {
-   "rows": 1004,
+   "rows": 1237,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; cost-of-living-city-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1225,14 +1225,14 @@
    ]
   },
   "events.city-calendar|en": {
-   "rows": 921,
+   "rows": 4566,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
    ]
   },
   "events.city-calendar|es": {
-   "rows": 2,
+   "rows": 123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1246,14 +1246,14 @@
    ]
   },
   "events.city-calendar|it": {
-   "rows": 15,
+   "rows": 225,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
    ]
   },
   "events.city-calendar|ja": {
-   "rows": 553,
+   "rows": 621,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1267,14 +1267,14 @@
    ]
   },
   "events.city-calendar|pl": {
-   "rows": 16,
+   "rows": 142,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
    ]
   },
   "events.city-calendar|pt": {
-   "rows": 159,
+   "rows": 455,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; events-verified, a named source with provenance"
@@ -1302,14 +1302,14 @@
    ]
   },
   "events.city-type|en": {
-   "rows": 921,
+   "rows": 4566,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-type|es": {
-   "rows": 2,
+   "rows": 123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1323,14 +1323,14 @@
    ]
   },
   "events.city-type|it": {
-   "rows": 15,
+   "rows": 225,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-type|ja": {
-   "rows": 553,
+   "rows": 621,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1344,14 +1344,14 @@
    ]
   },
   "events.city-type|pl": {
-   "rows": 16,
+   "rows": 142,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "events.city-type|pt": {
-   "rows": 159,
+   "rows": 455,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1379,7 +1379,7 @@
    ]
   },
   "events.city-window|en": {
-   "rows": 247,
+   "rows": 254,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; events-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -1449,14 +1449,14 @@
    ]
   },
   "health.city|de": {
-   "rows": 38,
+   "rows": 216,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
    ]
   },
   "health.city|en": {
-   "rows": 884,
+   "rows": 1118,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1470,7 +1470,7 @@
    ]
   },
   "health.city|fr": {
-   "rows": 143,
+   "rows": 155,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -1491,7 +1491,7 @@
    ]
   },
   "health.city|nl": {
-   "rows": 57,
+   "rows": 80,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; health-rules-verified, a named source with provenance"
@@ -7182,56 +7182,56 @@
    ]
   },
   "places.city-category|en": {
-   "rows": 6339,
+   "rows": 7274,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|es": {
-   "rows": 150,
+   "rows": 863,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|fr": {
-   "rows": 143,
+   "rows": 809,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|it": {
-   "rows": 133,
+   "rows": 300,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|ja": {
-   "rows": 553,
+   "rows": 621,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|nl": {
-   "rows": 57,
+   "rows": 266,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|pl": {
-   "rows": 16,
+   "rows": 142,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "places.city-category|pt": {
-   "rows": 159,
+   "rows": 584,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11116,7 +11116,7 @@
    ]
   },
   "property.city-buy|de": {
-   "rows": 195,
+   "rows": 282,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -11137,7 +11137,7 @@
    ]
   },
   "property.city-buy|fr": {
-   "rows": 1,
+   "rows": 123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -11152,6 +11152,13 @@
   },
   "property.city-buy|ja": {
    "rows": 553,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
+   ]
+  },
+  "property.city-buy|nl": {
+   "rows": 69,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; property-price-verified, a named source with provenance"
@@ -11466,49 +11473,56 @@
    ]
   },
   "rents.city|en": {
-   "rows": 1122,
+   "rows": 5310,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|es": {
-   "rows": 150,
+   "rows": 863,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|fr": {
-   "rows": 143,
+   "rows": 809,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|it": {
-   "rows": 133,
+   "rows": 300,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|ja": {
-   "rows": 553,
+   "rows": 621,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
+   ]
+  },
+  "rents.city|nl": {
+   "rows": 255,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|pl": {
-   "rows": 1,
+   "rows": 71,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "rents.city|pt": {
-   "rows": 677,
+   "rows": 806,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; rent-index-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11592,7 +11606,7 @@
    ]
   },
   "safety.city|en": {
-   "rows": 330,
+   "rows": 373,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; safety-data-verified, a named source with provenance"
@@ -11655,14 +11669,14 @@
    ]
   },
   "services.city-practical|de": {
-   "rows": 38,
+   "rows": 216,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "services.city-practical|en": {
-   "rows": 169,
+   "rows": 1183,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11676,7 +11690,7 @@
    ]
   },
   "services.city-practical|fr": {
-   "rows": 143,
+   "rows": 155,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11690,14 +11704,14 @@
    ]
   },
   "services.city-practical|ja": {
-   "rows": 120,
+   "rows": 351,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "services.city-practical|nl": {
-   "rows": 57,
+   "rows": 80,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; places-data-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -11795,63 +11809,63 @@
    ]
   },
   "stay.city-type|de": {
-   "rows": 3786,
+   "rows": 6693,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|en": {
-   "rows": 6746,
+   "rows": 13624,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|es": {
-   "rows": 3207,
+   "rows": 6194,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|fr": {
-   "rows": 3680,
+   "rows": 6073,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|it": {
-   "rows": 272,
+   "rows": 1102,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|ja": {
-   "rows": 2544,
+   "rows": 3123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|nl": {
-   "rows": 3029,
+   "rows": 4592,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|pl": {
-   "rows": 198,
+   "rows": 2350,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
    ]
   },
   "stay.city-type|pt": {
-   "rows": 922,
+   "rows": 2483,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it names geonames-cities; stay-inventory-verified as a source, but at low completeness, so the page would stand or fall on how much of that source is actually present"
@@ -12012,14 +12026,14 @@
    ]
   },
   "transport.city-getting-around|de": {
-   "rows": 195,
+   "rows": 282,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
    ]
   },
   "transport.city-getting-around|en": {
-   "rows": 370,
+   "rows": 1188,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -12033,7 +12047,7 @@
    ]
   },
   "transport.city-getting-around|fr": {
-   "rows": 143,
+   "rows": 155,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -12047,7 +12061,14 @@
    ]
   },
   "transport.city-getting-around|ja": {
-   "rows": 553,
+   "rows": 562,
+   "verdict": "USEFUL_WITHOUT_SEARCH",
+   "why": [
+    "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
+   ]
+  },
+  "transport.city-getting-around|nl": {
+   "rows": 69,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; transit-fares-verified, a named source with provenance"
@@ -12173,7 +12194,7 @@
    ]
   },
   "transport.route-from-market|en": {
-   "rows": 1102,
+   "rows": 2385,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from ourairports; geonames-cities; computed-distance, a named source with provenance"
@@ -12292,14 +12313,14 @@
    ]
   },
   "weather.city-month|de": {
-   "rows": 711,
+   "rows": 1967,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
    ]
   },
   "weather.city-month|en": {
-   "rows": 10208,
+   "rows": 14849,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -12313,7 +12334,7 @@
    ]
   },
   "weather.city-month|fr": {
-   "rows": 3680,
+   "rows": 6073,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -12327,14 +12348,14 @@
    ]
   },
   "weather.city-month|ja": {
-   "rows": 2544,
+   "rows": 3123,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
    ]
   },
   "weather.city-month|nl": {
-   "rows": 3029,
+   "rows": 4592,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -12348,7 +12369,7 @@
    ]
   },
   "weather.city-month|pt": {
-   "rows": 3040,
+   "rows": 3756,
    "verdict": "USEFUL_WITHOUT_SEARCH",
    "why": [
     "it carries figures from geonames-cities; nasa-power-daily, a named source with provenance"
@@ -12511,7 +12532,7 @@
  "title_length": {
   "min": 13,
   "max": 207,
-  "mean": 44.8
+  "mean": 43.8
  },
  "limitation": "the simulated title, meta and H1 skeletons are English. The gate catches structural collisions, which do not depend on the connecting words, but a localised title set still has to be written per market before publication and is NOT done by this script."
 }

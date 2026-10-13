@@ -1,0 +1,57 @@
+{
+ "checks_failed": [],
+ "notes": [
+  "rows carrying free-signal evidence: 114709",
+  "localisation gate rejects 15714 fewer, all of it out of LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION",
+  "FINAL before: 587284",
+  "FINAL after:  667298",
+  "NET FINAL gain: +80014",
+  "rejected before: 789822, after: 813487",
+  "combinations the tier cap still drops: 389889 (was 493568)",
+  "combinations the free signal admitted past the cap: 103679"
+ ],
+ "admitted_rows": 114709,
+ "admitted_distinct_cities": 16197,
+ "admitted_by_market": {
+  "en-US": 24811,
+  "fr-FR": 15402,
+  "es-ES": 13744,
+  "en-GB": 12829,
+  "de-DE": 9872,
+  "nl-NL": 8949,
+  "pt-BR": 7526,
+  "pl-PL": 6252,
+  "ja-JP": 5495,
+  "it-IT": 5335,
+  "es-MX": 4165,
+  "tr-TR": 328,
+  "en-AU": 1
+ },
+ "admitted_by_family": {
+  "activities.city-things-to-do": 36067,
+  "stay.city-type": 29894,
+  "weather.city-month": 24880,
+  "rents.city": 6256,
+  "events.city-type": 4466,
+  "events.city-calendar": 4466,
+  "places.city-category": 3309,
+  "transport.route-from-market": 1910,
+  "services.city-practical": 1458,
+  "transport.city-getting-around": 995,
+  "health.city": 447,
+  "property.city-buy": 278,
+  "cost-of-living.city": 233,
+  "safety.city": 43,
+  "events.city-window": 7
+ },
+ "admitted_by_localisation_class": {
+  "VALID_LOCALIZATION": 83212,
+  "NATIVE_LOCALE": 31497
+ },
+ "admitted_by_source_status": {
+  "SOURCE_AVAILABLE": 42552,
+  "LICENCE_REQUIRED": 38833,
+  "READY_NOW": 26790,
+  "FEED_REQUIRED": 6534
+ }
+}

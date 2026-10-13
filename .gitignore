@@ -67,3 +67,10 @@ reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-REJECTED-CANDIDATES.csv.gz
 reports/livdar-master-seo-universe-2026-09-30/_rows.json
 reports/scale-universe-2026-09-29/_rows.jsonl.gz
 reports/scale-universe-2026-09-29/_raw-count.json
+
+# The clickstream tables are a LOCAL capture: millions of rows per language edition, about
+# 70 MiB across the eleven, and reproducible at any time from the Wikimedia dumps by
+# scripts/atlas/ingest/wikimedia-search-clicks.py. What the inventory rests on is the join of
+# those tables with the city sitelinks, data/atlas/sources/wikimedia/city-search-demand.jsonl.gz,
+# which IS tracked and carries the provenance of both halves.
+data/atlas/sources/wikimedia/search-clicks.*.tsv.gz

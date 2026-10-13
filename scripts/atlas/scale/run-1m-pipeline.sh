@@ -13,6 +13,12 @@
 #            scripts/atlas/ingest/parallel-get.sh <url> <out> 8          a large file, fast
 #            scripts/atlas/ingest/wikidata-materialise.py                24 classes x 11 countries
 #            scripts/atlas/ingest/holidays-materialise.py                four holiday providers
+#            scripts/atlas/ingest/wikidata-city-sitelinks.py             a Wikipedia title per
+#                                                                        city per language
+#            scripts/atlas/ingest/wikidata-city-sitelinks-via-municipality.py  the cities
+#                                                                        GeoNames models as a seat
+#            scripts/atlas/ingest/wikimedia-search-clicks.py             844 MiB of clickstream
+#            scripts/atlas/ingest/build-city-search-demand.py            the join those two make
 #   normalise scripts/atlas/ingest/pulse-materialise.py                  one holiday vocabulary
 #            scripts/atlas/ingest/osm-run-place-layers.sh                named places with polygons
 #   generate this script
@@ -232,6 +238,18 @@ elif [ "$MODE" = "--from-manifest" ]; then
   grep -E "^(Wikidata candidates|  by shape|Wikidata files read)" /tmp/pipe_wd.log || tail -3 /tmp/pipe_wd.log
 fi
 
+log "search-demand floor, calibrated from the cities the paid corpus already admitted"
+# BEFORE the manifest, and it reads the PREVIOUS manifest on purpose. The floor has to be the
+# readership of the cities the PAID gates admitted, so calibrating it against a manifest this
+# signal has already widened would walk the bar downward one run at a time while every run
+# reported a calibrated gate. calibrate-search-demand-floor.py excludes rows carrying
+# entity_demand_evidence for exactly that reason, which is what makes running it here safe.
+#
+# Not fatal. Without the ingest on disk there is no floor, the gate is inert, and the manifest
+# is the one the paid evidence alone produces - which is a smaller number, never a looser one.
+python3 scripts/atlas/scale/calibrate-search-demand-floor.py > /tmp/pipe_floor.log 2>&1 \
+  && tail -24 /tmp/pipe_floor.log || echo "  no search-demand floor: the gate stays inert"
+
 log "candidate manifest, with every quality gate"
 # This stage is the one every later stage reads. When it failed once, the pipeline carried
 # on and produced a QA report, partitions and a deliverable describing the PREVIOUS
@@ -251,6 +269,19 @@ log "shard the two authoritative CSV records into parts a git remote will accept
 # describe a different run from the monolith they were split out of. The manifest crossed
 # 97 MiB at 963,470 rows against a 100 MiB hard blob limit; see shard-manifest-for-git.py.
 python3 scripts/atlas/scale/shard-manifest-for-git.py 2>&1 | tail -10
+
+log "what the free search-demand signal admitted, and under which constraints"
+# A gate that ADMITS is the one place in this pipeline where a bug shows up as an extra page
+# rather than a missing one, and an extra page is invisible in a total that went up. So the
+# admissions are checked against the constraints they were allowed under, and a failure here
+# is loud.
+if [ -f /tmp/1M-SUMMARY-before.json ]; then
+  python3 scripts/atlas/scale/verify-search-demand-admissions.py /tmp/1M-SUMMARY-before.json \
+    2>&1 | tail -14
+else
+  echo "  no previous summary at /tmp/1M-SUMMARY-before.json to compare against; copy the"
+  echo "  summary there before a run to have the admissions checked against it"
+fi
 
 log "QA: titles, duplicates, uniqueness reasons, orphans, dashes"
 python3 scripts/atlas/scale/qa-1m-manifest.py > /tmp/pipe_qa.log 2>&1

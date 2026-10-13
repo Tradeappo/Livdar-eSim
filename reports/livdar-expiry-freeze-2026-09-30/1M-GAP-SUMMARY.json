@@ -1,10 +1,10 @@
 {
- "built": 968297,
+ "built": 667298,
  "target": 1000000,
- "gap": 31703,
- "closable_without_removing_a_gate": 48414,
- "projected_total_if_every_in_progress_path_completes": 1016711,
- "still_short_after_that": 0,
+ "gap": 332702,
+ "closable_without_removing_a_gate": 47199,
+ "projected_total_if_every_in_progress_path_completes": 714497,
+ "still_short_after_that": 285503,
  "markets_ingested": [
   "BR",
   "DE",
@@ -19,7 +19,7 @@
   "US"
  ],
  "markets_missing": [],
- "wikidata_classes_done": 19,
+ "wikidata_classes_done": 23,
  "wikidata_classes_total": 24,
  "rows_in_the_table": 15,
  "closable_paths_counted": [
@@ -30,7 +30,7 @@
   ],
   [
    "Complete the Wikidata materialisation",
-   1571,
+   356,
    "IN PROGRESS"
   ],
   [
@@ -39,5 +39,5 @@
    "FIX SHIPPED, REFETCH RATE-LIMITED"
   ]
  ],
- "verdict": "The measured closure paths total 48,414 against a gap of 31,703, so on paper they cover it. They are NOT interchangeable with built pages: every one is an upper bound on ROWS and the gates still apply per row, and the largest of them is rate-limited upstream rather than blocked by this code. Treat the total as a ceiling to work towards, not as a number already earned."
+ "verdict": "The measured closure paths total 47,199 against a gap of 332,702, so they do NOT reach the target. The remainder would have to come from removing a quality gate, and each gate is listed in the table with the measurement that put it there."
 }

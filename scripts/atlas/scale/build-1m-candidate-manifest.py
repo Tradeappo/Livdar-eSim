@@ -33,6 +33,7 @@ import json, glob, gzip, csv, hashlib, collections, os, sys, math, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import entity_identity                                        # noqa: E402
 import content_uniqueness                                     # noqa: E402
+import search_demand                                          # noqa: E402
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
@@ -1143,10 +1144,25 @@ FIELDS = ['candidate_id','url_pattern','market','language','surface','family','v
           'cross_market_uniqueness_reason', 'information_gain_vs_same_language_markets',
           'shared_fact_ratio', 'shared_section_ratio', 'semantic_similarity_score',
           # which of the three ownership bases gave this market the page in its language
-          'same_language_ownership_basis']
+          'same_language_ownership_basis',
+          # Set only where the row exists because a FREE, MEASURED per-place signal answered a
+          # question the paid keyword corpus could not. It names the reading and the floor, so
+          # a reader can tell a measured admission from an inherited one without going to
+          # another file. Empty on every row the paid evidence admitted on its own.
+          'entity_demand_evidence']
 
 stats = collections.Counter()
 OWNERSHIP_STATS = collections.Counter()
+# DIAGNOSTIC, not a gate. The per-market tier cap is the single largest silent drop in the
+# funnel - 493,568 combinations on the 2026-09-30 run - and it is invisible in the rejection
+# file because the row is abandoned before any row is written. Counting it by market, family
+# and whether the city sits in the market's OWN country is what decides whether a free
+# per-city demand signal could legitimately admit any of it, so the drop is recorded here
+# before anything is built on a guess about its shape.
+TIER_DROPS = collections.Counter()
+TIER_DROP_CITIES = collections.defaultdict(set)
+TIER_ADMITS = collections.Counter()
+TIER_ADMIT_CITIES = collections.defaultdict(set)
 
 # Every (family, entity, language) where two or more markets earned the entity and only one
 # could keep the language-scoped URL. Written to disk because these discards are precisely the
@@ -1303,13 +1319,46 @@ for f in fams:
                         if ((ename or '').lower(), ecountry) in XL_MARKET_CITIES.get(m, set())],
                 }
         for lang, m in sorted(by_lang.items()):
+            # empty unless a free measured signal is what let this row exist; only the city
+            # branch below can set it, and only entities that are cities have the signal
+            edev = ''
             # trim to this market's own measured depth: a city deeper than the cell
             # was measured to reach is not a candidate in that market
             if etype == 'city':
                 cap = next((CELL_TIER[(n, m)] for n in kw_names(fid) if (n, m) in CELL_TIER), None)
                 if cap is not None and (tier or 4) > cap:
-                    stats['dropped_beyond_measured_tier'] += 1
-                    continue
+                    # THE CAP IS A PROXY FOR A MEASUREMENT THAT NO LONGER EXISTS. It says: the
+                    # keyword corpus measured this family x market cell down to tier N, so a
+                    # city below N was never shown to be looked for. That is a real question,
+                    # and population is not an answer to it - which is why the cap was right to
+                    # exist and why a tier is still not accepted as evidence anywhere here.
+                    #
+                    # But the question is about a PLACE and a LANGUAGE, and Wikimedia publishes
+                    # a count of exactly that: readers who reached the article from a search
+                    # engine, per language edition, per month. Where that reading is at least as
+                    # strong as the reading of the cities this very corpus admitted, the city is
+                    # not being let in on a weaker bar; it is being let in on the same bar,
+                    # measured on an instrument that is still available. The floor is derived in
+                    # calibrate-search-demand-floor.py from the admitted cities themselves, per
+                    # language and per side, and never chosen by hand.
+                    #
+                    # What this does NOT do: admit a family into a market. The cell's intent is
+                    # still the keyword corpus's to prove - `cap is not None` is precisely the
+                    # statement that it did - and a reader of the German article on a town says
+                    # nothing about whether anyone wants its rent page. Every data, uniqueness,
+                    # localisation and parent gate downstream applies unchanged.
+                    home = (ecountry == MKT_COUNTRY.get(m))
+                    side = 'home' if home else 'destination'
+                    _ok, _why = search_demand.clears(eid, lang, side)
+                    if not _ok:
+                        stats['dropped_beyond_measured_tier'] += 1
+                        TIER_DROPS[(m, fid, side, tier or 4, cap)] += 1
+                        TIER_DROP_CITIES[(m, side)].add(eid)
+                        continue
+                    stats['admitted_past_tier_by_measured_search_readership'] += 1
+                    TIER_ADMITS[(m, fid, side)] += 1
+                    TIER_ADMIT_CITIES[(m, side)].add(eid)
+                    edev = ('admitted past the tier the keyword corpus measured: ' + _why)
             dscore = demand_score(fid, m, tier)
             if dscore == 0:
                 stats['dropped_no_demand_evidence'] += 1
@@ -1402,6 +1451,7 @@ for f in fams:
                 'data_signature': dsig, 'template_signature': tsig,
                 'duplicate_risk': dup, 'cannibalization_risk': can,
                 'market_demand_evidence': dev, 'locale_facts': ' | '.join(_lf),
+                'entity_demand_evidence': edev,
                 'same_language_ownership_basis': own_why.get(lang, ''),
                 'quality_score': q, 'demand_score': dscore, 'source_score': srcscore,
                 'serp_score': sscore, 'serp_class': serp_c,
@@ -2417,6 +2467,31 @@ def dest_evidence(r, top_kw):
                     f'this page is written and served in')
     if MKT_COUNTRY.get(r['market']) == dest_country:
         return f'{dest_country} is the home country of {r["market"]}'
+    # MEASURED READERSHIP IN THIS PAGE'S LANGUAGE. The four proofs above all come from a paid
+    # keyword corpus, and the fifth below is openly a proxy. The corpus is closed and will not
+    # be renewed, so without a free measured proof this gate can only ever shrink: a
+    # destination it never happened to sample is indistinguishable from one nobody wants.
+    #
+    # Wikimedia publishes how many readers reached a given article from a search engine, per
+    # language edition, per month. For the question this gate asks - was this destination ever
+    # sought by speakers of the language the page is served in - that is a count of the thing
+    # itself, not an estimate of it and not a proxy for it. It is admitted at the same strength
+    # as the keyword proofs and ahead of the proxy, and the bar is the one the corpus itself
+    # cleared: the floor comes from the readership of the destinations this corpus ADMITTED,
+    # per language and per side, in calibrate-search-demand-floor.py.
+    #
+    # It answers only the destination half. The family's intent in this market is still the
+    # corpus's to prove, and the caller has already required that ("measured_in_this_market"
+    # with a positive volume) before reaching here. A reader of the Italian article on Cork is
+    # evidence that Italians look Cork up; it is not evidence that they want its rent page, and
+    # this proof is never asked to be.
+    if r.get('entity_type') == 'city' and ename:
+        _ok, _why = search_demand.clears(r.get('entity_id', ''), r.get('language', ''),
+                                         'destination')
+        if _ok:
+            r['entity_demand_evidence'] = _why
+            return (f'{ename} is a destination with measured search readership in '
+                    f'{r.get("language")}: {_why}')
     # The destination axis. Both halves are named in the reason, and the proxy half says in
     # words that it is a proxy, because a reader of this file has to be able to tell a measured
     # volume from an inferred interest without going to another file to find out.
@@ -3437,6 +3512,8 @@ summary = {
     'dropped_entity_has_no_renderable_slug': stats['dropped_entity_has_no_renderable_slug'],
     'destination_harvest_cities': len(HARVEST_CITY_IDS),
     'dropped_beyond_measured_tier': stats['dropped_beyond_measured_tier'],
+    'admitted_past_tier_by_measured_search_readership':
+        stats['admitted_past_tier_by_measured_search_readership'],
     'poi_emitted': stats['poi_emitted'],
     'poi_dropped_no_market': stats['poi_dropped_no_market'],
     'families_generating': stats['families_generating'],
@@ -3453,6 +3530,48 @@ summary = {
         'subdivisions': len(subdiv)},
 }
 with open(OUT + '1M-SUMMARY.json', 'w') as fh: json.dump(summary, fh, indent=1, ensure_ascii=False)
+
+# The shape of the tier-cap drop, so the largest silent loss in the funnel can be reasoned
+# about from a measurement instead of from an estimate. Not a gate and not part of the
+# reconciliation; the count it breaks down is already in the summary.
+_td_market = collections.Counter()
+_td_family = collections.Counter()
+for (m, fid_, side, t_, cap_), n in TIER_DROPS.items():
+    _td_market[(m, side)] += n
+    _td_family[(fid_, side)] += n
+with open(OUT + '1M-TIER-CAP-DROP.json', 'w') as fh:
+    json.dump({
+        'what': 'combinations abandoned because the city sits deeper than the tier the paid '
+                'keyword corpus measured that family x market cell to',
+        'total': stats['dropped_beyond_measured_tier'],
+        'by_market_and_side': {f'{m}|{side}': n for (m, side), n in _td_market.most_common()},
+        'by_family_and_side': {f'{f}|{side}': n for (f, side), n in _td_family.most_common()},
+        'distinct_cities_by_market_and_side': {f'{m}|{side}': len(v)
+                                               for (m, side), v in sorted(TIER_DROP_CITIES.items())},
+        'home_side_total': sum(n for (m, side), n in _td_market.items() if side == 'home'),
+        'destination_side_total': sum(n for (m, side), n in _td_market.items()
+                                      if side == 'destination'),
+        # the other half of the same decision: combinations the cap would have abandoned and a
+        # free MEASURED reading of the place's search readership admitted instead. Reported
+        # beside the drop rather than in a separate file, because the two numbers only mean
+        # anything together.
+        'admitted_by_measured_search_readership': {
+            'total': stats['admitted_past_tier_by_measured_search_readership'],
+            'by_market_and_side': {f'{m}|{side}': n for (m, side), n in
+                                   collections.Counter(
+                                       {(m, side): sum(v for (mm, _f, ss), v in TIER_ADMITS.items()
+                                                       if mm == m and ss == side)
+                                        for (m, side) in TIER_ADMIT_CITIES}).most_common()},
+            'by_family_and_side': {f'{f}|{side}': n for (f, side), n in
+                                   collections.Counter(
+                                       {(f, side): sum(v for (_m, ff, ss), v in TIER_ADMITS.items()
+                                                       if ff == f and ss == side)
+                                        for (_m, f, side) in TIER_ADMITS}).most_common()},
+            'distinct_cities_by_market_and_side': {f'{m}|{side}': len(v) for (m, side), v
+                                                   in sorted(TIER_ADMIT_CITIES.items())},
+        },
+        'search_demand_floor': search_demand.floors(),
+    }, fh, indent=1, ensure_ascii=False)
 print('\n' + json.dumps({k: v for k, v in summary.items()
                           if k not in ('by_surface', 'by_market', 'by_entity_type',
                                        'no_entity_store_list')}, indent=1))

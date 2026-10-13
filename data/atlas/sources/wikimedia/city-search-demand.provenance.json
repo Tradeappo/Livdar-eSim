@@ -1,0 +1,75 @@
+{
+ "what": "per city that was asked about: the median monthly search-referred readers of that city's Wikipedia article, per language that has one",
+ "built_on": "2026-10-13",
+ "title_half": {
+  "files": [
+   "data/atlas/sources/geonames/city-sitelinks.jsonl.gz",
+   "data/atlas/sources/wikidata/city-sitelinks-via-municipality.jsonl.gz",
+   "data/atlas/sources/wikidata/city-sitelinks-from-wikidata.jsonl.gz"
+  ],
+  "source": "Wikidata P1566 sitelinks and GeoNames alternateNamesV2 wkdt",
+  "licences": [
+   "Wikidata CC0 1.0",
+   "GeoNames CC BY 4.0"
+  ]
+ },
+ "count_half": {
+  "file": "data/atlas/sources/wikimedia/search-clicks.<lang>.tsv.gz",
+  "source": "Wikimedia clickstream, referrer class other-search",
+  "licence": "CC0 1.0",
+  "note": "the tables are a local capture reproducible from the dumps and are not tracked; see search-clicks.provenance.json"
+ },
+ "cities_asked": 64418,
+ "cities_with_at_least_one_article": 47368,
+ "per_language": {
+  "de": {
+   "city_articles": 31648,
+   "with_ten_or_more_search_clicks_a_month": 18847
+  },
+  "en": {
+   "city_articles": 43641,
+   "with_ten_or_more_search_clicks_a_month": 40048
+  },
+  "es": {
+   "city_articles": 34537,
+   "with_ten_or_more_search_clicks_a_month": 16903
+  },
+  "fr": {
+   "city_articles": 36398,
+   "with_ten_or_more_search_clicks_a_month": 16669
+  },
+  "it": {
+   "city_articles": 36435,
+   "with_ten_or_more_search_clicks_a_month": 12794
+  },
+  "ja": {
+   "city_articles": 11677,
+   "with_ten_or_more_search_clicks_a_month": 6910
+  },
+  "nl": {
+   "city_articles": 31399,
+   "with_ten_or_more_search_clicks_a_month": 9078
+  },
+  "pl": {
+   "city_articles": 34290,
+   "with_ten_or_more_search_clicks_a_month": 9987
+  },
+  "pt": {
+   "city_articles": 28885,
+   "with_ten_or_more_search_clicks_a_month": 8331
+  },
+  "tr": {
+   "city_articles": 19297,
+   "with_ten_or_more_search_clicks_a_month": 4157
+  },
+  "zh": {
+   "city_articles": 27196,
+   "with_ten_or_more_search_clicks_a_month": 5624
+  }
+ },
+ "a_row_in_this_file_means": "this city was asked about",
+ "a_language_absent_from_clicks_means": "that language edition has no article about this place, which is a measurement",
+ "a_zero_in_clicks_means": "the article exists and had under ten search-referred clicks a month, the dump's own privacy floor. Also a measurement.",
+ "a_city_absent_from_this_file_means": "no capture asked about it, so NOTHING is known and it must not be admitted, nor counted as a zero in any calibration",
+ "why": "Read only to answer whether a CITY is sought by speakers of a language. It can never establish that a FAMILY intent exists in a market."
+}
