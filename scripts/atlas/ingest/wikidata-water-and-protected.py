@@ -39,7 +39,7 @@ service answers about two queries from this container before a 429 with retry-af
 
 Usage: wikidata-water-and-protected.py [--classes lake,river,...] [--page 10000]
 """
-import collections, gzip, json, os, subprocess, sys, tempfile, time
+import collections, glob, gzip, json, os, subprocess, sys, tempfile, time
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'data/atlas/sources/wikidata/'
@@ -197,6 +197,27 @@ def main():
         print('    %s: %d entities, %d with two or more facts%s'
               % (cls, len(rows), summary[cls]['at_or_above_two_facts'],
                  '; ' + warn if warn else ''), flush=True)
+    # A CLASS FILE WITH NO ROW IN THE PROVENANCE IS THE DEFECT THIS GUARDS. The provenance used
+    # to record only what THIS invocation fetched, so a run for five classes dropped
+    # national_park - captured by an earlier run and sitting on disk - out of the record while
+    # leaving its file beside it. A provenance that does not describe every file next to it is
+    # worse than none, because it reads as complete. Any class file the run did not touch is
+    # carried forward from the previous provenance, and a file with no row anywhere is named.
+    for f in sorted(glob.glob(OUT + 'water-and-protected-*.jsonl.gz')):
+        c = os.path.basename(f)[len('water-and-protected-'):-len('.jsonl.gz')]
+        if c in summary:
+            continue
+        try:
+            was = json.load(open(OUT + 'water-and-protected.provenance.json',
+                                 encoding='utf-8')).get('per_class') or {}
+        except (OSError, ValueError):
+            was = {}
+        if c in was:
+            summary[c] = dict(was[c], carried_from_an_earlier_run=True)
+        else:
+            summary[c] = {'entities': None, 'NO_RECORD': 'this class file is on disk and no '
+                          'provenance describes it; re-run the capture for it'}
+
     prov = {
         'source': 'Wikidata, entities stating a class (P31), a country (P17) and coordinates (P625)',
         'licence': 'Wikidata CC0 1.0, public domain dedication',

@@ -7,11 +7,7 @@
   "https://query.wikidata.org/sparql"
  ],
  "fetched_on": "2026-10-14",
- "THIS_CAPTURE_IS_PARTIAL": "Counted from the files on disk rather than from a run log. The classes listed in still_running were still being fetched when this was written, so they have no file yet and no row here. The capture script overwrites this file with the complete table when it finishes; until then every number below is a real count of a complete class file and nothing is extrapolated.",
- "still_running": [
-  "river"
- ],
- "why_these_classes": "the strongest geographic LIST intents measured for free in wikipedia-list-intent-2026-10-14.json",
+ "why_these_classes": "the strongest geographic LIST intents measured for free in wikipedia-list-intent-2026-10-14.json, none of which except waterfalls has entities already on disk",
  "facts_captured": {
   "P2046": "area",
   "P2043": "length",
@@ -23,9 +19,23 @@
   "P571": "inception",
   "P2250": "max_depth"
  },
- "the_finding_is_the_spread": "fact density is a property of the CLASS, not of Wikidata: protected areas clear the two-fact bar 82% of the time and waterfalls 4.2%, which is no better than the OSM layer. A class that comes back thin stays unbuilt.",
+ "why_the_facts_matter_more_than_the_count": "the outdoor families already have entities and proven intent; outdoors.beach is 582 rows against 25,885 captured beaches, because an own page needs two measured attributes and OSM rarely carries two",
  "nothing_is_inferred": "an entity appears only where Wikidata states its class, country and coordinates; facts are recorded per property so a gate counts real attributes rather than a total asserted here",
  "per_class": {
+  "national_park": {
+   "wikidata_class": "Q46169",
+   "entities": 2437,
+   "with_an_english_label": 2383,
+   "facts_per_entity": {
+    "0": 204,
+    "1": 372,
+    "2": 1240,
+    "3": 616,
+    "4": 5
+   },
+   "at_or_above_two_facts": 1861,
+   "incomplete": null
+  },
   "island": {
    "wikidata_class": "Q23442",
    "entities": 149675,
@@ -38,7 +48,8 @@
     "4": 29
    },
    "at_or_above_two_facts": 7247,
-   "incomplete": null
+   "incomplete": null,
+   "carried_from_an_earlier_run": true
   },
   "lake": {
    "wikidata_class": "Q23397",
@@ -54,21 +65,8 @@
     "6": 7
    },
    "at_or_above_two_facts": 57514,
-   "incomplete": null
-  },
-  "national_park": {
-   "wikidata_class": "Q46169",
-   "entities": 2437,
-   "with_an_english_label": 2383,
-   "facts_per_entity": {
-    "0": 204,
-    "1": 372,
-    "2": 1240,
-    "3": 616,
-    "4": 5
-   },
-   "at_or_above_two_facts": 1861,
-   "incomplete": null
+   "incomplete": null,
+   "carried_from_an_earlier_run": true
   },
   "protected_area": {
    "wikidata_class": "Q473972",
@@ -84,7 +82,23 @@
     "6": 1
    },
    "at_or_above_two_facts": 33124,
-   "incomplete": null
+   "incomplete": null,
+   "carried_from_an_earlier_run": true
+  },
+  "river": {
+   "wikidata_class": "Q4022",
+   "entities": 394456,
+   "with_an_english_label": 315857,
+   "facts_per_entity": {
+    "0": 220837,
+    "1": 149825,
+    "2": 18183,
+    "3": 4740,
+    "4": 871
+   },
+   "at_or_above_two_facts": 23794,
+   "incomplete": "incomplete at offset 460000 (timeout)",
+   "carried_from_an_earlier_run": true
   },
   "waterfall": {
    "wikidata_class": "Q34038",
@@ -98,7 +112,8 @@
     "4": 3
    },
    "at_or_above_two_facts": 592,
-   "incomplete": null
+   "incomplete": null,
+   "carried_from_an_earlier_run": true
   }
  }
 }
