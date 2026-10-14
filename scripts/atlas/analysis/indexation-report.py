@@ -55,6 +55,22 @@ Writes: reports/atlas/INDEXATION-BY-FAMILY.csv, INDEXATION-SUMMARY.json
 """
 import csv, glob, io, json, os, sys, collections, datetime
 
+# ONE definition of what a forbidden long dash becomes, shared with the manifest and the
+# measurement-queue builder through entity_identity, because the right replacement is not
+# always a hyphen: after kana it is a Japanese prolonged sound mark. Imported rather than
+# re-expressed so the three cannot drift apart.
+#
+# WHY IT IS CALLED HERE AND NOT IN THE CAPTURE. coverageState is Google's own localised string
+# and four languages spell it with an en dash, "Gefunden - zurzeit nicht indexiert". The
+# faithful record of what Google said is data/atlas/measurements/gsc/, which the dash check
+# exempts for that reason and which compare-inspections.py matches literally. This CSV is our
+# own output, so the character is normalised at the point the provider string becomes a row,
+# the same way an OSM or Wikidata name is normalised at ingest rather than in the capture.
+sys.path.insert(0, '/home/user/Livdar-eSim/scripts/atlas/scale')
+import entity_identity as _ei                                        # noqa: E402
+_dashes = _ei.normalise_long_dashes
+
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__))))) + '/'
 GSC = ROOT + 'data/atlas/measurements/gsc/'
@@ -367,7 +383,7 @@ def main():
             g = insp.get(base + r['path']) or cov.get(base + r['path']) or g
         if not g:
             continue
-        st_raw = (g.get('coverageState') or '').strip()
+        st_raw = _dashes((g.get('coverageState') or '').strip())
         st = canonical_state(st_raw)
         states_seen[st] += 1
         states_seen_raw[st_raw] += 1
@@ -424,7 +440,7 @@ def main():
         for base in ('https://livdar.com', 'https://www.livdar.com', ''):
             g = insp.get(base + r['path']) or cov.get(base + r['path']) or g
         sa_row = sa.get(r['path']) or {}
-        st_raw = (g or {}).get('coverageState') or ''
+        st_raw = _dashes((g or {}).get('coverageState') or '')
         st = canonical_state(st_raw)
         if g is None:
             state = 'UNKNOWN_NOT_INSPECTED'

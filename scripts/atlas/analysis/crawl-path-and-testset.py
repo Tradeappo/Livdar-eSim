@@ -24,6 +24,10 @@ Writes to reports/atlas/:
   INDEXATION-TEST-SET.csv       the same set, flat, for a checklist
 """
 import collections, csv, glob, gzip, html.parser, json, os, re, sys, urllib.parse
+sys.path.insert(0, '/home/user/Livdar-eSim/scripts/atlas/scale')
+import entity_identity as _ei                                        # noqa: E402
+_dashes = _ei.normalise_long_dashes
+
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__))))) + '/'
@@ -319,7 +323,8 @@ def main():
             'url': BASE + r['path'], 'path': r['path'],
             'family': r['family'], 'market': r['market'],
             'google_state_at_baseline': r['google_state'],
-            'coverage_state_raw': b.get('coverageState', ''),
+            # normalised at the generated-output boundary; see indexation-report.py
+            'coverage_state_raw': _dashes(b.get('coverageState', '')),
             'verdict': b.get('verdict', ''),
             'last_crawl_time': b.get('lastCrawlTime') or '',
             'page_fetch_state': b.get('pageFetchState', ''),
