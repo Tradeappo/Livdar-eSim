@@ -11,8 +11,9 @@ one more dataset closes the gap would waste the next several days.
 ## The one-line answer
 
 Every free, open or already-captured entity supply left on disk, put through the gates this
-project already enforces, is worth about **31,000 rows**, taking the inventory from 667,298 to
-roughly **698,000**. Not 1,000,000. The binding constraint is not how many lakes, listed
+project already enforces, is worth about **21,000 rows**, taking the inventory from 667,298 to
+roughly **688,000**. Two of those models are now BUILT and the inventory stands at **678,510**.
+Not 1,000,000. The binding constraint is not how many lakes, listed
 buildings or districts exist. It is that the gates require, per row, a MEASURED demand signal
 plus two independent facts plus a containment parent, and the free instruments attest far fewer
 entities than the raw supply suggests.
@@ -25,7 +26,7 @@ entities than the raw supply suggests.
 | the same layer, destination side | 74,508 entities | 9,568 (entity, language) rows | BLOCKED: no reference class |
 | Finland and Norway water entities | 15,680 | 0 | BLOCKED: no parent layer, no fi or nb clickstream |
 | county x outdoor class aggregation | 388,416 POI on county polygons | 0 without a new keyword measurement; 11,049 cells blocked on one | BLOCKED, and my own first figure for this was wrong |
-| outdoor entities notable but fact poor | 55,173 | 7,874 measured recoverable | BUILDABLE, measured 2026-10-07 |
+| outdoor entities notable but fact poor | 157,955, not the 55,173 recorded | 43,784 enriched, +4,414 net FINAL | BUILT AND IN THE MANIFEST |
 | National Heritage List for England, Grade I and II* | 31,466 | unmeasured | MEASURABLE, not yet measured |
 | listing feeds (jobs, events, rental, property) | 47,000,000 records | 0 durable | REFUSED, unchanged: a listing expires |
 
@@ -100,10 +101,25 @@ making that decision here; it is recorded as the blocker it is.
 667,298   FINAL before this pass
 +   6,798   the water layer, home side, BUILT and verified in the manifest
   674,096   FINAL now, quality gate passed, 404 of 405 tests passing
-+   7,874   fact-poor outdoor entities, measured recoverable
++   4,414   the outdoor enrichment, BUILT and verified in the manifest
+  678,510   FINAL now, quality gate passed, 404 of 405 tests passing
 +   9,568   water layer destination side, IF a reference class is established
-~691,500   everything free, open and already captured, under the gates as they stand
+~688,000   everything free, open and already captured, under the gates as they stand
 ```
+
+### The outdoor enrichment, built after this file was first written
+
+The task list recorded this as 55,173 entities with 7,874 recoverable. Counted against the
+real inputs it is 157,955 notable features carrying fewer than two attributes, and the pass
+enriched 43,784 of them from Wikidata; 103,253 have no fact in Wikidata either and are still
+refused. It had been stuck at 10,913 of 157,955 because it reached only Wikimedia's hosts,
+which answer about two queries from this container and then 429. With the verified mirror in
+front, the whole pass took minutes: 2,557 ids in 11.8 seconds at a batch of 1,000.
+
+Outdoor feature candidates went 46,130 to 51,631 and the manifest's outdoor_feature rows went
+33,836 to 45,048. The gate was not touched: 35,691 features are still refused as notable with
+no fact a reader came for, and 64,429 holding one attribute and no article in the page language
+still go to the aggregation layer rather than to a page, 54,304 of them peaks.
 
 ### A correction to my own number, because it was the kind that flatters the answer
 
