@@ -122,7 +122,7 @@ def main():
                       'source per nationality, which is the bound on this family, not the '
                       'destination count.',
     }
-    with open(ROOT + 'data/atlas/measurements/visa-govuk-2026-10-07.json', 'w',
+    with open(ROOT + 'data/atlas/measurements/findings/visa-govuk-2026-10-07.json', 'w',
               encoding='utf-8') as fh:
         json.dump(summary, fh, ensure_ascii=False, indent=1)
     print(f'\nCELLS {len(rows):,} of {len(kids):,} destinations  (no section: {miss})')

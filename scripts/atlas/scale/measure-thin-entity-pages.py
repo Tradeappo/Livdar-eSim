@@ -11,13 +11,13 @@ name with another page of the same family in the same market, and prices two can
 It decides nothing. It exists so the decision is taken against numbers.
 
 Usage: measure-thin-entity-pages.py
-Writes data/atlas/measurements/thin-entity-pages-2026-10-06.json
+Writes data/atlas/measurements/findings/thin-entity-pages-2026-10-06.json
 """
 import collections, csv, gzip, json, re
 
 ROOT = '/home/user/Livdar-eSim/'
 SRC = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz'
-OUT = ROOT + 'data/atlas/measurements/thin-entity-pages-2026-10-06.json'
+OUT = ROOT + 'data/atlas/measurements/findings/thin-entity-pages-2026-10-06.json'
 ATTRS = re.compile(r'with (\d+) measured attributes?')
 
 rows = []

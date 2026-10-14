@@ -22,7 +22,7 @@ The phrasing per language is itself a measurement. "meilleure periode pour visit
 exposed it. The same check moved Italian to "quando andare a" and Dutch to "beste reistijd".
 
 Usage: build-best-time-keywords.py [cities-per-language]
-Writes data/atlas/measurements/best-time-keyword-queue-2026-10-06.json
+Writes data/atlas/measurements/findings/best-time-keyword-queue-2026-10-06.json
 """
 import collections, csv, gzip, json, os, sys
 
@@ -31,7 +31,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import entity_identity                                              # noqa: E402
 
 REP = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
-OUT = ROOT + 'data/atlas/measurements/best-time-keyword-queue-2026-10-06.json'
+OUT = ROOT + 'data/atlas/measurements/findings/best-time-keyword-queue-2026-10-06.json'
 
 # Measured on 2026-10-06 against fifteen head destinations per language, then checked against a
 # twenty-city tail. The variant in the comment is the one that lost.
@@ -119,6 +119,14 @@ def main():
             # thing, and it would have been recorded as evidence for this family.
             local = local.replace(',', ' ').replace('  ', ' ').strip()
             name = name.replace(',', ' ').replace('  ', ' ').strip()
+            # THE GENERATED-OUTPUT BOUNDARY. The GeoNames capture keeps whatever GeoNames
+            # recorded and must: rewriting it would make the capture a false record of the
+            # fetch. But a keyword is OURS, and three Japanese names in that capture carry
+            # U+2015 HORIZONTAL BAR where Japanese needs U+30FC, so "カラ―ル ベストシーズン"
+            # went into the queue as a measurement target nobody could ever type. Normalised
+            # here, where the name stops being a record of the source and becomes our output.
+            local = entity_identity.normalise_long_dashes(local)
+            name = entity_identity.normalise_long_dashes(name)
             rows.append({'geonameid': gid, 'city': name, 'country': cc,
                          'name_in_this_language': local,
                          'name_is_localised': bool((loc.get(gid) or {}).get(lang)),

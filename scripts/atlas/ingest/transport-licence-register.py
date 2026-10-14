@@ -128,7 +128,7 @@ def main():
                 'permissive. Share-alike families are allowed and flagged so the attribution '
                 'and derived-database obligations travel with the data.',
     }
-    with open(ROOT + 'data/atlas/measurements/transport-licence-register-2026-10-07.json',
+    with open(ROOT + 'data/atlas/measurements/findings/transport-licence-register-2026-10-07.json',
               'w', encoding='utf-8') as fh:
         json.dump(summary, fh, ensure_ascii=False, indent=1)
     print(f'rows written: {len(out)}')

@@ -91,7 +91,7 @@ print(f'already fetched: {len(done):,}', file=sys.stderr)
 MKT = {'US', 'GB', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'BR', 'JP', 'TW'}
 QUALIFIES = set()
 try:
-    _t = json.load(open(ROOT + 'data/atlas/measurements/'
+    _t = json.load(open(ROOT + 'data/atlas/measurements/findings/'
                         'destination-demand-by-country-language-2026-10-02.json'))
     QUALIFIES = {v['destination_country'] for v in _t['table'].values() if v.get('qualifies')}
 except (FileNotFoundError, KeyError, ValueError):

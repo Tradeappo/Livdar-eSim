@@ -42,22 +42,41 @@ def covered():
                     out.add((r[city_k].strip().lower(), (r.get(cc_k) or '').strip()))
         except FileNotFoundError:
             pass
-    # and the two files written today, so a city measured this morning is not measured again
-    for fn in ('destination-demand-new-markets-2026-10-06.json',
-               'destination-coverage-probe-2026-10-06.json'):
+    # and the two files written today, so a city measured this morning is not measured again.
+    # The coverage probe moved to data/atlas/probes/ on 2026-10-14: it is a probe, and the
+    # measurement store holds only planned keyword output, which is what the verdict pipeline
+    # reads. Each entry carries its own directory rather than one shared prefix so a later
+    # move cannot silently turn into a skipped file again.
+    for rel in ('data/atlas/measurements/findings/destination-demand-new-markets-2026-10-06.json',
+                'data/atlas/probes/destination-coverage-2026-10-06.json'):
         try:
-            d = json.load(open(ROOT + 'data/atlas/measurements/' + fn, encoding='utf-8'))
+            d = json.load(open(ROOT + rel, encoding='utf-8'))
         except (FileNotFoundError, ValueError):
             continue
-        for v in d.values():
-            if isinstance(v, dict):
-                for k in (v.get('keywords') or []):
-                    if isinstance(k, dict) and k.get('entity'):
-                        out.add((k['entity'].strip().lower(), k.get('country') or ''))
-            if isinstance(v, dict) and isinstance(v.get('markets'), dict):
+        # A measured row names its place as `entity` in one file and as `city` in the other,
+        # and this read only ever looked for `entity`. So every one of the coverage probe's 28
+        # readings was silently absent from the covered set, and the comment above promised
+        # the opposite: a city measured that morning could be queued for measurement again.
+        # Both keys are accepted, and a row with neither is skipped rather than crashing.
+        def add_all(rows):
+            for k in (rows or []):
+                if not isinstance(k, dict):
+                    continue
+                place = k.get('entity') or k.get('city')
+                if place:
+                    out.add((str(place).strip().lower(), k.get('country') or ''))
+
+        def walk(v):
+            if not isinstance(v, dict):
+                return
+            add_all(v.get('keywords'))
+            if isinstance(v.get('markets'), dict):
                 for m in v['markets'].values():
-                    for k in (m.get('keywords') or []):
-                        out.add((k['entity'].strip().lower(), k.get('country') or ''))
+                    walk(m)
+
+        for v in d.values():
+            walk(v)
+        walk(d)
     return out
 
 

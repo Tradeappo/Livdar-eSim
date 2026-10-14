@@ -25,7 +25,7 @@ qa = jload(OUT + '1M-QA-REPORT.json')
 poi_gate = jload(OUT + '1M-POI-AGGREGATION-GATE.json')
 wd_gate = jload(OUT + '1M-WIKIDATA-GATE.json')
 pulse = jload(ROOT + 'data/atlas/sources/events/pulse-entities.json')
-shape_demand = jload(ROOT + 'data/atlas/measurements/'
+shape_demand = jload(ROOT + 'data/atlas/measurements/shapes/'
                      'ahrefs-aggregation-shape-demand-2026-10-01.json')
 
 rows = []

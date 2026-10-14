@@ -64,6 +64,38 @@ test('a probe is kept out of the measurement store and states its own limits', (
   for (const f of files) assert.ok(!/probe/.test(f), f + ' is a probe sitting in the measurement store');
 });
 
+// The store drifted into holding two kinds of file. 86 of the 190 .json files at its top
+// level were records of what was measured and concluded rather than provider output for
+// planned keywords: market admissions, source surveys, gate diagnostics, build funnels. The
+// three tests above each caught one symptom of that, and the third one caught the symptom
+// that mattered - 86 of 1,264 rows in the verdict corpus were `undefined`, because the loader
+// read `.keywords` off records that have none, so every verdict was computed over a corpus
+// with holes in it.
+//
+// They moved to data/atlas/measurements/findings/. This test is what stops the drift coming
+// back: it asserts the contract positively, on every file, instead of waiting for one of the
+// three symptoms to show up again. See that directory's README for where each kind belongs.
+test('the top level of the measurement store holds only planned keyword output', () => {
+  const findings = new URL('../data/atlas/measurements/findings/', import.meta.url);
+  assert.ok(readdirSync(findings).filter((f) => f.endsWith('.json')).length >= 1,
+    'no findings, so this test is not looking at anything');
+  for (const f of files) {
+    const j = JSON.parse(readFileSync(new URL(f, dir), 'utf8'));
+    assert.ok(Array.isArray(j.keywords),
+      f + ' has no keywords array, so it is not provider output for a planned keyword. A '
+        + 'record of what was measured or concluded belongs in measurements/findings/, a '
+        + 'market probe in probes/, a shape measurement in measurements/shapes/.');
+    assert.ok(j.unitsTotal > 0,
+      f + ' records no cost under unitsTotal. unitsSpent and units_spent are what the '
+        + 'findings records use; a keyword measurement uses unitsTotal.');
+    assert.ok(j.country && j.select, f + ' does not say what was asked for');
+    for (const k of j.keywords) {
+      assert.equal(typeof k.keyword, 'string',
+        f + ' has a row with no keyword string, which would reach verdicts() as a hole');
+    }
+  }
+});
+
 test('a pattern is judged on its best entity, not its worst', () => {
   const v = verdicts(rows);
   const byPattern = Object.fromEntries(v.map((x) => [x.pattern, x]));

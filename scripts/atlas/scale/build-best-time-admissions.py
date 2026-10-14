@@ -8,12 +8,12 @@ that was measured and read nothing. Cities that were never measured are NOT admi
 refused: they are listed as unmeasured, because an absence of evidence is not evidence.
 
 Usage: build-best-time-admissions.py
-Writes data/atlas/measurements/best-time-admissions-2026-10-06.json
+Writes data/atlas/measurements/findings/best-time-admissions-2026-10-06.json
 """
 import glob, json, os, sys
 
 ROOT = '/home/user/Livdar-eSim/'
-MEAS = ROOT + 'data/atlas/measurements/'
+MEAS = ROOT + 'data/atlas/measurements/findings/'
 QUEUE = MEAS + 'best-time-keyword-queue-2026-10-06.json'
 OUT = MEAS + 'best-time-admissions-2026-10-06.json'
 

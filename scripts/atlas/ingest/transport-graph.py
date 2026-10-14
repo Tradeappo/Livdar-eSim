@@ -203,7 +203,7 @@ def main():
             'any claim that a specific flight operates today',
         ],
     }
-    with open(ROOT + 'data/atlas/measurements/transport-graph-2026-10-07.json',
+    with open(ROOT + 'data/atlas/measurements/findings/transport-graph-2026-10-07.json',
               'w', encoding='utf-8') as fh:
         json.dump(summary, fh, ensure_ascii=False, indent=1)
     print(f'\nNODES {len(nodes):,}  {dict(nt)}')

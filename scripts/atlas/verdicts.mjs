@@ -39,6 +39,22 @@ export const ENTITIES = [
 const median = (xs) => (xs.length ? xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)] : 0);
 
 export function verdicts(rows) {
+  // A row without a keyword is not a row this function can judge, and until 2026-10-14 it
+  // crashed here with "Cannot read properties of undefined", three frames from anything that
+  // named the cause. The cause was two files in data/atlas/measurements/ that are not keyword
+  // measurements at all - a shape measurement and a coverage probe - so the loader's
+  // `.keywords` was undefined and flatMap kept the undefined as an element. Those files have
+  // moved to where they belong, which is the real fix; this is the one that makes the next
+  // such file say so instead of throwing a TypeError. It REFUSES rather than skipping,
+  // because a verdict computed over a corpus with holes in it is worse than no verdict: it
+  // would read as a measurement of the phrasings that happened to survive.
+  const bad = rows.filter((r) => !r || typeof r.keyword !== 'string');
+  if (bad.length) {
+    throw new Error(
+      `verdicts: ${bad.length} of ${rows.length} rows carry no keyword string. Every row here `
+      + 'has to be provider output for a planned keyword; a shape measurement or a probe is '
+      + 'neither, and belongs in data/atlas/measurements/shapes/ or data/atlas/probes/.');
+  }
   const byPattern = new Map();
   for (const r of rows) {
     const p = patternOf(r.keyword, ENTITIES);

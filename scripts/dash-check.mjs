@@ -67,7 +67,16 @@ const TEXT_EXT = new Set([
 // reports, which is what makes reading one axis sufficient rather than merely cheaper.
 const GZ_CHECKED_PREFIXES = ['data/atlas/candidates/market=', 'reports',
                              'data/atlas/manifests'];
-const RAW_CAPTURE_PREFIXES = ['data/atlas/sources/'];
+// Raw captures of what a provider returned, exempt for the reason given at RAW_CAPTURE above.
+// data/atlas/measurements/gsc/ holds Search Console's own API responses, and its
+// coverageState is a localised STRING FROM GOOGLE: "Gefunden - zurzeit nicht indexiert"
+// carries an en dash in German, Dutch, Italian and Polish. Rewriting it would make the
+// capture a false record of the fetch, which is the same objection that exempts the OSM and
+// Wikidata captures, and it would also break the comparison in compare-inspections.py, which
+// matches those strings literally to tell one coverage state from another. Nothing published
+// reads these files: the pages read the normalised stores, which are checked like everything
+// else.
+const RAW_CAPTURE_PREFIXES = ['data/atlas/sources/', 'data/atlas/measurements/gsc/'];
 
 async function walk(dir, out = [], badNames = []) {
   const entries = await readdir(dir, { withFileTypes: true });

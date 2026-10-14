@@ -41,6 +41,58 @@ _LATIN_EXPANSIONS = {
 }
 
 
+# ---- the one long-dash rule, because the right replacement is not one character ----------------
+# The repository forbids these ten characters in anything it publishes. Replacing all of them
+# with an ASCII hyphen was the rule, and it is wrong in exactly one case, which the GeoNames
+# per-language names contain:
+#
+#   ja  カラ―ル          U+2015 HORIZONTAL BAR between two katakana. This is a mis-encoded
+#                        PROLONGED SOUND MARK. The character Japanese needs is U+30FC, and
+#                        "カラ-ル" with an ASCII hyphen is not a Japanese word either, so the
+#                        old rule turned one wrong spelling into a different wrong spelling.
+#                        It reached a keyword, "カラ―ル ベストシーズン", which is a query
+#                        nobody can type and so a measurement target that could never resolve.
+#   zh  圣胡利娅－德洛里亚  U+FF0D FULLWIDTH HYPHEN MINUS between CJK ideographs. Here the
+#                        fullwidth hyphen is how Chinese writes a transliterated compound
+#                        name, and an ASCII hyphen is the right output: U+30FC is a kana mark
+#                        and means nothing in Chinese. Checked against all 29 occurrences in
+#                        the capture; every zh one is this shape and every ja one is the
+#                        other, which is why the test is on KANA and not on CJK generally.
+#   en  Whitchurch–Stouffville  an ordinary en dash. ASCII hyphen.
+#
+# So the rule is: a long dash directly after kana is a prolonged sound mark; everything else
+# is a hyphen. It lives here because this module is already the single answer to what a
+# place's name and identity are, and both the measurement queue builder and the manifest's
+# own sweep call it, so the two cannot drift apart.
+LONG_DASHES = ('\u2010', '\u2011', '\u2012', '\u2013', '\u2014',
+               '\u2015', '\u2212', '\ufe58', '\ufe63', '\uff0d')
+PROLONGED_SOUND_MARK = '\u30fc'
+
+
+def _is_kana(ch):
+    # hiragana U+3040-U+309F, katakana U+30A0-U+30FF, katakana phonetic extensions U+31F0-U+31FF
+    o = ord(ch)
+    return 0x3040 <= o <= 0x30ff or 0x31f0 <= o <= 0x31ff
+
+
+def normalise_long_dashes(s):
+    """Replace every forbidden long dash, with the replacement the script actually needs.
+
+    Returns the string unchanged when it holds none of them, so a caller can use identity to
+    tell whether anything was touched.
+    """
+    if not isinstance(s, str) or not any(d in s for d in LONG_DASHES):
+        return s
+    out = []
+    for i, ch in enumerate(s):
+        if ch not in LONG_DASHES:
+            out.append(ch)
+            continue
+        prev = s[i - 1] if i else ''
+        out.append(PROLONGED_SOUND_MARK if prev and _is_kana(prev) else '-')
+    return ''.join(out)
+
+
 @functools.lru_cache(maxsize=1 << 20)
 def slugify(s):
     """The one slug function every URL builder in this pipeline uses.
@@ -416,7 +468,7 @@ def _dest_rows():
     out = {}
     for fn in DEST_FILES:
         try:
-            d = json.load(open(ROOT + 'data/atlas/measurements/' + fn, encoding='utf-8'))
+            d = json.load(open(ROOT + 'data/atlas/measurements/findings/' + fn, encoding='utf-8'))
         except (FileNotFoundError, ValueError):
             continue
         for v in (d.get('table') or {}).values():

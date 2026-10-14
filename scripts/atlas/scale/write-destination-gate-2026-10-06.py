@@ -20,12 +20,12 @@ lose the loader's precedence test against any file holding a real number, which 
 direction: a real measurement never gets overwritten by a floor.
 
 Usage: write-destination-gate-2026-10-06.py <gate-rows.json> <dest-gate-keywords.json>
-Writes data/atlas/measurements/destination-demand-by-country-language-six-languages-2026-10-06.json
+Writes data/atlas/measurements/findings/destination-demand-by-country-language-six-languages-2026-10-06.json
 """
 import json, sys
 
 ROOT = '/home/user/Livdar-eSim/'
-OUT = (ROOT + 'data/atlas/measurements/'
+OUT = (ROOT + 'data/atlas/measurements/findings/'
        'destination-demand-by-country-language-six-languages-2026-10-06.json')
 BAR = 40
 

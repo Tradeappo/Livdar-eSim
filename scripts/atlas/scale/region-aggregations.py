@@ -44,7 +44,7 @@ ROOT = '/home/user/Livdar-eSim/'
 PARENTS = ROOT + 'data/atlas/sources/osm-parents/'
 ASSIGN = ROOT + 'data/atlas/sources/osm-poi/_parent-assignment.jsonl.gz'
 OUT = PARENTS + '_region-aggregations.jsonl.gz'
-MEAS = ROOT + 'data/atlas/measurements/ahrefs-region-families-2026-10-02.json'
+MEAS = ROOT + 'data/atlas/measurements/findings/ahrefs-region-families-2026-10-02.json'
 slug = entity_identity.slugify
 
 # The market list lives in entity_identity, which owns identity for the whole pipeline.

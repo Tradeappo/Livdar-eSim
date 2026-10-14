@@ -8,7 +8,7 @@
 # built from, and no new destination can be worth more than that.
 #
 # After the markets, order is the measurement in
-# data/atlas/measurements/destination-axis-demand-2026-10-02.json,
+# data/atlas/measurements/findings/destination-axis-demand-2026-10-02.json,
 # not population and not extract size. Turkey is first because Cappadocia is the strongest
 # single entity measured in the whole project: 71,000 in Japanese, 68,000 in en-US, 58,000 in
 # Italian and 27,000 in German, all at a keyword difficulty under 2 except en-US. Austria is
@@ -23,7 +23,7 @@
 # Countries the demand measurement wants but this mirror does not carry (Greece, Croatia,
 # Thailand, Vietnam, South Korea, Albania, Iceland, Slovenia, Hungary, Montenegro, Malta, Peru,
 # Colombia, New Zealand) are NOT in this queue and are not forgotten: they are listed in
-# data/atlas/measurements/destination-mirror-coverage-2026-10-02.json with what each one is
+# data/atlas/measurements/findings/destination-mirror-coverage-2026-10-02.json with what each one is
 # worth, so a second source can be found for them rather than the gap being discovered later.
 set -u
 cd /home/user/Livdar-eSim || exit 1

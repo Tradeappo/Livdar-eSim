@@ -1,4 +1,5 @@
 {
+ "a_character_corrected_on_2026-10-14": "geonameid 1266960, Kharar in India, reached this queue with U+2015 HORIZONTAL BAR in its Japanese name where Japanese needs U+30FC KATAKANA-HIRAGANA PROLONGED SOUND MARK, so the keyword was a query nobody could type and a measurement target that could never resolve. Corrected on 2026-10-14. The row is in `remaining` and was never measured, so no reading changes. The GeoNames capture keeps the character GeoNames recorded, because rewriting a capture would make it a false record of the fetch; the fix is in build-best-time-keywords.py at the point where a source name becomes our own output, through entity_identity.normalise_long_dashes, which is script-aware: after kana it yields the prolonged sound mark, and between CJK ideographs, where the same character is a Chinese compound separator, a hyphen.",
  "generated_on": "2026-10-06",
  "family": "weather.city-best-time",
  "what_this_is": "one keyword per (language, city) for the family, ordered by population so the measurement queue has an order, with the city name taken from the GeoNames alternate-name store in that language where one exists",
@@ -214655,10 +214656,10 @@
      "geonameid": "1266960",
      "city": "Kharar Punjab",
      "country": "IN",
-     "name_in_this_language": "カラ―ル",
+     "name_in_this_language": "カラール",
      "name_is_localised": true,
      "population": 74460,
-     "keyword": "カラ―ル ベストシーズン"
+     "keyword": "カラール ベストシーズン"
     },
     {
      "geonameid": "750598",

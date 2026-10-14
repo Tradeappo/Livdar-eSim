@@ -191,7 +191,7 @@ for m in measurements:
 A('')
 A('## NEW SOURCES THIS PASS, AND WHAT EACH ONE OPENS')
 A('')
-reg = jload(ROOT + 'data/atlas/measurements/new-source-register-2026-10-02-second-pass.json', {})
+reg = jload(ROOT + 'data/atlas/measurements/findings/new-source-register-2026-10-02-second-pass.json', {})
 srcs = reg.get('sources') or []
 if srcs:
     A('| source | licence | status | what it opens |')
@@ -288,7 +288,7 @@ A('intent. The full measurement is in tier-cap-vs-destination-mark-2026-10-02.js
 # ---- the sections the 2026-10-06 brief asks for by name ---------------------------------------
 # Each one reads a measurement file rather than restating a number, so the report cannot drift
 # from the evidence and a missing file shows as missing rather than as a confident zero.
-MEAS = ROOT + 'data/atlas/measurements/'
+MEAS = ROOT + 'data/atlas/measurements/findings/'
 
 
 def m(fn):

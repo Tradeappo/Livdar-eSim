@@ -153,7 +153,7 @@ def main():
         'failed_batches': errors,
         'examples': rows[:40],
     }
-    p = ROOT + 'data/atlas/measurements/wikidata-enrichment-probe-2026-10-07.json'
+    p = ROOT + 'data/atlas/measurements/findings/wikidata-enrichment-probe-2026-10-07.json'
     with open(p, 'w', encoding='utf-8') as fh:
         json.dump(out, fh, ensure_ascii=False, indent=1)
     print(f'\nBEFORE {0.0} facts per entity, AFTER {mean:.2f}', file=sys.stderr)

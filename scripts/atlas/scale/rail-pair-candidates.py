@@ -199,7 +199,7 @@ def main():
                    'station_to_city_max_km': MAXK},
         'source_completeness': 'PARTIAL, mean station degree 1.66; every count is a floor',
     }
-    with open(ROOT + 'data/atlas/measurements/rail-pair-pilot-2026-10-07.json', 'w',
+    with open(ROOT + 'data/atlas/measurements/findings/rail-pair-pilot-2026-10-07.json', 'w',
               encoding='utf-8') as fh:
         json.dump(summary, fh, ensure_ascii=False, indent=1)
     print(f'RAW      {len(cands):,}')

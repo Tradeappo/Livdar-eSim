@@ -363,7 +363,7 @@ NEW_MARKET_MEAS = ['ahrefs-tr-TR-market-admission-2026-10-05.json',
                    'ahrefs-fi-FI-market-admission-2026-10-07.json']
 for _fn in NEW_MARKET_MEAS:
     try:
-        _d = json.load(open(ROOT + 'data/atlas/measurements/' + _fn, encoding='utf-8'))
+        _d = json.load(open(ROOT + 'data/atlas/measurements/findings/' + _fn, encoding='utf-8'))
     except (FileNotFoundError, ValueError):
         continue
     _mkt = _d['market']
@@ -1632,7 +1632,7 @@ except (EOFError, OSError, FileNotFoundError):
 print(f'  aggregation + wikidata rows loaded {len(agg):,}', file=sys.stderr)
 
 # Per-shape wiring. demand_score is not a guess: it carries the verdict of the Ahrefs
-# probes recorded in data/atlas/measurements/ahrefs-aggregation-shape-demand-2026-10-01
+# probes recorded in data/atlas/measurements/shapes/ahrefs-aggregation-shape-demand-2026-10-01
 # .json, where cuisine measured strongest, area category next for NAMED areas, and the
 # opening-hours shape measured city-scoped only in Germany.
 SHAPE_WIRING = {
@@ -2139,7 +2139,7 @@ REFUSED_FAMILIES = {
 BEST_TIME_ADMITTED = {}
 BEST_TIME_REFUSED_LANGS = {}
 try:
-    _bt = json.load(open(ROOT + 'data/atlas/measurements/'
+    _bt = json.load(open(ROOT + 'data/atlas/measurements/findings/'
                          'best-time-admissions-2026-10-06.json', encoding='utf-8'))
     for _a in _bt['admissions']:
         BEST_TIME_ADMITTED[(_a['language'], str(_a['geonameid']))] = _a
@@ -2583,7 +2583,7 @@ NEW_MARKET_SERP_REFUSED = {
 NEW_MARKETS = {}
 for _fn in NEW_MARKET_MEAS:
     try:
-        _d = json.load(open(ROOT + 'data/atlas/measurements/' + _fn, encoding='utf-8'))
+        _d = json.load(open(ROOT + 'data/atlas/measurements/findings/' + _fn, encoding='utf-8'))
     except (FileNotFoundError, ValueError):
         continue
     _mkt = _d['market']
@@ -3278,18 +3278,23 @@ print(f'after the parent check:    {after_parent:,}', file=sys.stderr)
 # check could not read a compressed partition. This pass is the belt to that braces: it
 # runs over every string in every row that is kept or rejected, so there is no path to an
 # output file that skips it. It is a no-op when the sources are already clean.
-LONG_DASHES = ('\u2010', '\u2011', '\u2012', '\u2013', '\u2014',
-               '\u2015', '\u2212', '\ufe58', '\ufe63', '\uff0d')
+# The list and the replacement rule both live in entity_identity, because the right
+# replacement is not always a hyphen: a long dash after kana is a mis-encoded Japanese
+# prolonged sound mark and has to become U+30FC, while the same character between CJK
+# ideographs is a Chinese compound separator and has to become a hyphen. This sweep and the
+# measurement-queue builder call the one function, so they cannot drift apart.
+LONG_DASHES = entity_identity.LONG_DASHES
 
 def strip_long_dashes(rows):
     touched = 0
     for r in rows:
         hit = False
         for k, v in list(r.items()):
-            if isinstance(v, str) and any(d in v for d in LONG_DASHES):
-                for d in LONG_DASHES: v = v.replace(d, '-')
-                r[k] = v
-                hit = True
+            if isinstance(v, str):
+                fixed = entity_identity.normalise_long_dashes(v)
+                if fixed is not v:
+                    r[k] = fixed
+                    hit = True
         if hit:
             r['dash_normalised'] = 'yes'
             touched += 1

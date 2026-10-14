@@ -226,7 +226,7 @@ def main():
       'with all eleven fields the brief asks for')
     w('- `HREFLANG-CANONICAL-PLAN.csv.gz` and `HREFLANG-CANONICAL-DESIGN.json`')
     w('- `data/atlas/measurements/same-language-contests.jsonl.gz`, the population')
-    w('- `data/atlas/measurements/destination-demand-new-markets-2026-10-06.json`, the new '
+    w('- `data/atlas/measurements/findings/destination-demand-new-markets-2026-10-06.json`, the new '
       'measurement with its licence and provenance')
 
     path = OUT + 'MARKET-URL-EXPERIMENT-REPORT.md'

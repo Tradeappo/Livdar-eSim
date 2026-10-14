@@ -241,7 +241,7 @@ def _canon_cuisine(t):
 
 def _category_demand(root=ROOT):
     try:
-        d = json.load(open(root + 'data/atlas/measurements/category-demand-2026-10-06.json',
+        d = json.load(open(root + 'data/atlas/measurements/findings/category-demand-2026-10-06.json',
                            encoding='utf-8'))
     except (FileNotFoundError, ValueError):
         return {}, 0
@@ -504,7 +504,7 @@ def city_pop_id(cid):
 
 
 # Demand floors measured with Ahrefs on 2026-10-01 and recorded in
-# data/atlas/measurements/ahrefs-aggregation-shape-demand-2026-10-01.json. These are not
+# data/atlas/measurements/shapes/ahrefs-aggregation-shape-demand-2026-10-01.json. These are not
 # guesses about what people search: each one is the smallest city that appeared in the
 # measured keyword set for that shape, so a page below the floor would have no demand
 # behind it and is recorded as rejected instead of generated.

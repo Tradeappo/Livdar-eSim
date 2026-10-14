@@ -29,8 +29,8 @@ Deliberate properties, each of which was a decision rather than a default:
 
 Usage: country-priority-matrix.py
 Writes reports/livdar-expiry-freeze-2026-09-30/COUNTRY-PRIORITY-MATRIX.csv
-       data/atlas/measurements/country-priority-matrix-2026-10-06.json
-       data/atlas/measurements/capture-queue-by-priority-2026-10-06.json
+       data/atlas/measurements/findings/country-priority-matrix-2026-10-06.json
+       data/atlas/measurements/findings/capture-queue-by-priority-2026-10-06.json
 """
 import collections, csv, glob, gzip, json, math, os, sys
 
@@ -38,7 +38,7 @@ ROOT = '/home/user/Livdar-eSim/'
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import entity_identity                                              # noqa: E402
 
-MEAS = ROOT + 'data/atlas/measurements/'
+MEAS = ROOT + 'data/atlas/measurements/findings/'
 SRC = ROOT + 'data/atlas/sources/'
 REP = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
 WB = SRC + 'worldbank/'

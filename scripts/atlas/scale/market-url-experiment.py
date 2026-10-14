@@ -180,7 +180,7 @@ def admission_named_entities():
     """
     out = {}
     for mkt, fn in ADMISSION.items():
-        path = ROOT + 'data/atlas/measurements/' + fn
+        path = ROOT + 'data/atlas/measurements/findings/' + fn
         travel, product = [], []
         try:
             d = json.load(open(path, encoding='utf-8'))
@@ -220,7 +220,7 @@ def destination_demand():
     """{market: {(entity name lower, country): (keyword, volume, kd)}} for FOREIGN destinations."""
     out = collections.defaultdict(dict)
     try:
-        d = json.load(open(ROOT + 'data/atlas/measurements/' + DESTINATION_DEMAND,
+        d = json.load(open(ROOT + 'data/atlas/measurements/findings/' + DESTINATION_DEMAND,
                            encoding='utf-8'))
     except (FileNotFoundError, ValueError):
         return out

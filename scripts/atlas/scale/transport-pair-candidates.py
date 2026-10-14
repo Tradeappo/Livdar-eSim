@@ -240,7 +240,7 @@ def main():
             'url_collision': 'a pair sharing a URL with another is dropped, never silently merged',
         },
     }
-    with open(ROOT + 'data/atlas/measurements/transport-pair-pilot-2026-10-07.json',
+    with open(ROOT + 'data/atlas/measurements/findings/transport-pair-pilot-2026-10-07.json',
               'w', encoding='utf-8') as fh:
         json.dump(summary, fh, ensure_ascii=False, indent=1)
     print(f'\nRAW      {raw:,}')

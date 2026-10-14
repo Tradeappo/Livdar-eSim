@@ -12,7 +12,7 @@ that those are weak proxies, so the only demand number used is the measured one 
 data number used is a file that exists.
 
 Usage: country-materialisation-plan.py
-Writes data/atlas/measurements/country-materialisation-plan-2026-10-06.json
+Writes data/atlas/measurements/findings/country-materialisation-plan-2026-10-06.json
        reports/livdar-expiry-freeze-2026-09-30/1M-COUNTRY-PLAN.csv
 """
 import collections, csv, glob, gzip, json, os, sys
@@ -21,7 +21,7 @@ ROOT = '/home/user/Livdar-eSim/'
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import entity_identity                                              # noqa: E402
 
-MEAS = ROOT + 'data/atlas/measurements/'
+MEAS = ROOT + 'data/atlas/measurements/findings/'
 SRC = ROOT + 'data/atlas/sources/'
 OUT_J = MEAS + 'country-materialisation-plan-2026-10-06.json'
 OUT_C = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/1M-COUNTRY-PLAN.csv'

@@ -40,14 +40,14 @@ estimates earlier today:
 
 Usage: build-utility-capacity.py
 Writes reports/livdar-expiry-freeze-2026-09-30/UTILITY-SCALE-CAPACITY.csv
-       data/atlas/measurements/utility-scale-capacity-2026-10-07.json
+       data/atlas/measurements/findings/utility-scale-capacity-2026-10-07.json
 """
 import collections, csv, glob, gzip, json, os, sys, unicodedata
 
 ROOT = '/home/user/Livdar-eSim/'
 S = ROOT + 'data/atlas/sources/'
 REP = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
-MEAS = ROOT + 'data/atlas/measurements/'
+MEAS = ROOT + 'data/atlas/measurements/findings/'
 OUT_CSV = REP + 'UTILITY-SCALE-CAPACITY.csv'
 OUT_JSON = MEAS + 'utility-scale-capacity-2026-10-07.json'
 

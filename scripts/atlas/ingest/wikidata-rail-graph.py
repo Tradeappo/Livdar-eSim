@@ -140,7 +140,7 @@ def main():
                'licence': 'CC0 1.0', 'property': 'P197 adjacent station',
                'note': 'An adjacency whose other endpoint was not fetched with coordinates is '
                        'dropped rather than kept with a missing node.'}
-    with open(ROOT + 'data/atlas/measurements/wikidata-rail-graph-2026-10-07.json',
+    with open(ROOT + 'data/atlas/measurements/findings/wikidata-rail-graph-2026-10-07.json',
               'w', encoding='utf-8') as fh:
         json.dump(summary, fh, ensure_ascii=False, indent=1)
     print(f'\nSTATIONS {len(stations):,}  ADJACENCIES {len(edges):,}  USABLE EDGES {kept:,}')

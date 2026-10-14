@@ -27,7 +27,7 @@ import csv, glob, gzip, json, math, os, re, sys, collections
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = ROOT + 'data/atlas/sources/transport/_airport-parking-candidates.jsonl.gz'
-MEAS = ROOT + 'data/atlas/measurements/airport-parking-2026-10-07.json'
+MEAS = ROOT + 'data/atlas/measurements/findings/airport-parking-2026-10-07.json'
 
 # The register is 86,215 rows and most are not airports a traveller parks at. Only these types
 # can carry a page at all, and the scheduled-service and IATA tests below narrow it further.

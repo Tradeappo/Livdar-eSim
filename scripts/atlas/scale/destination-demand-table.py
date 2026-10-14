@@ -17,13 +17,13 @@ a market can want a SIM for a country without searching for its beaches, and it 
 encyclopedia entity without any travel intent. Requiring both is what keeps this from becoming
 a country list with a number attached.
 
-Output: data/atlas/measurements/destination-demand-by-country-language-2026-10-02.json
+Output: data/atlas/measurements/findings/destination-demand-by-country-language-2026-10-02.json
 """
 import collections, json, os
 
 ROOT = '/home/user/Livdar-eSim/'
-SRC = ROOT + 'data/atlas/measurements/destination-axis-demand-2026-10-02.json'
-OUT = ROOT + 'data/atlas/measurements/destination-demand-by-country-language-2026-10-02.json'
+SRC = ROOT + 'data/atlas/measurements/findings/destination-axis-demand-2026-10-02.json'
+OUT = ROOT + 'data/atlas/measurements/findings/destination-demand-by-country-language-2026-10-02.json'
 
 # keyword -> (destination ISO2, kind). kind is 'connectivity' or 'information'.
 MAP = {

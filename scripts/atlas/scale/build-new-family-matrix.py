@@ -21,13 +21,13 @@ travels with the number.
 
 Usage: build-new-family-matrix.py
 Writes reports/livdar-expiry-freeze-2026-09-30/NEW-FAMILY-SCALE-MATRIX.csv
-       data/atlas/measurements/new-family-scale-matrix-2026-10-07.json
+       data/atlas/measurements/findings/new-family-scale-matrix-2026-10-07.json
 """
 import csv, json, os
 
 ROOT = '/home/user/Livdar-eSim/'
 REP = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
-MEAS = ROOT + 'data/atlas/measurements/'
+MEAS = ROOT + 'data/atlas/measurements/findings/'
 OUT_CSV = REP + 'NEW-FAMILY-SCALE-MATRIX.csv'
 OUT_JSON = MEAS + 'new-family-scale-matrix-2026-10-07.json'
 
