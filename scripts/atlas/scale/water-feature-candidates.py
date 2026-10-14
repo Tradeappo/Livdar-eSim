@@ -231,11 +231,15 @@ def parent_tree(cc):
 def facts_for(qid, raw, units):
     """The printable facts, and the reason when there are none.
 
-    A fact is printed only when the unit store states its unit AND that unit is the one this
-    file knows the phrase for. Anything else is refused rather than printed with a guess.
+    A fact is printed only when the unit store states its unit AND that unit is the one
+    Wikidata normalises that property to. Anything else is refused rather than printed with a
+    guess. Returns (printable, facts whose unit is absent, facts whose unit is the wrong one),
+    because those last two are different problems: the first is fixed by running the unit
+    capture, the second is a statement error upstream and running anything again will not
+    change it.
     """
     have = units.get(qid) or {}
-    out, missing = [], []
+    out, missing, wrong = [], [], []
     for k in sorted(raw or {}):
         ph = FACT_PHRASE.get(k)
         if not ph:
@@ -251,8 +255,17 @@ def facts_for(qid, raw, units):
         if not got or not got.get('unit'):
             missing.append(k)
             continue
+        if got['unit'] != want_unit:
+            # Wikidata normalises each property to one SI unit, so a unit that is not the
+            # expected one is a statement error rather than a different convention. Measured
+            # on the 7,321-entity unit capture: one river states its DISCHARGE in cubic metres,
+            # a volume where a flow rate belongs. Printing it would read "a discharge of 1,234
+            # cubic metre", which is not a unit conversion away from right, it is a different
+            # quantity. Refused and counted, never printed.
+            wrong.append('%s_stated_in_%s' % (k, got['unit'].replace(' ', '_')))
+            continue
         out.append(phrase % _render(got['amount'], got['unit']))
-    return out, missing
+    return out, missing, wrong
 
 
 def _render(amount, unit):
@@ -320,6 +333,7 @@ def main():
 
     rows, survivors = [], set()
     missing_units = collections.Counter()
+    wrong_units = collections.Counter()
     admitted_cc = collections.Counter()
     admitted_cls = collections.Counter()
     floor_pass = collections.Counter()
@@ -398,7 +412,9 @@ def main():
             if not sl:
                 rej['name_does_not_slug'] += 1
                 continue
-            printable, missing = facts_for(qid, e.get('facts'), units)
+            printable, missing, wrong = facts_for(qid, e.get('facts'), units)
+            for _w in wrong:
+                wrong_units[_w] += 1
             if missing or len(printable) < 2:
                 rej['facts_carry_no_stated_unit_so_they_cannot_be_printed'] += 1
                 for k in missing:
@@ -469,6 +485,8 @@ def main():
         'admitted_by_class': dict(admitted_cls.most_common()),
         'cleared_the_floor_by_cell': dict(floor_pass.most_common()),
         'facts_whose_unit_is_not_stated': dict(missing_units.most_common()),
+        'facts_refused_because_wikidata_states_the_wrong_unit_for_that_property':
+            dict(wrong_units.most_common()),
         'would_clear_every_gate_but_has_no_parent_layer': dict(
             would_pass_but_for_parent.most_common()),
         'side': 'home only; the destination side has no admitted reference class and so no '
@@ -484,6 +502,9 @@ def main():
     print('\npast every gate but the unit gate: %d entities' % len(survivors))
     if missing_units:
         print('facts whose unit is not stated: %s' % dict(missing_units.most_common()))
+    if wrong_units:
+        print('facts refused because the stated unit is the wrong one for that property: %s'
+              % dict(wrong_units.most_common()))
     if would_pass_but_for_parent:
         print('\nwould clear every gate but has no parent layer:')
         for cc, n in would_pass_but_for_parent.most_common(12):

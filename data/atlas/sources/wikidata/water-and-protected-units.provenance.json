@@ -1,0 +1,43 @@
+{
+ "source": "Wikidata normalised quantity statements (p:/psn:) for the water and protected-area entities that cleared every other gate",
+ "licence": "Wikidata CC0 1.0, public domain dedication",
+ "attribution": "Wikidata, https://www.wikidata.org/",
+ "endpoints_tried_in_order": [
+  "https://qlever.dev/api/wikidata",
+  "https://query.wikidata.org/sparql"
+ ],
+ "fetched_on": "2026-10-14",
+ "why": "the first capture used wdt:, which returns a quantity amount and not its unit. An amount is enough to COUNT a fact and not enough to STATE one.",
+ "why_normalised": "psn: is the value Wikidata itself converts to the SI unit for that dimension, so one phrase per fact is correct for every row rather than correct for whichever unit an editor happened to type",
+ "properties": {
+  "P2046": "area",
+  "P2043": "length",
+  "P4511": "vertical_depth",
+  "P2044": "elevation",
+  "P2048": "height",
+  "P2053": "watershed_area",
+  "P2225": "discharge",
+  "P2250": "max_depth"
+ },
+ "p571_absent_because": "inception is a date, carries no unit, and the first capture already holds it",
+ "entities_asked": 7321,
+ "entities_unanswered": 0,
+ "entities_with_at_least_one_stated_unit": 7321,
+ "facts_with_a_stated_unit": {
+  "length": 4701,
+  "area": 3830,
+  "elevation": 3275,
+  "watershed_area": 3245,
+  "discharge": 636,
+  "vertical_depth": 630,
+  "height": 63
+ },
+ "normalised_units_found": {
+  "Q11573": "metre",
+  "Q25343": "square metre",
+  "Q25517": "cubic metre",
+  "Q794261": "cubic metre per second"
+ },
+ "unit_items_that_did_not_resolve_and_whose_facts_were_dropped": [],
+ "ids_not_a_wikidata_entity_id_and_so_never_asked": []
+}
