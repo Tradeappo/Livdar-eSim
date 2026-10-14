@@ -1,0 +1,52 @@
+{
+ "source": "Wikidata sitelinks (schema:about / schema:isPartOf) for the water and protected-area entity capture",
+ "licence": "Wikidata CC0 1.0, public domain dedication",
+ "attribution": "Wikidata, https://www.wikidata.org/",
+ "endpoints_tried_in_order": [
+  "https://qlever.dev/api/wikidata",
+  "https://query.wikidata.org/sparql"
+ ],
+ "fetched_on": "2026-10-14",
+ "scope": "every captured entity stating 2 or more facts; NOT a funnel input list, because only 34 countries have a parent layer and the readership reading for the rest is what decides whether another parent layer is worth building",
+ "min_facts": 2,
+ "entities_asked": 123887,
+ "entities_unanswered": 0,
+ "entities_with_an_article_in_at_least_one_of_the_eleven": 38453,
+ "entities_asked_with_no_article_in_any_of_the_eleven": 85434,
+ "languages": [
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "ja",
+  "nl",
+  "pl",
+  "pt",
+  "tr",
+  "zh"
+ ],
+ "articles_per_language": {
+  "de": 26103,
+  "en": 18540,
+  "fr": 13950,
+  "zh": 11619,
+  "es": 8682,
+  "it": 8158,
+  "pl": 7502,
+  "nl": 6193,
+  "pt": 4189,
+  "tr": 3956,
+  "ja": 3816
+ },
+ "fact_bearing_per_class": {
+  "island": 7247,
+  "lake": 57514,
+  "national_park": 1861,
+  "protected_area": 33124,
+  "river": 23794,
+  "waterfall": 592
+ },
+ "what_absence_means": "a language missing from an entity row means Wikidata states no sitelink to that edition, which is a measurement; an entity missing from the file was not answered and is listed in the .unanswered.txt sidecar",
+ "nothing_is_inferred": "no title is transliterated or constructed; a title appears only where Wikidata states the sitelink"
+}
