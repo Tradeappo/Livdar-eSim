@@ -1,0 +1,104 @@
+{
+ "source": "Wikidata, entities stating a class (P31), a country (P17) and coordinates (P625)",
+ "licence": "Wikidata CC0 1.0, public domain dedication",
+ "attribution": "Wikidata, https://www.wikidata.org/",
+ "endpoints_tried_in_order": [
+  "https://qlever.dev/api/wikidata",
+  "https://query.wikidata.org/sparql"
+ ],
+ "fetched_on": "2026-10-14",
+ "THIS_CAPTURE_IS_PARTIAL": "Counted from the files on disk rather than from a run log. The classes listed in still_running were still being fetched when this was written, so they have no file yet and no row here. The capture script overwrites this file with the complete table when it finishes; until then every number below is a real count of a complete class file and nothing is extrapolated.",
+ "still_running": [
+  "river"
+ ],
+ "why_these_classes": "the strongest geographic LIST intents measured for free in wikipedia-list-intent-2026-10-14.json",
+ "facts_captured": {
+  "P2046": "area",
+  "P2043": "length",
+  "P4511": "vertical_depth",
+  "P2044": "elevation",
+  "P2048": "height",
+  "P2053": "watershed_area",
+  "P2225": "discharge",
+  "P571": "inception",
+  "P2250": "max_depth"
+ },
+ "the_finding_is_the_spread": "fact density is a property of the CLASS, not of Wikidata: protected areas clear the two-fact bar 82% of the time and waterfalls 4.2%, which is no better than the OSM layer. A class that comes back thin stays unbuilt.",
+ "nothing_is_inferred": "an entity appears only where Wikidata states its class, country and coordinates; facts are recorded per property so a gate counts real attributes rather than a total asserted here",
+ "per_class": {
+  "island": {
+   "wikidata_class": "Q23442",
+   "entities": 149675,
+   "with_an_english_label": 115533,
+   "facts_per_entity": {
+    "0": 106682,
+    "1": 35746,
+    "2": 5655,
+    "3": 1563,
+    "4": 29
+   },
+   "at_or_above_two_facts": 7247,
+   "incomplete": null
+  },
+  "lake": {
+   "wikidata_class": "Q23397",
+   "entities": 294363,
+   "with_an_english_label": 213637,
+   "facts_per_entity": {
+    "0": 137430,
+    "1": 99419,
+    "2": 44225,
+    "3": 11654,
+    "4": 1140,
+    "5": 488,
+    "6": 7
+   },
+   "at_or_above_two_facts": 57514,
+   "incomplete": null
+  },
+  "national_park": {
+   "wikidata_class": "Q46169",
+   "entities": 2437,
+   "with_an_english_label": 2383,
+   "facts_per_entity": {
+    "0": 204,
+    "1": 372,
+    "2": 1240,
+    "3": 616,
+    "4": 5
+   },
+   "at_or_above_two_facts": 1861,
+   "incomplete": null
+  },
+  "protected_area": {
+   "wikidata_class": "Q473972",
+   "entities": 40217,
+   "with_an_english_label": 38515,
+   "facts_per_entity": {
+    "0": 4361,
+    "1": 2732,
+    "2": 32593,
+    "3": 494,
+    "4": 34,
+    "5": 2,
+    "6": 1
+   },
+   "at_or_above_two_facts": 33124,
+   "incomplete": null
+  },
+  "waterfall": {
+   "wikidata_class": "Q34038",
+   "entities": 13975,
+   "with_an_english_label": 12468,
+   "facts_per_entity": {
+    "0": 9827,
+    "1": 3556,
+    "2": 521,
+    "3": 68,
+    "4": 3
+   },
+   "at_or_above_two_facts": 592,
+   "incomplete": null
+  }
+ }
+}
