@@ -92,7 +92,31 @@ LANG = {'US':'en','GB':'en','DE':'de','FR':'fr','IT':'it','ES':'es','NL':'nl',
 #
 # PAUSE stays non-zero deliberately. The experiment proves three requests a second apart are
 # served; it does not prove a thousand are, and the 429 retry below is kept untouched.
-ENDPOINTS = ['https://query-main.wikidata.org/sparql',
+# AND A THIRD ENDPOINT IN FRONT OF BOTH, which is what finally makes the refetch run.
+# Both hosts above are Wikimedia's own, and from this container they answer about two queries
+# and then 429. Measured on 2026-10-14, while this file's refetch was still blocked: two
+# queries to query.wikidata.org succeeded and the third returned 429, in the same minute.
+# So the 46,763-row closure path was not waiting on a client library after all, or not only:
+# it was waiting on a share of query time this container does not have.
+#
+# qlever.dev serves the same Wikidata dump on the QLever engine, publicly and free, and it was
+# CHECKED rather than assumed, twice, because a second endpoint that answered differently would
+# be a second SOURCE with its own provenance and not a mirror:
+#
+#   botanical_garden x DE   156 rows, 147 items at both endpoints. Identical item set, and
+#                           identical labels for all 147.
+#   beach x GR              783 items past this file's own label rule against the 782 in
+#                           wd-beach-GR.jsonl.gz, which the WDQS run wrote on 2026-10-12.
+#                           Identical names for all 782 shared items. The one extra, Q4685740
+#                           Adrines, is a Wikidata change since that capture rather than a
+#                           query difference, and it is recorded here rather than rounded away.
+#
+# QLever does NOT implement SERVICE wikibase:label, which is a WDQS extension, so fetch_band
+# asks for rdfs:label directly in the market language and in English and picks in that order.
+# That is what the two checks above compared, and it is why one query text can serve all three
+# endpoints: explicit prefixes and plain SPARQL are valid at Wikimedia's hosts too.
+ENDPOINTS = ['https://qlever.dev/api/wikidata',
+             'https://query-main.wikidata.org/sparql',
              'https://query.wikidata.org/sparql']
 _last = {e: 0.0 for e in ENDPOINTS}
 # seconds a single host waits between its own requests. Was 62, on a misread limiter.
@@ -104,7 +128,12 @@ CAP = 10000
 def ask(q, timeout=180):
     """One SPARQL query, routed to whichever endpoint has waited longest."""
     for attempt in range(8):
-        ep = ENDPOINTS[_turn[0] % len(ENDPOINTS)]
+        # In ORDER, not round robin. The rotation existed to spread load across the two
+        # Wikimedia hosts when they were the only two, and with a mirror in front of them it
+        # would send two queries in three to hosts that answer 429 after the second. Trying
+        # them in order means every query goes to the mirror first and reaches Wikimedia only
+        # when the mirror has actually failed.
+        ep = ENDPOINTS[attempt % len(ENDPOINTS)]
         _turn[0] += 1
         gap = PAUSE - (time.time() - _last[ep])
         if gap > 0:
@@ -143,17 +172,47 @@ def ask(q, timeout=180):
     return None
 
 
+# Every prefix declared, because QLever requires it and Wikimedia's hosts accept it. One query
+# text for all three endpoints is the point: two texts would be two things to keep in step, and
+# the one that ran less often would be the one that drifted.
+PREFIXES = """PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+"""
+
+
 def fetch_band(qid, cq, iso, lo, hi, limit=CAP):
-    """Entities of one class in one country whose latitude falls in [lo, hi)."""
+    """Entities of one class in one country whose latitude falls in [lo, hi).
+
+    The label is asked for twice, in the market language and in English, instead of through
+    SERVICE wikibase:label. That service is a WDQS extension QLever does not implement, and
+    the rewrite was verified to return the same items with the same names at both: see the
+    two checks recorded at ENDPOINTS. `?xLabel` is still the name the caller reads, so the
+    preference order lives here, in one place, rather than at every call site.
+    """
     lang = LANG[iso]
-    q = f"""SELECT ?x ?xLabel ?lat ?lon ?site WHERE {{
+    q = PREFIXES + f"""SELECT ?x ?xLabel ?xLabelEn ?lat ?lon ?site WHERE {{
   ?x wdt:P31 wd:{qid} ; wdt:P17 wd:{cq} .
   ?x p:P625/psv:P625 [ wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon ] .
   FILTER(?lat >= {lo} && ?lat < {hi})
   OPTIONAL {{ ?x wdt:P856 ?site }}
-  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "{lang},en". }}
+  OPTIONAL {{ ?x rdfs:label ?xLabel . FILTER(LANG(?xLabel) = "{lang}") }}
+  OPTIONAL {{ ?x rdfs:label ?xLabelEn . FILTER(LANG(?xLabelEn) = "en") }}
 }} LIMIT {limit}"""
-    return ask(q)
+    rows = ask(q)
+    if rows is None:
+        return None
+    # The market language first, English second, nothing third. The caller's own rule then
+    # drops a row whose label is absent or equal to the item id, which is the same outcome the
+    # label service produced: it returned the id itself when it had no label to give.
+    for r in rows:
+        if not (r.get('xLabel') or {}).get('value'):
+            en = (r.get('xLabelEn') or {}).get('value')
+            r['xLabel'] = {'value': en} if en else {'value': ''}
+    return rows
 
 
 def fetch(qid, cq, iso, offset, limit=CAP):

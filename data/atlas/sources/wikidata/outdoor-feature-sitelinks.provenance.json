@@ -1,0 +1,48 @@
+{
+ "source": "Wikidata sitelinks (schema:about / schema:isPartOf) for the water and protected-area entity capture",
+ "licence": "Wikidata CC0 1.0, public domain dedication",
+ "attribution": "Wikidata, https://www.wikidata.org/",
+ "endpoints_tried_in_order": [
+  "https://qlever.dev/api/wikidata",
+  "https://query.wikidata.org/sparql"
+ ],
+ "fetched_on": "2026-10-14",
+ "scope": "the explicit id list /tmp/claude-0/-home-user-Livdar-eSim/0540a0b3-118a-5774-8362-353683713b83/scratchpad/missing-qids.txt",
+ "min_facts": null,
+ "entities_asked": 34637,
+ "entities_unanswered": 0,
+ "ids_not_a_wikidata_entity_id_and_so_never_asked": [
+  "Q1872230;Q5447595"
+ ],
+ "entities_with_an_article_in_at_least_one_of_the_eleven": 31867,
+ "entities_asked_with_no_article_in_any_of_the_eleven": 2770,
+ "languages": [
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "ja",
+  "nl",
+  "pl",
+  "pt",
+  "tr",
+  "zh"
+ ],
+ "articles_per_language": {
+  "en": 13618,
+  "de": 12406,
+  "fr": 11210,
+  "it": 7249,
+  "pl": 5702,
+  "nl": 4654,
+  "es": 4484,
+  "zh": 3891,
+  "ja": 2836,
+  "pt": 2575,
+  "tr": 893
+ },
+ "fact_bearing_per_class": {},
+ "what_absence_means": "a language missing from an entity row means Wikidata states no sitelink to that edition, which is a measurement; an entity missing from the file was not answered and is listed in the .unanswered.txt sidecar",
+ "nothing_is_inferred": "no title is transliterated or constructed; a title appears only where Wikidata states the sitelink"
+}

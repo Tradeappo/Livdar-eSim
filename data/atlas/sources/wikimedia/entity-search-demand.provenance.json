@@ -1,8 +1,16 @@
 {
- "what": "per captured water or protected-area entity that was asked about: the median monthly search-referred readers of its Wikipedia article, per language that has one",
+ "what": "per entity that was asked about: the median monthly search-referred readers of its Wikipedia article, per language that has one",
  "built_on": "2026-10-14",
  "title_half": {
-  "file": "data/atlas/sources/wikidata/water-and-protected-sitelinks.jsonl.gz",
+  "files": [
+   "data/atlas/sources/wikidata/water-and-protected-sitelinks.jsonl.gz",
+   "data/atlas/sources/wikidata/outdoor-feature-sitelinks.jsonl.gz",
+   "data/atlas/sources/wikidata/entity-sitelinks.jsonl.gz"
+  ],
+  "exhaustive": [
+   "data/atlas/sources/wikidata/water-and-protected-sitelinks.jsonl.gz",
+   "data/atlas/sources/wikidata/outdoor-feature-sitelinks.jsonl.gz"
+  ],
   "source": "Wikidata sitelinks",
   "licence": "Wikidata CC0 1.0"
  },
@@ -11,64 +19,64 @@
   "source": "Wikimedia clickstream, referrer class other-search",
   "licence": "CC0 1.0"
  },
- "entities_asked": 123887,
+ "entities_asked": 166648,
  "entities_unanswered_and_therefore_absent": 0,
- "entities_with_at_least_one_article": 38453,
+ "entities_with_at_least_one_article": 78453,
  "per_language": {
   "de": {
-   "entity_articles": 26103,
-   "with_ten_or_more_search_clicks_a_month": 8638,
-   "median_of_the_positive_readings": 39
+   "entity_articles": 46618,
+   "with_ten_or_more_search_clicks_a_month": 21759,
+   "median_of_the_positive_readings": 44
   },
   "en": {
-   "entity_articles": 18540,
-   "with_ten_or_more_search_clicks_a_month": 11673,
+   "entity_articles": 34175,
+   "with_ten_or_more_search_clicks_a_month": 22294,
    "median_of_the_positive_readings": 58
   },
   "es": {
-   "entity_articles": 8682,
-   "with_ten_or_more_search_clicks_a_month": 3673,
-   "median_of_the_positive_readings": 47
-  },
-  "fr": {
-   "entity_articles": 13950,
-   "with_ten_or_more_search_clicks_a_month": 5764,
-   "median_of_the_positive_readings": 37
-  },
-  "it": {
-   "entity_articles": 8158,
-   "with_ten_or_more_search_clicks_a_month": 3114,
+   "entity_articles": 13385,
+   "with_ten_or_more_search_clicks_a_month": 6552,
    "median_of_the_positive_readings": 50
   },
-  "ja": {
-   "entity_articles": 3816,
-   "with_ten_or_more_search_clicks_a_month": 2427,
-   "median_of_the_positive_readings": 56
-  },
-  "nl": {
-   "entity_articles": 6193,
-   "with_ten_or_more_search_clicks_a_month": 1967,
-   "median_of_the_positive_readings": 38
-  },
-  "pl": {
-   "entity_articles": 7502,
-   "with_ten_or_more_search_clicks_a_month": 2495,
-   "median_of_the_positive_readings": 41
-  },
-  "pt": {
-   "entity_articles": 4189,
-   "with_ten_or_more_search_clicks_a_month": 1225,
-   "median_of_the_positive_readings": 42
-  },
-  "tr": {
-   "entity_articles": 3956,
-   "with_ten_or_more_search_clicks_a_month": 696,
+  "fr": {
+   "entity_articles": 25846,
+   "with_ten_or_more_search_clicks_a_month": 12228,
    "median_of_the_positive_readings": 43
   },
+  "it": {
+   "entity_articles": 15659,
+   "with_ten_or_more_search_clicks_a_month": 8193,
+   "median_of_the_positive_readings": 55
+  },
+  "ja": {
+   "entity_articles": 6676,
+   "with_ten_or_more_search_clicks_a_month": 4610,
+   "median_of_the_positive_readings": 59
+  },
+  "nl": {
+   "entity_articles": 11359,
+   "with_ten_or_more_search_clicks_a_month": 4386,
+   "median_of_the_positive_readings": 37
+  },
+  "pl": {
+   "entity_articles": 13559,
+   "with_ten_or_more_search_clicks_a_month": 5470,
+   "median_of_the_positive_readings": 44
+  },
+  "pt": {
+   "entity_articles": 6875,
+   "with_ten_or_more_search_clicks_a_month": 2408,
+   "median_of_the_positive_readings": 44
+  },
+  "tr": {
+   "entity_articles": 4841,
+   "with_ten_or_more_search_clicks_a_month": 1082,
+   "median_of_the_positive_readings": 57
+  },
   "zh": {
-   "entity_articles": 11619,
-   "with_ten_or_more_search_clicks_a_month": 1358,
-   "median_of_the_positive_readings": 34
+   "entity_articles": 15984,
+   "with_ten_or_more_search_clicks_a_month": 2172,
+   "median_of_the_positive_readings": 36
   }
  },
  "a_zero_is_a_reading": "the clickstream omits any (referrer, article) pair under ten clicks a month for privacy, so an article with no row is measured as under ten rather than unmeasured",

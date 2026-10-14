@@ -1,0 +1,43 @@
+{
+ "built_on": "2026-10-14",
+ "min_facts": 2,
+ "fact_bearing_entities_read": 124132,
+ "rejections": {
+  "no_home_market_and_the_destination_side_has_no_calibrated_floor": 74508,
+  "no_parent_layer_for_this_country": 15680,
+  "no_article_in_the_language_of_this_page": 12895,
+  "readership_below_the_calibrated_entity_floor": 12154,
+  "facts_carry_no_stated_unit_so_they_cannot_be_printed": 7390,
+  "inside_no_parent_polygon": 1467,
+  "country_qid_carries_no_iso_code": 38
+ },
+ "rows_emitted": 0,
+ "entities_past_every_gate_but_the_unit_gate": 7321,
+ "admitted_by_country": {},
+ "admitted_by_class": {},
+ "cleared_the_floor_by_cell": {
+  "de|home": 1947,
+  "en|home": 1663,
+  "fr|home": 1106,
+  "it|home": 788,
+  "ja|home": 716,
+  "es|home": 490,
+  "pl|home": 423,
+  "pt|home": 97,
+  "nl|home": 84,
+  "tr|home": 76
+ },
+ "facts_whose_unit_is_not_stated": {
+  "length": 4710,
+  "area": 3897,
+  "elevation": 3277,
+  "watershed_area": 3247,
+  "discharge": 636,
+  "vertical_depth": 634,
+  "height": 63
+ },
+ "would_clear_every_gate_but_has_no_parent_layer": {},
+ "side": "home only; the destination side has no admitted reference class and so no calibrated floor, which is recorded rather than worked around",
+ "floor_source": "reports/livdar-expiry-freeze-2026-09-30/1M-ENTITY-SEARCH-DEMAND-FLOOR.json",
+ "floor_percentile": 25.0
+}

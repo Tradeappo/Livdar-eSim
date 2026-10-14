@@ -1532,7 +1532,19 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # settlements as destinations, and nodes within 3 km of each other are one
              # physical interchange. Trafalgar Square has 660 destinations across 81
              # settlements and is refused; Munich has 571 across 373 and is admitted.
-             ROOT + 'data/atlas/sources/transport/_gtfs-hub-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/transport/_gtfs-hub-candidates.jsonl.gz',
+             # The Wikidata water and protected-area entity layer, built 2026-10-14 by
+             # water-feature-candidates.py. Same shape as the OpenStreetMap feature rows and
+             # the same family ids, because it is the same family from a second source: a
+             # named lake, river, island, waterfall or protected area with a containment
+             # parent. One gate differs and it is STRICTER. The outdoor family's NOTABLE test
+             # is "holds a Wikidata item or a Wikipedia article", which every row of a
+             # Wikidata capture passes by construction, so it distinguishes nothing here;
+             # these rows instead carry a MEASURED count of readers who reached the entity's
+             # article from a search engine, above a floor calibrated on the outdoor_feature
+             # rows this manifest already holds. The Wikidata-item dedupe below is what keeps
+             # a lake that is already in the OpenStreetMap layer from becoming a second page.
+             ROOT + 'data/atlas/sources/wikidata/_water-feature-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
