@@ -36,7 +36,9 @@ PBF, COUNTRY, FERRY_OUT, SKI_OUT = sys.argv[1], sys.argv[2], sys.argv[3], sys.ar
 
 # The separators a ferry route name uses to join its stops, longest first so " - " is
 # tried before "-" and a hyphenated place name is not split in half.
-SEPS = (' => ', ' <=> ', ' -> ', ' — ', ' – ', ' - ', ' / ', '=>', '<->', '->', ' | ')
+# the long dashes are escapes, not literals: this file is subject to the dash rule and a
+# literal here would be a violation of it. Same separators, same behaviour.
+SEPS = (' => ', ' <=> ', ' -> ', ' \u2014 ', ' \u2013 ', ' - ', ' / ', '=>', '<->', '->', ' | ')
 HYPHEN_ONLY = re.compile(r'^([^-]{3,})-([^-]{3,})$')
 
 

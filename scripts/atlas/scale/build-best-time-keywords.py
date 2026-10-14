@@ -122,8 +122,8 @@ def main():
             # THE GENERATED-OUTPUT BOUNDARY. The GeoNames capture keeps whatever GeoNames
             # recorded and must: rewriting it would make the capture a false record of the
             # fetch. But a keyword is OURS, and three Japanese names in that capture carry
-            # U+2015 HORIZONTAL BAR where Japanese needs U+30FC, so "カラ―ル ベストシーズン"
-            # went into the queue as a measurement target nobody could ever type. Normalised
+            # U+2015 HORIZONTAL BAR where Japanese needs U+30FC, so the Kharar keyword went
+            # into the queue as a measurement target nobody could ever type. Normalised
             # here, where the name stops being a record of the source and becomes our output.
             local = entity_identity.normalise_long_dashes(local)
             name = entity_identity.normalise_long_dashes(name)

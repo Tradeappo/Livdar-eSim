@@ -11,6 +11,15 @@ Writes reports/.../TRANSPORT-SOURCE-REGISTER.csv and a JSON summary. Ingests not
 """
 import csv, collections, json, os, re, sys
 
+# THE GENERATED-OUTPUT BOUNDARY. Transit agency names come from the Mobility Database and four
+# of them carry a long dash: "...Transport Public Bucuresti - Ilfov", "Buses Sarbus - La
+# Vallesana". The feed catalogue is somebody else's data and this register is ours, so the
+# character is normalised where their name becomes our row, the same way an OSM or Wikidata
+# name is. One definition, shared with the manifest sweep and the measurement-queue builder.
+sys.path.insert(0, '/home/user/Livdar-eSim/scripts/atlas/scale')
+import entity_identity as _ei                                        # noqa: E402
+_dashes = _ei.normalise_long_dashes
+
 ROOT = '/home/user/Livdar-eSim/'
 T = ROOT + 'data/atlas/sources/transport/'
 OUT = ROOT + 'reports/livdar-expiry-freeze-2026-09-30/'
@@ -108,7 +117,7 @@ def main():
         w = csv.DictWriter(fh, fieldnames=list(out[0].keys()))
         w.writeheader()
         for r in out:
-            w.writerow(r)
+            w.writerow({k: (_dashes(v) if isinstance(v, str) else v) for k, v in r.items()})
     allow = [r for r in out if r['verdict'] == 'ALLOW']
     fam = collections.Counter(r['licence_family'] for r in allow)
     cc = collections.Counter(r['country'] for r in allow)

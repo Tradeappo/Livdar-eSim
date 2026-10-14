@@ -132,7 +132,8 @@ def main():
     lines.append('done')
     lines.append('echo "[$(date +%T)] queue finished"')
     body = '\n'.join(lines) + '\n'
-    assert '—' not in body and '–' not in body, 'dash rule'
+    # escapes rather than literals, for the same reason the rule exists
+    assert '\u2014' not in body and '\u2013' not in body, 'dash rule'
     with open(OUT, 'w', encoding='utf-8') as fh:
         fh.write(body)
     os.chmod(OUT, 0o755)

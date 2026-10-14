@@ -46,19 +46,22 @@ _LATIN_EXPANSIONS = {
 # with an ASCII hyphen was the rule, and it is wrong in exactly one case, which the GeoNames
 # per-language names contain:
 #
-#   ja  カラ―ル          U+2015 HORIZONTAL BAR between two katakana. This is a mis-encoded
-#                        PROLONGED SOUND MARK. The character Japanese needs is U+30FC, and
-#                        "カラ-ル" with an ASCII hyphen is not a Japanese word either, so the
-#                        old rule turned one wrong spelling into a different wrong spelling.
-#                        It reached a keyword, "カラ―ル ベストシーズン", which is a query
-#                        nobody can type and so a measurement target that could never resolve.
-#   zh  圣胡利娅－德洛里亚  U+FF0D FULLWIDTH HYPHEN MINUS between CJK ideographs. Here the
-#                        fullwidth hyphen is how Chinese writes a transliterated compound
-#                        name, and an ASCII hyphen is the right output: U+30FC is a kana mark
-#                        and means nothing in Chinese. Checked against all 29 occurrences in
-#                        the capture; every zh one is this shape and every ja one is the
-#                        other, which is why the test is on KANA and not on CJK generally.
-#   en  Whitchurch–Stouffville  an ordinary en dash. ASCII hyphen.
+# The three shapes are named rather than written out, because this file is itself subject to the
+# rule and an example embedded here would be a violation of it. Codepoints, then:
+#
+#   ja  KATAKANA KA, RA, then U+2015 HORIZONTAL BAR, then RU, for Kharar. The bar is a
+#       mis-encoded PROLONGED SOUND MARK; the character Japanese needs is U+30FC. An ASCII
+#       hyphen in that slot is not a Japanese word either, so the old rule turned one wrong
+#       spelling into a different wrong spelling. It reached a keyword, that name followed by
+#       BEST SEASON in katakana, which is a query nobody can type and so a measurement target
+#       that could never resolve.
+#   zh  a transliterated compound name joined by U+FF0D FULLWIDTH HYPHEN MINUS between CJK
+#       ideographs, as in the Chinese name for Sant Julia de Loria. Here the fullwidth hyphen
+#       is how Chinese writes such a name and an ASCII hyphen is the right output: U+30FC is a
+#       kana mark and means nothing in Chinese. Checked against all 29 occurrences in the
+#       capture; every zh one is this shape and every ja one is the other, which is why the
+#       test is on KANA and not on CJK generally.
+#   en  an ordinary U+2013 EN DASH, as in Whitchurch-Stouffville. ASCII hyphen.
 #
 # So the rule is: a long dash directly after kana is a prolonged sound mark; everything else
 # is a hyphen. It lives here because this module is already the single answer to what a

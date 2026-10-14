@@ -131,9 +131,9 @@ BLOCKED_OR_FETCH_ERROR = {'Server error (5xx)', 'Not found (404)', 'Soft 404',
                           'Blocked due to access forbidden (403)',
                           'URL blocked due to other 4xx issue', 'Crawl anomaly'}
 DISCOVERED_NOT_INDEXED = {'Discovered - currently not indexed',
-                          'Discovered – currently not indexed'}
+                          'Discovered \u2013 currently not indexed'}
 CRAWLED_NOT_INDEXED = {'Crawled - currently not indexed',
-                       'Crawled – currently not indexed'}
+                       'Crawled \u2013 currently not indexed'}
 DUPLICATE = {'Duplicate without user-selected canonical',
              'Duplicate, Google chose different canonical than user',
              'Duplicate, submitted URL not selected as canonical',
