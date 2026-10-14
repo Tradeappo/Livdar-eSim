@@ -135,3 +135,66 @@ against the current manifest, still says the measured closure paths total 47,199
 changes that number yet: this pass built the instrument that makes a new family admissible at
 all, measured what it admits, and sized the one layer large enough to matter. The rows come
 when that layer is captured and run through the funnel.
+
+## The layer, captured, and what a list intent actually buys
+
+`scripts/atlas/ingest/wikidata-water-and-protected.py`, output in
+`data/atlas/sources/wikidata/water-and-protected-*.jsonl.gz`. Facts per entity are what decide
+whether a class can carry a page, so the capture reports its own density and the spread is the
+finding:
+
+| class | entities | with two or more facts | rate |
+|---|---|---|---|
+| protected area | 40,217 | 33,124 | **82%** |
+| national park | 2,437 | 1,861 | 76% |
+| lake | 294,363 | 57,514 | 20% |
+| island | 149,675 | 7,247 | 4.8% |
+| waterfall | 13,975 | 592 | 4.2% |
+
+Islands and waterfalls come back no better than the OSM layer's 3 to 4%, so the claim "Wikidata
+answers the fact gate" is false and those two classes stay unbuilt on this evidence. Protected
+areas and lakes put **90,638 entities past the two-fact bar**, against an existing outdoor layer
+contributing about 55,000 rows across all its families.
+
+### The mapping that stops this being an overclaim
+
+A list intent is demand for a LIST. It maps to the aggregation families the inventory already
+has in that shape - `outdoors.beach-in-region`, `outdoors.castle-in-region` - and NOT to a page
+per entity. Someone searching a specific lake by name is a different intent, and the instrument
+that measures it is per-entity demand, which the paid corpus measured for the outdoor layer and
+which this instrument does not replace. Reading a list reading as a licence for entity pages
+would be 90,638 pages justified by a measurement of something else.
+
+So the list-intent yield is aggregation cells, and it is small. Country-level cells carrying at
+least ten entities, which is the least a list page can be built from:
+
+| class | countries with 10 or more | with 25 or more |
+|---|---|---|
+| island | 166 | 134 |
+| lake | 125 | 99 |
+| protected area | 88 | 54 |
+| waterfall | 77 | 45 |
+| national park | 59 | 22 |
+
+**515 country-level list cells** in total. Times the locales each class's intent was measured in,
+that is low thousands of rows, not hundreds of thousands. Region-level lists are more numerous
+and would need the spatial join to the admin1 polygons to size, which is the next measurement
+rather than a number to assert here.
+
+### So, plainly, against the 332,702
+
+This pass does not close it, and nothing measured here suggests a single free instrument will.
+What it did:
+
+  - built the instrument that makes any new family admissible at all, which was the hard
+    blocker: without it the family set could only shrink
+  - used it to refuse two things on measured grounds, the heritage register and the
+    island/waterfall classes, which is worth as much as an admission
+  - captured 90,638 fact-bearing entities in the two classes that survive, which feed the
+    EXISTING aggregation families and the entity families where per-entity demand is already
+    measured, rather than needing new ones
+
+The honest next measurements, in order: the admin1 spatial join to size region-level list cells;
+then the per-entity demand already recorded for the outdoor layer against these 90,638, since
+tasks #97 and #98 established that population and this adds to it. Neither is a guess that can
+be written down today.
