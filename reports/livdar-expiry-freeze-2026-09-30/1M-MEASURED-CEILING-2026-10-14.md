@@ -21,7 +21,7 @@ entities than the raw supply suggests.
 
 | model | raw supply | past every gate | status |
 |---|---|---|---|
-| Wikidata water and protected areas, home side | 895,123 captured, 123,887 with two or more facts | see the funnel below | BUILT |
+| Wikidata water and protected areas, home side | 895,123 captured, 123,887 with two or more facts | 7,183 candidates, 7,156 FINAL rows, +6,798 net | BUILT AND IN THE MANIFEST |
 | the same layer, destination side | 74,508 entities | 9,568 (entity, language) rows | BLOCKED: no reference class |
 | Finland and Norway water entities | 15,680 | 0 | BLOCKED: no parent layer, no fi or nb clickstream |
 | county x outdoor class aggregation | 388,416 POI on county polygons | 6,580 unbuilt cells in home markets at 8 POI | BUILDABLE |
@@ -33,14 +33,32 @@ entities than the raw supply suggests.
 
 ```
 124,132  fact-bearing entities read
- 74,508  no home market, and the destination side has no calibrated floor
- 15,680  no parent layer for this country: Finland 13,250, Norway 2,370
- 12,895  no article in the language of this page
- 12,154  readership below the calibrated entity floor
-  7,390  facts carry no stated unit, so they cannot be printed
-  1,467  inside no parent polygon
+ 74,366  no home market, and the destination side has no calibrated floor
+ 15,679  no parent layer for this country: Finland 13,250, Norway 2,370
+ 12,800  no article in the language of this page
+ 12,016  readership below the calibrated entity floor
+  1,458  inside no parent polygon
+    341  the only containing parent is the feature itself
+    245  a second captured class stated for an item already counted
      38  country QID carries no ISO code
+      6  facts carry no stated unit, so they cannot be printed
+  7,183  ROWS EMITTED
 ```
+
+and through the manifest, which is where the number that counts is decided:
+
+```
+1,487,968  generated before any gate   (1,480,785 + the 7,183 above)
+  813,872  rejected
+  674,096  FINAL, against 667,298 before this pass: +6,798 net
+```
+
+7,156 of the 7,183 survive as rows in six new families (outdoors.river 3,115,
+outdoors.lake 1,877, outdoors.protected_area 993, outdoors.island 602,
+outdoors.waterfall 363, outdoors.national_park 206). The net gain is 6,798 rather than
+7,156 because the manifest's Wikidata-item dedupe displaced 358 rows that were already
+resting on the same item from the OpenStreetMap side: the same lake does not get two
+pages, which is the dedupe doing its job rather than a loss.
 
 The two largest rejections are the finding. 74,508 is the destination side, and 15,680 is two
 HOME markets with no parent layer. Both are addressable; neither is addressable by finding
@@ -79,11 +97,12 @@ making that decision here; it is recorded as the blocker it is.
 ## The arithmetic the brief should be judged against
 
 ```
-667,298   FINAL today
-  + the water layer, home side, built in this pass
-  + 6,580   county x outdoor class cells, buildable now
-  + 7,874   fact-poor outdoor entities, measured recoverable
-  + 9,568   water layer destination side, IF a reference class is established
+667,298   FINAL before this pass
++   6,798   the water layer, home side, BUILT and verified in the manifest
+  674,096   FINAL now, quality gate passed, 404 of 405 tests passing
++   6,580   county x outdoor class cells, buildable now
++   7,874   fact-poor outdoor entities, measured recoverable
++   9,568   water layer destination side, IF a reference class is established
 ~698,000   everything free, open and already captured, under the gates as they stand
 ```
 

@@ -53,7 +53,7 @@ Writes data/atlas/sources/wikidata/_water-feature-candidates.jsonl.gz
        data/atlas/sources/wikidata/_water-feature-funnel.json
        data/atlas/sources/wikidata/_water-feature-survivors.txt
 """
-import collections, glob, gzip, json, math, os, sys, time
+import collections, glob, gzip, json, math, os, sys, time, unicodedata
 
 ROOT = '/home/user/Livdar-eSim/'
 sys.path.insert(0, ROOT + 'scripts/atlas/scale')
@@ -92,6 +92,44 @@ FACT_PHRASE = {
     'discharge': ('a discharge of %s', 'cubic metre per second'),
     'inception': ('established in %s', None),          # a date, which carries no unit
 }
+
+
+# WHAT A CONTAINMENT PARENT IS FOR, and the 2,147 rows that proved this rule was missing.
+# The outdoor family asks for a parent "so the page sits in a hierarchy and can say where the
+# thing is in terms a reader recognises". The first run of this builder gave 2,147 of its 7,315
+# rows a parent that IS the entity: "Amrum is a named island in DE ... inside Amrum, a island".
+# That is not a weak hierarchy, it is no hierarchy, and it reads as a template fault to anyone
+# who opens the page. It happens because the parent layer holds lake, island and protected_area
+# polygons of its own, so the smallest polygon containing a lake is very often that same lake
+# under an OpenStreetMap record instead of a Wikidata one.
+#
+# Two rules, and the second is narrower than the first on purpose:
+#
+#   by NAME   a parent whose name folds to the entity's own name, or to its English label, is
+#             the same thing in another record whatever its class. One county polygon is
+#             literally named Cockatoo Island.
+#   by CLASS  for the PHYSICAL classes a parent of the same class is geometrically impossible:
+#             no lake contains a lake, no island contains an island. For protected_area and
+#             national_park it is ORDINARY - a reserve inside a larger protected landscape - so
+#             the class rule is not applied to them and only the name rule is.
+#
+# Where no distinct parent contains the feature, the row is refused rather than published with
+# itself as its parent, because the gate is asking for something real.
+SAME_CLASS_IMPOSSIBLE = {'lake', 'river', 'island', 'waterfall'}
+
+
+def fold(s):
+    s = str(s or '').strip()
+    if '(' in s:
+        s = s.split('(')[0]
+    s = s.strip().lower()
+    return ''.join(c for c in unicodedata.normalize('NFD', s)
+                   if unicodedata.category(c) != 'Mn')
+
+
+def article(word):
+    """"a" or "an", so a page does not read "a island"."""
+    return 'an' if word[:1].lower() in 'aeiou' else 'a'
 
 
 def load_floors():
@@ -372,16 +410,27 @@ def main():
                 rej['coordinate_does_not_parse'] += 1
                 continue
             pt = Point(lon, lat)
+            cls = e.get('cls')
+            own = {fold(e.get('name_en'))} | {fold(t) for t in (titles.get(qid) or {}).values()}
+            own.discard('')
             best_i, best_km2 = None, None
+            self_parent = False
             for gi in idx.query(pt):
                 if not geoms[gi].covers(pt):
                     continue
                 pi = meta[gi]
+                if fold(parents[pi].get('name')) in own:
+                    self_parent = True
+                    continue
+                if cls in SAME_CLASS_IMPOSSIBLE and parents[pi].get('cls') == cls:
+                    self_parent = True
+                    continue
                 km2 = parents[pi].get('km2') or 1e9
                 if best_km2 is None or km2 < best_km2:
                     best_i, best_km2 = pi, km2
             if best_i is None:
-                rej['inside_no_parent_polygon'] += 1
+                rej['the_only_containing_parent_is_the_feature_itself' if self_parent
+                    else 'inside_no_parent_polygon'] += 1
                 continue
             par = parents[best_i]
             t = titles.get(qid) or {}
@@ -422,9 +471,9 @@ def main():
                 survivors.add(qid)
                 continue
             survivors.add(qid)
-            cls = e.get('cls')
             town, dist = nearest_town(cc, lat, lon)
-            where = 'inside %s, a %s' % (dashes(par['name']), par['cls'].replace('_', ' '))
+            _pc = par['cls'].replace('_', ' ')
+            where = 'inside %s, %s %s' % (dashes(par['name']), article(_pc), _pc)
             if town:
                 where += ', %skm from %s' % (dist, GAZ.label(town['id']))
             rows.append({
