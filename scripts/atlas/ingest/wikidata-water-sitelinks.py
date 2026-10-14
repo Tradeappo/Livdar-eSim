@@ -90,13 +90,12 @@ def _retry_after(headers):
 # into 600 unanswered ones. An id that cannot be asked about is refused HERE, by name, and
 # counted apart from the ids an endpoint declined to answer: those are two different facts and
 # only one of them is worth re-running.
-QID = re.compile(r'^Q[1-9][0-9]*$')
-
-
-def split_askable(ids):
-    ok = [q for q in ids if QID.match(q)]
-    bad = [q for q in ids if not QID.match(q)]
-    return ok, bad
+# ONE definition, in entity_identity, which owns identity for this pipeline. This file
+# carried its own copy of the rule for a few hours and the outdoor enrichment carried a
+# third; the shared one is what stops them disagreeing about what an item id is.
+sys.path.insert(0, ROOT + 'scripts/atlas/scale')
+import entity_identity                                                   # noqa: E402
+split_askable = entity_identity.split_askable
 
 
 def ask(qids, tries=3):

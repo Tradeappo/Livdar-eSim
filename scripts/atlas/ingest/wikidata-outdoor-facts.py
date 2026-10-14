@@ -42,12 +42,26 @@ Transport: the Wikidata Query Service over SPARQL, in VALUES batches. wbgetentit
 first on 2026-10-07 and rate-limited at HTTP 429; WDQS answers and is the documented bulk
 route. Batches are small enough to stay inside the service's one-minute query timeout.
 """
-import gzip, json, os, subprocess, sys, tempfile, time, urllib.parse, urllib.request, urllib.error, collections, zlib
+import gzip, json, os, re, subprocess, sys, tempfile, time, urllib.parse, urllib.request, urllib.error, collections, zlib
 
 ROOT = '/home/user/Livdar-eSim/'
 OUT = os.environ.get('WD_OUT') or (ROOT + 'data/atlas/sources/osm-outdoor/_wikidata-facts.jsonl.gz')
+import sys as _sys
+_sys.path.insert(0, '/home/user/Livdar-eSim/scripts/atlas/scale')
+import entity_identity                                                   # noqa: E402
+
 QIDS_IN = os.environ.get('WD_QIDS', '/tmp/enrich-qids.txt')
-WDQS = 'https://query.wikidata.org/sparql'
+# THREE ENDPOINTS, the mirror first, for the reason measured on 2026-10-14: Wikimedia's own
+# hosts answer about two queries from this container and then 429, which is what left this
+# enrichment at 10,913 of the 157,955 items that need it. qlever.dev serves the same dump and
+# was checked against WDQS twice on the same day, returning the identical item set and the
+# identical labels; both comparisons are recorded at ENDPOINTS in wikidata-materialise.py.
+# Tried in ORDER rather than round robin, so every query reaches the mirror first and the
+# Wikimedia hosts are touched only when the mirror has actually failed.
+ENDPOINTS = ['https://qlever.dev/api/wikidata',
+             'https://query-main.wikidata.org/sparql',
+             'https://query.wikidata.org/sparql']
+WDQS = ENDPOINTS[-1]          # kept so anything importing this name still resolves
 BATCH = int(os.environ.get('WD_BATCH', '220'))
 PAUSE = float(os.environ.get('WD_PAUSE', '1.2'))
 UA = 'livdar-atlas/1.0 (offline SEO inventory research; contact via repository)'
@@ -59,14 +73,33 @@ PROPS = [
     ('P856', 'website'), ('P137', 'operator'),
 ]
 
+# P137 is ITEM-valued, and wdt: on an item-valued property returns the item's IRI. The first
+# version of this file stored the last path segment, so the fact became the string Q1025341:
+# 345 manifest rows told a reader the operator was an id, and the gate counted that id as the
+# practical detail it admits a feature on. The operator is asked for by NAME here and the item
+# is kept beside it so the claim can be checked. The rows already written were repaired by
+# wikidata-resolve-operator-labels.py.
+ITEM_VALUED = {'operator'}
+
 SELECT = ' '.join(f'?{k}' for _p, k in PROPS)
 OPTIONALS = '\n'.join(
-    f'  OPTIONAL {{ ?item wdt:{p} ?{k} . }}' for p, k in PROPS)
+    (f'  OPTIONAL {{ ?item wdt:{p} ?{k}_item . '
+     f'OPTIONAL {{ ?{k}_item rdfs:label ?{k} . FILTER(LANG(?{k}) = "en") }} }}'
+     if k in ITEM_VALUED else
+     f'  OPTIONAL {{ ?item wdt:{p} ?{k} . }}')
+    for p, k in PROPS)
+# Every prefix declared: QLever requires it and Wikimedia's hosts accept it, so ONE query text
+# serves all three endpoints instead of two texts that would drift apart.
+PREFIXES = ("""PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+""")
 
 
-def query(qids):
+def query(qids, attempt=0):
+    ep = ENDPOINTS[attempt % len(ENDPOINTS)]
     values = ' '.join(f'wd:{q}' for q in qids)
-    sparql = f'''SELECT ?item {SELECT} WHERE {{
+    sparql = PREFIXES + f'''SELECT ?item {SELECT} WHERE {{
   VALUES ?item {{ {values} }}
 {OPTIONALS}
 }}'''
@@ -87,7 +120,7 @@ def query(qids):
         r = subprocess.run(['curl', '-sS', '--compressed', '--http2', '--max-time', '180',
                             '-A', UA, '-H', 'Accept: application/sparql-results+json',
                             '--data-urlencode', 'query@' + qp, '--data', 'format=json',
-                            '-w', '\n%{http_code}', WDQS],
+                            '-w', '\n%{http_code}', ep],
                            capture_output=True, text=True)
     finally:
         os.unlink(qp)
@@ -96,12 +129,19 @@ def query(qids):
     body, _, code = r.stdout.rpartition('\n')
     code = (code or '').strip()
     if code != '200':
-        raise urllib.error.HTTPError(WDQS, int(code or 0), 'http ' + code, None, None)
+        raise urllib.error.HTTPError(ep, int(code or 0), 'http ' + code, None, None)
     return json.loads(body)
 
 
 def main():
     qids = [q.strip() for q in open(QIDS_IN) if q.strip()]
+    # Refused BEFORE batching, by name. Five of these ids sort to the front, because an
+    # id that is not a number after the Q sorts as zero, so without this guard they land
+    # in batch one of every run and take 195 good ids down with them on a 400.
+    qids, unaskable = entity_identity.split_askable(qids)
+    if unaskable:
+        print(f'{len(unaskable)} id(s) are not a Wikidata item id and cannot be asked '
+              f'about: {", ".join(unaskable[:10])}', file=sys.stderr)
     print(f'{len(qids):,} qids to enrich, batches of {BATCH}', file=sys.stderr)
     done = set()
     if os.path.exists(OUT):
@@ -128,7 +168,7 @@ def main():
         chunk = todo[i:i + BATCH]
         for attempt in range(4):
             try:
-                res = query(chunk)
+                res = query(chunk, attempt)
                 break
             except urllib.error.HTTPError as e:
                 stats[f'http_{e.code}'] += 1
@@ -162,8 +202,11 @@ def main():
                     v = b[k]['value']
                     if k == 'start_date':
                         v = v[:4]          # the year is the fact a reader came for
-                    elif k in ('website', 'operator'):
-                        v = v.rsplit('/', 1)[-1] if k == 'operator' else v
+                    elif k == 'operator':
+                        if re.fullmatch(r'Q[0-9]+', v) or v.startswith('http'):
+                            continue
+                    elif k == 'website':
+                        pass
                     else:
                         try: v = round(float(v), 3)
                         except ValueError: pass
@@ -201,8 +244,14 @@ def main():
                     if k in b and b[k].get('value') not in (None, ''):
                         v = b[k]['value']
                         if k == 'start_date': v = v[:4]
-                        elif k in ('website', 'operator'):
-                            v = v.rsplit('/', 1)[-1] if k == 'operator' else v
+                        elif k == 'operator':
+                            # the retry pass applies the same rule as the main pass:
+                            # an operator still carrying an id has no label, and an
+                            # operator nobody has named is not a fact a reader came for
+                            if re.fullmatch(r'Q[0-9]+', v) or v.startswith('http'):
+                                continue
+                        elif k == 'website':
+                            pass
                         else:
                             try: v = round(float(v), 3)
                             except ValueError: pass

@@ -28,6 +28,7 @@ Great Britain has four admin1 regions, so two English towns of the same name bot
 England. Those keep a stable id in the SLUG, which must be unique, and are reported by
 `unresolved_labels()` rather than given a region they do not have.
 """
+import re
 import functools, glob, gzip, json, math, os, unicodedata
 
 ROOT = '/home/user/Livdar-eSim/'
@@ -94,6 +95,42 @@ def normalise_long_dashes(s):
         prev = s[i - 1] if i else ''
         out.append(PROLONGED_SOUND_MARK if prev and _is_kana(prev) else '-')
     return ''.join(out)
+
+
+# ---- Wikidata item ids, and the OpenStreetMap tag shape that keeps breaking fetchers ----
+# A SPARQL VALUES clause takes entity IRIs, so ONE unparseable id is an HTTP 400 for the whole
+# clause. That is neither a timeout nor a throttle, so it falls past both handlers and a whole
+# batch is recorded as unanswered. It has now cost two captures on the same day:
+#
+#   the sitelink capture   one bad id turned 599 good ids into 600 unanswered ones
+#   the outdoor enrichment five bad ids sort to the FRONT, because an id that is not a number
+#                          after the Q sorts as zero, so they land in batch one every time
+#
+# The cause is upstream and is ordinary OpenStreetMap: a wikidata tag may carry more than one
+# value, as in the measured examples Q1603173;Q166311 and Q1872230;Q5447595, where the mapper
+# never decided which item the feature is. Picking one here would be this pipeline inventing an
+# identity, so such a value is not an item id and is refused as one.
+#
+# This lives in entity_identity because identity lives here, and because the alternative is
+# what already happened: each fetcher carrying its own copy, and the copies disagreeing.
+WIKIDATA_ITEM = re.compile(r'^Q[1-9][0-9]*$')
+
+
+def is_wikidata_item(s):
+    return bool(WIKIDATA_ITEM.match(str(s or '')))
+
+
+def split_askable(ids):
+    """(ids that can go in a VALUES clause, ids that cannot).
+
+    The second list is returned rather than dropped so a caller can COUNT and name it. An id
+    that cannot be asked about and an id an endpoint declined to answer are different facts,
+    and only one of them is worth re-running.
+    """
+    ok, bad = [], []
+    for q in ids:
+        (ok if is_wikidata_item(q) else bad).append(q)
+    return ok, bad
 
 
 @functools.lru_cache(maxsize=1 << 20)
