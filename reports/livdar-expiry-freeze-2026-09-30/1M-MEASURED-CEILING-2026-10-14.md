@@ -24,7 +24,7 @@ entities than the raw supply suggests.
 | Wikidata water and protected areas, home side | 895,123 captured, 123,887 with two or more facts | 7,183 candidates, 7,156 FINAL rows, +6,798 net | BUILT AND IN THE MANIFEST |
 | the same layer, destination side | 74,508 entities | 9,568 (entity, language) rows | BLOCKED: no reference class |
 | Finland and Norway water entities | 15,680 | 0 | BLOCKED: no parent layer, no fi or nb clickstream |
-| county x outdoor class aggregation | 388,416 POI on county polygons | 6,580 unbuilt cells in home markets at 8 POI | BUILDABLE |
+| county x outdoor class aggregation | 388,416 POI on county polygons | 0 without a new keyword measurement; 11,049 cells blocked on one | BLOCKED, and my own first figure for this was wrong |
 | outdoor entities notable but fact poor | 55,173 | 7,874 measured recoverable | BUILDABLE, measured 2026-10-07 |
 | National Heritage List for England, Grade I and II* | 31,466 | unmeasured | MEASURABLE, not yet measured |
 | listing feeds (jobs, events, rental, property) | 47,000,000 records | 0 durable | REFUSED, unchanged: a listing expires |
@@ -100,11 +100,40 @@ making that decision here; it is recorded as the blocker it is.
 667,298   FINAL before this pass
 +   6,798   the water layer, home side, BUILT and verified in the manifest
   674,096   FINAL now, quality gate passed, 404 of 405 tests passing
-+   6,580   county x outdoor class cells, buildable now
 +   7,874   fact-poor outdoor entities, measured recoverable
 +   9,568   water layer destination side, IF a reference class is established
-~698,000   everything free, open and already captured, under the gates as they stand
+~691,500   everything free, open and already captured, under the gates as they stand
 ```
+
+### A correction to my own number, because it was the kind that flatters the answer
+
+An earlier draft of this file put the county aggregation axis at 6,580 buildable cells. That
+was wrong and it was wrong in the generous direction. I counted (county, POI class) cells with
+eight or more POI and subtracted the ones already built, which measures SUPPLY. The family's
+gate is not supply: `outdoor-aggregations.py` admits a feature type only in markets where the
+LIST keyword was measured, and most of the POI mass on county polygons is in classes that have
+no measured list demand at all - memorial 154,130, attraction 62,735, archaeological_site
+40,136, ruins 21,843, monument 20,998.
+
+Re-ran the real builder rather than re-estimating. It reproduces 1,954 rows from the current
+inputs, byte-identical once decompressed, so the axis has NO headroom as it stands, and its own
+rejection counters say why:
+
+```
+ 6,893  demand_not_measured_in_this_market_peak
+ 2,090  demand_not_measured_in_this_market_viewpoint
+ 1,895  demand_not_measured_in_this_market_camp_site
+   122  demand_not_measured_in_this_market_castle
+    49  demand_not_measured_in_this_market_beach
+11,049  cells refused purely for want of a keyword measurement in that market
+```
+
+Peak lists are measured in de-DE only, viewpoint lists in de-DE only, camp sites in de-DE and
+it-IT. So 11,049 real county cells, each with three or more named features inside a polygon,
+are refused because nobody measured "peaks in <county>" in their market. That is the same wall
+as adding a market, and it is the wall this brief cannot climb: the free readership signal
+answers whether a PLACE is sought in a language and can never answer whether a FAMILY has
+demand in a market.
 
 The remaining 302,000 is reachable only by one of four things, and three of them the brief rules
 out:
