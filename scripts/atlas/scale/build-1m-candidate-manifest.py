@@ -2421,6 +2421,80 @@ for r in sorted(stage2, key=lambda x: (-x['quality_score'], -x['publication_prio
     stage2q.append(r)
 stage2 = stage2q
 after_one_page_per_wikidata_item = len(stage2)
+
+# ---- one climate page per GRID CELL, not per city ------------------------------------
+# NASA POWER climatology is a GRIDDED product. Its point endpoint answers for the cell
+# containing the coordinate, about half a degree across, so every city inside one cell
+# carries byte-identical normals. Measured over the 64,418 cities captured: 21,260 distinct
+# twelve-month vectors, and 53,277 cities sharing theirs with another city.
+#
+# What that did here, measured on the 2026-10-16 manifest before this gate existed: of
+# 50,118 weather.city-month rows, 30,847 shared their whole table with another city in the
+# SAME language, over 8,270 groups, and in 6,260 of those groups the locale_facts were
+# byte-identical as well. Those pages differed in the city name and in nothing else, which
+# is the city-name swap this project refuses, and every one of them was labelled
+# duplicate_risk LOW because data_signature includes the city's identity and so could never
+# see it. A signature that contains the thing being compared cannot detect a duplicate.
+#
+# The page that survives is the cell's principal city, the most populous, and it SAYS what
+# it covers rather than quietly standing for places it does not name.
+try:
+    _CLIMATE_CELLS = json.load(open(
+        ROOT + 'data/atlas/sources/climate/city-grid-cells.json', encoding='utf-8'))
+except (FileNotFoundError, ValueError):
+    _CLIMATE_CELLS = {}
+_CITY_CELL = _CLIMATE_CELLS.get('city_to_cell') or {}
+_CELL_MEMBERS = _CLIMATE_CELLS.get('cell_members') or {}
+_CELL_PRINCIPAL = _CLIMATE_CELLS.get('cell_principal') or {}
+# Only the families whose ANSWER is the climate table. A city page that merely mentions the
+# weather is not a duplicate of another city's.
+CLIMATE_GRID_FAMILIES = {'weather.city-month', 'weather.city-best-time'}
+_clim_kept, _clim_dupes = [], []
+if _CITY_CELL:
+    _seen_cell = {}
+    for r in sorted(stage2, key=lambda x: (-x['quality_score'], str(x['entity_id']))):
+        if r['family'] not in CLIMATE_GRID_FAMILIES:
+            _clim_kept.append(r)
+            continue
+        _cell = _CITY_CELL.get(str(r['entity_id']))
+        if not _cell:
+            # no normals on disk for this city: the row rests on something else and this
+            # gate has nothing to say about it
+            _clim_kept.append(r)
+            continue
+        _k = (r['language'], r['surface'], r['family'], _cell)
+        _first = _seen_cell.get(_k)
+        if _first is not None:
+            r['rejection_reason'] = (
+                'REJECTED_SAME_CLIMATE_GRID_CELL: ' + _first['url_pattern'] + ' already '
+                'answers this question with the SAME twelve month table, because NASA '
+                'POWER returns one gridded measurement for both places and this page '
+                'would repeat it under a different city name')
+            r['status'] = 'REJECTED_SAME_CLIMATE_GRID_CELL'
+            r['duplicate_risk'] = 'SAME_GRIDDED_MEASUREMENT'
+            _clim_dupes.append(r)
+            continue
+        _mem = _CELL_MEMBERS.get(_cell) or []
+        if len(_mem) > 1:
+            # the kept page states its own footprint, so a reader is told the normals are a
+            # cell reading and not a station in this town
+            r['uniqueness_reason'] = (
+                (r.get('uniqueness_reason') or '')
+                + ('; the normals are one NASA POWER grid cell about 55km across, which '
+                   'covers %d places including this one, and this is the only page for it'
+                   % len(_mem)))
+            r['data_completeness'] = 'GRID_CELL_SHARED_BY_%d_PLACES' % len(_mem)
+        _seen_cell[_k] = r
+        _clim_kept.append(r)
+    stage2 = _clim_kept
+    if _clim_dupes:
+        rejected.extend(_clim_dupes)
+        print('climate pages rejected because another city already carries the same '
+              'gridded measurement: %s' % format(len(_clim_dupes), ','), file=sys.stderr)
+        for _r in _clim_dupes[:5]:
+            print('    %s (%s)' % (_r['entity_name'], _r['url_pattern']), file=sys.stderr)
+after_one_page_per_climate_cell = len(stage2)
+
 if qid_dupes:
     print(f'entity pages rejected because another page already rests on the same Wikidata '
           f'item: {len(qid_dupes):,}', file=sys.stderr)
