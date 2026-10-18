@@ -43,7 +43,7 @@ Reads  the sitelink files in SITELINKS below (+ their .unanswered.txt sidecars)
 Writes data/atlas/sources/wikimedia/entity-search-demand.jsonl.gz
        data/atlas/sources/wikimedia/entity-search-demand.provenance.json
 """
-import collections, gzip, json, os, sys, time
+import collections, glob, gzip, json, os, sys, time
 
 ROOT = '/home/user/Livdar-eSim/'
 DIR = ROOT + 'data/atlas/sources/wikimedia/'
@@ -53,6 +53,16 @@ SITELINKS = [
     ('data/atlas/sources/wikidata/outdoor-feature-sitelinks.jsonl.gz', 'titles', True),
     ('data/atlas/sources/wikidata/entity-sitelinks.jsonl.gz', 'wikipedia_languages', False),
 ]
+# The landmark capture is a fourth exhaustive source and it arrives as one file per class.
+# It is joined HERE rather than in a join of its own, because the floor in
+# 1M-ENTITY-SEARCH-DEMAND-FLOOR.json is calibrated on readings produced by this file and a
+# floor measured with one instrument and applied to another is not a floor. Its titles come
+# from the Wikipedia sitelink itself rather than from a label, so an entity present here with
+# no title in an edition genuinely has no article there.
+SITELINKS += [(os.path.relpath(_p, ROOT), 'titles', True)
+              for _p in sorted(glob.glob(ROOT + 'data/atlas/sources/wikidata/landmark/'
+                                         '*.jsonl.gz'))
+              if not _p.endswith('_facts.jsonl.gz')]
 OUT = DIR + 'entity-search-demand.jsonl.gz'
 
 

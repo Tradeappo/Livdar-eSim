@@ -1551,7 +1551,17 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # cleared. Every row carries its Wikidata item, so the one-page-per-item
              # dedupe below refuses a second page where the outdoor layer already pages
              # the same castle or abbey.
-             ROOT + 'data/atlas/sources/heritage/_listed-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/heritage/_listed-candidates.jsonl.gz',
+             # The global landmark layer, built 2026-10-18. Fifty-eight Wikidata classes
+             # worldwide rather than the six of the water capture and the thirty-four
+             # countries of the OpenStreetMap one, because the largest rejection either of
+             # those recorded was never about the place: the water funnel refused 74,366
+             # entities for sitting outside the thirteen market countries. Every row here is
+             # admitted on one of two stated routes, DEMAND or UTILITY, and carries which.
+             # The builder holds its own cross-surface Wikidata-item exclusion, because the
+             # dedupe below is keyed on (language, SURFACE, item) and so never fires between
+             # a new surface and an old one.
+             ROOT + 'data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1584,6 +1594,11 @@ SHAPE_SERP = {
     # difference between this and the hospital and university classes this project
     # refuses outright. Scored as mixed until somebody reads an actual SERP.
     'heritage_listed_building': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    # NO SERP WAS SAMPLED for the landmark layer either, and the conservative archetype is
+    # used for the same reason it is used above: the honest expectation on a named building
+    # or a named natural feature is that Wikipedia and an official site both rank. Scored as
+    # mixed until somebody reads an actual SERP for one of these classes.
+    'landmark_entity': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'transport_pair_transit': 'OPEN_SPECIALIST_PAGE_WINS',
     # Measured 2026-10-08, ahrefs-expiry/transport-hub-intent-2026-10-08.json. The
     # departures form is held by operator and timetable sites, not by a knowledge card.
@@ -1738,6 +1753,13 @@ SHAPE_WIRING = {
     # unsampled. The readership is a real count and it is the admission test; it is not
     # a volume, and the score says so.
     'heritage_listed_building': ('heritage', 'ENTITY', 'listed_building', 48),
+    # 46, two below the listed buildings and the lowest entity score in this table. The
+    # evidence per row is the same kind - measured readership, not a keyword volume - and
+    # this family's SERP is unsampled like that one's, so it cannot score higher. It scores
+    # LOWER because a share of its rows are admitted on substance with a reading below the
+    # floor, and a page admitted on what it can say is a weaker commercial bet than one
+    # admitted on how many people looked the thing up, whatever it is worth to a reader.
+    'landmark_entity': ('landmark', 'ENTITY', 'landmark', 46),
     # GTFS settlement pairs. Scored 54, ABOVE the 50 air pairs and the 46 rail pairs, and this
     # is the one place in this table where a pair family earns more than the measured family
     # ceiling would suggest. The reason is information gain rather than demand: the air pairs
@@ -1793,6 +1815,10 @@ SHAPE_LICENCE = {
         'National Heritage List for England, Historic England (Open Government Licence '
         'v3.0, attribution required), joined to Wikidata (CC0 1.0) and the Wikimedia '
         'clickstream (CC0 1.0)', 'OGL_V3_ATTRIBUTION_REQUIRED'),
+    'landmark_entity': (
+        'Wikidata (CC0 1.0, public domain dedication) with the Wikimedia clickstream '
+        '(CC0 1.0) for the readership and GeoNames (CC BY 4.0) for the nearest settlement',
+        'CC0_NO_CONDITIONS'),
     'airport_parking': ('OurAirports (public domain) with OpenStreetMap named car parks '
                         '(ODbL 1.0, share-alike, attribution required)',
                         'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
@@ -1816,6 +1842,7 @@ SHAPE_RECORD_PREFIX = {
     'pulse_school_holidays': 'pulse-school:', 'pulse_long_weekends': 'pulse-lw:',
     'pulse_bridge_plan': 'pulse-bplan:', 'airport_parking': 'apark-osm:',
     'heritage_listed_building': 'heritage-nhle:',
+    'landmark_entity': 'landmark-wd:',
     'transport_pair_transit': 'transport-gtfs:',
     'transport_hub_node': 'transport-gtfs-hub:',
 }
@@ -1997,6 +2024,20 @@ for a in agg:
         # the readership IS the evidence this family rests on, so it is what scores it,
         # capped so one famous building cannot drag the whole family's score upward
         q = min(100, 45 + min(30, int(a.get('search_readership') or 0) // 20) * 2)
+    elif shape == 'landmark_entity':
+        # One family id per CLASS, not one for the whole layer. A cathedral page and a
+        # glacier page answer different questions and their demand is measured separately
+        # downstream; folding fifty-eight classes into one family would report them as one.
+        fid = 'landmark.%s' % (cls or 'entity').replace('_', '-')
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"what {ename} is and what is known about it: the facts on record and "
+                  f"where it stands")
+        # Readership scores it, as for the listed buildings, and the facts the page can state
+        # add to it, because this family's second admission route rests on exactly that. Both
+        # are capped so one famous landmark cannot lift the family.
+        q = min(100, 40 + min(24, int(a.get('search_readership') or 0) // 20) * 2
+                + min(18, (a.get('enriched') or 0) * 3))
     elif shape == 'airport_parking':
         fid = 'transport.airport-parking'
         eid = str(a['entity_id'])
