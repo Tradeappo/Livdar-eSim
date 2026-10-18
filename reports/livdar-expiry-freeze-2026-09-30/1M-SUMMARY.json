@@ -1,7 +1,7 @@
 {
  "generated": "2026-09-30",
- "generated_before_any_gate": 1493469,
- "raw_candidate_combinations": 1162248,
+ "generated_before_any_gate": 1498681,
+ "raw_candidate_combinations": 1167460,
  "raw_candidate_combinations_means": "the count AFTER the uniqueness and SERP gate",
  "removed_by_uniqueness_and_serp_gate": 331221,
  "removed_as_exact_duplicate_urls": 361,
@@ -74,24 +74,24 @@
  "removed_as_the_same_wikidata_item": 1486,
  "removed_because_the_declared_parent_did_not_survive": 4863,
  "funnel_reconciles": false,
- "after_exact_dedupe": 1161887,
- "after_semantic_dedupe": 1161885,
- "after_localization_and_cross_locale_gate": 660319,
+ "after_exact_dedupe": 1167099,
+ "after_semantic_dedupe": 1167097,
+ "after_localization_and_cross_locale_gate": 665531,
  "localization_classes": {
+  "NATIVE_LOCALE": 559860,
   "LOCAL_INTENT_MISSING": 136748,
-  "NATIVE_LOCALE": 554648,
   "TRANSLATION_ONLY": 260886,
   "VALID_LOCALIZATION": 105671,
   "LOCAL_DEMAND_NOT_FOR_THIS_DESTINATION": 53785,
   "LOCAL_DATA_MISSING": 496
  },
- "after_one_page_per_name_per_city": 1161826,
- "after_one_page_per_wikidata_item": 1160340,
- "after_cannibalization_filtering": 659920,
- "after_the_parent_survival_check": 655057,
- "FINAL_DISTINCT_CANDIDATES": 655057,
+ "after_one_page_per_name_per_city": 1167038,
+ "after_one_page_per_wikidata_item": 1165552,
+ "after_cannibalization_filtering": 665132,
+ "after_the_parent_survival_check": 660269,
+ "FINAL_DISTINCT_CANDIDATES": 660269,
  "target": 1000000,
- "shortfall_to_1m": 344943,
+ "shortfall_to_1m": 339731,
  "rejected_by_quality_gates": 838412,
  "dropped_no_demand_evidence": 35412,
  "cities_added_by_measured_demand_over_tier": 27390,
@@ -114,7 +114,7 @@
   "sport.route"
  ],
  "by_source_status": {
-  "SOURCE_AVAILABLE": 531749,
+  "SOURCE_AVAILABLE": 536961,
   "READY_NOW": 29886,
   "FEED_REQUIRED": 17131,
   "LICENCE_REQUIRED": 76291
@@ -132,6 +132,7 @@
   "stay": 68002,
   "tools": 1594,
   "travel": 226,
+  "heritage": 5212,
   "poi": 3062,
   "safety": 1136,
   "sport": 1016
@@ -139,7 +140,7 @@
  "by_market": {
   "de-DE": 105750,
   "en-AU": 8445,
-  "en-GB": 62393,
+  "en-GB": 67605,
   "en-US": 131490,
   "ja-JP": 42071,
   "tr-TR": 13553,
@@ -180,6 +181,7 @@
   "outdoor_feature": 45048,
   "transport_hub": 964,
   "city_sport": 155,
+  "listed_building": 5212,
   "poi": 3062,
   "city_attribute": 3196,
   "area_attribute": 5620,
@@ -189,7 +191,7 @@
   "area_cuisine": 22348,
   "venue": 4786
  },
- "distinct_families": 225,
+ "distinct_families": 226,
  "entity_pools_available": {
   "cities": 56317,
   "countries": 249,

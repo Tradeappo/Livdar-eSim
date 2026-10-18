@@ -1544,7 +1544,14 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # article from a search engine, above a floor calibrated on the outdoor_feature
              # rows this manifest already holds. The Wikidata-item dedupe below is what keeps
              # a lake that is already in the OpenStreetMap layer from becoming a second page.
-             ROOT + 'data/atlas/sources/wikidata/_water-feature-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/wikidata/_water-feature-candidates.jsonl.gz',
+             # Listed buildings in England, built 2026-10-18. The register is 379,685
+             # entries and this is 5,593 of them: the ones whose English Wikipedia
+             # article is READ, at or above the same entity floor the water layer
+             # cleared. Every row carries its Wikidata item, so the one-page-per-item
+             # dedupe below refuses a second page where the outdoor layer already pages
+             # the same castle or abbey.
+             ROOT + 'data/atlas/sources/heritage/_listed-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1570,6 +1577,13 @@ SHAPE_SERP = {
     'pulse_long_weekends': 'OPEN_SPECIALIST_PAGE_WINS',
     'pulse_bridge_plan': 'OPEN_SPECIALIST_PAGE_WINS',
     'airport_parking': 'OPEN_SPECIALIST_PAGE_WINS',
+    # NO SERP WAS SAMPLED for listed buildings, so the conservative archetype is used
+    # rather than the open one the other entity families carry. The honest reading of
+    # this SERP is that Historic England's own record and Wikipedia both rank: the
+    # official record is brand-owned, but Wikipedia is a third party, which is the
+    # difference between this and the hospital and university classes this project
+    # refuses outright. Scored as mixed until somebody reads an actual SERP.
+    'heritage_listed_building': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'transport_pair_transit': 'OPEN_SPECIALIST_PAGE_WINS',
     # Measured 2026-10-08, ahrefs-expiry/transport-hub-intent-2026-10-08.json. The
     # departures form is held by operator and timetable sites, not by a knowledge card.
@@ -1719,6 +1733,11 @@ SHAPE_WIRING = {
     # rows carrying a place were airport and cruise terminals. So the family is admitted at
     # exactly the cut the measurement supports and no wider.
     'airport_parking': ('transport', 'ENTITY', 'airport_parking', 52),
+    # 48, below every family whose demand was measured per entity, because this one's
+    # per-entity evidence is READERSHIP rather than a keyword volume and its SERP is
+    # unsampled. The readership is a real count and it is the admission test; it is not
+    # a volume, and the score says so.
+    'heritage_listed_building': ('heritage', 'ENTITY', 'listed_building', 48),
     # GTFS settlement pairs. Scored 54, ABOVE the 50 air pairs and the 46 rail pairs, and this
     # is the one place in this table where a pair family earns more than the measured family
     # ceiling would suggest. The reason is information gain rather than demand: the air pairs
@@ -1770,6 +1789,10 @@ SHAPE_LICENCE = {
     'pulse_bridge_plan': (
         'Derived from the public holiday registers: OpenHolidays (ODbL 1.0), GOV.UK (OGL v3.0)',
         'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
+    'heritage_listed_building': (
+        'National Heritage List for England, Historic England (Open Government Licence '
+        'v3.0, attribution required), joined to Wikidata (CC0 1.0) and the Wikimedia '
+        'clickstream (CC0 1.0)', 'OGL_V3_ATTRIBUTION_REQUIRED'),
     'airport_parking': ('OurAirports (public domain) with OpenStreetMap named car parks '
                         '(ODbL 1.0, share-alike, attribution required)',
                         'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
@@ -1792,6 +1815,7 @@ SHAPE_RECORD_PREFIX = {
     'pulse_country_holidays': 'pulse-holidays:', 'pulse_subdivision_holidays': 'pulse-holreg:',
     'pulse_school_holidays': 'pulse-school:', 'pulse_long_weekends': 'pulse-lw:',
     'pulse_bridge_plan': 'pulse-bplan:', 'airport_parking': 'apark-osm:',
+    'heritage_listed_building': 'heritage-nhle:',
     'transport_pair_transit': 'transport-gtfs:',
     'transport_hub_node': 'transport-gtfs-hub:',
 }
@@ -1964,6 +1988,15 @@ for a in agg:
         # answers thirty. enriched is the number of independent feeds that evidence the node.
         q = min(100, 40 + min(25, a.get('destination_settlements') or 0) * 2
                 + min(15, a.get('enriched') or 0) * 3)
+    elif shape == 'heritage_listed_building':
+        fid = 'heritage.listed-building'
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"what {ename} is and why it is listed: its grade, when it was "
+                  f"listed and where it stands")
+        # the readership IS the evidence this family rests on, so it is what scores it,
+        # capped so one famous building cannot drag the whole family's score upward
+        q = min(100, 45 + min(30, int(a.get('search_readership') or 0) // 20) * 2)
     elif shape == 'airport_parking':
         fid = 'transport.airport-parking'
         eid = str(a['entity_id'])
