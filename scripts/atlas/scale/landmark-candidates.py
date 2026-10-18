@@ -57,7 +57,7 @@ sells travel connectivity the foreign entity is if anything the more relevant of
 funnel reports the home and destination split so this can be reversed on one number if the
 judgement is thought wrong.
 
-Usage: landmark-candidates.py [--facts PATH] [--out PATH]
+Usage: landmark-candidates.py [--facts GLOB] [--out PATH]
 Reads  data/atlas/sources/wikidata/landmark/*.jsonl.gz
        data/atlas/sources/wikidata/landmark/_language.jsonl.gz, the page language per item
        data/atlas/sources/wikidata/landmark/_facts-<lang>.jsonl.gz, one per page language
@@ -257,6 +257,17 @@ def strip_disambiguator(title):
     return t
 
 
+def article(word):
+    """"a" or "an", read off the word that follows it.
+
+    The heritage layer shipped 2,147 rows reading "a island" before this was noticed there,
+    and this family has eight classes starting with a vowel - airport, aquarium, amusement
+    park, archaeological site, art museum, island - so the same sentence would have read
+    "is a art museum" on every one of them.
+    """
+    return 'an' if (word or ' ')[0].lower() in 'aeiou' else 'a'
+
+
 def percentile(values, p):
     if not values:
         return None
@@ -271,6 +282,7 @@ def percentile(values, p):
 def main():
     args = sys.argv[1:]
     out_path = args[args.index('--out') + 1] if '--out' in args else OUT
+    facts_glob = args[args.index('--facts') + 1] if '--facts' in args else FACTS_GLOB
 
     iso = json.load(open(ISO))['iso']
     country_name = json.load(open(ISO)).get('labels') or {}
@@ -284,7 +296,7 @@ def main():
         chosen[d['qid']] = d
 
     facts = {}
-    for fp in sorted(glob.glob(FACTS_GLOB)):
+    for fp in sorted(glob.glob(facts_glob)):
         for l in gzip.open(fp, 'rt', encoding='utf-8'):
             d = json.loads(l)
             facts[d['qid']] = d
@@ -347,6 +359,14 @@ def main():
         if qid in paged:
             rej['another_surface_already_pages_this_wikidata_item'] += 1
             continue
+        # The readership test comes before the facts test because the facts were only ever
+        # FETCHED for the items that passed it. Asking about the facts first would report
+        # 289,731 unread items as "no fact record", which is true and is not the reason they
+        # are not here.
+        ch = chosen.get(qid)
+        if ch is None:
+            rej['no_edition_reads_ten_a_month_the_lowest_reading_that_exists'] += 1
+            continue
         rec = facts.get(qid)
         if rec is None:
             rej['no_fact_record_was_fetched_for_this_item'] += 1
@@ -360,10 +380,6 @@ def main():
         parents = items.get('located_in') or []
         if not parents:
             rej['wikidata_states_no_containing_administrative_area'] += 1
-            continue
-        ch = chosen.get(qid)
-        if ch is None:
-            rej['no_edition_reads_ten_a_month_the_lowest_reading_that_exists'] += 1
             continue
         best_lang = ch['lang']
         if best_lang not in e['titles']:
@@ -387,8 +403,18 @@ def main():
     demand_facts = [len(p) for (_q, _e, _r, _cc, _cq, _pa, _rd, _bl, p, _qn, _am, ch) in ready
                     if ch['clears_floor']]
     bar = int(math.ceil(percentile(demand_facts, 75) or 4))
+    median_bar = int(math.ceil(percentile(demand_facts, 50) or 3))
     print('demand route admits %d; its 75th-percentile fact count is %d, which is the '
-          'utility bar' % (len(demand_facts), bar), file=sys.stderr)
+          'utility bar; its median is %d'
+          % (len(demand_facts), bar, median_bar), file=sys.stderr)
+    # Counted, not applied. The bar is set at the 75th percentile deliberately: a page
+    # admitted on substance rather than on readers ought to be MORE substantial than the
+    # ones admitted on readers, not merely typical. Setting it at the median would be a
+    # defensible second reading of the same rule and it is a different number of pages, so
+    # the difference is reported rather than left as an opinion about how many were missed.
+    would_add_at_median = sum(
+        1 for (_q, _e, _r, _cc, _cq, _pa, _rd, _bl, p_, qn, _am, ch) in ready
+        if not ch['clears_floor'] and qn >= 1 and median_bar <= len(p_) < bar)
 
     rows = []
     by_route = collections.Counter()
@@ -425,10 +451,10 @@ def main():
                  '%s, with %d printable facts against a bar of %d taken from the 75th '
                  'percentile of the rows admitted on readership alone'
                  % (reads[bl], bl, floor if floor else 'that language', len(phrases), bar))
-        reason = ('%s is a %s %s. Wikidata states %d facts about it that this page prints '
+        reason = ('%s is %s %s %s. Wikidata states %d facts about it that this page prints '
                   '(%s). Admitted on %s: %s.'
-                  % (name, cls_words, where, len(phrases), ', '.join(phrases),
-                     route.lower(), basis))
+                  % (name, article(cls_words), cls_words, where, len(phrases),
+                     ', '.join(phrases), route.lower(), basis))
         for lg in e['titles']:
             if lg != bl and MKT_OF_LANG.get(lg):
                 languages_not_taken[lg] += 1
@@ -489,6 +515,12 @@ def main():
         'by_language': dict(by_lang.most_common()),
         'by_country': dict(by_cc.most_common(40)),
         'utility_substance_bar': bar,
+        'utility_bar_at_the_median_instead': median_bar,
+        'rows_a_median_substance_bar_would_add': would_add_at_median,
+        'why_the_bar_is_the_75th_and_not_the_median': (
+            'a page admitted on what it can say rather than on who reads it should say MORE '
+            'than the pages admitted on readers, not the same amount. The median reading is '
+            'defensible and is counted here rather than argued about.'),
         'utility_bar_basis': ('the 75th percentile of the printable-fact count among the '
                               '%d rows admitted on readership alone in this same run'
                               % len(demand_facts)),

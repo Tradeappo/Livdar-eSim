@@ -9,6 +9,6 @@ for f in "$SRC"/_qids-*.txt; do
   lang=$(basename "$f" .txt); lang=${lang#_qids-}
   echo "=== $lang: $(wc -l < "$f") ids"
   python3 "$ROOT/scripts/atlas/ingest/wikidata-landmark-facts.py" \
-    --qids "$f" --out "$SRC/_facts-$lang.jsonl.gz" --lang "$lang" --batch 2000
+    --qids "$f" --out "$SRC/_facts-$lang.jsonl.gz" --lang "$lang" --batch 4000
 done
 echo "all languages done"

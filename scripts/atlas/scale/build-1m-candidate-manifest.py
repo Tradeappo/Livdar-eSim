@@ -2108,6 +2108,13 @@ for a in agg:
         # country for a domestic pair; a heading that has to tell Lubin in Germany from Lubin
         # in Poland cannot be built from that.
         'destination_country': a.get('destination_country') or '',
+        # The per-entity readership evidence, carried for the localisation gate below and
+        # transient like _qid: the writers select FIELDS with extrasaction='ignore'. The
+        # LANGUAGE is carried with it because a reading in one language says nothing about
+        # a page in another, and a gate that forgot to check would be worse than no gate.
+        '_entity_readership': int(a.get('search_readership') or 0),
+        '_entity_readership_floor': int(a.get('search_readership_floor') or 0),
+        '_entity_readership_language': a.get('language') or '',
         'url_pattern': a['url'], 'market': m, 'language': lang,
         'surface': surface, 'family': fid, 'vertical': 'discovery', 'page_type': ptype,
         'entity_type': etype, 'entity_id': eid, 'entity_name': ename,
@@ -2895,6 +2902,39 @@ for r in stage2:
         cls = 'NATIVE_LOCALE'
         reason = (f'the page is written in {lang}, the language of {r["country"]}, the '
                   f'country it describes, so no cross-language justification is needed')
+    elif (r.get('_entity_readership_floor')
+          and r.get('_entity_readership_language') == lang
+          and r['_entity_readership'] >= r['_entity_readership_floor']):
+        # THIS IS THE GATE'S OWN QUESTION, ANSWERED ONE GRAIN FINER, and it is the reason
+        # this branch is not a hole in it.
+        #
+        # What the gate asks of a cross-language page is whether this DESTINATION, and not
+        # merely this family, is something this market searches for in this language. For
+        # every family that reaches it the only available answer is a keyword measured for
+        # the family in the market plus a mark on the destination city, which is why the
+        # branch below refuses a German hotel page for a city no German was measured
+        # searching for.
+        #
+        # A row arriving here carries a better answer about itself: a count of people who
+        # typed something into a search engine, saw this entity's article in THIS language,
+        # and clicked it, measured against a floor calibrated on the entities this inventory
+        # already publishes. That is the destination, in the language, with a number - not
+        # the family in the market with a mark on the city. A German page about a Swiss
+        # abbey read by 206 German searchers a month is not a translation of anything; it is
+        # the page those 206 people were looking for.
+        #
+        # Three conditions, and all three are necessary. There must be a FLOOR, so an entity
+        # in a language this project never calibrated cannot slip through on a bare count.
+        # The reading must be in the PAGE's language, because a reading in another says
+        # nothing here. And it must be AT OR ABOVE that floor: a row admitted on substance
+        # with a sub-floor reading does not get this branch, which is why the landmark
+        # layer's utility route cannot reach it.
+        cls = 'VALID_LOCALIZATION'
+        reason = (f'{r["_entity_readership"]:,} people a month reached this entity\'s {lang} '
+                  f'article from a search engine, against a floor of '
+                  f'{r["_entity_readership_floor"]} calibrated on the entities this '
+                  f'inventory already publishes, so this destination has its own measured '
+                  f'{lang} demand rather than a family measurement borrowed from elsewhere')
     elif r.get('market_demand_evidence') == 'measured_in_this_market' and top_vol > 0 \
             and dest_evidence(r, top_kw):
         cls = 'VALID_LOCALIZATION'

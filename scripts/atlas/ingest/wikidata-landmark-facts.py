@@ -43,18 +43,22 @@ import wd_sparql as W                                                     # noqa
 import entity_identity                                                    # noqa: E402
 
 # property, key, the SI unit Wikidata normalises it to
+# EVERY PROPERTY HERE IS ONE THE BUILDER PRINTS. The first draft also fetched duration,
+# attendance, religion, named after and sport, which landmark-candidates.py lists under
+# NOT_PRINTED because no phrasing renders them without guessing at a relationship. Five
+# properties nothing reads cost five more OPTIONAL blocks on every query of a 322,072-item
+# fetch, and the English pass was running at nine items a second when they came out.
 DIMENSIONED = [('P2048', 'height', 'metre'), ('P2046', 'area', 'square metre'),
                ('P2043', 'length', 'metre'), ('P2044', 'elevation', 'metre'),
                ('P2049', 'width', 'metre'), ('P4511', 'vertical_depth', 'metre'),
-               ('P2047', 'duration', 'second'), ('P2386', 'diameter', 'metre')]
+               ('P2386', 'diameter', 'metre')]
 COUNTED = [('P1101', 'floors'), ('P1083', 'capacity'), ('P2196', 'students'),
            ('P1128', 'employees'), ('P6801', 'beds'), ('P1174', 'visitors_per_year'),
-           ('P1436', 'collection_size'), ('P1110', 'attendance')]
+           ('P1436', 'collection_size')]
 DATED = [('P571', 'inception'), ('P1619', 'opened')]
 ITEM_VALUED = [('P84', 'architect'), ('P149', 'architectural_style'),
-               ('P137', 'operator'), ('P186', 'material'), ('P140', 'religion'),
-               ('P1435', 'heritage_status'), ('P131', 'located_in'), ('P17', 'country'),
-               ('P138', 'named_after'), ('P641', 'sport')]
+               ('P137', 'operator'), ('P186', 'material'),
+               ('P1435', 'heritage_status'), ('P131', 'located_in'), ('P17', 'country')]
 PLAIN = [('P856', 'website')]
 
 # The unit items Wikidata normalises to, by label. Read from the IRI rather than asked for,
@@ -74,11 +78,18 @@ def build_query(qids, lang):
         sel.append('?%s' % k)
         opt.append('  OPTIONAL { ?item wdt:%s ?%s . }' % (p, k))
     for p, k in ITEM_VALUED:
-        sel += ['?%s_item' % k, '?%s' % k, '?%s_en' % k]
-        opt.append('  OPTIONAL { ?item wdt:%s ?%s_item .\n'
-                   '    OPTIONAL { ?%s_item rdfs:label ?%s . FILTER(LANG(?%s) = "%s") }\n'
-                   '    OPTIONAL { ?%s_item rdfs:label ?%s_en . FILTER(LANG(?%s_en) = "en") } }'
-                   % (p, k, k, k, k, lang, k, k, k))
+        # The English fallback is a SECOND label lookup, and when the page language already
+        # IS English it is the same lookup twice. Asking once there is not a micro-
+        # optimisation: it removes seven duplicate OPTIONAL blocks from the largest
+        # language's query, which is the one that was running slowest.
+        sel += ['?%s_item' % k, '?%s' % k]
+        inner = ('    OPTIONAL { ?%s_item rdfs:label ?%s . FILTER(LANG(?%s) = "%s") }'
+                 % (k, k, k, lang))
+        if lang != 'en':
+            sel.append('?%s_en' % k)
+            inner += ('\n    OPTIONAL { ?%s_item rdfs:label ?%s_en . '
+                      'FILTER(LANG(?%s_en) = "en") }' % (k, k, k))
+        opt.append('  OPTIONAL { ?item wdt:%s ?%s_item .\n%s }' % (p, k, inner))
     return W.PREFIXES + 'SELECT %s WHERE {\n  VALUES ?item { %s }\n%s\n}' % (
         ' '.join(sel), vals, '\n'.join(opt))
 
@@ -118,11 +129,20 @@ def main():
 
     done = set()
     if os.path.exists(out):
-        for l in gzip.open(out, 'rt', encoding='utf-8'):
-            try:
-                done.add(json.loads(l)['qid'])
-            except Exception:
-                pass
+        # A run stopped mid-write leaves the last gzip member unterminated, and reading it
+        # raises rather than returning the complete members in front of it. That is exactly
+        # the file a resume is for, so the read tolerates it and the ids it did recover are
+        # still skipped. Anything after the break is re-fetched, which costs a query and
+        # cannot lose a row.
+        try:
+            for l in gzip.open(out, 'rt', encoding='utf-8'):
+                try:
+                    done.add(json.loads(l)['qid'])
+                except Exception:
+                    pass
+        except (EOFError, OSError) as e:
+            print('  %s ends mid-record (%s); resuming from the %d complete ones'
+                  % (out, type(e).__name__, len(done)), flush=True)
         print('%d already in %s, resuming' % (len(done), out), flush=True)
     todo = [q for q in ok if q not in done]
 
@@ -179,7 +199,11 @@ def main():
                 if e['facts'] or e['items']:
                     stats['entities_with_something'] += 1
                 fh.write(json.dumps(e, ensure_ascii=False) + '\n')
-            if (i // batch) % 25 == 0:
+            # Every five batches, not every twenty-five. At a batch of 2,000 the old
+            # interval flushed once per 50,000 ids, so a run of 150,759 printed one progress
+            # line in its first forty minutes and the output file's size said nothing about
+            # how far along it was. A gzip flush costs a few bytes of framing.
+            if (i // batch) % 5 == 0:
                 fh.flush()
                 print('  %d/%d  %.0fs' % (i + len(chunk), len(todo), time.time() - t0),
                       flush=True)
