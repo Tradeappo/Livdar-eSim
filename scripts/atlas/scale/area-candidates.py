@@ -33,8 +33,16 @@ the class label test looked for "country" at the start of a label and Wikidata's
 for Hungary is not that. The rule is now structural: an item with no stated P131 is not
 inside anything, and nothing that is not inside anything gets a page from this file.
 
-Usage: area-candidates.py [--min-children 5] [--min-extra-facts 2]
-Reads  data/atlas/sources/wikidata/admin/items.jsonl.gz and its _language and _facts files
+A SECOND DIRECTORY, THE SAME CONTRACT. --src points this at any capture directory that
+carries its own _language, _facts-*, _class-qids.json and _class-test.json, which is how the
+class-census tail is built: 758 tail classes sit at a named administrative level, and they
+answer to this file's three tests rather than the landmark file's two. Only the paths move.
+The level test is the one thing that had to get finer to make that safe - see
+wikidata-class-level-test.py, where testing against the generic administrative root called
+airbases, barracks and observation towers administrative areas.
+
+Usage: area-candidates.py [--min-children 5] [--min-extra-facts 2] [--src DIR] [--tag NAME]
+Reads  <DIR>/items.jsonl.gz (default admin/) and its _language and _facts files
        data/atlas/sources/wikidata/landmark/_containment-chain.jsonl.gz
        data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz
        data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz
@@ -107,30 +115,55 @@ def main():
     min_kids = int(args[args.index('--min-children') + 1]) if '--min-children' in args else 5
     min_extra = (int(args[args.index('--min-extra-facts') + 1])
                  if '--min-extra-facts' in args else 2)
+    src = args[args.index('--src') + 1] if '--src' in args else SRC
+    if not src.endswith('/'):
+        src += '/'
+    tag = (args[args.index('--tag') + 1] if '--tag' in args
+           else ('' if os.path.abspath(src) == os.path.abspath(SRC)
+                 else os.path.basename(src.rstrip('/'))))
+    # A second contract over a directory that already serves another one, so the sidecars
+    # carry this contract's name: landmark/_class-*.json would collide with nothing today
+    # and with the landmark capture's own bookkeeping tomorrow.
+    classq = src + '_area-class-qids.json' if tag else CLASSQ
+    adminq = src + '_area-class-test.json' if tag else ADMINQ
+    clslab = src + '_area-class-labels.json'
+    out = (ROOT + 'data/atlas/sources/wikidata/_area-%s-candidates.jsonl.gz' % tag
+           if tag else OUT)
+    funnel = (ROOT + 'data/atlas/sources/wikidata/_area-%s-funnel.json' % tag
+              if tag else FUNNEL)
 
     iso_doc = json.load(open(ISO))
     iso = iso_doc['iso']
     country_name, country_by_code = SE.country_names(iso_doc)
     chain = load_chain()
-    adminq = set(json.load(open(ADMINQ))['admin_classes'])
-    clsq = json.load(open(CLASSQ)) if os.path.exists(CLASSQ) else {}
+    admin_classes = set(json.load(open(adminq))['admin_classes'])
+    clsq = json.load(open(classq)) if os.path.exists(classq) else {}
+    cls_label_of = json.load(open(clslab)) if os.path.exists(clslab) else {}
 
-    items = {}
-    for f in sorted(glob.glob(SRC + '*.jsonl.gz')):
+    # Only items whose class is in the index are read. Everything else would be refused by
+    # the class test two lines into the loop anyway, and the directory this runs over the
+    # second time holds 1.3 million rows: reading them all to reject them costs several
+    # gigabytes of memory and answers nothing.
+    items, outside = {}, 0
+    for f in sorted(glob.glob(src + '*.jsonl.gz')):
         if os.path.basename(f).startswith('_'):
             continue
         for l in gzip.open(f, 'rt', encoding='utf-8'):
             d = json.loads(l)
+            if clsq and d['qid'] not in clsq:
+                outside += 1
+                continue
             items[d['qid']] = d
     chosen = {}
-    for l in gzip.open(SRC + '_language.jsonl.gz', 'rt', encoding='utf-8'):
+    for l in gzip.open(src + '_language.jsonl.gz', 'rt', encoding='utf-8'):
         d = json.loads(l)
         chosen[d['qid']] = d
     facts = {}
-    for fp in sorted(glob.glob(SRC + '_facts-*.jsonl.gz')):
+    for fp in sorted(glob.glob(src + '_facts-*.jsonl.gz')):
         for l in gzip.open(fp, 'rt', encoding='utf-8'):
             d = json.loads(l)
-            facts[d['qid']] = d
+            if d['qid'] in items:
+                facts[d['qid']] = d
 
     city_qids, city_titles = SE.city_pool()
     paged = SE.other_surfaces()
@@ -155,10 +188,18 @@ def main():
 
     for qid, it in sorted(items.items()):
         node = chain.get(qid) or {}
-        if not node.get('parents'):
+        # The containment chain was built from the parents of this inventory's landmarks, so
+        # a tail area nothing was yet known to be inside is absent from it. That is not
+        # evidence it is inside nothing: its own P131 is in the fact record, and the
+        # structural test asks for a stated containment from either.
+        rec0 = facts.get(qid) or {}
+        stated = (node.get('parents')
+                  or [p.get('qid') for p in
+                      ((rec0.get('items') or {}).get('located_in') or []) if p.get('qid')])
+        if not stated:
             rej['states_no_containing_area_so_it_is_not_inside_anything'] += 1
             continue
-        if not any(c in adminq for c in clsq.get(qid, [])):
+        if not any(c in admin_classes for c in clsq.get(qid, [])):
             rej['its_class_is_not_an_administrative_subdivision_of_any_level'] += 1
             continue
         if qid in paged or qid in city_qids:
@@ -213,7 +254,10 @@ def main():
             mkt, side = MKT_OF_LANG[lang], 'destination'
         parent = parents[0]
         cname = country_name.get(cq) or country_by_code.get(cc) or cc
-        cls_label = node.get('cls') or 'administrative area'
+        cls_label = (node.get('cls')
+                     or next((cls_label_of[c] for c in clsq.get(qid, [])
+                              if c in cls_label_of), None)
+                     or 'administrative area')
         cls_words = SE.class_phrase(cls_label, cname)
         cls_slug = slug(cls_label) or 'area'
         shown = uni + extra
@@ -258,18 +302,20 @@ def main():
         by_market[mkt] += 1
         by_side[side] += 1
 
-    tmp = OUT + '.tmp'
+    tmp = out + '.tmp'
     with gzip.open(tmp, 'wt', encoding='utf-8') as fh:
         for r in rows:
             fh.write(json.dumps(r, ensure_ascii=False) + '\n')
-    os.replace(tmp, OUT)
+    os.replace(tmp, out)
     json.dump({
         'built_on': '2026-10-19',
         'contract': ('all three of: clears the readership floor in its chosen language; at '
                      'least %d pages this inventory already builds sit inside it by P131 '
                      'within two levels; at least %d facts beyond population, area and '
                      'elevation' % (min_kids, min_extra)),
+        'source_directory': os.path.relpath(src, ROOT),
         'raw_supply_asked': len(items),
+        'items_in_the_directory_outside_the_admin_class_index': outside,
         'readership_qualified': read_ok,
         'child_qualified': kids_ok,
         'rejections': dict(rej.most_common()),
@@ -279,7 +325,7 @@ def main():
         'by_language': dict(by_lang.most_common()),
         'by_country': dict(by_cc.most_common(40)),
         'attribution': 'Wikidata CC0 1.0; Wikimedia clickstream CC0 1.0',
-    }, open(FUNNEL, 'w'), indent=1, ensure_ascii=False)
+    }, open(funnel, 'w'), indent=1, ensure_ascii=False)
     for k, v in rej.most_common():
         print('%-70s %8d' % (k, v), file=sys.stderr)
     print('rows emitted %d' % len(rows), file=sys.stderr)
