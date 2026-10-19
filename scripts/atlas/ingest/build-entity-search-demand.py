@@ -59,10 +59,11 @@ SITELINKS = [
 # floor measured with one instrument and applied to another is not a floor. Its titles come
 # from the Wikipedia sitelink itself rather than from a label, so an entity present here with
 # no title in an edition genuinely has no article there.
-SITELINKS += [(os.path.relpath(_p, ROOT), 'titles', True)
-              for _p in sorted(glob.glob(ROOT + 'data/atlas/sources/wikidata/landmark/'
-                                         '*.jsonl.gz'))
-              if not _p.endswith('_facts.jsonl.gz')]
+for _dir in ('landmark', 'settlement'):
+    SITELINKS += [(os.path.relpath(_p, ROOT), 'titles', True)
+                  for _p in sorted(glob.glob(ROOT + 'data/atlas/sources/wikidata/%s/'
+                                             '*.jsonl.gz' % _dir))
+                  if not os.path.basename(_p).startswith('_')]
 OUT = DIR + 'entity-search-demand.jsonl.gz'
 
 

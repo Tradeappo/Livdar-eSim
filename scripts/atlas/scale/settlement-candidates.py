@@ -1,0 +1,440 @@
+#!/usr/bin/env python3
+"""A page per Wikidata settlement, under a contract deliberately stricter than the landmarks'.
+
+WHY THIS FAMILY CANNOT INHERIT THE LANDMARK CONTRACT. The class census of 2026-10-19 found
+853,657 readable settlements against the 626,746 landmarks already captured, which makes
+this the largest reservoir left in the inventory. It is also the one place where every page
+would come out of the same sentence. A landmark page varies by construction: a cathedral
+states an architect and a style, a dam states a height and an operator, a glacier states an
+area and an elevation, and no two classes print the same shape. A settlement states
+population, area and elevation and then, usually, nothing. Fifty thousand pages reading
+"X is a commune in department Y with a population of N, an area of A and an elevation of E"
+are fifty thousand true pages and one page, and that is the city-name swapping this
+inventory refuses.
+
+So the universal triple does not earn a page here. It is printed when it is there and it
+counts for nothing. A settlement is admitted only when it clears the readership floor AND
+one of two things is true about what the page would actually carry:
+
+  EXTRA FACTS   two or more facts BEYOND population, area and elevation: when it was founded
+                or first written down, its postal codes, its mayor, its twin towns, its
+                highest point, its dialing codes, its official website, what it borders.
+                Two of those make the page say something the next village's page does not.
+
+  ATLAS INDEX   three or more entities this inventory ALREADY PAGES standing inside it, by
+                Wikidata's own P131 containment and not by distance to a centroid. A page
+                that indexes three attested landmarks is an index, whatever its own facts
+                say, and it is the page a reader looking for the village actually wants.
+
+Which route a row took is written on the row, and the funnel counts both.
+
+THE CITY POOL IS EXCLUDED THREE WAYS, because a second page for a place this inventory
+already pages is the failure this family is most likely to produce. By Wikidata item, from
+the 19,594 GeoNames cities whose item is known. By ARTICLE TITLE in the page's own language,
+from all three city sitelink captures, because an article title identifies a place within an
+edition exactly and covers the cities whose item is not recorded. And by the cross-surface
+item exclusion every other builder here uses.
+
+Usage: settlement-candidates.py [--min-extra-facts 2] [--min-atlas-entities 3]
+Reads  data/atlas/sources/wikidata/settlement/*.jsonl.gz
+       data/atlas/sources/wikidata/settlement/_language.jsonl.gz
+       data/atlas/sources/wikidata/settlement/_facts-<lang>.jsonl.gz
+       data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz, for the index route
+       data/atlas/sources/geonames/city-sitelinks.jsonl.gz and the two wikidata ones
+Writes data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz
+       data/atlas/sources/wikidata/_settlement-funnel.json
+"""
+import collections, glob, gzip, json, math, os, sys
+
+ROOT = '/home/user/Livdar-eSim/'
+sys.path.insert(0, ROOT + 'scripts/atlas/scale')
+import entity_identity                                                    # noqa: E402
+
+SRC = ROOT + 'data/atlas/sources/wikidata/settlement/'
+OUT = ROOT + 'data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz'
+FUNNEL = ROOT + 'data/atlas/sources/wikidata/_settlement-funnel.json'
+LANDMARKS = ROOT + 'data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz'
+ISO = ROOT + 'data/atlas/sources/wikidata/country-iso.json'
+
+slug = entity_identity.slugify
+LANG_MKT = entity_identity.LANG_MKT
+COUNTRY_MKT = entity_identity.COUNTRY_MKT
+MKT_OF_LANG = dict(LANG_MKT)
+MKT_OF_LANG['zh'] = LANG_MKT.get('zh-Hant')
+
+# Printed when present, and counts for NOTHING toward the bar. This tuple is the whole of
+# the difference between this family's contract and the landmark one.
+UNIVERSAL = ('population', 'area', 'elevation')
+
+QUANTITY = {'area': ('an area of %s', 'square metre'),
+            'elevation': ('%s above sea level', 'metre'),
+            'height': ('%s high', 'metre')}
+COUNT = {'population': 'a population of %s', 'households': '%s households'}
+YEAR = {'inception': 'founded in %s', 'earliest_written_record': 'first written down in %s'}
+ATTRIBUTE = {'head_of_government': 'led by %s', 'twinned_with': 'twinned with %s',
+             'highest_point': 'its highest point %s', 'named_after': 'named after %s',
+             'shares_border_with': 'bordering %s'}
+CODES = {'postal_code': 'postal code %s', 'dialing_code': 'dialing code %s',
+         'licence_plate_code': 'licence plate code %s'}
+
+
+def one(vals):
+    return vals[0] if vals and len(vals) == 1 else None
+
+
+def metres(v):
+    f = float(v)
+    return '%.1f km' % (f / 1000.0) if f >= 1000 else '%d m' % round(f)
+
+
+def square_metres(v):
+    f = float(v)
+    if f >= 1_000_000:
+        return '%.1f km2' % (f / 1_000_000.0)
+    if f >= 10_000:
+        return '%d hectares' % round(f / 10_000.0)
+    return '%d m2' % round(f)
+
+
+def count_str(v):
+    return '{:,}'.format(int(round(float(v))))
+
+
+def year_of(iso_date):
+    s = str(iso_date or '')
+    neg = s.startswith('-')
+    head = s.lstrip('-').split('-', 1)[0]
+    if not head.isdigit():
+        return None
+    y = int(head)
+    if y == 0 or y > 2100:
+        return None
+    return '%d BC' % y if neg else str(y)
+
+
+def printable(rec):
+    """(universal phrases, extra phrases). The split IS the contract."""
+    uni, extra = [], []
+    f = rec.get('facts') or {}
+    items = rec.get('items') or {}
+    for k, (phrase, unit) in QUANTITY.items():
+        vals = [v for v in (f.get(k) or []) if v.get('unit') == unit]
+        v = one(vals)
+        if v is None:
+            continue
+        txt = square_metres(v['amount']) if unit == 'square metre' else metres(v['amount'])
+        (uni if k in UNIVERSAL else extra).append(phrase % txt)
+    for k, phrase in COUNT.items():
+        v = one(f.get(k) or [])
+        if v is None:
+            continue
+        try:
+            (uni if k in UNIVERSAL else extra).append(phrase % count_str(v['count']))
+        except (TypeError, ValueError):
+            pass
+    for k, phrase in YEAR.items():
+        v = one(f.get(k) or [])
+        if v is None:
+            continue
+        y = year_of(v.get('date'))
+        if y:
+            extra.append(phrase % y)
+    for k, phrase in ATTRIBUTE.items():
+        names = [x['label'] for x in (items.get(k) or [])[:3] if x.get('label')]
+        if names:
+            extra.append(phrase % ' and '.join(names))
+    for k, phrase in CODES.items():
+        vals = sorted({x['text'] for x in (f.get(k) or []) if x.get('text')})
+        if vals:
+            extra.append(phrase % ', '.join(vals[:4]))
+    if one(f.get('website') or []):
+        extra.append('an official website')
+    return uni, extra
+
+
+def city_pool():
+    """Everything the city layer already pages: items, and (language, article title) pairs.
+
+    The title half is not a convenience. Only 19,594 of the GeoNames cities in the pool
+    carry a Wikidata item in this project's captures, while 66,000 rows across the three
+    sitelink files carry article titles. An article title identifies a place within an
+    edition exactly, so the title match covers the cities the item match cannot see.
+    """
+    qids, titles = set(), set()
+    for rel in ('data/atlas/sources/geonames/city-sitelinks.jsonl.gz',
+                'data/atlas/sources/wikidata/city-sitelinks-from-wikidata.jsonl.gz',
+                'data/atlas/sources/wikidata/city-sitelinks-via-municipality.jsonl.gz'):
+        try:
+            for l in gzip.open(ROOT + rel, 'rt', encoding='utf-8'):
+                d = json.loads(l)
+                if d.get('qid'):
+                    qids.add(d['qid'])
+                for lg, t in (d.get('wikipedia_languages') or {}).items():
+                    if t:
+                        titles.add((lg, t))
+        except (EOFError, OSError, FileNotFoundError):
+            pass
+    return qids, titles
+
+
+def other_surfaces():
+    seen = set()
+    for rel in ('data/atlas/sources/osm-outdoor/_feature-candidates.jsonl.gz',
+                'data/atlas/sources/osm-trails/_trail-candidates.jsonl.gz',
+                'data/atlas/sources/osm-parents/_region-aggregations.jsonl.gz',
+                'data/atlas/sources/wikidata/_water-feature-candidates.jsonl.gz',
+                'data/atlas/sources/heritage/_listed-candidates.jsonl.gz',
+                'data/atlas/sources/wikidata/_candidates.jsonl.gz',
+                'data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz'):
+        try:
+            for l in gzip.open(ROOT + rel, 'rt', encoding='utf-8'):
+                d = json.loads(l)
+                q = d.get('qid') or (d.get('entity_id') if str(d.get('entity_id', ''))
+                                     .startswith('Q') else None)
+                if q:
+                    seen.add(q)
+        except (EOFError, OSError, FileNotFoundError):
+            pass
+    return seen
+
+
+def atlas_entities_by_parent():
+    """How many admitted Atlas pages stand inside each settlement, by P131 containment.
+
+    Containment Wikidata states, never distance to a centroid: the outdoor layer learned
+    that the hard way and the rule is the same here.
+    """
+    per = collections.Counter()
+    names = {}
+    try:
+        for l in gzip.open(LANDMARKS, 'rt', encoding='utf-8'):
+            d = json.loads(l)
+            if d.get('parent_id'):
+                per[d['parent_id']] += 1
+                names.setdefault(d['parent_id'], []).append(d['entity_name'])
+    except (EOFError, OSError, FileNotFoundError):
+        pass
+    return per, names
+
+
+def strip_disambiguator(title):
+    t = (title or '').strip()
+    if t.endswith(')') and ' (' in t:
+        head = t[:t.rindex(' (')].strip()
+        if len(head) >= 3:
+            return head
+    return t
+
+
+def article(word):
+    return 'an' if (word or ' ')[0].lower() in 'aeiou' else 'a'
+
+
+def main():
+    args = sys.argv[1:]
+    min_extra = (int(args[args.index('--min-extra-facts') + 1])
+                 if '--min-extra-facts' in args else 2)
+    min_atlas = (int(args[args.index('--min-atlas-entities') + 1])
+                 if '--min-atlas-entities' in args else 3)
+
+    iso_doc = json.load(open(ISO))
+    iso = iso_doc['iso']
+    country_name = iso_doc.get('labels') or {}
+
+    chosen = {}
+    for l in gzip.open(SRC + '_language.jsonl.gz', 'rt', encoding='utf-8'):
+        d = json.loads(l)
+        chosen[d['qid']] = d
+    facts = {}
+    for fp in sorted(glob.glob(SRC + '_facts-*.jsonl.gz')):
+        for l in gzip.open(fp, 'rt', encoding='utf-8'):
+            d = json.loads(l)
+            facts[d['qid']] = d
+
+    size, ent, folded = {}, {}, collections.Counter()
+    for f in sorted(glob.glob(SRC + '*.jsonl.gz')):
+        if os.path.basename(f).startswith('_'):
+            continue
+        rows = [json.loads(l) for l in gzip.open(f, 'rt', encoding='utf-8') if l.strip()]
+        size[os.path.basename(f)[:-9]] = len(rows)
+        for d in rows:
+            prev = ent.get(d['qid'])
+            if prev is None:
+                ent[d['qid']] = d
+                continue
+            a, b = prev['cls'], d['cls']
+            keep = min((size.get(a, 10 ** 9), a), (size.get(b, 10 ** 9), b))[1]
+            folded[(a if keep == b else b)] += 1
+            ent[d['qid']] = d if keep == b else prev
+
+    city_qids, city_titles = city_pool()
+    paged = other_surfaces()
+    inside, inside_names = atlas_entities_by_parent()
+    print('%d classes, %d distinct settlements, %d second classes folded; city pool %d items '
+          'and %d titles; %d items paged elsewhere; %d areas hold an admitted Atlas page'
+          % (len(size), len(ent), sum(folded.values()), len(city_qids), len(city_titles),
+             len(paged), len(inside)), file=sys.stderr)
+
+    rej = collections.Counter()
+    rows = []
+    by_route = collections.Counter()
+    by_cls = collections.Counter()
+    by_lang = collections.Counter()
+    by_cc = collections.Counter()
+    by_market = collections.Counter()
+    by_side = collections.Counter()
+    sig_seen = {}
+    read_ok = fact_ok = index_ok = 0
+
+    for qid, e in sorted(ent.items()):
+        if qid in city_qids or qid in paged:
+            rej['this_place_already_has_a_page_on_another_surface'] += 1
+            continue
+        ch = chosen.get(qid)
+        if ch is None:
+            rej['no_edition_reads_ten_a_month_the_lowest_reading_that_exists'] += 1
+            continue
+        lang = ch['lang']
+        title = e['titles'].get(lang)
+        if not title:
+            rej['the_chosen_edition_has_no_title_in_this_capture'] += 1
+            continue
+        if (lang, title) in city_titles:
+            rej['the_city_layer_already_pages_this_article'] += 1
+            continue
+        if not ch['clears_floor']:
+            # Condition one of the contract, and it is a floor rather than a route: a
+            # settlement nobody looks up is not rescued by having a mayor on record.
+            rej['reads_below_the_calibrated_floor_for_its_language'] += 1
+            continue
+        read_ok += 1
+        rec = facts.get(qid)
+        if rec is None:
+            rej['no_fact_record_was_fetched_for_this_item'] += 1
+            continue
+        items = rec.get('items') or {}
+        cq = (items.get('country') or [{}])[0].get('qid')
+        cc = iso.get(cq or '')
+        if not cc:
+            rej['no_country_stated_or_its_qid_carries_no_iso_code'] += 1
+            continue
+        name = strip_disambiguator(title)
+        parents = [p for p in (items.get('located_in') or [])
+                   if (p.get('label') or '').strip().lower() != name.strip().lower()]
+        if not parents:
+            rej['wikidata_states_no_containing_area_other_than_the_place_itself'] += 1
+            continue
+        uni, extra = printable(rec)
+        n_inside = inside.get(qid, 0)
+        if len(extra) >= min_extra:
+            route = 'EXTRA_FACTS'
+            fact_ok += 1
+        elif n_inside >= min_atlas:
+            route = 'ATLAS_INDEX'
+            index_ok += 1
+        else:
+            rej['fewer_than_%d_facts_beyond_population_area_and_elevation_and_fewer_than_'
+                '%d_atlas_pages_inside_it' % (min_extra, min_atlas)] += 1
+            continue
+
+        home = COUNTRY_MKT.get(cc)
+        if home and home[1] == lang:
+            mkt, side = home[0], 'home'
+        else:
+            mkt, side = MKT_OF_LANG[lang], 'destination'
+        parent = parents[0]
+        cls_words = e['cls'].replace('_', ' ')
+        cname = country_name.get(cq) or cc
+        shown = uni + extra
+        if n_inside:
+            shown = shown + ['%d place%s this inventory pages standing in it'
+                             % (n_inside, '' if n_inside == 1 else 's')]
+        # Content only, and the settlement's own name deliberately left out: a signature
+        # that contains the thing being compared can never report a duplicate, which is how
+        # 8,270 colliding climate pages all carried a LOW duplicate risk.
+        sig = '|'.join([e['cls'], parent['qid'], str(n_inside)] + sorted(shown))
+        if sig in sig_seen:
+            rej['another_settlement_in_the_same_area_states_exactly_the_same_things'] += 1
+            continue
+        sig_seen[sig] = qid
+        basis = ('%d search-referred readers a month for its %s article against a floor of '
+                 '%d, and %s'
+                 % (ch['reads'], lang, ch['floor'],
+                    '%d facts beyond population, area and elevation (%s)'
+                    % (len(extra), ', '.join(extra)) if route == 'EXTRA_FACTS' else
+                    '%d places this inventory already pages standing inside it (%s)'
+                    % (n_inside, ', '.join(inside_names.get(qid, [])[:4]))))
+        reason = ('%s is %s %s in %s, %s. %s Admitted on %s: %s.'
+                  % (name, article(cls_words), cls_words, parent['label'], cname,
+                     ('Wikidata states %s.' % ', '.join(shown)) if shown else '',
+                     route.lower().replace('_', ' '), basis))
+        rows.append({
+            'individual_page_basis': basis,
+            'shape': 'settlement_entity',
+            'source': 'wikidata_settlement',
+            'country': cc, 'market': mkt, 'language': lang, 'side': side,
+            'cls': e['cls'], 'entity_id': qid, 'entity_name': name,
+            'n': 1, 'enriched': len(shown),
+            'url': '/%s/places/%s/%s-%s/' % (lang, e['cls'].replace('_', '-'),
+                                             slug(name), qid.lower()),
+            'parent_id': parent['qid'], 'parent_name': parent['label'],
+            'parent_cls': 'administrative area',
+            'qid': qid, 'wikipedia': '%s:%s' % (lang, title),
+            'local_names': e['titles'],
+            'facts': shown,
+            'universal_facts': uni,
+            'facts_beyond_the_universal_triple': extra,
+            'atlas_pages_inside_it': n_inside,
+            'admission_route': route,
+            'attribution': 'wikidata_cc0',
+            'search_readership': ch['reads'],
+            'search_readership_floor': ch['floor'],
+            'data_signature': sig,
+            'uniqueness_reason': reason,
+            'no_superlative': True,
+        })
+        by_route[route] += 1
+        by_cls[e['cls']] += 1
+        by_lang[lang] += 1
+        by_cc[cc] += 1
+        by_market[mkt] += 1
+        by_side[side] += 1
+
+    tmp = OUT + '.tmp'
+    with gzip.open(tmp, 'wt', encoding='utf-8') as fh:
+        for r in rows:
+            fh.write(json.dumps(r, ensure_ascii=False) + '\n')
+    os.replace(tmp, OUT)
+
+    json.dump({
+        'built_on': '2026-10-19',
+        'contract': ('clears the measured readership floor in its chosen language, AND '
+                     'either states at least %d facts beyond population, area and '
+                     'elevation, or already contains at least %d admitted Atlas pages by '
+                     'Wikidata P131 containment' % (min_extra, min_atlas)),
+        'classes_read': len(size),
+        'raw_settlement_supply_captured': sum(size.values()),
+        'distinct_after_folding_second_classes': len(ent),
+        'second_classes_folded_away': dict(folded.most_common(20)),
+        'readership_qualified': read_ok,
+        'extra_fact_qualified': fact_ok,
+        'atlas_index_qualified': index_ok,
+        'rejections': dict(rej.most_common()),
+        'rows_emitted': len(rows),
+        'by_admission_route': dict(by_route),
+        'by_side': dict(by_side),
+        'by_market': dict(by_market.most_common()),
+        'by_class': dict(by_cls.most_common(30)),
+        'by_language': dict(by_lang.most_common()),
+        'by_country': dict(by_cc.most_common(40)),
+        'city_pool_items_excluded': len(city_qids),
+        'city_pool_titles_excluded': len(city_titles),
+        'attribution': 'Wikidata CC0 1.0; Wikimedia clickstream CC0 1.0; GeoNames CC BY 4.0',
+    }, open(FUNNEL, 'w'), indent=1, ensure_ascii=False)
+    for k, v in rej.most_common():
+        print('%-74s %8d' % (k, v), file=sys.stderr)
+    print('rows emitted %d  %s' % (len(rows), dict(by_route)), file=sys.stderr)
+
+
+if __name__ == '__main__':
+    main()

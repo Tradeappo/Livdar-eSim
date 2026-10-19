@@ -17,8 +17,8 @@ ranking is the reading divided by that language's floor, which is the same quest
 which edition is this entity most clearly above the bar". Ties break on the raw reading and
 then on the language code, so the choice is deterministic.
 
-Usage: landmark-choose-language.py
-Reads  data/atlas/sources/wikidata/landmark/*.jsonl.gz
+Usage: landmark-choose-language.py [--src DIR]
+Reads  <DIR>/*.jsonl.gz, default data/atlas/sources/wikidata/landmark/
        data/atlas/sources/wikimedia/entity-search-demand.jsonl.gz
        reports/livdar-expiry-freeze-2026-09-30/1M-ENTITY-SEARCH-DEMAND-FLOOR.json
 Writes data/atlas/sources/wikidata/landmark/_language.jsonl.gz
@@ -40,6 +40,10 @@ MKT_OF_LANG['zh'] = entity_identity.LANG_MKT.get('zh-Hant')
 
 
 def main():
+    args = sys.argv[1:]
+    src = args[args.index('--src') + 1] if '--src' in args else SRC
+    if not src.endswith('/'):
+        src += '/'
     fl = json.load(open(FLOORS))['admitted_distribution']
     floor = {k.split('|')[0]: v['floor'] for k, v in fl.items()
              if k.endswith('|home') and v.get('floor')}
@@ -49,7 +53,7 @@ def main():
         reading[d['qid']] = d.get('clicks') or {}
 
     chosen, stats = {}, collections.Counter()
-    for f in sorted(glob.glob(SRC + '*.jsonl.gz')):
+    for f in sorted(glob.glob(src + '*.jsonl.gz')):
         if os.path.basename(f).startswith('_'):
             continue
         for l in gzip.open(f, 'rt', encoding='utf-8'):
@@ -84,19 +88,19 @@ def main():
             stats['chose_' + lg] += 1
             stats['clears_its_floor' if v >= floor[lg] else 'below_its_floor'] += 1
 
-    tmp = SRC + '_language.jsonl.gz.tmp'
+    tmp = src + '_language.jsonl.gz.tmp'
     with gzip.open(tmp, 'wt', encoding='utf-8') as fh:
         for v in chosen.values():
             fh.write(json.dumps(v, ensure_ascii=False) + '\n')
-    os.replace(tmp, SRC + '_language.jsonl.gz')
+    os.replace(tmp, src + '_language.jsonl.gz')
 
     per = collections.defaultdict(list)
     for q, v in chosen.items():
         per[v['lang']].append(q)
-    for p in glob.glob(SRC + '_qids-*.txt'):
+    for p in glob.glob(src + '_qids-*.txt'):
         os.unlink(p)
     for lg, qs in per.items():
-        with open(SRC + '_qids-%s.txt' % lg, 'w') as fh:
+        with open(src + '_qids-%s.txt' % lg, 'w') as fh:
             fh.write('\n'.join(sorted(qs, key=lambda x: int(x[1:]))) + '\n')
     for k, v in stats.most_common():
         print('%-48s %8d' % (k, v))

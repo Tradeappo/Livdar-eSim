@@ -219,19 +219,20 @@ CLASSES = [
 #   Q4287745 medical organization  1,394 items, likewise an organisation.
 
 
-def check_labels():
+def check_labels(classes=None):
     """Refuse the run if any class id no longer means what the list beside it says."""
-    vals = ' '.join('wd:%s' % q for q, _, _, _ in CLASSES)
+    classes = CLASSES if classes is None else classes
+    vals = ' '.join('wd:%s' % q for q, _, _, _ in classes)
     rows = W.ask(W.PREFIXES + 'SELECT ?c ?l WHERE { VALUES ?c { %s } '
                               '?c rdfs:label ?l . FILTER(LANG(?l) = "en") }' % vals)
     if rows is None:
         raise RuntimeError('could not read the class labels, so no class can be trusted')
     got = {W.qid_of(r['c']['value']): r['l']['value'] for r in rows}
     bad = ['%s: expected %r, Wikidata says %r' % (q, lab, got.get(q))
-           for q, _, lab, _ in CLASSES if got.get(q) != lab]
+           for q, _, lab, _ in classes if got.get(q) != lab]
     if bad:
         raise SystemExit('class labels have moved:\n  ' + '\n  '.join(bad))
-    print('%d class ids check out against their Wikidata labels' % len(CLASSES), flush=True)
+    print('%d class ids check out against their Wikidata labels' % len(classes), flush=True)
 
 
 def band(qid, cls, lo, hi):
@@ -322,8 +323,8 @@ def merge(rows, cls, into, langs):
 GRIDS = [1, 12, 60]
 
 
-def capture(qid, cls):
-    path = OUT + cls + '.jsonl.gz'
+def capture(qid, cls, out_dir=None):
+    path = (out_dir or OUT) + cls + '.jsonl.gz'
     if os.path.exists(path):
         return None, None
     t0 = time.time()
@@ -355,18 +356,22 @@ def capture(qid, cls):
     return len(best), want
 
 
-def main():
-    only = None
-    args = sys.argv[1:]
-    if '--classes' in args:
-        only = set(args[args.index('--classes') + 1].split(','))
-    check_labels()
+def run(classes, out_dir, only=None):
+    """Capture a class list into one directory, verifying labels first.
+
+    Two entry points share this: the landmark pass above and the settlement pass in
+    wikidata-settlement-capture.py. They differ in their class list and in nothing else,
+    and a second copy of the band walk is a second place for the three silent answers
+    documented in band() to come back.
+    """
+    os.makedirs(out_dir, exist_ok=True)
+    check_labels(classes)
     shortfalls = {}
     total = 0
-    for qid, cls, _label, _supply in CLASSES:
+    for qid, cls, _label, _supply in classes:
         if only and cls not in only:
             continue
-        n, want = capture(qid, cls)
+        n, want = capture(qid, cls, out_dir)
         if n is None:
             print('  %-22s already captured, skipped' % cls, flush=True)
             continue
@@ -378,7 +383,16 @@ def main():
         print('CLASSES THAT CAME BACK SHORT, recorded rather than rounded away:')
         for cls, d in shortfalls.items():
             print('  %-22s %d of %d' % (cls, d['captured'], d['endpoint_count']))
-    json.dump(shortfalls, open(OUT + '_shortfalls.json', 'w'), indent=1)
+    json.dump(shortfalls, open(out_dir + '_shortfalls.json', 'w'), indent=1)
+    return total
+
+
+def main():
+    only = None
+    args = sys.argv[1:]
+    if '--classes' in args:
+        only = set(args[args.index('--classes') + 1].split(','))
+    run(CLASSES, OUT, only)
 
 
 if __name__ == '__main__':

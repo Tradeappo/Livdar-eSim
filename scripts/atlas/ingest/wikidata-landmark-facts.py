@@ -33,6 +33,7 @@ Wikidata STATES is better evidence than one this project computes, and it exists
 country rather than for thirty-four.
 
 Usage: wikidata-landmark-facts.py --qids FILE --out PATH [--batch 200]
+                                  [--lang en] [--profile landmark|settlement]
 """
 import collections, gzip, json, os, sys, time
 
@@ -61,23 +62,59 @@ ITEM_VALUED = [('P84', 'architect'), ('P149', 'architectural_style'),
                ('P1435', 'heritage_status'), ('P131', 'located_in'), ('P17', 'country')]
 PLAIN = [('P856', 'website')]
 
+# A SECOND PROFILE, FOR SETTLEMENTS, and it is a different property set rather than a
+# different script. A settlement states population, area and elevation and very little else
+# that a landmark states; a landmark states a height and an architect and a settlement does
+# not. Running one fetcher with two property lists keeps the unit check, the multi-value
+# rule, the item-label rule and the resume repair in one place.
+#
+# The universal triple is fetched like everything else and is MARKED here rather than in the
+# builder, so the rule that a settlement needs two facts BEYOND it cannot drift from the
+# list of what counts as beyond it.
+SETTLEMENT = {
+    'dimensioned': [('P2046', 'area', 'square metre'), ('P2044', 'elevation', 'metre'),
+                    ('P2048', 'height', 'metre')],
+    'counted': [('P1082', 'population'), ('P1538', 'households')],
+    'dated': [('P571', 'inception'), ('P1249', 'earliest_written_record')],
+    'item_valued': [('P131', 'located_in'), ('P17', 'country'), ('P6', 'head_of_government'),
+                    ('P190', 'twinned_with'), ('P610', 'highest_point'),
+                    ('P138', 'named_after'), ('P47', 'shares_border_with')],
+    'plain': [('P856', 'website'), ('P281', 'postal_code'), ('P395', 'licence_plate_code'),
+              ('P473', 'dialing_code')],
+}
+UNIVERSAL_SETTLEMENT_FACTS = ('population', 'area', 'elevation')
+# Codes a settlement states several of are a LIST, not an ambiguity. Strasbourg states three
+# postal codes and three dialing codes, and all three of each are true at once; the builder
+# prints them together. A website is not on this list: two stated URLs is a choice the page
+# would be making silently, and the wrong one is wrong.
+LISTABLE_CODES = ('postal_code', 'dialing_code', 'licence_plate_code')
+
+
+def profile(name):
+    """(dimensioned, counted, dated, item-valued, plain) for one kind of entity."""
+    if name == 'settlement':
+        return (SETTLEMENT['dimensioned'], SETTLEMENT['counted'], SETTLEMENT['dated'],
+                SETTLEMENT['item_valued'], SETTLEMENT['plain'])
+    return (DIMENSIONED, COUNTED, DATED, ITEM_VALUED, PLAIN)
+
 # The unit items Wikidata normalises to, by label. Read from the IRI rather than asked for,
 # because the set is closed and small and one fewer OPTIONAL is one fewer thing to go wrong.
 UNIT_LABEL = {'Q11573': 'metre', 'Q25343': 'square metre', 'Q3647172': 'square metre',
               'Q11574': 'second', 'Q25517': 'cubic metre'}
 
 
-def build_query(qids, lang):
+def build_query(qids, lang, prof=None):
+    dim, cnt, dat, itv, pln = prof or profile('landmark')
     vals = ' '.join('wd:%s' % q for q in qids)
     sel, opt = ['?item'], []
-    for p, k, _u in DIMENSIONED:
+    for p, k, _u in dim:
         sel += ['?%s' % k, '?%s_unit' % k]
         opt.append('  OPTIONAL { ?item p:%s/psn:%s [ wikibase:quantityAmount ?%s ; '
                    'wikibase:quantityUnit ?%s_unit ] . }' % (p, p, k, k))
-    for p, k in COUNTED + DATED + PLAIN:
+    for p, k in cnt + dat + pln:
         sel.append('?%s' % k)
         opt.append('  OPTIONAL { ?item wdt:%s ?%s . }' % (p, k))
-    for p, k in ITEM_VALUED:
+    for p, k in itv:
         # The English fallback is a SECOND label lookup, and when the page language already
         # IS English it is the same lookup twice. Asking once there is not a micro-
         # optimisation: it removes seven duplicate OPTIONAL blocks from the largest
@@ -122,6 +159,9 @@ def main():
     out = args[args.index('--out') + 1]
     lang = args[args.index('--lang') + 1] if '--lang' in args else 'en'
     batch = int(args[args.index('--batch') + 1]) if '--batch' in args else 200
+    pname = args[args.index('--profile') + 1] if '--profile' in args else 'landmark'
+    prof = profile(pname)
+    dim, cnt, dat, itv, pln = prof
     ids = [x.strip() for x in open(qpath) if x.strip()]
     ok, bad = entity_identity.split_askable(ids)
     ok = list(dict.fromkeys(ok))
@@ -168,7 +208,7 @@ def main():
     try:
         for i in range(0, len(todo), batch):
             chunk = todo[i:i + batch]
-            rows = W.ask(build_query(chunk, lang), timeout=300)
+            rows = W.ask(build_query(chunk, lang, prof), timeout=300)
             if rows is None:
                 stats['batches_that_failed_every_attempt'] += 1
                 print('  batch %d-%d failed every attempt' % (i, i + len(chunk)), flush=True)
@@ -179,7 +219,7 @@ def main():
                 if not q:
                     continue
                 e = per.setdefault(q, {'qid': q, 'facts': {}, 'items': {}})
-                for p, k, want in DIMENSIONED:
+                for p, k, want in dim:
                     v, u = read(r, k), read(r, k + '_unit')
                     if v is None:
                         continue
@@ -188,19 +228,19 @@ def main():
                         stats['%s_stated_in_%s' % (k, got or 'an_unlisted_unit')] += 1
                         continue
                     _add(e['facts'], k, {'amount': v, 'unit': want})
-                for p, k in COUNTED:
+                for p, k in cnt:
                     v = read(r, k)
                     if v is not None:
                         _add(e['facts'], k, {'count': v})
-                for p, k in DATED:
+                for p, k in dat:
                     v = read(r, k)
                     if v is not None:
                         _add(e['facts'], k, {'date': v})
-                for p, k in PLAIN:
+                for p, k in pln:
                     v = read(r, k)
                     if v is not None:
                         _add(e['facts'], k, {'text': v})
-                for p, k in ITEM_VALUED:
+                for p, k in itv:
                     it = W.qid_of(read(r, k + '_item'))
                     if not it:
                         continue
