@@ -82,7 +82,13 @@ def ask(q, timeout=180, attempts=8, quiet=False):
                 continue
             if code != '200':
                 raise RuntimeError('http %s from %s: %s' % (code, ep, body[:200]))
-            return json.loads(body)['results']['bindings']
+            # strict=False, because some article titles carry a raw control character and
+            # Wikimedia's JSON does not escape it. Python's parser rejects the whole 2.9 MB
+            # response over one byte in one title, which costs the band a full retry ladder
+            # and reads in the log as a transport failure rather than as the encoding
+            # problem it is. QLever escapes them; the Wikimedia hosts are the fallback and
+            # the fallback is where this bites.
+            return json.loads(body, strict=False)['results']['bindings']
         except Exception as e:
             _last[ep] = time.time()
             if not quiet:
