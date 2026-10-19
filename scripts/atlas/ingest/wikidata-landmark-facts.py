@@ -129,20 +129,36 @@ def main():
 
     done = set()
     if os.path.exists(out):
-        # A run stopped mid-write leaves the last gzip member unterminated, and reading it
-        # raises rather than returning the complete members in front of it. That is exactly
-        # the file a resume is for, so the read tolerates it and the ids it did recover are
-        # still skipped. Anything after the break is re-fetched, which costs a query and
-        # cannot lose a row.
+        # A run stopped mid-write leaves the last gzip member unterminated. Tolerating that
+        # on the READ is not enough, and the first version of this that only tolerated it
+        # cost an hour: appending a fresh member after a truncated one produces a file whose
+        # stream is broken in the MIDDLE, so every row after the break is unreachable
+        # forever and the next reader gets `invalid block type` rather than a short file.
+        # One language's 150,759-row fetch was lost that way after it had finished.
+        #
+        # So a damaged file is REWRITTEN from the records that are still readable before
+        # anything is appended to it. The ids past the break are re-fetched, which costs
+        # queries and cannot lose a row.
+        broken = False
+        rows = []
         try:
             for l in gzip.open(out, 'rt', encoding='utf-8'):
                 try:
-                    done.add(json.loads(l)['qid'])
+                    d = json.loads(l)
                 except Exception:
-                    pass
-        except (EOFError, OSError) as e:
-            print('  %s ends mid-record (%s); resuming from the %d complete ones'
+                    continue
+                done.add(d['qid'])
+                rows.append(l)
+        except Exception as e:
+            broken = True
+            print('  %s is damaged (%s) after %d records; rewriting it from those'
                   % (out, type(e).__name__, len(done)), flush=True)
+        if broken:
+            tmp = out + '.repair'
+            with gzip.open(tmp, 'wt', encoding='utf-8') as fh:
+                for l in rows:
+                    fh.write(l if l.endswith('\n') else l + '\n')
+            os.replace(tmp, out)
         print('%d already in %s, resuming' % (len(done), out), flush=True)
     todo = [q for q in ok if q not in done]
 

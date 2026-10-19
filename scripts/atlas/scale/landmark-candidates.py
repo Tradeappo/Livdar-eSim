@@ -101,7 +101,11 @@ COUNT = {'floors': '%s floors', 'capacity': 'room for %s', 'students': '%s stude
          'visitors_per_year': '%s visitors a year',
          'collection_size': '%s items in its collection'}
 YEAR = {'inception': 'dating from %s', 'opened': 'opened in %s'}
-ATTRIBUTE = {'architect': 'designed by %s', 'architectural_style': 'in the %s style',
+# The style phrase does NOT wrap the label in "in the ... style". Wikidata's style labels
+# already carry the word in most languages - the French label for Romanesque Revival is
+# "style neo-roman" - and a shipped row read "in the style neo-roman style". A phrase that
+# states what the field IS cannot double whatever the label happens to contain.
+ATTRIBUTE = {'architect': 'designed by %s', 'architectural_style': 'its style recorded as %s',
              'operator': 'run by %s', 'material': 'built of %s',
              'heritage_status': 'listed as %s'}
 # Captured and deliberately not printed. religion, named_after and sport are real statements
@@ -419,6 +423,7 @@ def main():
     rows = []
     by_route = collections.Counter()
     by_side = collections.Counter()
+    by_market = collections.Counter()
     by_cls = collections.Counter()
     by_lang = collections.Counter()
     by_cc = collections.Counter()
@@ -433,9 +438,22 @@ def main():
         else:
             rej['below_the_floor_and_below_the_substance_bar'] += 1
             continue
-        mkt = MKT_OF_LANG[bl]
+        # THE MARKET IS THE ENTITY'S OWN WHERE IT HAS ONE. Mapping every English page to
+        # en-US put /en/landmarks/building/melbourne-q3141/ in the United States market and
+        # called it home-side, which is two errors at once: Melbourne is not in the en-US
+        # market and a page about it there is a destination page, not a home one. Where the
+        # entity's country runs a market in this language, that market owns the page; where
+        # it does not, the language's default market does and the side is destination.
+        #
+        # This COSTS rows and it is still right. en-AU, es-MX, tr-TR, da-DK, nb-NO and fi-FI
+        # are admitted for the families their own measurements cover, and no landmark family
+        # is among them, so an Australian landmark now meets that gate instead of slipping
+        # past it under a United States label. The funnel counts what the correction moved.
         home = COUNTRY_MKT.get(cc)
-        side = 'home' if home and home[1] == bl else 'destination'
+        if home and home[1] == bl:
+            mkt, side = home[0], 'home'
+        else:
+            mkt, side = MKT_OF_LANG[bl], 'destination'
         title = e['titles'][bl]
         name = strip_disambiguator(title)
         parent = parents[0]
@@ -490,6 +508,7 @@ def main():
         })
         by_route[route] += 1
         by_side[side] += 1
+        by_market[mkt] += 1
         by_cls[e['cls']] += 1
         by_lang[bl] += 1
         by_cc[cc] += 1
@@ -511,6 +530,7 @@ def main():
         'rows_emitted': len(rows),
         'by_admission_route': dict(by_route),
         'by_side': dict(by_side),
+        'by_market': dict(by_market.most_common()),
         'by_class': dict(by_cls.most_common()),
         'by_language': dict(by_lang.most_common()),
         'by_country': dict(by_cc.most_common(40)),

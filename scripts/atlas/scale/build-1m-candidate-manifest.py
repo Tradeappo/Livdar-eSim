@@ -1561,7 +1561,15 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # The builder holds its own cross-surface Wikidata-item exclusion, because the
              # dedupe below is keyed on (language, SURFACE, item) and so never fires between
              # a new surface and an old one.
-             ROOT + 'data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz',
+             # The index page in front of those entity pages: one class of landmark inside
+             # one administrative area, or within 50km of one settlement. The same shape as
+             # outdoor_region_feature, which this manifest has held for weeks at three
+             # members or more, built from the landmark rows so it reaches the whole world
+             # rather than the 34 countries with an OpenStreetMap parent layer. Every member
+             # is a row the landmark builder already admitted, so a list of twelve is twelve
+             # attested entities with their facts, not twelve names.
+             ROOT + 'data/atlas/sources/wikidata/_landmark-area-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1599,6 +1607,12 @@ SHAPE_SERP = {
     # or a named natural feature is that Wikipedia and an official site both rank. Scored as
     # mixed until somebody reads an actual SERP for one of these classes.
     'landmark_entity': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    # The list form is a different SERP from the entity form and it was not sampled either.
+    # outdoor_region_feature, the family this copies, carries OPEN_SPECIALIST_PAGE_WINS from
+    # its own measurement; that evidence is about peaks in national parks and is not
+    # transferable to churches in districts, so this takes the conservative archetype like
+    # the entity family above it rather than inheriting a reading it did not earn.
+    'landmark_area_list': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'transport_pair_transit': 'OPEN_SPECIALIST_PAGE_WINS',
     # Measured 2026-10-08, ahrefs-expiry/transport-hub-intent-2026-10-08.json. The
     # departures form is held by operator and timetable sites, not by a knowledge card.
@@ -1760,6 +1774,12 @@ SHAPE_WIRING = {
     # floor, and a page admitted on what it can say is a weaker commercial bet than one
     # admitted on how many people looked the thing up, whatever it is worth to a reader.
     'landmark_entity': ('landmark', 'ENTITY', 'landmark', 46),
+    # 44, two below the entity rows it indexes, and deliberately the lowest score in this
+    # table. No keyword was measured for the list form in any market and no SERP was read,
+    # so its whole case is the utility of the index and the attestation of its members. A
+    # page whose evidence is entirely inherited from the pages it links to should not
+    # outrank them.
+    'landmark_area_list': ('landmark', 'AGGREGATION', 'landmark_area', 44),
     # GTFS settlement pairs. Scored 54, ABOVE the 50 air pairs and the 46 rail pairs, and this
     # is the one place in this table where a pair family earns more than the measured family
     # ceiling would suggest. The reason is information gain rather than demand: the air pairs
@@ -1819,6 +1839,10 @@ SHAPE_LICENCE = {
         'Wikidata (CC0 1.0, public domain dedication) with the Wikimedia clickstream '
         '(CC0 1.0) for the readership and GeoNames (CC BY 4.0) for the nearest settlement',
         'CC0_NO_CONDITIONS'),
+    'landmark_area_list': (
+        'Wikidata (CC0 1.0, public domain dedication) with the Wikimedia clickstream '
+        '(CC0 1.0) for the readership and GeoNames (CC BY 4.0) for the settlements',
+        'CC0_NO_CONDITIONS'),
     'airport_parking': ('OurAirports (public domain) with OpenStreetMap named car parks '
                         '(ODbL 1.0, share-alike, attribution required)',
                         'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
@@ -1843,6 +1867,7 @@ SHAPE_RECORD_PREFIX = {
     'pulse_bridge_plan': 'pulse-bplan:', 'airport_parking': 'apark-osm:',
     'heritage_listed_building': 'heritage-nhle:',
     'landmark_entity': 'landmark-wd:',
+    'landmark_area_list': 'landmark-wd-area:',
     'transport_pair_transit': 'transport-gtfs:',
     'transport_hub_node': 'transport-gtfs-hub:',
 }
@@ -2038,6 +2063,19 @@ for a in agg:
         # are capped so one famous landmark cannot lift the family.
         q = min(100, 40 + min(24, int(a.get('search_readership') or 0) // 20) * 2
                 + min(18, (a.get('enriched') or 0) * 3))
+    elif shape == 'landmark_area_list':
+        fid = 'landmark.%s-index' % (cls or 'entity').replace('_', '-')
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        _w = ('in' if a.get('axis') == 'area' else 'near')
+        _cw = (cls or 'entity').replace('_', ' ')
+        intent = (f"see the {_cw}s {_w} {ename}: which ones there are and what is on "
+                  f"record about each")
+        # the member count is the page. A three-member list is a comparison and a thirty-
+        # member list is a guide, and the facts those members carry are the content, so both
+        # count and both are capped.
+        q = min(100, 38 + min(24, (a.get('n') or 0) * 2)
+                + min(18, (a.get('enriched') or 0) // 3))
     elif shape == 'airport_parking':
         fid = 'transport.airport-parking'
         eid = str(a['entity_id'])

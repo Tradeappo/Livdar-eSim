@@ -14,16 +14,19 @@ edition, with the count of each. The union across editions is the census, and su
 fifty-eight already captured leaves exactly the list of classes a second capture pass would
 be for, ordered by how many readable entities each one holds.
 
-ONE EDITION AT A TIME, because the same aggregate over all eleven at once was asked for twice
-and timed out at both Wikimedia hosts and on the mirror. The per-edition form is the same
-question in eleven cheaper pieces, and an edition that fails is an edition missing from the
-census rather than a census that failed.
+TWO STEPS, because the one-step form does not answer. Asking for the P31 distribution of
+items that carry coordinates AND an article timed out at all three endpoints, both as one
+query over the eleven editions and as eleven queries one edition each. Splitting it works:
+step one ranks the classes under the geographic roots by how many items with coordinates
+state them, which is a plain aggregate over the P31 index and answers 400 classes in under a
+minute; step two puts the article condition back one class at a time, which is the cheap
+query this project has already run fifty-eight times.
 
 THIS SCRIPT DECIDES NOTHING. A class appearing here is a class that exists, not a class that
 should have pages: Q4167410 is a disambiguation page and Q13406463 is a list article, and
 both carry coordinates often enough to rank. The output is a measurement for a person to read.
 
-Usage: wikidata-geo-class-census.py [--limit 400]
+Usage: wikidata-geo-class-census.py [--limit 400] [--count-top 200]
 Writes data/atlas/sources/wikidata/landmark/_class-census.json
 """
 import collections, json, os, sys, time
@@ -46,67 +49,106 @@ def already_captured():
     return {q for q, _slug, _label, _n in ns['CLASSES']}
 
 
-def census_for(lang, limit):
-    q = W.PREFIXES + """SELECT ?c (COUNT(DISTINCT ?x) AS ?n) WHERE {
-  ?x wdt:P625 ?coord .
-  ?site schema:about ?x .
-  FILTER(STRSTARTS(STR(?site), "https://%s.wikipedia.org/wiki/"))
-  ?x wdt:P31 ?c .
+ROOTS = [('Q2221906', 'geographic location'), ('Q811979', 'architectural structure')]
+
+
+def candidate_classes(limit):
+    """The classes under the geographic roots, ranked by how many items with coordinates
+    state them.
+
+    NO SITELINK JOIN HERE, and that is the whole reason this formulation works. The first
+    one asked for the P31 distribution of items that have coordinates AND an article in a
+    given edition, one edition at a time, and timed out on every one of the eleven at all
+    three endpoints. Dropping the article condition makes it a plain aggregate over the P31
+    index and it answers 400 classes in under a minute. The article condition then comes
+    back in the second step, one class at a time, where it is the cheap query this project
+    has already run fifty-eight times.
+    """
+    out = {}
+    for root, name in ROOTS:
+        q = W.PREFIXES + """SELECT ?c (COUNT(?x) AS ?n) WHERE {
+  ?c wdt:P279* wd:%s .
+  ?x wdt:P31 ?c ; wdt:P625 ?coord .
 }
 GROUP BY ?c
 ORDER BY DESC(?n)
-LIMIT %d""" % (lang, limit)
-    rows = W.ask(q, timeout=900, attempts=4)
-    if rows is None:
-        return None
-    return {W.qid_of(r['c']['value']): int(r['n']['value']) for r in rows
-            if W.qid_of(r['c']['value'])}
+LIMIT %d""" % (root, limit)
+        rows = W.ask(q, timeout=600, attempts=3)
+        if rows is None:
+            print('  %s: no answer' % name, flush=True)
+            continue
+        for r in rows:
+            c = W.qid_of(r['c']['value'])
+            if c:
+                out[c] = max(out.get(c, 0), int(r['n']['value']))
+        print('  %s: %d classes' % (name, len(rows)), flush=True)
+    return out
+
+
+def readable_count(qid):
+    """Items of this class with coordinates AND an article in one of the eleven editions."""
+    rows = W.ask(W.PREFIXES + """SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE {
+  ?x wdt:P31 wd:%s .
+  ?x wdt:P625 ?coord .
+  ?site schema:about ?x .
+  FILTER(%s)
+}""" % (qid, W.SITE_FILTER), timeout=600, attempts=3)
+    return int(rows[0]['n']['value']) if rows else None
 
 
 def main():
     args = sys.argv[1:]
     limit = int(args[args.index('--limit') + 1]) if '--limit' in args else 400
+    top = int(args[args.index('--count-top') + 1]) if '--count-top' in args else 200
     have = already_captured()
-    total = collections.Counter()
-    per_lang, missing = {}, []
-    for lang in W.WIKIS:
-        t0 = time.time()
-        got = census_for(lang, limit)
-        if got is None:
-            missing.append(lang)
-            print('  %s: no answer, left out of the census' % lang, flush=True)
-            continue
-        per_lang[lang] = len(got)
-        for c, n in got.items():
-            total[c] += n
-        print('  %s: %d classes, %.0fs' % (lang, len(got), time.time() - t0), flush=True)
-    new = [(c, n) for c, n in total.most_common() if c not in have]
+    cands = candidate_classes(limit)
+    ranked = [(c, n) for c, n in sorted(cands.items(), key=lambda kv: -kv[1])
+              if c not in have]
+    print('%d candidate classes, %d of them not already captured; counting the top %d'
+          % (len(cands), len(ranked), top), flush=True)
+
     labels = {}
-    for i in range(0, len(new), 200):
-        chunk = [c for c, _ in new[i:i + 200]]
+    for i in range(0, min(len(ranked), top), 200):
+        chunk = [c for c, _ in ranked[i:i + 200]]
         rows = W.ask(W.PREFIXES + 'SELECT ?c ?l WHERE { VALUES ?c { %s } ?c rdfs:label ?l . '
                                   'FILTER(LANG(?l) = "en") }'
                      % ' '.join('wd:%s' % c for c in chunk), timeout=300) or []
         for r in rows:
             labels[W.qid_of(r['c']['value'])] = r['l']['value']
+
+    measured, unanswered = [], []
+    t0 = time.time()
+    for c, raw in ranked[:top]:
+        n = readable_count(c)
+        if n is None:
+            unanswered.append(c)
+            continue
+        measured.append({'qid': c, 'label': labels.get(c), 'items_with_coordinates': raw,
+                         'also_with_an_article_this_project_can_measure': n})
+        print('  %-12s %8d of %9d  %s' % (c, n, raw, labels.get(c)), flush=True)
+    measured.sort(key=lambda d: -d['also_with_an_article_this_project_can_measure'])
     out = {
         'built_on': time.strftime('%Y-%m-%d'),
-        'what': 'P31 values of the items carrying coordinates and an article in each of the '
-                'eleven editions, summed across editions. An item with articles in four '
-                'editions is counted four times, so these are ARTICLE counts and not item '
-                'counts, and they rank classes rather than size them.',
-        'editions_counted': per_lang,
-        'editions_with_no_answer': missing,
-        'limit_per_edition': limit,
+        'what': 'classes under the geographic roots that the landmark capture does not read, '
+                'with how many of their items carry coordinates and an article in one of the '
+                'eleven editions whose clickstream this project holds',
+        'roots': [r[1] for r in ROOTS],
+        'candidate_classes_ranked': len(cands),
         'classes_already_captured': len(have),
-        'classes_not_captured': len(new),
-        'not_captured': [{'qid': c, 'label': labels.get(c), 'article_count': n}
-                         for c, n in new],
+        'classes_counted_here': len(measured),
+        'classes_that_did_not_answer': unanswered,
+        'readable_items_in_the_uncaptured_classes_counted': sum(
+            d['also_with_an_article_this_project_can_measure'] for d in measured),
+        'already_captured_for_comparison': 626746,
+        'classes': measured,
+        'what_this_does_not_say': 'that these should have pages. A class appearing here is a '
+                                  'class that exists. Disambiguation pages and list articles '
+                                  'carry coordinates and rank in any such list.',
     }
     json.dump(out, open(OUT, 'w'), indent=1, ensure_ascii=False)
-    print('%d classes beyond the %d already captured; top 40:' % (len(new), len(have)))
-    for c, n in new[:40]:
-        print('  %-12s %9d  %s' % (c, n, labels.get(c)))
+    print('counted %d classes in %.0fs; %d readable items in them against 626,746 captured'
+          % (len(measured), time.time() - t0, out[
+              'readable_items_in_the_uncaptured_classes_counted']))
 
 
 if __name__ == '__main__':

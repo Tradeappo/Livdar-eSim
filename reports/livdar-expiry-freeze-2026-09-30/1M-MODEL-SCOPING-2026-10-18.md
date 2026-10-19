@@ -215,3 +215,87 @@ names of the things compared, is distinct. That rule is now in the manifest and 
 
 The utility bar is computed in a first pass and applied in a second, so it moves with the data
 rather than being a number in the source.
+
+### What it produced
+
+| stage | count |
+|---|---|
+| items captured, 58 classes, worldwide | 626,746 |
+| distinct items after folding an item's second class | 611,803 |
+| no edition reads ten a month | 283,703 |
+| fewer than two printable facts | 134,311 |
+| below the floor and below the substance bar | 37,671 |
+| another surface already pages this Wikidata item | 34,754 |
+| Wikidata states no containing administrative area | 29,503 |
+| no country stated, or its item carries no ISO code | 2,071 |
+| the GTFS layer already builds a departure board for this station | 32 |
+| **entity rows emitted** | **89,758** (87,069 demand, 2,689 utility) |
+| index rows emitted, one class inside one area or near one city | 10,229, covering 67,802 members |
+| surviving every manifest gate | **92,684** across 215 countries and 10 markets |
+
+The funnel reconciles exactly: 611,803 minus the eight rejections is 89,758.
+
+### What the two routes are each worth
+
+The utility route is **2,689 of 89,758**, three per cent. That is the honest size of the
+demand-or-utility change, and it says something worth saying plainly: the ceiling was never
+the demand test. Of the 611,803 items captured, 283,703 are read by fewer than ten people a
+month in every edition they have, and 134,311 carry fewer than two facts a page could print.
+Those are not pages a different admission rule would rescue; they are entities with nothing
+to say or nobody asking.
+
+What actually moved the number was SOURCE REACH: fifty-eight classes instead of six, the
+whole world instead of thirteen countries, and one page per entity in whichever of eleven
+languages reads it most. The rows now span 215 countries where the water layer spanned 13.
+
+Setting the utility bar at the median of the demand-admitted distribution rather than at its
+75th percentile would add a further **3,643** rows. That is recorded in the funnel as
+`rows_a_median_substance_bar_would_add` and is not applied: a page admitted on what it can
+say should say more than the pages admitted on who reads them, not merely as much.
+
+### The gate that had to change, and the one that did not
+
+The localisation gate refused every destination-side row in the first run, 748 of 748 on a
+partial build, under `LOCAL_INTENT_MISSING`. It asks whether a cross-language page's
+DESTINATION is searched in that language, and the only answer any previous family could give
+it was a keyword measured for the family in the market plus a mark on the destination city.
+
+A landmark row answers about itself, and better: a count of people who searched, saw this
+entity's article in this language, and clicked it, against a floor calibrated on the entities
+already published. So the gate grew a third route that takes that evidence. It needs a floor
+to exist for the language, the reading to be in the PAGE's language, and the reading to be at
+or above that floor, which is why rows admitted on substance with a sub-floor reading cannot
+use it: 3,876 of them are refused by this gate and stay refused.
+
+The per-market family gate was NOT changed and it cost 3,388 rows. en-AU, es-MX and tr-TR are
+admitted for the families their own measurements cover and no landmark family is among them.
+Those rows were in the build until the market assignment was corrected: mapping every English
+page to en-US had put a page about Melbourne in the United States market and called it
+home-side. Fixing that cost 2,940 rows off the final count and is still right.
+
+## Where the number stands
+
+| | |
+|---|---|
+| FINAL before this work | 660,269 |
+| FINAL after | **752,953** |
+| added | +92,684 |
+| short of 1,000,000 | 247,047 |
+
+## What is left, in order of measured promise
+
+1. **The classes nobody listed.** 626,746 items came from a class list written from memory.
+   `wikidata-geo-class-census.py` counts the P31 values of every item with coordinates and an
+   article, per edition, and subtracts the fifty-eight already captured. If the uncaptured
+   remainder is of the same order, a second capture pass is worth roughly what the first was.
+   The census times out on the largest editions and the smaller ones answer; it is the next
+   thing to finish.
+2. **A coarser parent for the index pages.** P131 is whatever the nearest administrative
+   level happens to be, which for a German church is a Gemeinde of two thousand people. 46,564
+   groups were refused for holding fewer than three members. Walking P131 up one or two levels
+   would turn many of those into the page a reader actually wants.
+3. **The heritage registers for the Netherlands, Poland and France.** England's 379,685
+   entries yielded 5,212 rows, because only 19,561 join to a read article. The same ratio puts
+   the other three in the low thousands each.
+4. **Property and accommodation inventory.** Still the largest single acquisition that would
+   move the number, and still unavailable free.
