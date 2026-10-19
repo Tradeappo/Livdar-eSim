@@ -114,6 +114,92 @@ CLASSES = [
     ('Q875157', 'resort', 'resort', 272),
     ('Q274153', 'water_tower', 'water tower', 186),
     ('Q2298537', 'transport_hub', 'transport hub', 94),
+
+    # PASS TWO, and this half of the list was not written from memory. The first
+    # fifty-eight classes were, and seven of them named something else; worse, nothing
+    # in that run could say whether 626,746 items was most of the readable geographic
+    # entities on Wikidata or a fifth of them. wikidata-geo-class-census.py answered
+    # that on 2026-10-19: 1,084,510 readable items in 199 classes the first pass does
+    # not read. These seventy are that census minus the settlement-shaped classes,
+    # which are a separate question with a separate substance problem, and minus
+    # anything under 500 readable items. Every label below is the one the census read
+    # from Wikidata, so check_labels() is checking a measurement against its source
+    # rather than against my recollection.
+    #
+    # street, road, stream, watercourse and valley are IN, and they are the classes
+    # most likely to produce nothing: a street rarely states two facts this file can
+    # print. That is the gate's call to make and it will be counted per class, which
+    # is a measurement; leaving them out would be a guess.
+    ('Q79007', 'street', 'street', 24562),
+    ('Q473972', 'protected_area', 'protected area', 14817),
+    ('Q34442', 'road', 'road', 11106),
+    ('Q47521', 'stream', 'stream', 8701),
+    ('Q355304', 'watercourse', 'watercourse', 8041),
+    ('Q759421', 'naturschutzgebiet', 'Naturschutzgebiet', 7094),
+    ('Q131681', 'reservoir', 'reservoir', 6063),
+    ('Q845945', 'shinto_shrine', 'Shinto shrine', 5792),
+    ('Q55678', 'railway_stop', 'railway stop', 5625),
+    ('Q46831', 'mountain_range', 'mountain range', 5506),
+    ('Q10300916', 'cultural_heritage_of_china', 'cultural heritage of China', 5338),
+    ('Q4312270', 'railway_station_above_ground', 'railway station above ground', 4900),
+    ('Q4663385', 'former_railway_station', 'former railway station', 4880),
+    ('Q133056', 'mountain_pass', 'mountain pass', 4832),
+    ('Q39594', 'bay', 'bay', 4748),
+    ('Q11670533', 'elevated_station', 'elevated station', 4566),
+    ('Q811165', 'architectural_heritage_monument', 'architectural heritage monument', 4291),
+    ('Q39816', 'valley', 'valley', 4030),
+    ('Q34038', 'waterfall', 'waterfall', 3705),
+    ('Q846659', 'jewish_cemetery', 'Jewish cemetery', 3697),
+    ('Q1081138', 'historic_site', 'historic site', 3532),
+    ('Q22746', 'urban_park', 'urban park', 3314),
+    ('Q1785071', 'fort', 'fort', 3100),
+    ('Q2376564', 'interchange', 'interchange', 3089),
+    ('Q179049', 'nature_reserve', 'nature reserve', 2924),
+    ('Q34763', 'peninsula', 'peninsula', 2826),
+    ('Q38720', 'windmill', 'windmill', 2372),
+    ('Q575759', 'war_memorial', 'war memorial', 2321),
+    ('Q1015644', 'deserted_castle_site', 'deserted castle site', 2319),
+    ('Q12284', 'canal', 'canal', 2307),
+    ('Q4421', 'forest', 'forest', 2304),
+    ('Q17715832', 'castle_ruin', 'castle ruin', 2227),
+    ('Q2319498', 'architectural_landmark', 'architectural landmark', 2196),
+    ('Q21503788', 'landschaftsschutzgebiet', 'Landschaftsschutzgebiet', 2169),
+    ('Q207524', 'islet', 'islet', 1959),
+    ('Q101659', 'dolmen', 'dolmen', 1752),
+    ('Q185113', 'cape', 'cape', 1740),
+    ('Q1402592', 'island_group', 'island group', 1715),
+    ('Q20871353', 'cadastral_area_in_the_czech_republic', 'cadastral area in the Czech Republic', 1657),
+    ('Q2151232', 'townland', 'townland', 1651),
+    ('Q358', 'heritage_site', 'heritage site', 1559),
+    ('Q5003624', 'memorial', 'memorial', 1522),
+    ('Q7543083', 'avenue', 'avenue', 1484),
+    ('Q3700011', 'kecamatan', 'kecamatan', 1310),
+    ('Q852190', 'shipwreck', 'shipwreck', 1303),
+    ('Q811534', 'remarkable_tree', 'remarkable tree', 1253),
+    ('Q21573182', 'natural_monument_in_germany', 'natural monument in Germany', 1242),
+    ('Q1516079', 'cultural_heritage_ensemble', 'cultural heritage ensemble', 1164),
+    ('Q740445', 'mountain_ridge', 'mountain ridge', 1164),
+    ('Q381885', 'tomb', 'tomb', 1063),
+    ('Q15069452', 'natura_2000_site', 'Natura 2000 site', 1061),
+    ('Q63565252', 'brook', 'brook', 1046),
+    ('Q3812392', 'union_council_of_bangladesh', 'union council of Bangladesh', 945),
+    ('Q1191622', 'special_area_of_conservation', 'Special Area of Conservation', 886),
+    ('Q1107656', 'garden', 'garden', 830),
+    ('Q57821', 'fortification', 'fortification', 810),
+    ('Q124714', 'spring', 'spring', 792),
+    ('Q2221906', 'geographic_location', 'geographic location', 761),
+    ('Q155239', 'indian_reservation_of_canada', 'Indian reservation of Canada', 713),
+    ('Q150784', 'canyon', 'canyon', 707),
+    ('Q1077097', 'tambon', 'tambon', 688),
+    ('Q3253281', 'artificial_pond', 'artificial pond', 686),
+    ('Q24529780', 'point', 'point', 664),
+    ('Q43483', 'water_well', 'water well', 601),
+    ('Q744099', 'hillfort', 'hillfort', 598),
+    ('Q2082774', 'mountain_pasture', 'mountain pasture', 566),
+    ('Q2624046', 'mountain_chain', 'mountain chain', 559),
+    ('Q17018380', 'bight', 'bight', 541),
+    ('Q160091', 'plain', 'plain', 532),
+    ('Q187223', 'lagoon', 'lagoon', 510),
 ]
 
 # DELIBERATELY ABSENT, each for a stated reason rather than for being small.
