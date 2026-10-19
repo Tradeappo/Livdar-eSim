@@ -375,8 +375,13 @@ def main():
             'country': cc, 'market': mkt, 'language': lang, 'side': side,
             'cls': e['cls'], 'entity_id': qid, 'entity_name': name,
             'n': 1, 'enriched': len(shown),
-            'url': '/%s/places/%s/%s-%s/' % (lang, e['cls'].replace('_', '-'),
-                                             slug(name), qid.lower()),
+            # /settlements/ and not /places/. The places namespace is the POI
+            # aggregation's, 188,234 rows of "restaurants in X" and "pharmacies in Y", and
+            # putting a village at /places/village/ would read as one of those. The
+            # inventory's city pages live there too, and this family exists precisely
+            # because these are the places that are NOT those.
+            'url': '/%s/settlements/%s/%s-%s/' % (lang, e['cls'].replace('_', '-'),
+                                                  slug(name), qid.lower()),
             'parent_id': parent['qid'], 'parent_name': parent['label'],
             'parent_cls': 'administrative area',
             'qid': qid, 'wikipedia': '%s:%s' % (lang, title),

@@ -1569,7 +1569,16 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # rather than the 34 countries with an OpenStreetMap parent layer. Every member
              # is a row the landmark builder already admitted, so a list of twelve is twelve
              # attested entities with their facts, not twelve names.
-             ROOT + 'data/atlas/sources/wikidata/_landmark-area-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/wikidata/_landmark-area-candidates.jsonl.gz',
+             # Settlements, built 2026-10-19 under a contract deliberately stricter than
+             # the landmark one. The class census found 853,657 readable settlements, the
+             # largest reservoir left anywhere here and the one place where every page
+             # would come out of the same sentence, so the universal population, area and
+             # elevation triple earns nothing: a row needs two facts BEYOND it, or three
+             # admitted Atlas pages standing inside it by Wikidata's own P131 containment.
+             # The builder excludes the city pool by item AND by article title, because
+             # only 19,594 of the paged cities carry a Wikidata item in these captures.
+             ROOT + 'data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1613,6 +1622,10 @@ SHAPE_SERP = {
     # transferable to churches in districts, so this takes the conservative archetype like
     # the entity family above it rather than inheriting a reading it did not earn.
     'landmark_area_list': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    # Unsampled like the two above, and the conservative archetype for a third reason: a
+    # settlement SERP carries the municipality's own site, which is the official owner this
+    # archetype names.
+    'settlement_entity': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'transport_pair_transit': 'OPEN_SPECIALIST_PAGE_WINS',
     # Measured 2026-10-08, ahrefs-expiry/transport-hub-intent-2026-10-08.json. The
     # departures form is held by operator and timetable sites, not by a knowledge card.
@@ -1780,6 +1793,12 @@ SHAPE_WIRING = {
     # page whose evidence is entirely inherited from the pages it links to should not
     # outrank them.
     'landmark_area_list': ('landmark', 'AGGREGATION', 'landmark_area', 44),
+    # 42, the lowest entity score in this table, below even the landmark index. The
+    # evidence per row is readership, as for the two above, the SERP is unsampled, and the
+    # template is the most uniform of any family here: that is why the contract demands two
+    # facts beyond the universal triple or three pages inside it, and why a row that clears
+    # that bar is still scored below a landmark that clears a looser one.
+    'settlement_entity': ('settlement', 'ENTITY', 'settlement', 42),
     # GTFS settlement pairs. Scored 54, ABOVE the 50 air pairs and the 46 rail pairs, and this
     # is the one place in this table where a pair family earns more than the measured family
     # ceiling would suggest. The reason is information gain rather than demand: the air pairs
@@ -1843,6 +1862,10 @@ SHAPE_LICENCE = {
         'Wikidata (CC0 1.0, public domain dedication) with the Wikimedia clickstream '
         '(CC0 1.0) for the readership and GeoNames (CC BY 4.0) for the settlements',
         'CC0_NO_CONDITIONS'),
+    'settlement_entity': (
+        'Wikidata (CC0 1.0, public domain dedication) with the Wikimedia clickstream '
+        '(CC0 1.0) for the readership and GeoNames (CC BY 4.0) for the city pool this '
+        'family is deduped against', 'CC0_NO_CONDITIONS'),
     'airport_parking': ('OurAirports (public domain) with OpenStreetMap named car parks '
                         '(ODbL 1.0, share-alike, attribution required)',
                         'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
@@ -1868,6 +1891,7 @@ SHAPE_RECORD_PREFIX = {
     'heritage_listed_building': 'heritage-nhle:',
     'landmark_entity': 'landmark-wd:',
     'landmark_area_list': 'landmark-wd-area:',
+    'settlement_entity': 'settlement-wd:',
     'transport_pair_transit': 'transport-gtfs:',
     'transport_hub_node': 'transport-gtfs-hub:',
 }
@@ -2063,6 +2087,18 @@ for a in agg:
         # are capped so one famous landmark cannot lift the family.
         q = min(100, 40 + min(24, int(a.get('search_readership') or 0) // 20) * 2
                 + min(18, (a.get('enriched') or 0) * 3))
+    elif shape == 'settlement_entity':
+        fid = 'settlement.%s' % (cls or 'entity').replace('_', '-')
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"what {ename} is and what is on record about it: where it stands, what "
+                  f"is known of it and what there is to see")
+        # Readership scores it, and so does what the page can carry: the facts beyond the
+        # universal triple and the admitted pages standing inside it are the two things the
+        # contract admits on, so they are the two things the score reads.
+        q = min(100, 36 + min(20, int(a.get('search_readership') or 0) // 25) * 2
+                + min(12, len(a.get('facts_beyond_the_universal_triple') or []) * 3)
+                + min(12, (a.get('atlas_pages_inside_it') or 0) * 2))
     elif shape == 'landmark_area_list':
         fid = 'landmark.%s-index' % (cls or 'entity').replace('_', '-')
         eid = str(a['entity_id'])
