@@ -1,0 +1,46 @@
+{
+ "source": "Wikidata sitelinks (schema:about / schema:isPartOf) for the water and protected-area entity capture",
+ "licence": "Wikidata CC0 1.0, public domain dedication",
+ "attribution": "Wikidata, https://www.wikidata.org/",
+ "endpoints_tried_in_order": [
+  "https://qlever.dev/api/wikidata",
+  "https://query.wikidata.org/sparql"
+ ],
+ "fetched_on": "2026-10-19",
+ "scope": "the explicit id list data/atlas/sources/wikidata/admin/_qids-asked.txt",
+ "min_facts": null,
+ "entities_asked": 9071,
+ "entities_unanswered": 0,
+ "ids_not_a_wikidata_entity_id_and_so_never_asked": [],
+ "entities_with_an_article_in_at_least_one_of_the_eleven": 8933,
+ "entities_asked_with_no_article_in_any_of_the_eleven": 138,
+ "languages": [
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "ja",
+  "nl",
+  "pl",
+  "pt",
+  "tr",
+  "zh"
+ ],
+ "articles_per_language": {
+  "fr": 8337,
+  "en": 8226,
+  "de": 8089,
+  "it": 8071,
+  "pl": 7408,
+  "nl": 7397,
+  "es": 7158,
+  "zh": 6898,
+  "pt": 6002,
+  "tr": 5838,
+  "ja": 5183
+ },
+ "fact_bearing_per_class": {},
+ "what_absence_means": "a language missing from an entity row means Wikidata states no sitelink to that edition, which is a measurement; an entity missing from the file was not answered and is listed in the .unanswered.txt sidecar",
+ "nothing_is_inferred": "no title is transliterated or constructed; a title appears only where Wikidata states the sitelink"
+}

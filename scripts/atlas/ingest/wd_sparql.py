@@ -112,6 +112,23 @@ def qid_of(iri):
     return s.rsplit('/', 1)[-1]
 
 
+def entity_of(iri):
+    """The entity id in a Wikidata IRI, item OR property.
+
+    qid_of deliberately accepts only items, because a caller reading a P131 value that came
+    back as a property has a bug rather than a property. The label guard is the one place
+    that needs both: the heritage registers are selected by property id, and asking qid_of
+    about wd:P380 returned None, so the guard reported that every register label had moved
+    when what had happened is that it could not read any of them. That is the guard working;
+    it is also the guard being unusable, which this fixes.
+    """
+    s = str(iri or '')
+    if not s.startswith('http://www.wikidata.org/entity/'):
+        return None
+    tail = s.rsplit('/', 1)[-1]
+    return tail if (tail[:1] in 'QP' and tail[1:].isdigit()) else None
+
+
 def sitelink_parts(url):
     """(language, article title) for a Wikipedia URL, or None when it is not one of ours."""
     s = str(url or '')

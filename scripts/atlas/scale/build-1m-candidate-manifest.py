@@ -1578,7 +1578,19 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # admitted Atlas pages standing inside it by Wikidata's own P131 containment.
              # The builder excludes the city pool by item AND by article title, because
              # only 19,594 of the paged cities carry a Wikidata item in these captures.
-             ROOT + 'data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz'):
+             ROOT + 'data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz',
+             # Administrative areas, built 2026-10-19 on the strictest contract here: all
+             # three of a readership floor, five pages this inventory already builds
+             # standing inside it by P131 within two levels, and two facts beyond the
+             # universal triple. Nobody visits a canton; the only reason to page one is
+             # that it answers what is in it, and that answer has to exist first.
+             ROOT + 'data/atlas/sources/wikidata/_area-candidates.jsonl.gz',
+             # The Dutch, Polish and French national heritage registers, selected by their
+             # own identifiers rather than by class. 51,248 entries carry coordinates and a
+             # measurable article; 10,062 were already paged and 41,186 were not, because a
+             # register holds every listed farmhouse and wayside cross whose Wikidata class
+             # the 128-class landmark capture never named.
+             ROOT + 'data/atlas/sources/wikidata/_heritage-register-candidates.jsonl.gz'):
     try:
         for _l in gzip.open(_src, 'rt', encoding='utf-8'):
             _l = _l.strip()
@@ -1626,6 +1638,11 @@ SHAPE_SERP = {
     # settlement SERP carries the municipality's own site, which is the official owner this
     # archetype names.
     'settlement_entity': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    'area_entity': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
+    # The one SERP in this group with real evidence behind the archetype, inherited from the
+    # England listed-building family measured on the same shape: the official register and
+    # Wikipedia both rank, which is mixed rather than brand-owned.
+    'heritage_register': 'OFFICIAL_PLUS_AGGREGATOR_MIXED',
     'transport_pair_transit': 'OPEN_SPECIALIST_PAGE_WINS',
     # Measured 2026-10-08, ahrefs-expiry/transport-hub-intent-2026-10-08.json. The
     # departures form is held by operator and timetable sites, not by a knowledge card.
@@ -1799,6 +1816,14 @@ SHAPE_WIRING = {
     # facts beyond the universal triple or three pages inside it, and why a row that clears
     # that bar is still scored below a landmark that clears a looser one.
     'settlement_entity': ('settlement', 'ENTITY', 'settlement', 42),
+    # 44. Above the settlements because an area row has cleared all three tests rather than
+    # two, and below the listed buildings because its evidence is still readership and its
+    # SERP is still unsampled.
+    'area_entity': ('area', 'ENTITY', 'admin_area', 44),
+    # 48, the same as the England listed buildings, because it is the same page on the same
+    # evidence: a national register entry joined to a read article. Not higher: no SERP was
+    # sampled for the Dutch, Polish or French registers either.
+    'heritage_register': ('heritage', 'ENTITY', 'register_entry', 48),
     # GTFS settlement pairs. Scored 54, ABOVE the 50 air pairs and the 46 rail pairs, and this
     # is the one place in this table where a pair family earns more than the measured family
     # ceiling would suggest. The reason is information gain rather than demand: the air pairs
@@ -1866,6 +1891,14 @@ SHAPE_LICENCE = {
         'Wikidata (CC0 1.0, public domain dedication) with the Wikimedia clickstream '
         '(CC0 1.0) for the readership and GeoNames (CC BY 4.0) for the city pool this '
         'family is deduped against', 'CC0_NO_CONDITIONS'),
+    'area_entity': (
+        'Wikidata (CC0 1.0, public domain dedication) with the Wikimedia clickstream '
+        '(CC0 1.0) for the readership', 'CC0_NO_CONDITIONS'),
+    'heritage_register': (
+        'base Merimee, Ministere de la Culture (Licence Ouverte); rejestr zabytkow, '
+        'Narodowy Instytut Dziedzictwa; Rijksmonumentenregister, Rijksdienst voor het '
+        'Cultureel Erfgoed (CC0); joined through Wikidata (CC0 1.0) and the Wikimedia '
+        'clickstream (CC0 1.0)', 'MIXED_OPEN_ATTRIBUTION_REQUIRED'),
     'airport_parking': ('OurAirports (public domain) with OpenStreetMap named car parks '
                         '(ODbL 1.0, share-alike, attribution required)',
                         'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),
@@ -1892,6 +1925,8 @@ SHAPE_RECORD_PREFIX = {
     'landmark_entity': 'landmark-wd:',
     'landmark_area_list': 'landmark-wd-area:',
     'settlement_entity': 'settlement-wd:',
+    'area_entity': 'area-wd:',
+    'heritage_register': 'heritage-reg:',
     'transport_pair_transit': 'transport-gtfs:',
     'transport_hub_node': 'transport-gtfs-hub:',
 }
@@ -2087,6 +2122,26 @@ for a in agg:
         # are capped so one famous landmark cannot lift the family.
         q = min(100, 40 + min(24, int(a.get('search_readership') or 0) // 20) * 2
                 + min(18, (a.get('enriched') or 0) * 3))
+    elif shape == 'area_entity':
+        fid = 'area.%s' % (cls or 'entity').replace('_', '-')
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"what is in {ename}: the places inside it this inventory covers and "
+                  f"what is on record about the area itself")
+        # the children ARE the page, so they score it, with the facts beyond the triple
+        # second and the readership third. All three capped, as everywhere here.
+        q = min(100, 34 + min(22, (a.get('pages_inside_it') or 0)) * 1
+                + min(12, len(a.get('facts_beyond_the_universal_triple') or []) * 3)
+                + min(12, int(a.get('search_readership') or 0) // 50))
+    elif shape == 'heritage_register':
+        fid = 'heritage.%s' % (cls or 'entry').replace('_', '-')
+        eid = str(a['entity_id'])
+        ename = a['entity_name']
+        intent = (f"what {ename} is and what its heritage listing records: the entry, "
+                  f"what is known of the building and where it stands")
+        # the register entry is the page's reason to exist and the readership is its
+        # evidence, scored like the England listed buildings it matches.
+        q = min(100, 45 + min(30, int(a.get('search_readership') or 0) // 20) * 2)
     elif shape == 'settlement_entity':
         fid = 'settlement.%s' % (cls or 'entity').replace('_', '-')
         eid = str(a['entity_id'])

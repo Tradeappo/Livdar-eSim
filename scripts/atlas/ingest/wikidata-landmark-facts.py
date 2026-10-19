@@ -90,8 +90,33 @@ UNIVERSAL_SETTLEMENT_FACTS = ('population', 'area', 'elevation')
 LISTABLE_CODES = ('postal_code', 'dialing_code', 'licence_plate_code')
 
 
+# The three national heritage registers, carried as PLAIN values so the page can cite the
+# entry a reader would look up. They are the whole provenance of a heritage row: without
+# the identifier the page is a second landmark page with a nicer word on it.
+REGISTER_IDS = [('P380', 'merimee_id'), ('P3424', 'polish_register_id'),
+                ('P359', 'rijksmonument_id')]
+
+# ASKED ONE PROPERTY AT A TIME, because together they are a cross product.
+#
+# Every property in the main query is an OPTIONAL, and OPTIONALs MULTIPLY. A landmark
+# states one architect and one style, so its row count is one. An administrative area
+# states ten neighbours, twenty former mayors, thirty postal codes and five dialing codes,
+# and the engine returns the product: thirty thousand rows for one department. A batch of
+# 2,000 such areas asked for a 593 MB answer from one endpoint and a 751 MB answer from
+# another, and both arrived truncated mid-string. Every attempt failed and the German pass
+# wrote a file of zero rows.
+#
+# Split out, each of these is its own two-column query whose row count is that property's
+# own cardinality and nothing else's. The content is identical; only the shape of the ask
+# changes.
+HIGH_CARDINALITY = {'head_of_government', 'shares_border_with', 'twinned_with',
+                    'postal_code', 'dialing_code', 'licence_plate_code'}
+
+
 def profile(name):
     """(dimensioned, counted, dated, item-valued, plain) for one kind of entity."""
+    if name == 'heritage':
+        return (DIMENSIONED, COUNTED, DATED, ITEM_VALUED, PLAIN + REGISTER_IDS)
     if name == 'settlement':
         return (SETTLEMENT['dimensioned'], SETTLEMENT['counted'], SETTLEMENT['dated'],
                 SETTLEMENT['item_valued'], SETTLEMENT['plain'])
@@ -103,8 +128,26 @@ UNIT_LABEL = {'Q11573': 'metre', 'Q25343': 'square metre', 'Q3647172': 'square m
               'Q11574': 'second', 'Q25517': 'cubic metre'}
 
 
+def split_query(qids, lang, prop, key, item_valued):
+    """One high-cardinality property, on its own, so nothing multiplies with it."""
+    vals = ' '.join('wd:%s' % q for q in qids)
+    if item_valued:
+        body = ('  ?item wdt:%s ?v .\n'
+                '  OPTIONAL { ?v rdfs:label ?lab . FILTER(LANG(?lab) = "%s") }\n'
+                '  OPTIONAL { ?v rdfs:label ?labEn . FILTER(LANG(?labEn) = "en") }'
+                % (prop, lang))
+        sel = '?item ?v ?lab ?labEn'
+    else:
+        body = '  ?item wdt:%s ?v .' % prop
+        sel = '?item ?v'
+    return W.PREFIXES + 'SELECT %s WHERE {\n  VALUES ?item { %s }\n%s\n}' % (
+        sel, vals, body)
+
+
 def build_query(qids, lang, prof=None):
     dim, cnt, dat, itv, pln = prof or profile('landmark')
+    itv = [(p, k) for p, k in itv if k not in HIGH_CARDINALITY]
+    pln = [(p, k) for p, k in pln if k not in HIGH_CARDINALITY]
     vals = ' '.join('wd:%s' % q for q in qids)
     sel, opt = ['?item'], []
     for p, k, _u in dim:
@@ -214,6 +257,13 @@ def main():
                 print('  batch %d-%d failed every attempt' % (i, i + len(chunk)), flush=True)
                 continue
             per = {}
+            split = []
+            for p, k in itv:
+                if k in HIGH_CARDINALITY:
+                    split.append((p, k, True))
+            for p, k in pln:
+                if k in HIGH_CARDINALITY:
+                    split.append((p, k, False))
             for r in rows:
                 q = W.qid_of(read(r, 'item'))
                 if not q:
@@ -249,6 +299,29 @@ def main():
                         stats['%s_has_no_label_so_it_is_dropped' % k] += 1
                         continue
                     _add(e['items'], k, {'qid': it, 'label': lb})
+            for p, k, is_item in split:
+                srows = W.ask(split_query(chunk, lang, p, k, is_item), timeout=300)
+                if srows is None:
+                    stats['split_%s_failed_every_attempt' % k] += 1
+                    continue
+                for r in srows:
+                    q = W.qid_of(read(r, 'item'))
+                    if not q:
+                        continue
+                    e = per.setdefault(q, {'qid': q, 'facts': {}, 'items': {}})
+                    if is_item:
+                        it = W.qid_of(read(r, 'v'))
+                        lb = read(r, 'lab') or read(r, 'labEn')
+                        if not it:
+                            continue
+                        if not lb:
+                            stats['%s_has_no_label_so_it_is_dropped' % k] += 1
+                            continue
+                        _add(e['items'], k, {'qid': it, 'label': lb})
+                    else:
+                        v = read(r, 'v')
+                        if v is not None:
+                            _add(e['facts'], k, {'text': v})
             for q in chunk:
                 e = per.get(q) or {'qid': q, 'facts': {}, 'items': {}}
                 stats['entities_written'] += 1

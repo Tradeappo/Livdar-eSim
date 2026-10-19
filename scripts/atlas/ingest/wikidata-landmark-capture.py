@@ -227,12 +227,26 @@ def check_labels(classes=None):
                               '?c rdfs:label ?l . FILTER(LANG(?l) = "en") }' % vals)
     if rows is None:
         raise RuntimeError('could not read the class labels, so no class can be trusted')
-    got = {W.qid_of(r['c']['value']): r['l']['value'] for r in rows}
+    got = {W.entity_of(r['c']['value']): r['l']['value'] for r in rows}
     bad = ['%s: expected %r, Wikidata says %r' % (q, lab, got.get(q))
            for q, _, lab, _ in classes if got.get(q) != lab]
     if bad:
         raise SystemExit('class labels have moved:\n  ' + '\n  '.join(bad))
     print('%d class ids check out against their Wikidata labels' % len(classes), flush=True)
+
+
+def selector_for(qid):
+    """The triple that picks the population out of Wikidata.
+
+    A class id selects by P31. A PROPERTY id selects by carrying that property at all,
+    which is how the national heritage registers are read: an item is in the Rijksmonument
+    register because it states a Rijksmonument ID, not because of what class it is. One
+    band walk serves both, so the count verification and the three silent answers it
+    guards against are not reimplemented for the registers.
+    """
+    if qid.startswith('P'):
+        return '?x wdt:%s ?registerId .' % qid
+    return '?x wdt:P31 wd:%s .' % qid
 
 
 def band(qid, cls, lo, hi):
@@ -260,14 +274,14 @@ def band(qid, cls, lo, hi):
     rule never fires and the shortfall reaches the file silently. The country is fetched in a
     later pass by id instead, where a missing answer is a missing answer and can be counted.
     """
-    q = W.PREFIXES + """SELECT ?x ?lat ?lon ?site WHERE {
-  ?x wdt:P31 wd:%s .
+    q = W.PREFIXES + """SELECT DISTINCT ?x ?lat ?lon ?site WHERE {
+  %s
   ?x p:P625/psv:P625 [ wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon ] .
   FILTER(xsd:double(?lat) >= %s && xsd:double(?lat) < %s)
   ?site schema:about ?x .
   FILTER(%s)
 }
-LIMIT %d""" % (qid, lo, hi, W.SITE_FILTER, W.CAP)
+LIMIT %d""" % (selector_for(qid), lo, hi, W.SITE_FILTER, W.CAP)
     rows = W.ask(q, timeout=600)
     if rows is None:
         raise RuntimeError('%s band [%s, %s) failed every attempt' % (cls, lo, hi))
@@ -294,11 +308,11 @@ def expected(qid):
     class that comes back short is re-read rather than written.
     """
     rows = W.ask(W.PREFIXES + """SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE {
-  ?x wdt:P31 wd:%s .
+  %s
   ?x p:P625/psv:P625 [ wikibase:geoLatitude ?lat ; wikibase:geoLongitude ?lon ] .
   ?site schema:about ?x .
   FILTER(%s)
-}""" % (qid, W.SITE_FILTER), timeout=900)
+}""" % (selector_for(qid), W.SITE_FILTER), timeout=900)
     if rows is None:
         raise RuntimeError('no count for %s, so nothing to check the capture against' % qid)
     return int(rows[0]['n']['value'])
