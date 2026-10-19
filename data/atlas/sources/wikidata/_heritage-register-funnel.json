@@ -1,49 +1,60 @@
 {
  "built_on": "2026-10-19",
  "raw_supply_per_register": {
+  "at_bda": 7725,
+  "be_flanders": 5887,
+  "cz_uskp": 2057,
+  "es_bic": 5855,
   "fr_merimee": 32857,
   "nl_rijksmonument": 8437,
-  "pl_nid": 9954
+  "pl_nid": 9954,
+  "us_nrhp": 70309
  },
- "raw_supply": 51248,
- "readership_qualified": 13606,
+ "raw_supply": 143081,
+ "readership_qualified": 32644,
  "rejections": {
-  "no_edition_reads_ten_a_month_the_lowest_reading_that_exists": 23144,
-  "reads_below_the_calibrated_floor_for_its_language": 9656,
-  "fewer_than_2_printable_facts": 4994,
-  "another_surface_already_pages_this_wikidata_item": 4842,
-  "another_entry_in_the_same_area_states_exactly_the_same_things": 160,
-  "wikidata_states_no_containing_administrative_area": 20
+  "no_edition_reads_ten_a_month_the_lowest_reading_that_exists": 73182,
+  "reads_below_the_calibrated_floor_for_its_language": 29995,
+  "fewer_than_2_printable_facts": 11141,
+  "another_surface_already_pages_this_wikidata_item": 7260,
+  "another_entry_in_the_same_area_states_exactly_the_same_things": 837,
+  "wikidata_states_no_containing_administrative_area": 140,
+  "no_country_stated_or_its_qid_carries_no_iso_code": 9
  },
- "rows_emitted": 8432,
+ "rows_emitted": 20517,
  "by_register": {
-  "fr_merimee": 4555,
-  "pl_nid": 2292,
-  "nl_rijksmonument": 1585
+  "us_nrhp": 8892,
+  "fr_merimee": 4551,
+  "cz_uskp": 349,
+  "pl_nid": 2286,
+  "at_bda": 892,
+  "be_flanders": 532,
+  "es_bic": 1450,
+  "nl_rijksmonument": 1565
  },
  "by_side": {
-  "destination": 188,
-  "home": 8244
+  "home": 18462,
+  "destination": 2055
  },
  "by_market": {
-  "fr-FR": 4410,
-  "pl-PL": 2274,
-  "nl-NL": 1567,
-  "en-US": 126,
-  "de-DE": 48,
-  "it-IT": 4,
-  "es-ES": 2,
-  "ja-JP": 1
+  "en-US": 9262,
+  "fr-FR": 4423,
+  "pl-PL": 2314,
+  "nl-NL": 2046,
+  "es-ES": 1394,
+  "de-DE": 1065,
+  "it-IT": 8,
+  "ja-JP": 5
  },
  "by_language": {
-  "fr": 4410,
-  "pl": 2274,
-  "nl": 1567,
-  "en": 126,
-  "de": 48,
-  "it": 4,
-  "es": 2,
-  "ja": 1
+  "en": 9262,
+  "fr": 4423,
+  "pl": 2314,
+  "nl": 2046,
+  "es": 1394,
+  "de": 1065,
+  "it": 8,
+  "ja": 5
  },
  "items_already_paged_per_source": {
   "_feature-candidates.jsonl.gz": 50520,
@@ -54,14 +65,24 @@
   "_candidates.jsonl.gz": 4847
  },
  "per_register_conversion": {
-  "fr_merimee": 0.1386,
-  "nl_rijksmonument": 0.1879,
-  "pl_nid": 0.2303
+  "at_bda": 0.1155,
+  "be_flanders": 0.0904,
+  "cz_uskp": 0.1697,
+  "es_bic": 0.2477,
+  "fr_merimee": 0.1385,
+  "nl_rijksmonument": 0.1855,
+  "pl_nid": 0.2297,
+  "us_nrhp": 0.1265
  },
  "why_england_is_not_the_benchmark": "the England build converted 1.4 per cent of its register, and nothing says that transfers. Each register is counted on its own above.",
  "attribution": {
   "fr_merimee": "base Merimee, Ministere de la Culture (Licence Ouverte), via Wikidata (CC0 1.0)",
   "pl_nid": "rejestr zabytkow, Narodowy Instytut Dziedzictwa, via Wikidata (CC0 1.0)",
-  "nl_rijksmonument": "Rijksmonumentenregister, Rijksdienst voor het Cultureel Erfgoed (CC0), via Wikidata (CC0 1.0)"
+  "nl_rijksmonument": "Rijksmonumentenregister, Rijksdienst voor het Cultureel Erfgoed (CC0), via Wikidata (CC0 1.0)",
+  "us_nrhp": "National Register of Historic Places, US National Park Service (a work of the US federal government, public domain), via Wikidata (CC0 1.0)",
+  "at_bda": "Denkmalverzeichnis, Bundesdenkmalamt (official public register), via Wikidata (CC0 1.0)",
+  "be_flanders": "Inventaris Onroerend Erfgoed, agentschap Onroerend Erfgoed (official public register), via Wikidata (CC0 1.0)",
+  "es_bic": "Registro General de Bienes de Interes Cultural, Ministerio de Cultura (official public register), via Wikidata (CC0 1.0)",
+  "cz_uskp": "Ustredni seznam kulturnich pamatek CR, Narodni pamatkovy ustav (official public register), via Wikidata (CC0 1.0)"
  }
 }

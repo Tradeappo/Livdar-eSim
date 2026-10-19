@@ -129,6 +129,24 @@ def entity_of(iri):
     return tail if (tail[:1] in 'QP' and tail[1:].isdigit()) else None
 
 
+def property_of(iri):
+    """The property id in ANY Wikidata property IRI, direct or entity.
+
+    entity_of() reads http://www.wikidata.org/entity/P649 and refuses
+    http://www.wikidata.org/prop/direct/P649, which is what a query binds when it selects a
+    variable used in the predicate position. The register census used entity_of for that
+    binding, so every one of its 299 counts was silently dropped and it reported that no
+    register on Wikidata holds five hundred readable items. The fix is a reader that knows
+    both shapes; the lesson is the one this file keeps teaching, which is that a parse that
+    returns None looks exactly like an answer of zero.
+    """
+    s = str(iri or '')
+    if '://www.wikidata.org/' not in s:
+        return None
+    tail = s.rsplit('/', 1)[-1]
+    return tail if (tail[:1] == 'P' and tail[1:].isdigit()) else None
+
+
 def sitelink_parts(url):
     """(language, article title) for a Wikipedia URL, or None when it is not one of ours."""
     s = str(url or '')

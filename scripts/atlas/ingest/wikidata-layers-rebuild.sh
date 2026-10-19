@@ -53,7 +53,7 @@ if want facts; then
   # as the point where 504s start, with the class captures also running.
   stage facts
   {
-    for d in landmark heritage-register; do
+    for d in landmark; do
       for f in "$WD/$d"/_qids-*.txt; do
         [ -e "$f" ] || continue
         lang=$(basename "$f" .txt); echo "$d ${lang#_qids-} landmark"
@@ -64,6 +64,15 @@ if want facts; then
         [ -e "$f" ] || continue
         lang=$(basename "$f" .txt); echo "$d ${lang#_qids-} settlement"
       done
+    done
+    # THE HERITAGE PROFILE, NOT THE LANDMARK ONE. REGISTER_IDS lives only in the heritage
+    # profile, so a heritage directory fetched as "landmark" comes back with every fact a
+    # landmark has and no register identifier on any row - which the builder then refuses as
+    # "the register identifier is not on the item after all", 18,938 times, having been told
+    # by this script not to ask for it.
+    for f in "$WD/heritage-register"/_qids-*.txt; do
+      [ -e "$f" ] || continue
+      lang=$(basename "$f" .txt); echo "heritage-register ${lang#_qids-} heritage"
     done
   } | sort -k2,2 | xargs -P 3 -L 1 sh -c '
       d=$0; lang=$1; prof=$2

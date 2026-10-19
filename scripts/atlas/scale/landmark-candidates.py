@@ -360,6 +360,20 @@ def main():
           % (len(size), len(ent), sum(dropped_class.values())), file=sys.stderr)
 
     paged, paged_per = already_paged()
+    # ITEMS THE AREA CONTRACT OWNS. wikidata-admin-tail-route.py measures, per class, the
+    # share of its items that some admitted page or the containment chain names as its P131
+    # parent, and reserves the classes that are containers. Without this the class-census
+    # tail put 228 powiats, 94 French departments, 91 Indian districts and 70 Texas counties
+    # in here, where two printable facts and a parent are enough - which is the generic
+    # name-population-area administrative page the area contract exists to refuse. An area
+    # earns a page on all three of that contract's tests or it gets none.
+    reserved = set()
+    try:
+        reserved = set(json.load(open(SRC + '_area-reserved-qids.json')))
+    except (OSError, ValueError):
+        pass
+    print('%d items reserved for the administrative area contract' % len(reserved),
+          file=sys.stderr)
     hubs = transport_nodes()
     GAZ = entity_identity.load_gazetteer()
     cgrid = collections.defaultdict(list)
@@ -386,6 +400,9 @@ def main():
     ready = []                                  # entities past every gate but the route test
 
     for qid, e in ent.items():
+        if qid in reserved:
+            rej['its_class_is_an_administrative_container_so_the_area_contract_judges_it'] += 1
+            continue
         if qid in paged:
             rej['another_surface_already_pages_this_wikidata_item'] += 1
             continue

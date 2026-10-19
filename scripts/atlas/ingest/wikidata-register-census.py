@@ -78,7 +78,11 @@ GROUP BY ?p""" % (' '.join('wdt:%s' % p for p in chunk), W.SITE_FILTER),
             print('  batch %d-%d failed every attempt' % (i, i + len(chunk)), flush=True)
             continue
         for r in rows:
-            p = W.entity_of(r['p']['value'])
+            # property_of, not entity_of: ?p is bound in the predicate position and comes
+            # back as .../prop/direct/P649, which entity_of refuses. It refused all 299 of
+            # them on the first run and the census reported that no register holds five
+            # hundred readable items.
+            p = W.property_of(r['p']['value'])
             if p:
                 got[p] = int(r['n']['value'])
         print('  %d/%d registers counted, %.0fs' % (i + len(chunk), len(ids),

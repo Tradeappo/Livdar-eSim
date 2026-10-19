@@ -1585,6 +1585,12 @@ for _src in (ROOT + 'data/atlas/sources/osm-parents/_outdoor-aggregations.jsonl.
              # universal triple. Nobody visits a canton; the only reason to page one is
              # that it answers what is in it, and that answer has to exist first.
              ROOT + 'data/atlas/sources/wikidata/_area-candidates.jsonl.gz',
+             # The same contract run a second time over the class-census tail, whose 626
+             # container classes hold 97,039 items the chain-driven admin capture never saw.
+             # A container is reserved from the landmark contract rather than left to it,
+             # because the first run of the tail let the landmark builder page 228 powiats,
+             # 94 French departments and 70 Texas counties on two facts and a parent.
+             ROOT + 'data/atlas/sources/wikidata/_area-admin-tail-candidates.jsonl.gz',
              # The Dutch, Polish and French national heritage registers, selected by their
              # own identifiers rather than by class. 51,248 entries carry coordinates and a
              # measurable article; 10,062 were already paged and 41,186 were not, because a
