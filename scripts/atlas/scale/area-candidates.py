@@ -109,7 +109,8 @@ def main():
                  if '--min-extra-facts' in args else 2)
 
     iso_doc = json.load(open(ISO))
-    iso, country_name = iso_doc['iso'], (iso_doc.get('labels') or {})
+    iso = iso_doc['iso']
+    country_name, country_by_code = SE.country_names(iso_doc)
     chain = load_chain()
     adminq = set(json.load(open(ADMINQ))['admin_classes'])
     clsq = json.load(open(CLASSQ)) if os.path.exists(CLASSQ) else {}
@@ -211,7 +212,7 @@ def main():
         else:
             mkt, side = MKT_OF_LANG[lang], 'destination'
         parent = parents[0]
-        cname = country_name.get(cq) or cc
+        cname = country_name.get(cq) or country_by_code.get(cc) or cc
         cls_label = node.get('cls') or 'administrative area'
         cls_words = SE.class_phrase(cls_label, cname)
         cls_slug = slug(cls_label) or 'area'
@@ -225,9 +226,10 @@ def main():
                  '%d, %d pages this inventory already builds standing inside it, and %d '
                  'facts beyond population, area and elevation (%s)'
                  % (ch['reads'], lang, ch['floor'], n_kids, len(extra), ', '.join(extra)))
-        reason = ('%s is %s %s in %s, %s. Wikidata states %s. This inventory pages %d '
+        reason = ('%s is %s %s %s. Wikidata states %s. This inventory pages %d '
                   'place%s inside it, among them %s. Admitted on all three tests: %s.'
-                  % (name, SE.article(cls_words), cls_words, parent['label'], cname,
+                  % (name, SE.article(cls_words), cls_words,
+                     SE.place_clause(parent['label'], cname),
                      ', '.join(shown) if shown else 'nothing beyond its name',
                      n_kids, '' if n_kids == 1 else 's',
                      ', '.join(kid_names.get(qid, [])[:4]), basis))

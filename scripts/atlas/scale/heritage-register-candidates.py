@@ -70,7 +70,14 @@ def main():
     min_facts = int(args[args.index('--min-facts') + 1]) if '--min-facts' in args else 2
 
     iso_doc = json.load(open(ISO))
-    iso, country_name = iso_doc['iso'], (iso_doc.get('labels') or {})
+    iso = iso_doc['iso']
+    import importlib.util as _iu
+    _s2 = _iu.spec_from_file_location('settlement_candidates',
+                                      ROOT + 'scripts/atlas/scale/settlement-candidates.py')
+    _SE = _iu.module_from_spec(_s2)
+    _s2.loader.exec_module(_SE)
+    country_name, country_by_code = _SE.country_names(iso_doc)
+    place_clause = _SE.place_clause
 
     items, reg_of = {}, {}
     per_register = collections.Counter()
@@ -161,7 +168,7 @@ def main():
             mkt, side = MKT_OF_LANG[lang], 'destination'
         name = LM.strip_disambiguator(title)
         parent = parents[0]
-        cname = country_name.get(cq) or cc
+        cname = country_name.get(cq) or country_by_code.get(cc) or cc
         cite = phrase % ', '.join(sorted(ids)[:3])
         sig = '|'.join([reg, parent['qid']] + sorted(phrases))
         if sig in sig_seen:
@@ -171,9 +178,9 @@ def main():
         basis = ('%d search-referred readers a month for its %s article against a floor of '
                  '%d, and %d facts Wikidata states about it'
                  % (ch['reads'], lang, ch['floor'], len(phrases)))
-        reason = ('%s is %s in %s, %s. Wikidata states %d facts about it that this page '
+        reason = ('%s is %s %s. Wikidata states %d facts about it that this page '
                   'prints (%s). Admitted on the register and on demand: %s.'
-                  % (name, cite, parent['label'], cname, len(phrases),
+                  % (name, cite, place_clause(parent['label'], cname), len(phrases),
                      ', '.join(phrases), basis))
         rows.append({
             'individual_page_basis': basis,

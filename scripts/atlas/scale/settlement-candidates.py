@@ -79,13 +79,29 @@ CODES = {'postal_code': 'postal code %s', 'dialing_code': 'dialing code %s',
          'licence_plate_code': 'licence plate code %s'}
 
 
+# The two measurements a reader states in kilometres once they pass one. Everything
+# else here is a height, an elevation, a depth or a diameter, and those stay in metres
+# however large they get.
+KM_WHEN_LONG = ('length', 'width')
+
+
 def one(vals):
     return vals[0] if vals and len(vals) == 1 else None
 
 
-def metres(v):
+def metres(v, as_km_above=1000):
+    """Metres, and kilometres only where a reader would use them.
+
+    The first version converted anything over a kilometre, which put "2.9 km above sea
+    level" on a mountain pass. Nobody states an elevation, a height, a depth or a diameter
+    in kilometres: Mont Blanc is 4,808 m and the Burj Khalifa is 828 m. A LENGTH or a WIDTH
+    over a kilometre is the opposite, so those two pass as_km_above=1000 and everything else
+    passes None.
+    """
     f = float(v)
-    return '%.1f km' % (f / 1000.0) if f >= 1000 else '%d m' % round(f)
+    if as_km_above and f >= as_km_above:
+        return '%.1f km' % (f / 1000.0)
+    return '{:,} m'.format(int(round(f)))
 
 
 def square_metres(v):
@@ -123,7 +139,8 @@ def printable(rec):
         v = one(vals)
         if v is None:
             continue
-        txt = square_metres(v['amount']) if unit == 'square metre' else metres(v['amount'])
+        txt = (square_metres(v['amount']) if unit == 'square metre'
+               else metres(v['amount'], 1000 if k in KM_WHEN_LONG else None))
         (uni if k in UNIVERSAL else extra).append(phrase % txt)
     for k, phrase in COUNT.items():
         v = one(f.get(k) or [])
@@ -227,6 +244,36 @@ def strip_disambiguator(title):
     return t
 
 
+def country_names(iso_doc):
+    """qid -> country name, with an ISO fallback for the items the label map misses.
+
+    country-iso.json maps four items to a code by exception, because the code is stated on
+    a different item: P297 NL is on the Kingdom of the Netherlands and Q55 is its European
+    constituent country. The LABEL map is keyed on the items that state P297, so Q55 is not
+    in it, and a Dutch heritage row came out reading "in Utrecht, NL". Resolving the code
+    back to the name of whichever item does carry it fixes the four without inventing
+    anything.
+    """
+    labels = dict(iso_doc.get('labels') or {})
+    iso = iso_doc.get('iso') or {}
+    by_code = {}
+    for q, code in iso.items():
+        if q in labels:
+            by_code.setdefault(code, labels[q])
+    return labels, by_code
+
+
+def place_clause(parent_label, country_label):
+    """"in Utrecht, Netherlands", or just "in the United Kingdom" when they are the same.
+
+    A British Overseas Territory states the United Kingdom as both its containing area and
+    its country, and the first draft printed "in United Kingdom, United Kingdom".
+    """
+    if (parent_label or '').strip().lower() == (country_label or '').strip().lower():
+        return 'in %s' % parent_label
+    return 'in %s, %s' % (parent_label, country_label)
+
+
 def article(word):
     return 'an' if (word or ' ')[0].lower() in 'aeiou' else 'a'
 
@@ -280,7 +327,7 @@ def main():
 
     iso_doc = json.load(open(ISO))
     iso = iso_doc['iso']
-    country_name = iso_doc.get('labels') or {}
+    country_name, country_by_code = country_names(iso_doc)
 
     chosen = {}
     for l in gzip.open(src + '_language.jsonl.gz', 'rt', encoding='utf-8'):
@@ -385,7 +432,7 @@ def main():
         else:
             mkt, side = MKT_OF_LANG[lang], 'destination'
         parent = parents[0]
-        cname = country_name.get(cq) or cc
+        cname = country_name.get(cq) or country_by_code.get(cc) or cc
         cls_words = class_phrase(labels.get(e['cls'], e['cls'].replace('_', ' ')), cname)
         shown = uni + extra
         # Content only, and the settlement's own name deliberately left out: a signature
@@ -408,8 +455,9 @@ def main():
                     % (len(extra), ', '.join(extra)) if route == 'EXTRA_FACTS' else
                     '%d places this inventory already pages standing inside it (%s)'
                     % (n_inside, ', '.join(inside_names.get(qid, [])[:4]))))
-        reason = ('%s is %s %s in %s, %s. %s%s Admitted on %s: %s.'
-                  % (name, article(cls_words), cls_words, parent['label'], cname,
+        reason = ('%s is %s %s %s. %s%s Admitted on %s: %s.'
+                  % (name, article(cls_words), cls_words,
+                     place_clause(parent['label'], cname),
                      ('Wikidata states %s.' % ', '.join(shown)) if shown else '',
                      inside_clause, route.lower().replace('_', ' '), basis))
         rows.append({

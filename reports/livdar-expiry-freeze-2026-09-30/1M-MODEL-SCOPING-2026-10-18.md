@@ -414,3 +414,94 @@ language's floor. The only manifest rejections are the per-market family gate, w
 | after the global landmark layer, two passes | 767,160 |
 | after the settlement layer | **871,115** |
 | short of 1,000,000 | 128,885 |
+
+---
+
+# Three more paths, 2026-10-19
+
+## 1. Coarser parent index pages
+
+1. **Raw supply.** 56,074 of the landmark layer's 62,361 class-in-area groups held fewer than
+   three members, with 62,381 rows in them. The cause was never scatter: P131 names the
+   NEAREST administrative level, so three churches in one Gemeinde is rare and three in the
+   Landkreis above it is ordinary.
+2. **Intention.** The castles in a district, before a reader knows which castle.
+3. **Source.** Wikidata P131, climbed one and two levels. 40,134 containment items fetched
+   over three passes, every stated P131 followed rather than the first.
+4. **Substance contract.** Three or more members, the floor outdoor_region_feature already
+   uses, and every member is a row this inventory already admitted.
+5. **Duplication.** Finest axis first, so a Gemeinde beats the Landkreis above it on an
+   identical member set. No distance grouping anywhere.
+6. **Yield.** index rows 11,426 to **20,732**, covering 153,828 members.
+7. **FINAL 871,115 to 877,179, +6,064.**
+
+| gate | count |
+|---|---|
+| groups below three members, direct parent | 56,077 |
+| groups below three members, city radius | 55,406 |
+| groups below three members, one level up | 39,537 |
+| groups below three members, two levels up | 18,974 |
+| the same members already listed on a finer axis | 4,687 |
+| the ancestor is a country, not a place a list belongs to | 1,565 |
+| more than sixty members, so the region layer owns it | 180 |
+| the region or outdoor aggregation already lists this class here | 47 |
+
+The last check is on the PLACE and the language, not on an id: those layers key parents by
+OpenStreetMap relation and this one keys them by Wikidata item, so the two can never collide
+on an id, only on what a reader would see.
+
+## 2. Administrative area pages
+
+1. **Raw supply.** 9,071 chain items with five or more admitted pages inside them. The
+   first-level subdivision classes hold only 4,201 items with coordinates worldwide, so this
+   model was never going to be large, and the census said so before it was built.
+2. **Intention.** What is in this area, answered from pages that already exist.
+3. **Source.** Wikidata, with the class tested for being a subclass of first, second or
+   third-level administrative country subdivision, or of administrative territorial entity.
+4. **Substance contract, the strictest here, all three required.** Readership floor; five or
+   more admitted pages inside by P131 within two levels; two or more facts beyond population,
+   area and elevation. Nobody visits a canton, so the page has to answer what is in it, and
+   that answer has to exist first.
+5. **Duplication.** Excluded by item against every surface and by article title against the
+   city pool. 1,763 refused for not being an administrative subdivision at all; 273 refused
+   for stating no containing area, which is the structural test that keeps countries out
+   after Hungary reached the first candidate list.
+6. **Yield.** **3,897** rows, 3,748 surviving the manifest across 72 countries.
+7. **FINAL 877,179 to 880,927, +3,748.** 149 refused by the per-market family gate.
+
+## 3. Heritage registers: the Netherlands, Poland, France
+
+1. **Raw supply.** 51,248 register entries with coordinates and an article in a measurable
+   edition: Merimee 32,857, Polish register 9,954, Rijksmonument 8,437. Selected by the
+   register IDENTIFIER, not by class, so a listed farmhouse counts.
+2. **Intention.** What this building is and what its listing records.
+3. **Source.** base Merimee, Ministere de la Culture (Licence Ouverte); rejestr zabytkow,
+   Narodowy Instytut Dziedzictwa; Rijksmonumentenregister, Rijksdienst voor het Cultureel
+   Erfgoed (CC0). Joined through Wikidata (CC0) and the Wikimedia clickstream (CC0).
+4. **Substance contract.** The register identifier, plus the landmark layer's own gates: the
+   readership floor in the page's language, two printable facts with stated units, a stated
+   containing area.
+5. **Duplication.** 4,842 refused because another surface already pages that item, 160 as
+   semantic duplicates.
+6. **Yield.** **8,432** rows: Merimee 4,555, Polish register 2,292, Rijksmonument 1,585.
+7. **FINAL 880,927 to 889,369, +8,432.** None refused by any manifest gate.
+
+**England was not the benchmark, and measuring each register separately was right.** England
+converted 1.4 per cent of its 379,685 register entries. On the comparable base, entries that
+carry a measurable article, these convert at 13.9 per cent (Merimee), 18.8 per cent
+(Rijksmonument) and 23.0 per cent (Polish register), against England's 26.6 per cent. The
+overlap with the landmark layer was also far smaller than expected: 10,062 of 51,248, because
+the landmark capture reads 128 classes while a register holds every listed farmhouse, wayside
+cross and manor whose class was never named.
+
+## Where the number stands
+
+| | |
+|---|---|
+| FINAL at the start of the session | 660,269 |
+| global landmark layer, two passes | 767,160 |
+| settlement layer | 871,115 |
+| coarser parent index pages | 877,179 |
+| administrative areas | 880,927 |
+| heritage registers NL, PL, FR | **889,369** |
+| short of 1,000,000 | 110,631 |

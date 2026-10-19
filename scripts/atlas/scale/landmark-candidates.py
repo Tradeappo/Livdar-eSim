@@ -114,14 +114,30 @@ ATTRIBUTE = {'architect': 'designed by %s', 'architectural_style': 'its style re
 NOT_PRINTED = ('religion', 'named_after', 'sport', 'duration', 'attendance')
 
 
+# The two measurements a reader states in kilometres once they pass one. Everything
+# else here is a height, an elevation, a depth or a diameter, and those stay in metres
+# however large they get.
+KM_WHEN_LONG = ('length', 'width')
+
+
 def one(vals):
     """The single distinct value, or None when the property states none or more than one."""
     return vals[0] if vals and len(vals) == 1 else None
 
 
-def metres(v):
+def metres(v, as_km_above=1000):
+    """Metres, and kilometres only where a reader would use them.
+
+    The first version converted anything over a kilometre, which put "2.9 km above sea
+    level" on a mountain pass. Nobody states an elevation, a height, a depth or a diameter
+    in kilometres: Mont Blanc is 4,808 m and the Burj Khalifa is 828 m. A LENGTH or a WIDTH
+    over a kilometre is the opposite, so those two pass as_km_above=1000 and everything else
+    passes None.
+    """
     f = float(v)
-    return '%.1f km' % (f / 1000.0) if f >= 1000 else '%d m' % round(f)
+    if as_km_above and f >= as_km_above:
+        return '%.1f km' % (f / 1000.0)
+    return '{:,} m'.format(int(round(f)))
 
 
 def square_metres(v):
@@ -162,7 +178,8 @@ def printable(rec, lang):
         if v is None:
             ambiguous += 1
             continue
-        txt = square_metres(v['amount']) if unit == 'square metre' else metres(v['amount'])
+        txt = (square_metres(v['amount']) if unit == 'square metre'
+               else metres(v['amount'], 1000 if k in KM_WHEN_LONG else None))
         out.append(phrase % txt)
         quantities += 1
     for k, phrase in COUNT.items():
