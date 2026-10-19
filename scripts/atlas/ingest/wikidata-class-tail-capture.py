@@ -35,6 +35,7 @@ level up.
 
 Usage: wikidata-class-tail-capture.py [--floor 25] [--budget 2000] [--max-classes N]
                                       [--only BUCKET] [--report PATH]
+                                      [--census PATH]
 Reads  data/atlas/sources/wikidata/landmark/_class-tail-census.json
 Writes data/atlas/sources/wikidata/{landmark,settlement,admin-tail}/<class>.jsonl.gz
        data/atlas/sources/wikidata/landmark/_class-tail-capture.json
@@ -218,12 +219,13 @@ def main():
     cap = (int(args[args.index('--max-classes') + 1])
            if '--max-classes' in args else 10 ** 9)
     only = args[args.index('--only') + 1] if '--only' in args else None
+    census = args[args.index('--census') + 1] if '--census' in args else CENSUS
     # One process per bucket, so the two large buckets are read at the same time rather
     # than one behind the other; each writes its own report or the second would overwrite
     # the first's.
     report = args[args.index('--report') + 1] if '--report' in args else REPORT
 
-    doc = json.load(open(CENSUS, encoding='utf-8'))
+    doc = json.load(open(census, encoding='utf-8'))
     buckets = {k: [] for k in DIRS}
     refused, seen = [], {k: set() for k in DIRS}
     for d in doc['classes']:

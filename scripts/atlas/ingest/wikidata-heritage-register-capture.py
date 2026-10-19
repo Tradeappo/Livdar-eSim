@@ -57,6 +57,32 @@ CLASSES = [
     ('P1764', 'be_flanders', 'Flemish Heritage Object ID', 5887),
     ('P808', 'es_bic', 'Asset of cultural interest code', 5882),
     ('P762', 'cz_uskp', 'Czech cultural heritage ID', 2055),
+    # A second pass, 2026-10-19, from the same census: every property whose
+    # register is kept by a state body or an agency of one. Refused with their
+    # supply recorded: Kulturenvanteri (26,457) and British Listed Buildings
+    # (22,655) are third-party inventories rather than the official register,
+    # and historic county (118,226), located in protected area (19,857) and
+    # state of conservation (16,669) are not identifiers at all - they ranked
+    # because the census's word filter is deliberately loose.
+    ('P4244', 'de_bayern', 'Bavarian monument authority ID', 14507),
+    ('P9339', 'de_bayern_map', 'Bavarian Monument Map object ID (architectural monument)', 13568),
+    ('P9154', 'at_his', 'Heritage Information System ID in the database of cultural heritage in Austria', 7823),
+    ('P9495', 'se_shm', 'National Historical Museums of Sweden ID', 5364),
+    ('P709', 'gb_scotland', 'Historic Environment Scotland ID', 4971),
+    ('P7900', 'de_niedersachsen', 'Monument Atlas Lower Saxony ADABweb-ID', 4460),
+    ('P757', 'unesco_whs', 'World Heritage Site ID', 3369),
+    ('P7618', 'us_virginia', 'Virginia Landmarks Register ID', 2987),
+    ('P9148', 'de_sachsen_anhalt', 'Saxony-Anhalt cultural heritage object ID', 2594),
+    ('P3318', 'es_andalucia', 'Guía Digital del Patrimonio Cultural de Andalucía ID', 2362),
+    ('P4075', 'cz_catalogue', 'Czech Monument Catalogue Number', 2215),
+    ('P1600', 'es_catalunya', 'Inventari del Patrimoni Arquitectònic de Catalunya code', 2016),
+    ('P1260', 'se_soch', 'Swedish Open Cultural Heritage URI', 1949),
+    ('P6012', 'us_california', 'California Office of Historic Preservation ID', 1860),
+    ('P4245', 'rs_monuments', 'cultural heritage monument in Serbia ID', 1791),
+    ('P2967', 'au_queensland', 'Queensland Heritage Register ID', 1776),
+    ('P477', 'ca_rhp', 'Canadian Register of Historic Places ID', 1719),
+    ('P3449', 'au_nsw', 'NSW Heritage database ID', 1690),
+    ('P4275', 'jp_cultural', 'Japanese Database of National Cultural Properties ID', 1518),
 ]
 
 

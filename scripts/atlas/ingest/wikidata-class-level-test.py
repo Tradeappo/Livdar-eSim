@@ -31,7 +31,9 @@ LEVEL_ROOTS = ['Q10864048', 'Q13220204', 'Q13221722', 'Q56061']
 def main():
     args = sys.argv[1:]
     batch = int(args[args.index('--batch') + 1]) if '--batch' in args else 100
-    doc = json.load(open(CENSUS, encoding='utf-8'))
+    census = args[args.index('--census') + 1] if '--census' in args else CENSUS
+    out = args[args.index('--out') + 1] if '--out' in args else OUT
+    doc = json.load(open(census, encoding='utf-8'))
     ids = [d['qid'] for d in doc['classes']]
     # PER ROOT, NOT A UNION, because the union answers a question too coarse to route on.
     # Tested as one set, 1,227 of 2,460 tail classes came back "administrative", among them
@@ -77,7 +79,7 @@ def main():
                'generic_root_only': sorted(generic),
                'generic_root_only_readable_items': sum(readable.get(c, 0) for c in generic),
                'labels': {c: lab.get(c) for c in sorted(levelled | generic)}},
-              open(OUT, 'w'), indent=1, ensure_ascii=False)
+              open(out, 'w'), indent=1, ensure_ascii=False)
     print('%d of %d tail classes sit at a named administrative level, %d readable items'
           % (len(levelled), len(ids), sum(readable.get(c, 0) for c in levelled)))
     print('%d more reach only the generic administrative root and are NOT routed as areas, '

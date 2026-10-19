@@ -1,0 +1,64 @@
+{
+ "built_on": "2026-10-19",
+ "bands": 12,
+ "per_band_class_limit": 2000,
+ "floor": 500,
+ "bands_that_did_not_answer": [
+  [
+   -30.0,
+   -15.0
+  ],
+  [
+   -15.0,
+   0.0
+  ],
+  [
+   0.0,
+   15.0
+  ],
+  [
+   15.0,
+   30.0
+  ],
+  [
+   30.0,
+   45.0
+  ],
+  [
+   45.0,
+   60.0
+  ],
+  [
+   60.0,
+   75.0
+  ]
+ ],
+ "readable_items_with_coordinates_on_earth": 89183,
+ "distinct_items_in_the_captures_on_disk": 2127066,
+ "classes_seen": 2370,
+ "classes_already_known": 2664,
+ "classes_new_at_or_above_the_floor": 4,
+ "readable_items_in_those_new_classes": 4715,
+ "classes": [
+  {
+   "qid": "Q486972",
+   "label": "human settlement",
+   "readable_sum_over_bands": 2142
+  },
+  {
+   "qid": "Q9826",
+   "label": "high school",
+   "readable_sum_over_bands": 1068
+  },
+  {
+   "qid": "Q55818",
+   "label": "impact crater",
+   "readable_sum_over_bands": 837
+  },
+  {
+   "qid": "Q159334",
+   "label": "secondary school",
+   "readable_sum_over_bands": 668
+  }
+ ]
+}

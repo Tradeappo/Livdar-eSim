@@ -66,8 +66,11 @@ _spec.loader.exec_module(TC)
 
 WD = ROOT + 'data/atlas/sources/wikidata/'
 SRC = WD + 'landmark/'
-LEVELS = SRC + '_class-tail-levels.json'
-CENSUS = SRC + '_class-tail-census.json'
+# Two censuses and two level tests, because the root-free census found classes the
+# root-constrained one could not see - human settlement, high school, impact crater - and a
+# class discovered later answers to the same routing as one discovered first.
+LEVELS = [SRC + '_class-tail-levels.json', SRC + '_class-tail-levels-2.json']
+CENSUS = [SRC + '_class-tail-census.json', SRC + '_class-tail-census-2.json']
 CHAIN = SRC + '_containment-chain.jsonl.gz'
 # A class that reaches the administrative root while naming a physical structure or an
 # organisation. This is the one direction the generic root leaks, and the list is written
@@ -122,10 +125,21 @@ def main():
     # The generic root is included by default, because the per-item P131 test above is what
     # refuses a non-container and it is stronger than the class walk. --include-generic-root
     # is kept as the explicit name of that decision; passing nothing means the same thing.
-    lv = json.load(open(LEVELS, encoding='utf-8'))
-    cen = {c['qid']: c for c in json.load(open(CENSUS, encoding='utf-8'))['classes']}
-    levelled = set(lv['administrative_classes'])
-    generic = set(lv.get('generic_root_only') or ())
+    cen, levelled, generic, generic_n = {}, set(), set(), 0
+    for path in CENSUS:
+        try:
+            cen.update({c['qid']: c for c in
+                        json.load(open(path, encoding='utf-8'))['classes']})
+        except (OSError, ValueError):
+            pass
+    for path in LEVELS:
+        try:
+            lv = json.load(open(path, encoding='utf-8'))
+        except (OSError, ValueError):
+            continue
+        levelled |= set(lv['administrative_classes'])
+        generic |= set(lv.get('generic_root_only') or ())
+        generic_n += len(lv.get('generic_root_only') or ())
 
     take, settlements, vacuous, absent = [], [], [], []
     for q in sorted(levelled | generic):

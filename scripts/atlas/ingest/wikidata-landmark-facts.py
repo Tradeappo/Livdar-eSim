@@ -96,7 +96,26 @@ LISTABLE_CODES = ('postal_code', 'dialing_code', 'licence_plate_code')
 REGISTER_IDS = [('P380', 'merimee_id'), ('P3424', 'polish_register_id'),
                 ('P359', 'rijksmonument_id'), ('P649', 'nrhp_id'),
                 ('P2951', 'austrian_monument_id'), ('P1764', 'flemish_heritage_id'),
-                ('P808', 'spanish_bic_code'), ('P762', 'czech_heritage_id')]
+                ('P808', 'spanish_bic_code'), ('P762', 'czech_heritage_id'),
+                ('P4244', 'bavarian_monument_id'),
+                ('P9339', 'bavarian_map_id'),
+                ('P9154', 'austrian_his_id'),
+                ('P9495', 'swedish_shm_id'),
+                ('P709', 'scotland_hes_id'),
+                ('P7900', 'lower_saxony_id'),
+                ('P757', 'world_heritage_id'),
+                ('P7618', 'virginia_register_id'),
+                ('P9148', 'saxony_anhalt_id'),
+                ('P3318', 'andalucia_id'),
+                ('P4075', 'czech_catalogue_id'),
+                ('P1600', 'catalonia_id'),
+                ('P1260', 'swedish_soch_id'),
+                ('P6012', 'california_id'),
+                ('P4245', 'serbia_monument_id'),
+                ('P2967', 'queensland_id'),
+                ('P477', 'canadian_rhp_id'),
+                ('P3449', 'nsw_heritage_id'),
+                ('P4275', 'japan_cultural_id')]
 
 # ASKED ONE PROPERTY AT A TIME, because together they are a cross product.
 #
