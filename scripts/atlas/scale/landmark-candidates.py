@@ -339,6 +339,15 @@ def main():
         rows = [json.loads(l) for l in gzip.open(f, 'rt', encoding='utf-8') if l.strip()]
         size[os.path.basename(f)[:-9]] = len(rows)
         for d in rows:
+            # AN UNREAD ITEM IS KEPT AS ITS ID AND ITS CLASS, nothing more. The capture
+            # directory now holds 1.3 million rows and every row carries a map of up to
+            # eleven article titles, which is most of the memory this file would hold and
+            # all of it wasted on the three quarters of items the readership test refuses
+            # two loops down. Nothing between here and that test reads anything but the
+            # class, and the class is what the fold below needs, so the rest is dropped as
+            # it is read rather than carried for an hour and then discarded.
+            if d['qid'] not in chosen:
+                d = {'qid': d['qid'], 'cls': d['cls']}
             prev = ent.get(d['qid'])
             if prev is None:
                 ent[d['qid']] = d

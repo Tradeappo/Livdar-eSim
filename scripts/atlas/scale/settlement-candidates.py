@@ -346,6 +346,12 @@ def main():
         rows = [json.loads(l) for l in gzip.open(f, 'rt', encoding='utf-8') if l.strip()]
         size[os.path.basename(f)[:-9]] = len(rows)
         for d in rows:
+            # An unread settlement is kept as its id and its class and nothing else: the
+            # readership test is the second gate in the loop below and the two gates before
+            # it read neither the titles nor the coordinates, so carrying eleven article
+            # titles for 450,000 items that fail it is memory spent on a rejection line.
+            if d['qid'] not in chosen:
+                d = {'qid': d['qid'], 'cls': d['cls'], 'titles': {}}
             prev = ent.get(d['qid'])
             if prev is None:
                 ent[d['qid']] = d
