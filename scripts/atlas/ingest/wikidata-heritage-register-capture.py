@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The Netherlands, Poland and France national heritage registers, by their own identifiers.
+"""Eight national heritage registers, each selected by its own identifier property.
 
 THREE REGISTERS, AND NONE OF THEM ASSUMED TO BEHAVE LIKE ENGLAND'S. The England build read
 379,685 National Heritage List entries, joined 19,561 of them to a read article and shipped
@@ -17,6 +17,11 @@ generalised rather than copied.
   P359  Rijksmonument ID               Rijksdienst voor het Cultureel Erfgoed
   P3424 Polish cultural heritage register number   Narodowy Instytut Dziedzictwa
   P380  Mérimée ID                     Ministère de la Culture, base Mérimée
+  P649  NRHP reference number          US National Park Service
+  P2951 Cultural heritage database in Austria ObjektID   Bundesdenkmalamt
+  P1764 Flemish Heritage Object ID     agentschap Onroerend Erfgoed
+  P808  Asset of cultural interest code   Ministerio de Cultura, Registro de BIC
+  P762  Czech cultural heritage ID     Národní památkový ústav
 
 The register identifier is the page's provenance: a row carries it so a reader can look the
 entry up in the official record, which is what makes this a heritage page rather than a
@@ -42,6 +47,16 @@ CLASSES = [
     ('P380', 'fr_merimee', 'Mérimée ID', 32857),
     ('P3424', 'pl_nid', 'Polish cultural heritage register number', 9954),
     ('P359', 'nl_rijksmonument', 'Rijksmonument ID', 8437),
+    # Added 2026-10-19 after wikidata-register-census.py read all 13,977 properties and
+    # counted the readable supply behind each of the 299 that name a register of places.
+    # The three above were chosen by hand from the four countries this project happened to
+    # know about; the National Register of Historic Places alone holds more than twice
+    # Mérimée, and nothing but the absence of a census was keeping it out.
+    ('P649', 'us_nrhp', 'NRHP reference number', 71267),
+    ('P2951', 'at_bda', 'Cultural heritage database in Austria ObjektID', 7725),
+    ('P1764', 'be_flanders', 'Flemish Heritage Object ID', 5887),
+    ('P808', 'es_bic', 'Asset of cultural interest code', 5882),
+    ('P762', 'cz_uskp', 'Czech cultural heritage ID', 2055),
 ]
 
 

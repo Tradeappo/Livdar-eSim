@@ -1897,8 +1897,13 @@ SHAPE_LICENCE = {
     'heritage_register': (
         'base Merimee, Ministere de la Culture (Licence Ouverte); rejestr zabytkow, '
         'Narodowy Instytut Dziedzictwa; Rijksmonumentenregister, Rijksdienst voor het '
-        'Cultureel Erfgoed (CC0); joined through Wikidata (CC0 1.0) and the Wikimedia '
-        'clickstream (CC0 1.0)', 'MIXED_OPEN_ATTRIBUTION_REQUIRED'),
+        'Cultureel Erfgoed (CC0); National Register of Historic Places, US National Park '
+        'Service (US federal government, public domain); Denkmalverzeichnis, '
+        'Bundesdenkmalamt; Inventaris Onroerend Erfgoed; Registro General de Bienes de '
+        'Interes Cultural, Ministerio de Cultura; Ustredni seznam kulturnich pamatek CR, '
+        'Narodni pamatkovy ustav; every value a page prints joined through Wikidata '
+        '(CC0 1.0) and the Wikimedia clickstream (CC0 1.0)',
+        'MIXED_OPEN_ATTRIBUTION_REQUIRED'),
     'airport_parking': ('OurAirports (public domain) with OpenStreetMap named car parks '
                         '(ODbL 1.0, share-alike, attribution required)',
                         'ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED'),

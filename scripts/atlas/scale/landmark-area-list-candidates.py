@@ -46,8 +46,22 @@ oldest castle in the district, because it has no knowledge of castles the landma
 not admit, and a claim about the world made from a filtered set is false even when every
 number in it is right.
 
+TWO MEMBER LAYERS, NOT ONE, and the second one was sitting there all along. The landmark
+layer admitted 105,533 entity pages and this file turned them into 11,426 lists. The
+settlement layer admitted 103,955 under a stricter contract and nothing indexed them, yet
+"the communes in Pas-de-Calais, with what Wikidata states about each" is the same page shape
+answering the same question one class down. Both layers' rows carry a class, a stated
+containment parent, a page language and their own facts, which is everything this file needs,
+so the sources are a table rather than a constant.
+
+The heritage register rows are deliberately NOT a source here. Their pages cite the Merimee,
+NID and Rijksmonument registers, whose licences are open but attribution-bearing, and this
+family's licence statement says Wikidata and the clickstream. A list is not worth making that
+statement false; the registers index their own entries or not at all.
+
 Usage: landmark-area-list-candidates.py [--min-members 3]
 Reads  data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz
+       data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz
 Writes data/atlas/sources/wikidata/_landmark-area-candidates.jsonl.gz
        data/atlas/sources/wikidata/_landmark-area-funnel.json
 """
@@ -57,7 +71,14 @@ ROOT = '/home/user/Livdar-eSim/'
 sys.path.insert(0, ROOT + 'scripts/atlas/scale')
 import entity_identity                                                    # noqa: E402
 
-SRC = ROOT + 'data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz'
+# (candidate file, the URL section these members live under, the field that names a
+# member's class in copy, what one member IS in a sentence, the source tag on the row)
+SOURCES = [
+    ('data/atlas/sources/wikidata/_landmark-candidates.jsonl.gz', 'landmarks',
+     'cls', 'landmark', 'wikidata_landmark'),
+    ('data/atlas/sources/wikidata/_settlement-candidates.jsonl.gz', 'places',
+     'class_label', 'settlement', 'wikidata_settlement'),
+]
 CHAIN = ROOT + 'data/atlas/sources/wikidata/landmark/_containment-chain.jsonl.gz'
 OUT = ROOT + 'data/atlas/sources/wikidata/_landmark-area-candidates.jsonl.gz'
 FUNNEL = ROOT + 'data/atlas/sources/wikidata/_landmark-area-funnel.json'
@@ -73,6 +94,30 @@ MAX_COARSE_MEMBERS = 60
 TOO_COARSE = ('country', 'sovereign state', 'federal state', 'continent',
               'constituent country', 'island country', 'microstate')
 YEAR = re.compile(r'(?:dating from|opened in) (\d{1,4})(?: BC)?$')
+# Where a class phrase stops being a noun and starts being where the noun is.
+TAIL = re.compile(r'\s(?:in|of|on|at|by|near|with|without|for|located|recorded|entered|'
+                  r'under|from|to)\s')
+
+
+def plural(phrase):
+    """Pluralise the HEAD NOUN of a class phrase rather than its last word.
+
+    The first draft put an s on the end and wrote "station located on surfaces" and
+    "municipality without town privilegess". A class label is a noun with a place or a
+    qualifier hanging off it, so the s belongs on the noun.
+    """
+    m = TAIL.search(phrase)
+    head, rest = (phrase[:m.start()], phrase[m.start():]) if m else (phrase, '')
+    bits = head.rsplit(' ', 1)
+    w = bits[-1]
+    lw = w.lower()
+    if lw.endswith(('s', 'x', 'z', 'ch', 'sh')):
+        w += 'es'
+    elif lw.endswith('y') and lw[-2:-1] not in 'aeiou':
+        w = w[:-1] + 'ies'
+    else:
+        w += 's'
+    return ' '.join(bits[:-1] + [w]) + rest
 
 
 def load_chain():
@@ -134,23 +179,37 @@ def main():
     chain = load_chain()
     taken = existing_aggregation_keys()
     groups = collections.defaultdict(list)
-    n_in = 0
+    n_in = collections.Counter()
     NEAR_KM = 50.0
-    for l in gzip.open(SRC, 'rt', encoding='utf-8'):
-        d = json.loads(l)
-        n_in += 1
-        groups[('area', d['language'], d['cls'], d['parent_id'],
-                d['parent_name'])].append(d)
-        if d.get('city_id') and (d.get('km_from_city') or 999) <= NEAR_KM:
-            groups[('near', d['language'], d['cls'], str(d['city_id']),
-                    d['city'])].append(d)
-        for lvl in (1, 2):
-            for anc in ancestors(chain, d['parent_id'], lvl):
-                node = chain.get(anc) or {}
-                if not node.get('label'):
-                    continue
-                groups[('up%d' % lvl, d['language'], d['cls'], anc,
-                        node['label'])].append(d)
+    for rel, section, clsfield, member_is, srctag in SOURCES:
+        try:
+            fh = gzip.open(ROOT + rel, 'rt', encoding='utf-8')
+        except (OSError, FileNotFoundError):
+            continue
+        for l in fh:
+            l = l.strip()
+            if not l:
+                continue
+            d = json.loads(l)
+            if not d.get('parent_id') or not d.get('parent_name'):
+                continue
+            d['_section'], d['_member_is'], d['_srctag'] = section, member_is, srctag
+            d['_words'] = (d.get(clsfield) or d.get('cls') or '').replace('_', ' ')
+            n_in[srctag] += 1
+            # The class slug stays the group key, so two layers never pool their members
+            # into one list: a commune and a church are different pages even in one area.
+            groups[('area', d['language'], d['cls'], d['parent_id'],
+                    d['parent_name'])].append(d)
+            if d.get('city_id') and (d.get('km_from_city') or 999) <= NEAR_KM:
+                groups[('near', d['language'], d['cls'], str(d['city_id']),
+                        d['city'])].append(d)
+            for lvl in (1, 2):
+                for anc in ancestors(chain, d['parent_id'], lvl):
+                    node = chain.get(anc) or {}
+                    if not node.get('label'):
+                        continue
+                    groups[('up%d' % lvl, d['language'], d['cls'], anc,
+                            node['label'])].append(d)
 
     rej = collections.Counter()
     rows = []
@@ -164,7 +223,7 @@ def main():
     for (axis, lang, cls, pid, pname), ms in sorted(
             groups.items(), key=lambda kv: (AXIS_ORDER[kv[0][0]], -len(kv[1]), kv[0])):
         if len(ms) < floor:
-            rej['fewer_than_%d_admitted_landmarks_of_this_class_in_this_%s'
+            rej['fewer_than_%d_admitted_pages_of_this_class_in_this_%s'
                 % (floor, {'area': 'area', 'near': 'city_radius'}.get(axis, axis))] += 1
             continue
         if axis in ('up1', 'up2'):
@@ -186,7 +245,7 @@ def main():
         seen_sets[key] = axis
         ms.sort(key=lambda m: (-(m.get('search_readership') or 0), m['entity_name']))
         head = ms[0]
-        cls_words = cls.replace('_', ' ')
+        cls_words = plural(head['_words'] or cls.replace('_', ' '))
         where = {'area': 'inside %s' % pname,
                  'near': 'within %dkm of %s' % (int(NEAR_KM), pname)}.get(
                      axis, 'inside %s, the administrative area %s above them'
@@ -202,24 +261,24 @@ def main():
             facts.append('the dates on this list run from %d to %d' % (years[0], years[-1]))
         if with_site:
             facts.append('%d with an official website' % with_site)
-        reason = ('%d %ss %s, each one a page in this inventory in its own right: every '
+        reason = ('%d %s %s, each one a page in this inventory in its own right: every '
                   'member clears the measured readership floor for %s and carries at least '
                   'two facts Wikidata states about it. %s. The list is this inventory\'s '
                   'own, so its dates describe the entities on it and make no claim about '
                   '%s as a whole.'
                   % (len(ms), cls_words, where, lang, '; '.join(facts), pname))
         rows.append({
-            'individual_page_basis': ('%d admitted landmark pages of one class inside one '
-                                      'administrative area' % len(ms)),
+            'individual_page_basis': ('%d admitted %s pages of one class inside one '
+                                      'administrative area' % (len(ms), head['_member_is'])),
             'shape': 'landmark_area_list',
-            'source': 'wikidata_landmark',
+            'source': head['_srctag'],
             'country': head['country'], 'market': head['market'], 'language': lang,
             'side': head['side'],
             'cls': cls, 'entity_id': '%s:%s:%s' % (axis, pid, cls),
             'entity_name': pname, 'axis': axis,
             'n': len(ms), 'enriched': sum(len(m['facts']) for m in ms),
-            'url': '/%s/landmarks/%s/%s%s-%s/' % (
-                lang, cls.replace('_', '-'),
+            'url': '/%s/%s/%s/%s%s-%s/' % (
+                lang, head['_section'], cls.replace('_', '-'),
                 {'area': '', 'near': 'near-'}.get(axis, 'across-'),
                 slug(pname), pid.lower()),
             'parent_id': pid, 'parent_name': pname,
@@ -248,7 +307,7 @@ def main():
     os.replace(tmp, OUT)
     json.dump({
         'built_on': '2026-10-18',
-        'landmark_rows_read': n_in,
+        'member_rows_read': dict(n_in),
         'groups_of_language_class_and_area_or_city': len(groups),
         'city_radius_km': NEAR_KM,
         'coarse_axis_member_ceiling': MAX_COARSE_MEMBERS,
@@ -261,6 +320,7 @@ def main():
         'rows_emitted': len(rows),
         'members_covered': sum(r['n'] for r in rows),
         'by_axis': dict(collections.Counter(r['axis'] for r in rows)),
+        'by_member_layer': dict(collections.Counter(r['source'] for r in rows)),
         'by_class': dict(by_cls.most_common(30)),
         'by_language': dict(by_lang.most_common()),
         'attribution': 'Wikidata CC0 1.0; Wikimedia clickstream CC0 1.0',

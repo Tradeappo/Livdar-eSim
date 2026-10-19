@@ -94,7 +94,9 @@ LISTABLE_CODES = ('postal_code', 'dialing_code', 'licence_plate_code')
 # entry a reader would look up. They are the whole provenance of a heritage row: without
 # the identifier the page is a second landmark page with a nicer word on it.
 REGISTER_IDS = [('P380', 'merimee_id'), ('P3424', 'polish_register_id'),
-                ('P359', 'rijksmonument_id')]
+                ('P359', 'rijksmonument_id'), ('P649', 'nrhp_id'),
+                ('P2951', 'austrian_monument_id'), ('P1764', 'flemish_heritage_id'),
+                ('P808', 'spanish_bic_code'), ('P762', 'czech_heritage_id')]
 
 # ASKED ONE PROPERTY AT A TIME, because together they are a cross product.
 #

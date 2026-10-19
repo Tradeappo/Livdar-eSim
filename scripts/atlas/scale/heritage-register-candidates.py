@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A page per entry in the Dutch, Polish and French national heritage registers.
+"""A page per entry in eight national heritage registers.
 
 WHAT MAKES THIS A HERITAGE PAGE AND NOT A SECOND LANDMARK PAGE. The identifier. A row here
 carries the number a reader can look up in the Rijksdienst voor het Cultureel Erfgoed, the
@@ -62,6 +62,32 @@ REGISTERS = {
                          'the Rijksdienst voor het Cultureel Erfgoed',
                          'Rijksmonumentenregister, Rijksdienst voor het Cultureel Erfgoed '
                          '(CC0), via Wikidata (CC0 1.0)'),
+    # EVERY VALUE A PAGE PRINTS COMES FROM WIKIDATA, WHICH IS CC0. The register named here
+    # is the authority that maintains the record and the thing a reader can look the entry
+    # up in, so each licence line names the body and its register rather than claiming a
+    # specific open licence for a national register this container cannot read directly.
+    'us_nrhp': ('nrhp_id', 'listed on the National Register of Historic Places as %s',
+                'the US National Park Service',
+                'National Register of Historic Places, US National Park Service (a work of '
+                'the US federal government, public domain), via Wikidata (CC0 1.0)'),
+    'at_bda': ('austrian_monument_id',
+               'recorded in the Austrian monument database as ObjektID %s',
+               'the Bundesdenkmalamt',
+               'Denkmalverzeichnis, Bundesdenkmalamt (official public register), via '
+               'Wikidata (CC0 1.0)'),
+    'be_flanders': ('flemish_heritage_id', 'inventoried by Onroerend Erfgoed as %s',
+                    'the agentschap Onroerend Erfgoed',
+                    'Inventaris Onroerend Erfgoed, agentschap Onroerend Erfgoed (official '
+                    'public register), via Wikidata (CC0 1.0)'),
+    'es_bic': ('spanish_bic_code', 'declared an Asset of Cultural Interest, code %s',
+               'the Spanish Ministry of Culture',
+               'Registro General de Bienes de Interes Cultural, Ministerio de Cultura '
+               '(official public register), via Wikidata (CC0 1.0)'),
+    'cz_uskp': ('czech_heritage_id',
+                'entered in the Czech central list of cultural monuments as %s',
+                'the Narodni pamatkovy ustav',
+                'Ustredni seznam kulturnich pamatek CR, Narodni pamatkovy ustav (official '
+                'public register), via Wikidata (CC0 1.0)'),
 }
 
 

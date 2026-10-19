@@ -47,25 +47,30 @@ if want language; then
 fi
 
 if want facts; then
-  for d in landmark heritage-register; do
-    stage "facts $d"
-    for f in "$WD/$d"/_qids-*.txt; do
-      lang=$(basename "$f" .txt); lang=${lang#_qids-}
-      echo "--- $d $lang: $(wc -l < "$f") ids"
-      python3 "$ROOT/scripts/atlas/ingest/wikidata-landmark-facts.py" \
-        --qids "$f" --out "$WD/$d/_facts-$lang.jsonl.gz" --lang "$lang" --batch 4000
+  # THREE AT A TIME, because one language at a time is the whole cost of this stage. Each
+  # fetch is a different language writing a different file, so they share nothing but the
+  # endpoint, and the endpoint answers three streams without complaint. Four was measured
+  # as the point where 504s start, with the class captures also running.
+  stage facts
+  {
+    for d in landmark heritage-register; do
+      for f in "$WD/$d"/_qids-*.txt; do
+        [ -e "$f" ] || continue
+        lang=$(basename "$f" .txt); echo "$d ${lang#_qids-} landmark"
+      done
     done
-  done
-  for d in settlement admin; do
-    stage "facts $d"
-    for f in "$WD/$d"/_qids-*.txt; do
-      lang=$(basename "$f" .txt); lang=${lang#_qids-}
-      echo "--- $d $lang: $(wc -l < "$f") ids"
-      python3 "$ROOT/scripts/atlas/ingest/wikidata-landmark-facts.py" \
-        --qids "$f" --out "$WD/$d/_facts-$lang.jsonl.gz" --lang "$lang" \
-        --profile settlement --batch 4000
+    for d in settlement admin; do
+      for f in "$WD/$d"/_qids-*.txt; do
+        [ -e "$f" ] || continue
+        lang=$(basename "$f" .txt); echo "$d ${lang#_qids-} settlement"
+      done
     done
-  done
+  } | sort -k2,2 | xargs -P 3 -L 1 sh -c '
+      d=$0; lang=$1; prof=$2
+      echo "--- $d $lang: $(wc -l < '"$WD"'/$d/_qids-$lang.txt) ids"
+      python3 '"$ROOT"'/scripts/atlas/ingest/wikidata-landmark-facts.py \
+        --qids '"$WD"'/$d/_qids-$lang.txt --out '"$WD"'/$d/_facts-$lang.jsonl.gz \
+        --lang $lang --profile $prof --batch 4000'
 fi
 
 stage landmark
