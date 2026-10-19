@@ -481,6 +481,14 @@ def title_for(r):
     # features apart: Hochberg in the Naturpark Altmuehltal is not Hochberg in the Schwarzwald.
     if r.get('entity_type') == 'outdoor_feature' and area:
         where = f"{area}, {city}" if city else area
+    # A Wikidata entity is located by the administrative area Wikidata states it is in, for
+    # exactly the reason a peak is located by its polygon: the name alone is not unique
+    # inside a country. The nearest town comes second where the row has one and the country
+    # otherwise, so the title still says which country without repeating the area.
+    if r.get('entity_type') in ('landmark', 'settlement', 'admin_area', 'register_entry',
+                                'landmark_area') and area:
+        tail_loc = city if (city and city != area) else country
+        where = f"{area}, {tail_loc}" if tail_loc else area
     # A trail is not AT a place, it runs through them, so its locator is the geography it
     # was found inside plus the country: naming the single nearest town as though the route
     # were there would be wrong for a 361km route, and that is the longest in the Dutch
@@ -493,7 +501,9 @@ def title_for(r):
     # fault: the pages are legitimately two, the title just refused to say which city. The same
     # is true one level down, where Sainte-Marguerite is a quarter of Paris and also of
     # Marseille, and all three French neighbourhood families titled both the same way.
-    if (r.get('entity_type') in ('poi', 'venue', 'neighbourhood', 'outdoor_feature', 'trail')
+    if (r.get('entity_type') in ('poi', 'venue', 'neighbourhood', 'outdoor_feature', 'trail',
+                                'landmark', 'settlement', 'admin_area', 'register_entry',
+                                'landmark_area')
             and where and where not in name):
         qualified = f"{name}, {where}"
     else:

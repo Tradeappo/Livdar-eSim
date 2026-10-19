@@ -245,6 +245,10 @@ def main():
         seen_sets[key] = axis
         ms.sort(key=lambda m: (-(m.get('search_readership') or 0), m['entity_name']))
         head = ms[0]
+        pts_lat = [float(m['lat']) for m in ms if m.get('lat') is not None]
+        pts_lon = [float(m['lon']) for m in ms if m.get('lon') is not None]
+        if len(pts_lat) != len(pts_lon):
+            pts_lat = pts_lon = []
         cls_words = plural(head['_words'] or cls.replace('_', ' '))
         where = {'area': 'inside %s' % pname,
                  'near': 'within %dkm of %s' % (int(NEAR_KM), pname)}.get(
@@ -289,6 +293,15 @@ def main():
             'members': [m['entity_name'] for m in ms],
             'member_urls': [m['url'] for m in ms],
             'facts': facts,
+            # THE LOCALE FACT for a list is computed from the MEAN of its members'
+            # coordinates, not from one of them. The page is about what is inside an area,
+            # so the one place it can honestly be said to be is the middle of its members,
+            # and the distance it yields is rounded to 50 or 100km anyway.
+            'locale_facts': (entity_identity.locale_facts_for_row(
+                head['market'], {'lat': sum(pts_lat) / len(pts_lat),
+                                 'lon': sum(pts_lon) / len(pts_lon),
+                                 'country': head['country']})
+                             if head['side'] == 'destination' and pts_lat else []),
             'attribution': 'wikidata_cc0',
             # The members ARE the page, so the signature is the member set. Two areas whose
             # lists hold the same entities would be one page, and nothing else about the

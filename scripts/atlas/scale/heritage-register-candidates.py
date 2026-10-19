@@ -279,6 +279,15 @@ def main():
             'local_names': it.get('titles') or {},
             'facts': phrases, 'quantities': quantities,
             'register': reg, 'register_ids': sorted(ids)[:3], 'register_citation': cite,
+            # THE LOCALE FACT, which is the whole of what makes a page about a place in
+            # another country a page for THIS market rather than a translation of one.
+            # 68,216 of 186,121 destination rows carried none, whole families at a time,
+            # because the manifest computes it only for its own family-by-entity rows and
+            # reads an aggregated row's own field - which no Wikidata builder was setting.
+            # The coordinate it needs has been in every capture from the first band walk.
+            'locale_facts': entity_identity.locale_facts_for_row(
+                mkt, {'lat': it.get('lat'), 'lon': it.get('lon'), 'city_id': None,
+                     'country': cc}) if side == 'destination' else [],
             'attribution': 'wikidata_cc0',
             'search_readership': ch['reads'], 'search_readership_floor': ch['floor'],
             'data_signature': sig, 'uniqueness_reason': reason, 'no_superlative': True,

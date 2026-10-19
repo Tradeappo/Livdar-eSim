@@ -475,6 +475,15 @@
   "Q478847",
   "Q4814017",
   "Q48242",
+  "Q48336",
+  "Q483515",
+  "Q485258",
+  "Q490329",
+  "Q4927168",
+  "Q494978",
+  "Q496341",
+  "Q496825",
+  "Q50198",
   "Q50337",
   "Q50513",
   "Q5055981",
@@ -629,6 +638,6 @@
  ],
  "source": "wikidata-class-level-test.py + wikidata-admin-tail-route.py",
  "test": "P279* to a first, second or third-level administrative country subdivision OR to the generic administrative territorial entity; the generic root is leaky and the per-item P131 children test in area-candidates.py is what refuses a non-container",
- "classes_at_a_named_level": 48,
- "classes_at_the_generic_root_only": 1179
+ "classes_at_a_named_level": 51,
+ "classes_at_the_generic_root_only": 1189
 }

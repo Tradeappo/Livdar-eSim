@@ -1,8 +1,8 @@
 {
  "built_on": "2026-10-19",
- "classes_offered_to_the_area_contract": 788,
- "rows_in_them": 108066,
- "distinct_items": 97039,
+ "classes_offered_to_the_area_contract": 797,
+ "rows_in_them": 109225,
+ "distinct_items": 98078,
  "classes_left_to_the_settlement_contract": [
   "Belgian municipality with the title of city",
   "Catholic parish",
@@ -75,6 +75,7 @@
   "city of California",
   "city of Indonesia",
   "city of Iran",
+  "city of Japan",
   "city of North Carolina",
   "city of Ohio",
   "city of Oregon",
@@ -218,6 +219,7 @@
   "municipality of Armenia",
   "municipality of Austria",
   "municipality of Bangladesh",
+  "municipality of Belgium",
   "municipality of Bolivia",
   "municipality of Bosnia and Herzegovina",
   "municipality of Bulgaria",
@@ -291,6 +293,7 @@
   "official city of the Democratic Republic of the Congo",
   "old town",
   "organized hamlet of Saskatchewan",
+  "parish",
   "parish municipality",
   "parish of Asturias",
   "parish of Denmark",
@@ -415,6 +418,7 @@
   "village in Latvia",
   "village in Saskatchewan",
   "village municipality of Quebec",
+  "village of Brunei",
   "village of Crimea",
   "village of Illinois",
   "village of Japan",
@@ -611,7 +615,7 @@
   "watchtower",
   "water castle"
  ],
- "items_reserved_for_the_area_contract": 101237,
+ "items_reserved_for_the_area_contract": 102207,
  "containment_evidence_per_class": {
   "county of Illinois": {
    "items": 102,
@@ -641,6 +645,11 @@
   "county of Idaho": {
    "items": 44,
    "used_as_a_containment_parent": 44,
+   "share": 1.0
+  },
+  "county of Kentucky": {
+   "items": 120,
+   "used_as_a_containment_parent": 120,
    "share": 1.0
   },
   "county of Missouri": {
@@ -693,11 +702,6 @@
    "used_as_a_containment_parent": 31,
    "share": 1.0
   },
-  "district of Bangladesh": {
-   "items": 64,
-   "used_as_a_containment_parent": 64,
-   "share": 1.0
-  },
   "county of Romania": {
    "items": 41,
    "used_as_a_containment_parent": 41,
@@ -738,9 +742,9 @@
    "used_as_a_containment_parent": 50,
    "share": 1.0
   },
-  "province of Indonesia": {
-   "items": 38,
-   "used_as_a_containment_parent": 38,
+  "federative unit of Brazil": {
+   "items": 27,
+   "used_as_a_containment_parent": 27,
    "share": 1.0
   },
   "district of the Czech Republic": {
@@ -756,11 +760,6 @@
   "prefectural capital of Japan": {
    "items": 45,
    "used_as_a_containment_parent": 45,
-   "share": 1.0
-  },
-  "autonomous prefecture": {
-   "items": 30,
-   "used_as_a_containment_parent": 30,
    "share": 1.0
   },
   "district of Lower Saxony": {
@@ -793,10 +792,10 @@
    "used_as_a_containment_parent": 286,
    "share": 0.9931
   },
-  "county of Kentucky": {
-   "items": 120,
-   "used_as_a_containment_parent": 119,
-   "share": 0.9917
+  "county of Texas": {
+   "items": 256,
+   "used_as_a_containment_parent": 254,
+   "share": 0.9922
   },
   "county of Kansas": {
    "items": 105,
@@ -812,11 +811,6 @@
    "items": 88,
    "used_as_a_containment_parent": 87,
    "share": 0.9886
-  },
-  "county of Texas": {
-   "items": 256,
-   "used_as_a_containment_parent": 253,
-   "share": 0.9883
   },
   "county of Michigan": {
    "items": 84,
@@ -842,11 +836,6 @@
    "items": 73,
    "used_as_a_containment_parent": 72,
    "share": 0.9863
-  },
-  "province of Peru": {
-   "items": 198,
-   "used_as_a_containment_parent": 195,
-   "share": 0.9848
   },
   "district of Japan": {
    "items": 374,
@@ -983,10 +972,10 @@
    "used_as_a_containment_parent": 98,
    "share": 0.9515
   },
-  "national capital": {
-   "items": 54,
-   "used_as_a_containment_parent": 51,
-   "share": 0.9444
+  "province of Indonesia": {
+   "items": 38,
+   "used_as_a_containment_parent": 36,
+   "share": 0.9474
   },
   "federal subject of Russia": {
    "items": 89,
@@ -997,11 +986,6 @@
    "items": 52,
    "used_as_a_containment_parent": 49,
    "share": 0.9423
-  },
-  "division of Pakistan": {
-   "items": 34,
-   "used_as_a_containment_parent": 32,
-   "share": 0.9412
   },
   "county of Virginia": {
    "items": 100,
@@ -1017,6 +1001,16 @@
    "items": 29,
    "used_as_a_containment_parent": 27,
    "share": 0.931
+  },
+  "national capital": {
+   "items": 54,
+   "used_as_a_containment_parent": 50,
+   "share": 0.9259
+  },
+  "province of Turkey": {
+   "items": 81,
+   "used_as_a_containment_parent": 75,
+   "share": 0.9259
   },
   "state of Nigeria": {
    "items": 40,
@@ -1037,11 +1031,6 @@
    "items": 287,
    "used_as_a_containment_parent": 263,
    "share": 0.9164
-  },
-  "canton of Costa Rica": {
-   "items": 84,
-   "used_as_a_containment_parent": 76,
-   "share": 0.9048
   },
   "regional district in British Columbia": {
    "items": 31,
@@ -1078,11 +1067,6 @@
    "used_as_a_containment_parent": 24,
    "share": 0.8889
   },
-  "subdivision of West Bengal": {
-   "items": 70,
-   "used_as_a_containment_parent": 62,
-   "share": 0.8857
-  },
   "shire of Western Australia": {
    "items": 52,
    "used_as_a_containment_parent": 46,
@@ -1097,11 +1081,6 @@
    "items": 158,
    "used_as_a_containment_parent": 139,
    "share": 0.8797
-  },
-  "metropolis": {
-   "items": 64,
-   "used_as_a_containment_parent": 56,
-   "share": 0.875
   },
   "local government area of Western Australia": {
    "items": 138,
@@ -1122,6 +1101,11 @@
    "items": 29,
    "used_as_a_containment_parent": 25,
    "share": 0.8621
+  },
+  "metropolis": {
+   "items": 64,
+   "used_as_a_containment_parent": 55,
+   "share": 0.8594
   },
   "oblast of Bulgaria": {
    "items": 28,
@@ -1155,18 +1139,18 @@
   },
   "Verbandsgemeinde in Rhineland-Palatinate": {
    "items": 75,
-   "used_as_a_containment_parent": 59,
-   "share": 0.7867
-  },
-  "district of Sri Lanka": {
-   "items": 25,
-   "used_as_a_containment_parent": 19,
-   "share": 0.76
+   "used_as_a_containment_parent": 58,
+   "share": 0.7733
   },
   "canton of France": {
    "items": 2879,
    "used_as_a_containment_parent": 2133,
    "share": 0.7409
+  },
+  "autonomous prefecture": {
+   "items": 30,
+   "used_as_a_containment_parent": 22,
+   "share": 0.7333
   },
   "state of India": {
    "items": 44,
@@ -1183,15 +1167,15 @@
    "used_as_a_containment_parent": 29,
    "share": 0.725
   },
+  "district of Sri Lanka": {
+   "items": 25,
+   "used_as_a_containment_parent": 18,
+   "share": 0.72
+  },
   "district of Bangkok": {
    "items": 50,
    "used_as_a_containment_parent": 36,
    "share": 0.72
-  },
-  "region of Tanzania": {
-   "items": 31,
-   "used_as_a_containment_parent": 22,
-   "share": 0.7097
   },
   "district of Nepal": {
    "items": 79,
@@ -1218,20 +1202,30 @@
    "used_as_a_containment_parent": 102,
    "share": 0.68
   },
+  "region of Tanzania": {
+   "items": 31,
+   "used_as_a_containment_parent": 21,
+   "share": 0.6774
+  },
+  "division of Pakistan": {
+   "items": 34,
+   "used_as_a_containment_parent": 23,
+   "share": 0.6765
+  },
   "district in Switzerland": {
    "items": 34,
    "used_as_a_containment_parent": 23,
    "share": 0.6765
   },
+  "province of Thailand": {
+   "items": 82,
+   "used_as_a_containment_parent": 55,
+   "share": 0.6707
+  },
   "first-level administrative division": {
    "items": 72,
    "used_as_a_containment_parent": 48,
    "share": 0.6667
-  },
-  "self-governing community of Georgia": {
-   "items": 59,
-   "used_as_a_containment_parent": 39,
-   "share": 0.661
   },
   "subregion of Portugal": {
    "items": 38,
@@ -1255,18 +1249,18 @@
   },
   "district of Hungary (2013-)": {
    "items": 175,
-   "used_as_a_containment_parent": 112,
-   "share": 0.64
+   "used_as_a_containment_parent": 113,
+   "share": 0.6457
   },
   "district of Lebanon": {
    "items": 25,
    "used_as_a_containment_parent": 16,
    "share": 0.64
   },
-  "district of India": {
-   "items": 790,
-   "used_as_a_containment_parent": 486,
-   "share": 0.6152
+  "self-governing community of Georgia": {
+   "items": 59,
+   "used_as_a_containment_parent": 37,
+   "share": 0.6271
   },
   "Verbandsgemeinde": {
    "items": 131,
@@ -1278,10 +1272,10 @@
    "used_as_a_containment_parent": 19,
    "share": 0.5938
   },
-  "district of Moscow": {
-   "items": 113,
-   "used_as_a_containment_parent": 66,
-   "share": 0.5841
+  "district of India": {
+   "items": 790,
+   "used_as_a_containment_parent": 465,
+   "share": 0.5886
   },
   "District of Bavaria": {
    "items": 126,
@@ -1292,6 +1286,11 @@
    "items": 33,
    "used_as_a_containment_parent": 19,
    "share": 0.5758
+  },
+  "district of Moscow": {
+   "items": 113,
+   "used_as_a_containment_parent": 65,
+   "share": 0.5752
   },
   "unitary authority area": {
    "items": 111,
@@ -1307,6 +1306,11 @@
    "items": 52,
    "used_as_a_containment_parent": 29,
    "share": 0.5577
+  },
+  "subdivision of West Bengal": {
+   "items": 70,
+   "used_as_a_containment_parent": 39,
+   "share": 0.5571
   },
   "lieutenancy area of Scotland": {
    "items": 28,
@@ -1328,10 +1332,20 @@
    "used_as_a_containment_parent": 48,
    "share": 0.5161
   },
+  "thesaban nakhon": {
+   "items": 33,
+   "used_as_a_containment_parent": 16,
+   "share": 0.4848
+  },
   "district of South Korea  (autonomous)": {
    "items": 29,
    "used_as_a_containment_parent": 14,
    "share": 0.4828
+  },
+  "region of Madagascar": {
+   "items": 25,
+   "used_as_a_containment_parent": 12,
+   "share": 0.48
   },
   "county of Kenya": {
    "items": 47,
@@ -1353,25 +1367,20 @@
    "used_as_a_containment_parent": 16,
    "share": 0.4571
   },
-  "thesaban nakhon": {
-   "items": 33,
-   "used_as_a_containment_parent": 15,
-   "share": 0.4545
-  },
   "province of Afghanistan": {
    "items": 34,
    "used_as_a_containment_parent": 15,
    "share": 0.4412
   },
-  "region of Madagascar": {
-   "items": 25,
-   "used_as_a_containment_parent": 11,
-   "share": 0.44
-  },
   "governorate": {
    "items": 57,
    "used_as_a_containment_parent": 25,
    "share": 0.4386
+  },
+  "district of Bangladesh": {
+   "items": 64,
+   "used_as_a_containment_parent": 28,
+   "share": 0.4375
   },
   "district of Chemnitz": {
    "items": 39,
@@ -1388,20 +1397,10 @@
    "used_as_a_containment_parent": 12,
    "share": 0.4286
   },
-  "comarca of Aragon": {
-   "items": 33,
-   "used_as_a_containment_parent": 14,
-   "share": 0.4242
-  },
   "former grietenij": {
    "items": 26,
    "used_as_a_containment_parent": 11,
    "share": 0.4231
-  },
-  "former provinces of Vietnam": {
-   "items": 31,
-   "used_as_a_containment_parent": 13,
-   "share": 0.4194
   },
   "vilayet": {
    "items": 31,
@@ -1418,16 +1417,6 @@
    "used_as_a_containment_parent": 28,
    "share": 0.4179
   },
-  "raion of Ukraine": {
-   "items": 228,
-   "used_as_a_containment_parent": 93,
-   "share": 0.4079
-  },
-  "community": {
-   "items": 846,
-   "used_as_a_containment_parent": 339,
-   "share": 0.4007
-  },
   "political territorial entity": {
    "items": 35,
    "used_as_a_containment_parent": 14,
@@ -1443,15 +1432,30 @@
    "used_as_a_containment_parent": 18,
    "share": 0.4
   },
+  "community": {
+   "items": 846,
+   "used_as_a_containment_parent": 338,
+   "share": 0.3995
+  },
+  "raion of Ukraine": {
+   "items": 228,
+   "used_as_a_containment_parent": 91,
+   "share": 0.3991
+  },
   "Khwaeng": {
    "items": 108,
    "used_as_a_containment_parent": 43,
    "share": 0.3981
   },
+  "former provinces of Vietnam": {
+   "items": 31,
+   "used_as_a_containment_parent": 12,
+   "share": 0.3871
+  },
   "second-level administrative division": {
    "items": 330,
-   "used_as_a_containment_parent": 128,
-   "share": 0.3879
+   "used_as_a_containment_parent": 127,
+   "share": 0.3848
   },
   "historic county of the United Kingdom": {
    "items": 45,
@@ -1468,15 +1472,20 @@
    "used_as_a_containment_parent": 14,
    "share": 0.3684
   },
+  "district of Libya": {
+   "items": 33,
+   "used_as_a_containment_parent": 12,
+   "share": 0.3636
+  },
+  "comarca of Aragon": {
+   "items": 33,
+   "used_as_a_containment_parent": 12,
+   "share": 0.3636
+  },
   "department of Argentina": {
    "items": 378,
    "used_as_a_containment_parent": 137,
    "share": 0.3624
-  },
-  "zone of Ethiopia": {
-   "items": 90,
-   "used_as_a_containment_parent": 32,
-   "share": 0.3556
   },
   "Stadtbezirk": {
    "items": 217,
@@ -1498,40 +1507,25 @@
    "used_as_a_containment_parent": 9,
    "share": 0.3333
   },
-  "district of Libya": {
-   "items": 33,
-   "used_as_a_containment_parent": 11,
-   "share": 0.3333
-  },
-  "region of Côte d'Ivoire": {
-   "items": 45,
-   "used_as_a_containment_parent": 15,
-   "share": 0.3333
-  },
   "regency of Indonesia": {
    "items": 415,
-   "used_as_a_containment_parent": 137,
-   "share": 0.3301
+   "used_as_a_containment_parent": 127,
+   "share": 0.306
   },
   "district of Pakistan": {
    "items": 161,
-   "used_as_a_containment_parent": 53,
-   "share": 0.3292
+   "used_as_a_containment_parent": 49,
+   "share": 0.3043
   },
   "district of South Korea (non-autonomous)": {
    "items": 37,
-   "used_as_a_containment_parent": 12,
-   "share": 0.3243
+   "used_as_a_containment_parent": 11,
+   "share": 0.2973
   },
-  "second-level administrative country subdivision in Indonesia": {
-   "items": 70,
-   "used_as_a_containment_parent": 21,
-   "share": 0.3
-  },
-  "district of Rwanda": {
-   "items": 30,
-   "used_as_a_containment_parent": 9,
-   "share": 0.3
+  "district of Uganda": {
+   "items": 134,
+   "used_as_a_containment_parent": 39,
+   "share": 0.291
   },
   "administrative region of the Federal District": {
    "items": 31,
@@ -1568,65 +1562,70 @@
    "used_as_a_containment_parent": 13,
    "share": 0.2766
   },
-  "district of Uganda": {
-   "items": 134,
-   "used_as_a_containment_parent": 37,
-   "share": 0.2761
-  },
   "department of Cameroon": {
    "items": 58,
    "used_as_a_containment_parent": 16,
    "share": 0.2759
   },
-  "district of Malaysia": {
-   "items": 146,
-   "used_as_a_containment_parent": 37,
-   "share": 0.2534
+  "province of Peru": {
+   "items": 198,
+   "used_as_a_containment_parent": 53,
+   "share": 0.2677
   },
-  "state in the Holy Roman Empire": {
-   "items": 83,
-   "used_as_a_containment_parent": 21,
-   "share": 0.253
+  "district of Rwanda": {
+   "items": 30,
+   "used_as_a_containment_parent": 8,
+   "share": 0.2667
+  },
+  "county of Razavi Khorasan Province": {
+   "items": 34,
+   "used_as_a_containment_parent": 9,
+   "share": 0.2647
+  },
+  "second-level administrative country subdivision in Indonesia": {
+   "items": 70,
+   "used_as_a_containment_parent": 18,
+   "share": 0.2571
   },
   "community development block in West Bengal": {
    "items": 342,
    "used_as_a_containment_parent": 86,
    "share": 0.2515
   },
-  "district of Panama": {
-   "items": 78,
-   "used_as_a_containment_parent": 19,
-   "share": 0.2436
-  },
-  "uezd of the Russian Empire": {
-   "items": 74,
-   "used_as_a_containment_parent": 18,
-   "share": 0.2432
+  "district of Algeria": {
+   "items": 524,
+   "used_as_a_containment_parent": 130,
+   "share": 0.2481
   },
   "administrative region": {
    "items": 37,
    "used_as_a_containment_parent": 9,
    "share": 0.2432
   },
-  "district of Algeria": {
-   "items": 524,
-   "used_as_a_containment_parent": 127,
-   "share": 0.2424
+  "state in the Holy Roman Empire": {
+   "items": 83,
+   "used_as_a_containment_parent": 20,
+   "share": 0.241
   },
   "Indigenous Area": {
    "items": 25,
    "used_as_a_containment_parent": 6,
    "share": 0.24
   },
-  "county of Razavi Khorasan Province": {
-   "items": 34,
-   "used_as_a_containment_parent": 8,
-   "share": 0.2353
+  "district of Malaysia": {
+   "items": 146,
+   "used_as_a_containment_parent": 35,
+   "share": 0.2397
   },
   "provinces of Sweden": {
    "items": 26,
    "used_as_a_containment_parent": 6,
    "share": 0.2308
+  },
+  "uezd of the Russian Empire": {
+   "items": 74,
+   "used_as_a_containment_parent": 17,
+   "share": 0.2297
   },
   "district of China": {
    "items": 1002,
@@ -1638,20 +1637,10 @@
    "used_as_a_containment_parent": 11,
    "share": 0.2245
   },
-  "canton of Ecuador": {
-   "items": 223,
-   "used_as_a_containment_parent": 50,
-   "share": 0.2242
-  },
   "county of Iran": {
    "items": 478,
    "used_as_a_containment_parent": 105,
    "share": 0.2197
-  },
-  "delegation": {
-   "items": 61,
-   "used_as_a_containment_parent": 13,
-   "share": 0.2131
   },
   "urbanization promotion area": {
    "items": 120,
@@ -1668,20 +1657,35 @@
    "used_as_a_containment_parent": 26,
    "share": 0.2031
   },
+  "canton of Ecuador": {
+   "items": 223,
+   "used_as_a_containment_parent": 44,
+   "share": 0.1973
+  },
+  "province of Bolivia": {
+   "items": 112,
+   "used_as_a_containment_parent": 22,
+   "share": 0.1964
+  },
+  "Sukhaphiban": {
+   "items": 26,
+   "used_as_a_containment_parent": 5,
+   "share": 0.1923
+  },
   "guyok of North Korea": {
    "items": 42,
    "used_as_a_containment_parent": 8,
+   "share": 0.1905
+  },
+  "canton of Costa Rica": {
+   "items": 84,
+   "used_as_a_containment_parent": 16,
    "share": 0.1905
   },
   "urban district": {
    "items": 53,
    "used_as_a_containment_parent": 10,
    "share": 0.1887
-  },
-  "subprefecture of São Paulo": {
-   "items": 32,
-   "used_as_a_containment_parent": 6,
-   "share": 0.1875
   },
   "arrondissement of Haiti": {
    "items": 43,
@@ -1698,6 +1702,11 @@
    "used_as_a_containment_parent": 5,
    "share": 0.1786
   },
+  "region of Côte d'Ivoire": {
+   "items": 45,
+   "used_as_a_containment_parent": 8,
+   "share": 0.1778
+  },
   "district of São Paulo": {
    "items": 96,
    "used_as_a_containment_parent": 17,
@@ -1708,10 +1717,10 @@
    "used_as_a_containment_parent": 7,
    "share": 0.175
   },
-  "province of Bolivia": {
-   "items": 112,
-   "used_as_a_containment_parent": 19,
-   "share": 0.1696
+  "zone of Ethiopia": {
+   "items": 90,
+   "used_as_a_containment_parent": 15,
+   "share": 0.1667
   },
   "district of Kiel": {
    "items": 30,
@@ -1722,11 +1731,6 @@
    "items": 169,
    "used_as_a_containment_parent": 28,
    "share": 0.1657
-  },
-  "former district of Japan": {
-   "items": 133,
-   "used_as_a_containment_parent": 22,
-   "share": 0.1654
   },
   "district of Ghana": {
    "items": 262,
@@ -1753,10 +1757,20 @@
    "used_as_a_containment_parent": 7,
    "share": 0.1591
   },
+  "former district of Japan": {
+   "items": 133,
+   "used_as_a_containment_parent": 21,
+   "share": 0.1579
+  },
   "district of Turkey": {
    "items": 906,
    "used_as_a_containment_parent": 143,
    "share": 0.1578
+  },
+  "subprefecture of São Paulo": {
+   "items": 32,
+   "used_as_a_containment_parent": 5,
+   "share": 0.1562
   },
   "kingdom": {
    "items": 77,
@@ -1788,25 +1802,15 @@
    "used_as_a_containment_parent": 4,
    "share": 0.1538
   },
-  "mukim of Brunei Darussalam": {
-   "items": 39,
-   "used_as_a_containment_parent": 6,
-   "share": 0.1538
-  },
-  "Sukhaphiban": {
-   "items": 26,
-   "used_as_a_containment_parent": 4,
-   "share": 0.1538
-  },
   "area of London": {
    "items": 710,
    "used_as_a_containment_parent": 107,
    "share": 0.1507
   },
-  "amphoe": {
-   "items": 878,
-   "used_as_a_containment_parent": 126,
-   "share": 0.1435
+  "dong of South Korea": {
+   "items": 313,
+   "used_as_a_containment_parent": 47,
+   "share": 0.1502
   },
   "dong of South Korea (legal)": {
    "items": 43,
@@ -1843,20 +1847,20 @@
    "used_as_a_containment_parent": 8,
    "share": 0.1311
   },
-  "raion of the Soviet Union": {
-   "items": 46,
-   "used_as_a_containment_parent": 6,
-   "share": 0.1304
+  "district of Panama": {
+   "items": 78,
+   "used_as_a_containment_parent": 10,
+   "share": 0.1282
+  },
+  "mukim of Brunei Darussalam": {
+   "items": 39,
+   "used_as_a_containment_parent": 5,
+   "share": 0.1282
   },
   "department of Niger": {
    "items": 63,
    "used_as_a_containment_parent": 8,
    "share": 0.127
-  },
-  "Roman province": {
-   "items": 64,
-   "used_as_a_containment_parent": 8,
-   "share": 0.125
   },
   "provincial directly controlled county-level division": {
    "items": 32,
@@ -1878,6 +1882,11 @@
    "used_as_a_containment_parent": 4,
    "share": 0.1212
   },
+  "thesaban mueang": {
+   "items": 100,
+   "used_as_a_containment_parent": 12,
+   "share": 0.12
+  },
   "district of Tanzania": {
    "items": 187,
    "used_as_a_containment_parent": 22,
@@ -1888,25 +1897,35 @@
    "used_as_a_containment_parent": 4,
    "share": 0.1176
   },
+  "amphoe": {
+   "items": 878,
+   "used_as_a_containment_parent": 103,
+   "share": 0.1173
+  },
+  "delegation": {
+   "items": 61,
+   "used_as_a_containment_parent": 7,
+   "share": 0.1148
+  },
   "realm": {
    "items": 53,
    "used_as_a_containment_parent": 6,
    "share": 0.1132
   },
-  "kism": {
-   "items": 54,
-   "used_as_a_containment_parent": 6,
-   "share": 0.1111
-  },
   "electoral unit": {
    "items": 747,
-   "used_as_a_containment_parent": 83,
-   "share": 0.1111
+   "used_as_a_containment_parent": 82,
+   "share": 0.1098
   },
-  "thesaban mueang": {
-   "items": 100,
-   "used_as_a_containment_parent": 11,
-   "share": 0.11
+  "Roman province": {
+   "items": 64,
+   "used_as_a_containment_parent": 7,
+   "share": 0.1094
+  },
+  "raion of the Soviet Union": {
+   "items": 46,
+   "used_as_a_containment_parent": 5,
+   "share": 0.1087
   },
   "Nagar Panchayat government": {
    "items": 75,
@@ -1933,11 +1952,6 @@
    "used_as_a_containment_parent": 5,
    "share": 0.1042
   },
-  "district of Germany": {
-   "items": 271,
-   "used_as_a_containment_parent": 28,
-   "share": 0.1033
-  },
   "historical country": {
    "items": 1378,
    "used_as_a_containment_parent": 139,
@@ -1963,6 +1977,21 @@
    "used_as_a_containment_parent": 5,
    "share": 0.098
   },
+  "small burgh": {
+   "items": 155,
+   "used_as_a_containment_parent": 15,
+   "share": 0.0968
+  },
+  "district of Germany": {
+   "items": 271,
+   "used_as_a_containment_parent": 26,
+   "share": 0.0959
+  },
+  "kism": {
+   "items": 54,
+   "used_as_a_containment_parent": 5,
+   "share": 0.0926
+  },
   "thana of Bangladesh": {
    "items": 77,
    "used_as_a_containment_parent": 7,
@@ -1983,11 +2012,6 @@
    "used_as_a_containment_parent": 30,
    "share": 0.0877
   },
-  "former administrative territorial entity": {
-   "items": 1289,
-   "used_as_a_containment_parent": 112,
-   "share": 0.0869
-  },
   "mukim of Malaysia": {
    "items": 58,
    "used_as_a_containment_parent": 5,
@@ -1998,15 +2022,15 @@
    "used_as_a_containment_parent": 13,
    "share": 0.0861
   },
+  "former administrative territorial entity": {
+   "items": 1289,
+   "used_as_a_containment_parent": 109,
+   "share": 0.0846
+  },
   "district of Myanmar": {
    "items": 130,
    "used_as_a_containment_parent": 11,
    "share": 0.0846
-  },
-  "small burgh": {
-   "items": 155,
-   "used_as_a_containment_parent": 13,
-   "share": 0.0839
   },
   "sector of Guinea-Bissau": {
    "items": 36,
@@ -2063,22 +2087,12 @@
    "used_as_a_containment_parent": 3,
    "share": 0.0732
   },
-  "district of Prussia": {
-   "items": 151,
-   "used_as_a_containment_parent": 11,
-   "share": 0.0728
-  },
-  "imada": {
-   "items": 208,
-   "used_as_a_containment_parent": 15,
-   "share": 0.0721
-  },
   "Emirate": {
    "items": 28,
    "used_as_a_containment_parent": 2,
    "share": 0.0714
   },
-  "sanjak": {
+  "special economic zone": {
    "items": 28,
    "used_as_a_containment_parent": 2,
    "share": 0.0714
@@ -2103,20 +2117,20 @@
    "used_as_a_containment_parent": 8,
    "share": 0.0684
   },
-  "third-level administrative division": {
-   "items": 416,
-   "used_as_a_containment_parent": 28,
+  "imada": {
+   "items": 208,
+   "used_as_a_containment_parent": 14,
    "share": 0.0673
+  },
+  "district of Iran": {
+   "items": 1205,
+   "used_as_a_containment_parent": 81,
+   "share": 0.0672
   },
   "arrondissement of Senegal": {
    "items": 153,
    "used_as_a_containment_parent": 10,
    "share": 0.0654
-  },
-  "district of Iran": {
-   "items": 1205,
-   "used_as_a_containment_parent": 77,
-   "share": 0.0639
   },
   "eldership of Lithuania": {
    "items": 111,
@@ -2143,6 +2157,16 @@
    "used_as_a_containment_parent": 3,
    "share": 0.0612
   },
+  "county": {
+   "items": 98,
+   "used_as_a_containment_parent": 6,
+   "share": 0.0612
+  },
+  "district of Prussia": {
+   "items": 151,
+   "used_as_a_containment_parent": 9,
+   "share": 0.0596
+  },
   "district of Papua New Guinea": {
    "items": 84,
    "used_as_a_containment_parent": 5,
@@ -2152,6 +2176,11 @@
    "items": 415,
    "used_as_a_containment_parent": 24,
    "share": 0.0578
+  },
+  "third-level administrative division": {
+   "items": 416,
+   "used_as_a_containment_parent": 24,
+   "share": 0.0577
   },
   "district of Espoo": {
    "items": 52,
@@ -2178,11 +2207,6 @@
    "used_as_a_containment_parent": 3,
    "share": 0.0556
   },
-  "historical region": {
-   "items": 589,
-   "used_as_a_containment_parent": 32,
-   "share": 0.0543
-  },
   "district of Tajikistan": {
    "items": 56,
    "used_as_a_containment_parent": 3,
@@ -2198,25 +2222,20 @@
    "used_as_a_containment_parent": 3,
    "share": 0.0526
   },
-  "shiyakha": {
-   "items": 57,
-   "used_as_a_containment_parent": 3,
-   "share": 0.0526
-  },
-  "county": {
-   "items": 98,
-   "used_as_a_containment_parent": 5,
+  "ōaza": {
+   "items": 1334,
+   "used_as_a_containment_parent": 68,
    "share": 0.051
+  },
+  "historical region": {
+   "items": 589,
+   "used_as_a_containment_parent": 30,
+   "share": 0.0509
   },
   "district of Madagascar": {
    "items": 119,
    "used_as_a_containment_parent": 6,
    "share": 0.0504
-  },
-  "ōaza": {
-   "items": 1334,
-   "used_as_a_containment_parent": 67,
-   "share": 0.0502
   },
   "fu": {
    "items": 61,
@@ -2253,6 +2272,11 @@
    "used_as_a_containment_parent": 3,
    "share": 0.0448
   },
+  "district of Afghanistan": {
+   "items": 403,
+   "used_as_a_containment_parent": 18,
+   "share": 0.0447
+  },
   "rural council of Belarus": {
    "items": 157,
    "used_as_a_containment_parent": 7,
@@ -2273,15 +2297,15 @@
    "used_as_a_containment_parent": 7,
    "share": 0.044
   },
+  "district of Kazakhstan": {
+   "items": 169,
+   "used_as_a_containment_parent": 7,
+   "share": 0.0414
+  },
   "banner": {
    "items": 50,
    "used_as_a_containment_parent": 2,
    "share": 0.04
-  },
-  "district of Turkmenistan": {
-   "items": 51,
-   "used_as_a_containment_parent": 2,
-   "share": 0.0392
   },
   "district of Latvia": {
    "items": 26,
@@ -2298,15 +2322,25 @@
    "used_as_a_containment_parent": 1,
    "share": 0.0357
   },
+  "sanjak": {
+   "items": 28,
+   "used_as_a_containment_parent": 1,
+   "share": 0.0357
+  },
+  "myeon": {
+   "items": 84,
+   "used_as_a_containment_parent": 3,
+   "share": 0.0357
+  },
   "taluk of Kerala": {
    "items": 28,
    "used_as_a_containment_parent": 1,
    "share": 0.0357
   },
-  "district of Kazakhstan": {
-   "items": 169,
-   "used_as_a_containment_parent": 6,
-   "share": 0.0355
+  "shiyakha": {
+   "items": 57,
+   "used_as_a_containment_parent": 2,
+   "share": 0.0351
   },
   "district of Costa Rica": {
    "items": 491,
@@ -2323,11 +2357,6 @@
    "used_as_a_containment_parent": 17,
    "share": 0.0342
   },
-  "tehsil of Rajasthan": {
-   "items": 30,
-   "used_as_a_containment_parent": 1,
-   "share": 0.0333
-  },
   "cantonment": {
    "items": 30,
    "used_as_a_containment_parent": 1,
@@ -2337,11 +2366,6 @@
    "items": 31,
    "used_as_a_containment_parent": 1,
    "share": 0.0323
-  },
-  "district of Peru": {
-   "items": 1892,
-   "used_as_a_containment_parent": 61,
-   "share": 0.0322
   },
   "department of Mauritania": {
    "items": 63,
@@ -2358,6 +2382,11 @@
    "used_as_a_containment_parent": 1,
    "share": 0.0312
   },
+  "district of Peru": {
+   "items": 1892,
+   "used_as_a_containment_parent": 59,
+   "share": 0.0312
+  },
   "former local government area of South Australia": {
    "items": 32,
    "used_as_a_containment_parent": 1,
@@ -2367,11 +2396,6 @@
    "items": 32,
    "used_as_a_containment_parent": 1,
    "share": 0.0312
-  },
-  "Gemarkung": {
-   "items": 1061,
-   "used_as_a_containment_parent": 33,
-   "share": 0.0311
   },
   "historical administrative division": {
    "items": 130,
@@ -2387,6 +2411,11 @@
    "items": 328,
    "used_as_a_containment_parent": 10,
    "share": 0.0305
+  },
+  "Gemarkung": {
+   "items": 1061,
+   "used_as_a_containment_parent": 32,
+   "share": 0.0302
   },
   "district of Cambodia": {
    "items": 202,
@@ -2488,6 +2517,11 @@
    "used_as_a_containment_parent": 3,
    "share": 0.0197
   },
+  "district of Turkmenistan": {
+   "items": 51,
+   "used_as_a_containment_parent": 1,
+   "share": 0.0196
+  },
   "sector of Rwanda": {
    "items": 413,
    "used_as_a_containment_parent": 8,
@@ -2528,15 +2562,15 @@
    "used_as_a_containment_parent": 2,
    "share": 0.0165
   },
+  "National Park of the United States": {
+   "items": 63,
+   "used_as_a_containment_parent": 1,
+   "share": 0.0159
+  },
   "rural district of Iran": {
    "items": 2793,
-   "used_as_a_containment_parent": 43,
-   "share": 0.0154
-  },
-  "administrative post of East Timor": {
-   "items": 66,
-   "used_as_a_containment_parent": 1,
-   "share": 0.0152
+   "used_as_a_containment_parent": 44,
+   "share": 0.0158
   },
   "administrative sector": {
    "items": 200,
@@ -2598,6 +2632,11 @@
    "used_as_a_containment_parent": 3,
    "share": 0.0101
   },
+  "district of Ethiopia": {
+   "items": 801,
+   "used_as_a_containment_parent": 8,
+   "share": 0.01
+  },
   "defunct Roman Catholic diocese": {
    "items": 114,
    "used_as_a_containment_parent": 1,
@@ -2606,11 +2645,6 @@
   "markas of Egypt": {
    "items": 115,
    "used_as_a_containment_parent": 1,
-   "share": 0.0087
-  },
-  "district of Ethiopia": {
-   "items": 801,
-   "used_as_a_containment_parent": 7,
    "share": 0.0087
   },
   "constituency of Namibia": {
@@ -2988,6 +3022,11 @@
    "used_as_a_containment_parent": 0,
    "share": 0.0
   },
+  "tehsil of Rajasthan": {
+   "items": 30,
+   "used_as_a_containment_parent": 0,
+   "share": 0.0
+  },
   "community development block of Tamil Nadu": {
    "items": 117,
    "used_as_a_containment_parent": 0,
@@ -3175,6 +3214,11 @@
   },
   "district of the Gambia": {
    "items": 36,
+   "used_as_a_containment_parent": 0,
+   "share": 0.0
+  },
+  "administrative post of East Timor": {
+   "items": 66,
    "used_as_a_containment_parent": 0,
    "share": 0.0
   },
@@ -3738,11 +3782,6 @@
    "used_as_a_containment_parent": 0,
    "share": 0.0
   },
-  "National Park of the United States": {
-   "items": 63,
-   "used_as_a_containment_parent": 0,
-   "share": 0.0
-  },
   "zone of Rome": {
    "items": 53,
    "used_as_a_containment_parent": 0,
@@ -3865,6 +3904,16 @@
   },
   "constituency of the West Bengal Legislative Assembly": {
    "items": 294,
+   "used_as_a_containment_parent": 0,
+   "share": 0.0
+  },
+  "Block Panchayat": {
+   "items": 112,
+   "used_as_a_containment_parent": 0,
+   "share": 0.0
+  },
+  "free economic zone": {
+   "items": 29,
    "used_as_a_containment_parent": 0,
    "share": 0.0
   },

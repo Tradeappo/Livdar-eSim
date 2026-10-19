@@ -490,6 +490,19 @@ def main():
             'facts_beyond_the_universal_triple': extra,
             'atlas_pages_inside_it': n_inside,
             'admission_route': route,
+            # Carried onto the row because the index builder groups these rows and has
+            # no other way to say where the group is. One measured coordinate, written
+            # where every reader of the row can find it.
+            'lat': e.get('lat'), 'lon': e.get('lon'),
+            # THE LOCALE FACT, which is the whole of what makes a page about a place in
+            # another country a page for THIS market rather than a translation of one.
+            # 68,216 of 186,121 destination rows carried none, whole families at a time,
+            # because the manifest computes it only for its own family-by-entity rows and
+            # reads an aggregated row's own field - which no Wikidata builder was setting.
+            # The coordinate it needs has been in every capture from the first band walk.
+            'locale_facts': entity_identity.locale_facts_for_row(
+                mkt, {'lat': e.get('lat'), 'lon': e.get('lon'), 'city_id': None,
+                     'country': cc}) if side == 'destination' else [],
             'attribution': 'wikidata_cc0',
             'search_readership': ch['reads'],
             'search_readership_floor': ch['floor'],

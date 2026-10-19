@@ -1977,6 +1977,65 @@ if OUTDOOR_PARENT_URL:
 # forbids, so they stay and this comment is the record of why.
 REFUTED_EN_CLASSES = {'supermarket', 'marina', 'nightclub', 'parking', 'market'}
 
+
+# ---- the title locator, for the shapes whose names collide inside one country -------------
+# 10,317 exact duplicate titles, all one pattern: "Akademisches Gymnasium, AT" twice, for two
+# Austrian schools of that name; distinct URLs, because the item id is in the path, and a
+# title that refused to say which town. The fix is not to locate every row - that lengthened
+# a million titles and fixed nothing for the pairs whose parent is also the same - but to
+# locate only the ambiguous ones, with the first field that tells the group apart.
+#
+# THE TIERS ARE WHAT THE ROW ALREADY HOLDS. The containing area first, because that is how a
+# reader would tell two places apart. Then the class, which is what separates Grotenburg the
+# peak from Grotenburg the ruined castle on the outdoor surface and separates a chapel from a
+# parish church here. Then the first stated fact, because two churches of one name in one city
+# are told apart by what is on record about them and by nothing else. Nothing is invented: a
+# tier is used only when its values are DISTINCT across the whole group.
+WD_TITLE_SHAPES = {'landmark_entity', 'settlement_entity', 'area_entity',
+                   'heritage_register', 'landmark_area_list'}
+_wd_groups = collections.defaultdict(list)
+for _a in agg:
+    if _a.get('shape') in WD_TITLE_SHAPES:
+        _wd_groups[(_a.get('market'), _a.get('country'),
+                    (_a.get('entity_name') or '').strip().lower())].append(_a)
+_wd_located = collections.Counter()
+for _key, _rows in _wd_groups.items():
+    if len(_rows) < 2:
+        continue
+    # PER ROW, NOT PER GROUP. Requiring a tier to separate the WHOLE group left 24,917 rows
+    # unlocated and 3,053 duplicate titles: a group of five where four parents differ and two
+    # agree failed on the parent and fell through to a tier that was worse for all five. A row
+    # whose own value is unique in the group is located by it, whatever the rest of the group
+    # needs.
+    _tiers = []
+    for _tier in ('parent_name', 'class_label', 'cls', 'parent_and_class', 'fact', 'two_facts'):
+        if _tier == 'fact':
+            _vals = [((_r.get('facts') or [''])[0] or '') for _r in _rows]
+        elif _tier == 'two_facts':
+            _vals = [', '.join((_r.get('facts') or [])[:2]) for _r in _rows]
+        elif _tier == 'parent_and_class':
+            _vals = ['%s, %s' % (_r.get('parent_name') or '',
+                                 _r.get('class_label') or _r.get('cls') or '')
+                     if (_r.get('parent_name') and (_r.get('class_label') or _r.get('cls')))
+                     else '' for _r in _rows]
+        else:
+            _vals = [str(_r.get(_tier) or '') for _r in _rows]
+        _tiers.append((_tier, _vals, collections.Counter(_vals)))
+    for _i, _r in enumerate(_rows):
+        for _tier, _vals, _seen in _tiers:
+            if _vals[_i] and _seen[_vals[_i]] == 1:
+                _r['_title_disambiguator'] = _vals[_i]
+                _wd_located[_tier] += 1
+                break
+        else:
+            # Nothing the row holds separates it from another row in its group. Recorded
+            # rather than papered over: a title cannot say which of two identically named,
+            # identically placed, identically described entries it is, and inventing a
+            # difference would be worse than reporting that there is none.
+            _wd_located['no_field_in_the_row_separates_it'] += 1
+print('  title locator added where a name collides: %s'
+      % dict(_wd_located.most_common()), file=sys.stderr)
+
 for a in agg:
     m, lang, shape = a['market'], a['language'], a['shape']
     if lang == 'en' and a.get('cls') in REFUTED_EN_CLASSES:
@@ -2001,6 +2060,14 @@ for a in agg:
     # sits in, and the parent is the only honest answer the data holds.
     if shape in ('outdoor_feature', 'outdoor_region_feature', 'trail'):
         area = a.get('parent_name', '')
+    # The Wikidata shapes get a locator ONLY where the name needs one, and the locator is
+    # chosen to actually distinguish. Adding the P131 parent to all of them unconditionally
+    # was measured and was worse on both counts: titles past 65 characters went from 115,054
+    # to 209,721 and exact duplicates from 10,317 to 11,405, because for the colliding pairs
+    # the parent is the SAME - two churches called St. Georg in Munich, two called
+    # Lazaristenkirche in Vienna. See WD_DISAMBIGUATOR above.
+    elif shape in WD_TITLE_SHAPES:
+        area = a.get('_title_disambiguator', '')
     is_wd = a.get('source') == 'wikidata'
 
     if shape.startswith('region_'):
