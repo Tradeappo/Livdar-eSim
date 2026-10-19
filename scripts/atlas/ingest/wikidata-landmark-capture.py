@@ -276,6 +276,10 @@ LIMIT %d""" % (qid, lo, hi, W.SITE_FILTER, W.CAP)
             raise RuntimeError('%s band [%s, %s) is full and cannot be split further'
                                % (cls, lo, hi))
         mid = (lo + hi) / 2.0
+        # Printed, because a class with no output line for an hour is indistinguishable
+        # from a hung one. village took forty minutes with nothing on stdout and the only
+        # way to tell it was working was that the process still held a socket.
+        print('    %s [%s, %s) came back full, splitting' % (cls, lo, hi), flush=True)
         return band(qid, cls, lo, mid) + band(qid, cls, mid, hi)
     return rows
 

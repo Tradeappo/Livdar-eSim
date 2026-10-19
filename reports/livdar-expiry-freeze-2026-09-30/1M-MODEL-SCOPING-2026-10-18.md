@@ -299,3 +299,72 @@ home-side. Fixing that cost 2,940 rows off the final count and is still right.
    the other three in the low thousands each.
 4. **Property and accommodation inventory.** Still the largest single acquisition that would
    move the number, and still unavailable free.
+
+---
+
+# Pass two, and the settlement question, 2026-10-19
+
+## The class list was the limit, and the census said so
+
+626,746 items came from fifty-eight classes written from memory. The census counted the
+classes that list does not read: **1,084,510 readable items in 199 classes**, more than the
+capture itself. It splits in two and the split decides what happens to each half.
+
+| | classes | readable items |
+|---|---|---|
+| settlement-shaped: village, commune, Ortsteil, hamlet, desa, mahalle | 81 | 853,657 |
+| everything else: street, protected area, mountain range, shrine, bay, canal | 118 | 230,853 |
+
+## Pass two: the non-settlement half, same contract
+
+Seventy classes, 217,328 readable items, appended to the capture with Wikidata's own labels
+so the label guard checks a measurement against its source. street, road, stream, watercourse
+and valley went in deliberately, as the classes least likely to produce anything: that is the
+gate's call to make and it is counted per class.
+
+| stage | pass one | pass two |
+|---|---|---|
+| items captured | 626,746 | 844,139 |
+| distinct after folding second classes | 611,803 | 792,616 |
+| read by under ten a month in every edition | 283,703 | 380,041 |
+| fewer than two printable facts | 134,311 | 187,232 |
+| entity rows | 89,758 | **105,533** |
+| index rows | 10,229 | **11,426** |
+| surviving every manifest gate | 92,684 | **106,891** |
+| FINAL | 752,953 | **767,160** |
+
+**The substance bar moved on its own, which is the point of calibrating it.** It is the 75th
+percentile of the printable-fact count among the rows admitted on readership in the same run.
+The new classes are fact-poorer than the old ones, so the bar fell from 4 to 3 and the utility
+route went from 2,689 rows to 7,543. A number in the source would not have done that.
+
+## The settlement half, under a contract written for it
+
+853,657 readable settlements is the only reservoir left that could close the gap alone, and it
+is the one place where every page would come out of the same sentence. A landmark page varies
+by construction: a cathedral states an architect and a style, a dam a height and an operator,
+a glacier an area and an elevation. A settlement states population, area and elevation and
+then, usually, nothing. Fifty thousand true settlement pages are one page.
+
+So the universal triple earns nothing. It is printed when present and counts for zero. A
+settlement is admitted only when it clears the readership floor in its chosen language **and**
+one of two things is true:
+
+- **EXTRA FACTS**: two or more facts beyond population, area and elevation: founding date or
+  first written record, postal codes, head of government, twin towns, highest point, dialing
+  codes, official website, what it borders.
+- **ATLAS INDEX**: three or more entities this inventory already pages standing inside it, by
+  Wikidata's P131 containment and never by distance to a centroid.
+
+The row records which route it took.
+
+**The city pool is excluded three ways**, because a second page for a place already paged is
+the failure this family is most likely to produce. By Wikidata item; by the cross-surface item
+rule every builder here uses; and by **article title in the page's own language**. The third
+is the one that matters: only 19,594 of the paged GeoNames cities carry a Wikidata item in
+these captures, while 66,000 rows across the three sitelink files carry titles, and a title
+identifies a place within an edition exactly.
+
+Scored 42, the lowest entity score in the manifest, below even the landmark index: the
+template is the most uniform of any family here, which is why the contract is the strictest
+and why a row that clears it is still ranked under a landmark that clears a looser one.
