@@ -36,6 +36,7 @@ edition exactly and covers the cities whose item is not recorded. And by the cro
 item exclusion every other builder here uses.
 
 Usage: settlement-candidates.py [--min-extra-facts 2] [--min-atlas-entities 3]
+                                [--src DIR] [--out PATH]
 Reads  data/atlas/sources/wikidata/settlement/*.jsonl.gz
        data/atlas/sources/wikidata/settlement/_language.jsonl.gz
        data/atlas/sources/wikidata/settlement/_facts-<lang>.jsonl.gz
@@ -230,8 +231,48 @@ def article(word):
     return 'an' if (word or ' ')[0].lower() in 'aeiou' else 'a'
 
 
+def class_labels():
+    """{slug: the English label Wikidata gives the class}, read from the capture's own list.
+
+    The slug is for URLs and the label is for sentences, and using the slug for both put
+    "is a municipality without town privileges in germany in Verbandsgemeinde
+    Altenkirchen-Flammersfeld, Germany" on a shipped row: the country lowercased by the
+    slug rule, and then stated again by the page.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        'settlement_capture', ROOT + 'scripts/atlas/ingest/wikidata-settlement-capture.py')
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return {slugname: label for _q, slugname, label, _n in m.CLASSES}
+
+
+def class_phrase(label, country_name):
+    """The class as a page says it, with the country taken off when the page states it.
+
+    Wikidata names a third of these classes after their country: "village of Poland",
+    "town in the United States", "municipality without town privileges in Germany". The
+    page already says which country it is in, so the tail is dropped and "Canaan, New York
+    is a town in the united states in Columbia County, United States" becomes "a town in
+    Columbia County, United States". A class whose tail names a DIFFERENT country than the
+    row keeps it, because then the tail is saying something the row is not.
+    """
+    for sep in (' in ', ' of ', ' in the ', ' of the '):
+        if sep in label:
+            head, _, tail = label.rpartition(sep)
+            t = tail.lower().lstrip('the ').strip()
+            c = (country_name or '').lower().lstrip('the ').strip()
+            if head and t and (t == c or (c and (t in c or c in t))):
+                return head
+    return label
+
+
 def main():
     args = sys.argv[1:]
+    src = args[args.index('--src') + 1] if '--src' in args else SRC
+    if not src.endswith('/'):
+        src += '/'
+    out_path = args[args.index('--out') + 1] if '--out' in args else OUT
     min_extra = (int(args[args.index('--min-extra-facts') + 1])
                  if '--min-extra-facts' in args else 2)
     min_atlas = (int(args[args.index('--min-atlas-entities') + 1])
@@ -242,17 +283,17 @@ def main():
     country_name = iso_doc.get('labels') or {}
 
     chosen = {}
-    for l in gzip.open(SRC + '_language.jsonl.gz', 'rt', encoding='utf-8'):
+    for l in gzip.open(src + '_language.jsonl.gz', 'rt', encoding='utf-8'):
         d = json.loads(l)
         chosen[d['qid']] = d
     facts = {}
-    for fp in sorted(glob.glob(SRC + '_facts-*.jsonl.gz')):
+    for fp in sorted(glob.glob(src + '_facts-*.jsonl.gz')):
         for l in gzip.open(fp, 'rt', encoding='utf-8'):
             d = json.loads(l)
             facts[d['qid']] = d
 
     size, ent, folded = {}, {}, collections.Counter()
-    for f in sorted(glob.glob(SRC + '*.jsonl.gz')):
+    for f in sorted(glob.glob(src + '*.jsonl.gz')):
         if os.path.basename(f).startswith('_'):
             continue
         rows = [json.loads(l) for l in gzip.open(f, 'rt', encoding='utf-8') if l.strip()]
@@ -267,6 +308,7 @@ def main():
             folded[(a if keep == b else b)] += 1
             ent[d['qid']] = d if keep == b else prev
 
+    labels = class_labels()
     city_qids, city_titles = city_pool()
     paged = other_surfaces()
     inside, inside_names = atlas_entities_by_parent()
@@ -343,16 +385,18 @@ def main():
         else:
             mkt, side = MKT_OF_LANG[lang], 'destination'
         parent = parents[0]
-        cls_words = e['cls'].replace('_', ' ')
         cname = country_name.get(cq) or cc
+        cls_words = class_phrase(labels.get(e['cls'], e['cls'].replace('_', ' ')), cname)
         shown = uni + extra
-        if n_inside:
-            shown = shown + ['%d place%s this inventory pages standing in it'
-                             % (n_inside, '' if n_inside == 1 else 's')]
         # Content only, and the settlement's own name deliberately left out: a signature
         # that contains the thing being compared can never report a duplicate, which is how
         # 8,270 colliding climate pages all carried a LOW duplicate risk.
         sig = '|'.join([e['cls'], parent['qid'], str(n_inside)] + sorted(shown))
+        inside_clause = ('' if not n_inside else
+                         ' This inventory pages %d place%s standing in it%s.'
+                         % (n_inside, '' if n_inside == 1 else 's',
+                            ': ' + ', '.join(inside_names.get(qid, [])[:4])
+                            if inside_names.get(qid) else ''))
         if sig in sig_seen:
             rej['another_settlement_in_the_same_area_states_exactly_the_same_things'] += 1
             continue
@@ -364,10 +408,10 @@ def main():
                     % (len(extra), ', '.join(extra)) if route == 'EXTRA_FACTS' else
                     '%d places this inventory already pages standing inside it (%s)'
                     % (n_inside, ', '.join(inside_names.get(qid, [])[:4]))))
-        reason = ('%s is %s %s in %s, %s. %s Admitted on %s: %s.'
+        reason = ('%s is %s %s in %s, %s. %s%s Admitted on %s: %s.'
                   % (name, article(cls_words), cls_words, parent['label'], cname,
                      ('Wikidata states %s.' % ', '.join(shown)) if shown else '',
-                     route.lower().replace('_', ' '), basis))
+                     inside_clause, route.lower().replace('_', ' '), basis))
         rows.append({
             'individual_page_basis': basis,
             'shape': 'settlement_entity',
@@ -387,6 +431,7 @@ def main():
             'qid': qid, 'wikipedia': '%s:%s' % (lang, title),
             'local_names': e['titles'],
             'facts': shown,
+            'class_label': cls_words,
             'universal_facts': uni,
             'facts_beyond_the_universal_triple': extra,
             'atlas_pages_inside_it': n_inside,
@@ -405,11 +450,11 @@ def main():
         by_market[mkt] += 1
         by_side[side] += 1
 
-    tmp = OUT + '.tmp'
+    tmp = out_path + '.tmp'
     with gzip.open(tmp, 'wt', encoding='utf-8') as fh:
         for r in rows:
             fh.write(json.dumps(r, ensure_ascii=False) + '\n')
-    os.replace(tmp, OUT)
+    os.replace(tmp, out_path)
 
     json.dump({
         'built_on': '2026-10-19',
