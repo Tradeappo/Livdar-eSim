@@ -368,3 +368,49 @@ identifies a place within an edition exactly.
 Scored 42, the lowest entity score in the manifest, below even the landmark index: the
 template is the most uniform of any family here, which is why the contract is the strictest
 and why a row that clears it is still ranked under a landmark that clears a looser one.
+
+## The settlement layer, built and measured
+
+| stage | count |
+|---|---|
+| raw settlement supply captured, 69 classes | **837,398** |
+| distinct after folding an item's second class | 791,365 |
+| read by under ten a month in every edition they have | 447,184 refused |
+| **readership-qualified** (clears its language's floor) | **198,558** |
+| reads below the calibrated floor | 119,249 refused |
+| **extra-fact-qualified** (two or more beyond the triple) | **112,335** |
+| **Atlas-index-qualified** (three or more paged places inside) | **111** |
+| neither: fewer than two extra facts and fewer than three paged places | 80,702 refused |
+| the city layer already pages this article | 16,988 refused |
+| already paged on another surface | 9,386 refused |
+| no containing area other than the place itself | 3,383 refused |
+| another settlement in the same area states exactly the same things | 1,318 refused |
+| no fact record, no country | 2,027 refused |
+| **rows emitted** | **111,128** (111,018 extra facts, 110 index) |
+| **surviving every manifest gate** | **103,955** across 106 countries, 64 families |
+| refused by the per-market family gate, untouched | 7,173 (en-AU 6,388, tr-TR 517, es-MX 268) |
+
+The funnel reconciles exactly: 791,365 less the nine rejection lines is 111,128.
+
+**The index route is 110 rows of 111,128, and that is the right shape for it.** Almost
+everything that holds three paged places also states two facts beyond the triple, so the
+route catches the settlements that have an inventory around them and nothing on record of
+their own, rather than acting as a second door for the ones that would get in anyway.
+
+**The city dedupe's title half did the work it was added for**: 16,988 refusals. Only 19,592
+of the paged cities carry a Wikidata item in these captures against 336,654 titles, so the
+item half alone would have missed most of the pool and built a second page for places this
+inventory already pages.
+
+**Zero settlement rows were refused by the localisation gate.** Every destination-side row
+carried its own per-entity readership, measured in the page's language against that
+language's floor. The only manifest rejections are the per-market family gate, which stands.
+
+## Where the number stands
+
+| | |
+|---|---|
+| FINAL at the start of this work | 660,269 |
+| after the global landmark layer, two passes | 767,160 |
+| after the settlement layer | **871,115** |
+| short of 1,000,000 | 128,885 |
