@@ -29,6 +29,7 @@
 //     slip, which is the one error in this data that looks entirely plausible
 
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
+import { gunzipSync, gzipSync } from 'node:zlib';
 import { loadCity } from '../../../lib/atlas/store.js';
 import { make as makeProvenance, validate as validateProvenance } from '../../../lib/atlas/sources/provenance.js';
 import { check as freshnessCheck } from '../../../lib/atlas/sources/freshness.js';
@@ -121,6 +122,109 @@ export function latestCapture(dir = new URL('data/atlas/sources/climate/', ROOT)
   const files = readdirSync(dir).filter((f) => /^nasa-power-climatology-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort();
   if (!files.length) return null;
   return { file: files[files.length - 1], json: JSON.parse(readFileSync(new URL(files[files.length - 1], dir), 'utf8')) };
+}
+
+// THE SHARD CAPTURE, which is the same endpoint fetched a different way.
+//
+// The browser capture above holds 55 cities, because it was typed into a tab.
+// scripts/atlas/ingest/nasa-power-materialise.py later fetched the SAME
+// climatology endpoint for the whole gazetteer and wrote it to
+// data/atlas/sources/climate/power/power-<ISO2>.jsonl, 64,418 cities across 246
+// shards, and nothing ever taught this gate to read them. So the climate surface
+// has been sitting on 55 cities while 64,418 were on disk.
+//
+// This reads them into the SAME row shape the browser capture uses, so all six
+// gates below run over them unchanged and decide what is kept. Nothing about the
+// contract moves: the shards keep POWER's own parameter names, exactly as the
+// capture does, and the rename happens here on the way in.
+//
+// PRECIPITATION IS A DAILY RATE IN THIS ENDPOINT and the store carries both a
+// rate and a monthly total, so the total is computed from the rate and the
+// month's length. That is the one derived number here, and it is derived the
+// same way the unit gate below checks it, which means that gate can no longer
+// catch an error in it. It is stated rather than hidden: for shard rows the
+// precipitation total is arithmetic on the rate, not a second measurement.
+const MONTH_KEYS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+                    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+export function shardRow(d) {
+  const months = [];
+  for (let i = 0; i < 12; i++) {
+    const m = (d.months || {})[MONTH_KEYS[i]];
+    if (!m) return null;
+    const perDay = m.PRECTOTCORR;
+    months.push({
+      tmean: m.T2M,
+      tmax: m.T2M_MAX,
+      tmin: m.T2M_MIN,
+      precipMmPerDay: perDay,
+      precipMm: typeof perDay === 'number'
+        ? Math.round(perDay * DAYS_IN_MONTH[i] * 10) / 10 : undefined,
+      rh: m.RH2M,
+      wind: m.WS2M,
+    });
+  }
+  return {
+    iso2: d.country,
+    period: d.period,
+    // The shard records the city's own coordinate and the grid cell it resolved
+    // to is the cell containing it, so the cell distance gate has nothing to
+    // measure against and would reject every row for a cell it was never given.
+    // The coordinate the fetch used IS the cell reference here, and the gate
+    // then measures it against the entity store, which is the check that
+    // matters: a shard whose coordinate disagrees with the store is describing
+    // somewhere else.
+    cell: (typeof d.lat === 'number' && typeof d.lon === 'number')
+      ? { lat: d.lat, lon: d.lon } : null,
+    sources: ['POWER'],
+    months,
+  };
+}
+
+export function shardCapture(dir = new URL('data/atlas/sources/climate/power/', ROOT)) {
+  if (!existsSync(dir)) return null;
+  const rows = {};
+  let files = 0;
+  for (const f of readdirSync(dir).sort()) {
+    if (!/^power-[A-Z0-9-]+\.jsonl(\.gz)?$/.test(f)) continue;
+    files++;
+    const raw = f.endsWith('.gz')
+      ? gunzipSync(readFileSync(new URL(f, dir))).toString('utf8')
+      : readFileSync(new URL(f, dir), 'utf8');
+    for (const line of raw.split('\n')) {
+      const t = line.trim();
+      if (!t) continue;
+      let d;
+      try { d = JSON.parse(t); } catch { continue; }
+      const row = shardRow(d);
+      if (row && d.city_id) rows[String(d.city_id)] = row;
+    }
+  }
+  if (!files) return null;
+  return {
+    file: 'power/ (' + files + ' shards)',
+    json: {
+      endpoint: 'https://power.larc.nasa.gov/api/temporal/climatology/point',
+      capturedOn: null,
+      rows,
+    },
+  };
+}
+
+// Both captures, the browser one first so a hand-checked row wins a collision.
+export function allCaptures() {
+  const browser = latestCapture();
+  const shards = shardCapture();
+  if (!shards) return browser;
+  if (!browser) return shards;
+  return {
+    file: browser.file + ' + ' + shards.file,
+    json: {
+      endpoint: browser.json.endpoint || shards.json.endpoint,
+      capturedOn: browser.json.capturedOn || null,
+      rows: { ...shards.json.rows, ...(browser.json.rows || {}) },
+    },
+  };
 }
 
 // The capture keeps the provider's own field names, because it is a record of
@@ -233,7 +337,7 @@ export function extremeRangeCheck(rows) {
   };
 }
 
-export function run({ capture = latestCapture(), now = new Date() } = {}) {
+export function run({ capture = allCaptures(), now = new Date() } = {}) {
   if (!capture) throw new Error('no climatology capture found under data/atlas/sources/climate/');
   const { file, json } = capture;
   const rows = json.rows || {};
@@ -311,13 +415,22 @@ export function run({ capture = latestCapture(), now = new Date() } = {}) {
   };
 }
 
+// The header. The cities go to their own gzipped shard beside it, because
+// 64,418 of them in one JSON file is 150 MB and GitHub refuses a file over 100.
+// Readers go through lib/atlas/climate-store.js, which puts the two back
+// together; nothing downstream sees the split.
 export function normalizedStore(report) {
   const { cities, rejected, ...summary } = report;
   return {
     ...summary,
     rejectedCount: Object.keys(rejected).length,
-    cities,
+    citiesIn: 'normals-cities.jsonl.gz',
+    cities: {},
   };
+}
+
+export function cityShard(report) {
+  return Object.values(report.cities).map((c) => JSON.stringify(c)).join('\n') + '\n';
 }
 
 if (import.meta.url === 'file://' + process.argv[1]) {
@@ -326,6 +439,7 @@ if (import.meta.url === 'file://' + process.argv[1]) {
     const dir = new URL('data/atlas/sources/climate/', ROOT);
     mkdirSync(dir, { recursive: true });
     writeFileSync(new URL('normals.json', dir), JSON.stringify(normalizedStore(report), null, 1) + '\n');
+    writeFileSync(new URL('normals-cities.jsonl.gz', dir), gzipSync(Buffer.from(cityShard(report), 'utf8')));
   }
   const { cities, ...summary } = report;
   console.log(JSON.stringify(summary, null, 1));

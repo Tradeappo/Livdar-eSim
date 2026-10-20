@@ -1,0 +1,16 @@
+// Livdar Atlas data route for /{lang}/meteo/. See components/atlas/atlasPageRoute.jsx.
+import '../../../atlas.css';
+import { makeAtlasPageRoute } from '../../../../components/atlas/atlasPageRoute.jsx';
+
+const route = makeAtlasPageRoute('meteo');
+
+// Every page served here is in the cohort manifest and passed cohort QA, so
+// the whole set is generated at build time and revalidated daily. Until a
+// cohort carrying this segment is registered in serve-pages.js the route
+// generates no parameters and answers nothing, which is deliberate: the files
+// land before the cohort does.
+export const dynamicParams = false;
+export const revalidate = 86400;
+export const generateStaticParams = route.generateStaticParams;
+export const generateMetadata = route.generateMetadata;
+export default route.Page;

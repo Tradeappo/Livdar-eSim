@@ -21,6 +21,7 @@
 // `mexico city` leaves `mexico city`, which is not a country and is refused.
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { loadNormals } from '../../lib/atlas/climate-store.js';
 
 const ROOT = new URL('../../', import.meta.url);
 export const FAMILY = 'weather.country-best-time';
@@ -30,10 +31,10 @@ export const VERTICAL = 'weather';
 // a country with no cities in the store is demand we cannot answer, and
 // recording it as a measurement would make the page look eligible when the data
 // behind it does not exist.
+// The cities live in a gzipped shard beside the header since the store grew to
+// 64,418 of them; loadNormals is the one place that knows that.
 export function climateCountries() {
-  const u = new URL('data/atlas/sources/climate/normals.json', ROOT);
-  if (!existsSync(u)) return new Set();
-  const s = JSON.parse(readFileSync(u, 'utf8'));
+  const s = loadNormals({ root: ROOT });
   return new Set(Object.values(s.cities || {}).map((c) => c.iso2).filter(Boolean));
 }
 

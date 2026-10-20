@@ -27,7 +27,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { MANIFESTS } from '../../lib/atlas/serve-pages.js';
 import { fold, ALIASES, MARKET_LANG, MARKET_COUNTRY, phraseNames, universe } from '../../lib/atlas/keyword-country.js';
 import { plain, subject, keywordAliases } from '../../lib/atlas/content/country-forms.js';
-import { cityById, cityName } from '../../lib/atlas/cities.js';
+import { cityById, cityName, attestedCityName } from '../../lib/atlas/cities.js';
 import { slugify } from '../../lib/atlas/atlas-urls.js';
 import { subdivisions } from '../../lib/atlas/holidays.js';
 import { splitEntity as splitSport, ACTIVITIES } from '../../lib/atlas/sport.js';
@@ -101,7 +101,7 @@ export function slugNames(slug, forms, page) {
   }
   if (kind.entity === 'city' || kind.entity === 'city-activity') {
     const id = String(page.entity).split(':')[0];
-    for (const l of ATLAS_LANGS) { const n = slugify(cityName(id, l) || ''); if (n) want.add(n); }
+    for (const l of ATLAS_LANGS) { for (const nm of [cityName(id, l), attestedCityName(id, l)]) { const n = slugify(nm || ''); if (n) want.add(n); } }
     const c = cityById(id);
     if (c) for (const n of [c.name, ...Object.values(c.names || {})]) { const x = slugify(n || ''); if (x) want.add(x); }
   }
@@ -151,7 +151,11 @@ export function formsFor(entity, family, language) {
     return { kind, forms: [...out] };
   }
   if (kind === 'city') {
-    for (const l of ATLAS_LANGS) add(cityName(entity, l));
+    // The attested names too: the city weather family heads its pages with the
+    // GeoNames alternate name (Muenchen, Monachium, the katakana form), and those
+    // are names of this same GeoNames entity, so accepting them cannot let a page
+    // about a different place through.
+    for (const l of ATLAS_LANGS) { add(cityName(entity, l)); add(attestedCityName(entity, l)); }
     const c = cityById(entity);
     if (c) { add(c.name); for (const n of Object.values(c.names || {})) add(n); }
     return { kind, forms: [...out] };

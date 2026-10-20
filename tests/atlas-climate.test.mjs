@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { loadNormals } from '../lib/atlas/climate-store.js';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import {
@@ -29,7 +30,11 @@ const goodRow = (over = {}) => ({
 
 test('the normals store exists and every city is complete', () => {
   assert.ok(existsSync(STORE), 'the climate normals source has not been ingested');
-  const s = JSON.parse(readFileSync(STORE, 'utf8'));
+  // Through the loader, because the store is a header plus a gzipped city
+  // shard since it grew past what one JSON file may weigh in this repository.
+  // The check is the same one: every city the header counts is in the store and
+  // is complete.
+  const s = loadNormals();
   assert.ok(s.kept >= 50, 'only ' + s.kept + ' cities kept');
   assert.equal(s.kept, Object.keys(s.cities).length);
   assert.ok(s.countries >= 20, 'only ' + s.countries + ' countries');
@@ -227,13 +232,16 @@ test('a country is not one climate, and the page says where it splits', () => {
   assert.equal(jp.mostDivided, jp.months.slice().sort((a, b) => b.spread - a.spread)[0]);
 
   // A country measured from one city cannot be divided, and must not claim to
-  // be unanimous on the strength of a single opinion either.
-  const is = forCountry('IS');
-  assert.equal(is.cityCount, 1);
-  assert.equal(is.dividedCountry, false);
+  // be unanimous on the strength of a single opinion either. Iceland was that
+  // country while the store held 55 cities and carries 14 of them now, so the
+  // single city case is Gibraltar: the branch is what is under test and the
+  // country is only the fixture that reaches it.
+  const gi = forCountry('GI');
+  assert.equal(gi.cityCount, 1);
+  assert.equal(gi.dividedCountry, false);
 
   // minCities is honoured, so a page that needs several cities can demand them.
-  assert.equal(forCountry('IS', { minCities: 2 }), null);
+  assert.equal(forCountry('GI', { minCities: 2 }), null);
   assert.equal(forCountry('ZZ'), null);
 });
 
