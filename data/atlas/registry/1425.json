@@ -82,10 +82,32 @@
      "qa": "reports/atlas/cohort-003-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-20",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "productionDeployment": "dpl_33FVTyduHMnR6KYAq2JLsvY3foGx",
+     "commit": "fe137b393b3078dac0eb61704d69ec725de5af53",
+     "at": "2026-10-20T20:48:27.027Z",
+     "response": {
+      "path": "/es/clima/erevan/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/es/clima/erevan/",
+      "robots": "index, follow",
+      "hreflang": 1,
+      "cache": "PRERENDER"
+     },
+     "file": "data/atlas/launches/evidence-2026-10-20.json"
+    }
    }
   ],
   "lot": "lot-005",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "es",
@@ -99,7 +121,8 @@
    "on": "2026-10-20",
    "checks": 22
   },
-  "publishedOn": "2026-10-20"
+  "publishedOn": "2026-10-20",
+  "liveOn": "2026-10-20"
  },
  "/fr/meteo/odessa/": {
   "history": [
@@ -133,10 +156,32 @@
      "qa": "reports/atlas/cohort-003-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-20",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "productionDeployment": "dpl_33FVTyduHMnR6KYAq2JLsvY3foGx",
+     "commit": "fe137b393b3078dac0eb61704d69ec725de5af53",
+     "at": "2026-10-20T20:48:27.027Z",
+     "response": {
+      "path": "/fr/meteo/odessa/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/fr/meteo/odessa/",
+      "robots": "index, follow",
+      "hreflang": 4,
+      "cache": "HIT"
+     },
+     "file": "data/atlas/launches/evidence-2026-10-20.json"
+    }
    }
   ],
   "lot": "lot-005",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "fr",
@@ -150,6 +195,7 @@
    "on": "2026-10-20",
    "checks": 22
   },
-  "publishedOn": "2026-10-20"
+  "publishedOn": "2026-10-20",
+  "liveOn": "2026-10-20"
  }
 }
