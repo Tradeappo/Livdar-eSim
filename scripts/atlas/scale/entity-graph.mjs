@@ -10,6 +10,7 @@
 // it serves, and a page about a region's holidays needs the country whose law
 // creates them.
 
+import { loadNormals } from '../../../lib/atlas/climate-store.js';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 
@@ -27,7 +28,9 @@ const col = J('data/atlas/sources/cost-of-living/normalized.json');
 const rent = J('data/atlas/sources/rent/normalized.json');
 const salary = J('data/atlas/sources/salary/normalized.json');
 const nb = J('data/atlas/sources/neighbourhoods/facts.json');
-const climate = J('data/atlas/sources/climate/normals.json');
+// The cities live in a gzipped shard beside the header since the store grew to
+// 64,418 of them; loadNormals is the one place that knows that.
+const climate = loadNormals({ root: ROOT });
 const venues = J('data/atlas/sources/venues/normalized.json');
 const airports = J('data/atlas/entities/airports.json');
 const cityIndex = J('data/atlas/entities/cities-index.json');

@@ -18,6 +18,7 @@
 //    only by a place name is tagged HIGH_THIN_CONTENT_RISK even when the
 //    combinatorics are attractive, and the count is reported rather than hidden.
 
+import { loadNormals } from '../../lib/atlas/climate-store.js';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { ATLAS_SEGMENTS, countrySlug, countryName as cldrCountryName, slugify } from '../../lib/atlas/atlas-urls.js';
 import { forSubdivision } from '../../lib/atlas/holidays.js';
@@ -77,7 +78,9 @@ const col = J('data/atlas/sources/cost-of-living/normalized.json');
 const rent = J('data/atlas/sources/rent/normalized.json');
 const salary = J('data/atlas/sources/salary/normalized.json');
 const nb = J('data/atlas/sources/neighbourhoods/facts.json');
-const climate = J('data/atlas/sources/climate/normals.json');
+// The cities live in a gzipped shard beside the header since the store grew to
+// 64,418 of them; loadNormals is the one place that knows that.
+const climate = loadNormals({ root: ROOT });
 const countries = J('data/atlas/entities/countries.json');
 const countryName = new Map(countries.map((c) => [c.iso2, c.name]));
 
