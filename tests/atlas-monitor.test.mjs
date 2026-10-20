@@ -8,7 +8,7 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { build } from '../scripts/atlas/atlas-monitor.mjs';
+import { build, DEMAND_PROVEN, UTILITY_PROVEN } from '../scripts/atlas/atlas-monitor.mjs';
 import { report as internalLinks, graph } from '../scripts/atlas/internal-links.mjs';
 import { MANIFESTS } from '../lib/atlas/serve-pages.js';
 import { readFileSync } from 'node:fs';
@@ -91,10 +91,33 @@ test('every row carries the dimensions a decision needs', () => {
   }
 });
 
-test('demand is joined for every page, so the priority list is complete', () => {
+// Every page qualifies on measured demand OR on utility, and says which. This
+// used to require an Ahrefs volume on every page, which was true while every
+// published page had been measured and stopped being the rule when the city
+// weather cohort was approved on utility. What it protects is unchanged: a page
+// whose demand join broke still fails here, because it is neither kind.
+test('every page is DEMAND_PROVEN or UTILITY_PROVEN, and the join is complete', () => {
   const r = build({});
-  const missing = r.rows.filter((x) => x.ahrefs_volume == null).map((x) => x.path);
-  assert.deepEqual(missing.slice(0, 3), [], missing.length + ' pages have no measured demand');
+  const neither = r.rows.filter((x) => !x.qualification).map((x) => x.path);
+  assert.deepEqual(neither.slice(0, 3), [], neither.length + ' pages are neither demand proven nor declared utility');
+  for (const x of r.rows) {
+    if (x.qualification === DEMAND_PROVEN) assert.ok(x.ahrefs_volume != null, x.path + ' is demand proven with no volume');
+    // Unknown is null. Zero would claim a measurement that never happened.
+    if (x.qualification === UTILITY_PROVEN) assert.equal(x.ahrefs_volume, null, x.path + ' is utility proven but carries a volume');
+  }
+  // The exemption is exactly the pages whose spec declares it, and every one of
+  // them carries the measured pattern example it rests on, so nothing can drift
+  // into the utility bucket by losing its demand row.
+  const declared = MANIFESTS.flatMap((m) => {
+    try { return JSON.parse(readFileSync(new URL(m.replace(/-pages\.json$/, '.json'), ROOT), 'utf8')).pages; } catch { return []; }
+  }).filter((p) => p.demand && p.demand.basis === 'utility');
+  assert.equal(r.by_qualification[UTILITY_PROVEN], declared.length);
+  for (const p of declared) {
+    assert.equal(p.volume, null, p.path + ' declares utility with a volume');
+    assert.ok(p.demand.patternEvidence && p.demand.patternEvidence.keyword, p.path + ' declares utility with no pattern evidence');
+  }
+  // The pages measured before stay measured: the 500 are all demand proven.
+  assert.ok(r.by_qualification[DEMAND_PROVEN] >= 500, 'only ' + r.by_qualification[DEMAND_PROVEN] + ' pages are demand proven');
 });
 
 test('the priority list is the pages with demand and no impressions', () => {

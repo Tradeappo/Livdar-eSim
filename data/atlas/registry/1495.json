@@ -1,0 +1,104 @@
+{
+ "/en/weather/kyiv/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-20"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-20",
+    "reason": "cohort 003 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-003-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-005",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "en",
+  "market": "en-US",
+  "entity": "703448",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-20",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-20",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-20"
+ },
+ "/ja/tenki/amritsar/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-20"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-20"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-20",
+    "reason": "cohort 003 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-003-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-005",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "ja",
+  "market": "ja-JP",
+  "entity": "1278710",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-20",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-20",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-20"
+ }
+}

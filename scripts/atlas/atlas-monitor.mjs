@@ -39,6 +39,29 @@ import { report as internalLinks } from './internal-links.mjs';
 const ROOT = new URL('../../', import.meta.url);
 const DEMAND = 'reports/ahrefs-export-2026-09-28/organic/published-page-demand-2026-09-28.tsv';
 
+// WHY A PAGE IS PUBLISHED, in one of two words. A page qualifies on REAL DEMAND,
+// a measured volume for the query it answers, or on REAL UTILITY, source data a
+// reader cannot get elsewhere, and the cohort spec says which. DEMAND_PROVEN is
+// a page with a joined measurement; UTILITY_PROVEN is a page whose spec declares
+// `demand.basis: 'utility'` and carries no volume. Its volume stays null, never
+// 0: in this repository 0 means "measured and found nothing", and nobody
+// measured these pages. A page that is neither is a broken join, not a third
+// kind of page, and the test fails on it.
+export const DEMAND_PROVEN = 'DEMAND_PROVEN';
+export const UTILITY_PROVEN = 'UTILITY_PROVEN';
+
+function declaredBasis() {
+  const out = new Map();
+  for (const m of MANIFESTS) {
+    const spec = m.replace(/-pages\.json$/, '.json');
+    if (!existsSync(new URL(spec, ROOT))) continue;
+    for (const p of JSON.parse(readFileSync(new URL(spec, ROOT), 'utf8')).pages || []) {
+      if (p.demand && p.demand.basis) out.set(p.path, { basis: p.demand.basis, volume: p.volume ?? null, pattern: p.demand.patternEvidence || null });
+    }
+  }
+  return out;
+}
+
 const arg = (name, fallback = null) => {
   const i = process.argv.indexOf('--' + name);
   return i >= 0 ? process.argv[i + 1] : fallback;
@@ -115,6 +138,7 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
   });
   const publishedAt = published.sort()[0] || null;
   const demand = demandTable(demandPath);
+  const basis = declaredBasis();
   const { table: gsc, source: gscSource, window: gscWindow, importedAt } = gscTable(gscPath);
   const links = internalLinks({});
   const linkByPath = new Map(links.rows.map((r) => [r.path, r]));
@@ -147,6 +171,8 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
       // What it targets, and what Ahrefs says that is worth.
       keyword: d.keyword ?? null,
       ahrefs_volume: d.volume ?? null,
+      qualification: d.volume != null ? DEMAND_PROVEN
+        : (basis.get(p.path)?.basis === 'utility' && basis.get(p.path).volume == null ? UTILITY_PROVEN : null),
       ahrefs_kd: d.kd ?? null,
       ahrefs_cpc_cents: d.cpc_cents ?? null,
       ahrefs_traffic_potential: d.traffic_potential ?? null,
@@ -209,6 +235,11 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
         + ' at 20:00 UTC. The import reports zero impressions for every page and says each was shown to nobody, which is true of the window and false of the pages. Nothing about the 500 has been measured yet. Search Console lags two to three days, so the first window that says anything about these pages ends 2026-09-27 or later.'
       : coversLaunch ? 'The window reaches the published pages, so a zero is a real zero.'
       : 'No Search Console import available.',
+    by_qualification: {
+      [DEMAND_PROVEN]: rows.filter((r) => r.qualification === DEMAND_PROVEN).length,
+      [UTILITY_PROVEN]: rows.filter((r) => r.qualification === UTILITY_PROVEN).length,
+      unqualified: rows.filter((r) => !r.qualification).length,
+    },
     ahrefs_organic_keywords_for_livdar: 0,
     signal_counts: counts,
     by_surface: bySurface,

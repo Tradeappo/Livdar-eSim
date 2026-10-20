@@ -25,7 +25,7 @@ const ROOT = new URL('../../', import.meta.url);
 // One lot per cohort, so the funnel can report them apart. Cohort 001 was
 // registered as lot-003 before the cohorts were numbered, and renaming it now
 // would rewrite the history of pages that already carry it.
-const LOT_OF = { '001': 'lot-003', '002': 'lot-004' };
+const LOT_OF = { '001': 'lot-003', '002': 'lot-004', '003': 'lot-005' };
 
 // The states a page in this cohort has genuinely reached, in order. Each one
 // is a claim that can be checked: the sources are built, a keyword was
