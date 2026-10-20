@@ -1,0 +1,112 @@
+{
+ "total": 1002362,
+ "classes": {
+  "UTILITY_PROVEN": 363447,
+  "DEMAND_PROVEN": 285729,
+  "AGGREGATION": 353186
+ },
+ "by_entity_type": {
+  "UTILITY_PROVEN": {
+   "settlement": 130173,
+   "city": 117473,
+   "outdoor_feature": 44815,
+   "trail": 41831,
+   "landmark": 5887,
+   "listed_building": 5212,
+   "venue": 4786,
+   "admin_area": 3561,
+   "area": 3128,
+   "poi": 3062,
+   "neighbourhood": 2475,
+   "transport_hub": 964,
+   "country": 67,
+   "airport_parking": 13
+  },
+  "DEMAND_PROVEN": {
+   "landmark": 147676,
+   "city": 104135,
+   "register_entry": 26030,
+   "city_pair_transit": 6953,
+   "city_cuisine": 330,
+   "outdoor_feature": 233,
+   "trail": 221,
+   "school_subdivision_year": 71,
+   "subdivision_year": 51,
+   "country_year": 25,
+   "country": 4
+  },
+  "AGGREGATION": {
+   "city_pair_transit": 118699,
+   "area_category": 89432,
+   "city_category": 41931,
+   "landmark_area": 28766,
+   "area_cuisine": 22348,
+   "city_cuisine": 13484,
+   "city_pair_rail": 10870,
+   "area_opening": 7787,
+   "area_attribute": 5620,
+   "city_opening": 3951,
+   "city_attribute": 3196,
+   "city_pair": 2623,
+   "region": 1806,
+   "outdoor_region": 1383,
+   "airport_city_pair": 385,
+   "areas_index": 385,
+   "visa_cell": 226,
+   "city_sport": 155,
+   "city-pair": 50,
+   "school_subdivision_year": 39,
+   "subdivision_year": 36,
+   "country-pair": 12,
+   "country_year": 2
+  }
+ },
+ "by_surface": {
+  "UTILITY_PROVEN": {
+   "settlement": 130173,
+   "outdoors": 86646,
+   "areas": 40876,
+   "stay": 31555,
+   "move": 15562,
+   "pulse": 15004,
+   "climate": 12458,
+   "landmark": 5887,
+   "heritage": 5212,
+   "work": 4968,
+   "transport": 4848,
+   "area": 3561,
+   "poi": 3062,
+   "tools": 1532,
+   "safety": 1090,
+   "sport": 1013
+  },
+  "DEMAND_PROVEN": {
+   "landmark": 147676,
+   "areas": 39405,
+   "stay": 36447,
+   "heritage": 26030,
+   "climate": 14207,
+   "transport": 9862,
+   "pulse": 9103,
+   "move": 2163,
+   "outdoors": 454,
+   "places": 330,
+   "safety": 46,
+   "sport": 3,
+   "work": 3
+  },
+  "AGGREGATION": {
+   "places": 187904,
+   "transport": 132577,
+   "landmark": 28766,
+   "destinations": 1557,
+   "outdoors": 1383,
+   "areas": 385,
+   "climate": 249,
+   "travel": 226,
+   "pulse": 77,
+   "tools": 62
+  }
+ },
+ "rule": "`local_volume` and `market_demand_evidence` describe the\nFAMILY x MARKET keyword cell, not the entity: every German weather row carried\n`wetter rom` and its volume. Reading them as per-page demand claims a measurement\nnobody made (cohort 003 hit exactly this on 2026-10-20). So a row is DEMAND_PROVEN\nonly on evidence that names THIS entity:\n\n  - entity_demand_evidence is set (search-referred readers of the entity's own\n    Wikipedia article, Wikimedia clickstream, CC0), or\n  - its uniqueness_reason says it was \"Admitted on demand\" / \"on the register and on\n    demand\" (the landmark and heritage contracts record the readership there), or\n  - its measured keyword contains the entity's own name and has volume > 0.\n\nOtherwise the subject decides: a page about ONE thing is UTILITY_PROVEN (it rests on\nsource facts, with the family's query pattern measured in its market); a page about\na SET or a PAIR (a category list, a cuisine list, a city pair) is AGGREGATION, admitted\non its member count and the family's measured pattern, never on per-page volume.\n\nNote `status` = POI_AGGREGATION is NOT used: it is the adapter label for every row\nthat entered through the aggregation path, single-entity Wikidata pages included."
+}

@@ -3898,14 +3898,14 @@ summary = {
     'removed_as_the_same_name_in_the_same_city': REJ_COUNTS['name_dupes'],
     'removed_as_the_same_wikidata_item': REJ_COUNTS['qid_dupes'],
     'removed_because_the_declared_parent_did_not_survive': REJ_COUNTS['orphan_rejected'],
-    'funnel_reconciles': (generated_total - (generated_total - raw_total)
-                          - REJ_COUNTS['exact_dupes'] - REJ_COUNTS['semantic_dupes'] - REJ_COUNTS['name_dupes']
-                          - REJ_COUNTS['sup_rejected']
-                          - REJ_COUNTS['fam_gate_rejected'] - REJ_COUNTS['loc_rejected']
-                          - REJ_COUNTS['xm_rejected'] - REJ_COUNTS['cannib_rejected']
-                          - REJ_COUNTS['journey_rejected']
-                          - REJ_COUNTS['qid_dupes']
-                          - REJ_COUNTS['orphan_rejected']) == len(stage3),
+    # Every recorded rejection group, from the same ROW_GROUPS list that writes the
+    # rejected file, rather than a hand-kept list of counters. The hand-kept version
+    # assumed the quality-gate list was exactly generated - raw, but the climate
+    # grid-cell gate appends its 31,555 duplicates to that list AFTER raw_total is
+    # taken, so the flag read False on 2026-10-19 while the files reconciled exactly:
+    # 1,872,381 generated - 870,019 rejected rows = 1,002,362 kept.
+    'funnel_reconciles': (generated_total
+                          - sum(len(rows) for name, rows in ROW_GROUPS if name != 'kept')) == len(stage3),
     'after_exact_dedupe': after_exact,
     'after_semantic_dedupe': after_semantic,
     'after_localization_and_cross_locale_gate': after_localization,

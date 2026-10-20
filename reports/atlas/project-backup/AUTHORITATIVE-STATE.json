@@ -1,0 +1,399 @@
+{
+ "what_this_is": "The single authoritative state of the Livdar Atlas offline inventory, reconstructed from repository artifacts on 2026-10-21. Every number is recomputed from the git-tracked manifest parts by scripts/atlas/verify-1m-manifest.py and scripts/atlas/classify-demand-basis.py, not copied from a summary or from conversation memory.",
+ "as_of": "2026-10-21",
+ "FINAL_DISTINCT_VALID": 1002362,
+ "definition_of_FINAL_DISTINCT_VALID": "Rows in LIVDAR-1M-CANDIDATE-MANIFEST: every candidate that survived every quality gate of scripts/atlas/scale/build-1m-candidate-manifest.py, one row per URL, one URL per row. VALID means 'passed every gate', NOT 'renderable today': see renderable_today and by_status.",
+ "how_verified": {
+  "script": "python3 scripts/atlas/verify-1m-manifest.py --json reports/atlas/project-backup/MANIFEST-VERIFICATION.json",
+  "rows_in_git_parts": 1002362,
+  "rows_recorded_in_parts_index": 1002362,
+  "sha256_of_all_data_rows": "0f2a32f20559061d90157c51c010afbd80492b61cfb3bf067c9417995e5408f8",
+  "sha256_matches_index": true,
+  "distinct_candidate_ids": 1002362,
+  "distinct_urls": 1002362,
+  "no_rejected_status_in_manifest": true,
+  "runtime": "about 55 seconds, streaming, under 2 GB"
+ },
+ "reconciliation": {
+  "generated_before_any_gate": 1872381,
+  "rejected_rows_in_rejected_file": 870019,
+  "generated_minus_rejected": 1002362,
+  "equals_FINAL": true,
+  "rejected_file_intact": true,
+  "rejected_by_reason": {
+   "localization": 464901,
+   "REFUSED_MEASURED_CANNIBALISATION": 103973,
+   "REFUSED_FABRICATED_PRECISION": 74434,
+   "REJECTED_QUALITY": 70852,
+   "REJECTED_NO_MEASURED_DEMAND_FOR_THIS_ENTITY": 69335,
+   "REJECTED_FAMILY_NOT_MEASURED_IN_THIS_MARKET": 32286,
+   "REJECTED_SAME_CLIMATE_GRID_CELL": 31555,
+   "REJECTED_SERP": 12627,
+   "REJECTED_PARENT_REMOVED": 4863,
+   "REJECTED_DUPLICATE": 3068,
+   "REJECTED_SAME_WIKIDATA_ITEM": 1486,
+   "REJECTED_SAME_JOURNEY_BETTER_EVIDENCED": 399,
+   "REJECTED_UNSUPPORTED_SUPERLATIVE": 179,
+   "REJECTED_SAME_NAME_IN_CITY": 59,
+   "REJECTED_SEMANTIC_DUPLICATE": 2
+  },
+  "note_on_funnel_reconciles_false": "1M-SUMMARY.json says funnel_reconciles: false. That flag is a FORMULA defect, not a data defect: the climate grid-cell gate appends its 31,555 REJECTED_SAME_CLIMATE_GRID_CELL rows to the quality-gate list AFTER raw_total is taken, and the hand-kept formula assumed that list equals generated - raw. The data reconcile exactly (above). The formula was corrected on 2026-10-21 to sum every recorded rejection group from ROW_GROUPS; the flag will read true on the next builder run. The builder was NOT re-run to write this file."
+ },
+ "demand_basis": {
+  "script": "python3 scripts/atlas/classify-demand-basis.py --json reports/atlas/project-backup/DEMAND-BASIS-CLASSIFICATION.json",
+  "classes": {
+   "UTILITY_PROVEN": 363447,
+   "DEMAND_PROVEN": 285729,
+   "AGGREGATION": 353186
+  },
+  "rule": "DEMAND_PROVEN only on evidence that names THIS entity (clickstream readers of its own article, 'Admitted on demand', or a measured keyword containing its name). local_volume and market_demand_evidence are FAMILY x MARKET cells and never count as per-page demand. Pages about one thing without such evidence are UTILITY_PROVEN; pages about a set or a pair are AGGREGATION."
+ },
+ "renderable_today": {
+  "families_with_a_page_builder_on_main": [
+   "cost-of-living.country",
+   "work.country-salaries",
+   "rankings.index",
+   "tools.calculator",
+   "tools.cost-calculator",
+   "tools.cost-comparison",
+   "tools.matcher",
+   "weather.country-best-time",
+   "weather.city-month",
+   "neighbourhoods.city-where-to-stay",
+   "events.country-holidays",
+   "events.subdivision-holidays",
+   "sport.city-season",
+   "rents.country-inflation"
+  ],
+  "manifest_rows_in_those_families": 26685,
+  "of_which": {
+   "weather.city-month": 26665,
+   "neighbourhoods.city-where-to-stay": 20
+  },
+  "already_published_from_the_manifest": 1000,
+  "meaning": "975,677 of the 1,002,362 cannot be served until a model builder exists for their family. The renderer, not the inventory, is the binding constraint on publication."
+ },
+ "by_status": {
+  "POI_AGGREGATION": 632640,
+  "TRANSPORT_PAIR": 140494,
+  "MISSING_DATA": 103028,
+  "BLOCKED_BY_LICENCE": 76291,
+  "EXPERIMENT_ONLY": 28506,
+  "NOT_IMPLEMENTED": 21107,
+  "VISA_POLICY_CELL": 226,
+  "VALIDATED": 50,
+  "PROMISING": 20
+ },
+ "by_surface": {
+  "places": 188234,
+  "landmark": 182329,
+  "transport": 147287,
+  "settlement": 130173,
+  "outdoors": 88483,
+  "areas": 80666,
+  "stay": 68002,
+  "heritage": 31242,
+  "climate": 26914,
+  "pulse": 24184,
+  "move": 17725,
+  "work": 4971,
+  "area": 3561,
+  "poi": 3062,
+  "tools": 1594,
+  "destinations": 1557,
+  "safety": 1136,
+  "sport": 1016,
+  "travel": 226
+ },
+ "by_market": {
+  "en-US": 248865,
+  "de-DE": 159402,
+  "fr-FR": 150334,
+  "en-GB": 86696,
+  "es-ES": 70480,
+  "ja-JP": 65533,
+  "pl-PL": 57033,
+  "it-IT": 52531,
+  "nl-NL": 36562,
+  "pt-BR": 33031,
+  "tr-TR": 13553,
+  "es-MX": 12166,
+  "en-AU": 8445,
+  "da-DK": 3622,
+  "nb-NO": 2016,
+  "fi-FI": 1315,
+  "zh-Hant-TW": 778
+ },
+ "by_language": {
+  "en": 344006,
+  "de": 159402,
+  "fr": 150334,
+  "es": 82646,
+  "ja": 65533,
+  "pl": 57033,
+  "it": 52531,
+  "nl": 36562,
+  "pt": 33031,
+  "tr": 13553,
+  "da": 3622,
+  "nb": 2016,
+  "fi": 1315,
+  "zh-Hant": 778
+ },
+ "by_source_status": {
+  "SOURCE_AVAILABLE": 879054,
+  "LICENCE_REQUIRED": 76291,
+  "READY_NOW": 29886,
+  "FEED_REQUIRED": 17131
+ },
+ "by_licence_status": {
+  "CC0_NO_CONDITIONS": 319763,
+  "ODbL_SHARE_ALIKE_ATTRIBUTION_REQUIRED": 284258,
+  "OK": 152711,
+  "MIXED_OPEN_ATTRIBUTION_REQUIRED": 152646,
+  "LICENCE_REQUIRED": 76291,
+  "CC0_PLUS_ATTRIBUTION_REQUIRED": 10870,
+  "OGL_V3_ATTRIBUTION_REQUIRED": 5438,
+  "PUBLIC_DOMAIN_PLUS_ATTRIBUTION_REQUIRED": 385
+ },
+ "by_localization_class": {
+  "NATIVE_LOCALE": 828526,
+  "VALID_LOCALIZATION": 173836
+ },
+ "distinct_families": 2860,
+ "top_families": {
+  "transport.city-pair-transit": 125652,
+  "activities.city-things-to-do": 61412,
+  "stay.city-type": 47545,
+  "settlement.commune-of-france": 30772,
+  "weather.city-month": 26665,
+  "outdoors.hiking-trail": 23463,
+  "places.area-cuisine": 22348,
+  "places.area-restaurant": 15751,
+  "outdoors.peak": 15307,
+  "places.city-category": 14060,
+  "places.city-cuisine": 13814,
+  "outdoors.bicycle-trail": 12175,
+  "rents.city": 11458,
+  "events.city-type": 11146,
+  "events.city-calendar": 11146,
+  "transport.city-pair-rail": 10870,
+  "places.area-pharmacy": 10855,
+  "places.area-fast_food": 10741,
+  "settlement.ortsteil": 9727,
+  "landmark.church": 9073,
+  "places.area-cafe": 8764,
+  "heritage.us-nrhp": 8404,
+  "landmark.railway-station": 7837,
+  "places.area-opening": 7787,
+  "settlement.municipality-without-town-privileges-in-germany": 7707,
+  "outdoors.castle": 7533,
+  "places.area-supermarket": 7495,
+  "landmark.high-school": 6746,
+  "settlement.comune-of-italy": 6191,
+  "places.city-restaurant": 6097,
+  "places.area-clinic": 5838,
+  "places.area-attribute": 5620,
+  "heritage.listed-building": 5212,
+  "settlement.municipality-of-spain": 4985,
+  "settlement.city-in-the-united-states": 4908,
+  "stay.near-venue": 4786,
+  "landmark.hospital": 4651,
+  "heritage.fr-merimee": 4551,
+  "landmark.university": 4530,
+  "places.area-bar": 4433
+ },
+ "geography": {
+  "distinct_countries": 220,
+  "home_vs_destination": {
+   "destination": 179168,
+   "home": 823194
+  },
+  "countries_per_market": {
+   "de-DE": 116,
+   "en-AU": 18,
+   "en-GB": 143,
+   "en-US": 219,
+   "ja-JP": 49,
+   "tr-TR": 12,
+   "es-ES": 115,
+   "es-MX": 88,
+   "it-IT": 105,
+   "nl-NL": 86,
+   "fr-FR": 139,
+   "pt-BR": 101,
+   "pl-PL": 73,
+   "zh-Hant-TW": 5,
+   "da-DK": 1,
+   "fi-FI": 1,
+   "nb-NO": 1
+  },
+  "distinct_destination_countries": 447
+ },
+ "open_qa_items_at_1M": {
+  "title_over_65_chars": 143673,
+  "meta_over_165_chars": 134037,
+  "duplicate_title_exact": 436,
+  "duplicate_meta_within_a_market": 3469,
+  "duplicate_h1_within_a_market": 6906,
+  "orphan_pages": 2174,
+  "entity_names_needing_a_disambiguator_in_the_title": 8740,
+  "declared_parent_is_valid_but_not_a_path_prefix": 24683
+ },
+ "open_qa_items_meaning": "These are measured on SIMULATED English title/meta/H1 skeletons. Real copy is written per market by the page builder at cohort time, and cohort QA (scripts/atlas/cohort-qa.mjs) is the gate that must reach 0 failures before any page is published.",
+ "authoritative_files": {
+  "manifest_in_git": "reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-CANDIDATE-MANIFEST.parts/ (part-01..04.csv.gz + _parts-index.json)",
+  "rejected_in_git": "reports/livdar-expiry-freeze-2026-09-30/LIVDAR-1M-REJECTED-CANDIDATES.parts/",
+  "manifest_monolith_NOT_in_git": [
+   "LIVDAR-1M-CANDIDATE-MANIFEST.csv.gz (112 MB)",
+   "LIVDAR-1M-CANDIDATE-MANIFEST.parquet (210 MB)",
+   "LIVDAR-1M-REJECTED-CANDIDATES.csv.gz (70 MB)"
+  ],
+  "monolith_note": "Over GitHub's 100 MB limit, so regenerated by the builder or reassembled from the parts (see the parts index 'to_reassemble').",
+  "builder_summary": "reports/livdar-expiry-freeze-2026-09-30/1M-SUMMARY.json",
+  "builder_qa": "reports/livdar-expiry-freeze-2026-09-30/1M-QA-REPORT.json",
+  "milestone_report": "reports/livdar-expiry-freeze-2026-09-30/1M-REACHED-2026-10-19.md",
+  "builder": "scripts/atlas/scale/build-1m-candidate-manifest.py",
+  "orchestrator": "scripts/atlas/scale/run-1m-pipeline.sh"
+ },
+ "parts_index": {
+  "manifest_total_rows": 1002362,
+  "manifest_sha256": "0f2a32f20559061d90157c51c010afbd80492b61cfb3bf067c9417995e5408f8",
+  "rejected_total_rows": 870019,
+  "rejected_sha256": "beb5f68b55057940b9703725d8a1e64d612988b9b24263cfd6581d55cfb63d63"
+ },
+ "manifest_last_written_by_commit": "8488ead 2026-10-19 1,002,362 FINAL DISTINCT VALID, and two defects fixed rather than shipped",
+ "history_of_FINAL_from_git": [
+  [
+   "2026-10-01",
+   "233,568",
+   "first gated build",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-06",
+   "401,393",
+   "quality work made it smaller",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-07",
+   "427,121",
+   "da-DK, nb-NO, fi-FI",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-08",
+   "706,677",
+   "directed transport pairs",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-08",
+   "877,462",
+   "146-feed intercity set",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-08",
+   "966,815",
+   "municipal pass",
+   "SUPERSEDED: the transit family was keyed on stops, not settlements"
+  ],
+  [
+   "2026-10-10",
+   "972,910",
+   "last run before the transit correction; funnel did not reconcile",
+   "SUPERSEDED: 80 per cent stop-to-stop transit"
+  ],
+  [
+   "2026-10-10",
+   "587,284",
+   "transit unit corrected (510,592 -> 125,652) and trail QID gate narrowed",
+   "SUPERSEDED: later layers added"
+  ],
+  [
+   "2026-10-13",
+   "667,298",
+   "free Wikimedia clickstream demand replaces the expired paid tier cap",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-14",
+   "678,510",
+   "self-containment defect fixed, enrichment",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-16",
+   "655,057",
+   "23,453 climate city-name swaps removed (same NASA grid cell)",
+   "SUPERSEDED: removal is permanent and still applied"
+  ],
+  [
+   "2026-10-19",
+   "752,953 -> 889,369",
+   "Wikidata landmark, settlement, area and register layers",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-19",
+   "984,726",
+   "class census tail, containers reserved, NRHP",
+   "SUPERSEDED"
+  ],
+  [
+   "2026-10-19",
+   "990,241",
+   "27 registers, root-free class census",
+   "SUPERSEDED (commit message only, never the parts index)"
+  ],
+  [
+   "2026-10-19",
+   "1,002,362",
+   "current",
+   "AUTHORITATIVE"
+  ]
+ ],
+ "superseded_documents_for_counts": {
+  "HANDOFF.md (2026-09-24)": "predates the offline inventory; describes the eSIM site and the first Atlas lots",
+  "reports/livdar-expiry-freeze-2026-09-30/00-README.md, 01-EXECUTIVE-SUMMARY.md, 16-CLAUDE-HANDOFF.md (2026-10-01)": "quote keyword-universe sizes (72,567,541 rows; 948,616; 901,348), a different metric from FINAL, and a pre-correction plan",
+  "1M-FINAL-DELIVERABLE.md, 1M-BRIEF-FINAL-REPORT.md (2026-10-08)": "877,462: before the transit correction",
+  "INVENTORY-COUNT-RECONCILIATION-2026-10-13.md": "says 587,284 is current; it was, on 2026-10-13",
+  "15-AHREFS-REPLACEMENT.md": "recommends DataForSEO and SE Ranking; the standing rule since forbids every paid SEO subscription",
+  "1M-SUMMARY.json field funnel_reconciles=false": "formula defect, see reconciliation"
+ },
+ "standing_rules": [
+  "No Ahrefs, Semrush, DataForSEO, Ubersuggest or any paid SEO/keyword subscription.",
+  "Production changes only when the owner explicitly asks.",
+  "A page qualifies through REAL DEMAND or REAL UTILITY; never fabricate demand, volume or facts. Unknown volume is null, never 0.",
+  "No translation-only pages, no city-name swaps, no stop-to-stop transport noise, no weakened duplicate or quality gates.",
+  "The 23,453 climate city-name-swap rows stay out."
+ ],
+ "branches": {
+  "claude/seo-handoff-partial-data-7rs7zi": "the offline inventory, all builders, all reports, this backup. 449 commits ahead of main, 26 behind.",
+  "main": "production. Deployed by Vercel on every merge. Holds cohorts 001, 002, 003 and the code that serves them; does NOT hold the 1M manifest parts.",
+  "atlas/search-console": "written by the atlas-search-console workflow (import + URL Inspection evidence), PR #27"
+ },
+ "live_production": {
+  "site": "https://livdar.com",
+  "published_atlas_pages": 1500,
+  "cohorts": {
+   "001": 250,
+   "002": 250,
+   "003": 1000
+  },
+  "cohort_003_published": "2026-10-20, PR #38 (merge fe137b3), recorded live in PR #39",
+  "last_url_inspection_2026-10-20": {
+   "inspected": 553,
+   "old_500_inspected": 430,
+   "old_500_indexed": 199,
+   "old_500_discovered_not_indexed": 189,
+   "old_500_unknown": 41,
+   "old_500_crawled_not_indexed": 1,
+   "cohort_003_inspected": 123,
+   "cohort_003_unknown": 123,
+   "note": "199 of 200 crawled pages indexed: the constraint is crawl, not quality"
+  }
+ }
+}
