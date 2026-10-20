@@ -8,9 +8,10 @@
 // and they are exactly the thirteen families already live, so everything else
 // has a URL and no way to be served. Inside the renderable families there were
 // twenty unpublished rows. weather.city-month is the family that could be made
-// renderable honestly: every one of its 26,665 candidate rows carries keyword
-// demand measured IN ITS OWN MARKET, which no other large family does, and its
-// source was already captured, 64,418 cities of NASA POWER climatology sitting
+// renderable honestly: its pages carry real per-city data a reader cannot get
+// from the page that links to them, the query pattern is measured in every one
+// of its markets (one example keyword per market, never per city, see QUERY
+// below), and its source was already captured, 64,418 cities of NASA POWER climatology sitting
 // in shards that the gate had never been taught to read.
 //
 // WHAT THE LIVE EXPERIMENT CONTRIBUTES TO THE CHOICE, which is less than the
@@ -47,6 +48,27 @@ import { forCity as climateForCity } from '../../lib/atlas/climate.js';
 import { FAMILIES } from '../../lib/atlas/verticals.js';
 import { pages as publishedPages } from '../../lib/atlas/serve-pages.js';
 import { NEAR_DUPLICATE_AT } from '../../lib/atlas/similarity-scale.js';
+import { localCityName } from '../../lib/atlas/cities.js';
+
+// THE PAGE'S OWN QUERY, AND WHAT IS AND IS NOT MEASURED ABOUT IT. The candidate
+// rows carry one measured keyword per market for the whole family (`wetter rom`
+// on every German row, `clima segovia` on every Spanish one), which is evidence
+// that the query PATTERN is searched in that market and nothing about any one
+// city. Putting that keyword on a thousand pages told the entity audit that the
+// Munich page was about Rome, and it was right to fail it. So each page carries
+// the query it answers, built in the shape the market's measured example has,
+// with no volume: these pages qualify on utility, the measured example is kept
+// beside them as pattern evidence, and no number is attributed to a page that
+// nobody measured.
+const QUERY = {
+  en: (c) => c + ' weather', de: (c) => 'wetter ' + c, es: (c) => 'clima ' + c,
+  fr: (c) => 'meteo ' + c, it: (c) => 'clima ' + c, nl: (c) => 'weer ' + c,
+  pl: (c) => 'klimat ' + c, pt: (c) => 'clima ' + c, ja: (c) => c + ' 天気',
+};
+const queryFor = (cityId, lang) => {
+  const name = localCityName(cityId, lang);
+  return name && QUERY[lang] ? QUERY[lang](lang === 'ja' ? name : name.toLowerCase()) : '';
+};
 
 const ROOT = new URL('../../', import.meta.url);
 const SITE = 'https://livdar.com';
@@ -125,7 +147,8 @@ export async function run() {
     if (!d.months || d.months.length !== 12) { bump('fewer than twelve months of normals'); continue; }
     const page = {
       family: FAMILY, surface: 'climate', vertical: 'weather', entity: r.entity_id,
-      market: r.market, language: lang, keyword: r.primary_keyword_if_known || '',
+      market: r.market, language: lang, keyword: queryFor(r.entity_id, lang),
+      patternKeyword: r.primary_keyword_if_known || null,
       minWords: FAMILIES[FAMILY].minWords || 250,
     };
     const a = atlasPath(page);
@@ -182,6 +205,22 @@ export async function run() {
   for (const l of langs) {
     const want = Math.round((byLang.get(l).length / pool) * TARGET);
     quota.set(l, Math.max(FLOOR, Math.min(CEILING, Math.min(want, byLang.get(l).length))));
+  }
+
+  // A COMPLETE HREFLANG CLUSTER FIRST. A page whose city also has an English page
+  // in the cohort carries reciprocal alternates and an x-default that points at
+  // a real page; a page whose city has none carries neither, because nominating
+  // an arbitrary language as the default would be wrong. So inside each other
+  // language the cities English also took come first, in their priority order,
+  // and the rest follow in theirs. English is ranked on its own and never looks
+  // at the others, so this cannot loop, and it reruns to the same thousand.
+  const enList = byLang.get('en') || [];
+  const enTaken = new Set(enList.slice(0, quota.get('en') || 0).map((k) => k.page.entity));
+  for (const l of langs) {
+    if (l === 'en') continue;
+    const list = byLang.get(l);
+    const rank = new Map(list.map((k, i) => [k, i]));
+    list.sort((x, y) => (Number(enTaken.has(y.page.entity)) - Number(enTaken.has(x.page.entity))) || (rank.get(x) - rank.get(y)));
   }
 
   // The near duplicate gate, applied as pages are taken rather than after, so
@@ -303,9 +342,14 @@ if (process.argv.includes('--write')) {
     family: FAMILY, surface: 'climate', vertical: 'weather',
     priority: 'high',
     entity: k.page.entity, market: k.r.market, language: k.page.language,
-    keyword: k.page.keyword, volume: Number(k.r.search_volume || 0) || null,
+    keyword: k.page.keyword, volume: null,
+    demand: {
+      basis: 'utility',
+      perPageVolume: null,
+      patternEvidence: { keyword: k.page.patternKeyword, market: k.r.market, meaning: 'one measured example of this query pattern in this market, not a measurement of this page' },
+    },
     sources: ['climate-normals-verified'], dataSources: ['climate-normals-verified'],
-    axis: 'language', band: 'measured',
+    axis: 'language', band: 'utility',
     path: k.a.path, canonical: SITE + k.a.path,
     slugFrom: k.page.slugFrom, cluster: clusterKey(k.page),
     scope: FAMILIES[FAMILY].scope, minWords: FAMILIES[FAMILY].minWords || 250,

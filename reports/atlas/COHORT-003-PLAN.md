@@ -1,6 +1,9 @@
 # Cohort 003: 1,000 pages, prepared and not deployed
 
-Built 2026-10-20. Nothing is live. The live 500 are untouched, the 23,453 climate
+Built 2026-10-20. **Published 2026-10-20 as #38 (merge fe137b3), live and verified
+1,500 of 1,500.** Two statements in the plan as first written were wrong and are
+corrected in place below, marked CORRECTED: the demand basis, and the city names.
+Nothing below was live when it was written. The live 500 are untouched, the 23,453 climate
 city-name-swap rows stay out, and the one line that would publish this cohort is
 deliberately not written: see **Not done on purpose** at the end.
 
@@ -51,10 +54,15 @@ to be served. Unpublished inventory inside the renderable families: **20 rows.**
 So reaching 1,000 meant making one more family renderable. `weather.city-month` was
 chosen on four measured grounds:
 
-1. **Demand measured in its own market on every row.** All 26,665 candidate rows
-   carry `measured_in_this_market`. No other family of that size does: the next
-   largest candidates, transport pairs at 125,652 and the Wikidata landmark layer at
-   153,563, carry none.
+1. **CORRECTED: utility, with the query pattern measured per market.** The plan
+   first said every row carried demand measured in its own market. It did not: the
+   rows carried ONE measured keyword per market for the whole family (`wetter rom`
+   on every German row, `clima segovia` on every Spanish one). That is evidence the
+   query pattern is searched in each market and says nothing about any one city.
+   The pages qualify on utility under the approved rule (real demand OR real
+   utility): each carries its own query (`wetter münchen`), volume null, and the
+   measured example as labelled pattern evidence. The monitor counts them as
+   UTILITY_PROVEN (1,000) beside the 500 DEMAND_PROVEN pages.
 2. **The source was already captured and merely unwired.** The NASA POWER climatology
    endpoint had been fetched for the whole gazetteer into 246 shards, 64,418 cities,
    and the gate that publishes the store only ever read the 55-city browser capture
@@ -163,7 +171,7 @@ Every one of the 1,000 page models carries all of this, and cohort QA checks eac
 | robots | index, follow, from `indexPolicy: always`; robots.txt opens the site only on the production host | no noindex in the set |
 | source provenance | NASA POWER, CC BY 4.0, 2001-2020, one grid cell per city with its coordinates printed on the page | every page has a source with a licence |
 | orphan check | the link wiring reports inbound counts | 0 orphans |
-| locale validation | city names come from the gazetteer in the page language: Rome is `roma` in Italian, `rom` in German, Paris is `paryz` in Polish | 997 of 1,000 slugged from the localised city name, 3 from the provider ASCII name where no localised name exists |
+| locale validation | CORRECTED. The first build named 784 of the 797 non-English pages with the provider's primary name, which for a large city is the English one ("Wetter in Munich", "Houstonの天気"). Names now come from GeoNames alternate names (CC BY 4.0) for this family: Muenchen, Monachium, Munique, ミュンヘン | a Japanese page with no Japanese name is refused (57 were) and replaced; the entity audit passes on all 1,000 |
 | duplicate and cannibalisation | one page per city per language, unique title per language, and the repo's own 0.8 shingle gate | 0 pairs over threshold in 53,594 comparisons |
 
 ## 6. Indexing risk
@@ -175,7 +183,7 @@ What makes it not LOW: the site has had one Atlas page crawled in six weeks. Add
 the first cohort's result is the evidence. Thin-content risk is low on its own terms,
 but crawl budget on a property with no demonstrated Atlas crawl is unproven.
 
-What makes it not HIGH: every page carries measured in-market demand, a 12-row table
+What makes it not HIGH: every page carries real per-city data under a query pattern measured in its market, a 12-row table
 of data a reader cannot get from the page it links to, 297 words at minimum, a
 self-canonical, 8 internal links, 0 orphans and 0 near duplicates. Nothing here looks
 like the doorway pattern that earns a site-wide problem.
