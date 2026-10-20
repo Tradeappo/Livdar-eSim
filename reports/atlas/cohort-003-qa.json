@@ -1,0 +1,56 @@
+{
+ "generatedAt": "2026-10-20T14:56:24.928Z",
+ "cohort": "data/atlas/cohorts/cohort-003.json",
+ "pages": 1000,
+ "expected": 1000,
+ "checks": [
+  "builds",
+  "unique path",
+  "unique title",
+  "unique description",
+  "unique h1",
+  "word floor",
+  "canonical",
+  "title length",
+  "description length",
+  "h1 present",
+  "provenance",
+  "no long dashes",
+  "schema",
+  "freshness",
+  "hreflang self",
+  "hreflang resolves",
+  "hreflang reciprocal",
+  "x-default",
+  "no orphans",
+  "links out",
+  "links resolve",
+  "near duplicate"
+ ],
+ "nearDuplicateThreshold": 0.8,
+ "cta": {
+  "withPrimary": 1000,
+  "withSecondary": 1000,
+  "byKind": {
+   "tool": 1000
+  },
+  "byType": {
+   "tools": 1000
+  },
+  "without": 0
+ },
+ "similarity": {
+  "comparisonsMade": 53594,
+  "pairsOverThreshold": 0,
+  "maxSimilarity": null
+ },
+ "pass": true,
+ "failures": [],
+ "failureCount": 0,
+ "byCheck": {},
+ "links": {
+  "orphans": 0,
+  "minInbound": 3,
+  "medianInbound": 8
+ }
+}
