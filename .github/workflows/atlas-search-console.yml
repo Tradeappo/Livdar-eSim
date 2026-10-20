@@ -32,6 +32,10 @@ on:
         description: 'Inspect at most this many URLs, 0 for all 500. The order is round robin across families, so a smaller number is still a stratified sample.'
         type: string
         default: '0'
+      submit_sitemap:
+        description: 'Also submit https://livdar.com/sitemap.xml to Search Console (a write, needs the webmasters scope and an Owner or Full role)'
+        type: boolean
+        default: false
 permissions:
   contents: write        # the import commits the measured file to a branch
   pull-requests: write   # and opens the pull request for it
@@ -83,6 +87,16 @@ jobs:
           set -o pipefail
           node scripts/gsc-check.mjs --ci | tee "$RUNNER_TEMP/gsc-check.json"
           { echo '### Search Console'; echo '```json'; cat "$RUNNER_TEMP/gsc-check.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      # Off unless asked for, like URL Inspection: the daily schedule never writes to Search
+      # Console. After a cohort lands this asks Google for a fresh read of the sitemap index
+      # instead of waiting for its own schedule, and reads back what Google then holds.
+      - name: Submit the sitemap index
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.submit_sitemap }}
+        run: |
+          set -o pipefail
+          node scripts/atlas/gsc-submit-sitemap.mjs --submit | tee "$RUNNER_TEMP/sitemap-submit.json"
+          { echo '### Sitemap submission'; echo '```json'; cat "$RUNNER_TEMP/sitemap-submit.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
       - run: node scripts/gsc-report.mjs
 
