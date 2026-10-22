@@ -32,6 +32,14 @@ on:
         description: 'Inspect at most this many URLs, 0 for every live URL. The order is round robin across cohort, family and language, so a smaller number is still a stratified sample.'
         type: string
         default: '0'
+      inspect_paths_file:
+        description: 'Inspect only the live URLs listed in this repository file (one path per line), for example data/atlas/measurements/gsc/subsets/crawl-push-targets.txt. Empty for the whole live set.'
+        type: string
+        default: ''
+      inspect_label:
+        description: 'Name for a subset run; the output is url-inspection-DATE-LABEL-RUN.json, so it never overwrites the full run'
+        type: string
+        default: 'subset'
       submit_sitemap:
         description: 'Also submit https://livdar.com/sitemap.xml to Search Console (a write, needs the webmasters scope and an Owner or Full role)'
         type: boolean
@@ -109,10 +117,16 @@ jobs:
       # retrying, because no retry can fix a permission.
       - name: URL Inspection over the live cohort
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.inspect_urls }}
+        # Through env rather than interpolated into the script, so a typed input is data.
+        env:
+          PATHS_FILE: ${{ inputs.inspect_paths_file }}
+          LABEL: ${{ inputs.inspect_label }}
         run: |
           set -o pipefail
+          subset=()
+          if [ -n "$PATHS_FILE" ]; then subset=(--paths-file "$PATHS_FILE" --label "$LABEL-$GITHUB_RUN_NUMBER"); fi
           node scripts/atlas/gsc-url-inspection.mjs --write --qps 8 --concurrency 4 \
-            --limit "${{ inputs.inspect_limit }}" | tee "$RUNNER_TEMP/url-inspection.json"
+            --limit "${{ inputs.inspect_limit }}" "${subset[@]}" | tee "$RUNNER_TEMP/url-inspection.json"
           { echo '### URL Inspection'; echo '```json'; \
             cat "$RUNNER_TEMP/url-inspection.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 

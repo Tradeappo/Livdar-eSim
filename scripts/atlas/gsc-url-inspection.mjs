@@ -52,6 +52,8 @@
 //   node scripts/atlas/gsc-url-inspection.mjs --write            all of them, quota permitting
 //   node scripts/atlas/gsc-url-inspection.mjs --write --limit 60 a stratified sample
 //   node scripts/atlas/gsc-url-inspection.mjs --write --concurrency 4  four requests in flight
+//   node scripts/atlas/gsc-url-inspection.mjs --write --paths-file data/atlas/measurements/gsc/subsets/x.txt --label x
+//                                                                     only the listed live URLs
 //   node scripts/atlas/gsc-url-inspection.mjs --dry-run          prove the plan, call nothing
 import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs';
 import { googleCredentialsFromEnv, getAccessToken, createTokenSource } from '../lib/google-search-console.mjs';
@@ -73,7 +75,11 @@ const LIMIT = Number(value('--limit', '0')) || 0;
 const QPS = Number(value('--qps', '4')) || 4;        // 240/min, well under the 600 ceiling
 const CONCURRENCY = Math.max(1, Number(value('--concurrency', '1')) || 1);
 const DATE = value('--date', new Date().toISOString().slice(0, 10));
-const OUT = OUT_DIR + `url-inspection-${DATE}.json`;
+// A subset run (--paths-file) inspects only the listed live URLs and writes to its own file, named
+// by --label, so it never resumes from or overwrites the full run of the same day.
+const PATHS_FILE = value('--paths-file', '');
+const LABEL = String(value('--label', PATHS_FILE ? 'subset' : '')).replace(/[^a-z0-9._-]/gi, '-');
+const OUT = OUT_DIR + `url-inspection-${DATE}${LABEL ? '-' + LABEL : ''}.json`;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -98,6 +104,24 @@ export function stratify(rows) {
     if (!moved) break;
   }
   return out;
+}
+
+// One path or URL per line (# comments allowed), or a JSON array of paths, or a JSON object
+// with a `paths` array. Every entry is normalised to a path with a trailing slash.
+export function readPathsFile(text) {
+  let list;
+  const t = String(text).trim();
+  if (t.startsWith('[') || t.startsWith('{')) {
+    const j = JSON.parse(t);
+    list = Array.isArray(j) ? j : (j.paths || []);
+  } else {
+    list = t.split(/\r?\n/).map((l) => l.replace(/#.*/, '').trim()).filter(Boolean);
+  }
+  return [...new Set(list.map((x) => {
+    let p = String(x).trim().replace(/^https?:\/\/[^/]+/, '');
+    if (!p.startsWith('/')) p = '/' + p;
+    return p.endsWith('/') ? p : p + '/';
+  }))];
 }
 
 function liveRows() {
@@ -157,6 +181,17 @@ async function main() {
   mkdirSync(OUT_DIR, { recursive: true });
   const property = process.env.GSC_PROPERTY || '';
   const rows = stratify(liveRows());
+  // A subset can only name live pages: a path that is not in live-production.json is reported
+  // and skipped rather than inspected, because quota spent on a page we never published answers
+  // nothing about the cohort.
+  let subset = null;
+  if (PATHS_FILE) {
+    const wanted = readPathsFile(readFileSync(PATHS_FILE.startsWith('/') ? PATHS_FILE : ROOT + PATHS_FILE, 'utf8'));
+    const live = new Set(rows.map((r) => r.path));
+    subset = { file: PATHS_FILE, listed: wanted.length, not_live: wanted.filter((p) => !live.has(p)) };
+    const keep = new Set(wanted);
+    rows.splice(0, rows.length, ...rows.filter((r) => keep.has(r.path)));
+  }
   const planned = LIMIT ? rows.slice(0, LIMIT) : rows;
 
   // resume: whatever a previous run already paid for stays paid for
@@ -176,6 +211,7 @@ async function main() {
     endpoint: ENDPOINT,
     scope: SCOPE,
     live_urls: rows.length,
+    subset,
     planned_this_run: planned.length,
     already_on_disk: planned.length - todo.length,
     to_inspect: todo.length,
@@ -226,8 +262,28 @@ async function main() {
           (n, c) => n + Number(c.submitted || 0), 0) || null,
       }))
     : { status: smRes.status, error: smBody?.error?.message || 'no message' };
+
+  // THE CHILDREN OF EACH SITEMAP INDEX. Google counts an index's submitted URLs from each child
+  // as of that child's own last download, so the index can report fewer URLs than it lists
+  // while a child it has not re-read is still counted at its old size. The same endpoint with
+  // ?sitemapIndex= lists every child with its own lastDownloaded and count, which says which
+  // children account for a gap instead of leaving it to be guessed.
+  const sitemapChildren = {};
+  for (const sm of Array.isArray(sitemaps) ? sitemaps.filter((x) => x.isSitemapsIndex) : []) {
+    const r = await fetch('https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent(site)
+      + '/sitemaps?sitemapIndex=' + encodeURIComponent(sm.path), { headers: { authorization: 'Bearer ' + token } });
+    const b = await r.json().catch(() => ({}));
+    sitemapChildren[sm.path] = r.ok
+      ? (b.sitemap || []).map((x) => ({
+          path: x.path, lastSubmitted: x.lastSubmitted ?? null, lastDownloaded: x.lastDownloaded ?? null,
+          isPending: x.isPending ?? null, warnings: x.warnings ?? null, errors: x.errors ?? null,
+          submitted_urls: (x.contents || []).reduce((n, c) => n + Number(c.submitted || 0), 0),
+        }))
+      : { status: r.status, error: b?.error?.message || 'no message' };
+  }
   const out = { ...plan, called: true, inspected_at: new Date().toISOString(),
                 sitemaps_in_search_console: sitemaps,
+                sitemap_children: sitemapChildren,
                 rows: prior.rows || [], raw: prior.raw || [], errors: [] };
   let stopped = null;
 
