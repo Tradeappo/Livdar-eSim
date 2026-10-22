@@ -7,7 +7,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createTokenSource } from '../scripts/lib/google-search-console.mjs';
-import { stratify } from '../scripts/atlas/gsc-url-inspection.mjs';
+import { stratify, readPathsFile } from '../scripts/atlas/gsc-url-inspection.mjs';
 
 const MIN = 60 * 1000;
 
@@ -55,4 +55,11 @@ test('a truncated run covers every cohort and every language', () => {
   const head = order.slice(0, 20);
   assert.deepEqual([...new Set(head.filter((r) => r.cohort === 'cohort-003').map((r) => r.locale))].sort(), langs);
   assert.ok(head.some((r) => r.cohort === 'cohort-001'));
+});
+
+test('a paths file accepts lines, comments, URLs and JSON, and normalises to paths', () => {
+  const lines = '# targets\n/en/a/\nhttps://livdar.com/en/b\n\n en/c/  # trailing note\n/en/a/\n';
+  assert.deepEqual(readPathsFile(lines), ['/en/a/', '/en/b/', '/en/c/']);
+  assert.deepEqual(readPathsFile('["/de/x", "https://livdar.com/de/y/"]'), ['/de/x/', '/de/y/']);
+  assert.deepEqual(readPathsFile('{"paths": ["/fr/z/"]}'), ['/fr/z/']);
 });
