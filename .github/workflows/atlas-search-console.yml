@@ -29,7 +29,7 @@ on:
         type: boolean
         default: true
       inspect_limit:
-        description: 'Inspect at most this many URLs, 0 for all 500. The order is round robin across families, so a smaller number is still a stratified sample.'
+        description: 'Inspect at most this many URLs, 0 for every live URL. The order is round robin across cohort, family and language, so a smaller number is still a stratified sample.'
         type: string
         default: '0'
       submit_sitemap:
@@ -111,7 +111,7 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.inspect_urls }}
         run: |
           set -o pipefail
-          node scripts/atlas/gsc-url-inspection.mjs --write --qps 8 \
+          node scripts/atlas/gsc-url-inspection.mjs --write --qps 8 --concurrency 4 \
             --limit "${{ inputs.inspect_limit }}" | tee "$RUNNER_TEMP/url-inspection.json"
           { echo '### URL Inspection'; echo '```json'; \
             cat "$RUNNER_TEMP/url-inspection.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

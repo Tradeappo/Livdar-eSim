@@ -184,3 +184,37 @@ export function topOpportunities(rows, limit = 25) {
       position: row.position || 0,
     }));
 }
+
+// An access token that renews itself. getAccessToken asks for a 3600s lifetime and a
+// long job outlives it: the URL Inspection run of 2026-10-20 (run 39496309572) died with
+// 401 UNAUTHENTICATED at exactly 60 minutes, about 550 URLs in. get() re-mints once the
+// token is older than maxAgeMs (default 45 minutes, well inside the hour), and refresh()
+// re-mints on demand, which the caller uses once after a 401 before giving up. Re-minting
+// is cheap and safe under federation: the credential source is re-read each time, so a
+// fresh OIDC token is presented rather than the one the job started with.
+export function createTokenSource(mint, { now = () => Date.now(), maxAgeMs = 45 * 60 * 1000 } = {}) {
+  let token = null;
+  let mintedAt = 0;
+  let pending = null;
+  let mints = 0;
+  const renew = () => {
+    if (!pending) {
+      pending = Promise.resolve().then(mint).then((t) => {
+        token = t;
+        mintedAt = now();
+        mints += 1;
+        return t;
+      }).finally(() => { pending = null; });
+    }
+    return pending;
+  };
+  return {
+    async get() {
+      if (pending) return pending;
+      if (!token || now() - mintedAt >= maxAgeMs) return renew();
+      return token;
+    },
+    refresh: renew,
+    get mints() { return mints; },
+  };
+}
