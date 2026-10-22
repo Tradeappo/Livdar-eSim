@@ -25,8 +25,18 @@
 // QUOTA, which is why the order matters. Google allows 2,000 inspections per property per day
 // and 600 per minute. 500 URLs fit inside one day's quota with room to spare, but a run can
 // still be cut short by a quota error or a container restart, so:
-//   - the URLs are ordered ROUND ROBIN ACROSS FAMILIES, not grouped by family. A run that dies
-//     at 120 URLs then covers all 13 families evenly instead of covering three completely.
+//   - the URLs are ordered ROUND ROBIN ACROSS COHORT x FAMILY x LANGUAGE, not grouped. A run
+//     that dies at 120 URLs then covers every cohort, family and language evenly instead of
+//     covering three completely. Family alone was not enough: cohort 003 is 1,000 pages of one
+//     family, sorted by path, so the 2026-10-20 run reached only its de and en pages.
+//
+// THE TOKEN RENEWS ITSELF. An access token lives 60 minutes and the 2026-10-20 run (39496309572)
+// died with 401 at exactly that mark. The token is now re-minted after 45 minutes, and a 401
+// re-mints once and retries the same URL before the run is stopped.
+//
+// CONCURRENCY. The API answers in 3 to 7 seconds per URL, so one request at a time cannot
+// inspect 1,500 URLs inside the job's 180 minutes. --concurrency runs that many requests at
+// once while a shared pacer still holds the total to --qps.
 //   - the output is appended per URL and the script skips what is already there, so a second
 //     run resumes instead of re-spending quota.
 //   - a 429 or a quota 403 stops the run and is recorded. It does not retry in a loop.
@@ -41,9 +51,10 @@
 // Usage, inside the workflow:
 //   node scripts/atlas/gsc-url-inspection.mjs --write            all of them, quota permitting
 //   node scripts/atlas/gsc-url-inspection.mjs --write --limit 60 a stratified sample
+//   node scripts/atlas/gsc-url-inspection.mjs --write --concurrency 4  four requests in flight
 //   node scripts/atlas/gsc-url-inspection.mjs --dry-run          prove the plan, call nothing
 import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs';
-import { googleCredentialsFromEnv, getAccessToken } from '../lib/google-search-console.mjs';
+import { googleCredentialsFromEnv, getAccessToken, createTokenSource } from '../lib/google-search-console.mjs';
 
 const ROOT = new URL('../../', import.meta.url).pathname;
 const OUT_DIR = ROOT + 'data/atlas/measurements/gsc/';
@@ -60,17 +71,18 @@ const value = (n, d) => {
 const DRY = flag('--dry-run') || !flag('--write');
 const LIMIT = Number(value('--limit', '0')) || 0;
 const QPS = Number(value('--qps', '4')) || 4;        // 240/min, well under the 600 ceiling
+const CONCURRENCY = Math.max(1, Number(value('--concurrency', '1')) || 1);
 const DATE = value('--date', new Date().toISOString().slice(0, 10));
 const OUT = OUT_DIR + `url-inspection-${DATE}.json`;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// Round robin across families, so a truncated run is still representative of every family
-// rather than complete for the first few.
-function stratify(rows) {
+// Round robin across cohort x family x language, so a truncated run is still representative of
+// every stratum rather than complete for the first few.
+export function stratify(rows) {
   const byFamily = new Map();
   for (const r of rows) {
-    const f = r.family || 'unclassified';
+    const f = [r.cohort || '', r.family || 'unclassified', r.locale || ''].join('|');
     if (!byFamily.has(f)) byFamily.set(f, []);
     byFamily.get(f).push(r);
   }
@@ -167,7 +179,8 @@ async function main() {
     planned_this_run: planned.length,
     already_on_disk: planned.length - todo.length,
     to_inspect: todo.length,
-    order: 'round robin across families, so a truncated run covers every family',
+    order: 'round robin across cohort x family x language, so a truncated run covers every stratum',
+    concurrency: CONCURRENCY,
     qps: QPS,
     daily_quota_per_property: 2000,
     per_minute_quota: 600,
@@ -189,7 +202,8 @@ async function main() {
     process.exit(missing.length && flag('--write') ? 1 : 0);
   }
 
-  const token = await getAccessToken(cred.credentials, fetch, SCOPE);
+  const tokens = createTokenSource(() => getAccessToken(cred.credentials, fetch, SCOPE));
+  const token = await tokens.get();
   const site = property;
 
   // THE SITEMAPS ENDPOINT FIRST, because it is one cheap call and it can answer the question
@@ -217,41 +231,61 @@ async function main() {
                 rows: prior.rows || [], raw: prior.raw || [], errors: [] };
   let stopped = null;
 
-  for (let n = 0; n < todo.length; n++) {
-    const meta = todo[n];
-    const url = 'https://livdar.com' + meta.path;
-    const res = await fetch(ENDPOINT, {
+  // One shared pacer: each request takes the next slot 1000/QPS ms after the previous one, so
+  // the total rate stays at --qps however many workers are waiting.
+  let nextSlot = Date.now();
+  const pace = async () => {
+    const at = Math.max(Date.now(), nextSlot);
+    nextSlot = at + Math.round(1000 / QPS);
+    await sleep(at - Date.now());
+  };
+  const inspect = async (url, meta) => {
+    await pace();
+    return fetch(ENDPOINT, {
       method: 'POST',
-      headers: { authorization: 'Bearer ' + token, 'content-type': 'application/json' },
+      headers: { authorization: 'Bearer ' + (await tokens.get()), 'content-type': 'application/json' },
       body: JSON.stringify({ inspectionUrl: url, siteUrl: site,
                              languageCode: meta.locale || 'en-US' }),
     });
-    const body = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      const err = { url, status: res.status, error: body?.error?.message || 'no message',
-                    reason: body?.error?.status || null };
-      out.errors.push(err);
-      // Quota and permission are the two that must stop the run rather than be retried: one
-      // cannot succeed today and the other cannot succeed at all until a person changes a
-      // setting. Everything else is recorded and the run continues.
-      if (res.status === 429 || res.status === 403 || res.status === 401) {
-        stopped = err;
-        break;
+  };
+  let cursor = 0;
+  let done = 0;
+  const worker = async () => {
+    while (!stopped && cursor < todo.length) {
+      const meta = todo[cursor++];
+      const url = 'https://livdar.com' + meta.path;
+      let res = await inspect(url, meta);
+      // An expired token is the one 401 a retry fixes: re-mint once and ask again.
+      if (res.status === 401) {
+        await tokens.refresh();
+        res = await inspect(url, meta);
       }
-      continue;
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        const err = { url, status: res.status, error: body?.error?.message || 'no message',
+                      reason: body?.error?.status || null };
+        out.errors.push(err);
+        // Quota and permission are the two that must stop the run rather than be retried: one
+        // cannot succeed today and the other cannot succeed at all until a person changes a
+        // setting. A 401 that survived a fresh token is a permission too. Everything else is
+        // recorded and the run continues.
+        if (res.status === 429 || res.status === 403 || res.status === 401) stopped = stopped || err;
+        continue;
+      }
+      out.raw.push({ url, response: body });            // verbatim, before anything reads it
+      out.rows.push(flatten(url, meta, body));
+      if (++done % 25 === 0) {
+        writeFileSync(OUT + '.tmp', JSON.stringify(out, null, 1));
+        renameSync(OUT + '.tmp', OUT);
+        process.stderr.write(`  inspected ${out.rows.length}/${planned.length}, token minted ${tokens.mints}x\n`);
+      }
     }
-    out.raw.push({ url, response: body });            // verbatim, before anything reads it
-    out.rows.push(flatten(url, meta, body));
-    if ((n + 1) % 25 === 0) {
-      writeFileSync(OUT + '.tmp', JSON.stringify(out, null, 1));
-      renameSync(OUT + '.tmp', OUT);
-      process.stderr.write(`  inspected ${out.rows.length}/${planned.length}\n`);
-    }
-    await sleep(Math.max(0, Math.round(1000 / QPS)));
-  }
+  };
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, todo.length) }, worker));
 
   out.stopped_early = stopped;
   out.inspected_total = out.rows.length;
+  out.token_mints = tokens.mints;
   writeFileSync(OUT + '.tmp', JSON.stringify(out, null, 1));
   renameSync(OUT + '.tmp', OUT);
   console.log(JSON.stringify({ inspected: out.rows.length, errors: out.errors.length,
@@ -261,4 +295,6 @@ async function main() {
   if (stopped) process.exit(2);
 }
 
-main().catch((e) => { console.error(String(e?.stack || e)); process.exit(1); });
+if (process.argv[1] && new URL(import.meta.url).pathname === process.argv[1]) {
+  main().catch((e) => { console.error(String(e?.stack || e)); process.exit(1); });
+}
