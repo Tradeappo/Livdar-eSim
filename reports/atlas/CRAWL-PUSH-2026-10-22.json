@@ -1,0 +1,4168 @@
+{
+ "inspection": "2026-10-22T13:52:03.770Z",
+ "targets": 263,
+ "sources_indexed": 461,
+ "sources_changed": 126,
+ "swaps": 189,
+ "targets_pushed": 104,
+ "targets_with_no_indexed_inbound_before": 58,
+ "targets_with_no_indexed_inbound_after": 52,
+ "orphans_after": [],
+ "broken_links": 0,
+ "cross_language_links": 0,
+ "by_reason": {
+  "sibling-entities": 97,
+  "same-entity-other-family": 4,
+  "fill": 12,
+  "tools": 59,
+  "rankings": 6,
+  "ranked-entities": 2,
+  "country-siblings": 9
+ },
+ "per_target": [
+  {
+   "path": "/de/beste-reisezeit/japan/",
+   "cohort": "002",
+   "family": "weather.country-best-time",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/de/beste-reisezeit/vietnam/",
+   "cohort": "002",
+   "family": "weather.country-best-time",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/de/feiertage/bayern/",
+   "cohort": "002",
+   "family": "events.subdivision-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 12,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 14,
+   "inbound_from_indexed_after": 8
+  },
+  {
+   "path": "/de/feiertage/hessen/",
+   "cohort": "002",
+   "family": "events.subdivision-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/de/feiertage/niederlande/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/feiertage/niedersachsen/",
+   "cohort": "002",
+   "family": "events.subdivision-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 10,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 11,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/de/feiertage/nordrhein-westfalen/",
+   "cohort": "002",
+   "family": "events.subdivision-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/feiertage/saarland/",
+   "cohort": "002",
+   "family": "events.subdivision-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/feiertage/sachsen/",
+   "cohort": "002",
+   "family": "events.subdivision-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/gehaelter/deutschland/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/gehaelter/polen/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/de/lebenshaltungskosten/australien/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/lebenshaltungskosten/kroatien/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/lebenshaltungskosten/niederlande/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/lebenshaltungskosten/oesterreich/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/de/lebenshaltungskosten/polen/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/lebenshaltungskosten/schweden/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/de/lebenshaltungskosten/thailand/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/de/lebenshaltungskosten/tschechien/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/lebenshaltungskosten/ungarn/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/lebenshaltungskosten/vereinigte-staaten/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 3,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/de/rangliste/teuerste-laender-der-welt/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 2,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/de/rechner/laendervergleich/",
+   "cohort": "002",
+   "family": "tools.cost-comparison",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 40,
+   "inbound_from_indexed_before": 21,
+   "inbound_after": 42,
+   "inbound_from_indexed_after": 23
+  },
+  {
+   "path": "/de/rechner/lebenshaltungskosten-vergleich/",
+   "cohort": "001",
+   "family": "tools.cost-comparison",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/rechner/reisekosten-rechner/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/de/rechner/staedte-vergleich/",
+   "cohort": "001",
+   "family": "tools.cost-comparison",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/rechner/umzugskosten-rechner/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/rechner/wo-soll-ich-leben/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/de/rechner/wohin-auswandern/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/de/stadtteile/hamburg/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/de/stadtteile/koeln/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/de/stadtteile/london/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/de/stadtteile/new-york/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/en/best-time-to-visit/croatia/",
+   "cohort": "002",
+   "family": "weather.country-best-time",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/en/best-time-to-visit/peru/",
+   "cohort": "002",
+   "family": "weather.country-best-time",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/en/cost-of-living/croatia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/en/cost-of-living/cyprus/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/en/cost-of-living/germany/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/cost-of-living/italy/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/en/cost-of-living/poland/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/en/cost-of-living/puerto-rico/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 8
+  },
+  {
+   "path": "/en/cost-of-living/sweden/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/en/cost-of-living/vietnam/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 8
+  },
+  {
+   "path": "/en/public-holidays/spain/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 3,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 3,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/en/rankings/cheapest-countries-in-europe/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 53,
+   "inbound_from_indexed_before": 18,
+   "inbound_after": 53,
+   "inbound_from_indexed_after": 18
+  },
+  {
+   "path": "/en/rankings/cheapest-countries-to-live-in/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 30,
+   "inbound_from_indexed_before": 16,
+   "inbound_after": 30,
+   "inbound_from_indexed_after": 16
+  },
+  {
+   "path": "/en/rankings/most-expensive-countries-to-live-in/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 2,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 2,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/austria/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/en/salaries/belgium/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/en/salaries/bulgaria/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/en/salaries/croatia/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/en/salaries/cyprus/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/czechia/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/denmark/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/en/salaries/estonia/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/finland/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/france/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/en/salaries/germany/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/salaries/greece/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/salaries/hungary/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/italy/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/salaries/luxembourg/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/en/salaries/malta/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/salaries/netherlands/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/salaries/poland/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/portugal/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/salaries/romania/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/en/salaries/spain/",
+   "cohort": "001",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/sport/hiking-near-san-francisco/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/sport/running-in-miami/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/sport/running-in-new-york/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/sport/running-in-san-francisco/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/sport/swimming-in-miami/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/en/tools/cost-of-living-comparison/",
+   "cohort": "001",
+   "family": "tools.cost-comparison",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/tools/cost-of-moving-abroad/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/tools/how-much-rent-can-i-afford/",
+   "cohort": "002",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 45,
+   "inbound_from_indexed_before": 30,
+   "inbound_after": 47,
+   "inbound_from_indexed_after": 32
+  },
+  {
+   "path": "/en/tools/moving-cost-calculator/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/tools/salary-calculator/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/tools/travel-budget-calculator/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/en/tools/where-should-i-live/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/en/tools/where-should-i-stay/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 19,
+   "inbound_from_indexed_before": 11,
+   "inbound_after": 21,
+   "inbound_from_indexed_after": 13
+  },
+  {
+   "path": "/en/where-to-stay/amsterdam/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 11,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/en/where-to-stay/new-york/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/en/where-to-stay/tokyo/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/es/clasificaciones/paises-mas-baratos-para-vivir/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 19,
+   "inbound_after": 25,
+   "inbound_from_indexed_after": 19
+  },
+  {
+   "path": "/es/clasificaciones/paises-mas-caros-del-mundo/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/es/coste-de-vida/alemania/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 11,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 13,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/es/coste-de-vida/australia/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/es/coste-de-vida/estados-unidos/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/es/coste-de-vida/portugal/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/es/coste-de-vida/suecia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/es/coste-de-vida/suiza/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/es/deporte/correr-en-barcelona/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/es/deporte/correr-en-madrid/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/es/deporte/rutas-de-senderismo-madrid/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/es/deporte/senderismo-barcelona/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/es/herramientas/donde-alojarse/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 13,
+   "inbound_from_indexed_before": 9,
+   "inbound_after": 15,
+   "inbound_from_indexed_after": 11
+  },
+  {
+   "path": "/es/herramientas/donde-vivir/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 3,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/es/salarios/alemania/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 7,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/es/zonas/londres/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/es/zonas/madrid/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/fr/classements/pays-les-moins-chers-deurope/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 27,
+   "inbound_from_indexed_before": 15,
+   "inbound_after": 27,
+   "inbound_from_indexed_after": 15
+  },
+  {
+   "path": "/fr/classements/pays-les-plus-chers-du-monde/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/fr/cout-de-la-vie/allemagne/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 11,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 13,
+   "inbound_from_indexed_after": 8
+  },
+  {
+   "path": "/fr/cout-de-la-vie/australie/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 8,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 10
+  },
+  {
+   "path": "/fr/cout-de-la-vie/autriche/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 11,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/fr/cout-de-la-vie/bulgarie/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/fr/cout-de-la-vie/croatie/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/fr/cout-de-la-vie/hongrie/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/fr/cout-de-la-vie/islande/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/fr/cout-de-la-vie/pologne/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/fr/jours-feries/belgique/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/fr/outils/budget-voyage/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 27,
+   "inbound_from_indexed_before": 15,
+   "inbound_after": 29,
+   "inbound_from_indexed_after": 17
+  },
+  {
+   "path": "/fr/outils/calculateur-de-salaire/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 14,
+   "inbound_after": 27,
+   "inbound_from_indexed_after": 16
+  },
+  {
+   "path": "/fr/outils/calculer-son-loyer-maximum/",
+   "cohort": "002",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 34,
+   "inbound_from_indexed_before": 30,
+   "inbound_after": 34,
+   "inbound_from_indexed_after": 30
+  },
+  {
+   "path": "/fr/outils/cout-demenagement/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 3,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/fr/outils/ou-vivre/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/fr/quand-partir/costa-rica/",
+   "cohort": "002",
+   "family": "weather.country-best-time",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 11,
+   "inbound_from_indexed_before": 10,
+   "inbound_after": 11,
+   "inbound_from_indexed_after": 10
+  },
+  {
+   "path": "/fr/salaires/luxembourg/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 8
+  },
+  {
+   "path": "/it/aumento-affitti/italia/",
+   "cohort": "002",
+   "family": "rents.country-inflation",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/classifiche/paesi-dove-si-vive-con-poco/",
+   "cohort": "002",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 24,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 24,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/it/costo-della-vita/albania/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 10,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/costo-della-vita/australia/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/bulgaria/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/costo-della-vita/cina/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/cipro/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/costo-della-vita/croazia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/danimarca/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/germania/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/giappone/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/it/costo-della-vita/grecia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/islanda/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/italia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/malta/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/norvegia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/polonia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/portogallo/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/romania/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/spagna/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/svezia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/costo-della-vita/turchia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/it/costo-della-vita/ungheria/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/giorni-festivi/francia/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/giorni-festivi/italia/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/giorni-festivi/svizzera/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 3,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 3,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/quando-andare/vietnam/",
+   "cohort": "002",
+   "family": "weather.country-best-time",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/sport/bici-a-milano/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/sport/correre-a-milano/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/sport/correre-a-roma/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/sport/escursioni-vicino-roma/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/sport/trekking-vicino-milano/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/stipendi/austria/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 10,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/stipendi/danimarca/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/stipendi/francia/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/stipendi/germania/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/stipendi/italia/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/it/stipendi/romania/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/stipendi/spagna/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/strumenti/calcolo-stipendio/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 22,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 23,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/it/strumenti/confronto-costo-della-vita/",
+   "cohort": "001",
+   "family": "tools.cost-comparison",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 22,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 23,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/it/strumenti/dove-trasferirsi-allestero/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 14,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 14,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/it/strumenti/dove-vivere/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/strumenti/preventivo-trasloco/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/zone/londra/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/it/zone/napoli/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/zone/new-york/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/it/zone/parigi/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/holidays/france/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/holidays/germany/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/ja/ranking/cheapest-countries-europe/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 27,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 27,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/ja/ranking/cheapest-countries/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 27,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 27,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/ja/ranking/most-expensive-countries/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/ja/seikatsuhi/australia/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/canada/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 10,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/ja/seikatsuhi/czechia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/denmark/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/france/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/germany/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/seikatsuhi/hungary/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/ireland/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/italy/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/malaysia/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/malta/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/netherlands/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/norway/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/philippines/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/portugal/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/seikatsuhi/spain/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/seikatsuhi/sweden/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/seikatsuhi/switzerland/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/seikatsuhi/thailand/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/seikatsuhi/tuerkiye/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/ja/seikatsuhi/united-kingdom/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/ja/sport/cycling-tokyo/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 11,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 11,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/sport/hiking-tokyo/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/sport/running-osaka/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/sport/running-tokyo/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/ja/tool/cost-of-living-calculator/",
+   "cohort": "001",
+   "family": "tools.cost-calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 26,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/ja/tool/destination-matcher/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 11,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 13,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/ja/tool/rent-affordability/",
+   "cohort": "002",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 11,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/ja/tool/salary-calculator/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/ja/tool/where-should-i-live/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/nl/feestdagen/belgie/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/feestdagen/nederland/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/huurverhoging/nederland/",
+   "cohort": "002",
+   "family": "rents.country-inflation",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/kosten-van-levensonderhoud/curacao/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/kosten-van-levensonderhoud/denemarken/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/kosten-van-levensonderhoud/griekenland/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/kosten-van-levensonderhoud/malta/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/kosten-van-levensonderhoud/portugal/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/kosten-van-levensonderhoud/spanje/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/ranglijsten/duurste-landen-ter-wereld/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/ranglijsten/goedkoopste-landen-in-europa/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/ranglijsten/goedkoopste-landen-om-te-wonen/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/salarissen/nederland/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/salarissen/spanje/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/sport/hardlopen-in-amsterdam/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/sport/wandelen-in-amsterdam/",
+   "cohort": "002",
+   "family": "sport.city-season",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/stadsdelen/amsterdam/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 8,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/stadsdelen/barcelona/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/stadsdelen/londen/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/stadsdelen/parijs/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/tools/hoeveel-huur-kan-ik-betalen/",
+   "cohort": "002",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 18,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 18,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/nl/tools/naar-welk-land-emigreren/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 15,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 15,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/nl/tools/salaris-calculator/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/tools/verhuiskosten-berekenen/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/nl/tools/waar-overnachten/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 0
+  },
+  {
+   "path": "/pl/dni-wolne-od-pracy/polska/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 3,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/pl/dzielnice-miasta/gdansk/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/pl/dzielnice-miasta/nowy-jork/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/pl/dzielnice-miasta/paryz/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/pl/dzielnice-miasta/wroclaw/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/pl/kalkulatory/gdzie-mieszkac/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 15,
+   "inbound_after": 25,
+   "inbound_from_indexed_after": 15
+  },
+  {
+   "path": "/pl/kalkulatory/gdzie-sie-zatrzymac/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 15,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 15,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/pl/kalkulatory/kalkulator-kosztow-zycia/",
+   "cohort": "001",
+   "family": "tools.cost-calculator",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 15,
+   "inbound_after": 25,
+   "inbound_from_indexed_after": 15
+  },
+  {
+   "path": "/pl/kalkulatory/kalkulator-wynagrodzen/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 6,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/pl/kalkulatory/koszt-przeprowadzki/",
+   "cohort": "002",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 15,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 15,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/pl/kalkulatory/porownanie-miast/",
+   "cohort": "001",
+   "family": "tools.cost-comparison",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 1
+  },
+  {
+   "path": "/pl/koszty-zycia/dania/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/pl/koszty-zycia/norwegia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/pl/koszty-zycia/polska/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/pl/koszty-zycia/portugalia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/pl/koszty-zycia/szwajcaria/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/pl/koszty-zycia/szwecja/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 0,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/pl/koszty-zycia/tajlandia/",
+   "cohort": "002",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/pl/rankingi/najtansze-kraje-do-zycia/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 15,
+   "inbound_after": 25,
+   "inbound_from_indexed_after": 15
+  },
+  {
+   "path": "/pl/wynagrodzenia/dania/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/pl/wynagrodzenia/niemcy/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 10,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 5
+  },
+  {
+   "path": "/pl/wynagrodzenia/szwecja/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 2,
+   "inbound_after": 4,
+   "inbound_from_indexed_after": 2
+  },
+  {
+   "path": "/pt/custo-de-vida/alemanha/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 11,
+   "inbound_from_indexed_before": 6,
+   "inbound_after": 13,
+   "inbound_from_indexed_after": 8
+  },
+  {
+   "path": "/pt/custo-de-vida/canada/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/pt/custo-de-vida/malta/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/pt/custo-de-vida/suecia/",
+   "cohort": "001",
+   "family": "cost-of-living.country",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 4,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 6,
+   "inbound_from_indexed_after": 6
+  },
+  {
+   "path": "/pt/feriados/portugal/",
+   "cohort": "002",
+   "family": "events.country-holidays",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 5,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/pt/ferramentas/calculadora-de-salario/",
+   "cohort": "001",
+   "family": "tools.calculator",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 18,
+   "inbound_after": 26,
+   "inbound_from_indexed_after": 19
+  },
+  {
+   "path": "/pt/ferramentas/comparar-cidades/",
+   "cohort": "001",
+   "family": "tools.cost-comparison",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 3,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/pt/ferramentas/melhor-pais-para-morar/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 13,
+   "inbound_from_indexed_before": 8,
+   "inbound_after": 15,
+   "inbound_from_indexed_after": 10
+  },
+  {
+   "path": "/pt/ferramentas/onde-ficar/",
+   "cohort": "002",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 11,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/pt/ferramentas/onde-morar/",
+   "cohort": "001",
+   "family": "tools.matcher",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 3,
+   "inbound_from_indexed_before": 1,
+   "inbound_after": 5,
+   "inbound_from_indexed_after": 3
+  },
+  {
+   "path": "/pt/ferramentas/quanto-custa-viajar/",
+   "cohort": "002",
+   "family": "tools.calculator",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 8,
+   "inbound_from_indexed_before": 5,
+   "inbound_after": 10,
+   "inbound_from_indexed_after": 7
+  },
+  {
+   "path": "/pt/onde-ficar/sao-paulo/",
+   "cohort": "002",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 7,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 7,
+   "inbound_from_indexed_after": 4
+  },
+  {
+   "path": "/pt/rankings/paises-mais-baratos-da-europa/",
+   "cohort": "001",
+   "family": "rankings.index",
+   "state": "UNKNOWN_TO_GOOGLE",
+   "inbound_before": 25,
+   "inbound_from_indexed_before": 18,
+   "inbound_after": 25,
+   "inbound_from_indexed_after": 18
+  },
+  {
+   "path": "/pt/salarios/portugal/",
+   "cohort": "002",
+   "family": "work.country-salaries",
+   "state": "DISCOVERED_NOT_INDEXED",
+   "inbound_before": 9,
+   "inbound_from_indexed_before": 4,
+   "inbound_after": 9,
+   "inbound_from_indexed_after": 4
+  }
+ ],
+ "swaps_list": [
+  {
+   "source": "/de/feiertage/baden-wuerttemberg/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/de/feiertage/berlin/",
+   "added": "/de/feiertage/sachsen/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/feiertage/berlin/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/de/feiertage/brandenburg/",
+   "added": "/de/feiertage/bayern/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/feiertage/brandenburg/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/de/feiertage/sachsen-anhalt/",
+   "added": "/de/feiertage/bayern/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/feiertage/deutschland/",
+   "source_cohort": "002",
+   "reason": "same-entity-other-family",
+   "removed": "/de/lebenshaltungskosten/deutschland/",
+   "added": "/de/feiertage/saarland/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/feiertage/oesterreich/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/de/feiertage/sachsen-anhalt/",
+   "added": "/de/lebenshaltungskosten/oesterreich/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/de/feiertage/sachsen-anhalt/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/de/feiertage/thueringen/",
+   "added": "/de/feiertage/nordrhein-westfalen/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/feiertage/sachsen-anhalt/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/de/feiertage/baden-wuerttemberg/",
+   "added": "/de/feiertage/saarland/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/feiertage/thueringen/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/de/feiertage/baden-wuerttemberg/",
+   "added": "/de/feiertage/sachsen/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/gehaelter/daenemark/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/de/rechner/wie-viel-miete-kann-ich-mir-leisten/",
+   "added": "/de/rechner/wo-soll-ich-leben/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/gehaelter/spanien/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/de/rechner/wie-viel-miete-kann-ich-mir-leisten/",
+   "added": "/de/rechner/wo-soll-ich-leben/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/gehaelter/tschechien/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/de/rechner/wie-viel-miete-kann-ich-mir-leisten/",
+   "added": "/de/rechner/staedte-vergleich/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/gehaelter/tschechien/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/de/lebenshaltungskosten/deutschland/",
+   "added": "/de/lebenshaltungskosten/tschechien/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/bulgarien/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/daenemark/",
+   "added": "/de/lebenshaltungskosten/vereinigte-staaten/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/bulgarien/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/griechenland/",
+   "added": "/de/lebenshaltungskosten/schweden/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/daenemark/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/griechenland/",
+   "added": "/de/lebenshaltungskosten/thailand/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/daenemark/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/irland/",
+   "added": "/de/lebenshaltungskosten/vereinigte-staaten/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/deutschland/",
+   "source_cohort": "002",
+   "reason": "same-entity-other-family",
+   "removed": "/de/feiertage/deutschland/",
+   "added": "/de/gehaelter/deutschland/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/deutschland/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/de/rechner/wie-viel-miete-kann-ich-mir-leisten/",
+   "added": "/de/rechner/umzugskosten-rechner/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/griechenland/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/irland/",
+   "added": "/de/lebenshaltungskosten/niederlande/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/griechenland/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/italien/",
+   "added": "/de/lebenshaltungskosten/oesterreich/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/irland/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/italien/",
+   "added": "/de/lebenshaltungskosten/polen/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/irland/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/japan/",
+   "added": "/de/lebenshaltungskosten/schweden/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/italien/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/japan/",
+   "added": "/de/lebenshaltungskosten/thailand/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/italien/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/malta/",
+   "added": "/de/lebenshaltungskosten/polen/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/japan/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/malta/",
+   "added": "/de/lebenshaltungskosten/tschechien/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/japan/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/norwegen/",
+   "added": "/de/lebenshaltungskosten/ungarn/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/malta/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/norwegen/",
+   "added": "/de/lebenshaltungskosten/australien/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/malta/",
+   "source_cohort": "001",
+   "reason": "rankings",
+   "removed": "/de/rangliste/guenstigste-laender-in-europa/",
+   "added": "/de/rangliste/teuerste-laender-der-welt/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/norwegen/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/portugal/",
+   "added": "/de/lebenshaltungskosten/kroatien/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/norwegen/",
+   "source_cohort": "001",
+   "reason": "rankings",
+   "removed": "/de/rangliste/guenstigste-laender-in-europa/",
+   "added": "/de/rangliste/teuerste-laender-der-welt/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/portugal/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/schweiz/",
+   "added": "/de/lebenshaltungskosten/niederlande/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/portugal/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/spanien/",
+   "added": "/de/lebenshaltungskosten/ungarn/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/schweiz/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/spanien/",
+   "added": "/de/lebenshaltungskosten/australien/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/schweiz/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/de/lebenshaltungskosten/tuerkei/",
+   "added": "/de/lebenshaltungskosten/kroatien/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/spanien/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/auswandern-kosten/",
+   "added": "/de/rechner/wohin-auswandern/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/spanien/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/gehaltsrechner/",
+   "added": "/de/rechner/lebenshaltungskosten-vergleich/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/tuerkei/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/auswandern-kosten/",
+   "added": "/de/rechner/reisekosten-rechner/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/tuerkei/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/gehaltsrechner/",
+   "added": "/de/rechner/staedte-vergleich/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/zypern/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/auswandern-kosten/",
+   "added": "/de/rechner/umzugskosten-rechner/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/lebenshaltungskosten/zypern/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/gehaltsrechner/",
+   "added": "/de/rechner/wohin-auswandern/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/mietpreisentwicklung/deutschland/",
+   "source_cohort": "002",
+   "reason": "same-entity-other-family",
+   "removed": "/de/feiertage/deutschland/",
+   "added": "/de/feiertage/hessen/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/mietpreisentwicklung/deutschland/",
+   "source_cohort": "002",
+   "reason": "same-entity-other-family",
+   "removed": "/de/lebenshaltungskosten/deutschland/",
+   "added": "/de/feiertage/niedersachsen/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/rangliste/guenstigste-laender-in-europa/",
+   "source_cohort": "001",
+   "reason": "ranked-entities",
+   "removed": "/de/lebenshaltungskosten/tuerkei/",
+   "added": "/de/gehaelter/polen/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/de/rangliste/guenstigste-laender-in-europa/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/auswandern-kosten/",
+   "added": "/de/rechner/lebenshaltungskosten-vergleich/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/rangliste/guenstigste-laender-zum-leben/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/auswandern-kosten/",
+   "added": "/de/rechner/laendervergleich/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/rechner/auswandern-kosten/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/de/rechner/gehaltsrechner/",
+   "added": "/de/rechner/laendervergleich/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/de/rechner/wie-viel-miete-kann-ich-mir-leisten/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/de/rechner/wo-uebernachten/",
+   "added": "/de/rechner/reisekosten-rechner/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/greece/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/best-time-to-visit/iceland/",
+   "added": "/en/best-time-to-visit/croatia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/greece/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/en/best-time-to-visit/spain/",
+   "added": "/en/salaries/greece/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/iceland/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/best-time-to-visit/italy/",
+   "added": "/en/best-time-to-visit/croatia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/italy/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/en/best-time-to-visit/thailand/",
+   "added": "/en/salaries/italy/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/en/best-time-to-visit/italy/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/en/best-time-to-visit/tuerkiye/",
+   "added": "/en/cost-of-living/italy/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/portugal/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/best-time-to-visit/spain/",
+   "added": "/en/best-time-to-visit/peru/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/portugal/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/en/cost-of-living/australia/",
+   "added": "/en/salaries/portugal/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/spain/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/best-time-to-visit/switzerland/",
+   "added": "/en/best-time-to-visit/peru/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/best-time-to-visit/spain/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/en/cost-of-living/australia/",
+   "added": "/en/salaries/spain/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/albania/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/denmark/",
+   "added": "/en/cost-of-living/germany/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/albania/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/france/",
+   "added": "/en/cost-of-living/italy/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/australia/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/canada/",
+   "added": "/en/cost-of-living/croatia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/australia/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/china/",
+   "added": "/en/cost-of-living/cyprus/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/en/cost-of-living/canada/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/china/",
+   "added": "/en/cost-of-living/germany/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/canada/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/colombia/",
+   "added": "/en/cost-of-living/croatia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/china/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/colombia/",
+   "added": "/en/cost-of-living/cyprus/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/en/cost-of-living/china/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/costa-rica/",
+   "added": "/en/cost-of-living/poland/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/colombia/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/costa-rica/",
+   "added": "/en/cost-of-living/sweden/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/colombia/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/new-zealand/",
+   "added": "/en/cost-of-living/poland/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/costa-rica/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/new-zealand/",
+   "added": "/en/cost-of-living/sweden/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/denmark/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/france/",
+   "added": "/en/cost-of-living/puerto-rico/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/denmark/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/greece/",
+   "added": "/en/cost-of-living/vietnam/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/france/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/greece/",
+   "added": "/en/cost-of-living/puerto-rico/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/france/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/en/cost-of-living/iceland/",
+   "added": "/en/cost-of-living/vietnam/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/greece/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/where-should-i-live/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/en/cost-of-living/iceland/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/cost-of-living-comparison/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/iceland/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/cost-of-living-calculator/",
+   "added": "/en/tools/cost-of-moving-abroad/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/ireland/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/moving-cost-calculator/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/japan/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/salary-calculator/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/japan/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/cost-of-living-calculator/",
+   "added": "/en/tools/travel-budget-calculator/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/malta/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/where-should-i-live/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/en/cost-of-living/netherlands/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/cost-of-living-comparison/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/norway/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/cost-of-moving-abroad/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/norway/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/cost-of-living-calculator/",
+   "added": "/en/tools/moving-cost-calculator/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/portugal/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/salary-calculator/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/spain/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/travel-budget-calculator/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/switzerland/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/where-should-i-stay/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/switzerland/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/cost-of-living-calculator/",
+   "added": "/en/tools/how-much-rent-can-i-afford/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/tuerkiye/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/compare-cities/",
+   "added": "/en/tools/where-should-i-stay/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/cost-of-living/tuerkiye/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/en/tools/cost-of-living-calculator/",
+   "added": "/en/tools/how-much-rent-can-i-afford/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/public-holidays/germany/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/en/sport/cycling-in-new-york/",
+   "added": "/en/salaries/germany/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/weather/munich/",
+   "source_cohort": "003",
+   "reason": "sibling-entities",
+   "removed": "/en/weather/nanchang/",
+   "added": "/en/salaries/germany/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/where-to-stay/bangkok/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/where-to-stay/barcelona/",
+   "added": "/en/where-to-stay/amsterdam/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/where-to-stay/bangkok/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/where-to-stay/chicago/",
+   "added": "/en/where-to-stay/tokyo/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/where-to-stay/barcelona/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/where-to-stay/chicago/",
+   "added": "/en/where-to-stay/amsterdam/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/en/where-to-stay/paris/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/en/where-to-stay/bangkok/",
+   "added": "/en/where-to-stay/new-york/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/clasificaciones/paises-mas-baratos-de-europa/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/es/herramientas/calculadora-de-salario/",
+   "added": "/es/herramientas/donde-vivir/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/es/clasificaciones/paises-mas-baratos-de-europa/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/es/herramientas/calcular-precio-mudanza/",
+   "added": "/es/herramientas/donde-alojarse/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/es/clima/adelaida/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/es/clima/perth/",
+   "added": "/es/coste-de-vida/australia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/clima/colonia/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/es/clima/friburgo-de-brisgovia/",
+   "added": "/es/coste-de-vida/alemania/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/clima/perth/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/es/clima/adelaida/",
+   "added": "/es/coste-de-vida/australia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/bulgaria/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/chipre/",
+   "added": "/es/coste-de-vida/suiza/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/bulgaria/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/croacia/",
+   "added": "/es/coste-de-vida/suecia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/chipre/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/croacia/",
+   "added": "/es/coste-de-vida/suiza/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/chipre/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/dinamarca/",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/croacia/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/dinamarca/",
+   "added": "/es/coste-de-vida/portugal/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/croacia/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/francia/",
+   "added": "/es/coste-de-vida/suecia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/dinamarca/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/francia/",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/dinamarca/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/grecia/",
+   "added": "/es/coste-de-vida/portugal/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/espana/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/es/herramientas/calcular-presupuesto-de-viaje/",
+   "added": "/es/herramientas/donde-vivir/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/es/coste-de-vida/francia/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/es/coste-de-vida/grecia/",
+   "added": "/es/coste-de-vida/alemania/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/francia/",
+   "source_cohort": "001",
+   "reason": "rankings",
+   "removed": "/es/clasificaciones/paises-mas-baratos-de-europa/",
+   "added": "/es/clasificaciones/paises-mas-caros-del-mundo/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/grecia/",
+   "source_cohort": "001",
+   "reason": "rankings",
+   "removed": "/es/clasificaciones/paises-mas-baratos-de-europa/",
+   "added": "/es/clasificaciones/paises-mas-caros-del-mundo/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/es/coste-de-vida/grecia/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/es/herramientas/calculadora-de-salario/",
+   "added": "/es/herramientas/donde-alojarse/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/es/zonas/barcelona/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/es/coste-de-vida/espana/",
+   "added": "/es/deporte/senderismo-barcelona/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/augmentation-des-loyers/france/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-dormir/",
+   "added": "/fr/outils/cout-demenagement/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/albanie/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/maurice/",
+   "added": "/fr/cout-de-la-vie/croatie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/albanie/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-dormir/",
+   "added": "/fr/outils/ou-vivre/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/danemark/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/espagne/",
+   "added": "/fr/cout-de-la-vie/islande/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/danemark/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/france/",
+   "added": "/fr/cout-de-la-vie/bulgarie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/espagne/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/france/",
+   "added": "/fr/cout-de-la-vie/croatie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/espagne/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/grece/",
+   "added": "/fr/cout-de-la-vie/islande/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/france/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/grece/",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/france/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/irlande/",
+   "added": "/fr/cout-de-la-vie/bulgarie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/grece/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/irlande/",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/grece/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/italie/",
+   "added": "/fr/cout-de-la-vie/autriche/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/irlande/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/italie/",
+   "added": "/fr/cout-de-la-vie/hongrie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/irlande/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/japon/",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/italie/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/japon/",
+   "added": "/fr/cout-de-la-vie/hongrie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/italie/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/malte/",
+   "added": "/fr/cout-de-la-vie/autriche/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/japon/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/malte/",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/japon/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/norvege/",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/malte/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/fr/cout-de-la-vie/norvege/",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/malte/",
+   "source_cohort": "001",
+   "reason": "rankings",
+   "removed": "/fr/classements/pays-les-moins-chers-pour-vivre/",
+   "added": "/fr/classements/pays-les-plus-chers-du-monde/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/maurice/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-dormir/",
+   "added": "/fr/outils/cout-demenagement/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/cout-de-la-vie/norvege/",
+   "source_cohort": "001",
+   "reason": "rankings",
+   "removed": "/fr/classements/pays-les-moins-chers-pour-vivre/",
+   "added": "/fr/classements/pays-les-plus-chers-du-monde/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/outils/ou-dormir/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-sexpatrier/",
+   "added": "/fr/outils/ou-vivre/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/fr/outils/ou-sexpatrier/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-dormir/",
+   "added": "/fr/outils/calculateur-de-salaire/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/salaires/allemagne/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-dormir/",
+   "added": "/fr/outils/budget-voyage/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/salaires/danemark/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-dormir/",
+   "added": "/fr/outils/calculateur-de-salaire/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/salaires/espagne/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/fr/outils/ou-dormir/",
+   "added": "/fr/outils/budget-voyage/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/salaires/pologne/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/fr/salaires/portugal/",
+   "added": "/fr/salaires/luxembourg/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/fr/salaires/portugal/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/fr/salaires/roumanie/",
+   "added": "/fr/salaires/luxembourg/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/it/clima/bursa/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/it/clima/gaziantep/",
+   "added": "/it/costo-della-vita/turchia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/it/clima/gaziantep/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/it/clima/iconio/",
+   "added": "/it/costo-della-vita/turchia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/it/clima/nagoya/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/it/clima/sendai/",
+   "added": "/it/costo-della-vita/giappone/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/it/clima/sendai/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/it/clima/nagoya/",
+   "added": "/it/costo-della-vita/giappone/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/it/giorni-festivi/lombardia/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/it/strumenti/dove-alloggiare/",
+   "added": "/it/strumenti/calcolo-stipendio/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/it/stipendi/polonia/",
+   "source_cohort": "002",
+   "reason": "tools",
+   "removed": "/it/strumenti/dove-alloggiare/",
+   "added": "/it/strumenti/confronto-costo-della-vita/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/seikatsuhi/poland/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/ja/tool/moving-cost/",
+   "added": "/ja/tool/destination-matcher/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/ja/tenki/antalya/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/ja/tenki/diyarbak-r/",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/tenki/cologne/",
+   "source_cohort": "003",
+   "reason": "sibling-entities",
+   "removed": "/ja/tenki/da-nang/",
+   "added": "/ja/seikatsuhi/germany/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/tenki/cologne/",
+   "source_cohort": "003",
+   "reason": "sibling-entities",
+   "removed": "/ja/tenki/daegu/",
+   "added": "/ja/holidays/germany/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/tenki/diyarbak-r/",
+   "source_cohort": "003",
+   "reason": "country-siblings",
+   "removed": "/ja/tenki/gaziantep/",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/tool/moving-cost/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/ja/tool/relocation-budget/",
+   "added": "/ja/tool/rent-affordability/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/tool/moving-cost/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/ja/tool/travel-budget/",
+   "added": "/ja/tool/cost-of-living-calculator/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/tool/relocation-budget/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/ja/tool/travel-budget/",
+   "added": "/ja/tool/rent-affordability/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/ja/tool/travel-budget/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/ja/tool/moving-cost/",
+   "added": "/ja/tool/destination-matcher/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/pl/klimat/sztokholm/",
+   "source_cohort": "003",
+   "reason": "sibling-entities",
+   "removed": "/pl/klimat/taegu/",
+   "added": "/pl/koszty-zycia/szwecja/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/albania/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/australia/",
+   "added": "/pl/koszty-zycia/szwecja/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/albania/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/pl/wynagrodzenia/czechy/",
+   "added": "/pl/koszty-zycia/portugalia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/australia/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/albania/",
+   "added": "/pl/koszty-zycia/szwajcaria/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/australia/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/pl/wynagrodzenia/czechy/",
+   "added": "/pl/koszty-zycia/portugalia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/belgia/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/bulgaria/",
+   "added": "/pl/koszty-zycia/tajlandia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/belgia/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/czechy/",
+   "added": "/pl/koszty-zycia/szwajcaria/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/bulgaria/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/czechy/",
+   "added": "/pl/koszty-zycia/tajlandia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/bulgaria/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/francja/",
+   "added": "/pl/koszty-zycia/norwegia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/czechy/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/francja/",
+   "added": "/pl/koszty-zycia/polska/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/pl/koszty-zycia/czechy/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/grecja/",
+   "added": "/pl/koszty-zycia/norwegia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/francja/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/grecja/",
+   "added": "/pl/koszty-zycia/dania/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/koszty-zycia/francja/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/hiszpania/",
+   "added": "/pl/koszty-zycia/polska/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/pl/koszty-zycia/grecja/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pl/koszty-zycia/hiszpania/",
+   "added": "/pl/koszty-zycia/dania/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pl/rankingi/najtansze-kraje-w-europie/",
+   "source_cohort": "001",
+   "reason": "ranked-entities",
+   "removed": "/pl/koszty-zycia/turcja/",
+   "added": "/pl/dni-wolne-od-pracy/polska/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/argentina/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/brasil/",
+   "added": "/pt/custo-de-vida/malta/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/argentina/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/uruguai/",
+   "added": "/pt/custo-de-vida/suecia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/brasil/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/uruguai/",
+   "added": "/pt/custo-de-vida/canada/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/brasil/",
+   "source_cohort": "002",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/argentina/",
+   "added": "/pt/custo-de-vida/malta/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/bulgaria/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/croacia/",
+   "added": "/pt/custo-de-vida/suecia/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/bulgaria/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/dinamarca/",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/pt/custo-de-vida/croacia/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/dinamarca/",
+   "added": "/pt/custo-de-vida/canada/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/croacia/",
+   "source_cohort": "001",
+   "reason": "sibling-entities",
+   "removed": "/pt/custo-de-vida/espanha/",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  },
+  {
+   "source": "/pt/custo-de-vida/dinamarca/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/comparar-cidades/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/espanha/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/onde-morar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/franca/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/comparar-cidades/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/grecia/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/onde-morar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/irlanda/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/onde-ficar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/italia/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/quanto-custa-viajar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/japao/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/onde-ficar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/noruega/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/quanto-custa-viajar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/paises-baixos/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/melhor-pais-para-morar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/custo-de-vida/portugal/",
+   "source_cohort": "001",
+   "reason": "tools",
+   "removed": "/pt/ferramentas/calculadora-custo-de-vida/",
+   "added": "/pt/ferramentas/melhor-pais-para-morar/",
+   "target_state": "DISCOVERED_NOT_INDEXED"
+  },
+  {
+   "source": "/pt/ferramentas/quanto-custa-morar-fora/",
+   "source_cohort": "002",
+   "reason": "fill",
+   "removed": "/pt/onde-ficar/londres/",
+   "added": "/pt/ferramentas/calculadora-de-salario/",
+   "target_state": "UNKNOWN_TO_GOOGLE"
+  }
+ ]
+}
