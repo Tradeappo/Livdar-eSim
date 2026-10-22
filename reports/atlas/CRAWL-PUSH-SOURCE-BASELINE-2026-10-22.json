@@ -1,0 +1,1162 @@
+{
+ "meaning": "lastCrawlTime of the 126 crawl push source pages before PR #43 went live (2026-10-22 15:15 UTC). A source counts as exposed once Google recrawls it after that time.",
+ "deployed_at": "2026-10-22T15:15:00Z",
+ "inspection": "2026-10-22T13:52:03.770Z",
+ "sources": 126,
+ "states": {
+  "INDEXED": 126
+ },
+ "cohorts": {
+  "002": 46,
+  "001": 68,
+  "003": 12
+ },
+ "lastCrawl_oldest": "2026-10-11T10:11:07Z",
+ "lastCrawl_newest": "2026-10-22T09:46:45Z",
+ "lastCrawl_by_day": {
+  "2026-10-11": 5,
+  "2026-10-17": 2,
+  "2026-10-18": 92,
+  "2026-10-19": 14,
+  "2026-10-20": 1,
+  "2026-10-21": 5,
+  "2026-10-22": 7
+ },
+ "already_after_deploy": 0,
+ "rows": [
+  {
+   "path": "/de/feiertage/baden-wuerttemberg/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "events.subdivision-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T02:22:05Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/feiertage/berlin/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "events.subdivision-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T03:11:28Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/feiertage/brandenburg/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "events.subdivision-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T01:59:18Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/feiertage/deutschland/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "events.country-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-17T13:03:24Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/feiertage/oesterreich/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "events.country-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:00:56Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/feiertage/sachsen-anhalt/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "events.subdivision-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T02:17:23Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/feiertage/thueringen/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "events.subdivision-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:56:55Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/gehaelter/daenemark/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:56:45Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/gehaelter/spanien/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:28:07Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/gehaelter/tschechien/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:56:49Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/bulgarien/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:22:37Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/daenemark/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:22:55Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/deutschland/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-17T20:16:22Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/griechenland/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-11T10:13:12Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/irland/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:18:36Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/italien/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:20:06Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/japan/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T18:34:31Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/malta/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T03:51:24Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/norwegen/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:21:09Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/portugal/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:21:57Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/schweiz/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:18:56Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/spanien/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:20:01Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/tuerkei/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:19:20Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/lebenshaltungskosten/zypern/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:17:51Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/mietpreisentwicklung/deutschland/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "rents.country-inflation",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-11T10:25:11Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/rangliste/guenstigste-laender-in-europa/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "rankings.index",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-11T10:25:11Z",
+   "swaps": 2
+  },
+  {
+   "path": "/de/rangliste/guenstigste-laender-zum-leben/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "rankings.index",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T01:52:25Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/rechner/auswandern-kosten/",
+   "cohort": "001",
+   "lang": "de",
+   "family": "tools.calculator",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-20T01:02:02Z",
+   "swaps": 1
+  },
+  {
+   "path": "/de/rechner/wie-viel-miete-kann-ich-mir-leisten/",
+   "cohort": "002",
+   "lang": "de",
+   "family": "tools.calculator",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T01:52:28Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/best-time-to-visit/greece/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "weather.country-best-time",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:13:22Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/best-time-to-visit/iceland/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "weather.country-best-time",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:15:01Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/best-time-to-visit/italy/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "weather.country-best-time",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:13:07Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/best-time-to-visit/portugal/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "weather.country-best-time",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:49:45Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/best-time-to-visit/spain/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "weather.country-best-time",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T17:57:50Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/albania/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-11T10:11:07Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/australia/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:13:14Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/canada/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:57:39Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/china/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:54:20Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/colombia/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:11:19Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/costa-rica/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:13:47Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/cost-of-living/denmark/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:06:18Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/france/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:40:04Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/greece/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:40:58Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/cost-of-living/iceland/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:37:47Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/ireland/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T19:55:05Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/cost-of-living/japan/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:27:11Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/malta/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:30:38Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/cost-of-living/netherlands/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T03:40:32Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/cost-of-living/norway/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:59:00Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/portugal/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:07:05Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/cost-of-living/spain/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T03:33:54Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/cost-of-living/switzerland/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:43:06Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/cost-of-living/tuerkiye/",
+   "cohort": "001",
+   "lang": "en",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T03:39:21Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/public-holidays/germany/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "events.country-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T05:33:20Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/weather/munich/",
+   "cohort": "003",
+   "lang": "en",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-22T06:15:56Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/where-to-stay/bangkok/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:59:53Z",
+   "swaps": 2
+  },
+  {
+   "path": "/en/where-to-stay/barcelona/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:11:17Z",
+   "swaps": 1
+  },
+  {
+   "path": "/en/where-to-stay/paris/",
+   "cohort": "002",
+   "lang": "en",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:58:03Z",
+   "swaps": 1
+  },
+  {
+   "path": "/es/clasificaciones/paises-mas-baratos-de-europa/",
+   "cohort": "001",
+   "lang": "es",
+   "family": "rankings.index",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T08:05:39Z",
+   "swaps": 2
+  },
+  {
+   "path": "/es/clima/adelaida/",
+   "cohort": "003",
+   "lang": "es",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-21T19:55:13Z",
+   "swaps": 1
+  },
+  {
+   "path": "/es/clima/colonia/",
+   "cohort": "003",
+   "lang": "es",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-22T05:45:18Z",
+   "swaps": 1
+  },
+  {
+   "path": "/es/clima/perth/",
+   "cohort": "003",
+   "lang": "es",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-21T21:06:06Z",
+   "swaps": 1
+  },
+  {
+   "path": "/es/coste-de-vida/bulgaria/",
+   "cohort": "001",
+   "lang": "es",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:40:27Z",
+   "swaps": 2
+  },
+  {
+   "path": "/es/coste-de-vida/chipre/",
+   "cohort": "001",
+   "lang": "es",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T03:50:25Z",
+   "swaps": 2
+  },
+  {
+   "path": "/es/coste-de-vida/croacia/",
+   "cohort": "001",
+   "lang": "es",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:00:43Z",
+   "swaps": 2
+  },
+  {
+   "path": "/es/coste-de-vida/dinamarca/",
+   "cohort": "001",
+   "lang": "es",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:12:59Z",
+   "swaps": 2
+  },
+  {
+   "path": "/es/coste-de-vida/espana/",
+   "cohort": "002",
+   "lang": "es",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T00:15:54Z",
+   "swaps": 1
+  },
+  {
+   "path": "/es/coste-de-vida/francia/",
+   "cohort": "001",
+   "lang": "es",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T17:42:20Z",
+   "swaps": 2
+  },
+  {
+   "path": "/es/coste-de-vida/grecia/",
+   "cohort": "001",
+   "lang": "es",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:32:03Z",
+   "swaps": 2
+  },
+  {
+   "path": "/es/zonas/barcelona/",
+   "cohort": "002",
+   "lang": "es",
+   "family": "neighbourhoods.city-where-to-stay",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:03:12Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/augmentation-des-loyers/france/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "rents.country-inflation",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:22:58Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/cout-de-la-vie/albanie/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:02:57Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/danemark/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:11:12Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/espagne/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:04:09Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/france/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T19:10:58Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/grece/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:27:19Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/irlande/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:06:23Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/italie/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:02:01Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/japon/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T20:58:32Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/malte/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T03:37:05Z",
+   "swaps": 2
+  },
+  {
+   "path": "/fr/cout-de-la-vie/maurice/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:03:50Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/cout-de-la-vie/norvege/",
+   "cohort": "001",
+   "lang": "fr",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:03:22Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/outils/ou-dormir/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "tools.matcher",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:52:42Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/outils/ou-sexpatrier/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "tools.matcher",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:56:55Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/salaires/allemagne/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:08:33Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/salaires/danemark/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:56:45Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/salaires/espagne/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:54:10Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/salaires/pologne/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:39:47Z",
+   "swaps": 1
+  },
+  {
+   "path": "/fr/salaires/portugal/",
+   "cohort": "002",
+   "lang": "fr",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:28:35Z",
+   "swaps": 1
+  },
+  {
+   "path": "/it/clima/bursa/",
+   "cohort": "003",
+   "lang": "it",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-21T21:43:36Z",
+   "swaps": 1
+  },
+  {
+   "path": "/it/clima/gaziantep/",
+   "cohort": "003",
+   "lang": "it",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-22T05:50:28Z",
+   "swaps": 1
+  },
+  {
+   "path": "/it/clima/nagoya/",
+   "cohort": "003",
+   "lang": "it",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-22T01:38:57Z",
+   "swaps": 1
+  },
+  {
+   "path": "/it/clima/sendai/",
+   "cohort": "003",
+   "lang": "it",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-22T09:46:45Z",
+   "swaps": 1
+  },
+  {
+   "path": "/it/giorni-festivi/lombardia/",
+   "cohort": "002",
+   "lang": "it",
+   "family": "events.subdivision-holidays",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-11T10:23:11Z",
+   "swaps": 1
+  },
+  {
+   "path": "/it/stipendi/polonia/",
+   "cohort": "002",
+   "lang": "it",
+   "family": "work.country-salaries",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T05:40:44Z",
+   "swaps": 1
+  },
+  {
+   "path": "/ja/seikatsuhi/poland/",
+   "cohort": "001",
+   "lang": "ja",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T04:11:35Z",
+   "swaps": 1
+  },
+  {
+   "path": "/ja/tenki/antalya/",
+   "cohort": "003",
+   "lang": "ja",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-22T02:00:44Z",
+   "swaps": 1
+  },
+  {
+   "path": "/ja/tenki/cologne/",
+   "cohort": "003",
+   "lang": "ja",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-21T20:38:04Z",
+   "swaps": 2
+  },
+  {
+   "path": "/ja/tenki/diyarbak-r/",
+   "cohort": "003",
+   "lang": "ja",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-22T04:39:21Z",
+   "swaps": 1
+  },
+  {
+   "path": "/ja/tool/moving-cost/",
+   "cohort": "001",
+   "lang": "ja",
+   "family": "tools.calculator",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T02:29:26Z",
+   "swaps": 2
+  },
+  {
+   "path": "/ja/tool/relocation-budget/",
+   "cohort": "001",
+   "lang": "ja",
+   "family": "tools.calculator",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T08:01:32Z",
+   "swaps": 1
+  },
+  {
+   "path": "/ja/tool/travel-budget/",
+   "cohort": "001",
+   "lang": "ja",
+   "family": "tools.calculator",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T04:16:02Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pl/klimat/sztokholm/",
+   "cohort": "003",
+   "lang": "pl",
+   "family": "weather.city-month",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-21T19:57:36Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pl/koszty-zycia/albania/",
+   "cohort": "002",
+   "lang": "pl",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:31:02Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pl/koszty-zycia/australia/",
+   "cohort": "002",
+   "lang": "pl",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:03:57Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pl/koszty-zycia/belgia/",
+   "cohort": "001",
+   "lang": "pl",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:21:58Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pl/koszty-zycia/bulgaria/",
+   "cohort": "001",
+   "lang": "pl",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:32:55Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pl/koszty-zycia/czechy/",
+   "cohort": "001",
+   "lang": "pl",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:36:34Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pl/koszty-zycia/francja/",
+   "cohort": "001",
+   "lang": "pl",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T19:34:04Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pl/koszty-zycia/grecja/",
+   "cohort": "001",
+   "lang": "pl",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:45:01Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pl/rankingi/najtansze-kraje-w-europie/",
+   "cohort": "001",
+   "lang": "pl",
+   "family": "rankings.index",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:51:07Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/argentina/",
+   "cohort": "002",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:28:51Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pt/custo-de-vida/brasil/",
+   "cohort": "002",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:44:02Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pt/custo-de-vida/bulgaria/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T15:35:10Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pt/custo-de-vida/croacia/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:58:37Z",
+   "swaps": 2
+  },
+  {
+   "path": "/pt/custo-de-vida/dinamarca/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:06:43Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/espanha/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:42:01Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/franca/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:27:26Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/grecia/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T00:16:34Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/irlanda/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:58:32Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/italia/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T21:37:19Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/japao/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-19T00:18:32Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/noruega/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T22:59:40Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/paises-baixos/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:18:17Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/custo-de-vida/portugal/",
+   "cohort": "001",
+   "lang": "pt",
+   "family": "cost-of-living.country",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:06:12Z",
+   "swaps": 1
+  },
+  {
+   "path": "/pt/ferramentas/quanto-custa-morar-fora/",
+   "cohort": "002",
+   "lang": "pt",
+   "family": "tools.calculator",
+   "state": "INDEXED",
+   "lastCrawlTime": "2026-10-18T23:26:08Z",
+   "swaps": 1
+  }
+ ]
+}
