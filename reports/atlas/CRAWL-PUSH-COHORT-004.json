@@ -1,0 +1,3430 @@
+{
+ "cohort": "004",
+ "rule": "one link per page to a same-country, same-language page of cohorts 001/002 that was a 2026-10-22 crawl push target",
+ "sources_changed": 478,
+ "targets_reached": 66,
+ "links_per_target": {
+  "/de/beste-reisezeit/vietnam/": 17,
+  "/de/gehaelter/deutschland/": 14,
+  "/de/lebenshaltungskosten/kroatien/": 1,
+  "/de/lebenshaltungskosten/oesterreich/": 1,
+  "/de/lebenshaltungskosten/thailand/": 1,
+  "/en/best-time-to-visit/croatia/": 1,
+  "/en/best-time-to-visit/peru/": 9,
+  "/en/cost-of-living/germany/": 6,
+  "/en/cost-of-living/italy/": 6,
+  "/en/cost-of-living/poland/": 3,
+  "/en/cost-of-living/sweden/": 2,
+  "/en/cost-of-living/vietnam/": 20,
+  "/en/public-holidays/spain/": 16,
+  "/en/salaries/austria/": 2,
+  "/en/salaries/belgium/": 2,
+  "/en/salaries/bulgaria/": 3,
+  "/en/salaries/estonia/": 1,
+  "/en/salaries/finland/": 2,
+  "/en/salaries/france/": 20,
+  "/en/salaries/germany/": 5,
+  "/en/salaries/hungary/": 1,
+  "/en/salaries/italy/": 5,
+  "/en/salaries/poland/": 3,
+  "/en/salaries/romania/": 3,
+  "/en/salaries/spain/": 16,
+  "/es/coste-de-vida/alemania/": 20,
+  "/es/coste-de-vida/australia/": 7,
+  "/es/coste-de-vida/estados-unidos/": 20,
+  "/es/coste-de-vida/suecia/": 1,
+  "/es/coste-de-vida/suiza/": 2,
+  "/es/salarios/alemania/": 20,
+  "/fr/cout-de-la-vie/allemagne/": 20,
+  "/fr/cout-de-la-vie/australie/": 8,
+  "/fr/cout-de-la-vie/autriche/": 2,
+  "/fr/cout-de-la-vie/bulgarie/": 2,
+  "/fr/cout-de-la-vie/croatie/": 1,
+  "/fr/cout-de-la-vie/hongrie/": 1,
+  "/fr/cout-de-la-vie/pologne/": 10,
+  "/fr/jours-feries/belgique/": 1,
+  "/fr/quand-partir/costa-rica/": 1,
+  "/ja/holidays/france/": 14,
+  "/ja/holidays/germany/": 12,
+  "/ja/seikatsuhi/australia/": 13,
+  "/ja/seikatsuhi/france/": 13,
+  "/ja/seikatsuhi/germany/": 11,
+  "/ja/seikatsuhi/italy/": 6,
+  "/ja/seikatsuhi/malaysia/": 17,
+  "/ja/seikatsuhi/philippines/": 14,
+  "/ja/seikatsuhi/spain/": 19,
+  "/ja/seikatsuhi/switzerland/": 2,
+  "/ja/seikatsuhi/thailand/": 3,
+  "/ja/seikatsuhi/tuerkiye/": 20,
+  "/ja/seikatsuhi/united-kingdom/": 15,
+  "/nl/feestdagen/belgie/": 1,
+  "/nl/kosten-van-levensonderhoud/spanje/": 3,
+  "/nl/salarissen/spanje/": 2,
+  "/pl/dni-wolne-od-pracy/polska/": 3,
+  "/pl/koszty-zycia/norwegia/": 1,
+  "/pl/koszty-zycia/polska/": 3,
+  "/pl/koszty-zycia/szwajcaria/": 1,
+  "/pl/koszty-zycia/szwecja/": 1,
+  "/pl/koszty-zycia/tajlandia/": 1,
+  "/pl/wynagrodzenia/niemcy/": 10,
+  "/pl/wynagrodzenia/szwecja/": 1,
+  "/pt/custo-de-vida/alemanha/": 9,
+  "/pt/custo-de-vida/canada/": 7
+ },
+ "min_inbound_after": 3,
+ "pages_below_min_inbound": 0,
+ "broken_links": 0,
+ "cross_language_links": 0,
+ "by_removed_reason": {
+  "sibling-entities": 431,
+  "fill": 47
+ },
+ "swaps": [
+  {
+   "source": "/de/wetter/bac-ninh/",
+   "removed": "/de/wetter/banda-aceh/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/buon-ma-thuot/",
+   "removed": "/de/wetter/campeche/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/ca-mau/",
+   "removed": "/de/wetter/canakkale/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/chon-buri/",
+   "removed": "/de/wetter/dubai/",
+   "removedReason": "fill",
+   "added": "/de/lebenshaltungskosten/thailand/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/de/wetter/da-lat/",
+   "removed": "/de/wetter/dogubeyaz-t/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/dessau/",
+   "removed": "/de/wetter/edirne/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/goerlitz/",
+   "removed": "/de/wetter/heroica-matamoros/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/kiel/",
+   "removed": "/de/wetter/kozan/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/lang-son/",
+   "removed": "/de/wetter/malatya/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/moenchengladbach/",
+   "removed": "/de/wetter/nigde/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/nam-dinh/",
+   "removed": "/de/wetter/nogales/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/nha-trang/",
+   "removed": "/de/wetter/nogales/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/phan-rang-thap-cham/",
+   "removed": "/de/wetter/purwokerto/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/phan-thiet/",
+   "removed": "/de/wetter/purwokerto/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/plauen/",
+   "removed": "/de/wetter/qui-nhon/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/qui-nhon/",
+   "removed": "/de/wetter/rostock/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/rach-gia/",
+   "removed": "/de/wetter/rostock/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/rostock/",
+   "removed": "/de/wetter/saltillo/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/schwaebisch-gmuend/",
+   "removed": "/de/wetter/sivas/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/schweinfurt/",
+   "removed": "/de/wetter/sivas/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/soc-trang/",
+   "removed": "/de/wetter/stadt-des-10-ramadan/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/stralsund/",
+   "removed": "/de/wetter/tampico/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/thanh-hoa/",
+   "removed": "/de/wetter/trabzon/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/thanh-pho-quang-ngai/",
+   "removed": "/de/wetter/trabzon/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/thu-dau-mot/",
+   "removed": "/de/wetter/trabzon/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/ulm/",
+   "removed": "/de/wetter/van/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/viet-tri/",
+   "removed": "/de/wetter/wolfenbuettel/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/vinh/",
+   "removed": "/de/wetter/wolfenbuettel/",
+   "removedReason": "sibling-entities",
+   "added": "/de/beste-reisezeit/vietnam/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/de/wetter/wien/",
+   "removed": "/de/wetter/acapulco/",
+   "removedReason": "fill",
+   "added": "/de/lebenshaltungskosten/oesterreich/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/de/wetter/wiesbaden/",
+   "removed": "/de/wetter/abu-dhabi/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/wolfenbuettel/",
+   "removed": "/de/wetter/abu-dhabi/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/wolfsburg/",
+   "removed": "/de/wetter/abu-dhabi/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/wuppertal/",
+   "removed": "/de/wetter/abu-dhabi/",
+   "removedReason": "sibling-entities",
+   "added": "/de/gehaelter/deutschland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/de/wetter/zagreb/",
+   "removed": "/de/wetter/aksaray/",
+   "removedReason": "fill",
+   "added": "/de/lebenshaltungskosten/kroatien/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/ajaccio/",
+   "removed": "/en/weather/akhisar/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/albacete/",
+   "removed": "/en/weather/albuquerque/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/albi/",
+   "removed": "/en/weather/algiers/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/avila/",
+   "removed": "/en/weather/bage/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/bac-ninh/",
+   "removed": "/en/weather/bakersfield/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/barakaldo/",
+   "removed": "/en/weather/barreirinhas/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/bialystok/",
+   "removed": "/en/weather/bikaner/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/poland/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/brasov/",
+   "removed": "/en/weather/bryan/",
+   "removedReason": "fill",
+   "added": "/en/salaries/romania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/brussels/",
+   "removed": "/en/weather/buon-ma-thuot/",
+   "removedReason": "fill",
+   "added": "/en/salaries/belgium/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/bucharest/",
+   "removed": "/en/weather/burgos/",
+   "removedReason": "fill",
+   "added": "/en/salaries/romania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/budapest/",
+   "removed": "/en/weather/caceres/",
+   "removedReason": "fill",
+   "added": "/en/salaries/hungary/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/buon-ma-thuot/",
+   "removed": "/en/weather/burlington/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/burgos/",
+   "removed": "/en/weather/ca-mau/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/ca-mau/",
+   "removed": "/en/weather/cajamarca/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/caceres/",
+   "removed": "/en/weather/caldwell/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/caen/",
+   "removed": "/en/weather/camarillo/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/cajamarca/",
+   "removed": "/en/weather/campos-dos-goytacazes/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/chiclayo/",
+   "removed": "/en/weather/chihuahua-city/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/chimbote/",
+   "removed": "/en/weather/chisinau/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/cholet/",
+   "removed": "/en/weather/chuo/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/cuenca/",
+   "removed": "/en/weather/da-lat/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/czestochowa/",
+   "removed": "/en/weather/damascus/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/poland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/da-lat/",
+   "removed": "/en/weather/dammam/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/dessau/",
+   "removed": "/en/weather/dhamtari/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/el-ejido/",
+   "removed": "/en/weather/el-pueblito/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/ghent/",
+   "removed": "/en/weather/grand-island/",
+   "removedReason": "fill",
+   "added": "/en/salaries/belgium/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/goerlitz/",
+   "removed": "/en/weather/great-falls/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/germany/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/gothenburg/",
+   "removed": "/en/weather/guanajuato-city/",
+   "removedReason": "fill",
+   "added": "/en/cost-of-living/sweden/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/grosseto/",
+   "removed": "/en/weather/guanajuato-city/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/helsinki/",
+   "removed": "/en/weather/hisar/",
+   "removedReason": "fill",
+   "added": "/en/salaries/finland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/huancayo/",
+   "removed": "/en/weather/ibadan/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/huesca/",
+   "removed": "/en/weather/ibague/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/ica/",
+   "removed": "/en/weather/igd-r/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/iquitos/",
+   "removed": "/en/weather/isparta/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/koh-trol/",
+   "removed": "/en/weather/komatsu/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/krakow/",
+   "removed": "/en/weather/kuetahya/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/poland/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/la-rochelle/",
+   "removed": "/en/weather/lagos-de-moreno/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/lang-son/",
+   "removed": "/en/weather/lazaro-cardenas/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/limoges/",
+   "removed": "/en/weather/linz/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/linares/",
+   "removed": "/en/weather/ljubljana/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/linz/",
+   "removed": "/en/weather/lublin/",
+   "removedReason": "fill",
+   "added": "/en/salaries/austria/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/lublin/",
+   "removed": "/en/weather/lucena-city/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/poland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/malmoe/",
+   "removed": "/en/weather/manjeri/",
+   "removedReason": "fill",
+   "added": "/en/cost-of-living/sweden/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/meaux/",
+   "removed": "/en/weather/meknes/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/melilla/",
+   "removed": "/en/weather/mersin/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/merida/",
+   "removed": "/en/weather/miepherkeim/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/montauban/",
+   "removed": "/en/weather/montes-claros/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/nam-dinh/",
+   "removed": "/en/weather/narasaraopet/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/nha-trang/",
+   "removed": "/en/weather/nigde/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/nice/",
+   "removed": "/en/weather/nisibis/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/niort/",
+   "removed": "/en/weather/nizip/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/orihuela/",
+   "removed": "/en/weather/oujda/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/orleans/",
+   "removed": "/en/weather/ourense/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/ourense/",
+   "removed": "/en/weather/oxnard/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/palencia/",
+   "removed": "/en/weather/panama-city/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/pamplona/",
+   "removed": "/en/weather/paradip/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/perpignan/",
+   "removed": "/en/weather/phan-rang-thap-cham/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/phan-rang-thap-cham/",
+   "removed": "/en/weather/piura/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/phan-thiet/",
+   "removed": "/en/weather/piura/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/piura/",
+   "removed": "/en/weather/plovdiv/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/plauen/",
+   "removed": "/en/weather/pocos-de-caldas/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/plovdiv/",
+   "removed": "/en/weather/polatl/",
+   "removedReason": "fill",
+   "added": "/en/salaries/bulgaria/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/poitiers/",
+   "removed": "/en/weather/ponferrada/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/ponferrada/",
+   "removed": "/en/weather/pontianak/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/pucallpa/",
+   "removed": "/en/weather/pueblo/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/quang-ngai/",
+   "removed": "/en/weather/quimper/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/quartu-santelena/",
+   "removed": "/en/weather/quimper/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/italy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/qui-nhon/",
+   "removed": "/en/weather/rabkavi/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/quimper/",
+   "removed": "/en/weather/rach-gia/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/rach-gia/",
+   "removed": "/en/weather/rajahmundry/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/radom/",
+   "removed": "/en/weather/ramnagar/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/poland/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/reims/",
+   "removed": "/en/weather/reynosa/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/rostock/",
+   "removed": "/en/weather/s-rnak/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/germany/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/sa-dec/",
+   "removed": "/en/weather/safi/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/saint-brieuc/",
+   "removed": "/en/weather/saint-louis/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/salamanca/",
+   "removed": "/en/weather/salerno/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/salerno/",
+   "removed": "/en/weather/saltillo/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/san-fernando/",
+   "removed": "/en/weather/san-miguel-de-allende/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/schwaebisch-gmuend/",
+   "removed": "/en/weather/sejong/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/schweinfurt/",
+   "removed": "/en/weather/sejong/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/germany/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/segovia/",
+   "removed": "/en/weather/sendai/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/sevilla/",
+   "removed": "/en/weather/sharjah-city/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/siena/",
+   "removed": "/en/weather/siliguri/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/italy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/soc-trang/",
+   "removed": "/en/weather/sokoto/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/sofia/",
+   "removed": "/en/weather/springfield/",
+   "removedReason": "fill",
+   "added": "/en/salaries/bulgaria/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/stralsund/",
+   "removed": "/en/weather/sunabeda/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/tacna/",
+   "removed": "/en/weather/takamatsu/",
+   "removedReason": "sibling-entities",
+   "added": "/en/best-time-to-visit/peru/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/talavera-de-la-reina/",
+   "removed": "/en/weather/tanabe/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/tallinn/",
+   "removed": "/en/weather/tarbes/",
+   "removedReason": "fill",
+   "added": "/en/salaries/estonia/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/tarbes/",
+   "removed": "/en/weather/tarsus/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/thanh-hoa/",
+   "removed": "/en/weather/timisoara/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/thanh-pho-ba-ria/",
+   "removed": "/en/weather/timisoara/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/thu-dau-mot/",
+   "removed": "/en/weather/tirupparangunram/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/timisoara/",
+   "removed": "/en/weather/tokamachi/",
+   "removedReason": "fill",
+   "added": "/en/salaries/romania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/toledo/",
+   "removed": "/en/weather/topeka/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/torrelavega/",
+   "removed": "/en/weather/touba/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/torremolinos/",
+   "removed": "/en/weather/touba/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/torrevieja/",
+   "removed": "/en/weather/toulon/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/toulon/",
+   "removed": "/en/weather/trabzon/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/trento/",
+   "removed": "/en/weather/tripoli/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/trieste/",
+   "removed": "/en/weather/tsuruga/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/italy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/turku/",
+   "removed": "/en/weather/udaipur/",
+   "removedReason": "fill",
+   "added": "/en/salaries/finland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/ulm/",
+   "removed": "/en/weather/uruapan/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/germany/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/utrera/",
+   "removed": "/en/weather/valence/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/valence/",
+   "removed": "/en/weather/van/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/valladolid/",
+   "removed": "/en/weather/vaniyambadi/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/vannes/",
+   "removed": "/en/weather/vasco-da-gama/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/france/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/varna/",
+   "removed": "/en/weather/venice/",
+   "removedReason": "fill",
+   "added": "/en/salaries/bulgaria/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/velez-malaga/",
+   "removed": "/en/weather/venice/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/velletri/",
+   "removed": "/en/weather/versailles/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/venice/",
+   "removed": "/en/weather/victoria/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/italy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/viareggio/",
+   "removed": "/en/weather/vidisha/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/vienna/",
+   "removed": "/en/weather/villeurbanne/",
+   "removedReason": "fill",
+   "added": "/en/salaries/austria/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/viet-tri/",
+   "removed": "/en/weather/vilanova-i-la-geltru/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/viet-yen-district/",
+   "removed": "/en/weather/vilanova-i-la-geltru/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/vietnam/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/vigevano/",
+   "removed": "/en/weather/villavicencio/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/italy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/vilanova-i-la-geltru/",
+   "removed": "/en/weather/villeurbanne/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/vitoria-gasteiz/",
+   "removed": "/en/weather/vizianagaram/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/vittoria/",
+   "removed": "/en/weather/volta-redonda/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/wiesbaden/",
+   "removed": "/en/weather/wroclaw/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/wolfenbuettel/",
+   "removed": "/en/weather/xico/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/germany/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/wolfsburg/",
+   "removed": "/en/weather/xico/",
+   "removedReason": "sibling-entities",
+   "added": "/en/cost-of-living/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/en/weather/wroclaw/",
+   "removed": "/en/weather/yaizu/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/poland/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/en/weather/zagreb/",
+   "removed": "/en/weather/zibo/",
+   "removedReason": "fill",
+   "added": "/en/best-time-to-visit/croatia/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/en/weather/zamora/",
+   "removed": "/en/weather/zhaoqing/",
+   "removedReason": "sibling-entities",
+   "added": "/en/public-holidays/spain/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/en/weather/zaragoza/",
+   "removed": "/en/weather/zhengzhou/",
+   "removedReason": "sibling-entities",
+   "added": "/en/salaries/spain/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/aalen/",
+   "removed": "/es/clima/abilene/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/abilene/",
+   "removed": "/es/clima/afyonkarahissar/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/akron/",
+   "removed": "/es/clima/alejandreta/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/ames/",
+   "removed": "/es/clima/antioquia/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/anderson/",
+   "removed": "/es/clima/antofagasta/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/ann-arbor/",
+   "removed": "/es/clima/aomori/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/antioch/",
+   "removed": "/es/clima/aomori/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/apple-valley/",
+   "removed": "/es/clima/arica/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/arvada/",
+   "removed": "/es/clima/aschaffenburg/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/aschaffenburg/",
+   "removed": "/es/clima/athens/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/athens/",
+   "removed": "/es/clima/badaun/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/baden-baden/",
+   "removed": "/es/clima/baharampur/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bayreuth/",
+   "removed": "/es/clima/beni-melal/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/beaverton/",
+   "removed": "/es/clima/bettiah/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bend/",
+   "removed": "/es/clima/bettiah/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/berkeley/",
+   "removed": "/es/clima/bhuj/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/berwyn/",
+   "removed": "/es/clima/bhuj/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bethlehem/",
+   "removed": "/es/clima/bhuj/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/billings/",
+   "removed": "/es/clima/bloemfontein/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/birmingham/",
+   "removed": "/es/clima/blumenau/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bismarck/",
+   "removed": "/es/clima/boa-vista/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bloomington/",
+   "removed": "/es/clima/bolonia/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bowie/",
+   "removed": "/es/clima/bremerhaven/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bowling-green/",
+   "removed": "/es/clima/bremerhaven/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/estados-unidos/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/brandenburg-an-der-havel/",
+   "removed": "/es/clima/breslavia/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/bremerhaven/",
+   "removed": "/es/clima/brest/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/coblenza/",
+   "removed": "/es/clima/conroe/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/costa-de-sunshine/",
+   "removed": "/es/clima/craiova/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/costa-dorada/",
+   "removed": "/es/clima/craiova/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/cottbus/",
+   "removed": "/es/clima/criciuma/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/cuxhaven/",
+   "removed": "/es/clima/daltonganj/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/darmstadt/",
+   "removed": "/es/clima/davis/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/delmenhorst/",
+   "removed": "/es/clima/dhamtari/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/dessau/",
+   "removed": "/es/clima/dhoraji/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/emden/",
+   "removed": "/es/clima/erzurum/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/flensburgo/",
+   "removed": "/es/clima/fountain-valley/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/francfort-del-oder/",
+   "removed": "/es/clima/gangtok/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/fulda/",
+   "removed": "/es/clima/gangtok/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/geelong/",
+   "removed": "/es/clima/gera/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/gera/",
+   "removed": "/es/clima/gobichettipalayam/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/ginebra/",
+   "removed": "/es/clima/gravatai/",
+   "removedReason": "fill",
+   "added": "/es/coste-de-vida/suiza/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/goerlitz/",
+   "removed": "/es/clima/gravatai/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/greifswald/",
+   "removed": "/es/clima/gurdaspur/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/guetersloh/",
+   "removed": "/es/clima/haifa/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/hamelin/",
+   "removed": "/es/clima/hartford/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/hildesheim/",
+   "removed": "/es/clima/hodal/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/hobart/",
+   "removed": "/es/clima/hofuf/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/ingolstadt/",
+   "removed": "/es/clima/iquitos/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/landshut/",
+   "removed": "/es/clima/latacunga/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/lippstadt/",
+   "removed": "/es/clima/loja/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/malmoe/",
+   "removed": "/es/clima/marilia/",
+   "removedReason": "fill",
+   "added": "/es/coste-de-vida/suecia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/marburgo/",
+   "removed": "/es/clima/marrakech/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/newcastle/",
+   "removed": "/es/clima/nigde/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/nuevo-brandeburgo/",
+   "removed": "/es/clima/obihiro/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/osnabrueck/",
+   "removed": "/es/clima/ouro-preto/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/paderborn/",
+   "removed": "/es/clima/palermo/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/plauen/",
+   "removed": "/es/clima/poitiers/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/ratisbona/",
+   "removed": "/es/clima/redlands/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/remscheid/",
+   "removed": "/es/clima/richards-bay/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/reutlingen/",
+   "removed": "/es/clima/richland/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/rheine/",
+   "removed": "/es/clima/richland/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/rostock/",
+   "removed": "/es/clima/safi/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/salzgitter/",
+   "removed": "/es/clima/samut-prakan/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/sarrebruck/",
+   "removed": "/es/clima/savarkundla/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/schweinfurt/",
+   "removed": "/es/clima/sendhwa/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/schwerin/",
+   "removed": "/es/clima/sendhwa/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/alemania/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/stralsund/",
+   "removed": "/es/clima/sunabeda/",
+   "removedReason": "sibling-entities",
+   "added": "/es/salarios/alemania/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/es/clima/townsville/",
+   "removed": "/es/clima/trebisonda/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/wollongong/",
+   "removed": "/es/clima/yaizu/",
+   "removedReason": "sibling-entities",
+   "added": "/es/coste-de-vida/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/es/clima/zurich/",
+   "removed": "/es/clima/afyonkarahissar/",
+   "removedReason": "fill",
+   "added": "/es/coste-de-vida/suiza/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/aschaffenbourg/",
+   "removed": "/fr/meteo/assouan/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/bamberg/",
+   "removed": "/fr/meteo/barcelona/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/bayreuth/",
+   "removed": "/fr/meteo/begusarai/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/bialystok/",
+   "removed": "/fr/meteo/bikaner/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/bonn/",
+   "removed": "/fr/meteo/bowie/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/brandebourg-sur-la-havel/",
+   "removed": "/fr/meteo/brockton/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/bremerhaven/",
+   "removed": "/fr/meteo/bucaramanga/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/bydgoszcz/",
+   "removed": "/fr/meteo/caen/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/canberra/",
+   "removed": "/fr/meteo/canoas/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/cote-du-soleil/",
+   "removed": "/fr/meteo/cuenca/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/cracovie/",
+   "removed": "/fr/meteo/cuiaba/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/cuxhaven/",
+   "removed": "/fr/meteo/da-lat/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/czestochowa/",
+   "removed": "/fr/meteo/dam-dam/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/darmstadt/",
+   "removed": "/fr/meteo/dayton/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/debrecen/",
+   "removed": "/fr/meteo/detmold/",
+   "removedReason": "fill",
+   "added": "/fr/cout-de-la-vie/hongrie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/dessau/",
+   "removed": "/fr/meteo/dhamtari/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/detmold/",
+   "removed": "/fr/meteo/dhamtari/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/flensbourg/",
+   "removed": "/fr/meteo/florissant/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/francfort-sur-loder/",
+   "removed": "/fr/meteo/gadag-betageri/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/fribourg-en-brisgau/",
+   "removed": "/fr/meteo/gaithersburg/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/fulda/",
+   "removed": "/fr/meteo/gaithersburg/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/gand/",
+   "removed": "/fr/meteo/geita/",
+   "removedReason": "fill",
+   "added": "/fr/jours-feries/belgique/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/fr/meteo/geelong/",
+   "removed": "/fr/meteo/geneve/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/gera/",
+   "removed": "/fr/meteo/goeteborg/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/goerlitz/",
+   "removed": "/fr/meteo/gomez-palacio/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/goettingen/",
+   "removed": "/fr/meteo/gorakhpur/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/gold-coast/",
+   "removed": "/fr/meteo/grand-forks/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/graz/",
+   "removed": "/fr/meteo/guatire/",
+   "removedReason": "fill",
+   "added": "/fr/cout-de-la-vie/autriche/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/greifswald/",
+   "removed": "/fr/meteo/guantanamo/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/hamelin/",
+   "removed": "/fr/meteo/hanford/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/hamm/",
+   "removed": "/fr/meteo/harrisburg/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/allemagne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/hobart/",
+   "removed": "/fr/meteo/holguin/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/linz/",
+   "removed": "/fr/meteo/london/",
+   "removedReason": "fill",
+   "added": "/fr/cout-de-la-vie/autriche/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/lublin/",
+   "removed": "/fr/meteo/lunebourg/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/newcastle/",
+   "removed": "/fr/meteo/nice/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/plovdiv/",
+   "removed": "/fr/meteo/pondichery/",
+   "removedReason": "fill",
+   "added": "/fr/cout-de-la-vie/bulgarie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/poznan/",
+   "removed": "/fr/meteo/pudukkottai/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/radom/",
+   "removed": "/fr/meteo/rampur/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/san-jose/",
+   "removed": "/fr/meteo/santa-clara/",
+   "removedReason": "fill",
+   "added": "/fr/quand-partir/costa-rica/",
+   "family": "weather.country-best-time"
+  },
+  {
+   "source": "/fr/meteo/sosnowiec/",
+   "removed": "/fr/meteo/southend-on-sea/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/szczecin/",
+   "removed": "/fr/meteo/tacloban/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/townsville/",
+   "removed": "/fr/meteo/trabzon/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/varna/",
+   "removed": "/fr/meteo/vigo/",
+   "removedReason": "fill",
+   "added": "/fr/cout-de-la-vie/bulgarie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/wollongong/",
+   "removed": "/fr/meteo/wroclaw/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/australie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/wroclaw/",
+   "removed": "/fr/meteo/yachimata/",
+   "removedReason": "sibling-entities",
+   "added": "/fr/cout-de-la-vie/pologne/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/fr/meteo/zagreb/",
+   "removed": "/fr/meteo/acapulco/",
+   "removedReason": "fill",
+   "added": "/fr/cout-de-la-vie/croatie/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/a-coruna/",
+   "removed": "/ja/tenki/ad-yaman/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/ad-yaman/",
+   "removed": "/ja/tenki/aizawl/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/adapazar/",
+   "removed": "/ja/tenki/aizawl/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/adelaide/",
+   "removed": "/ja/tenki/aizawl/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/afyonkarahisar/",
+   "removed": "/ja/tenki/ajaccio/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/ajaccio/",
+   "removed": "/ja/tenki/akita/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/aksaray/",
+   "removed": "/ja/tenki/albi/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/alanya/",
+   "removed": "/ja/tenki/albuquerque/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/albi/",
+   "removed": "/ja/tenki/allen/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/alor-setar/",
+   "removed": "/ja/tenki/ambon/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/antakya/",
+   "removed": "/ja/tenki/apple-valley/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bal-kesir/",
+   "removed": "/ja/tenki/banda-aceh/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/batman/",
+   "removed": "/ja/tenki/bayonne/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/belfast/",
+   "removed": "/ja/tenki/bellingham/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bergama/",
+   "removed": "/ja/tenki/bettiah/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bilbao/",
+   "removed": "/ja/tenki/bingoel/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bilecik/",
+   "removed": "/ja/tenki/bisalpur/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bingoel/",
+   "removed": "/ja/tenki/bismarck/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bolu/",
+   "removed": "/ja/tenki/bowie/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bonn/",
+   "removed": "/ja/tenki/bowling-green/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/bradford/",
+   "removed": "/ja/tenki/brescia/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/brescia/",
+   "removed": "/ja/tenki/brockton/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/brisbane/",
+   "removed": "/ja/tenki/broken-arrow/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/bristol/",
+   "removed": "/ja/tenki/brownsville/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/burdur/",
+   "removed": "/ja/tenki/ca-mau/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/butuan/",
+   "removed": "/ja/tenki/caldwell/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/caen/",
+   "removed": "/ja/tenki/camarillo/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/cagayan-de-oro/",
+   "removed": "/ja/tenki/camden/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/canakkale/",
+   "removed": "/ja/tenki/carlsbad/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/canberra/",
+   "removed": "/ja/tenki/carmel/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/cartagena/",
+   "removed": "/ja/tenki/catania/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/catania/",
+   "removed": "/ja/tenki/celina/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/cholet/",
+   "removed": "/ja/tenki/chungju/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/chon-buri/",
+   "removed": "/ja/tenki/clarksville/",
+   "removedReason": "fill",
+   "added": "/ja/seikatsuhi/thailand/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/cordoba/",
+   "removed": "/ja/tenki/corum/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/corum/",
+   "removed": "/ja/tenki/council-bluffs/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/cotabato/",
+   "removed": "/ja/tenki/cuttack/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/denizli/",
+   "removed": "/ja/tenki/dessau/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/dessau/",
+   "removed": "/ja/tenki/dindigul/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/edinburgh/",
+   "removed": "/ja/tenki/el-cajon/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/edirne/",
+   "removed": "/ja/tenki/el-paso/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/elaz-g/",
+   "removed": "/ja/tenki/elk-grove/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/elche/",
+   "removed": "/ja/tenki/elkhart/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/erzurum/",
+   "removed": "/ja/tenki/evanston/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/eskisehir/",
+   "removed": "/ja/tenki/evansville/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/tuerkiye/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/freiburg/",
+   "removed": "/ja/tenki/fukushima/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/gasteiz-vitoria/",
+   "removed": "/ja/tenki/geelong/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/geelong/",
+   "removed": "/ja/tenki/gilroy/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/general-santos/",
+   "removed": "/ja/tenki/glendale/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/geneva/",
+   "removed": "/ja/tenki/granada/",
+   "removedReason": "fill",
+   "added": "/ja/seikatsuhi/switzerland/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/goerlitz/",
+   "removed": "/ja/tenki/granada/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/gold-coast/",
+   "removed": "/ja/tenki/grand-forks/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/granada/",
+   "removed": "/ja/tenki/grand-junction/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/halle-saale/",
+   "removed": "/ja/tenki/hampton/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/hannover/",
+   "removed": "/ja/tenki/harlingen/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/hobart/",
+   "removed": "/ja/tenki/hsinchu/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/iligan/",
+   "removed": "/ja/tenki/independence/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/ipoh/",
+   "removed": "/ja/tenki/ito/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/johor-bahru/",
+   "removed": "/ja/tenki/jupiter/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/karlsruhe/",
+   "removed": "/ja/tenki/karwar/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/kiel/",
+   "removed": "/ja/tenki/kissimmee/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/koronadal/",
+   "removed": "/ja/tenki/koto/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/kota-bharu/",
+   "removed": "/ja/tenki/krefeld/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/kota-kinabalu/",
+   "removed": "/ja/tenki/krefeld/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/krefeld/",
+   "removed": "/ja/tenki/kuching/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/kuala-terengganu/",
+   "removed": "/ja/tenki/kure/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/kuantan/",
+   "removed": "/ja/tenki/kure/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/kuching/",
+   "removed": "/ja/tenki/kure/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/la-rochelle/",
+   "removed": "/ja/tenki/lake-havasu-city/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/las-palmas-de-gran-canaria/",
+   "removed": "/ja/tenki/lawton/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/leipzig/",
+   "removed": "/ja/tenki/lincoln/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/limoges/",
+   "removed": "/ja/tenki/little-rock/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/luebeck/",
+   "removed": "/ja/tenki/madera/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/magdeburg/",
+   "removed": "/ja/tenki/malacca/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/magugpo-poblacion/",
+   "removed": "/ja/tenki/malang/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/malacca/",
+   "removed": "/ja/tenki/manado/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/marseille/",
+   "removed": "/ja/tenki/matsusaka/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/meaux/",
+   "removed": "/ja/tenki/melbourne/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/melbourne/",
+   "removed": "/ja/tenki/milton-keynes/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/milton-keynes/",
+   "removed": "/ja/tenki/miri/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/miri/",
+   "removed": "/ja/tenki/miyoshi/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/moenchengladbach/",
+   "removed": "/ja/tenki/mueang-nonthaburi/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/montauban/",
+   "removed": "/ja/tenki/muenster/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/mueang-nonthaburi/",
+   "removed": "/ja/tenki/mutsu/",
+   "removedReason": "fill",
+   "added": "/ja/seikatsuhi/thailand/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/muenster/",
+   "removed": "/ja/tenki/murfreesboro/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/murcia/",
+   "removed": "/ja/tenki/mutsu/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/nantes/",
+   "removed": "/ja/tenki/nawalgarh/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/newcastle-upon-tyne/",
+   "removed": "/ja/tenki/nice/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/newcastle/",
+   "removed": "/ja/tenki/nigde/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/nice/",
+   "removed": "/ja/tenki/niihama/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/niort/",
+   "removed": "/ja/tenki/nottingham/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/northampton/",
+   "removed": "/ja/tenki/odessa/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/nottingham/",
+   "removed": "/ja/tenki/okazaki/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/nuremberg/",
+   "removed": "/ja/tenki/omaha/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/orleans/",
+   "removed": "/ja/tenki/osmaniye/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/ormoc/",
+   "removed": "/ja/tenki/otsu/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/oviedo/",
+   "removed": "/ja/tenki/ozar/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/padua/",
+   "removed": "/ja/tenki/palma/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/pagadian/",
+   "removed": "/ja/tenki/palma/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/palermo/",
+   "removed": "/ja/tenki/pamplona/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/palma/",
+   "removed": "/ja/tenki/pattukkottai/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/pamplona/",
+   "removed": "/ja/tenki/perpignan/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/perpignan/",
+   "removed": "/ja/tenki/phan-rang-thap-cham/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/perth/",
+   "removed": "/ja/tenki/phan-thiet/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/petaling-jaya/",
+   "removed": "/ja/tenki/phnom-penh/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/plauen/",
+   "removed": "/ja/tenki/pontianak/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/plymouth/",
+   "removed": "/ja/tenki/port-blair/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/poitiers/",
+   "removed": "/ja/tenki/porterville/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/preston/",
+   "removed": "/ja/tenki/pueblo/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/puerto-princesa/",
+   "removed": "/ja/tenki/quang-ngai/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/quimper/",
+   "removed": "/ja/tenki/raigarh/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/reims/",
+   "removed": "/ja/tenki/richland/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/rennes/",
+   "removed": "/ja/tenki/richland/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/rostock/",
+   "removed": "/ja/tenki/saiki/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/saint-brieuc/",
+   "removed": "/ja/tenki/samarinda/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/samut-prakan/",
+   "removed": "/ja/tenki/santa-cruz-de-tenerife/",
+   "removedReason": "fill",
+   "added": "/ja/seikatsuhi/thailand/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/san-fernando/",
+   "removed": "/ja/tenki/santa-cruz-de-tenerife/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/san-pablo/",
+   "removed": "/ja/tenki/santa-cruz-de-tenerife/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/sandakan/",
+   "removed": "/ja/tenki/sasebo/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/santa-cruz-de-tenerife/",
+   "removed": "/ja/tenki/secunderabad/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/seremban/",
+   "removed": "/ja/tenki/shikokuchuo/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/sevilla/",
+   "removed": "/ja/tenki/shikokuchuo/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/shah-alam/",
+   "removed": "/ja/tenki/shillong/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/southampton/",
+   "removed": "/ja/tenki/srikakulam/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/stoke-on-trent/",
+   "removed": "/ja/tenki/stuttgart/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/stralsund/",
+   "removed": "/ja/tenki/surakarta/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/strasbourg/",
+   "removed": "/ja/tenki/surakarta/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/stuttgart/",
+   "removed": "/ja/tenki/suwon/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/sunshine-coast/",
+   "removed": "/ja/tenki/swansea/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/swansea/",
+   "removed": "/ja/tenki/tahara/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/swindon/",
+   "removed": "/ja/tenki/tahara/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/sydney/",
+   "removed": "/ja/tenki/tainan/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/tacloban/",
+   "removed": "/ja/tenki/taiping/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/taiping/",
+   "removed": "/ja/tenki/takasaki/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/tarbes/",
+   "removed": "/ja/tenki/tateyama/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/tawau/",
+   "removed": "/ja/tenki/terrassa/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/teluk-intan/",
+   "removed": "/ja/tenki/thanh-hoa/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/malaysia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/terrassa/",
+   "removed": "/ja/tenki/thoothukudi/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/toulon/",
+   "removed": "/ja/tenki/trabzon/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/toulouse/",
+   "removed": "/ja/tenki/trabzon/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/townsville/",
+   "removed": "/ja/tenki/trieste/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/trieste/",
+   "removed": "/ja/tenki/tsuruoka/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/turin/",
+   "removed": "/ja/tenki/udaipur/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/italy/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/ulm/",
+   "removed": "/ja/tenki/uwajima/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/valence/",
+   "removed": "/ja/tenki/van/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/valencia/",
+   "removed": "/ja/tenki/versailles/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/valladolid/",
+   "removed": "/ja/tenki/versailles/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/vannes/",
+   "removed": "/ja/tenki/vienna/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/versailles/",
+   "removed": "/ja/tenki/vienna/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/france/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/vigo/",
+   "removed": "/ja/tenki/vinh/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/villeurbanne/",
+   "removed": "/ja/tenki/vizianagaram/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/france/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/wiesbaden/",
+   "removed": "/ja/tenki/wolverhampton/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/wolfsburg/",
+   "removed": "/ja/tenki/worcester/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/germany/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/wollongong/",
+   "removed": "/ja/tenki/wuppertal/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/australia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/wolverhampton/",
+   "removed": "/ja/tenki/yadgir/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/united-kingdom/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/wuppertal/",
+   "removed": "/ja/tenki/yamagata/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/holidays/germany/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/ja/tenki/zamboanga/",
+   "removed": "/ja/tenki/a-coruna/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/philippines/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/zaragoza/",
+   "removed": "/ja/tenki/abington/",
+   "removedReason": "sibling-entities",
+   "added": "/ja/seikatsuhi/spain/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/ja/tenki/zurich/",
+   "removed": "/ja/tenki/afyonkarahisar/",
+   "removedReason": "fill",
+   "added": "/ja/seikatsuhi/switzerland/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/nl/weer/gent/",
+   "removed": "/nl/weer/hasanpur/",
+   "removedReason": "fill",
+   "added": "/nl/feestdagen/belgie/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/nl/weer/pamplona/",
+   "removed": "/nl/weer/podgorica/",
+   "removedReason": "fill",
+   "added": "/nl/kosten-van-levensonderhoud/spanje/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/nl/weer/sevilla/",
+   "removed": "/nl/weer/sofia/",
+   "removedReason": "fill",
+   "added": "/nl/salarissen/spanje/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/nl/weer/valladolid/",
+   "removed": "/nl/weer/vilnius/",
+   "removedReason": "fill",
+   "added": "/nl/kosten-van-levensonderhoud/spanje/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/nl/weer/vitoria-gasteiz/",
+   "removed": "/nl/weer/winnipeg/",
+   "removedReason": "fill",
+   "added": "/nl/salarissen/spanje/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/nl/weer/zaragoza/",
+   "removed": "/nl/weer/ad-yaman/",
+   "removedReason": "fill",
+   "added": "/nl/kosten-van-levensonderhoud/spanje/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pl/klimat/bangkok/",
+   "removed": "/pl/klimat/belo-horizonte/",
+   "removedReason": "fill",
+   "added": "/pl/koszty-zycia/tajlandia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pl/klimat/bialystok/",
+   "removed": "/pl/klimat/bikaner/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/dni-wolne-od-pracy/polska/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/pl/klimat/czestochowa/",
+   "removed": "/pl/klimat/decatur/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/koszty-zycia/polska/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pl/klimat/dessau/",
+   "removed": "/pl/klimat/dubaj/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/genewa/",
+   "removed": "/pl/klimat/gurgaon/",
+   "removedReason": "fill",
+   "added": "/pl/koszty-zycia/szwajcaria/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pl/klimat/goerlitz/",
+   "removed": "/pl/klimat/greensboro/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/goeteborg/",
+   "removed": "/pl/klimat/hanoi/",
+   "removedReason": "fill",
+   "added": "/pl/koszty-zycia/szwecja/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pl/klimat/kolonia/",
+   "removed": "/pl/klimat/kozhikode/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/krakow/",
+   "removed": "/pl/klimat/kurytyba/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/dni-wolne-od-pracy/polska/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/pl/klimat/lublin/",
+   "removed": "/pl/klimat/lynn/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/koszty-zycia/polska/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pl/klimat/malmoe/",
+   "removed": "/pl/klimat/meknes/",
+   "removedReason": "fill",
+   "added": "/pl/wynagrodzenia/szwecja/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/plauen/",
+   "removed": "/pl/klimat/polatl/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/radom/",
+   "removed": "/pl/klimat/rampur/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/dni-wolne-od-pracy/polska/",
+   "family": "events.country-holidays"
+  },
+  {
+   "source": "/pl/klimat/rostock/",
+   "removed": "/pl/klimat/saharsa/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/schweinfurt/",
+   "removed": "/pl/klimat/serang/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/stralsund/",
+   "removed": "/pl/klimat/surakarta/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/trondheim/",
+   "removed": "/pl/klimat/udajpur/",
+   "removedReason": "fill",
+   "added": "/pl/koszty-zycia/norwegia/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pl/klimat/ulm/",
+   "removed": "/pl/klimat/utakamand/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/wiesbaden/",
+   "removed": "/pl/klimat/wroclaw/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/wolfsburg/",
+   "removed": "/pl/klimat/yaizu/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/wynagrodzenia/niemcy/",
+   "family": "work.country-salaries"
+  },
+  {
+   "source": "/pl/klimat/wroclaw/",
+   "removed": "/pl/klimat/yavatmal/",
+   "removedReason": "sibling-entities",
+   "added": "/pl/koszty-zycia/polska/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/brampton/",
+   "removed": "/pt/clima/buckeye/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/canada/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/burnaby/",
+   "removed": "/pt/clima/caldwell/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/canada/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/dessau/",
+   "removed": "/pt/clima/duluth/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/gatineau/",
+   "removed": "/pt/clima/goerlitz/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/canada/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/goerlitz/",
+   "removed": "/pt/clima/guna/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/kitchener/",
+   "removed": "/pt/clima/kurnool/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/canada/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/plauen/",
+   "removed": "/pt/clima/poitiers/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/regina/",
+   "removed": "/pt/clima/rio-branco/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/canada/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/rostock/",
+   "removed": "/pt/clima/saint-brieuc/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/saskatoon/",
+   "removed": "/pt/clima/schwaebisch-gmuend/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/canada/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/schwaebisch-gmuend/",
+   "removed": "/pt/clima/sendhwa/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/ulm/",
+   "removed": "/pt/clima/uwajima/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/volfembutel/",
+   "removed": "/pt/clima/warangal/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/wiesbaden/",
+   "removed": "/pt/clima/yaizu/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/winnipeg/",
+   "removed": "/pt/clima/yaizu/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/canada/",
+   "family": "cost-of-living.country"
+  },
+  {
+   "source": "/pt/clima/wolfsburg/",
+   "removed": "/pt/clima/yogyakarta/",
+   "removedReason": "sibling-entities",
+   "added": "/pt/custo-de-vida/alemanha/",
+   "family": "cost-of-living.country"
+  }
+ ]
+}

@@ -44,6 +44,10 @@ on:
         description: 'Also submit https://livdar.com/sitemap.xml to Search Console (a write, needs the webmasters scope and an Owner or Full role)'
         type: boolean
         default: false
+      sitemap_feeds:
+        description: 'With submit_sitemap: also submit these child sitemaps, comma separated (sitemap/atlas-pages-it-climate.xml,sitemap/ro-regions.xml)'
+        type: string
+        default: ''
 permissions:
   contents: write        # the import commits the measured file to a branch
   pull-requests: write   # and opens the pull request for it
@@ -101,6 +105,8 @@ jobs:
       # instead of waiting for its own schedule, and reads back what Google then holds.
       - name: Submit the sitemap index
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.submit_sitemap }}
+        env:
+          SITEMAP_FEEDS: ${{ inputs.sitemap_feeds }}
         run: |
           set -o pipefail
           node scripts/atlas/gsc-submit-sitemap.mjs --submit | tee "$RUNNER_TEMP/sitemap-submit.json"

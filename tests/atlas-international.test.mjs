@@ -117,7 +117,7 @@ test('the sitemap agrees with the page about its alternates', async () => {
   const all = served();
   const sample = all.filter((p) => p.family === 'cost-of-living.country').slice(0, 6);
   for (const p of sample) {
-    const entries = sitemapEntries(idFor(p.locale, p.surface), {
+    const entries = sitemapEntries(idFor(p.locale, p.surface, p.cohort), {
       absolute: (x) => 'https://livdar.com' + x, lastModified: new Date(),
     });
     const entry = entries.find((e) => e.url === 'https://livdar.com' + p.path);

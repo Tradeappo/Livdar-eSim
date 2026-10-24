@@ -1,0 +1,206 @@
+{
+ "/fr/meteo/bareli/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "fr",
+  "market": "fr-FR",
+  "entity": "1277013",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/pl/klimat/zagrzeb/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "pl",
+  "market": "pl-PL",
+  "entity": "3186886",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/pt/clima/palwal/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "pt",
+  "market": "pt-BR",
+  "entity": "1260637",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/pt/clima/san-angelo/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "pt",
+  "market": "pt-BR",
+  "entity": "5530022",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ }
+}

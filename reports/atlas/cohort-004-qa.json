@@ -1,0 +1,60 @@
+{
+ "generatedAt": "2026-10-24T18:05:59.755Z",
+ "cohort": "data/atlas/cohorts/cohort-004.json",
+ "pages": 5000,
+ "expected": 5000,
+ "checks": [
+  "builds",
+  "unique path",
+  "unique title",
+  "unique description",
+  "unique h1",
+  "word floor",
+  "canonical",
+  "title length",
+  "description length",
+  "h1 present",
+  "provenance",
+  "no long dashes",
+  "schema",
+  "freshness",
+  "hreflang self",
+  "hreflang resolves",
+  "hreflang reciprocal",
+  "x-default",
+  "no orphans",
+  "links out",
+  "links resolve",
+  "near duplicate"
+ ],
+ "nearDuplicateThreshold": 0.8,
+ "cta": {
+  "withPrimary": 5000,
+  "withSecondary": 5000,
+  "byKind": {
+   "sibling": 4998,
+   "sport": 1,
+   "areas": 1
+  },
+  "byType": {
+   "weather": 4998,
+   "sport": 1,
+   "neighbourhoods": 1
+  },
+  "without": 0
+ },
+ "similarity": {
+  "comparisonsMade": 1319814,
+  "pairsOverThreshold": 0,
+  "maxSimilarity": null
+ },
+ "pass": true,
+ "failures": [],
+ "failureCount": 0,
+ "byCheck": {},
+ "links": {
+  "orphans": 0,
+  "minInbound": 3,
+  "medianInbound": 8
+ }
+}
