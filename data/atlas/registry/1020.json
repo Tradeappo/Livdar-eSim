@@ -31,10 +31,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/en/weather/wolverhampton/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/en/weather/wolverhampton/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "en",
@@ -48,7 +68,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/ja/tenki/bellflower/": {
   "history": [
@@ -82,10 +103,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/ja/tenki/bellflower/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/ja/tenki/bellflower/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "ja",
@@ -99,7 +140,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/nl/weer/zaragoza/": {
   "history": [
@@ -133,10 +175,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/nl/weer/zaragoza/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/nl/weer/zaragoza/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "nl",
@@ -150,7 +212,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/pl/klimat/semarang/": {
   "history": [
@@ -258,10 +321,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/pl/klimat/tampico/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/pl/klimat/tampico/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "pl",
@@ -275,6 +358,7 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  }
 }

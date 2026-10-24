@@ -31,10 +31,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/en/weather/kadapa/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/en/weather/kadapa/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "en",
@@ -48,7 +68,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/es/clima/emden/": {
   "history": [
@@ -82,10 +103,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/es/clima/emden/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/es/clima/emden/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "es",
@@ -99,7 +140,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/es/clima/igd-r/": {
   "history": [
@@ -133,10 +175,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/es/clima/igd-r/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/es/clima/igd-r/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "es",
@@ -150,7 +212,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/es/clima/vereeniging/": {
   "history": [
@@ -184,10 +247,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/es/clima/vereeniging/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/es/clima/vereeniging/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "es",
@@ -201,7 +284,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/fr/meteo/ville-de-10-ramadan/": {
   "history": [
@@ -235,10 +319,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/fr/meteo/ville-de-10-ramadan/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/fr/meteo/ville-de-10-ramadan/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "fr",
@@ -252,7 +356,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/pl/klimat/belem/": {
   "history": [
@@ -286,10 +391,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/pl/klimat/belem/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/pl/klimat/belem/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "pl",
@@ -303,7 +428,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/pl/klimat/dubaj/": {
   "history": [
@@ -337,10 +463,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/pl/klimat/dubaj/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/pl/klimat/dubaj/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "pl",
@@ -354,7 +500,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/pl/koszty-zycia/czechy/": {
   "history": [
