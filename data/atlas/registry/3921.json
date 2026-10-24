@@ -31,10 +31,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/de/wetter/dogubeyaz-t/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/de/wetter/dogubeyaz-t/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "de",
@@ -48,7 +68,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/en/weather/eregli/": {
   "history": [
@@ -82,10 +103,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/en/weather/eregli/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/en/weather/eregli/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "en",
@@ -99,7 +140,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/en/weather/nuevo-laredo/": {
   "history": [
@@ -133,10 +175,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/en/weather/nuevo-laredo/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/en/weather/nuevo-laredo/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "en",
@@ -150,7 +212,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/es/clima/leopolis/": {
   "history": [
@@ -184,10 +247,30 @@
      "qa": "reports/atlas/cohort-004-qa.json",
      "checks": 22
     }
+   },
+   {
+    "from": "published",
+    "to": "live",
+    "on": "2026-10-24",
+    "reason": "a request to the production origin returned this page",
+    "rule": "scripts/atlas/cohort-publish.mjs --live, which refuses without fetched evidence",
+    "evidence": {
+     "commit": "2490a68b34ac5373b4e2c12cbb3a3372f2b0322e",
+     "at": "2026-10-24T19:07:14.207Z",
+     "response": {
+      "path": "/es/clima/leopolis/",
+      "surface": "climate",
+      "status": 200,
+      "canonical": "https://livdar.com/es/clima/leopolis/",
+      "robots": "index, follow",
+      "inSitemap": true
+     },
+     "file": "data/atlas/launches/evidence-2026-10-24.json"
+    }
    }
   ],
   "lot": "lot-006",
-  "state": "published",
+  "state": "live",
   "family": "weather.city-month",
   "surface": "climate",
   "locale": "es",
@@ -201,7 +284,8 @@
    "on": "2026-10-24",
    "checks": 22
   },
-  "publishedOn": "2026-10-24"
+  "publishedOn": "2026-10-24",
+  "liveOn": "2026-10-24"
  },
  "/es/dias-festivos/galicia/": {
   "history": [
