@@ -1,0 +1,359 @@
+{
+ "/en/weather/kirikkale/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "en",
+  "market": "en-US",
+  "entity": "307654",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/en/weather/sao-sebastiao/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "en",
+  "market": "en-US",
+  "entity": "3448257",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/en/weather/zhengzhou/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "en",
+  "market": "en-US",
+  "entity": "1784658",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/fr/meteo/bauru/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "fr",
+  "market": "fr-FR",
+  "entity": "3470279",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/fr/meteo/millcreek/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "fr",
+  "market": "fr-FR",
+  "entity": "5778352",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/ja/tenki/celina/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "ja",
+  "market": "ja-JP",
+  "entity": "4679944",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/pl/klimat/nicea/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "pl",
+  "market": "pl-PL",
+  "entity": "2990440",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ }
+}

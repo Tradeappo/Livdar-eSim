@@ -1,4 +1,55 @@
 {
+ "/en/weather/kanhangad/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "en",
+  "market": "en-US",
+  "entity": "1268015",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
  "/es/clima/medina/": {
   "history": [
    {
@@ -72,6 +123,159 @@
   },
   "publishedOn": "2026-10-20",
   "liveOn": "2026-10-20"
+ },
+ "/fr/meteo/galati/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "fr",
+  "market": "fr-FR",
+  "entity": "677697",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/fr/meteo/karabuek/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "fr",
+  "market": "fr-FR",
+  "entity": "744562",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
+ },
+ "/ja/tenki/godhra/": {
+  "history": [
+   {
+    "state": "candidate",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "data_ready",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "measured",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "qa_passed",
+    "on": "2026-10-24"
+   },
+   {
+    "state": "approved",
+    "on": "2026-10-24"
+   },
+   {
+    "from": "approved",
+    "to": "published",
+    "on": "2026-10-24",
+    "reason": "cohort 004 QA passed with 22 checks and no failures, and the branch carrying it is merging to main",
+    "rule": "scripts/atlas/cohort-publish.mjs, which refuses a cohort whose QA does not pass",
+    "evidence": {
+     "qa": "reports/atlas/cohort-004-qa.json",
+     "checks": 22
+    }
+   }
+  ],
+  "lot": "lot-006",
+  "state": "published",
+  "family": "weather.city-month",
+  "surface": "climate",
+  "locale": "ja",
+  "market": "ja-JP",
+  "entity": "1271107",
+  "volume": null,
+  "band": "utility",
+  "approvedOn": "2026-10-24",
+  "qa": {
+   "passed": true,
+   "on": "2026-10-24",
+   "checks": 22
+  },
+  "publishedOn": "2026-10-24"
  },
  "city-month:de:264371:10": {
   "history": [

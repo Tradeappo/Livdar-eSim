@@ -65,13 +65,16 @@ const payload = {
 };
 
 if (!process.argv.includes('--submit')) {
-  console.log(JSON.stringify({
+  // Written through the stream's callback before exiting. console.log followed by process.exit
+  // truncates a large write on a pipe: with 6,500 Atlas URLs the dry run ended mid string.
+  const out = JSON.stringify({
     mode: 'dry-run',
     endpoint: 'https://api.indexnow.org/indexnow',
     host,
     keyLocation: payload.keyLocation,
     urlList,
-  }, null, 2));
+  }, null, 2) + '\n';
+  await new Promise((resolve) => process.stdout.write(out, resolve));
   process.exit(0);
 }
 
