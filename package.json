@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/fetch-media.mjs && node scripts/quality-gate.mjs && node scripts/atlas/qa.mjs --preview --ci && next build",
+    "build": "node scripts/atlas/shard-manifests.mjs && node scripts/fetch-media.mjs && node scripts/quality-gate.mjs && node scripts/atlas/qa.mjs --preview --ci && next build",
+    "pretest": "node scripts/atlas/shard-manifests.mjs",
+    "atlas:shard": "node scripts/atlas/shard-manifests.mjs",
     "start": "next start",
     "test": "node --test tests/*.test.mjs",
     "qa": "node scripts/quality-gate.mjs",

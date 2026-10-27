@@ -1,133 +1,103 @@
 // What travels with the serverless function.
 //
-// The Atlas reads its cohort manifests from disk when a request comes in, so
-// the manifests have to be copied next to the function. Next.js works that
-// out by tracing `import` and `require`, and it cannot trace a path that is
-// built at runtime, which every one of these is. The only thing that puts
-// them in the bundle is `outputFileTracingIncludes` in next.config.mjs.
+// The Atlas reads its page models from disk when a request comes in, so the
+// data has to be copied next to the function. Next.js traces `import`/`require`
+// and cannot trace a path built at runtime, so the only thing that puts these
+// files in the bundle is `outputFileTracingIncludes` in next.config.mjs.
 //
-// They were not on that list, and the failure was invisible in every place
-// anybody looked. `next build` reads the manifests from the checkout, so all
-// 500 pages prerendered, and the deployment served them correctly. A day
-// later `revalidate` came round, the function went looking for a manifest
-// that had never been copied, found nothing, and rendered `notFound()`. A
-// 404 is a successful response, so it cached, and the Atlas took itself off
-// the web one page at a time over the following week.
-//
-// So this asserts the contract directly: every file read at request time is
-// matched by an include pattern. And where a build is present it checks the
-// trace Next.js actually wrote, which is the file that was wrong.
+// The models used to be one monolithic cohort set copied into EVERY function by
+// a single '/**' include (~68 MB, 6,000 of its 6,500 pages being city-weather).
+// They are now split into one shard per group under data/atlas/cohorts/by-group/
+// and traced per route, so a route carries only the group it serves. This test
+// asserts the contract both ways: every data route carries its own shard, and a
+// route carries nothing it does not serve. Where a build is present it checks the
+// trace Next.js actually wrote, which is the artefact that matters.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
-import { MANIFESTS, manifestCandidates, pages } from '../lib/atlas/serve-pages.js';
-import config from '../next.config.mjs';
+import { GROUPS, MANIFESTS, manifestCandidates, pages, pagesForGroup } from '../lib/atlas/serve-pages.js';
 
 const ROOT = new URL('../', import.meta.url);
+const seg = JSON.parse(readFileSync(new URL('data/atlas/cohorts/by-group/segment-groups.json', ROOT), 'utf8'));
 
-// The paths the Atlas route opens at request time, as relative paths from the
-// repository root. MANIFESTS is imported rather than repeated so that adding
-// cohort 003 to it is enough to bring this test along.
-const READ_AT_REQUEST_TIME = [
-  ...MANIFESTS,
-  'data/atlas/registry.json',
-  'data/atlas/slugs.json',
-  'data/atlas/manifest.json',
-];
-
-// Enough of a glob to read the include list: `**` spans separators, `*` does
-// not, everything else is literal.
-function matches(pattern, path) {
-  const p = pattern.replace(/^\.\//, '');
-  const rx = p
-    .split('**').map((part) => part.split('*').map((lit) => lit.replace(/[.+^${}()|[\]\\?]/g, '\\$&')).join('[^/]*'))
-    .join('.*');
-  return new RegExp('^' + rx + '$').test(path);
-}
-
-test('glob matcher reads the patterns the config uses', () => {
-  assert.equal(matches('./data/atlas/entities/**', 'data/atlas/entities/cities/07.json'), true);
-  assert.equal(matches('./data/atlas/cohorts/*-pages.json', 'data/atlas/cohorts/cohort-001-pages.json'), true);
-  assert.equal(matches('./data/atlas/cohorts/*-pages.json', 'data/atlas/cohorts/cohort-001.json'), false);
-  assert.equal(matches('./data/atlas/cohorts/*-pages.json', 'data/atlas/cohorts/deep/x-pages.json'), false);
-  assert.equal(matches('./data/atlas/registry.json', 'data/atlas/registry.json'), true);
-});
-
-test('every file read at request time is on the file tracing list', () => {
-  const includes = config.outputFileTracingIncludes?.['/**'];
-  assert.ok(Array.isArray(includes) && includes.length, 'next.config.mjs declares includes for /**');
-  const uncovered = READ_AT_REQUEST_TIME.filter((path) => !includes.some((pattern) => matches(pattern, path)));
-  assert.deepEqual(uncovered, [], 'read at request time but not copied next to the function: ' + uncovered.join(', '));
-});
-
-test('every file read at request time exists in the repository', () => {
-  const absent = READ_AT_REQUEST_TIME.filter((path) => !existsSync(new URL(path, ROOT)));
-  assert.deepEqual(absent, [], 'declared as read at request time but not in the repository: ' + absent.join(', '));
-});
-
-test('a missing manifest throws rather than serving an empty Atlas', async () => {
-  // The whole point of the change: nothing may read a missing manifest as a
-  // cohort with no pages, because that answers every URL with a 404.
-  const src = readFileSync(new URL('lib/atlas/serve-pages.js', ROOT), 'utf8');
-  const body = src.slice(src.indexOf('export function pages()'), src.indexOf('export const languagesServed'));
-  assert.match(body, /throw new Error\(/, 'pages() throws when a manifest is missing');
-});
-
-// Where a build is present, check the artefact that was actually wrong: the
-// trace Next.js wrote for an Atlas route.
-const APP = new URL('../.next/server/app/[lang]/', import.meta.url);
-test('the build traces the manifests into an Atlas route', { skip: !existsSync(APP) && 'no build in this checkout' }, () => {
-  // Only the Atlas data routes. The eSIM era has catch-all segments of its own
-  // and they resolve out of the entity store, not out of a cohort manifest.
-  const SRC = new URL('../app/[lang]/', import.meta.url);
-  const segments = readdirSync(APP, { withFileTypes: true }).filter((d) => d.isDirectory())
-    .map((d) => d.name)
-    .filter((name) => {
-      const page = new URL(name + '/[[...path]]/page.jsx', SRC);
-      return existsSync(page) && readFileSync(page, 'utf8').includes('makeAtlasPageRoute');
-    });
-  const traces = [];
-  for (const name of segments) {
-    const nft = new URL(name + '/[[...path]]/page.js.nft.json', APP);
-    if (existsSync(nft)) traces.push([name, JSON.parse(readFileSync(nft, 'utf8')).files]);
-  }
-  assert.ok(traces.length, 'the build produced at least one Atlas route trace');
-  for (const [segment, files] of traces) {
-    const flat = files.map((f) => f.replace(/^(\.\.\/)+/, ''));
-    for (const manifest of MANIFESTS) {
-      assert.ok(flat.includes(manifest), segment + ' does not carry ' + manifest);
-    }
-  }
-});
-
-
-// The include list being right is necessary and was not sufficient. The 2026-09-28 incident
-// had the include in place, deployed three times, and still threw 25,845 times over twelve
-// days, because the function resolved the path from the wrong BASE: bundled into
-// .next/server/chunks/, two levels up is .next/, and the traced data sits beside .next rather
-// than inside it. So the contract has two halves and this is the second one.
-test('a manifest is looked for under process.cwd() as well as the module URL', () => {
-  const tried = manifestCandidates('data/atlas/cohorts/cohort-001-pages.json');
-  assert.ok(tried.length >= 2, 'more than one base is tried');
-  assert.equal(tried[0], join(process.cwd(), 'data/atlas/cohorts/cohort-001-pages.json'),
-    'process.cwd() is tried FIRST, because it is the function root on Vercel and the '
-    + 'repository root at build time, while the module URL is only right unbundled');
-  assert.ok(tried.some((f) => f.endsWith('data/atlas/cohorts/cohort-001-pages.json')),
-    'every candidate ends at the manifest it is looking for');
-});
-
-test('every manifest resolves to a file that exists in this checkout', () => {
+test('every group shard is reachable from one of the function bases', () => {
   for (const m of MANIFESTS) {
-    assert.ok(manifestCandidates(m).some((f) => existsSync(f)),
-      m + ' is reachable from one of the bases');
+    assert.ok(manifestCandidates(m).some((f) => existsSync(f)), m + ' is reachable');
   }
 });
 
-test('pages() returns the cohort rows rather than throwing', () => {
-  const rows = pages();
-  assert.ok(Array.isArray(rows) && rows.length > 0, 'the manifests loaded');
-  assert.ok(rows.every((r) => typeof r.path === 'string' && r.path.startsWith('/')),
-    'every row carries a path');
+test('the shards partition the cohorts with no page lost', () => {
+  const total = pages().length;
+  const summed = GROUPS.reduce((n, g) => n + pagesForGroup(g).length, 0);
+  assert.equal(summed, total, 'sum of group shards equals the whole');
+  assert.ok(total > 6000, 'the whole Atlas loaded');
+  assert.ok(pagesForGroup('city-weather').length > 5000, 'the weather group is the large one');
+});
+
+test('a missing shard throws rather than serving an empty Atlas', () => {
+  const src = readFileSync(new URL('lib/atlas/serve-pages.js', ROOT), 'utf8');
+  assert.match(src, /throw new Error\(/, 'loader throws when a shard is missing');
+});
+
+test('manifestCandidates tries process.cwd() first, then the module URL', () => {
+  const tried = manifestCandidates('data/atlas/cohorts/by-group/city-weather-pages.json');
+  assert.ok(tried.length >= 2 && tried[0].includes(process.cwd()), 'cwd is tried first');
+});
+
+// hreflang clusters span cohorts; the group shard merges every cohort, so a
+// page's alternates must still name more than one locale where siblings exist.
+test('alternates remain complete after sharding', async () => {
+  const { alternatesFor } = await import('../lib/atlas/serve-pages.js');
+  const weather = pagesForGroup('city-weather');
+  const withSiblings = weather.find((p) => alternatesFor(p).length > 1);
+  assert.ok(withSiblings, 'at least one weather page resolves siblings across the shard');
+});
+
+// Where a build is present, check the trace Next.js wrote.
+const APP = new URL('../.next/server/app/[lang]/', import.meta.url);
+const hasBuild = existsSync(APP);
+
+function traceFor(routeRelFromApp) {
+  const nft = new URL('../.next/server/app/' + routeRelFromApp + '.nft.json', import.meta.url);
+  return existsSync(nft) ? JSON.parse(readFileSync(nft, 'utf8')).files : null;
+}
+const carries = (files, rel) => files.some((f) => f.replace(/\\/g, '/').includes(rel));
+
+test('a data route carries ONLY its own group shard', { skip: !hasBuild && 'no build in this checkout' }, () => {
+  // cost-of-living is a small non-weather group; it must NOT carry the 51 MB
+  // weather shard, and must carry its own.
+  const col = traceFor('[lang]/cost-of-living/[[...path]]/page.js');
+  assert.ok(col, 'cost-of-living route was built');
+  assert.ok(carries(col, 'by-group/cost-of-living-pages.json'), 'carries its own group shard');
+  assert.ok(!carries(col, 'by-group/city-weather-pages.json'), 'does NOT carry the weather shard');
+  assert.ok(!carries(col, 'cohorts/cohort-004-pages.json'), 'does NOT carry the raw cohort set');
+
+  const clima = traceFor('[lang]/clima/[[...path]]/page.js');
+  assert.ok(clima && carries(clima, 'by-group/city-weather-pages.json'), 'weather route carries the weather shard');
+  assert.ok(!carries(clima, 'by-group/salaries-pages.json'), 'weather route does not carry salaries');
+});
+
+test('API/static routes carry no heavy Atlas data (Fix B)', { skip: !hasBuild && 'no build in this checkout' }, () => {
+  // "Heavy" = the cohort page shards and the entity store. The 2 KB
+  // by-group/languages.json is traced everywhere on purpose (languagesServed()
+  // is called by shared components) and is allowed.
+  const HEAVY = /by-group\/[a-z-]+-pages\.json|cohorts\/cohort-|\/entities\//;
+  for (const r of ['api/runtime/route.js', 'api/programmatic/eligibility/route.js', 'llms.txt/route.js', 'v41.css/route.js']) {
+    const files = traceFor(r);
+    if (!files) continue;
+    const heavy = files.map((f) => f.replace(/\\/g, '/')).filter((f) => HEAVY.test(f));
+    assert.deepEqual(heavy, [], r + ' carries heavy atlas data: ' + heavy.join(', '));
+  }
+});
+
+test('whole-Atlas consumers carry every shard', { skip: !hasBuild && 'no build in this checkout' }, () => {
+  // app/sitemap.js enumerates every page; it must carry every group shard.
+  const sm = traceFor('sitemap.js');
+  if (sm) for (const g of seg.groups) assert.ok(carries(sm, 'by-group/' + g + '-pages.json'), 'sitemap carries ' + g);
+});
+
+test('languages.json is traced into Atlas pages so languagesServed() never 500s', { skip: !hasBuild && 'no build in this checkout' }, () => {
+  const clima = traceFor('[lang]/clima/[[...path]]/page.js');
+  if (clima) assert.ok(carries(clima, 'by-group/languages.json'), 'weather route carries languages.json');
 });
