@@ -72,3 +72,7 @@ reports/scale-universe-2026-09-29/_raw-count.json
 # by scripts/atlas/shard-manifests.mjs (run in prebuild and pretest). Generated,
 # not source: regenerated on every build, so not committed.
 data/atlas/cohorts/by-group/
+
+# V41 background images extracted from source/livdar-esim-v41.source by
+# scripts/extract-v41-images.mjs at build time. Generated, not source.
+public/img/v41/
