@@ -16,6 +16,7 @@ import robots from '../app/robots.js';
 import { generateSitemaps } from '../app/sitemap.js';
 import { MANIFESTS, languagesServed } from '../lib/atlas/serve-pages.js';
 import { isAtlasPath } from '../lib/atlas/atlas-edge.js';
+import { allHubs } from '../lib/atlas/country-hubs.js';
 import { decide } from '../lib/routing.js';
 import { alternatePathsFor, hreflangMapFor } from '../lib/atlas/serve-pages.js';
 
@@ -79,12 +80,15 @@ test('every published page is in a sitemap exactly once', async () => {
   // which is the defect that put /ro/atlas/ in a sitemap pointing at a 404.
   const published = new Set(pages.map((p) => p.path));
   const directories = new Set(languagesServed().map((l) => '/' + l + '/atlas/'));
+  // The country hubs are named the same way: derived from the manifest, never from inventory.
+  const hubs = new Set(Object.values(allHubs()).flatMap((byIso) => Object.values(byIso).map((h) => h.path)));
   const strays = [...counts.keys()]
-    .filter((p) => isAtlasPath(p) && !published.has(p) && !directories.has(p));
+    .filter((p) => isAtlasPath(p) && !published.has(p) && !directories.has(p) && !hubs.has(p));
   assert.deepEqual(strays.slice(0, 10), [], strays.length + ' Atlas URLs are in a sitemap and not published');
   for (const d of directories) {
     assert.equal(counts.get(d), 1, d + ' is the crawl directory and is in ' + (counts.get(d) || 0) + ' sitemaps');
   }
+  for (const h of hubs) assert.equal(counts.get(h), 1, h + ' is a country hub and is in ' + (counts.get(h) || 0) + ' sitemaps');
 });
 
 test('every published page carries a lastmod and a self canonical', async () => {
