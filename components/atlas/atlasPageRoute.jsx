@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation';
 import AtlasPage from './AtlasPage.jsx';
 import { servePage, alternatePathsFor, hreflangMapFor } from '../../lib/atlas/serve-pages.js';
 import { buildMetadata } from '../../lib/seo.js';
+import { seedFrom } from '../../lib/atlas/ondemand.js';
 
 export function makeAtlasPageRoute(segmentName) {
   async function resolve(params) {
@@ -48,8 +49,18 @@ export function makeAtlasPageRoute(segmentName) {
   // `dynamicParams = false` that is a 404 rather than a slow page.
   async function generateStaticParams() {
     const { allStaticParamsFor } = await import('../../lib/atlas/serve-pages.js');
-    return allStaticParamsFor(segmentName);
+    // seedFrom is the identity when the on-demand flag is off, so this returns
+    // the whole catalogue exactly as before; with the flag on it returns only a
+    // seed and the tail is rendered on first request (dynamicParams below).
+    return seedFrom(allStaticParamsFor(segmentName));
   }
 
+  // Note on dynamicParams: Next requires it to be a statically analysable
+  // literal in each route file (it cannot read route.dynamicParams or an
+  // imported value), so the on-demand flip of `export const dynamicParams`
+  // from false to true is applied to the route files by
+  // scripts/atlas/apply-ondemand.mjs at build time, gated on ATLAS_ONDEMAND.
+  // The seed itself is handled here, inside generateStaticParams, which Next
+  // runs rather than statically analyses.
   return { Page, generateMetadata, generateStaticParams };
 }
