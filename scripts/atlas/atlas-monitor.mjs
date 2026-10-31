@@ -37,6 +37,14 @@ import { MANIFESTS } from '../../lib/atlas/serve-pages.js';
 import { report as internalLinks } from './internal-links.mjs';
 
 const ROOT = new URL('../../', import.meta.url);
+// The cohort files themselves: the spec (cohort-NNN.json, which declares each page's demand
+// basis) and the page manifest (cohort-NNN-pages.json, which carries generatedAt). MANIFESTS
+// lists the per-group shards since PR #48, and a shard has neither a spec beside it nor a
+// generatedAt, so deriving these from MANIFESTS found no spec at all and every utility page
+// fell out as a broken join. The pages themselves still come from MANIFESTS.
+const COHORTS_DIR = 'data/atlas/cohorts/';
+export const COHORT_SPECS = readdirSync(new URL(COHORTS_DIR, ROOT))
+  .filter((f) => /^cohort-\d+\.json$/.test(f)).sort().map((f) => COHORTS_DIR + f);
 const DEMAND = 'reports/ahrefs-export-2026-09-28/organic/published-page-demand-2026-09-28.tsv';
 
 // WHY A PAGE IS PUBLISHED, in one of two words. A page qualifies on REAL DEMAND,
@@ -52,9 +60,7 @@ export const UTILITY_PROVEN = 'UTILITY_PROVEN';
 
 function declaredBasis() {
   const out = new Map();
-  for (const m of MANIFESTS) {
-    const spec = m.replace(/-pages\.json$/, '.json');
-    if (!existsSync(new URL(spec, ROOT))) continue;
+  for (const spec of COHORT_SPECS) {
     for (const p of JSON.parse(readFileSync(new URL(spec, ROOT), 'utf8')).pages || []) {
       if (p.demand && p.demand.basis) out.set(p.path, { basis: p.demand.basis, volume: p.volume ?? null, pattern: p.demand.patternEvidence || null });
     }
@@ -130,12 +136,10 @@ export function build({ gscPath = null, demandPath = DEMAND } = {}) {
   // When each cohort was generated, which is when its pages first existed. A
   // Search Console window that ends before this date says nothing about the
   // page, and must not be read as a page nobody visited.
-  const published = [];
-  const pages = MANIFESTS.flatMap((m) => {
-    const j = JSON.parse(readFileSync(new URL(m, ROOT), 'utf8'));
-    if (j.generatedAt) published.push(j.generatedAt);
-    return j.pages || [];
-  });
+  const published = COHORT_SPECS.map((spec) => spec.replace(/\.json$/, '-pages.json'))
+    .filter((f) => existsSync(new URL(f, ROOT)))
+    .map((f) => JSON.parse(readFileSync(new URL(f, ROOT), 'utf8')).generatedAt).filter(Boolean);
+  const pages = MANIFESTS.flatMap((m) => JSON.parse(readFileSync(new URL(m, ROOT), 'utf8')).pages || []);
   const publishedAt = published.sort()[0] || null;
   const demand = demandTable(demandPath);
   const basis = declaredBasis();

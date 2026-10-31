@@ -55,6 +55,7 @@ import V41Marketplace from '../../../components/V41Marketplace.jsx';
 import V41SeoContent from '../../../components/V41SeoContent.jsx';
 import RelatedLinks from '../../../components/RelatedLinks.jsx';
 import { guideLinks, otherDestinationLinks, regionLinkForDestination, destinationLinks } from '../../../lib/internal-links.js';
+import { atlasLinksForDestination } from '../../../lib/atlas/destination-links.js';
 
 export const dynamicParams = false;
 
@@ -276,6 +277,7 @@ async function renderDestination(locale, node) {
   const regionLink = regionLinkForDestination(locale, dest.id);
   const moreDestinations = otherDestinationLinks(locale, dest.id, related.map((d) => d.id));
   const tripGuides = guideLinks(locale);
+  const atlasLinks = atlasLinksForDestination(locale, dest.id);
 
   const bodySections = order.filter((k) => k !== 'intro' && k !== 'faq' && c.sections[k]);
   const midpoint = Math.max(1, Math.ceil(bodySections.length / 2));
@@ -375,6 +377,11 @@ async function renderDestination(locale, node) {
               </section>
             ) : null}
 
+            <RelatedLinks
+              id="atlas-for-destination"
+              heading={t.atlasForDestination.replace('{name}', name)}
+              items={atlasLinks}
+            />
             <RelatedLinks id="before-you-travel" heading={t.beforeYouTravel} items={tripGuides} />
             <RelatedLinks id="more-destinations" heading={t.moreDestinations} items={moreDestinations} />
 

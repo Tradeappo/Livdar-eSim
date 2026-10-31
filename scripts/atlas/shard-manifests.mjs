@@ -14,6 +14,8 @@
 // (build-time QA and ingestion still read them); the shards are additive.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { ATLAS_SEGMENTS, FAMILY_SEGMENT } from '../../lib/atlas/atlas-urls.js';
+import { destinationAtlasLinks } from '../../lib/atlas/destination-links.js';
+import { cityById } from '../../lib/atlas/cities.js';
 
 const ROOT = new URL('../../', import.meta.url);
 const COHORTS = ['001', '002', '003', '004'].map((c) => 'data/atlas/cohorts/cohort-' + c + '-pages.json');
@@ -57,6 +59,15 @@ writeFileSync(new URL('segment-groups.json', outDir), JSON.stringify({ groups, s
 const locales = [...new Set(groups.flatMap((g) => byGroup[g]).map((p) => p.locale || p.path.split('/')[1]))].sort();
 writeFileSync(new URL('languages.json', outDir), JSON.stringify({ locales }));
 console.log('  locales:', locales.join(' '));
+
+// The Atlas pages each eSIM destination page links to (lib/atlas/destination-links.js).
+// The destination route reads THIS file, a few KB, instead of a page shard, so linking a
+// destination to its country's weather pages does not put the 62 MB weather shard into the
+// eSIM function that PR #48 took it out of.
+const allPages = groups.flatMap((g) => byGroup[g]);
+const destLinks = destinationAtlasLinks(allPages, (id) => cityById(id)?.population);
+writeFileSync(new URL('destination-links.json', outDir), JSON.stringify(destLinks));
+console.log('  destination links:', Object.entries(destLinks).map(([l, m]) => l + ' ' + Object.keys(m).length).join(', '));
 
 console.log('shard-manifests: total', total, 'pages across', groups.length, 'groups');
 for (const g of groups) console.log('  ', g, byGroup[g].length);
