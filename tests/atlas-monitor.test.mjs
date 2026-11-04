@@ -8,7 +8,7 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { build, DEMAND_PROVEN, UTILITY_PROVEN } from '../scripts/atlas/atlas-monitor.mjs';
+import { build, DEMAND_PROVEN, UTILITY_PROVEN, COHORT_SPECS } from '../scripts/atlas/atlas-monitor.mjs';
 import { report as internalLinks, graph } from '../scripts/atlas/internal-links.mjs';
 import { MANIFESTS } from '../lib/atlas/serve-pages.js';
 import { readFileSync } from 'node:fs';
@@ -108,9 +108,7 @@ test('every page is DEMAND_PROVEN or UTILITY_PROVEN, and the join is complete', 
   // The exemption is exactly the pages whose spec declares it, and every one of
   // them carries the measured pattern example it rests on, so nothing can drift
   // into the utility bucket by losing its demand row.
-  const declared = MANIFESTS.flatMap((m) => {
-    try { return JSON.parse(readFileSync(new URL(m.replace(/-pages\.json$/, '.json'), ROOT), 'utf8')).pages; } catch { return []; }
-  }).filter((p) => p.demand && p.demand.basis === 'utility');
+  const declared = COHORT_SPECS.flatMap((spec) => JSON.parse(readFileSync(new URL(spec, ROOT), 'utf8')).pages || []).filter((p) => p.demand && p.demand.basis === 'utility');
   assert.equal(r.by_qualification[UTILITY_PROVEN], declared.length);
   for (const p of declared) {
     assert.equal(p.volume, null, p.path + ' declares utility with a volume');
