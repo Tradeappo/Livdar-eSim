@@ -17,6 +17,7 @@ function atlasTracingIncludes() {
     './data/atlas/slugs.json',
     './data/atlas/manifest.json',
     './data/atlas/cohorts/by-group/languages.json',
+    './data/atlas/cohorts/by-group/destination-links.json',
   ];
   const ENTITIES = './data/atlas/entities/**';
   let seg;
