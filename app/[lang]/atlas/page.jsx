@@ -15,6 +15,7 @@ import { pages, languagesServed } from '../../../lib/atlas/serve-pages.js';
 import { sectionOf, sectionHeading, sectionKeys } from '../../../lib/atlas/sections.js';
 import { isPublished } from '../../../lib/markets.js';
 import { getLocale } from '../../../lib/i18n.js';
+import { hubsFor, TEXT as HUB_TEXT } from '../../../lib/atlas/country-hubs.js';
 
 export const dynamicParams = false;
 export const revalidate = 86400;
@@ -64,10 +65,18 @@ export default async function AtlasDirectoryPage({ params }) {
   const all = pages().filter((p) => p.locale === lang);
   if (!all.length) notFound();
 
+  // A city weather page whose country has a hub is listed on that hub, and the hub is listed
+  // here, instead of all of them here: 1,251 city links on one page passed almost nothing to
+  // each. Every other page, and every city of a country with no hub, is still listed directly,
+  // so no published page loses its link from the directory.
+  const hubs = hubsFor(lang).slice().sort((a, b) => a.name.localeCompare(b.name, lang));
+  const onHub = new Set(hubs.flatMap((h) => h.cities.map((p) => p.path)));
+
   // Grouped by URL section, in the order the vocabulary declares them, so the directory
   // reads the same way in every language instead of re-sorting itself per alphabet.
   const bySection = new Map();
   for (const page of all) {
+    if (onHub.has(page.path)) continue;
     const key = sectionOf(page.path);
     if (!key) continue;
     if (!bySection.has(key)) bySection.set(key, []);
@@ -119,6 +128,18 @@ export default async function AtlasDirectoryPage({ params }) {
                 ))}
               </ul>
             </nav>
+          ) : null}
+          {hubs.length ? (
+            <section className="atlas-section">
+              <h2>{HUB_TEXT[lang].directory}</h2>
+              <ul className="atlas-links">
+                {hubs.map((h) => (
+                  <li key={h.path}>
+                    <a href={h.path}>{h.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ) : null}
           {sections.map((section) => (
             <section className="atlas-section" key={section.key}>

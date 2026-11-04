@@ -23,7 +23,7 @@ import { atlasSitemapIds, atlasSitemapEntries } from '../lib/atlas/sitemap.js';
 import { atlasAlternates } from '../lib/atlas/serve.js';
 import { buildModel as buildAtlasModel } from '../lib/atlas/model.js';
 import { parseKey as parseAtlasKey } from '../lib/atlas/taxonomy.js';
-import { sitemapIds as atlasPageSitemapIds, sitemapEntries as atlasPageSitemapEntries, isPagesSitemap, isDirectorySitemap, directoryEntries } from '../lib/atlas/sitemap-pages.js';
+import { sitemapIds as atlasPageSitemapIds, sitemapEntries as atlasPageSitemapEntries, isPagesSitemap, isDirectorySitemap, directoryEntries, hubEntries } from '../lib/atlas/sitemap-pages.js';
 
 const REGION_IDS = REGIONS.filter((r) => r.id !== 'global').map((r) => r.id);
 
@@ -88,7 +88,7 @@ export default async function sitemap({ id }) {
   // market, so it declared /ro/atlas/ (which has no Atlas pages and answers 404) and omitted
   // the seven directories that do exist.
   if (isDirectorySitemap(raw)) {
-    return directoryEntries({ absolute, lastModified: lastModifiedFor('atlas') });
+    return [...directoryEntries({ absolute }), ...hubEntries({ absolute })];
   }
   if (isPagesSitemap(raw)) {
     return atlasPageSitemapEntries(raw, { absolute, lastModified: lastModifiedFor('atlas') });
