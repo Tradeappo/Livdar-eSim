@@ -11,8 +11,26 @@ import { pages } from '../../lib/atlas/serve-pages.js';
 const origin = process.env.ATLAS_EXPORT_ORIGIN || 'http://localhost:3000';
 const root = '.atlas-cloudflare-export';
 const published = pages();
+// The cohort manifests are the authoritative published route inventory for Atlas.
 const paths = [...new Set(published.filter(p => p.path && p.status !== 'retired').map(p => p.path.endsWith('/') ? p.path : p.path+'/'))].sort();
 const failures = [];
+const sitemaps = [];
+// Preserve the existing sitemap XML rather than reconstructing it differently on Cloudflare.
+const indexResponse = await fetch(new URL('/sitemap.xml', origin));
+if (!indexResponse.ok) throw new Error('Cannot fetch the existing sitemap index');
+const indexXml = await indexResponse.text();
+for (const match of indexXml.matchAll(/<loc>(https?:\/\/[^<]+)<\/loc>/g)) {
+  const sitemapPath = new URL(match[1]).pathname;
+  if (!/^\/sitemap-atlas\/[a-zA-Z0-9-]+\.xml$/.test(sitemapPath)) continue;
+  const res = await fetch(new URL(sitemapPath, origin));
+  const body = await res.text();
+  if (!res.ok || !body.includes('<urlset')) throw new Error('Invalid Atlas sitemap: ' + sitemapPath);
+  const target = join(root, 'atlas/xml', sitemapPath);
+  await mkdir(join(target, '..'), {recursive:true});
+  await writeFile(target,body);
+  sitemaps.push(sitemapPath);
+}
+
 let completed = 0;
 for (const path of paths) {
   const response = await fetch(new URL(path, origin), { redirect: 'manual' });
@@ -34,6 +52,6 @@ if (failures.length) {
 } else {
   const target = join(root, 'atlas/metadata/route-manifest.json');
   await mkdir(join(target,'..'), {recursive:true});
-  await writeFile(target, JSON.stringify({schema:1,createdAt:new Date().toISOString(),paths,sitemaps:[]}));
+  await writeFile(target, JSON.stringify({schema:1,createdAt:new Date().toISOString(),paths,sitemaps}));
   console.log(JSON.stringify({validated:completed,failures:0,out:root},null,2));
 }
