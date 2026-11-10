@@ -28,6 +28,13 @@ import { setLocales } from './shims/serve-pages.js';
 import { ui } from '../../lib/content/index.js';
 import { localeDir, getLocale } from '../../lib/i18n.js';
 import { CONSENT_DEFAULT } from '../../lib/analytics.js';
+import ConsentBanner from '../../components/ConsentBanner.jsx';
+import { island, beginIslands, islandsReferencedModel } from './islands/server.jsx';
+import { ASSETS } from './assets.generated.js';
+
+// The consent banner lives in the layout in Next.js, not in any page, so no import of it
+// is intercepted by the island plugin. It is wrapped here instead, by hand.
+const ConsentIsland = island('ConsentBanner', ConsentBanner);
 
 const esc = (s) => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -37,8 +44,17 @@ const esc = (s) => String(s == null ? '' : s)
 // it, so this does, the same way Next.js does for its own inline JSON.
 const jsonForScript = (value) => JSON.stringify(value).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
 
-/** The stylesheets the Atlas pages need. Served by the Worker from its own bundle. */
-export const STYLESHEETS = ['/_atlas/assets/atlas.css'];
+/** The stylesheet and the islands script, content-addressed by cloudflare/build.mjs so
+ *  each can be cached for a year: a new build is a new URL, never a stale file. */
+export const STYLESHEETS = [ASSETS.css.path];
+export const ISLANDS_SCRIPT = ASSETS.islands.path;
+
+// The tag container and Clarity snippets, verbatim from app/[lang]/layout.jsx, where
+// next/script prints them with strategy="afterInteractive". They are printed only when an
+// id is passed, and the Worker passes ids only in production on livdar.com, so a staging
+// page cannot report into production analytics.
+const gtmSnippet = (id) => `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',${JSON.stringify(id)});`;
+const claritySnippet = (id) => `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",${JSON.stringify(id)});`;
 
 function headHtml(record, { noindex }) {
   const h = record.head;
@@ -112,7 +128,7 @@ const BODIES = {
  * exist in order to decide which links to print. Passing it per render rather than
  * baking it in means a new language ships with a re-export, not a Worker deploy.
  */
-export function renderDocument(record, { locales, noindex = true } = {}) {
+export function renderDocument(record, { locales, noindex = true, gtmId = '', clarityId = '' } = {}) {
   setLocales(locales || []);
   const build = BODIES[record.kind];
   if (!build) throw new Error('Unknown Atlas page kind: ' + record.kind);
@@ -123,10 +139,25 @@ export function renderDocument(record, { locales, noindex = true } = {}) {
   // copy in <head> as well would put two application/ld+json blocks on every data page
   // and make the staging markup differ from livdar.com for no gain. The exporter's
   // record.jsonld is the same graph, kept for QA to assert against without parsing HTML.
+  beginIslands(record.kind === 'data' ? record.model : null);
   const body = renderToStaticMarkup(build(record));
+  // The banner after the page, where the layout puts it.
+  const consent = renderToStaticMarkup(<ConsentIsland strings={t} />);
+  // The model, once, for the islands that take it or one of its fields as a prop.
+  const modelJson = islandsReferencedModel()
+    ? '<script type="application/json" id="atlas-model">' + jsonForScript(record.model) + '</script>'
+    : '';
+  const analytics = (gtmId ? '<script id="livdar-gtm">' + gtmSnippet(gtmId) + '</script>' : '')
+    + (clarityId ? '<script id="livdar-clarity">' + claritySnippet(clarityId) + '</script>' : '');
   return '<!DOCTYPE html><html lang="' + esc(record.locale) + '" dir="' + esc(localeDir(locale)) + '">'
     + '<head>' + headHtml(record, { noindex }) + '</head>'
     + '<body><a class="skip" href="#main">' + esc(t.skipToContent) + '</a>'
     + body
+    + consent
+    + modelJson
+    // type=module is deferred by definition: it runs after parsing, before
+    // DOMContentLoaded, and never blocks the first paint of the server HTML.
+    + '<script type="module" src="' + esc(ISLANDS_SCRIPT) + '"></script>'
+    + analytics
     + '</body></html>';
 }

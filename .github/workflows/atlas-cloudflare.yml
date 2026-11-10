@@ -33,6 +33,10 @@ on:
       retire:
         description: 'comma-separated paths to delete from R2 (rollback of retired pages)'
         required: false
+      deploy:
+        description: 'deploy the Worker after the sync: none, staging or production'
+        required: false
+        default: 'none'
 permissions: { contents: read }
 concurrency: { group: atlas-cloudflare, cancel-in-progress: false }
 jobs:
@@ -58,6 +62,13 @@ jobs:
       # exported set, or if a sitemap lists a URL the export does not contain.
       - name: Export the published Atlas as page models
         run: node scripts/atlas/export-cloudflare.mjs
+      # The Worker that will serve this export is built and tested against it before
+      # anything is written: the render chain, the production gate, the route coverage.
+      - name: Build the Worker and its client islands
+        run: node cloudflare/build.mjs
+      - name: Worker tests (render, production gate, routes)
+        run: node --test tests/atlas-cloudflare.test.mjs tests/atlas-cloudflare-routes.test.mjs
+
       - name: Report what the export contains
         run: node -e "const m=require('./.atlas-cloudflare-export/manifest.json');console.log(JSON.stringify(m.counts));console.log('version',m.version)"
 
@@ -98,6 +109,14 @@ jobs:
             if (h.version !== process.argv[2]) { console.error('Worker serves ' + h.version + ', expected ' + process.argv[2]); process.exit(1); }
             console.log('Worker is serving ' + h.version + ' with ' + JSON.stringify(h.counts));
           " "$body" "$expected"
+
+      # Deploy only when asked, by name. A push never deploys anything: this workflow is
+      # workflow_dispatch only, and the default target is none.
+      - name: Deploy the Worker
+        if: inputs.deploy == 'staging' || inputs.deploy == 'production'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes wrangler@4 deploy --config cloudflare/wrangler.toml --env ${{ inputs.deploy }}
 
       - uses: actions/upload-artifact@v4
         if: always()

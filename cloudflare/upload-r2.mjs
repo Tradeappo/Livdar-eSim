@@ -134,23 +134,72 @@ async function worker() {
 }
 await Promise.all(Array.from({ length: Math.max(1, Math.min(PARALLEL, 8)) }, worker));
 
+// A copy of this manifest under its own version, so every dataset that was ever live can
+// be named, and its sourceCommit checked out to rebuild it. Small, and never overwritten.
+const versionedKey = PREFIX + 'manifests/' + JSON.parse(manifestBody).version + '.json';
+await send('/__ingest', { method: 'POST', headers: { ...auth, 'content-type': 'application/x-ndjson' }, body: JSON.stringify({ key: versionedKey, body: manifest.body, contentType: manifest.contentType }) });
+
 // The manifest last, so the Worker only ever advertises a complete dataset.
 await send('/__ingest', { method: 'POST', headers: { ...auth, 'content-type': 'application/x-ndjson' }, body: JSON.stringify({ key: manifest.key, body: manifest.body, contentType: manifest.contentType }) });
+
+// RETIREMENT. A page that left the registry or a cohort is not in this export, and its
+// object has to leave the bucket, or the Worker keeps answering 200 for a URL the Atlas
+// withdrew. It runs AFTER the new manifest is live, so there is no moment at which a
+// page that should exist is missing.
+//
+// The guard is the point. An export that came out empty or half-built would otherwise
+// "retire" the whole Atlas, and every one of those URLs would start answering 404 — the
+// exact outcome the Worker's fail-closed design exists to prevent. So more than
+// RETIRE_LIMIT deletions in one run refuse and exit non-zero, and the only way past is to
+// say how many you meant: ATLAS_ALLOW_RETIRE=<n>.
+const plannedKeys = new Set(planned.map((p) => p.key));
+const stale = Object.keys(existing).filter((key) =>
+  (key.startsWith(PREFIX + 'pages/') || key.startsWith(PREFIX + 'sitemaps/')) && !plannedKeys.has(key));
+const pagesPlanned = planned.filter((p) => p.key.startsWith(PREFIX + 'pages/')).length;
+const RETIRE_LIMIT = Math.max(25, Math.floor(pagesPlanned * 0.02));
+const allowed = Number(process.env.ATLAS_ALLOW_RETIRE || 0);
+let retired = 0;
+// A listing that stopped early (the Worker caps one at 60,000 keys) cannot say what is
+// stale: everything past the cut would look retired. Retire nothing rather than guess.
+if (!listing.complete) {
+  console.error(JSON.stringify({ retirementSkipped: true, reason: 'the bucket listing was truncated at ' + listing.count + ' keys; retire by explicit key list instead' }));
+} else if (stale.length) {
+  if (stale.length > RETIRE_LIMIT && stale.length !== allowed) {
+    console.error(JSON.stringify({
+      refusedToRetire: stale.length,
+      limit: RETIRE_LIMIT,
+      examples: stale.slice(0, 10),
+      howToProceed: 'If these ' + stale.length + ' pages really were retired, re-run with ATLAS_ALLOW_RETIRE=' + stale.length,
+    }, null, 1));
+    process.exitCode = 2;
+  } else {
+    for (let i = 0; i < stale.length; i += 500) {
+      await send('/__ingest', { method: 'DELETE', headers: auth, body: stale.slice(i, i + 500).join('\n') });
+    }
+    retired = stale.length;
+    console.log(JSON.stringify({ retired, examples: stale.slice(0, 10) }));
+  }
+}
 
 // Verify from the bucket's own listing rather than from what this process believes it
 // sent: an import is finished when R2 says the objects are there with the right hashes.
 const after = await (await send('/__ingest?prefix=' + encodeURIComponent(PREFIX), { headers: auth })).json();
 const missing = planned.filter((p) => !after.objects[p.key]);
 const wrong = planned.filter((p) => after.objects[p.key] && after.objects[p.key].etag !== p.md5);
+const leftover = Object.keys(after.objects).filter((key) =>
+  (key.startsWith(PREFIX + 'pages/') || key.startsWith(PREFIX + 'sitemaps/')) && !plannedKeys.has(key));
 const report = {
-  uploaded: done + 1,
+  uploaded: done + 2,
   skippedIdentical: unchanged.length,
+  retired,
   objectsInBucket: after.count,
-  expected: planned.length,
+  datasetObjectsExpected: planned.length,
   missing: missing.length,
   checksumMismatch: wrong.length,
+  staleRemaining: leftover.length,
   bytes: totalBytes,
   version: JSON.parse(manifestBody).version,
+  sourceCommit: JSON.parse(manifestBody).sourceCommit || null,
 };
 console.log(JSON.stringify(report, null, 1));
 if (missing.length || wrong.length) {

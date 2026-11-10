@@ -1,0 +1,57 @@
+# The two Atlas Workers, as deployed. One bundle, two configurations.
+#
+#   node cloudflare/build.mjs
+#   npx wrangler deploy --config cloudflare/wrangler.toml --env staging
+#   npx wrangler deploy --config cloudflare/wrangler.toml --env production
+#
+# Production differs from staging only in its variables, and the Worker makes a page
+# indexable only when ATLAS_ENV is "production" AND the request arrived on ATLAS_HOSTS,
+# so the staging Worker cannot become indexable and the production Worker is noindex on
+# its own workers.dev host. The production Worker has no ATLAS_INGEST_TOKEN: it cannot
+# write to the bucket. Set the staging token with:
+#   npx wrangler secret put ATLAS_INGEST_TOKEN --config cloudflare/wrangler.toml --env staging
+#
+# The build is not run by wrangler (no [build] command) on purpose: build.mjs also emits
+# the render harness the tests and the parity diff use, and deploying something that was
+# not the tested build is the failure this setup exists to prevent.
+
+name = "livdar-atlas-staging"
+main = "dist/worker.js"
+compatibility_date = "2026-11-01"
+no_bundle = true
+account_id = "6399a10eac8a470f6a2d98a589e767c4"
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[[env.staging.r2_buckets]]
+binding = "ATLAS_R2"
+bucket_name = "livdar-atlas-data"
+
+[env.staging]
+name = "livdar-atlas-staging"
+workers_dev = true
+
+[env.staging.vars]
+ATLAS_ENV = "staging"
+
+[[env.production.r2_buckets]]
+binding = "ATLAS_R2"
+bucket_name = "livdar-atlas-data"
+
+[env.production]
+name = "livdar-atlas"
+workers_dev = true
+# Routes are NOT declared here. They are applied by the cutover (cloudflare/MIGRATION.md,
+# section 7) from cloudflare/routes.production.json, which a test proves covers every
+# published Atlas URL and no other livdar.com URL. Declaring them here would let any
+# `wrangler deploy --env production` re-apply them, including after a rollback removed
+# them on purpose.
+
+[env.production.vars]
+ATLAS_ENV = "production"
+ATLAS_HOSTS = "livdar.com"
+ATLAS_GTM_ID = "GTM-WKGXHXWC"
+# Not in the repository; set from Vercel's NEXT_PUBLIC_CLARITY_ID before cutover.
+ATLAS_CLARITY_ID = ""

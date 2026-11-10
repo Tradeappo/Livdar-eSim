@@ -1,11 +1,11 @@
 {
- "computedAt": "2026-11-10T16:25:42.112Z",
+ "computedAt": "2026-11-10T18:12:30.977Z",
  "inputs": {
   "bytesPerPageModel": 12232,
   "pagesExportedToday": 6812,
   "exportedBytes": 83327452,
-  "cpuMsPerRender": 8,
-  "cpuMsSource": "default estimate, not measured inside the isolate",
+  "cpuMsPerRender": 10,
+  "cpuMsSource": "ATLAS_CPU_MS override",
   "planningCacheHitRatio": 0.9,
   "measuredWarmCacheHitRatio": 0.997,
   "cacheHitRatioNote": "the load test measured 0.997 on a rotating set of 20 URLs; projections use 0.9 for planning and also report the measured ratio as the best case",
@@ -36,7 +36,7 @@
    "cacheHitRatio": 0.9,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 100060,
-   "cpuMsPerMonth": 800000,
+   "cpuMsPerMonth": 1000000,
    "monthly": {
     "subscription": 5,
     "requests": 0,
@@ -54,7 +54,7 @@
    "cacheHitRatio": 0.9,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 1000600,
-   "cpuMsPerMonth": 8000000,
+   "cpuMsPerMonth": 10000000,
    "monthly": {
     "subscription": 5,
     "requests": 0,
@@ -72,15 +72,15 @@
    "cacheHitRatio": 0.9,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 10006000,
-   "cpuMsPerMonth": 80000000,
+   "cpuMsPerMonth": 100000000,
    "monthly": {
     "subscription": 5,
     "requests": 27,
-    "cpu": 1,
+    "cpu": 1.4,
     "r2Storage": 0,
     "r2Reads": 0,
     "egress": 0,
-    "total": 33
+    "total": 33.4
    },
    "oneOffFullReimport": 0
   },
@@ -90,15 +90,15 @@
    "cacheHitRatio": 0.9,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 100060000,
-   "cpuMsPerMonth": 800000000,
+   "cpuMsPerMonth": 1000000000,
    "monthly": {
     "subscription": 5,
     "requests": 297,
-    "cpu": 15.4,
+    "cpu": 19.4,
     "r2Storage": 0,
     "r2Reads": 32.42,
     "egress": 0,
-    "total": 349.82
+    "total": 353.82
    },
    "oneOffFullReimport": 0
   }
@@ -110,7 +110,7 @@
    "cacheHitRatio": 0.997,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 3060,
-   "cpuMsPerMonth": 24000,
+   "cpuMsPerMonth": 30000,
    "monthly": {
     "subscription": 5,
     "requests": 0,
@@ -128,7 +128,7 @@
    "cacheHitRatio": 0.997,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 30600,
-   "cpuMsPerMonth": 240000,
+   "cpuMsPerMonth": 300000,
    "monthly": {
     "subscription": 5,
     "requests": 0,
@@ -146,7 +146,7 @@
    "cacheHitRatio": 0.997,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 306000,
-   "cpuMsPerMonth": 2400000,
+   "cpuMsPerMonth": 3000000,
    "monthly": {
     "subscription": 5,
     "requests": 27,
@@ -164,7 +164,7 @@
    "cacheHitRatio": 0.997,
    "storageGb": 0.08,
    "r2ReadsPerMonth": 3060000,
-   "cpuMsPerMonth": 24000000,
+   "cpuMsPerMonth": 30000000,
    "monthly": {
     "subscription": 5,
     "requests": 297,
@@ -184,7 +184,7 @@
    "cacheHitRatio": 0.9,
    "storageGb": 1.22,
    "r2ReadsPerMonth": 100060,
-   "cpuMsPerMonth": 800000,
+   "cpuMsPerMonth": 1000000,
    "monthly": {
     "subscription": 5,
     "requests": 0,
@@ -202,7 +202,7 @@
    "cacheHitRatio": 0.9,
    "storageGb": 12.23,
    "r2ReadsPerMonth": 1000600,
-   "cpuMsPerMonth": 8000000,
+   "cpuMsPerMonth": 10000000,
    "monthly": {
     "subscription": 5,
     "requests": 0,
@@ -220,15 +220,15 @@
    "cacheHitRatio": 0.9,
    "storageGb": 122.32,
    "r2ReadsPerMonth": 10006000,
-   "cpuMsPerMonth": 80000000,
+   "cpuMsPerMonth": 100000000,
    "monthly": {
     "subscription": 5,
     "requests": 27,
-    "cpu": 1,
+    "cpu": 1.4,
     "r2Storage": 1.69,
     "r2Reads": 0,
     "egress": 0,
-    "total": 34.7
+    "total": 35.1
    },
    "oneOffFullReimport": 40.5
   },
@@ -238,15 +238,15 @@
    "cacheHitRatio": 0.9,
    "storageGb": 1223.25,
    "r2ReadsPerMonth": 10006000,
-   "cpuMsPerMonth": 80000000,
+   "cpuMsPerMonth": 100000000,
    "monthly": {
     "subscription": 5,
     "requests": 27,
-    "cpu": 1,
+    "cpu": 1.4,
     "r2Storage": 18.21,
     "r2Reads": 0,
     "egress": 0,
-    "total": 51.21
+    "total": 51.61
    },
    "oneOffFullReimport": 445.5
   },
@@ -256,22 +256,22 @@
    "cacheHitRatio": 0.9,
    "storageGb": 1223.25,
    "r2ReadsPerMonth": 100060000,
-   "cpuMsPerMonth": 800000000,
+   "cpuMsPerMonth": 1000000000,
    "monthly": {
     "subscription": 5,
     "requests": 297,
-    "cpu": 15.4,
+    "cpu": 19.4,
     "r2Storage": 18.21,
     "r2Reads": 32.42,
     "egress": 0,
-    "total": 368.03
+    "total": 372.03
    },
    "oneOffFullReimport": 445.5
   }
  ],
  "caveats": [
   "These are Cloudflare costs only. They exclude the generation pipeline, which runs in GitHub Actions and is unchanged.",
-  "CPU per render is an estimate, not a measurement from inside the isolate. Read the real p50 from Workers observability and re-run with ATLAS_CPU_MS set before quoting the CPU line.",
+  "CPU per render is an override, not a measurement from inside the isolate. Read the real p50 from Workers observability and re-run with ATLAS_CPU_MS set before quoting the CPU line.",
   "A cache hit is billed as a request and costs no CPU and no R2 read, so the cache ratio moves the CPU and R2 lines and not the request line.",
   "The 100M-page rows price STORING and SERVING 100M pages. They say nothing about whether 100M pages should be published; that is the publication gate's decision, not an infrastructure one.",
   "R2 bills on peak storage averaged per day and rounds up to the next GB-month."

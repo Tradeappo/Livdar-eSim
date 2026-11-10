@@ -29,6 +29,10 @@ const DIR = argOf('dir', '.atlas-cloudflare-export');
 const OUT = argOf('out', 'reports/atlas-cloudflare-parity.json');
 const SAMPLE = Number(argOf('sample', 2));
 const ALL = process.argv.includes('--all');
+// With --expect-indexable the Cloudflare side is the PRODUCTION configuration, so robots
+// is no longer an expected difference: it has to equal the reference exactly, and a
+// noindex on either side fails the page.
+const EXPECT_INDEXABLE = process.argv.includes('--expect-indexable');
 
 // ---------------------------------------------------------------------------
 // Extraction. These templates are generated, not hand-written, so their markup is
@@ -132,7 +136,7 @@ const FIELDS = ['title', 'description', 'canonical', 'ogTitle', 'ogDescription',
 
 async function get(origin, path) {
   const response = await fetch(origin + path, { redirect: 'manual', headers: { 'user-agent': 'livdar-atlas-parity/1' } });
-  return { status: response.status, html: response.status === 200 ? await response.text() : '' };
+  return { status: response.status, headers: Object.fromEntries(response.headers.entries()), html: response.status === 200 ? await response.text() : '' };
 }
 
 const results = [];
@@ -156,10 +160,16 @@ async function worker() {
       for (const field of FIELDS) {
         if (!same(ea[field], eb[field])) row.differences.push({ field, vercel: show(ea[field]), cloudflare: show(eb[field]) });
       }
-      // The one difference that MUST exist, checked in both directions.
       row.robots = { vercel: ea.robots, cloudflare: eb.robots };
-      if (!/noindex/i.test(eb.robots || '')) row.differences.push({ field: 'robots', problem: 'the Cloudflare page is indexable; staging must be noindex', cloudflare: eb.robots });
       if (/noindex/i.test(ea.robots || '')) row.differences.push({ field: 'robots', problem: 'the Next.js reference render is itself noindex, so this run proves nothing about production indexability', vercel: ea.robots });
+      if (EXPECT_INDEXABLE) {
+        if (ea.robots !== eb.robots) row.differences.push({ field: 'robots', vercel: ea.robots, cloudflare: eb.robots });
+        const xrt = b.headers?.['x-robots-tag'];
+        if (xrt) row.differences.push({ field: 'x-robots-tag', problem: 'a production page must not carry X-Robots-Tag', cloudflare: xrt });
+      } else if (!/noindex/i.test(eb.robots || '')) {
+        // Staging: the one difference that MUST exist.
+        row.differences.push({ field: 'robots', problem: 'the Cloudflare page is indexable; staging must be noindex', cloudflare: eb.robots });
+      }
       row.bytes = { vercel: a.html.length, cloudflare: b.html.length };
     } catch (error) {
       row.differences.push({ field: 'fetch', error: String(error.message || error) });

@@ -1,0 +1,54 @@
+{
+ "recordedAt": "2026-11-10",
+ "purpose": "State of livdar.com before any Atlas routing change. The rollback target. Recorded read-only; nothing here was modified.",
+ "http": {
+  "summary": "EVERY path on livdar.com, www.livdar.com and every *.vercel.app deployment URL returns HTTP 402 with x-vercel-error: DEPLOYMENT_DISABLED and the body 'Payment required'. The whole site is down, not only the Atlas.",
+  "checked": ["/", "/en/", "/de/", "/en/esim/", "/en/atlas/", "/de/wetter/muenchen/", "/en/cost-of-living/japan/", "/sitemap.xml", "/robots.txt", "/api/runtime"],
+  "status": 402,
+  "header": "x-vercel-error: DEPLOYMENT_DISABLED",
+  "server": "Vercel"
+ },
+ "vercel": {
+  "team": "tradeappos-projects (team_vLjS72BPb1sTs7SbSouxKtZ9)",
+  "billing": "no billing charges recorded for the team (Hobby); the 402 is a plan/usage block, cleared only by the account owner",
+  "project": "livdar-esim (prj_z2fakPyowQustDsJFQzd4IDwUOqJ)",
+  "projectLive": false,
+  "domains": ["livdar.com", "www.livdar.com", "livdar-esim.vercel.app", "livdar-esim-tradeappos-projects.vercel.app", "livdar-esim-git-main-tradeappos-projects.vercel.app"],
+  "currentProductionDeployment": {
+   "id": "dpl_FhCb6nRhCjf3opC9Mb9eskoqMtPu",
+   "state": "READY",
+   "commit": "8d6f1e2df56fbec4e36736ef890837e5f0901530",
+   "message": "Release: #54 + #53 + #52 in one production deploy (#55)",
+   "isRollbackCandidate": true
+  },
+  "previousProductionDeployment": {
+   "id": "dpl_38oUrxQbLmRrW93nqkH55drTH5Cg",
+   "state": "READY",
+   "commit": "15e0b92495763d7fcc50fee4ec01101e99978e8d",
+   "isRollbackCandidate": true
+  },
+  "latestDeploymentAttempt": { "id": "dpl_4bBN3UUdPLMTFWaXVTRRvu2JPtF5", "state": "CANCELED" }
+ },
+ "dns": {
+  "authoritative": "Namecheap BasicDNS (dns1/dns2.registrar-servers.com)",
+  "cloudflareZone": "none - the Cloudflare account holds no zones",
+  "records": [
+   { "name": "livdar.com", "type": "A", "ttl": 1799, "value": "76.76.21.21", "note": "Vercel apex" },
+   { "name": "www.livdar.com", "type": "CNAME", "ttl": 1799, "value": "cname.vercel-dns.com." },
+   { "name": "livdar.com", "type": "MX", "ttl": 1800, "value": "10 eforward1.registrar-servers.com." },
+   { "name": "livdar.com", "type": "MX", "ttl": 1800, "value": "10 eforward2.registrar-servers.com." },
+   { "name": "livdar.com", "type": "MX", "ttl": 1800, "value": "10 eforward3.registrar-servers.com." },
+   { "name": "livdar.com", "type": "MX", "ttl": 1800, "value": "15 eforward4.registrar-servers.com." },
+   { "name": "livdar.com", "type": "MX", "ttl": 1800, "value": "20 eforward5.registrar-servers.com." },
+   { "name": "livdar.com", "type": "TXT", "ttl": 1799, "value": "v=spf1 include:spf.efwd.registrar-servers.com ~all" },
+   { "name": "livdar.com", "type": "TXT", "ttl": 1799, "value": "google-site-verification=whLw9hXewwtvbKmobwT7ukXES4SW6oP9WFYDTep8UBY", "note": "Search Console DNS verification. Must survive any nameserver move." }
+  ],
+  "completeness": "Enumerated from public DNS (apex, www, _dmarc; A/AAAA/CNAME/MX/TXT/CAA/NS). Namecheap does not allow zone transfer, so records on other subdomains cannot be seen from outside. Export the record list from the Namecheap dashboard before any nameserver change.",
+  "hazard": "The MX records are Namecheap Email Forwarding, which only works while Namecheap hosts the DNS. Moving nameservers to Cloudflare breaks inbound mail unless forwarding is recreated (Cloudflare Email Routing, free)."
+ },
+ "cloudflare": {
+  "account": "6399a10eac8a470f6a2d98a589e767c4",
+  "workers": ["livdar-atlas-staging", "smspro-cron (unrelated, untouched)"],
+  "r2Buckets": ["livdar-atlas-data"]
+ }
+}

@@ -296,13 +296,29 @@ function urlsetXml(entries) {
 const sitemapDeps = { absolute, lastModified: undefined };
 const sitemaps = [];
 
+// THE 50,000 URL LIMIT. The sitemap protocol caps a file at 50,000 URLs and 50 MB. Today's
+// largest Atlas child holds 1,082 URLs, so nothing is split and every id is the id
+// app/sitemap.js published, which Search Console already knows. A family that grows past
+// the cap is split into -p2, -p3 ... while the first file KEEPS the original id, so an
+// existing sitemap URL never disappears as the Atlas grows. 45,000 leaves headroom for the
+// hreflang links, which count against the 50 MB.
+export const SITEMAP_CAP = 45_000;
+function pushSitemap(id, entries) {
+  if (!entries.length) return;
+  for (let i = 0, part = 1; i < entries.length; i += SITEMAP_CAP, part += 1) {
+    const chunk = entries.slice(i, i + SITEMAP_CAP);
+    const chunkId = part === 1 ? id : id + '-p' + part;
+    sitemaps.push({ id: chunkId, xml: urlsetXml(chunk), urls: chunk.length });
+  }
+}
+
 // 5a. The cohort data pages, the directories and the hubs.
 for (const { id } of pageSitemapIds()) {
   let entries;
   if (isDirectorySitemap(id)) entries = [...directoryEntries(sitemapDeps), ...hubEntries(sitemapDeps)];
   else if (isPagesSitemap(id)) entries = pageSitemapEntries(id, sitemapDeps);
   else entries = [];
-  if (entries.length) sitemaps.push({ id, xml: urlsetXml(entries), urls: entries.length });
+  pushSitemap(id, entries);
 }
 // 5b. The legacy registry pages.
 const legacyAlt = (key) => {
@@ -314,12 +330,14 @@ const legacyAlt = (key) => {
   return hit ? legacyAlternates(ds, hit.model).languages : undefined;
 };
 for (const { id } of legacySitemapIds(ds)) {
-  const entries = legacySitemapEntries(ds, id, legacyAlt);
-  if (entries.length) sitemaps.push({ id, xml: urlsetXml(entries), urls: entries.length });
+  pushSitemap(id, legacySitemapEntries(ds, id, legacyAlt));
 }
 
 const sitemapIndexXml = '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-  + sitemaps.map((s) => '<sitemap><loc>' + esc(absolute('/sitemap-atlas/' + s.id + '.xml')) + '</loc></sitemap>').join('\n')
+  // /sitemap/<id>.xml, where app/sitemap.js has always published the children and where
+  // Search Console already fetches them. The Worker answers at that URL in production;
+  // /sitemap-atlas/<id>.xml is only its staging alias.
+  + sitemaps.map((s) => '<sitemap><loc>' + esc(absolute('/sitemap/' + s.id + '.xml')) + '</loc></sitemap>').join('\n')
   + '\n</sitemapindex>\n';
 
 // ---------------------------------------------------------------------------
@@ -395,8 +413,23 @@ index['sitemap:index'] = { key: 'sitemaps/index.xml', sha256: createHash('sha256
 // version, the locales and the sitemap list, and resolves a page by asking R2 for the
 // page's own key. That is what lets the same Worker serve 6,810 pages or 100,000,000
 // without the manifest growing.
+// The commit the export ran at. Git is the version history of the Atlas and R2 is a
+// projection of one commit of it, so rolling the content back is: check out this field's
+// value from an earlier manifest, export, upload. The uploader keeps a copy of every
+// manifest under atlas/manifests/ for exactly that.
+let sourceCommit = process.env.GITHUB_SHA || null;
+if (!sourceCommit) {
+  try {
+    const { execFileSync } = await import('node:child_process');
+    sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+    const dirty = execFileSync('git', ['status', '--porcelain', '--', 'data', 'lib', 'components'], { encoding: 'utf8' }).trim();
+    if (dirty) sourceCommit += '-dirty';
+  } catch { sourceCommit = null; }
+}
+
 const manifest = {
   schema: 2,
+  sourceCommit,
   version: process.env.ATLAS_VERSION || new Date().toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z',
   createdAt: new Date().toISOString(),
   origin: SITE_URL,

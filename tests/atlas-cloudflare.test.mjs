@@ -98,6 +98,8 @@ test('path normalisation rejects everything that could resolve to another key', 
 const exported = existsSync(new URL('manifest.json', EXPORT_DIR));
 const harness = existsSync(new URL('cloudflare/dist/render.harness.mjs', ROOT));
 
+const built = existsSync(new URL('cloudflare/dist/worker.js', ROOT));
+const gateSkip = !built ? 'run `node cloudflare/build.mjs` first' : !exported ? 'run `node scripts/atlas/export-cloudflare.mjs` first' : false;
 const renderSkip = !harness ? 'run `node cloudflare/build.mjs` first'
   : !exported ? 'run `node scripts/atlas/export-cloudflare.mjs` first' : false;
 
@@ -156,10 +158,102 @@ test('the export gates refuse an incomplete dataset', () => {
 
 test('the Worker never answers a missing dataset with 404', () => {
   const source = readFileSync(new URL('cloudflare/src/worker.js', ROOT), 'utf8');
-  // A 404 teaches Google the URL is gone. An absent manifest or a throwing R2 does not
-  // know that, so both have to be 503. These are the three branches that decide it.
-  assert.match(source, /if \(!manifest\) return TEXT\('Atlas dataset is not installed in storage', 503\)/);
-  assert.match(source, /if \(!env\.ATLAS_R2\) return TEXT\('Atlas storage is not bound to this Worker', 503\)/);
-  assert.match(source, /return TEXT\('Atlas temporarily unavailable', 503/);
-  assert.match(source, /'x-robots-tag': 'noindex, nofollow, noarchive'/);
+  // A 404 teaches Google the URL is gone. An absent manifest, an unbound bucket or a
+  // throwing R2 does not know that, so all three have to be 503.
+  assert.match(source, /if \(!manifest\) return text\(cfg, 'Atlas dataset is not installed in storage', 503/);
+  assert.match(source, /if \(!env\.ATLAS_R2\) return text\(cfg, 'Atlas storage is not bound to this Worker', 503/);
+  assert.match(source, /return text\(cfg, 'Atlas temporarily unavailable', 503/);
+  assert.match(source, /'x-robots-tag'\] = 'noindex, nofollow, noarchive'/);
+});
+
+test('an empty bucket is 503 on every Atlas path, on the built bundle', { skip: gateSkip }, () => {
+  // An export directory with no manifest is a bucket with no dataset in it.
+  const empty = join(tmpdir(), 'atlas-empty-' + process.pid);
+  execFileSync('mkdir', ['-p', empty]);
+  const out = join(tmpdir(), 'atlas-empty-' + process.pid + '.json');
+  execFileSync(process.execPath, [new URL('cloudflare/simulate.mjs', ROOT).pathname, empty, '--env', 'production', '--host', 'livdar.com', '--out', out,
+    '/de/wetter/muenchen/', '/en/atlas/', '/sitemap/atlas-directory.xml', '/en/weather/anything/'], { stdio: 'inherit' });
+  const data = JSON.parse(readFileSync(out, 'utf8'));
+  rmSync(out, { force: true });
+  rmSync(empty, { recursive: true, force: true });
+  for (const r of data.results) assert.equal(r.status, 503, r.path + ' answered ' + r.status + ' with no dataset installed');
+});
+
+// ---------------------------------------------------------------------------
+// 4. Islands. The server wraps exactly the components the client hydrates; a component
+//    wrapped on one side and missing on the other is markup that never comes alive.
+// ---------------------------------------------------------------------------
+test('the server islands and the client islands are the same four components', () => {
+  const server = readFileSync(new URL('cloudflare/src/islands/server.jsx', ROOT), 'utf8');
+  const client = readFileSync(new URL('cloudflare/src/client.jsx', ROOT), 'utf8');
+  const serverNames = JSON.parse(server.match(/ISLAND_NAMES = (\[[^\]]+\])/)[1].replace(/'/g, '"'));
+  const clientNames = client.match(/const COMPONENTS = \{([^}]+)\}/)[1].split(',').map((s) => s.trim()).filter(Boolean);
+  assert.deepEqual([...serverNames].sort(), [...clientNames].sort());
+  // Each one really is a client component in the repository, so this is the boundary
+  // Next.js draws as well.
+  for (const file of ['components/atlas/AtlasTool.jsx', 'components/atlas/AtlasCta.jsx', 'components/LanguageGlobe.jsx', 'components/ConsentBanner.jsx']) {
+    assert.match(readFileSync(new URL(file, ROOT), 'utf8'), /^'use client';/, file + ' is no longer a client component');
+  }
+});
+
+// ---------------------------------------------------------------------------
+// 5. The production gate, on the BUILT bundle. Indexable only for ATLAS_ENV=production
+//    on livdar.com; noindex everywhere else, whatever the other half says.
+// ---------------------------------------------------------------------------
+
+function simulate(env, host, paths) {
+  const out = join(tmpdir(), 'atlas-sim.' + process.pid + '.' + env + '.' + host.replace(/\W/g, '') + '.json');
+  execFileSync(process.execPath, [
+    new URL('cloudflare/simulate.mjs', ROOT).pathname,
+    new URL('.atlas-cloudflare-export', ROOT).pathname,
+    '--env', env, '--host', host, '--out', out, ...paths,
+  ], { stdio: 'inherit' });
+  const data = JSON.parse(readFileSync(out, 'utf8'));
+  rmSync(out, { force: true });
+  return Object.fromEntries(data.results.map((r) => [r.path + (r.method === 'GET' ? '' : ' ' + r.method), r]));
+}
+
+test('production on livdar.com is indexable, carries HSTS and the tag container, and refuses robots.txt', { skip: gateSkip }, () => {
+  const r = simulate('production', 'livdar.com', ['/de/wetter/muenchen/', '/de/wetter/muenchen', '/robots.txt', '/sitemap/atlas-directory.xml', '/__ingest', '/de/wetter/no-such-city/']);
+  const page = r['/de/wetter/muenchen/'];
+  assert.equal(page.status, 200);
+  assert.equal(page.headers['x-robots-tag'], undefined, 'a production page must not carry X-Robots-Tag');
+  assert.ok(page.body.includes('<meta name="robots" content="index, follow"/>'));
+  assert.ok(!/noindex|nofollow|noarchive/.test(page.body.slice(0, page.body.indexOf('</head>'))), 'noindex in the production head');
+  assert.equal(page.headers['strict-transport-security'], 'max-age=63072000');
+  assert.equal(page.headers['x-frame-options'], 'SAMEORIGIN');
+  assert.ok(page.body.includes("'dataLayer',\"GTM-WKGXHXWC\""), 'the tag container is missing in production');
+  assert.ok(page.body.includes('<script type="module" src="/_atlas/assets/islands.'), 'the islands script is missing');
+  assert.equal(r['/de/wetter/muenchen'].status, 308);
+  assert.equal(r['/de/wetter/muenchen'].headers.location, '/de/wetter/muenchen/');
+  // robots.txt on livdar.com belongs to the origin. The Worker must never publish its
+  // staging Disallow there, even if a route sends it the request by mistake.
+  assert.equal(r['/robots.txt'].status, 404);
+  assert.ok(!r['/robots.txt'].body.includes('Disallow'));
+  assert.equal(r['/sitemap/atlas-directory.xml'].status, 200);
+  assert.equal(r['/sitemap/atlas-directory.xml'].headers['x-robots-tag'], undefined);
+  assert.equal(r['/__ingest'].status, 404, 'the production Worker must have no write path');
+  assert.equal(r['/de/wetter/no-such-city/'].status, 404);
+});
+
+test('staging, and production on any other host, stay noindex', { skip: gateSkip }, () => {
+  for (const [env, host] of [['staging', 'livdar.com'], ['staging', 'livdar-atlas-staging.reee4603.workers.dev'], ['production', 'livdar-atlas.reee4603.workers.dev']]) {
+    const r = simulate(env, host, ['/de/wetter/muenchen/', '/robots.txt']);
+    const page = r['/de/wetter/muenchen/'];
+    assert.equal(page.status, 200, env + '@' + host);
+    assert.match(page.headers['x-robots-tag'] || '', /noindex/, env + '@' + host + ' is missing the noindex header');
+    assert.ok(page.body.includes('<meta name="robots" content="noindex, nofollow"/>'), env + '@' + host + ' is missing noindex in the markup');
+    assert.ok(!page.body.includes('GTM-WKGXHXWC'), env + '@' + host + ' would report into production analytics');
+    assert.equal(page.headers['strict-transport-security'], undefined);
+    assert.match(r['/robots.txt'].body, /Disallow: \//);
+  }
+});
+
+test('a crawler revalidating a page it holds gets 304', { skip: gateSkip }, () => {
+  const first = simulate('production', 'livdar.com', ['/de/wetter/muenchen/'])['/de/wetter/muenchen/'];
+  const etag = first.headers.etag;
+  assert.ok(etag, 'no ETag on a page');
+  const again = simulate('production', 'livdar.com', ['/de/wetter/muenchen/|if-none-match=' + etag])['/de/wetter/muenchen/'];
+  assert.equal(again.status, 304);
+  assert.equal(again.body, '');
 });
