@@ -1,0 +1,12 @@
+[build]
+builder = "NIXPACKS"
+# Atlas prebuild steps run before next build (shard manifests, fetch media,
+# quality-gate, ISR flags). They are non-fatal if external media fetch fails.
+buildCommand = "npm ci && npm run build"
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
