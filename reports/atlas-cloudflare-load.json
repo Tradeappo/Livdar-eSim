@@ -1,0 +1,121 @@
+{
+ "measuredAt": "2026-11-10T16:23:38.003Z",
+ "origin": "https://livdar-atlas-staging.reee4603.workers.dev",
+ "corpus": 6812,
+ "stages": [
+  {
+   "name": "cold-100-c10",
+   "requests": 100,
+   "concurrency": 10,
+   "uniqueUrls": true,
+   "wallSeconds": 4.21,
+   "requestsPerSecond": 23.7,
+   "latencyMs": {
+    "p50": 343.6,
+    "p90": 746.9,
+    "p99": 890.5,
+    "max": 890.5
+   },
+   "statuses": {
+    "200": 100
+   },
+   "cache": {
+    "miss": 100
+   },
+   "cacheHitRatio": 0,
+   "megabytes": 1.23
+  },
+  {
+   "name": "cold-500-c25",
+   "requests": 500,
+   "concurrency": 25,
+   "uniqueUrls": true,
+   "wallSeconds": 6.37,
+   "requestsPerSecond": 78.5,
+   "latencyMs": {
+    "p50": 324.6,
+    "p90": 392.8,
+    "p99": 557.7,
+    "max": 959
+   },
+   "statuses": {
+    "200": 500
+   },
+   "cache": {
+    "hit": 67,
+    "miss": 433
+   },
+   "cacheHitRatio": 0.134,
+   "megabytes": 6.04
+  },
+  {
+   "name": "cold-2000-c50",
+   "requests": 2000,
+   "concurrency": 50,
+   "uniqueUrls": true,
+   "wallSeconds": 11.1,
+   "requestsPerSecond": 180.2,
+   "latencyMs": {
+    "p50": 310.4,
+    "p90": 373.4,
+    "p99": 505.1,
+    "max": 914.9
+   },
+   "statuses": {
+    "200": 2000
+   },
+   "cache": {
+    "hit": 405,
+    "miss": 1595
+   },
+   "cacheHitRatio": 0.203,
+   "megabytes": 24.11
+  },
+  {
+   "name": "warm-500-c25",
+   "requests": 500,
+   "concurrency": 25,
+   "uniqueUrls": false,
+   "wallSeconds": 1.38,
+   "requestsPerSecond": 362.8,
+   "latencyMs": {
+    "p50": 43.7,
+    "p90": 77.1,
+    "p99": 321,
+    "max": 385.7
+   },
+   "statuses": {
+    "200": 500
+   },
+   "cache": {
+    "hit": 457,
+    "miss": 43
+   },
+   "cacheHitRatio": 0.914,
+   "megabytes": 6.42
+  },
+  {
+   "name": "warm-2000-c50",
+   "requests": 2000,
+   "concurrency": 50,
+   "uniqueUrls": false,
+   "wallSeconds": 4.2,
+   "requestsPerSecond": 476.3,
+   "latencyMs": {
+    "p50": 42.8,
+    "p90": 57,
+    "p99": 128,
+    "max": 3256.9
+   },
+   "statuses": {
+    "200": 2000
+   },
+   "cache": {
+    "hit": 1993,
+    "miss": 7
+   },
+   "cacheHitRatio": 0.997,
+   "megabytes": 25.68
+  }
+ ]
+}

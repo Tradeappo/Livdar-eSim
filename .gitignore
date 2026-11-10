@@ -76,3 +76,10 @@ data/atlas/cohorts/by-group/
 # V41 background images extracted from source/livdar-esim-v41.source by
 # scripts/extract-v41-images.mjs at build time. Generated, not source.
 public/img/v41/
+
+# Cloudflare Atlas migration build outputs. Both are reproducible from the repository:
+# the export is `node scripts/atlas/export-cloudflare.mjs` (118 MB of page models, the
+# publication payload, not source) and dist is `node cloudflare/build.mjs`.
+.atlas-cloudflare-export/
+cloudflare/dist/
+cloudflare/src/assets.generated.js

@@ -1,0 +1,109 @@
+name: atlas-cloudflare
+# Pushes the published Atlas to Cloudflare R2, and nothing else.
+#
+# WHERE THIS SITS IN THE PIPELINE. The generation side is unchanged and stays here in
+# GitHub Actions, because ingesting NASA climate normals and running cohort QA over 6,500
+# page models is a batch job with no place in a 30-second edge isolate:
+#
+#   atlas-ingest     refreshes the source datasets                  -> pull request
+#   atlas-generate   builds page models for a lot and runs QA       -> pull request
+#   atlas-publish    moves registry states, rebuilds the sitemap    -> pull request
+#   atlas-cloudflare (this) exports the published set and syncs R2  <- the new, last step
+#
+# So Cloudflare is a PUBLICATION TARGET, not a second source of truth. Nothing here
+# decides what is published; it reads what atlas-publish already decided. A page that is
+# not published cannot be exported, because the exporter reads the registry and the
+# cohort manifests rather than generating anything.
+#
+# INCREMENTAL BY DEFAULT. The uploader asks the bucket what it already holds and sends
+# only objects whose hash differs, so a run after a one-page change uploads one page and
+# a re-run after a finished sync uploads nothing. That is what keeps a weekly ingest from
+# costing 6,889 class-A operations every time.
+#
+# WHAT IT NEVER DOES. It does not touch Vercel, DNS, livdar.com routing or the production
+# sitemap, and it does not submit anything to Google. Routing production traffic to
+# Cloudflare is a separate, manual change (see cloudflare/MIGRATION.md).
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'export and report only, upload nothing'
+        required: false
+        default: 'false'
+      retire:
+        description: 'comma-separated paths to delete from R2 (rollback of retired pages)'
+        required: false
+permissions: { contents: read }
+concurrency: { group: atlas-cloudflare, cancel-in-progress: false }
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment: atlas-cloudflare-staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - run: npm ci
+
+      # The same gates atlas-publish runs. An export is a publication, so it is not
+      # allowed to carry a dataset that would fail the checks that guard publication.
+      - name: Atlas QA
+        run: node scripts/atlas/qa.mjs --ci
+      - name: Per-group shards, which the exporter reads
+        run: node scripts/atlas/shard-manifests.mjs
+
+      # Export. Fails the run if any page lacks a title, description, h1, breadcrumbs or
+      # JSON-LD, if a canonical disagrees with its path, if an hreflang points outside the
+      # exported set, or if a sitemap lists a URL the export does not contain.
+      - name: Export the published Atlas as page models
+        run: node scripts/atlas/export-cloudflare.mjs
+      - name: Report what the export contains
+        run: node -e "const m=require('./.atlas-cloudflare-export/manifest.json');console.log(JSON.stringify(m.counts));console.log('version',m.version)"
+
+      - name: Retire pages from the edge
+        if: inputs.retire != ''
+        env:
+          ATLAS_INGEST_URL: ${{ secrets.ATLAS_INGEST_URL }}
+          ATLAS_INGEST_TOKEN: ${{ secrets.ATLAS_INGEST_TOKEN }}
+        run: |
+          printf '%s' "${{ inputs.retire }}" | tr ',' '\n' | sed 's#^#atlas/pages#; s#$#model.json#' > retire.txt
+          cat retire.txt
+          curl -sS --fail -X DELETE \
+            -H "authorization: Bearer $ATLAS_INGEST_TOKEN" \
+            --data-binary @retire.txt "$ATLAS_INGEST_URL/__ingest"
+
+      - name: Sync R2
+        if: inputs.dry_run != 'true'
+        env:
+          ATLAS_INGEST_URL: ${{ secrets.ATLAS_INGEST_URL }}
+          ATLAS_INGEST_TOKEN: ${{ secrets.ATLAS_INGEST_TOKEN }}
+        run: node cloudflare/upload-r2.mjs
+
+      # The uploader already verifies against the bucket's own listing and exits non-zero
+      # on a missing object or a checksum mismatch. This asserts the Worker agrees, which
+      # is the thing a reader of the run actually wants to know.
+      - name: Confirm the Worker serves the new version
+        if: inputs.dry_run != 'true'
+        env:
+          ATLAS_INGEST_URL: ${{ secrets.ATLAS_INGEST_URL }}
+        run: |
+          set -e
+          expected=$(node -e "console.log(require('./.atlas-cloudflare-export/manifest.json').version)")
+          body=$(curl -sS --fail "$ATLAS_INGEST_URL/__health")
+          echo "$body"
+          node -e "
+            const h = JSON.parse(process.argv[1]);
+            if (!h.dataReady) { console.error('dataset not ready: ' + h.reason); process.exit(1); }
+            if (h.version !== process.argv[2]) { console.error('Worker serves ' + h.version + ', expected ' + process.argv[2]); process.exit(1); }
+            console.log('Worker is serving ' + h.version + ' with ' + JSON.stringify(h.counts));
+          " "$body" "$expected"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: atlas-cloudflare-export-manifest
+          path: |
+            .atlas-cloudflare-export/manifest.json
+            .atlas-cloudflare-export/upload-index.json
+          retention-days: 14

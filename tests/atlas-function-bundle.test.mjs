@@ -56,7 +56,14 @@ test('alternates remain complete after sharding', async () => {
 
 // Where a build is present, check the trace Next.js wrote.
 const APP = new URL('../.next/server/app/[lang]/', import.meta.url);
-const hasBuild = existsSync(APP);
+// WHAT COUNTS AS A BUILD. These four tests read the .nft.json traces, which only
+// `next build` writes. `next dev` also creates .next/server/app, so testing for that
+// directory alone reported "a build is present" and then failed on a missing trace —
+// which is what happens to anyone who ran `next dev` in their checkout, including the
+// Vercel-vs-Cloudflare parity diff in cloudflare/MIGRATION.md, whose reference origin is
+// a dev server. So the condition is the presence of a trace, not of the directory.
+const hasBuild = existsSync(APP)
+  && readdirSync(APP, { recursive: true }).some((f) => String(f).endsWith('.nft.json'));
 
 function traceFor(routeRelFromApp) {
   const nft = new URL('../.next/server/app/' + routeRelFromApp + '.nft.json', import.meta.url);
