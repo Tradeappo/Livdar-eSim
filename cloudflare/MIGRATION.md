@@ -14,10 +14,10 @@ deployment was changed or deleted, and no DNS record was touched.
 | Interactive tools | Hydrated client islands. 62/62 tool pages work in a real browser. |
 | SEO parity | **6,812/6,812** identical to the Next.js production server, production mode, robots included. |
 | Sitemaps | 76/76 children identical to Next's generator (6,812 URLs), served at their original `/sitemap/atlas-*.xml` URLs. |
-| Production routing | **Not executed.** `livdar.com` is not on Cloudflare (section 7). |
+| Production routing | **Staged.** Zone, DNS, email routing and 109 routes configured on a pending zone; live when the nameservers switch (section 7). |
 | Vercel independence for Atlas traffic | Ready, not live: no Atlas request reaches Cloudflare until the routes exist. |
 | Cost monitoring | 5 alert policies created, plus the existing $10 budget alert. |
-| Rollback readiness | Baseline recorded. **The rollback origin is currently down** (section 7). |
+| Rollback readiness | Five rollback steps (section 7). While Vercel is down, a verified fallback serves the non-Atlas site. |
 
 ## 1. The two facts that decide the cutover
 
@@ -173,84 +173,120 @@ should write with R2's S3 API and per-prefix listings. Sitemaps past ~2.2 M URLs
 than one Atlas index file. And Workers Free's 10 ms CPU limit would bite on the p99 renders
 (31.7 ms), so production should run on Workers Paid.
 
-## 7. Production cutover (NOT executed: safety gate)
+## 7. Production cutover: staged, waiting on the nameserver switch
 
-### Why it stops here
+Everything Cloudflare needs is configured and verified. Cloudflare will not answer for
+`livdar.com` until the domain's nameservers point at it, so none of it affects production
+until then. The nameserver switch **is** the cutover.
 
-1. **The rollback origin is not functional.** Vercel answers 402 for the whole site. The
-   precondition was that the origin and the rollback path be verified first.
-2. **It requires moving `livdar.com`'s nameservers** from Namecheap to Cloudflare, which is
-   the explicitly gated domain-wide DNS change, and is done at Namecheap, where this
-   session has no access.
+### What is in place
 
-The alternatives were evaluated and rejected. Cloudflare partial (CNAME) setup needs the
-Business plan, a new material cost. Vercel rewrites to the Worker would keep Vercel in
-the path of every Atlas request, which defeats the point, and Vercel is down anyway.
+**Zone** `livdar.com`, id `092a1b27870de49853020ace4c0b0c4b`, Free plan, status `pending`.
+Assigned nameservers: `brian.ns.cloudflare.com`, `suzanne.ns.cloudflare.com`.
+Settings: SSL Full (strict), Always Use HTTPS on. Email Obfuscation and Automatic HTTPS
+Rewrites are **off**, because both rewrite HTML in flight and would break the byte-identity
+verified in section 4.
 
-### Hazards the nameserver move creates
+**DNS**, rebuilt from the audit of the Namecheap zone
+(`reports/production-baseline-2026-11-10.json`). Certificate Transparency shows no
+hostname other than `livdar.com` and `www.livdar.com` has ever had a certificate, and a
+random name answers NXDOMAIN, so there is no wildcard:
 
-- **Email.** The MX records are Namecheap Email Forwarding (`eforward1..5`), which only
-  works while Namecheap hosts the DNS. Recreate the forwarding with Cloudflare Email
-  Routing (free) or inbound mail stops.
-- **Search Console.** The `google-site-verification` TXT record must be in the new zone
-  before the switch, or the DNS-verified property loses verification.
-- **Unknown records.** Namecheap allows no zone transfer, so only apex, `www` and
-  `_dmarc` were enumerated. Export the full record list from the Namecheap dashboard.
-- **Vercel behind the proxy.** The apex must be proxied (orange) for Worker routes to
-  apply. Vercel recommends DNS-only and may show a domain warning; set SSL to Full
-  (strict). `www` can stay DNS-only, since the routes name `livdar.com` only.
+| record | value | why |
+|---|---|---|
+| `A livdar.com` | `76.76.21.21`, proxied | Vercel apex, as on Namecheap. Proxied so Worker routes apply |
+| `CNAME www` | `cname.vercel-dns.com`, proxied | Vercel. Proxied so the fallback can serve www→apex 308 while Vercel is down |
+| `MX livdar.com` | `route1/2/3.mx.cloudflare.net` (90/66/46) | Cloudflare Email Routing, replacing Namecheap Email Forwarding, which stops working off Namecheap DNS |
+| `TXT livdar.com` | `v=spf1 include:_spf.mx.cloudflare.net ~all` | SPF for Email Routing, replacing the Namecheap one |
+| `TXT cf2024-1._domainkey` | DKIM | Email Routing |
+| `TXT livdar.com` | `google-site-verification=whLw9…` | Search Console DNS verification, copied unchanged |
 
-### Runbook, once approved
+**Email**: a catch-all forwarding rule to the account owner's verified address is created
+and enabled, so no message is lost. Namecheap's per-address forwarding rules cannot be read
+from outside; add specific rules if they forwarded anywhere else. Cloudflare only allows
+Email Routing itself to be switched on for an active zone, so that is the first
+post-activation step.
 
-1. **Decide Vercel first.** Restore it (plan/billing), or accept that only the Atlas will
-   answer while the rest of `livdar.com` stays 402.
-2. Export the Namecheap DNS records and the email-forwarding destinations.
-3. Add the zone `livdar.com` to Cloudflare account `6399a10e…` on the **Free** plan.
-   Recreate every record: apex `A 76.76.21.21` **proxied**, `www CNAME
-   cname.vercel-dns.com` DNS-only, the TXT records, and Email Routing in place of the
-   Namecheap MX/SPF. SSL/TLS: Full (strict).
-4. Switch the nameservers at Namecheap to the two Cloudflare assigns (registrar, owner
-   only). Wait until `dig NS livdar.com` returns Cloudflare everywhere. With no routes yet
-   this changes nothing about what the site serves.
-5. Fill `ATLAS_CLARITY_ID` on `livdar-atlas` from Vercel's `NEXT_PUBLIC_CLARITY_ID`.
-6. **Canary.** Add one route, `livdar.com/nl/huurverhoging/*` → `livdar-atlas` (5 pages):
+**Routes**: the 109-route table (`cloudflare/routes.production.json`), applied to the
+zone. Its sha256 matches the tested table, all routes fail open, and there are no
+duplicates.
+- 107 Atlas patterns → `livdar-atlas`
+- `livdar.com/*` and `www.livdar.com/*` → `livdar-origin-fallback`
+
+Cloudflare runs the most specific matching route, so Atlas URLs reach the Atlas Worker and
+everything else reaches the fallback (`tests/atlas-cloudflare-routes.test.mjs`).
+
+**Origin fallback** `livdar-origin-fallback` passes every request to Vercel unchanged and
+answers from a snapshot only when Vercel fails (402, 5xx, a platform error, a timeout).
+It then skips the origin for 30 s. So it heals itself: when Vercel serves again, so does
+livdar.com, with nothing to switch back. The snapshot is the existing production build;
+`git diff` against the production commit `8d6f1e2` is empty for every path that shapes
+the output.
+
+Verified while Vercel answers 402:
+- **377 / 377** URLs identical to `next start` of the same build: 115 eSIM pages and
+  their RSC payloads, 117 static assets, 18 route handlers, the redirects, the 404, the
+  API 503s.
+- **115 / 115** eSIM pages hydrate in Chromium with 0 JS errors, and client navigation
+  works.
+
+One request fails, identically on Vercel: `/en/` references
+`/mnt/data/livdar_travel_tools_banner.jpg` (`source/livdar-esim-v41.source:6099`), a file
+that exists nowhere in the repository.
+
+**Certificates.** Vercel's certificate for `livdar.com` expires on 2026-12-07, and renewal
+appears stalled while the deployment is disabled. If it lapses, the origin fetch fails,
+the fallback treats that as an outage, and the snapshot keeps serving. Cloudflare issues
+its own edge certificate when the zone activates.
+
+### Before the switch: owner actions
+
+1. **Workers Paid** ($5/month) on account `6399a10e…`. The API confirmed the account is
+   on Workers Free. The Free plan's 10 ms CPU limit sits at the measured p90 (p99 is
+   31.7 ms), and its 100,000 requests/day cap would fail open to the origin, which is a
+   402.
+2. Optional: restore Vercel (plan/billing). The fallback makes the switch safe without it.
+3. Optional: tell me any Namecheap forwarding address that went somewhere other than the
+   account owner.
+
+### The switch: owner action
+
+At Namecheap: Domain List → livdar.com → Nameservers → Custom DNS, set
+`brian.ns.cloudflare.com` and `suzanne.ns.cloudflare.com`. Nothing at Namecheap is deleted.
+Its records stay as they are, and they are the rollback.
+
+### After the switch
+
+1. Wait for the zone to show `active`. Then enable Email Routing:
+   `POST /zones/092a1b27870de49853020ace4c0b0c4b/email/routing/enable`.
+2. Run the checks, all on `https://livdar.com`:
    ```bash
    ATLAS_ORIGIN=https://livdar.com ATLAS_LOCAL=<simulate --env production --serve> \
      node scripts/atlas/sweep-cloudflare.mjs --production
+   ATLAS_ORIGIN_A=<next start> ATLAS_ORIGIN_B=https://livdar.com node scripts/atlas/compare-sitemaps.mjs
+   ATLAS_ORIGIN=https://livdar.com node scripts/atlas/browser-check.mjs
+   ATLAS_ORIGIN_A=<next start> ATLAS_ORIGIN_B=https://livdar.com node scripts/atlas/verify-fallback.mjs
    ```
-   Watch Workers observability and the 5 URLs for an hour.
-7. **Expand.** Add the remaining routes from `cloudflare/routes.production.json` (107),
-   smallest group first. Then run on `https://livdar.com`: the sweep with `--production`,
-   `compare-sitemaps.mjs`, `browser-check.mjs`, and a curl of a non-Atlas page to confirm it
-   still reaches the origin.
-8. Do not resubmit sitemaps. The URLs did not change, and Search Console already fetches
-   `/sitemap/atlas-*.xml`.
+   `verify-fallback.mjs` asserts that the snapshot served. Once Vercel is restored, the
+   origin will be the one answering instead.
+3. Watch Workers observability for 5xx, and check one eSIM page and one Atlas page.
 
-### Rollback
+### Rollback, in increasing scope (all reversible, nothing deleted)
 
-1. **Delete the Worker routes.** Atlas requests go back to the origin within seconds.
-   No rebuild, and nothing in Vercel to restore, because nothing in Vercel was changed.
-2. Set the apex record to DNS-only. Cloudflare then stops proxying entirely.
-3. Revert the nameservers at Namecheap. This is slow: propagation follows the 1800 s TTL
-   and resolver caches.
-4. Content rollback: check out `sourceCommit` from `atlas/manifests/<version>.json`,
-   export, upload. Only the changed objects move, and the version flip invalidates the
-   cache.
-5. Worker rollback: redeploy the previous bundle (`atlas/_build/worker.<hash>.js`).
-
-While Vercel is disabled, steps 1–3 return Atlas URLs to a 402. Roll back only for a Worker
-fault, not as a precaution.
+| step | effect | time |
+|---|---|---|
+| Do nothing | The fallback hands traffic back to Vercel by itself once Vercel serves | automatic |
+| Remove the two catch-all routes | Non-Atlas traffic goes straight to Vercel | seconds |
+| Remove all 109 routes | Cloudflare proxies everything to Vercel, no Worker in the path | seconds |
+| Set `A` and `CNAME` to DNS-only | Cloudflare stops proxying; visitors reach Vercel's IPs | ~5 min (TTL) |
+| Set the nameservers back to `dns1/dns2.registrar-servers.com` | Namecheap's untouched records answer again. Re-check Namecheap Email Forwarding | hours (propagation) |
 
 ## 8. Remaining blockers
 
-1. **Vercel 402**: owner action (plan/billing). Affects the whole site today.
-2. **Nameserver move to Cloudflare**: owner approval, plus Namecheap access.
-3. **Clarity ID**: in Vercel as a sensitive variable; set `ATLAS_CLARITY_ID` before cutover.
-4. **Workers plan**: could not be read (the subscriptions API returned 403). p99 CPU is
-   31.7 ms, over the Free plan's 10 ms limit; confirm Workers Paid ($5/month) before
-   production traffic. Staging showed 0 errors across 13,094 requests.
-5. **GSC indexed-URL comparison**: needs Search Console credentials. The Ahrefs GSC tools
-   return "Insufficient plan".
+1. **Workers Paid**: owner action (section 7).
+2. **Nameserver switch**: owner action (section 7).
+3. **Vercel 402**: owner action. Not blocking any more, because the fallback covers it.
+4. **Clarity ID**: in Vercel as a sensitive variable. Set `ATLAS_CLARITY_ID` if wanted.
 
 ## 9. Commands
 

@@ -11,7 +11,7 @@
 //        llms.txt, Next's own assets) matches none.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { atlasRoutes, matches } from '../cloudflare/routes.mjs';
+import { atlasRoutes, matches, productionRouteTable, resolveRoute } from '../cloudflare/routes.mjs';
 import { pages, languagesServed } from '../lib/atlas/serve-pages.js';
 import { allHubs } from '../lib/atlas/country-hubs.js';
 import { loadDataset } from '../lib/atlas/data.js';
@@ -103,4 +103,21 @@ test('the route list fits a zone and is narrow', () => {
   assert.ok(routes.every((p) => p.startsWith(HOST + '/') && p.endsWith('*')));
   // No route may be a bare language prefix: that would take the eSIM site in that language.
   assert.ok(!routes.some((p) => /^livdar\.com\/[a-z]{2}(-[A-Za-z]+)?\/\*$/.test(p)), 'a route claims a whole language');
+});
+
+test('with the catch-alls in place, every URL runs exactly the Worker it belongs to', async () => {
+  const table = productionRouteTable({ host: HOST, locales: languagesServed() });
+  // Every published Atlas URL resolves to the Atlas Worker, not the fallback.
+  const atlas = [...pages().map((p) => p.path), ...languagesServed().map((l) => '/' + l + '/atlas/'), '/en/cities/', '/de/staedte/', '/sitemap/atlas-directory.xml', '/_atlas/assets/x.css'];
+  for (const p of atlas) assert.equal(resolveRoute(table, at(p))?.script, 'livdar-atlas', p);
+  // Every eSIM URL, and every origin-owned route, resolves to the fallback, which hands it
+  // to Vercel whenever Vercel serves.
+  const sitemap = await import('../app/sitemap.js');
+  const ids = (await sitemap.generateSitemaps()).map((s) => s.id).filter((id) => !id.startsWith('atlas-'));
+  for (const id of ids) for (const e of await sitemap.default({ id })) assert.equal(resolveRoute(table, e.url)?.script, 'livdar-origin-fallback', e.url);
+  for (const p of ['/', '/robots.txt', '/sitemap.xml', '/sitemap/en-core.xml', '/api/runtime', '/_next/static/x.js', '/img/og-default.png', '/indexnow-key.txt']) {
+    assert.equal(resolveRoute(table, at(p))?.script, 'livdar-origin-fallback', p);
+  }
+  assert.equal(resolveRoute(table, 'https://www.livdar.com/de/wetter/muenchen/')?.script, 'livdar-origin-fallback', 'www is redirected to the apex by the fallback, as Vercel does');
+  assert.ok(table.length <= 1000, 'Cloudflare allows 1,000 routes per zone');
 });

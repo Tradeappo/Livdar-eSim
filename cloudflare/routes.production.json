@@ -121,5 +121,443 @@
   "livdar.com/ro/orase/*",
   "livdar.com/sitemap/atlas-*",
   "livdar.com/_atlas/*"
+ ],
+ "table": [
+  {
+   "pattern": "livdar.com/de/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/beste-reisezeit/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/feiertage/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/flughaefen/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/gehaelter/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/lebenshaltungskosten/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/mietpreisentwicklung/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/rangliste/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/rechner/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/sport/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/stadtteile/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/staedte/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/de/wetter/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/airports/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/best-time-to-visit/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/cities/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/cost-of-living/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/public-holidays/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/rankings/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/rent-increase/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/salaries/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/sport/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/tools/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/weather/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/en/where-to-stay/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/clasificaciones/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/clima/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/coste-de-vida/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/deporte/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/dias-festivos/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/herramientas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/mejor-epoca-para-viajar/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/salarios/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/subida-del-alquiler/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/es/zonas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/augmentation-des-loyers/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/classements/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/cout-de-la-vie/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/jours-feries/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/meteo/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/ou-loger/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/outils/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/quand-partir/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/salaires/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/fr/sport/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/aumento-affitti/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/classifiche/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/clima/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/costo-della-vita/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/giorni-festivi/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/quando-andare/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/sport/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/stipendi/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/strumenti/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/it/zone/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/area-guide/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/best-season/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/holidays/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/kyuyo/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/ranking/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/rent-trend/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/seikatsuhi/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/sport/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/tenki/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ja/tool/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/beste-reistijd/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/feestdagen/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/huurverhoging/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/kosten-van-levensonderhoud/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/ranglijsten/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/salarissen/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/sport/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/stadsdelen/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/tools/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/nl/weer/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/dni-wolne-od-pracy/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/dzielnice-miasta/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/kalkulatory/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/kiedy-jechac/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/klimat/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/koszty-zycia/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/rankingi/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/sport/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/wynagrodzenia/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pl/wzrost-czynszu/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/aumento-de-rendas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/clima/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/custo-de-vida/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/desporto/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/feriados/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/ferramentas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/melhor-epoca-para-viajar/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/onde-ficar/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/rankings/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/pt/salarios/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ro/aeroporturi/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/ro/orase/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/sitemap/atlas-*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/_atlas/*",
+   "script": "livdar-atlas"
+  },
+  {
+   "pattern": "livdar.com/*",
+   "script": "livdar-origin-fallback"
+  },
+  {
+   "pattern": "www.livdar.com/*",
+   "script": "livdar-origin-fallback"
+  }
  ]
 }

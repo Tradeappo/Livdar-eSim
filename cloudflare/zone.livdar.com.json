@@ -1,0 +1,22 @@
+{
+ "zone": "livdar.com",
+ "zoneId": "092a1b27870de49853020ace4c0b0c4b",
+ "plan": "Free Website",
+ "statusWhenRecorded": "pending",
+ "assignedNameservers": ["brian.ns.cloudflare.com", "suzanne.ns.cloudflare.com"],
+ "previousNameservers": ["dns1.registrar-servers.com", "dns2.registrar-servers.com"],
+ "settings": { "ssl": "strict", "always_use_https": "on", "email_obfuscation": "off", "automatic_https_rewrites": "off" },
+ "records": [
+  { "type": "A", "name": "livdar.com", "content": "76.76.21.21", "proxied": true },
+  { "type": "CNAME", "name": "www.livdar.com", "content": "cname.vercel-dns.com", "proxied": true },
+  { "type": "MX", "name": "livdar.com", "content": "route1.mx.cloudflare.net", "priority": 90 },
+  { "type": "MX", "name": "livdar.com", "content": "route2.mx.cloudflare.net", "priority": 66 },
+  { "type": "MX", "name": "livdar.com", "content": "route3.mx.cloudflare.net", "priority": 46 },
+  { "type": "TXT", "name": "livdar.com", "content": "v=spf1 include:_spf.mx.cloudflare.net ~all" },
+  { "type": "TXT", "name": "cf2024-1._domainkey.livdar.com", "content": "v=DKIM1; h=sha256; k=rsa; p=(Cloudflare Email Routing key)" },
+  { "type": "TXT", "name": "livdar.com", "content": "google-site-verification=whLw9hXewwtvbKmobwT7ukXES4SW6oP9WFYDTep8UBY" }
+ ],
+ "emailRouting": { "catchAll": "forward to the account owner's verified address", "enabled": "after activation (Cloudflare requires an active zone)" },
+ "routes": { "source": "cloudflare/routes.production.json#table", "count": 109, "sha256": "c8ff21522d23bf02ef0492bdc41de5ae200b02c1e4bc90bb8d62ae39b8a761f3", "failOpen": true },
+ "workers": { "atlas": "livdar-atlas", "fallback": "livdar-origin-fallback", "staging": "livdar-atlas-staging" }
+}

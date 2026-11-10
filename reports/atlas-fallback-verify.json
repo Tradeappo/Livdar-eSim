@@ -1,0 +1,23 @@
+{
+ "verifiedAt": "2026-11-10T20:32:48.986Z",
+ "reference": "http://127.0.0.1:3000",
+ "fallback": "https://livdar-origin-fallback.reee4603.workers.dev",
+ "snapshot": "KeOQ8SuXVwgTYNVQwKQur",
+ "productionCommit": "8d6f1e2df56fbec4e36736ef890837e5f0901530",
+ "sourceMatchesProduction": true,
+ "checked": 378,
+ "identical": 377,
+ "failed": 1,
+ "failures": [
+  {
+   "path": "/img/v41/907381280797af87.jpg",
+   "status": [
+    404,
+    200
+   ],
+   "problems": [
+    "status 404 vs 200"
+   ]
+  }
+ ]
+}

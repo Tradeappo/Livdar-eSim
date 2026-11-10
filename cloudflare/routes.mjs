@@ -54,6 +54,40 @@ export function atlasRoutes({ host = 'livdar.com', locales }) {
 }
 
 /**
+ * The complete production route table: the Atlas patterns to the Atlas Worker, and the
+ * catch-alls to the origin fallback, which passes everything to Vercel and answers from
+ * the snapshot only while Vercel fails (cloudflare/fallback/worker.js). The Atlas
+ * patterns are more specific than the catch-alls, and Cloudflare runs the most specific
+ * matching route, so an Atlas URL never reaches the fallback and an eSIM URL never
+ * reaches the Atlas Worker.
+ */
+export function productionRouteTable({ host = 'livdar.com', locales, atlasWorker = 'livdar-atlas', fallbackWorker = 'livdar-origin-fallback' }) {
+  return [
+    ...atlasRoutes({ host, locales }).map((pattern) => ({ pattern, script: atlasWorker })),
+    { pattern: host + '/*', script: fallbackWorker },
+    { pattern: 'www.' + host + '/*', script: fallbackWorker },
+  ];
+}
+
+/**
+ * Which route Cloudflare runs for a URL: among the patterns that match, the most specific
+ * one. Here every pattern is an exact host plus a path prefix ending in "*", so the most
+ * specific is the longest prefix. Returns the route, or null when none matches.
+ */
+export function resolveRoute(table, url) {
+  const u = new URL(url);
+  let best = null;
+  for (const route of table) {
+    const slash = route.pattern.indexOf('/');
+    const host = route.pattern.slice(0, slash);
+    const prefix = route.pattern.slice(slash, -1);
+    if (host !== u.hostname || !u.pathname.startsWith(prefix)) continue;
+    if (!best || prefix.length > best.prefix.length) best = { ...route, prefix };
+  }
+  return best;
+}
+
+/**
  * Cloudflare's route matching, for the test: the host must match exactly (no leading
  * wildcard is used here) and the path must start with the pattern's path before its
  * trailing "*". Query strings are not part of the match.
@@ -75,6 +109,7 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   const out = argOf('out', 'cloudflare/routes.production.json');
   const manifest = JSON.parse(await readFile(argOf('dir', '.atlas-cloudflare-export') + '/manifest.json', 'utf8'));
   const patterns = atlasRoutes({ host, locales: manifest.locales });
-  await writeFile(out, JSON.stringify({ host, worker: 'livdar-atlas', locales: manifest.locales, count: patterns.length, patterns }, null, 1) + '\n');
-  console.log(JSON.stringify({ host, routes: patterns.length, out }));
+  const table = productionRouteTable({ host, locales: manifest.locales });
+  await writeFile(out, JSON.stringify({ host, worker: 'livdar-atlas', locales: manifest.locales, count: patterns.length, patterns, table }, null, 1) + '\n');
+  console.log(JSON.stringify({ host, atlasRoutes: patterns.length, tableRoutes: table.length, out }));
 }
