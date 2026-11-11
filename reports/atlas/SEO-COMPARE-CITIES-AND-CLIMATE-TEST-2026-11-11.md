@@ -38,7 +38,7 @@ The source label repeats itself: "Eurostat + World Bank + Eurostat". The intro s
 | page | impressions | clicks | position |
 |---|---:|---:|---:|
 | `/en/tools/compare-cities/` | 81 | 0 | 6.83 |
-| `/en/tools/cost-of-living-comparison/` | 0 | 0 | – |
+| `/en/tools/cost-of-living-comparison/` | 0 | 0 | - |
 
 ### Change
 
@@ -105,8 +105,8 @@ The body paragraphs and the FAQ are rewritten to match. The exact text is in `da
 
 | page | reason |
 |---|---|
-| Medellín | values off the city's real climate (17–18 °C shown, ~22 °C real) |
-| Cali | values off the city's real climate (~16 °C shown, ~24–25 °C real) |
+| Medellín | values off the city's real climate (17-18 °C shown, ~22 °C real) |
+| Cali | values off the city's real climate (~16 °C shown, ~24-25 °C real) |
 | Soacha | values off the city's real climate (~19 °C shown, ~14 °C real) |
 | San Salvador de Jujuy | odd page out after pairing |
 
@@ -166,9 +166,9 @@ The test group sits on better positions on average (8.9 against 11.2). Compare e
 
 | page | shown | real |
 |---|---|---|
-| Medellín | 17.1–18.1 °C | ~22 °C |
-| Cali | 15.9–16.6 °C | ~24–25 °C |
-| Soacha | 18.2–19.5 °C | ~14 °C at 2,560 m |
+| Medellín | 17.1-18.1 °C | ~22 °C |
+| Cali | 15.9-16.6 °C | ~24-25 °C |
+| Soacha | 18.2-19.5 °C | ~14 °C at 2,560 m |
 
 The page does say these are grid-cell averages and not station readings. The numbers still mislead a reader. This needs a data decision (an altitude correction, a different source, or withdrawal) before any optimisation of these pages.
 
@@ -229,7 +229,7 @@ The tests check:
 - The inspection workflow runs only from `main`, so the subset file has to reach `main` first. That is a commit to `main`, and it needs the owner's approval.
 
 **First evaluation.** After 2 to 4 weeks of real exposure.
-- With about 400 impressions a group per 28 days, and expected CTR at these positions near 1–2%, the expected clicks are a handful.
+- With about 400 impressions a group per 28 days, and expected CTR at these positions near 1-2%, the expected clicks are a handful.
 - Unless impressions grow, the result will most likely be **inconclusive**, and it will be reported as such.
 
 **Needed to measure properly** (separate approval): a dated per-page and page×query Search Console export (dimensions page, query, date). It would split the outage from the recovery and show whether the queries ask for today's weather or for monthly climate.
