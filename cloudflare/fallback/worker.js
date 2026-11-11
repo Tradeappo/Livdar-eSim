@@ -7,8 +7,8 @@
 //
 // WHAT IT DOES, in order:
 //   1. Pass the request to the origin, untouched, and return the origin's answer.
-//   2. Only if the origin FAILS — 402, any 5xx, a Vercel platform error header, a timeout,
-//      a refused connection — answer instead from a snapshot of the same production
+//   2. Only if the origin FAILS - 402, any 5xx, a Vercel platform error header, a timeout,
+//      a refused connection - answer instead from a snapshot of the same production
 //      build (cloudflare/fallback/build-snapshot.mjs) held in R2.
 // So it heals itself. The moment Vercel serves again, so does livdar.com, through the
 // same route, with nothing to switch back. After a failure the origin is skipped for 30

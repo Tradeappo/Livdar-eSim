@@ -4,8 +4,8 @@
 // The numbers that matter are MEASURED, not assumed: bytes per page model and object
 // count come from the export manifest, and the cache hit ratio comes from the load test
 // against the deployed Worker (scripts/atlas/cloudflare-loadtest.mjs). CPU per render is
-// the one input this cannot measure from outside the isolate — Cloudflare reports it in
-// the Workers observability dashboard — so it is a parameter with a deliberately
+// the one input this cannot measure from outside the isolate - Cloudflare reports it in
+// the Workers observability dashboard - so it is a parameter with a deliberately
 // pessimistic default, and the output states which figure it used. Everything else is
 // arithmetic on published rates.
 //

@@ -1,10 +1,10 @@
 // Package the non-Atlas half of livdar.com from an existing Next.js production build, so
 // Cloudflare can serve it while the Vercel origin cannot.
 //
-// NOTHING IS BUILT HERE. It reads the output `next build` already wrote to .next/ — the
+// NOTHING IS BUILT HERE. It reads the output `next build` already wrote to .next/ - the
 // prerendered HTML of every eSIM page, the RSC payloads client navigation fetches, the
 // prerendered route handlers (robots.txt, the sitemap index, the eSIM sitemaps,
-// llms.txt), /_next/static and public/ — and copies it, byte for byte, with the status
+// llms.txt), /_next/static and public/ - and copies it, byte for byte, with the status
 // and headers Next recorded for each file in its .meta. The build must be of the commit
 // production runs; the manifest records the build id and the commit so that is checkable.
 //

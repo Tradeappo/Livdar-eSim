@@ -51,7 +51,7 @@ const absolute = (path) => SITE_URL + path;
 const trail = (p) => (p.endsWith('/') ? p : p + '/');
 
 // The object key for a page. Derived from the URL path so the bucket is readable and a
-// key collision is impossible: one path, one object. This is the whole route table —
+// key collision is impossible: one path, one object. This is the whole route table -
 // the Worker asks R2 for the key and a miss IS the 404, so there is no second list of
 // routes that can disagree with what was actually uploaded.
 export const keyFor = (path) => 'pages' + trail(path) + 'model.json';

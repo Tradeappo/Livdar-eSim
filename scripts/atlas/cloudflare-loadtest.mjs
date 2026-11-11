@@ -1,6 +1,6 @@
 // Measure what the Atlas Worker actually costs to run, at rising request volume.
 //
-// The point is not to prove the Worker survives traffic — Cloudflare's edge does that —
+// The point is not to prove the Worker survives traffic - Cloudflare's edge does that -
 // but to measure the two numbers the cost model needs and that no amount of architecture
 // review can supply: how long a request takes when it has to read R2 and render, and what
 // share of requests reach R2 at all once the edge cache is warm. Both are measured from

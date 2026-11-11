@@ -1,7 +1,7 @@
 // Prove the origin fallback serves the non-Atlas site as the Next.js app does.
 //
-// Every URL in the snapshot — each eSIM page, its RSC payload, every route handler, every
-// /_next/static file, public/ — is fetched from the reference (`next start` on the same
+// Every URL in the snapshot - each eSIM page, its RSC payload, every route handler, every
+// /_next/static file, public/ - is fetched from the reference (`next start` on the same
 // production build) and from the deployed fallback Worker, and compared on status,
 // Location, content type and the sha256 of the body. Then the behaviour around the pages:
 // the root and locale redirects the middleware makes, trailingSlash's 308, next.config's

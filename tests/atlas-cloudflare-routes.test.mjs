@@ -4,8 +4,8 @@
 // "an eSIM page is answered by a Worker that has never heard of it", so both directions are
 // proved from the repository's own sources rather than from a list someone typed:
 //
-//   IN   every published Atlas URL — the 6,500 cohort pages, the 178 country hubs, the 9
-//        directories, the 123 legacy registry pages and their 2 hubs — matches a route;
+//   IN   every published Atlas URL - the 6,500 cohort pages, the 178 country hubs, the 9
+//        directories, the 123 legacy registry pages and their 2 hubs - matches a route;
 //   OUT  every URL in the eSIM sitemaps, every eSIM segment in every eSIM locale, and every
 //        non-page route the Next.js app serves (APIs, robots.txt, the sitemap index,
 //        llms.txt, Next's own assets) matches none.
