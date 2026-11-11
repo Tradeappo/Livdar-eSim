@@ -1,6 +1,6 @@
 # Compare cities fix and climate title test, 2026-11-11
 
-**For review. Nothing here is published.** No merge and no publication until the owner approves. Section 7 explains why opening or updating this PR cannot change production, and section 8 lists the single publication run that would.
+**For review. Nothing here is published.** No merge and no publication until the owner approves. Section 7 explains why opening or updating this PR cannot change production. Section 4.2 describes the guard that refuses any sync other than the 7 objects of this PR, and section 8 lists the single publication run.
 
 ## 0. What serves production
 
@@ -153,7 +153,43 @@ So the base branch cannot currently complete the `atlas-cloudflare` workflow, an
 
 Manifest counts are equal. An earlier local render with `cloudflare/simulate.mjs` showed untouched pages rendering identically to production.
 
-**Quality gate.** It fails on 25 en and em dashes already in base migration files (`cloudflare/*`, `scripts/atlas/*cloudflare*`), and the base fails identically. This PR adds none. A proposed patch is in a comment on the PR; it is not applied here, to keep the PR narrow.
+**Quality gate.** The base branch failed it on en and em dashes in comments of the migration files. The gate printed 25; there were 30, in 14 files (`cloudflare/*`, `scripts/atlas/*cloudflare*`, `scripts/atlas/verify-fallback.mjs`, two test files). A separate commit replaces each with a plain hyphen. Every changed line is a `//` comment: no code, string or test changes. The gate now passes.
+
+### 4.1 Diff against the live R2 bucket
+
+Listed through the Cloudflare R2 API (read-only) on 2026-11-11: 7,267 objects under `atlas/`, of which 6,889 are page models and sitemaps; the rest are manifests, fallback Worker builds and the fallback snapshot, which the sync never touches.
+
+Grouped by the first three path segments (164 groups), each group's sorted `key etag` list was hashed and compared with the same hash of the two local exports:
+
+| export | groups that differ from the live bucket |
+|---|---:|
+| base `migrate/atlas-cloudflare` | **0** |
+| this branch | **3**: `pages/es/clima`, `pages/en/tools`, `pages/en/atlas` |
+
+So the live bucket is byte-identical to the base export, and this branch differs from it in exactly the 7 objects of section 4, with the same key set (0 deletions).
+
+The real uploader, run in dry-run mode against a local stand-in that answers the listing with those live etags and refuses every write, printed `skippedIdentical 6882, toUpload 7, delete 0` and accepted the expectation file. It made no write attempt.
+
+### 4.2 Publication guard
+
+The guard is in `cloudflare/expectation.mjs`, called by `cloudflare/upload-r2.mjs --expect FILE`.
+
+**What it does.** After listing the bucket and before its first write, the uploader computes its full plan:
+- the objects whose md5 differs from the live etag;
+- the stale pages and sitemaps it would retire;
+- the keys in the workflow's `retire` input.
+
+It continues only if the plan is exactly the file's `upload` list and `delete` list. Otherwise it exits 3 having written nothing. A truncated bucket listing also refuses. The two manifest objects (`atlas/manifest.json`, `atlas/manifests/<version>.json`) are the version flip. They are written on every sync, and they are printed, not counted.
+
+**Workflow.** A new step, "Compare the export with the live bucket", runs this check before the retire step and before the sync, in dry runs too. Then:
+- a sync that writes (`dry_run=false`) without an `expect` input fails there;
+- the sync step repeats the check immediately before writing.
+
+So the run never depends on someone cancelling it.
+
+**Expectation file for this PR:** `data/atlas/publications/2026-11-11-seo-copy.expect.json`. It lists 7 keys to upload and no deletions.
+
+**Tests:** `tests/atlas-publication-guard.test.mjs` runs the real script against a local stand-in. A matching plan writes exactly the planned keys plus the 2 manifests. An extra upload, a missing one, a stale page or a `retire` input each exit 3 with zero writes.
 
 ## 5. Outage, zone activation and the actual recovery
 
@@ -216,30 +252,31 @@ Even a Vercel production deployment would not reach the Atlas pages. They are se
 ## 8. One publication, after approval
 
 1. Merge PR #57 into `migrate/atlas-cloudflare`.
-2. Run `atlas-cloudflare` on ref `migrate/atlas-cloudflare` with `dry_run=true`, `retire` empty and `deploy=none`.
-   - Check that every step through the Worker tests passes; the build step now has esbuild.
-   - Check that the exported counts match the base: 6,889 objects.
-   - `dry_run=true` exports but does not compare with the bucket, so it cannot show the 7 objects.
-3. Run it once more with `dry_run=false`, `retire` empty and `deploy=none`.
-   - In the "Sync R2" log, `skippedIdentical` should read about 6,881 and `toUpload` about 7.
-   - The manifest is written last, so the version changes only after the 7 objects are in.
-   - Worker code does not change.
-4. Check that `/__health` shows the new version.
-   - The 6 pages should serve the new title and description, with a self canonical and `index, follow`.
-   - One control page and one untouched page should be unchanged.
-5. To track the recrawl, the 10-URL inspection subset (`data/atlas/measurements/gsc/subsets/climate-ctr-test-2026-11.txt`) has to be on `main`, because the inspection workflow runs only from `main`. That is a separate commit to `main` and needs its own approval.
+2. Run `atlas-cloudflare` on ref `migrate/atlas-cloudflare` with:
+   - `dry_run=true`
+   - `retire` empty
+   - `deploy=none`
+   - `expect=data/atlas/publications/2026-11-11-seo-copy.expect.json`
 
-**Risk in step 3.** If `toUpload` is far above 7, the bucket differs from the base export in ways not seen here, and the run would still upload those objects. If that happens, cancel the run before it writes the manifest and investigate.
+   Every step through the Worker tests has to pass. "Compare the export with the live bucket" has to print `uploadCount 7`, `deleteCount 0` and `ok: true`. If the bucket changed in the meantime, this step fails and nothing is written.
+3. Run it again with the same inputs and `dry_run=false`. The sync re-checks the plan and writes only the 7 objects, then the 2 manifest objects. Worker code does not change.
+4. Check the result:
+   - `/__health` shows the new version;
+   - the 6 pages serve the new title and description, with a self canonical and `index, follow`;
+   - one control page and one untouched page are unchanged.
+5. To track the recrawl, the 10-URL inspection subset has to be on `main`, because the inspection workflow runs only from `main`. That is a separate commit and needs its own approval.
 
 ## 9. Measurement plan
 
-**Unit.** A paired difference in differences: for each pair, the change in the test page against the change in its control page. Group totals are reported too.
+**No CTR model.** The data is too thin to fit a CTR-by-position curve of the site's own: the climate pages' clicks in the window are a few dozen, and the 10 pages have 3. The result is reported as raw, paired numbers, and it stays **exploratory** unless the volumes allow more.
 
-**Position adjustment.**
-- For each page and period, compute the expected CTR at its observed position from the site's own CTR-by-position curve (all Spanish climate pages, bucketed by position).
-- Use observed clicks divided by expected clicks.
-- The effect is the change in that ratio for test minus the change for control.
-- Report position changes separately. If a group's position moves by more than about 1, the result is confounded and is reported as such.
+**What is reported, per pair and per page, for the baseline and the measurement period:**
+- impressions;
+- clicks;
+- CTR, with the counts it is made of;
+- average position, and its change.
+
+Group totals are given beside the pairs, never instead of them. The position gap between the groups (8.9 against 11.2) is stated each time, and so is any change in position after the publication. A position change alone can move CTR.
 
 **Periods.**
 
@@ -249,6 +286,11 @@ Even a Vercel production deployment would not reach the Atlas pages. They are se
 | excluded | 2026-11-05 to 2026-11-11 (outage), and the publication day plus 7 days |
 | measurement | the full days after the publication, once the test page's `lastCrawlTime` is after the publication and Google shows the new title |
 
-**First evaluation:** after 2 to 4 weeks of measurement. At about 400 impressions a group per 28 days and an expected CTR of 1-2% at these positions, the expected clicks are a handful. Unless impressions grow, the result will most likely be inconclusive, and it will be reported that way.
+**Reading the result.**
+- A difference counts as a signal only if it points the same way in most of the 5 pairs, with positions stable (no pair moving by more than about 1).
+- Otherwise the result is reported as inconclusive.
+- At about 400 impressions a group per 28 days, the expected clicks are a handful, so inconclusive is the most likely outcome.
 
-**Needed to measure properly** (separate approval): a dated Search Console export by page, query and date. It would separate outage and recovery days and show whether the queries ask for today's weather or for monthly climate.
+**First evaluation:** after 2 to 4 weeks of measurement.
+
+**Needed to measure properly** (separate approval): a dated Search Console export by page, query and date. It would separate the outage and recovery days, and show whether the queries ask for today's weather or for monthly climate.

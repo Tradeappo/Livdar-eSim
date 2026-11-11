@@ -27,7 +27,7 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'export and report only, upload nothing'
+        description: 'export, list the bucket and report the plan, upload nothing'
         required: false
         default: 'false'
       retire:
@@ -37,6 +37,10 @@ on:
         description: 'deploy the Worker after the sync: none, staging or production'
         required: false
         default: 'none'
+      expect:
+        description: 'publication guard: path to a JSON file naming the exact R2 keys to upload and delete; required unless dry_run'
+        required: false
+        default: ''
 permissions: { contents: read }
 concurrency: { group: atlas-cloudflare, cancel-in-progress: false }
 jobs:
@@ -72,6 +76,25 @@ jobs:
       - name: Report what the export contains
         run: node -e "const m=require('./.atlas-cloudflare-export/manifest.json');console.log(JSON.stringify(m.counts));console.log('version',m.version)"
 
+      # THE PUBLICATION GUARD, before anything is deleted or written. It lists the live
+      # bucket (read-only), computes exactly what the sync would upload and delete, and
+      # fails unless that is the list in the expectation file. A real sync without one is
+      # refused, and the sync step repeats the same check right before its first write.
+      - name: Compare the export with the live bucket
+        env:
+          ATLAS_INGEST_URL: ${{ secrets.ATLAS_INGEST_URL }}
+          ATLAS_INGEST_TOKEN: ${{ secrets.ATLAS_INGEST_TOKEN }}
+          ATLAS_RETIRE_PATHS: ${{ inputs.retire }}
+          EXPECT: ${{ inputs.expect }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ -z "$EXPECT" ]; then
+            if [ "$DRY_RUN" != "true" ]; then echo "expect is required for a sync that writes"; exit 1; fi
+            node cloudflare/upload-r2.mjs --dry-run
+          else
+            node cloudflare/upload-r2.mjs --dry-run --expect "$EXPECT"
+          fi
+
       - name: Retire pages from the edge
         if: inputs.retire != ''
         env:
@@ -89,7 +112,9 @@ jobs:
         env:
           ATLAS_INGEST_URL: ${{ secrets.ATLAS_INGEST_URL }}
           ATLAS_INGEST_TOKEN: ${{ secrets.ATLAS_INGEST_TOKEN }}
-        run: node cloudflare/upload-r2.mjs
+          ATLAS_RETIRE_PATHS: ${{ inputs.retire }}
+          EXPECT: ${{ inputs.expect }}
+        run: node cloudflare/upload-r2.mjs --expect "$EXPECT"
 
       # The uploader already verifies against the bucket's own listing and exits non-zero
       # on a missing object or a checksum mismatch. This asserts the Worker agrees, which

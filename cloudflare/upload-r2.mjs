@@ -24,11 +24,20 @@
 //
 // Usage:
 //   ATLAS_INGEST_URL=https://livdar-atlas-staging.<subdomain>.workers.dev \
-//   ATLAS_INGEST_TOKEN=... node cloudflare/upload-r2.mjs [--dir DIR] [--dry-run]
+//   ATLAS_INGEST_TOKEN=... node cloudflare/upload-r2.mjs [--dir DIR] [--dry-run] [--expect FILE]
+//
+// --expect FILE   the publication guard (cloudflare/expectation.mjs). After listing the
+//                 bucket and before the first write, the planned uploads and deletions must
+//                 be exactly the ones the file names, or the run exits 3 having written
+//                 nothing. ATLAS_RETIRE_PATHS (the workflow's retire input) counts as
+//                 deletions.
+// --dry-run       with a token: list the bucket, print the plan, apply --expect, write
+//                 nothing. Without a token: count the export only, as before.
 
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
+import { compareWithExpectation, retireKeys } from './expectation.mjs';
 
 const argOf = (name, fallback) => {
   const i = process.argv.indexOf('--' + name);
@@ -40,6 +49,7 @@ const DIR = argOf('dir', '.atlas-cloudflare-export');
 const ORIGIN = (process.env.ATLAS_INGEST_URL || '').replace(/\/$/, '');
 const TOKEN = process.env.ATLAS_INGEST_TOKEN || '';
 const DRY = flag('dry-run');
+const EXPECT = argOf('expect', '');
 // Objects per request. The cap is the Worker's own request-body limit (100 MB on paid,
 // but an isolate also has to hold the parsed batch), and the p95 page model is ~13 KB,
 // so 60 objects is roughly a 1 MB body: large enough that 6,889 objects take ~115
@@ -78,7 +88,8 @@ planned.push({
 const totalBytes = planned.reduce((n, p) => n + Buffer.byteLength(p.body), 0);
 console.log(JSON.stringify({ dir: DIR, objects: planned.length, megabytes: +(totalBytes / 1048576).toFixed(1), origin: ORIGIN, dryRun: DRY }));
 
-if (DRY) {
+if (DRY && !TOKEN) {
+  if (EXPECT) throw new Error('--expect needs ATLAS_INGEST_TOKEN: the bucket has to be listed to compare');
   console.log(JSON.stringify({ dryRun: true, wouldUpload: planned.length }, null, 1));
   process.exit(0);
 }
@@ -114,6 +125,37 @@ const unchanged = planned.filter((p) => !p.last && existing[p.key]?.etag === p.m
 const queue = planned.filter((p) => !p.last && existing[p.key]?.etag !== p.md5);
 const manifest = planned.find((p) => p.last);
 console.log(JSON.stringify({ skippedIdentical: unchanged.length, toUpload: queue.length }));
+
+// THE PLAN, computed before any write: the same uploads and the same retirement the rest
+// of this script would perform, plus the keys the workflow's retire input deletes.
+const plannedKeySet = new Set(planned.map((p) => p.key));
+const plannedStale = Object.keys(existing).filter((key) =>
+  (key.startsWith(PREFIX + 'pages/') || key.startsWith(PREFIX + 'sitemaps/')) && !plannedKeySet.has(key));
+const plan = {
+  upload: queue.map((p) => p.key).sort(),
+  delete: [...new Set([...plannedStale, ...retireKeys(process.env.ATLAS_RETIRE_PATHS)])].sort(),
+  alsoWritten: [PREFIX + 'manifest.json', PREFIX + 'manifests/' + JSON.parse(manifestBody).version + '.json'],
+  listingComplete: listing.complete,
+};
+console.log(JSON.stringify({ plan: { upload: plan.upload.slice(0, 50), uploadCount: plan.upload.length, delete: plan.delete.slice(0, 50), deleteCount: plan.delete.length, alsoWritten: plan.alsoWritten, listingComplete: plan.listingComplete } }, null, 1));
+
+if (EXPECT) {
+  const expect = JSON.parse(await readFile(EXPECT, 'utf8'));
+  const verdict = compareWithExpectation({ upload: plan.upload, remove: plan.delete, expect });
+  if (!listing.complete) {
+    verdict.ok = false;
+    verdict.reason = 'the bucket listing was truncated, so the plan cannot be proven';
+  }
+  console.log(JSON.stringify({ expectation: EXPECT, ...verdict }, null, 1));
+  if (!verdict.ok) {
+    console.error('REFUSED: the plan differs from ' + EXPECT + '. Nothing was written.');
+    process.exit(3);
+  }
+}
+if (DRY) {
+  console.log(JSON.stringify({ dryRun: true, wrote: 0 }));
+  process.exit(0);
+}
 
 const batches = [];
 for (let i = 0; i < queue.length; i += BATCH) batches.push(queue.slice(i, i + BATCH));
