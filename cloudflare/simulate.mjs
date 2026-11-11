@@ -1,8 +1,8 @@
 // Run the built Worker (cloudflare/dist/worker.js) in Node against the local export, with
 // R2 and the Cache API simulated, and answer requests for any host.
 //
-// WHY. The production behaviour of the Worker — indexable markup, no noindex header, HSTS,
-// the tag container, robots.txt refused, sitemaps at /sitemap/atlas-*.xml — only switches
+// WHY. The production behaviour of the Worker - indexable markup, no noindex header, HSTS,
+// the tag container, robots.txt refused, sitemaps at /sitemap/atlas-*.xml - only switches
 // on for a request that arrives on livdar.com with ATLAS_ENV=production. Until livdar.com
 // is on a Cloudflare zone no such request can reach a deployed Worker, so this sends them
 // to the SAME bundle that is deployed, here. It is the deployed code, not a copy of its

@@ -3,14 +3,14 @@
 // WHY ISLANDS. Next.js hydrates the whole page. The Worker renders the page with
 // renderToStaticMarkup, which is the right call for crawlers (no hydration markers, less
 // CPU, smaller HTML) but leaves nothing for React to attach to. Only four components in
-// the Atlas tree actually need the browser — the tool, the calls to action, the language
-// globe and the consent banner — so those four are hydrated on their own and the rest of
+// the Atlas tree actually need the browser - the tool, the calls to action, the language
+// globe and the consent banner - so those four are hydrated on their own and the rest of
 // the page stays plain HTML. This is the same boundary Next.js draws, because each of the
 // four is a 'use client' module (or, for AtlasCtaPair, an export of one).
 //
 // HOW. cloudflare/build.mjs resolves imports of those modules, in the SERVER bundle only,
 // to wrappers made by island() below. A wrapper:
-//   1. renders the real component with renderToString — not renderToStaticMarkup — so
+//   1. renders the real component with renderToString - not renderToStaticMarkup - so
 //      the markup carries the text separators hydration needs to match;
 //   2. puts that markup inside <atlas-island>, a custom element styled display:contents,
 //      so it adds no box and no layout. A custom element rather than a <div> because the

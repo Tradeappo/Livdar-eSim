@@ -3,8 +3,8 @@
 //
 // GENERATED, NOT WRITTEN. A hand-kept list of ~100 localised path prefixes is a list that
 // drifts from the URLs the moment a segment is added. So the routes are derived from the
-// same vocabulary that builds the URLs — ATLAS_SEGMENTS in lib/atlas/atlas-urls.js, the
-// legacy SEGMENTS in lib/atlas/i18n.js — restricted to the languages the exported dataset
+// same vocabulary that builds the URLs - ATLAS_SEGMENTS in lib/atlas/atlas-urls.js, the
+// legacy SEGMENTS in lib/atlas/i18n.js - restricted to the languages the exported dataset
 // actually publishes. tests/atlas-cloudflare-routes.test.mjs proves the list both ways:
 // every published Atlas URL matches a route, and no URL of the rest of livdar.com does.
 //

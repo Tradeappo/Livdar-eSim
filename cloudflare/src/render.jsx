@@ -1,7 +1,7 @@
 // Turning an exported Atlas page model into the HTML a crawler receives.
 //
-// THE POINT OF THIS FILE is that it renders the repository's OWN React components —
-// components/atlas/AtlasPage.jsx, Header.jsx, Footer.jsx, JsonLd.jsx — with
+// THE POINT OF THIS FILE is that it renders the repository's OWN React components -
+// components/atlas/AtlasPage.jsx, Header.jsx, Footer.jsx, JsonLd.jsx - with
 // react-dom/server, rather than re-implementing them as string templates. A second
 // implementation of the markup is a second thing to keep in step with the design, and
 // the first time they drift the Cloudflare pages and the Vercel pages stop being the

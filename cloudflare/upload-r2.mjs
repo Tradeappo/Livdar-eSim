@@ -2,7 +2,7 @@
 //
 // WHY IT GOES THROUGH THE WORKER. R2's S3 endpoint needs an access key pair, and minting
 // one is an account-level change with a credential that then has to live somewhere. The
-// staging Worker already holds the only thing required — the ATLAS_R2 binding — so the
+// staging Worker already holds the only thing required - the ATLAS_R2 binding - so the
 // import is pushed through its /__ingest route behind a bearer token kept as a Worker
 // secret. No new credentials, nothing to rotate afterwards beyond deleting one secret,
 // and the write path disappears when the secret does.
@@ -17,7 +17,7 @@
 // missing manifest as "dataset not installed" and answers 503 for everything, so until
 // every page object is in place the Worker never advertises a partial Atlas. On a
 // re-import of an existing dataset the manifest is also re-written last, so the version
-// flip — which is what invalidates the edge cache — happens only once the new pages are
+// flip - which is what invalidates the edge cache - happens only once the new pages are
 // all readable.
 //
 // Touches nothing outside the bucket: no Vercel, no DNS, no production sitemap.
@@ -148,7 +148,7 @@ await send('/__ingest', { method: 'POST', headers: { ...auth, 'content-type': 'a
 // page that should exist is missing.
 //
 // The guard is the point. An export that came out empty or half-built would otherwise
-// "retire" the whole Atlas, and every one of those URLs would start answering 404 — the
+// "retire" the whole Atlas, and every one of those URLs would start answering 404 - the
 // exact outcome the Worker's fail-closed design exists to prevent. So more than
 // RETIRE_LIMIT deletions in one run refuse and exit non-zero, and the only way past is to
 // say how many you meant: ATLAS_ALLOW_RETIRE=<n>.

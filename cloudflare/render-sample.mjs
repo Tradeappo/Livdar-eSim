@@ -84,7 +84,7 @@ if (import.meta.url === 'file://' + process.argv[1]) {
   // with no output at all. A child that exits explicitly cannot do that to the runner.
   if (rest.includes('--cells')) {
     // The result goes to a FILE, not stdout. react-dom/server.browser keeps a handle
-    // open, so this process has to process.exit() to end — and an exit truncates a
+    // open, so this process has to process.exit() to end - and an exit truncates a
     // pipe that still has buffered bytes in it, which silently cut the JSON off at
     // 141 KB the first time.
     const cellsOut = rest[rest.indexOf('--cells') + 1];
