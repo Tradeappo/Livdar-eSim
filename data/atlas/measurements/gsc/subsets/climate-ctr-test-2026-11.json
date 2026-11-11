@@ -1,7 +1,7 @@
 {
  "name": "climate-ctr-test-2026-11",
  "createdOn": "2026-11-11",
- "selection": "Spanish climate pages from the Search Console 28-day window 2026-10-12..2026-11-08 (gsc-report run 109, opportunities filter: impressions >= 20, average position 4-20). Pages with a known grid-cell temperature bias are excluded. The remaining ten are paired by impressions in descending order; within each pair the path with the smaller sha256 is the test page.",
+ "selection": "Spanish climate pages from the Search Console 28-day window 2026-10-12..2026-11-08 (gsc-report run 109, opportunities filter: impressions >= 20, average position 4-20). Pages whose model temperatures differ widely from station normals cited from the national weather service (not verified here) are excluded. The remaining ten are paired by impressions in descending order; within each pair the path with the smaller sha256 is the test page.",
  "gscWindow": {
   "startDate": "2026-10-12",
   "endDate": "2026-11-08",
@@ -44,9 +44,9 @@
   ]
  ],
  "excluded": {
-  "/es/clima/medellin/": "grid-cell temperature bias (shown 17-18 °C, city ~22 °C)",
-  "/es/clima/cali/": "grid-cell temperature bias (shown ~16 °C, city ~24-25 °C)",
-  "/es/clima/soacha/": "grid-cell temperature bias (shown ~19 °C, city ~14 °C)",
+  "/es/clima/medellin/": "model annual mean differs widely from station normals cited from IDEAM (secondary source, not verified here); left out pending a data decision",
+  "/es/clima/cali/": "model annual mean differs widely from station normals cited from IDEAM (secondary source, not verified here); left out pending a data decision",
+  "/es/clima/soacha/": "model annual mean differs widely from station normals cited from IDEAM (secondary source, not verified here); left out pending a data decision",
   "/es/clima/san-salvador-de-jujuy/": "odd one out after pairing (11 eligible); lowest impressions"
  },
  "baseline": {
@@ -100,5 +100,6 @@
    "clk": 0,
    "pos": 15.3
   }
- }
+ },
+ "note": "includes 2026-11-05..2026-11-08, when livdar.com answered HTTP 402 (from 2026-11-05, between 15:30 and 23:52 UTC). Cloudflare zone activated 2026-11-11 12:38:44 UTC; first requests through Cloudflare 12:40 UTC, first Googlebot 200 at 12:55 UTC; first full day after recovery 2026-11-12"
 }
