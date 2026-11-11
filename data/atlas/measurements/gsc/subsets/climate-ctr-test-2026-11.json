@@ -1,0 +1,104 @@
+{
+ "name": "climate-ctr-test-2026-11",
+ "createdOn": "2026-11-11",
+ "selection": "Spanish climate pages from the Search Console 28-day window 2026-10-12..2026-11-08 (gsc-report run 109, opportunities filter: impressions >= 20, average position 4-20). Pages with a known grid-cell temperature bias are excluded. The remaining ten are paired by impressions in descending order; within each pair the path with the smaller sha256 is the test page.",
+ "gscWindow": {
+  "startDate": "2026-10-12",
+  "endDate": "2026-11-08",
+  "note": "includes 2026-11-05..2026-11-08, when livdar.com answered HTTP 402 (outage 2026-11-05 between 15:30 and 23:52 UTC until 2026-11-11 12:38 UTC)"
+ },
+ "test": [
+  "/es/clima/mar-del-plata/",
+  "/es/clima/lima/",
+  "/es/clima/manizales/",
+  "/es/clima/antofagasta/",
+  "/es/clima/pasto/"
+ ],
+ "control": [
+  "/es/clima/santiago-de-chile/",
+  "/es/clima/guayaquil/",
+  "/es/clima/austin/",
+  "/es/clima/zaragoza/",
+  "/es/clima/tokio/"
+ ],
+ "pairs": [
+  [
+   "/es/clima/santiago-de-chile/",
+   "/es/clima/mar-del-plata/"
+  ],
+  [
+   "/es/clima/lima/",
+   "/es/clima/guayaquil/"
+  ],
+  [
+   "/es/clima/manizales/",
+   "/es/clima/austin/"
+  ],
+  [
+   "/es/clima/antofagasta/",
+   "/es/clima/zaragoza/"
+  ],
+  [
+   "/es/clima/tokio/",
+   "/es/clima/pasto/"
+  ]
+ ],
+ "excluded": {
+  "/es/clima/medellin/": "grid-cell temperature bias (shown 17-18 °C, city ~22 °C)",
+  "/es/clima/cali/": "grid-cell temperature bias (shown ~16 °C, city ~24-25 °C)",
+  "/es/clima/soacha/": "grid-cell temperature bias (shown ~19 °C, city ~14 °C)",
+  "/es/clima/san-salvador-de-jujuy/": "odd one out after pairing (11 eligible); lowest impressions"
+ },
+ "baseline": {
+  "/es/clima/mar-del-plata/": {
+   "imp": 132,
+   "clk": 0,
+   "pos": 7.5
+  },
+  "/es/clima/lima/": {
+   "imp": 104,
+   "clk": 1,
+   "pos": 10.8
+  },
+  "/es/clima/manizales/": {
+   "imp": 78,
+   "clk": 0,
+   "pos": 9.8
+  },
+  "/es/clima/antofagasta/": {
+   "imp": 39,
+   "clk": 0,
+   "pos": 7.7
+  },
+  "/es/clima/pasto/": {
+   "imp": 35,
+   "clk": 0,
+   "pos": 8.3
+  },
+  "/es/clima/santiago-de-chile/": {
+   "imp": 163,
+   "clk": 0,
+   "pos": 11.8
+  },
+  "/es/clima/guayaquil/": {
+   "imp": 95,
+   "clk": 2,
+   "pos": 8.8
+  },
+  "/es/clima/austin/": {
+   "imp": 58,
+   "clk": 0,
+   "pos": 10.9
+  },
+  "/es/clima/zaragoza/": {
+   "imp": 38,
+   "clk": 0,
+   "pos": 10.9
+  },
+  "/es/clima/tokio/": {
+   "imp": 36,
+   "clk": 0,
+   "pos": 15.3
+  }
+ }
+}

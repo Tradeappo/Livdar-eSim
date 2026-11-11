@@ -9223,28 +9223,29 @@
    }
   },
   {
-   "h1": "Compare cities",
-   "title": "Compare cities: built on measured data",
-   "description": "Compare cities from Livdar, computed against Eurostat + World Bank + Eurostat rather than crowd submitted figures, with every input and assumption shown.",
+   "h1": "Compare cities: what national price data can show",
+   "title": "Compare cities: national price levels, not city prices",
+   "description": "No open city price index exists, so this compares the countries two cities are in, on Eurostat and World Bank price levels for 2024, labelled as national figures.",
    "facts": [
     {
      "label": "What it asks for",
-     "value": "first city, second city"
+     "value": "the countries the two cities are in"
     },
     {
      "label": "Source",
-     "value": "Eurostat + World Bank + Eurostat"
+     "value": "Eurostat + World Bank"
     }
    ],
    "paragraphs": [
-    "Compare cities here is computed against Eurostat + World Bank + Eurostat. The inputs are shown, the assumptions are written down, and the result is a range rather than a single number wherever the underlying data supports only a range.",
-    "The question here is how two places stand against each other across several measures at once rather than on one headline. That is the useful comparison and it is also where a tool most easily misleads, by lining up numbers that were collected differently and letting the layout imply they belong side by side. So each row says which measure it is, which year it describes and which institution published it, and a row that exists for one side and not the other stays visibly empty rather than being filled with the other side's figure.",
+    "No openly licensed price index exists for cities, so this page cannot say whether one city is dearer than another. It compares the countries the two cities are in, using the price level indices Eurostat and the World Bank publish, and every figure on it is a national figure.",
+    "That answers part of the question. For two cities in different countries, the figures show how the two countries compare, not how the two cities do: prices in a capital can sit above the national level and prices in a small town below it, and two cities in the same country cannot be told apart by this data at all. A row that exists for one country and not the other stays visibly empty rather than being filled with the other side's figure.",
     "Worked example: Switzerland against Türkiye. The same standard basket costs about 294 percent more in the first, on the 2024 figures.",
     "It covers 199 countries, which is exactly the set the source measures and no more.",
-    "The figures behind this tool describe 2024 and they change when Eurostat + World Bank + Eurostat publishes, not when this page is edited. That is why the year appears next to every value rather than in the small print: a tool whose data is a year old and says so is more useful than one that looks current and is not."
+    "The figures behind this page describe 2024 and they change when Eurostat or the World Bank publishes, not when this page is edited. That is why the year appears next to every value rather than in the small print: data that is a year old and says so is more useful than data that looks current and is not.",
+    "To compare two countries against your own income, use the cost of living comparison tool."
    ],
    "table": {
-    "caption": "Everything a household buys",
+    "caption": "Price level of everything a household buys, by country (EU27 = 100)",
     "head": [
      "Country",
      "Value",
@@ -9340,7 +9341,11 @@
    "faq": [
     {
      "q": "Where do the numbers come from?",
-     "a": "Compare cities computes against Eurostat + World Bank + Eurostat. Every figure it uses carries the institution that published it and the year it describes."
+     "a": "From the price level indices Eurostat and the World Bank publish for each country. Every figure carries the institution that published it and the year it describes."
+    },
+    {
+     "q": "Can it compare two cities in the same country?",
+     "a": "No. The data is national, so two cities in one country get the same figure. No openly licensed city price index exists, and Livdar does not estimate one."
     },
     {
      "q": "Is the result a quote?",
@@ -9349,12 +9354,12 @@
    ],
    "sources": [
     {
-     "source": "Eurostat + World Bank + Eurostat",
+     "source": "Eurostat + World Bank",
      "dataset": "cost-of-living-verified, rent-index-verified",
      "licence": "see the source registry",
      "confidence": "official-derived",
      "observedAt": "2024",
-     "attribution": "Eurostat + World Bank + Eurostat"
+     "attribution": "Eurostat + World Bank"
     }
    ],
    "schemaType": "SoftwareApplication",
@@ -9473,11 +9478,12 @@
     {
      "heading": null,
      "paragraphs": [
-      "Compare cities here is computed against Eurostat + World Bank + Eurostat. The inputs are shown, the assumptions are written down, and the result is a range rather than a single number wherever the underlying data supports only a range.",
-      "The question here is how two places stand against each other across several measures at once rather than on one headline. That is the useful comparison and it is also where a tool most easily misleads, by lining up numbers that were collected differently and letting the layout imply they belong side by side. So each row says which measure it is, which year it describes and which institution published it, and a row that exists for one side and not the other stays visibly empty rather than being filled with the other side's figure.",
+      "No openly licensed price index exists for cities, so this page cannot say whether one city is dearer than another. It compares the countries the two cities are in, using the price level indices Eurostat and the World Bank publish, and every figure on it is a national figure.",
+      "That answers part of the question. For two cities in different countries, the figures show how the two countries compare, not how the two cities do: prices in a capital can sit above the national level and prices in a small town below it, and two cities in the same country cannot be told apart by this data at all. A row that exists for one country and not the other stays visibly empty rather than being filled with the other side's figure.",
       "Worked example: Switzerland against Türkiye. The same standard basket costs about 294 percent more in the first, on the 2024 figures.",
       "It covers 199 countries, which is exactly the set the source measures and no more.",
-      "The figures behind this tool describe 2024 and they change when Eurostat + World Bank + Eurostat publishes, not when this page is edited. That is why the year appears next to every value rather than in the small print: a tool whose data is a year old and says so is more useful than one that looks current and is not."
+      "The figures behind this page describe 2024 and they change when Eurostat or the World Bank publishes, not when this page is edited. That is why the year appears next to every value rather than in the small print: data that is a year old and says so is more useful than data that looks current and is not.",
+      "To compare two countries against your own income, use the cost of living comparison tool."
      ]
     }
    ],
